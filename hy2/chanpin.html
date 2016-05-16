@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>華影文化</title>
+		<link rel="stylesheet" href="css/hy.css">
+		<link rel="stylesheet" href="css/swiper-3.2.7.min.css">
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/swiper-3.2.7.jquery.min.js"></script>
+		<script src="layer/layer.js"></script>
+		<style type="text/css">
+			html,
+			body {
+				background-image: url(img/chanpin.jpg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.footer {
+				height: 165px;
+				background-color: #373737;
+			}
+			
+			.footer_1 {
+				width: 1200px;
+				margin: 0 auto;
+			}
+			
+			.bg-8 {
+				width: 1200px;
+				margin: 0 auto;
+				padding-top: 85px;
+			}
+			
+			.diannao1 {
+				text-align: center;
+				position: relative;
+			}
+			
+			.donghuaka {
+				position: absolute;
+				width: 277px;
+				left: 324px;
+				top: 24px;
+				height: 155px;
+			}
+			
+			.donghuaka1 {
+				position: absolute;
+				width: 273px;
+				height: 155px;
+				right: 325px;
+				bottom: 179px;
+			}
+			
+			.wenzi2 {
+				text-align: left;
+				position: absolute;
+				top: 85px;
+				left: -50px;
+			}
+			
+			.wenzi3 {
+				top: 255px;
+				position: absolute;
+				text-align: right;
+				right: -40px;
+			}
+			
+			.wenzi4 {
+				top: -5px;
+				text-align: right;
+				position: absolute;
+				right: -38px;
+			}
+			
+			.donghuaka2 {
+				height: 155px;
+				bottom: 335px;
+				position: absolute;
+				right: 396px;
+			}
+			
+			.lunbo {
+				position: relative;
+				height: 110px;
+				width: 1200px;
+				margin: 0 auto;
+			}
+			
+			.lunbo img {
+				left: 220px;
+				position: absolute;
+				width: 100px;
+			}
+			
+			.swiper-slide {
+				background-color: transparent;
+				border: none
+			}
+			
+			.swiper-container {
+				line-height: 110px;
+				text-align: center;
+				font-size: 28px;
+				font-weight: 600;
+			}
+			
+			.active {
+				border-bottom: 2px solid #004A9E;
+			}
+			
+			.active a {
+				color: #004A9E;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="fixed">
+			<div class="header">
+				<div class="logo">
+					<img src="img/logo.png" style="width: 165px;">
+				</div>
+				<ul>
+					<li><a href="index.html">華影首页</a></li>
+					<li><a href="jieshao.html">公司介绍</a></li>
+					<li class="active"><a href="chanpin.html">華影产品</a></li>
+					<li><a href="dingzhi.html">定制服务</a></li>
+				</ul>
+				<div class="tel">
+					<img src="img/tel.png" style="width: 250px;">
+					<span id="btn" class="btn">用户登录</span>
+				</div>
+			</div>
+		</div>
+		<div class="bg-8">
+			<div class="chanpinlogo">
+				<img src="img/chanpin0.png" style="width: 190px;">
+			</div>
+			<div class="diannao1">
+				<img src="img/chanpin2.png" style="width: 600px;">
+				<img class="donghuaka" src="img/chanpin4.png">
+				<img class="donghuaka1" src="img/zhiquan1.jpg">
+				<img class="donghuaka2" src="img/chanpin3.png">
+				<div class="wenzi2">
+					<img src="img/chanpin6.png" style="width: 120px;"></br>
+					<img src="img/hengxian.png">
+					<p>全国60个城市，1000家影院进行线下刷卡购票；</p>
+					<p>采用磁卡及二维码技术，有支付密码，可进行充</p>
+					<p>值；可分早晚场次优惠，普通影片、3D影片均优</p>
+					<p>惠至3~6折;更多定制服务等你来选择；</p>
+				</div>
+				<div class="wenzi3">
+					<img src="img/zhiquan.png" style="width: 100px;"></br>
+					<img src="img/hengxianyou.png">
+					<p>此券与華影卡的使用方式范围相似；</p>
+				</div>
+				<div class="wenzi4">
+					<img src="img/dianzima.png" style="width: 100px;"></br>
+					<img src="img/hengxianyou.png">
+					<p>电子码是传统纸质票的电子形式，无需物</p>
+					<p>流，低碳、环保、高效、便捷！在线完成</p>
+					<p>订购→通过手机短信接收电子码→在影院出</p>
+					<p>示电子码，由影院工作人员协助对票；不</p>
+					<p>分时段3~6折，只支持普通影票；</p>
+				</div>
+			</div>
+		</div>
+		<!--文字轮播-->
+		<div class="lunbo">
+			<img src="img/dianying .png">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<span>所需选择您的个性化福利产品；</span>
+					</div>
+					<div class="swiper-slide">
+						全能信息化平台助您事半功倍；
+					</div>
+					<div class="swiper-slide">
+						专业咨询团队让福利投资进一步增值；
+					</div>
+					<div class="swiper-slide">
+						安全保障体系给您更加封信便捷体验；
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--底部-->
+		<div class="footer">
+			<div class="footer_1">
+
+				<img src="img/logo1.png" style="margin-top: 21px;">
+
+				<img src="img/gongsijieshao.png" style="margin-bottom: 30px;margin-left: 225px; width: 410px;">
+
+				<img src="img/hyweixin.jpg" style="margin-left: 270px; width: 130px;">
+
+			</div>
+		</div>
+		<footer>
+			<div class=" center">
+				<span style="color: white;">copyright 2013 京ICP备14050571号-1</span>
+			</div>
+		</footer>
+		<script type="text/javascript">
+			var mySwiper = new Swiper('.swiper-container', {
+				autoplay: 3000, //可选选项，自动滑动
+			})
+		</script>
+		<script type="text/javascript">
+			$('#btn').on('click', function() {
+				layer.open({
+					type: 2,
+					title: false,
+					shadeClose: true, //点击遮罩关闭层
+					area: ['800px', '520px'],
+					content: '/user.php?act=login'
+				})
+			});
+		</script>
+	</body>
+
+</html>

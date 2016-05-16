@@ -1,0 +1,34 @@
+
+Crontab/****/index.php     			**** 要执行的计划任务目录，index.php文件名称不是必须的，您可以写成其他名称，
+					
+						只要让计划任务执行这个文件就行。
+
+Applications\Crontab\Crontab\cron_dir 		具体的计划任务规则
+		
+						格式：分  时  日  月  年  /执行的php文件，绝对路径。
+
+Applications\Crontab\Crontab\run_dir		启用计划任务规则会放在这里，在win环境下，需要手动复制
+
+						cron_dir里面的计划任务规则，到run_dir里，不手动复制也不影响程序的执行
+
+						但CLI控制台会刷错误信息，说您没有权限执行这个操作。
+
+
+Applications\Crontab\Crontab\lock_dir		锁目录，锁定的计划任务会在这个文件夹里，只要存在这里面计划任务就不执行了
+
+Applications\Crontab\Crontab\log_dir		计划任务执行日志，以天为单位。
+
+Applications\Crontab\Crontab\pid_dir		在执行的计划任务会在这里，每一次执行的时候，都会修改对应文件的内容，
+
+						当修改的时候和下次执行的时间一致，就跳过不在执行，防止重复操作，
+
+						弊端就是，今天执行的计划任务没有完成，明天新的任务又开始了，这个似乎就不管用了，
+
+						一天都执行不完的计划任务，可以把执行周期调长一点。
+
+Applications\Crontab\Crontab\forbidden_dir	禁止执行的计划任务。
+
+
+
+
+									

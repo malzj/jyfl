@@ -1,0 +1,92 @@
+{include file="pageheader.htm"} 
+{insert_scripts files="../js/utils.js,selectzone_bd.js,colorselector.js,listtable.js"}
+<script type="text/javascript" src="../js/calendar.php?lang={$cfg_lang}"></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+<style>
+	#ratio-table tr th, #show-table tr th {
+		text-align:left;
+		text-indent:30px;
+		border-bottom:1px #ccc solid;
+		padding-bottom:10px;
+	}
+	#ratio-table tr th .goods_name, #show-table tr th .goods_name{ width:250px; height:20px; line-height:20px; text-indent:10px;}
+	#ratio-table tr th .search_goods, #show-table tr th .search_goods{ width:50px; height:28px; line-height:28px; text-align:center; margin-left:10px;}
+	#ratio-table tr td.p0, #show-table tr td.p0{ padding:20px 0; }
+	#ratio-table tr td .table-row{ border:1px #ccc dotted; padding:10px; margin-bottom:10px;}
+	.card_rule{min-height:200px; max-height:800px; height:100%; display:inline-block}
+	.goods_list ul,.card_rule ul{ list-style:none; padding:0 0 0 10px;}
+	.card_rule ul li{ width:290px; min-height:30px; line-height:20px; float:left;}
+	
+	.s-option{ padding:4px; }
+	.s-fr{display:inline-block; float:right; height:30px; line-height:30px; color:red}
+	.table-row{margin:10px 0 0 0; border:1px #ccc solid; width:100%}
+	.table-row tr th{ text-align:left; text-indent:2em; height:30px; line-height:30px; font-size:12px; border-bottom:1px #ccc dashed;}
+	.table-row tr td{ height:25px; line-height:25px; text-indent:2em;}
+	
+</style>
+<div class="tab-div">
+	<div id="tabbody-div">
+		<form method="post" action="card_rule.php?act=set_rule_out">
+		<table id="show-table" style="width:100%">
+			<tr>
+				<th colspan="2">
+					<span>供应商：
+						<select name="supplier_id" class="s-option">
+							<option value="0">请选择</option>
+							{foreach from=$supplier item=supp}
+								<option value="{$supp.supplier_id}" {if $supp.selected==true} selected {/if}>{$supp.supplier_name}</option>
+							{/foreach}
+						</select>
+					</span>&nbsp;&nbsp;&nbsp;
+					<span>商品名称：
+						<input type="text" class="goods_name" name="goods_name"><input type="button" name="submit" class="search_goods" value="搜索" onclick="searchGoods(this);">
+					</span>
+					<span class="s-fr">
+						<a href="card_rule.php?act=rule_out&id={$card_id}">{$title}</a>
+					</span>
+				</th>
+			</tr>
+			<tr>				
+				<td id="show-html" colspan="2"><center style="height;50px; line-height:50px">请检索你想要的商品规格！</center></td>
+            </tr>
+			<tr>
+				<td colspan=2>
+					<div class="button-div">
+		 				<input type="submit" class="button" value="{$lang.button_submit}" /> 
+					 	<input type="reset" class="button" value="{$lang.button_reset}" /> 		 	
+					 	<input type="hidden" name="id" value="{$card_id}" />
+					 </div>
+				</td>
+			</tr>		
+		</table>	
+		</form>	
+	</div>
+</div>
+{insert_scripts files="validator.js,tab.js"}
+{include file="pagefooter.htm"}
+<script type="text/javascript">
+//商品规格搜索
+function searchGoods(obj){
+	 //最外层的th
+	 var thObj = obj.parentNode.parentNode;
+	 // 供应商id
+	 var supplier_id = thObj.getElementsByTagName('select')[0].value;
+	 //搜索的商品名
+	 if(supplier_id == 0){
+		 alert('请选择一个供应商！');
+		 exit;
+	 }
+	 var goods_name = thObj.getElementsByTagName('input')[0].value;	
+	 Ajax.call('supplier.php?is_ajax=1&act=search_goods', 'goods_name=' + goods_name + "&type=3&supplier_id="+supplier_id, setGoodsList, "GET", "JSON");
+	 
+	 
+}
+function setGoodsList(result, text_result){
+	 document.getElementById('show-html').innerHTML = result.content;
+}
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!-- $Id: coupons.htm 17126 2015-8-11 16:52:57 李治华 $ -->
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+
+<style>
+.shuchu_right{ width:300px;position: absolute;right:20px;top:63px;}
+.yes_show,no_show{ display:inline-block; width:130px; float:left;}
+.daoru{
+  padding:3px;font-size:14px;width:100px;line-height:30px;text-align:center;background: #8CB5C0;text-decoration:none;margin-top: 5px;
+}
+.co_excel_out{
+  padding:3px;font-size:14px;width:100px;line-height:25px;text-align:center;background: #8CB5C0;text-decoration:none;margin-top: 5px; position:absolute; right:10px; top:50px;
+}
+.clear{ clear:both} 
+</style>
+<!-- 提货券搜索 -->
+<div class="form-div" style="height:22px;">
+
+<form action="javascript:searchConpons()" name="searchForm">
+    <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH">
+    订单号：<input name="orderid" type="text" id="orderid" size="30">	
+    会员：<input name="user_name" type="text" id="user_name" size="30">
+    <input type="submit" value=" 搜索 " class="button">
+  </form>
+  <!-- <div class="shuchu-right">
+  	<span class="yes-show">已付款（{$x}）</span>
+  	<span class="no-show">未付款（{$y}）</span>
+  	<div class="clear"></div>
+  </div> -->
+<div style="margin-top:5px;">
+<!-- &nbsp;&nbsp;&nbsp;&nbsp;
+<span class="daoru" ><a href="coupons.php?act=coupons_excel_in">导入</a></span> -->
+&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="co_excel_out" ><a href="coupons_order.php?act=co_excel_out">导出</a></span>
+</div>
+</div>
+<!-- 会员提货券管理列表 -->
+<form method="post" action="coupons_order.php?act=list" name="listForm" onsubmit="return check()">
+  <div class="list-div" id="listDiv">
+{/if}
+	<table cellpadding="3" cellspacing="1">
+	  <tr>
+	    <th>
+	      <input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox" /><a href="javascript:listTable.sort('orderid', 'DESC'); ">订单号</a>{$orderid}
+	    </th>
+      <th><a href="javascript:listTable.sort('goods_name'); ">商品名</a></th>
+	    <th><a href="javascript:listTable.sort('user_name'); ">会员名</a></th>
+	    <th><a href="javascript:listTable.sort('mobile'); ">手机号</a></th>
+      <th><a href="javascript:listTable.sort('coupons_youxiao'); ">提货券（有效期）</a></th>
+      <th><a href="javascript:listTable.sort('unit_price'); ">单价</a></th>
+      <th><a href="javascript:listTable.sort('number'); ">数量</a></th>
+      <th><a href="javascript:listTable.sort('total_price'); ">总价</a></th>
+	    <th><a href="javascript:listTable.sort('market_price'); ">市场价</a></th>
+	    <th><a href="javascript:listTable.sort('add_time'); ">下单时间</a></th>
+      <th><a href="javascript:listTable.sort('order_state'); ">状态</a></th>
+      <th><a>发送短信</a></th>
+	  <tr>
+	{foreach from=$coupons_order_list item=coupons} 
+	 <div id="Idiv" style="display:none;position:fixed;left:20%;top:20%;z-index:1001;">
+        <textarea name="" id="orderMessage" cols="30" rows="10"></textarea>
+        <input type="button" value="关闭" onclick="closeDiv();" />
+        <!-- 【<a onclick="closeDiv()">点击关闭</a>】 -->
+        </div>
+    
+    <div id="Idiv" style="display:none;">
+      <textarea name="" id="orderMessage" cols="30" rows="10"></textarea>
+      </div>
+
+	  <tr>
+
+	   	 <td class="first-cell"><input type="checkbox" name="checkboxes" value="{$order.orderid}" />{$coupons.orderid}</td>
+	     <td class="first-cell">{$coupons.goods_name}</td>
+	     <td class="first-cell">{$coupons.user_name}</td>
+       <td class="first-cell">{$coupons.mobile}</td>
+       <td class="first-cell">{$coupons.coupons_youxiao}</td>
+	     <td class="first-cell">{$coupons.unit_price}</td>
+	     <td class="first-cell">{$coupons.number}</td>
+	     <td class="first-cell">{$coupons.total_price}</td>
+	     <td class="first-cell">{$coupons.market_price}</td>
+	     <td class="first-cell">{$coupons.add_time}</td>
+       <td class="first-cell">{$coupons.order_state}</td>
+       <td class="first-cell"><a href="coupons_order.php?act=orderid&orderid={$coupons.orderid}">发送</a></td>
+       <input type="hidden" name="market_price" value="{$coupons.market_price}">
+	  </tr>
+
+	 {/foreach}
+	</table>
+	
+	<!-- 分页 -->
+	<table id="page-table" cellspacing="0">
+	  <tr>
+	    <td align="right" nowrap="true">
+	    {include file="page.htm"}
+	    </td>
+	  </tr>
+	</table>
+  </div>
+</form>
+{if $full_page}
+
+<script type="text/javascript">
+listTable.recordCount = {$record_count};
+listTable.pageCount = {$page_count};
+
+{foreach from=$filter item=item key=key}
+listTable.filter.{$key} = '{$item}';
+{\/foreach}
+{literal}
+
+    onload = function()
+    {
+        // 开始检查订单
+        startCheckOrder();
+    }
+    function check()
+    {
+      var snArray = new Array();
+      var eles = document.forms['listForm'].elements;
+      for (var i=0; i<eles.length; i++)
+      {
+        if (eles[i].tagName == 'INPUT' && eles[i].type == 'checkbox' && eles[i].checked && eles[i].value != 'on')
+        {
+          snArray.push(eles[i].value);
+        }
+      }
+      if (snArray.length == 0)
+      {
+        return false;
+      }
+      else
+      {
+        eles['number'].value = snArray.toString();
+        return true;
+      }
+    }
+    
+    //提货券更新
+    function updateOrder(id){    	   	
+    	Ajax.call('coupons.php', 'act=coupons_update' + '&id='+id, updateCouponsResponse, "GET", "JSON");
+    }
+    
+    function updateCouponsResponse(data){
+    	//alert(data.message);
+      var Idiv= document.getElementById("Idiv");
+      var orderMessage= document.getElementById("orderMessage");
+      Idiv.style.display = "block";
+      //显示div，赋值给textarea
+      document.getElementById("orderMessage").value = data.message;
+    }
+	function closeDiv() //关闭div
+	{
+	var Idiv=document.getElementById("Idiv");
+	 Idiv.style.display="none";
+ 	 }
+
+	
+	
+/**
+ * 搜索提货券
+ */
+function searchConpons()
+{
+	listTable.filter['orderid'] = Utils.trim(document.forms['searchForm'].elements['orderid'].value);
+	listTable.filter['username'] = document.forms['searchForm'].elements['username'].value;
+	listTable.filter['page'] = 1;
+    listTable.loadList();
+}
+
+{/literal}
+</script>
+{include file="pagefooter.htm"}
+{/if}

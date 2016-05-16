@@ -1,0 +1,230 @@
+<!-- $Id: agency_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"} 
+{insert_scripts files="../js/utils.js,selectzone_bd.js,colorselector.js,listtable.js"}
+<script type="text/javascript" src="../js/calendar.php?lang={$cfg_lang}"></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+<style>
+	#ratio-table tr th, #show-table tr th {
+		text-align:left;
+		text-indent:30px;
+		border-bottom:1px #ccc solid;
+		padding-bottom:10px;
+	}
+	#ratio-table tr th .goods_name, #show-table tr th .goods_name{ width:250px; height:20px; line-height:20px; text-indent:10px;}
+	#ratio-table tr th .search_goods, #show-table tr th .search_goods{ width:50px; height:28px; line-height:28px; text-align:center; margin-left:10px;}
+	#ratio-table tr td.p0, #show-table tr td.p0{ padding:20px 0; }
+	#ratio-table tr td .table-row{ border:1px #ccc dotted; padding:10px; margin-bottom:10px;}
+	.card_rule{min-height:200px; max-height:800px; height:100%; display:inline-block}
+	.goods_list ul,.card_rule ul{ list-style:none; padding:0 0 0 10px;}
+	.card_rule ul li{ width:290px; min-height:30px; line-height:20px; float:left;}
+</style>
+<!-- start goods form -->
+<div class="tab-div">
+    <!-- tab bar -->
+    <div id="tabbar-div">
+      <p>
+        <span class="tab-front" id="detail-tab">基本信息</span>        
+        <span class="tab-back" id="ratio-tab">商品折扣设置</span>
+        <span class="tab-back" id="show-tab">客户显示设置</span>            
+      </p>
+	</div>
+
+	<div id="tabbody-div">		
+		<table align="center" id="detail-table" style="width: 100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#ffffff">
+			<form method="post" action="supplier.php?act={$form_action}" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
+			<tr>
+				<td width="28%" align="right" bgcolor="#FFFFFF"><span
+					style="color: #FF0000"> *</span>供应商等级：</td>
+				<td align="left" bgcolor="#FFFFFF"><select name="rank_id"
+					size=1>
+						<option value="0">请选择</option> 
+						{foreach from=$supplier_rank item=rank}
+						<option value="{$rank.rank_id}" {if $supplier.rank_id eq $rank.rank_id}selected{/if}>{$rank.rank_name}</option>
+						{/foreach}
+				</select></td>
+			</tr>
+			<tr>
+				{if $supplier_user}
+				<td width="28%" align="right" bgcolor="#FFFFFF"><span
+					style="color: #FF0000"> *</span>账号：</td>
+				<td align="left" bgcolor="#FFFFFF"><select name="user_id"
+					size=1>
+						<option value="0">请选择</option> 
+						{foreach from=$supplier_user item=user}
+						<option value="{$user.user_id}" {if $supplier.user_id eq $user.user_id}selected{/if}>{$user.user_name}</option>
+						{/foreach}
+				</select></td>
+			</tr>
+			{/if}
+
+			<tr>
+				<td width="28%" align="right" bgcolor="#FFFFFF">供货商名称：</td>
+				<td align="left" bgcolor="#FFFFFF"><input name="supplier_name"
+					type="text" size="45" value="{$supplier.supplier_name}" /></td>
+			</tr>
+			<tr>
+			<tr>
+				<td width="28%" align="right" bgcolor="#FFFFFF"><span
+					style="color: #FF0000"> *</span>公司地址：</td>
+				<td align="left" bgcolor="#FFFFFF"><input name="address"
+					type="text" size="45" value="{$supplier.address}" /></td>
+			</tr>
+			<tr bgcolor="#ffffff">
+				<td width="28%" align="right"><span style="color: #FF0000">
+						*</span>公司电话：</td>
+				<td align="left"><input type="text" name="tel"
+					value="{$supplier.tel}" /></td>
+			</tr>
+
+			<tr bgcolor="#ffffff">
+				<td width="28%" align="right"><span style="color: #FF0000">
+						*</span>电子邮箱：</td>
+				<td align="left"><input type="text" name="email" size=45
+					value="{$supplier.email}" /></td>
+			</tr>
+			<tr bgcolor="#ffffff">
+				<td width="28%" align="right"><span style="color: #FF0000">*</span>是否开启派送时间：</td>
+				<td align="left">
+					<input type="radio" name="open_time" value="1" {if $supplier.open_time eq '1'} checked {/if} />开启 
+					<input type="radio" name="open_time" value="0" {if $supplier.open_time eq '0' || $supplier eq ''} checked {/if} />关闭
+				</td>
+			</tr>
+			<tr bgcolor="#ffffff">
+				<td width="28%" align="right"><span style="color: #FF0000">*</span>商城比例：</td>
+				<td align="left"><input type="text" name="shop_ratio" size=10 value="{$supplier.shop_ratio}" /> <font color="#ccc">例：输入 0.8，商城显示的扣点价是，市场价 X 0.8</font></td>
+			</tr>
+			<tr bgcolor="#ffffff">
+				<td width="28%" align="right"><span style="color: #FF0000">*</span>成本比例：</td>
+				<td align="left"><input type="text" name="cost_ratio" size=10 value="{$supplier.cost_ratio}" /> <font color="#ccc">例：输入 0.7，供应商给我们的供货价是，市场价 X 0.7</font></td>
+			</tr>
+			<tr bgcolor="#ffffff">
+				<td width="28%" align="right"><span style="color: #FF0000">*</span>销售方式：</td>
+				<td align="left">
+					<input type="radio" name="is_entity" value="1" {if $supplier.is_entity eq '1'} checked {/if} />实体
+					<input type="radio" name="is_entity" value="2" {if $supplier.is_entity eq '2' || $supplier eq ''} checked {/if} />在线
+				</td>
+			</tr>
+			<tr bgcolor="#e2e9e7">
+				<td width="28%" align="right"><span style="color: #FF0000">*</span>是否有门票：</td>
+				<td align="left">
+					<input type="radio" name="is_tickets" value="1" {if $supplier.is_tickets eq '1'} checked {/if} />有门票
+					<input type="radio" name="is_tickets" value="2" {if $supplier.is_tickets eq '2' || $supplier eq ''} checked {/if} />没门票  <font color="red">&nbsp;&nbsp;&nbsp;&nbsp;只有销售方式是 “实体” 的时候，才需要设置此项。</font>
+				</td>
+			</tr>
+			<tr bgcolor="#e2e9e7">
+				<td width="28%" align="right"><span style="color: #FF0000">*</span>是否显示客户类型（普通）：</td>
+				<td align="left">
+					<input type="radio" name="show_ordinary" value="2" {if $supplier.show_ordinary eq '2'} checked {/if} />是
+					<input type="radio" name="show_ordinary" value="1" {if $supplier.show_ordinary eq '1' || $supplier eq ''} checked {/if} />否 <font color="red">&nbsp;&nbsp;&nbsp;&nbsp;只有销售方式是 “实体” 的时候，才需要设置此项。</font>
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td width="20%" align=right valign=top>供货商备注：</td>
+				<td><textarea name="supplier_remark" rows=4 cols=50>{$supplier.supplier_remark}</textarea></td>
+			</tr>
+			<tr>
+				<td width="20%" align=right>审核状态：</td>
+				<td><select name="status" size=1><option value="0"
+							{if $supplier.status eq '0'}selected{/if}>未审核</option>
+						<option value="1" {if $supplier.status eq '1'}selected{/if}>审核通过</option>
+						<option value="-1" {if $supplier.status eq '-1'}selected{/if}>审核不通过</option></select></td>
+			</tr>
+			<tr>
+				<td colspan=2>
+					<div class="button-div">
+		 				<input type="submit" class="button" value="{$lang.button_submit}" /> 
+					 	<input type="reset" class="button" value="{$lang.button_reset}" /> 		 	
+					 	<input type="hidden" name="id" value="{$supplier.supplier_id}" />
+					 </div>
+				</td>
+			</tr>
+			</form>	
+		</table>
+		<form method="post" action="supplier.php?act=spec_ratio">
+		<table id="ratio-table" style="display:none; width:100%">		   
+			<tr>
+				<th><span>商品名称：<input type="text" class="goods_name" name="goods_name"><input type="button" name="submit" class="search_goods" value="搜索" onclick="searchGoods(this,1);"></span></th>
+			</tr>
+			<tr>
+				<td class="p0" id="ratio-html">
+					<center>请输入商品名称，搜索！</center>  
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2>
+					<div class="button-div">
+		 				<input type="submit" class="button" value="{$lang.button_submit}" /> 
+					 	<input type="reset" class="button" value="{$lang.button_reset}" /> 		 	
+					 	<input type="hidden" name="id" value="{$supplier.supplier_id}" />
+					 </div>
+				</td>
+			</tr>			
+		</table>
+		</form>	
+		
+		<form method="post" action="supplier.php?act=spec_show">
+		<table id="show-table" style="display:none; width:100%">
+			<tr>
+				<th colspan="2"><span>商品名称：<input type="text" class="goods_name" name="goods_name"><input type="button" name="submit" class="search_goods" value="搜索" onclick="searchGoods(this,2);"></span></th>
+			</tr>
+			<tr>
+				<td class="p0" width="400px" id="show-html">
+                	<center>请输入商品名称，搜索！</center>     
+                </td>
+                <td style="border-left:1px #ccc solid;">
+                	<div class="card_rule">
+                    	<ul>
+                    	{foreach from=$card_rule item=rule}
+                        	<li><input type="checkbox" name="rule_id[]" value="{$rule.id}" id='r{$rule.id}'/><label for="r{$rule.id}">{$rule.title}</label></li>
+                        {/foreach}
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+			<tr>
+				<td colspan=2>
+					<div class="button-div">
+		 				<input type="submit" class="button" value="{$lang.button_submit}" /> 
+					 	<input type="reset" class="button" value="{$lang.button_reset}" /> 		 	
+					 	<input type="hidden" name="id" value="{$supplier.supplier_id}" />
+					 </div>
+				</td>
+			</tr>			
+		</table>	
+		</form>		 
+	</div>
+</div>
+{insert_scripts files="validator.js,tab.js"}
+{literal}
+<script language="JavaScript">
+<!--
+	onload = function() {
+		// 开始检查订单
+		startCheckOrder();
+	}	
+	 // 商品规格搜索
+	 function searchGoods(obj,e){
+		 //最外层的th
+		 var thObj = obj.parentNode.parentNode;
+		 //搜索的商品名
+		 var goods_name = thObj.getElementsByTagName('input')[0].value;
+		 if(e==1){
+			 Ajax.call('supplier.php?is_ajax=1&act=search_goods', 'goods_name=' + goods_name + "&type="+ e +"&supplier_id={$supplier.supplier_id}", setGoodsList, "GET", "JSON");
+		 }else{
+			 Ajax.call('supplier.php?is_ajax=1&act=search_goods', 'goods_name=' + goods_name + "&type="+ e +"&supplier_id={$supplier.supplier_id}", setGoodsShowList, "GET", "JSON");
+		 }
+		 
+	 }
+	 function setGoodsList(result, text_result){
+		 document.getElementById('ratio-html').innerHTML = result.content;
+	 }
+	 function setGoodsShowList(result, text_result){
+		 document.getElementById('show-html').innerHTML = result.content;
+	 }
+//-->
+</script>
+{/literal} {include file="pagefooter.htm"}
+
+

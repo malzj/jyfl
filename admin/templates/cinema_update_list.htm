@@ -1,0 +1,70 @@
+<!-- $Id: ads_list.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+
+{include file="cinema_search.html"}
+
+<form method="post" action="" name="listForm">
+<!-- start ads list -->
+<div class="list-div" id="listDiv">
+{/if}
+
+<table cellpadding="3" cellspacing="1">
+  <tr>
+  	<th><a href="javascript:listTable.sort('id'); ">影院编号</a></th>
+    <th>影院 / 地址</th>
+    <th>城市</th>
+    <th>区域</th>
+    <th>添加时间</th>
+    <th>来源</th>
+    <th>状态</th>
+    <th>操作</th>
+  </tr>
+  {foreach from=$cinema_list item=cinema}
+  <tr>    
+    <td align="left"><span>{$cinema.id}</span></td>
+    <td align="left"><span>&nbsp;&nbsp;{$cinema.cinema_name}</span> <br><span style="color:#999">&nbsp;&nbsp;{$cinema.cinema_address}</span></td>
+    <td align="center">{$cinema.region_name}</td>
+    <td align="center">{$cinema.area_name}</td>
+    <td align="center">{$cinema.add_time|time}</td>
+    <td align="center"><span>{if $cinema.source eq 0} 在线选座 {/if} {if $cinema.source eq 1} 电子券 {/if} {if $cinema.source eq 2} 线下刷卡 {/if}</span></td>
+    <td align="center"><span>{if $cinema.is_update eq 0 } 未归档 {/if} {if $cinema.is_update eq 1 } 新增 {/if} {if $cinema.is_update eq 2 } 已归档 {/if}</span></td>
+    <td align="center"><span>
+      <a href="cinema_update.php?act=edit&id={$cinema.id}">编辑</a> &nbsp;&nbsp;&nbsp;
+      </span>
+    </td>
+  </tr>
+  {foreachelse}
+    <tr><td class="no-records" colspan="7">没有数据！</td></tr>
+  {/foreach}
+  <tr>
+    <td align="right" nowrap="true" colspan="7">{include file="page.htm"}</td>
+  </tr>
+</table>
+
+{if $full_page}
+</div>
+<!-- end ad_position list -->
+</form>
+
+
+
+<script type="text/javascript" language="JavaScript">
+
+  listTable.recordCount = {$record_count};
+  listTable.pageCount = {$page_count};
+
+  {foreach from=$filter item=item key=key}
+  listTable.filter.{$key} = '{$item}';
+  {/foreach}
+  {literal}
+  onload = function()
+  {
+    // 寮�妫�煡璁㈠崟
+    startCheckOrder();
+  }
+  {/literal}
+</script>
+{include file="pagefooter.htm"}
+{/if}

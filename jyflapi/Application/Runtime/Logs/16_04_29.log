@@ -1,0 +1,768 @@
+[ 2016-04-29T08:43:50+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001338s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002106s ]
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: [2002] ”…”⁄ƒø±Íº∆À„ª˙ª˝º´æ‹æ¯£¨Œﬁ∑®¡¨Ω”°£
+ (trying to connect via tcp://1.93.129.196:3306) E:\wamp\www\hy\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: ”…”⁄ƒø±Íº∆À„ª˙ª˝º´æ‹æ¯£¨Œﬁ∑®¡¨Ω”°£
+ E:\wamp\www\hy\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+ERR: ”…”⁄ƒø±Íº∆À„ª˙ª˝º´æ‹æ¯£¨Œﬁ∑®¡¨Ω”°£
+
+
+[ 2016-04-29T08:44:06+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000499s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000913s ]
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: [2002] ”…”⁄ƒø±Íº∆À„ª˙ª˝º´æ‹æ¯£¨Œﬁ∑®¡¨Ω”°£
+ (trying to connect via tcp://1.93.129.196:3306) E:\wamp\www\hy\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: ”…”⁄ƒø±Íº∆À„ª˙ª˝º´æ‹æ¯£¨Œﬁ∑®¡¨Ω”°£
+ E:\wamp\www\hy\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+ERR: ”…”⁄ƒø±Íº∆À„ª˙ª˝º´æ‹æ¯£¨Œﬁ∑®¡¨Ω”°£
+
+
+[ 2016-04-29T08:44:19+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000490s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000968s ]
+NOTIC: [8] Undefined index: user_id E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 213 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: [2002] ”…”⁄ƒø±Íº∆À„ª˙ª˝º´æ‹æ¯£¨Œﬁ∑®¡¨Ω”°£
+ (trying to connect via tcp://1.93.129.196:3306) E:\wamp\www\hy\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: ”…”⁄ƒø±Íº∆À„ª˙ª˝º´æ‹æ¯£¨Œﬁ∑®¡¨Ω”°£
+ E:\wamp\www\hy\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+ERR: ”…”⁄ƒø±Íº∆À„ª˙ª˝º´æ‹æ¯£¨Œﬁ∑®¡¨Ω”°£
+
+
+[ 2016-04-29T08:44:49+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001066s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001740s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.008748s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.004976s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.006653s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.004409s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.004593s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.005198s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004996s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.005282s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.004385s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004668s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004516s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.004322s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000901s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001031s ]
+
+[ 2016-04-29T08:45:52+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001434s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.006430s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.005418s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.006758s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.004262s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.004300s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004449s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004344s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004181s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.005103s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004385s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004523s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.004414s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000709s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000827s ]
+
+[ 2016-04-29T08:45:58+08:00 ] 127.0.0.1 /index.php/Users/User/showPack
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001071s ]
+SQL: SHOW COLUMNS FROM `ecs_user_bonus` [ RunTime:0.008183s ]
+SQL: SELECT * FROM `ecs_user_bonus` INNER JOIN ecs_bonus_type on ecs_user_bonus.bonus_type_id = ecs_bonus_type.type_id   WHERE ( user_id = 1 )  [ RunTime:0.006436s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000582s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000704s ]
+
+[ 2016-04-29T08:49:42+08:00 ] 127.0.0.1 /index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001225s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003549s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008871s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.005688s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001573s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001749s ]
+
+[ 2016-04-29T08:49:45+08:00 ] 127.0.0.1 /index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000489s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000860s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008472s ]
+SQL: UPDATE `ecs_users` SET `nickname`='Â∞è‰∏çÁÇπ',`sex`=1,`birthday`='2016-12-25',`basic`='Â∑≤Â©ö',`pic`='http://jyflapi.com/Uploads/2016-04-28/5721eabd33613.png' WHERE ( user_id=1 ) [ RunTime:0.004211s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000662s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000788s ]
+
+[ 2016-04-29T08:49:48+08:00 ] 127.0.0.1 /index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000407s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000775s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008382s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.005423s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000607s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000735s ]
+
+[ 2016-04-29T08:49:54+08:00 ] 127.0.0.1 /index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.002112s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002671s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.009253s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.006182s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000620s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000753s ]
+
+[ 2016-04-29T08:49:55+08:00 ] 127.0.0.1 /index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000404s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000769s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000660s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000817s ]
+
+[ 2016-04-29T08:50:09+08:00 ] 127.0.0.1 /index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000523s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001040s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000603s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000740s ]
+
+[ 2016-04-29T08:50:10+08:00 ] 127.0.0.1 /index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000554s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001006s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008830s ]
+SQL: UPDATE `ecs_users` SET `nickname`='Â∞è‰∏çÁÇπ',`sex`=1,`birthday`='2016-12-25',`basic`='Â∑≤Â©ö',`pic`='blob:http%3A//test.com/622c0124-80b5-4ee0-89fc-932f63d2040a' WHERE ( user_id=1 ) [ RunTime:0.003871s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000585s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000704s ]
+
+[ 2016-04-29T08:50:42+08:00 ] 127.0.0.1 /index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000838s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001330s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008745s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.005328s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000581s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000702s ]
+
+[ 2016-04-29T08:51:36+08:00 ] 127.0.0.1 /index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000719s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001645s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.009912s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.005909s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001894s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002248s ]
+
+[ 2016-04-29T08:51:39+08:00 ] 127.0.0.1 /index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001038s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.009496s ]
+SQL: UPDATE `ecs_users` SET `nickname`='Â∞è‰∏çÁÇπ',`sex`=1,`birthday`='2016-12-25',`basic`='ÊÅãÁà±‰∏≠',`pic`='blob:http%3A//test.com/622c0124-80b5-4ee0-89fc-932f63d2040a' WHERE ( user_id=1 ) [ RunTime:0.004496s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000630s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000750s ]
+
+[ 2016-04-29T08:51:46+08:00 ] 127.0.0.1 /index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000767s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001354s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.010052s ]
+SQL: UPDATE `ecs_users` SET `nickname`='Â∞è‰∏çÁÇπ',`sex`=1,`birthday`='2016-12-25',`basic`='Â∑≤Â©ö',`pic`='blob:http%3A//test.com/622c0124-80b5-4ee0-89fc-932f63d2040a' WHERE ( user_id=1 ) [ RunTime:0.004141s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001113s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001422s ]
+
+[ 2016-04-29T08:51:58+08:00 ] 127.0.0.1 /index.php/Users/User/smsvrerifyJs
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000733s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001312s ]
+NOTIC: [8] Use of undefined constant _USERAGENT_ - assumed '_USERAGENT_' E:\wamp\www\hy\jyflapi\Application\Home\smsvrerifyApi.class.php Á¨¨ 62 Ë°å.
+NOTIC: [8] Use of undefined constant _REFERER_ - assumed '_REFERER_' E:\wamp\www\hy\jyflapi\Application\Home\smsvrerifyApi.class.php Á¨¨ 63 Ë°å.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008023s ]
+SQL: UPDATE `ecs_users` SET `verify`=935149,`verifytime`=1461891118 WHERE ( user_id=1 ) [ RunTime:0.004021s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001117s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001370s ]
+
+[ 2016-04-29T08:52:32+08:00 ] 127.0.0.1 /index.php/Users/User/editphone
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000670s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001159s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008535s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id=1 ) LIMIT 1   [ RunTime:0.005926s ]
+SQL: UPDATE `ecs_users` SET `mobile_phone`='15011281775' WHERE ( user_id=1 ) [ RunTime:0.004005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001596s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001901s ]
+
+[ 2016-04-29T08:53:04+08:00 ] 127.0.0.1 /index.php/Users/User/editLoginQues
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001095s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008815s ]
+SQL: UPDATE `ecs_users` SET `answerone`='Â±±‰∏ú',`answertwo`='ÊµéÂÆÅ',`answerthree`='ÂòâÁ••' WHERE ( user_id=1 ) [ RunTime:0.003945s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000640s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000763s ]
+
+[ 2016-04-29T08:53:11+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000997s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.006444s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.004734s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.006530s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.004391s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.004456s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004620s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004165s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004147s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.004077s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004171s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004218s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.004247s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000722s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000856s ]
+
+[ 2016-04-29T08:54:36+08:00 ] 127.0.0.1 /index.php/Users/User/addAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000902s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001579s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.007470s ]
+SQL: INSERT INTO `ecs_user_address` (`country`,`province`,`city`,`address`,`zipcode`,`consignee`,`mobile`,`user_id`) VALUES (1,1,1,'Êú±ËæõÂ∫Ñ','100010','ÂÆã‰∏ôÂüé','15011281775',1) [ RunTime:0.003863s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000647s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000766s ]
+
+[ 2016-04-29T08:55:07+08:00 ] 127.0.0.1 /index.php/Users/User/addAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000555s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000983s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.008272s ]
+SQL: INSERT INTO `ecs_user_address` (`country`,`province`,`city`,`address`,`zipcode`,`consignee`,`mobile`,`user_id`) VALUES (1,1,1,'Êú±ËæõÂ∫Ñ','100010','ÂÆã‰∏ôÂüé','18463118969',1) [ RunTime:0.003961s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001757s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002139s ]
+
+[ 2016-04-29T08:55:38+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000505s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000862s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.039612s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.036426s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.033238s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.034741s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.036698s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.042082s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.036625s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.033110s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.047913s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.041223s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.019968s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.020246s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.014242s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.018953s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.014298s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.014074s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.021654s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.027349s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001221s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001486s ]
+
+[ 2016-04-29T08:55:56+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000655s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001248s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.007044s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.004898s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.006113s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004166s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004123s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.005041s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.004158s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.003980s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004288s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004273s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.003898s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.003924s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004533s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004323s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.004537s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004147s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004452s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004107s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000673s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000797s ]
+
+[ 2016-04-29T08:56:16+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000748s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001321s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.006956s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.005359s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.006373s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004065s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004289s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.004069s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.004681s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.004771s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004340s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004156s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004135s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.004364s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004091s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004314s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.004853s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004747s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004237s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.004446s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000659s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000777s ]
+
+[ 2016-04-29T08:57:30+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000549s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001046s ]
+
+[ 2016-04-29T08:57:40+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000430s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000880s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.031652s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.031061s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.032003s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.037213s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.033777s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.034079s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.033903s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.036039s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.039961s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.039256s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.039591s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.039440s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.051218s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.046126s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.044389s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.029857s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.025208s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.025629s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000907s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001135s ]
+
+[ 2016-04-29T08:57:45+08:00 ] 127.0.0.1 /index.php/Users/User/saveAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001848s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002928s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.034956s ]
+SQL: SELECT * FROM `ecs_user_address` WHERE ( address_id=5 ) LIMIT 1   [ RunTime:0.027780s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.032528s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.028567s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.033387s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.029208s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000953s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001192s ]
+
+[ 2016-04-29T08:58:03+08:00 ] 127.0.0.1 /index.php/Users/User/editAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000620s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001312s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.036030s ]
+SQL: SELECT * FROM `ecs_user_address` WHERE ( address_id =5 ) LIMIT 1   [ RunTime:0.033127s ]
+SQL: UPDATE `ecs_user_address` SET `country`=108,`province`=1,`city`=1,`address`='Êú±ËæõÂ∫Ñ',`zipcode`='100010',`consignee`='ÂàòÂΩ™',`mobile`='18463118969' WHERE ( address_id=5 ) [ RunTime:0.048025s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000902s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001123s ]
+
+[ 2016-04-29T08:58:24+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000697s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001267s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.032909s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.030759s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.030341s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.036974s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.033617s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.031719s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.032439s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.034065s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.034889s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.033553s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.031525s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.027521s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.027958s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.029286s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.027505s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.028667s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.029462s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.032813s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001191s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001438s ]
+
+[ 2016-04-29T08:58:25+08:00 ] 127.0.0.1 /index.php/Users/User/saveAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001188s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.028137s ]
+SQL: SELECT * FROM `ecs_user_address` WHERE ( address_id=10 ) LIMIT 1   [ RunTime:0.024490s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.027627s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023173s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023761s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.025438s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001380s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001703s ]
+
+[ 2016-04-29T08:58:27+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000446s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000823s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.024389s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.022828s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.023977s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023545s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.024116s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.021993s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.022350s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.022930s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022110s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022879s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022315s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.022691s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023067s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022522s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.022418s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023354s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.033552s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.022086s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001264s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001480s ]
+
+[ 2016-04-29T08:58:27+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000494s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000993s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.025972s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.022997s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.024946s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023375s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022460s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.022256s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.022727s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.024575s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023809s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022627s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022713s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.021667s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022519s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022559s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.022932s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023195s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023534s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.023057s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001063s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001344s ]
+
+[ 2016-04-29T08:58:42+08:00 ] 127.0.0.1 /index.php/Users/User/showPack
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000412s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000827s ]
+SQL: SHOW COLUMNS FROM `ecs_user_bonus` [ RunTime:0.024881s ]
+SQL: SELECT * FROM `ecs_user_bonus` INNER JOIN ecs_bonus_type on ecs_user_bonus.bonus_type_id = ecs_bonus_type.type_id   WHERE ( user_id = 1 )  [ RunTime:0.025233s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000771s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000917s ]
+
+[ 2016-04-29T08:58:44+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000625s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001214s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.013279s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.013790s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.013889s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.013681s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.015747s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.016827s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.021439s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.030393s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.016645s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.015653s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.015208s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.017528s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.018395s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.015717s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.012595s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023466s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.014886s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.014460s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001312s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001651s ]
+
+[ 2016-04-29T08:58:46+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000776s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001299s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.024844s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.018567s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.024344s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023648s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022492s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.023622s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.022596s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.023331s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.047501s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.038097s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.046145s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.019330s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.024540s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.009903s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.013594s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.012400s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.011729s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.011826s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001591s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001995s ]
+
+[ 2016-04-29T08:58:49+08:00 ] 127.0.0.1 /index.php/Users/User/saveAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000560s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001176s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.025166s ]
+SQL: SELECT * FROM `ecs_user_address` WHERE ( address_id=10 ) LIMIT 1   [ RunTime:0.023122s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.024719s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023490s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022576s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.023066s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001275s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001617s ]
+
+[ 2016-04-29T08:58:50+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000591s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001195s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.026104s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.024171s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.023882s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022919s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022818s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.022874s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.022700s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.022884s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023316s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022667s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022874s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.022648s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023077s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022150s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.022431s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022770s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022228s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.023209s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001569s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001985s ]
+
+[ 2016-04-29T08:58:54+08:00 ] 127.0.0.1 /index.php/Users/User/saveAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002140s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.025841s ]
+SQL: SELECT * FROM `ecs_user_address` WHERE ( address_id=4 ) LIMIT 1   [ RunTime:0.024336s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.027508s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.023222s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.022545s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.024251s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001192s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001517s ]
+
+[ 2016-04-29T08:58:56+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000516s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001024s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.030213s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.029062s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.030464s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.026858s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.027625s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.028063s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.027687s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.029321s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.028907s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.028629s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.028999s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.027595s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.027199s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.027241s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.028685s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.029426s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.032313s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.029165s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001601s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002055s ]
+
+[ 2016-04-29T08:58:59+08:00 ] 127.0.0.1 /index.php/Users/User/showPack
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000608s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001189s ]
+SQL: SHOW COLUMNS FROM `ecs_user_bonus` [ RunTime:0.022162s ]
+SQL: SELECT * FROM `ecs_user_bonus` INNER JOIN ecs_bonus_type on ecs_user_bonus.bonus_type_id = ecs_bonus_type.type_id   WHERE ( user_id = 1 )  [ RunTime:0.022939s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000901s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001062s ]
+
+[ 2016-04-29T09:03:01+08:00 ] 127.0.0.1 /index.php/Users/User/showPack
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000774s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001497s ]
+SQL: SHOW COLUMNS FROM `ecs_user_bonus` [ RunTime:0.045266s ]
+SQL: SELECT * FROM `ecs_user_bonus` INNER JOIN ecs_bonus_type on ecs_user_bonus.bonus_type_id = ecs_bonus_type.type_id   WHERE ( user_id = 1 )  [ RunTime:0.048133s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001094s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001351s ]
+
+[ 2016-04-29T09:03:05+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000456s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001009s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.033537s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.032736s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.034526s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.032990s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.032560s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.039145s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=0 ) LIMIT 1   [ RunTime:0.044130s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.042191s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.042553s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.035008s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.034879s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.039695s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.038280s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.036873s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.036318s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.045278s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.041776s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.039534s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001415s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001828s ]
+
+[ 2016-04-29T09:03:09+08:00 ] 127.0.0.1 /index.php/Users/User/delAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000834s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001683s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.025525s ]
+SQL: SELECT * FROM `ecs_user_address` WHERE ( address_id=3 ) LIMIT 1   [ RunTime:0.025604s ]
+SQL: DELETE FROM `ecs_user_address` WHERE ( address_id=3 ) [ RunTime:0.030164s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001629s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002097s ]
+
+[ 2016-04-29T09:03:10+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000493s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000895s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.042658s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.040287s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.037002s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.035156s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.038184s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.035313s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.037467s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.034805s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.045735s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.045800s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.044024s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.036417s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.036718s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.035538s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.037869s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001937s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002389s ]
+
+[ 2016-04-29T09:53:07+08:00 ] 127.0.0.1 /index.php/Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000680s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001264s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.009697s ]
+NOTIC: [8] Undefined index: p E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 215 Ë°å.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.004657s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.006602s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004508s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004016s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.004372s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004851s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004351s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.004801s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004735s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004232s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=108 ) LIMIT 1   [ RunTime:0.004321s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004321s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.004725s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.006014s ]
+NOTIC: [8] Undefined variable: show E:\wamp\www\hy\jyflapi\Application\Users\Controller\UserController.class.php Á¨¨ 235 Ë°å.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000789s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000931s ]
+

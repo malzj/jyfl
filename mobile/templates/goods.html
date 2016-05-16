@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">	
+	<title>華影文化</title>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/swiper-3.2.7.jquery.min.js"></script>
+	<script type="text/javascript" src="js/layer/layer.js"></script>
+	<script src="js/loadAjax.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	{insert_scripts files='jquery.common.js'}
+	
+	<link href="js/layer/skin/layer.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/swiper-3.2.7.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fd.css">	
+    <link rel="stylesheet" href="css/main.css">
+
+	<style>
+		.xiangqing .quantity {position: relative;height: 25px;display: inline-block; margin-top: 3px;}
+		.xiangqing .decrement,.xiangqing .increment,.xiangqing .itxt {float: left;text-align: center;width: 30px;height: 25px;line-height: 25px;margin: 0;margin-left: -1px;background: #fff;border: 1px solid #9e9e9e;	border-radius: 0;}
+		.xiangqing .decrement,.xiangqing .increment {color: #666;font-size: 16px;}
+		.xiangqing .decrement {	border-radius: 3px 0 0 3px;	}
+		.xiangqing .increment {	border-radius: 0 3px 3px 0	}
+		.xiangqing .decrement-disabled,	.xiangqing .increment-disabled {cursor: no-drop;color: #aaa;background: #f1f1f1;}
+		.xiangqing .itxt {	font-size: 12px;font-family: verdana;	color: #000;-webkit-appearance: none;}
+		.xiangqing.itxt-disabled {	border: 1px solid #dadada;	background: #e6e6e6;	color: #888	}
+		.padding_0 {padding: 0;	}
+		.guige-1 {padding: 5px;	}
+		.guige {margin-bottom: 100px;}	
+		.guige .col-xs-6{ padding:0;}
+		.guige .col-xs-6 h5{marign-top:5px; margin-bottom:5px;}				
+		.xiangqing h6 {	border: 1px solid #dfdfdf;	padding: 5px; color: #888585;	margin: 6px 5px 0 0;}
+		.xiangqing h6.checked{border: 1px solid #DE6B11;}
+		.guige .active a {	padding: 5px;color: #FC7E2C; width: 95%; display: inline-block; text-align:center;}
+		.guige a {padding: 5px; width: 95%; display: inline-block; text-align:center;}
+		.xiangqing .col-xs-3 {	width: 70px;}
+		.xiangqing .col-xs-3 h5 {line-height: 20px;	font-size:13px; color:#888;}
+		#xiangqing1 img { max-width:100%; height:auto; display:block;}
+		#xiangqing1 *{width:100%!important; height:auto!important;margin-left: 0!important;}
+		.goods-name .col-xs-4 span {color:red; font-size:19px;}
+		.goods-name h5{ min-height:10px; max-height:70px; line-height:1.4em; padding:0;}
+		.goods-detail{padding-top:10px;}
+	</style>
+</head>
+
+<body>
+<div class="shangpinxiangqing">
+	<!-- header start -->
+	{$header}
+	<!-- header end -->
+
+	<!-- images start -->
+	<div class="container">
+		<div class="row">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					{foreach from=$pictures item=picture name=picture}
+					<div class="swiper-slide">
+						<img src="/{$picture.img_url}" class="img-responsive">
+					</div>
+					{/foreach}					
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="col-xs-12  border-2 padding_0_15">
+				<div class="row goods-name">
+				<h5 class="text-left col-xs-8">{$goods.goods_style_name}</h5>
+				<h5 class="text-right col-xs-4"><span id="ECS_GOODS_AMOUNT">0</span> 点</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- images end -->
+	
+	<!-- formBegnt start  -->
+	<form action="javascript:addToCart({$goods.goods_id})" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
+	<!-- formBegnt end -->
+	
+	<!-- specList start -->
+	<div class="container xiangqing">
+	
+		{if !empty($specs)}
+		<div class="row">						
+			<div class="col-xs-3"> <h5 class="pull-right">规格：</h5></div>
+			<div class="col-xs-9">
+				{foreach from=$specs item=specno key=specno_key name=specno}				
+				<label for="guige"><h6 {if $specno_key eq 0} class="checked"{/if} data-id="S_{$specno.spec_nember}">{$specno.spec_name}</h6>				
+				<input type="radio" name="spec_s_100" value="S_{$specno.spec_nember}" id="spec_value_S_{$specno.spec_nember}" {if $specno_key eq 0}checked{/if} onclick="changePrice()" style="display: none;" /></label>	
+				{/foreach}
+			</div>			
+		</div>
+		{/if}
+		
+		{foreach from=$specification item=spec key=spec_key name=spec}
+		<div class="row">
+			<div class="col-xs-3"> <h5 class="pull-right">{$spec.name}：</h5></div>
+			<div class="col-xs-9 pt3">
+			{if $spec.attr_type eq 1}
+				{if $cfg.goodsattr_style eq 1}
+					{foreach from=$spec.values item=value key=key}						
+						<label for="spec_value_{$value.id}"><h6 {if $key eq 0} class="checked"{/if} data-id="{$value.id}">{$value.label}</h6>			
+						<input type="radio" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}" {if $key eq 0}checked{/if} onclick="changePrice()" style="display: none;" /></label>	
+					{/foreach}
+					<input type="hidden" name="spec_list" value="{$key}" />
+				{/if}								
+			{/if}
+			</div>
+		</div>
+		{/foreach}
+
+		<div class="row">
+			<div class="col-xs-3">
+				<span class="pull-right" style="vertical-align: text-bottom; line-height: 30px;">数量：</span>
+			</div>
+			<div class="quantity col-xs-9">
+				<a id="decrement" class="decrement" onclick="del()">-</a>
+				<input name="number" id="number" class="itxt" value="1" type="text">
+				<a id="increment" class="increment" onclick="add()">+</a>				
+			</div>		
+		</div>
+	</div>
+	<!-- specList end -->
+	
+	<!-- formEnd start  -->
+	</form>
+	<!-- formEnd end -->
+	
+	<!-- brief start -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 padding_0_15">
+				<h5 style="line-height:1.5; color:#B7B8BC; font-size:13px;">{$goods.goods_brief}</h5>
+			</div>
+		</div>
+	</div>
+	<!-- brief end -->
+	
+	<!-- detail start -->	
+	<div class="container guige" style="margin-top:10px;">
+		<div class="row text-center guige-1">
+			<ul id="myTab" class="nav">
+				<li class="col-xs-6 active">
+					<h5 style="border-right: 1px solid #ccc; text-align:left;">
+					<a href="#guigecanshu" data-toggle="tab">规格参数</a>
+				</h5>
+				</li>
+				<li class="col-xs-6">
+					<h5 style="text-align:right;">
+					<a href="#xiangqing1" data-toggle="tab">内容详情 </a>
+				</h5>
+				</li>
+			</ul>
+			<div id="myTabContent" class="tab-content goods-detail">
+				<div class="table-responsive tab-pane fade in active" id="guigecanshu">
+					<table class="table table-bordered">
+						{foreach from=$properties item=property_group key=key}
+							{foreach from=$property_group item=property}								
+								<tr><td>{$property.name|escape:html}</td><td>{$property.value}</td></tr>
+							{/foreach}
+						{/foreach}
+					</table>
+				</div>
+				<div class="tab-pane fade" id="xiangqing1" style="width:100%;">{$goods.goods_desc}</div>
+			</div>
+		</div>
+	</div>
+	<!-- detail end -->
+	
+	<div class="container" style="position: fixed; bottom: 0; width: 100%;">
+		<div class="row">
+			<div class="col-xs-2 text-center padding_0">
+				<span class="glyphicon glyphicon-home" style="font-size: 18px;line-height: 39px;" onclick="location.href='index.php'"></span>
+			</div>
+			<div class="col-xs-4 text-center padding_0"  style="background-color: #F2F2F2;">
+				<h4 onclick="location.href='flow.php'">去结算</h4>
+			</div>
+			<div class="col-xs-6 text-center padding_0">
+				{if empty($specs)}
+					<button class="btn btn-primary" style="width: 100%; height: 39px;border-radius: 0;">暂时无法购买</button>
+				{else}
+					<button class="btn btn-danger" style="width: 100%; height: 39px;border-radius: 0;" onclick="addToCart({$goods.goods_id})">加入购物车</button>
+				{/if}
+			</div>
+		</div>
+	</div>
+	
+	
+</div>
+</body>
+
+
+<script type="text/javascript">
+var goods_id = {$goods_id};
+var goodsattr_style = {$cfg.goodsattr_style|default:1};
+var gmt_end_time = {$promote_end_time|default:0};
+{foreach from=$lang.goods_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+var goodsId = {$goods_id};
+var now_time = {$now_time};
+
+<!-- {literal} -->
+onload = function(){
+	changePrice();
+}
+
+var mySwiper =  $('.swiper-container').swiper({loop: true,autoplay: 5000,autoplayDisableOnInteraction : false, pagination: '.swiper-pagination',});
+
+//设置选中规格的样式
+$('.xiangqing h6').click(function(){
+	var dataid = $(this).attr('data-id');
+	var childs = $(this).closest('.col-xs-9').find('h6');
+	childs.each(function(index, dom){
+		if( $(dom).hasClass('checked') ){
+			$(dom).removeClass('checked');
+		}
+	});		
+	
+	$(this).addClass('checked');
+	document.getElementById('spec_value_'+dataid).click();
+	
+});
+
+/**
+ * 点选可选属性或改变数量时修改商品价格的函数
+ */
+function changePrice(){	
+	var attr = getSelectedAttributes(document.forms['ECS_FORMBUY']);
+	var qty = document.forms['ECS_FORMBUY'].elements['number'].value;	
+	jQuery.get("goods.php",{act:"price", id:goods_id, attr:attr, number:qty}, function(data){		
+		changePriceResponse(data);
+	}, 'json');
+}
+
+/**
+ * 接收返回的信息
+ */
+function changePriceResponse(res)
+{	
+	if (res.err_msg.length > 0)
+	{
+		alert(res.err_msg);
+	}
+	else
+	{		
+		document.forms['ECS_FORMBUY'].elements['number'].value = res.qty;
+		if (document.getElementById('ECS_GOODS_AMOUNT'))
+			document.getElementById('ECS_GOODS_AMOUNT').innerHTML = res.result;
+	}
+}
+
+function del(){
+	var num = document.getElementById("number");
+	var n = parseInt(num.value);
+	if(n-1<=0){
+		num.value = 1;
+	}else{
+		num.value = n-1;
+	}
+	changePrice();
+}
+function add(){
+	var num = document.getElementById("number");
+	var n = parseInt(num.value);
+	num.value = n+1;
+	changePrice();
+}
+function checkNum(num){
+	changePrice();
+}
+<!-- {/literal} -->
+</script>
+
+</html>

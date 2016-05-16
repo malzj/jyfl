@@ -1,0 +1,26 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="person_left">
+	<span class="person_tou">个人中心</span>
+	<ul class="person_list">
+		<li {if $action eq 'default'}class="per_cur"{/if}><a href="user.php"><span class="hy_p1"></span>我的華影</a></li>
+		<li {if $action eq 'order_list'}class="per_cur"{/if}><a href="user.php?act=order_list"><span class="hy_p2"></span>我的订单</a></li>
+		<li {if $action eq 'address_list'}class="per_cur"{/if}><a href="user.php?act=address_list"><span class="hy_p3"></span>收货地址</a></li>
+		<li {if $action eq 'bonus'}class="per_cur"{/if}><a href="user.php?act=bonus"><span class="hy_p4"></span>我的红包</a></li>
+		<!--<li {if $action eq 'account_log'}class="per_cur"{/if}><a href="user.php?act=account_log"><span class="hy_p2"></span>账户管理</a></li>-->
+		<li {if $action eq 'card_merge'}class="per_cur"{/if}><a href="user.php?act=card_merge"><span class="hy_p5"></span>卡合并</a></li>
+		<li {if $action eq 'account_deposit'}class="per_cur"{/if}><a href="user.php?act=account_deposit"><span class="hy_p5"></span>卡充值</a></li>
+		<li {if $action eq 'profile'}class="per_cur"{/if}><a href="user.php?act=profile"><span class="hy_p5"></span>卡密码</a></li>
+
+<!--
+		<li {if $action eq 'profile'}class="per_cur"{/if}><a href="user.php?act=profile"><span class="hy_p1"></span>个人信息</a></li>
+		<li {if $action eq 'order_list'}class="per_cur"{/if}><a href="user.php?act=order_list"><span class="hy_p2"></span>交易记录</a></li>
+		<li {if $action eq 'film_order'}class="per_cur"{/if}><a href="user.php?act=film_order"><span class="hy_p2"></span>影院订单</a></li>
+		<li {if $action eq 'dzq_order'}class="per_cur"{/if}><a href="user.php?act=dzq_order"><span class="hy_p2"></span>电子券订单</a></li>
+		<li {if $action eq 'yanchu_order'}class="per_cur"{/if}><a href="user.php?act=yanchu_order"><span class="hy_p2"></span>演出订单</a></li>
+		<li {if $action eq 'account_log'}class="per_cur"{/if}><a href="user.php?act=account_log"><span class="hy_p5"></span>账户管理</a></li>
+	-->	
+		
+		
+	</ul>
+	<p class="per_dg"><a href="article.php?id=34" target="_blank">查看订购帮助？</a></p>
+</div>

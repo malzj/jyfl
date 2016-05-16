@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+{insert_scripts files='jquery.region.js,utils.js'}
+
+<script type="text/javascript">
+<!--
+function setTab(name,cursel,n){
+	for(i=1;i<=n;i++){
+		var menu=document.getElementById(name+i);
+		var con=document.getElementById("con_"+name+"_"+i);
+		menu.className=i==cursel?"hover":"";
+		con.style.display=i==cursel?"block":"none";
+	}
+}
+//-->
+</script>
+
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+<div class="main_big">
+	<div class="main">
+		<!--当前位置 开始-->
+		<p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+		<!--当前位置 结束-->
+		{if $action == 'respond'}
+		<div class="hy2_detail01 hy2_bord">
+			<span class="hy2_ticket">电影票订购</span>
+			<div class="gw_s01" id="gw_you01">
+				<span class="gw_101">第一步：选择场次和座位</span>
+				<span class="litter01">第二步：确定订单信息并支付</span>
+				<span class="success01 white01">第三步：支付成功，去影院打印电影票</span>
+			</div>
+		</div>
+
+		<div class="hy2_dingdan01">
+			<div class="hy2_zhifu" style="margin-top:28px;">
+				<p class="zhifu_cheng_t1">订单支付成功</p>
+				<!-- <p class="zhifu_ts" style="text-align:center; margin-top:34px;"><span>温馨提示：</span>您的订单已经支付成功，我们会尽快帮您安排发货，请您耐心等待！</p> -->
+				<p class="zhifu_ts" style="text-indent:400px; margin-top:34px;"><a href="/">返回首页</a></p>
+				<div style="margin-left:280px;color:#c30000;float:left; margin-top:25px;">
+					<span class="label">温馨提示：</span>
+					<div class="field">
+						<p>1、支付成功后您将收到取票短信，建议您提前10分钟至影院终端机取票，以免排队耽误您的入场。</p>
+						<p>2、电影票一经售出概不退换，请在付款之前确定无误，敬请谅解！祝您观影愉快！</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		{elseif $action == 'payinfo'}
+		<div class="hy2_detail01 hy2_bord">
+			<span class="hy2_ticket">电影票订购</span>
+			<div class="gw_t01" id="gw_you01">
+				<span class="gw_101">第一步：选择场次和座位</span>
+				<span class="litter01 white01">第二步：确定订单信息并支付</span>
+				<span class="success01">第三步：支付成功，去影院打印电影票</span>
+			</div>
+		</div>
+		
+		<form name="shiting_order.php" name="myDoneForm" method="post" onsubmit="return checkPayForm();">
+		<input type="hidden" name="act" value="done" />
+		<div class="hy2_dingdan01">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table">
+				<tr>
+					<th width="17%" scope="col">影院名称</th>
+					<th width="19%" scope="col">影片名称</th>
+					<th width="17%" scope="col">时间场次</th>
+					<th width="17%" scope="col">版本信息</th>
+					<th width="4%" scope="col">厅</th>
+					<th width="17%" scope="col">座位信息</th>
+					<th width="9%" scope="col">数量</th>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table01">
+				<tr>
+					<th width="17%" scope="col"><img src="images/hy2_deng.jpg" width="14" height="19" alt="" />{$order.CinemaName}</th>
+					<th width="19%" scope="col">{$order.FilmName}</th>
+					<th width="18%" scope="col">{$order.best_time}</th>
+					<th width="17%" scope="col">{$order.languageType}</th>
+					<th width="4%" scope="col">{$order.HallName}</th>
+					<th width="17%" scope="col">{$order.SeatsName}</th>
+					<th width="8%" scope="col">{$order.number}</th>
+				</tr>
+				<tr>
+					<td colspan="7">
+						<div class="hy2_zj_box">
+							<span class="hy2_dd_total">总价：<span>{$order.order_amount}点</span></span>
+							<p class="hy2_sure">请再次确认接收短信验票码的手机号</p>
+							<p class="hy2_haoma_dh"><img src="/images/hy2_shouji.jpg" width="15" height="26" alt="" /><input type="text" name="mobile" id="mobile" value="手机号" onfocus="if (this.value == '手机号') this.value='';" class="hy2_shouji_hm" /><input type="button" value="确定" onclick="checkMobile()" class="hy2_sure1" /></p>
+							<p class="hy2_huan">开场前至影院大厅的自助验票机使用验票码获取纸质电影票，入场看电影。</p>
+						</div>
+						<div class="hy2_xianshi">
+							<p class="hy2_xian_t1">限时支付</p>
+							<p class="hy2_xian_t2">您订购的座位已成功锁定，请在限定时间内完成支付，否则系统将自动取消您的订单</p>
+							<p class="hy2_xian_t1">剩余时间<b id="times"></b></p>
+							<p class="hy2_xian_t2"> 您也可以 <a href="shiting_order.php?filmNo={$order.FilmNo}&date={$order.date}&cinemaNo={$order.CinemaNo}&seqNo={$order.SeqNo}&areaNo={$order.AreaNo}">重新选座</a> 或 <a href="/">返回首页</a></p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="hy2_dingdan01">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table">
+				<tr>
+					<th align="left" scope="col" style="text-indent:37px;">支付方式</th>
+				</tr>
+			</table>
+			<div class="hy2_zhifu">
+				<p class="hy2_zhi_t1 f_w"><span>華影卡号:</span>{$username}</p>
+				<p class="hy2_zhi_t1 f_w">
+					<span>華影卡密码</span>
+					<input type="password" name="password" id="password" value="" class="hy2_password" />
+					<span id="paySubmitSpan">
+						<input type="button" value="" id="paySubmit" class="hy2_js" onclick="checkMobileSub();" />
+					</span>
+				</p>
+				<div class="warm_prompt">
+					<span class="label">温馨提示：</span>
+					<div class="field">
+						<p>1、支付成功后您将收到取票短信，建议您提前10分钟至影院终端机取票，以免排队耽误您的入场。</p>
+						<p>2、电影票一经售出概不退换，请在付款之前确定无误，敬请谅解！祝您观影愉快！</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" name="order_id" value="{$order.order_id}" />
+		<input type="hidden" name="order_sn" value="{$order.order_sn}" />
+		</form>
+		<script type="text/javascript">
+		<!--
+			$(document).ready(function(){
+				if ($('#mobile').val() != '' && $('#mobile').val() != '手机号'){
+					$('#paySubmitSpan').html('<input type="submit" value="" id="paySubmit" class="hy2_js" />');
+				}
+				countDown('{$endPayTime}', 'times');
+			});
+			var checkSubmitFlg = false;
+			function checkMobileSub(){
+				var mobile = $('#mobile').val();
+				if (mobile == '' || mobile == '手机号'){
+					alert('请输入确认手机号码');
+					$('#mobile').focus();
+					return false;
+				}else{
+					alert('请点击确认按钮查看确认手机是否正确');
+					return false;
+				}
+			}
+			function checkMobile(){
+				var mobile = $('#mobile').val();
+				var oldMobile = '{$order.mobile}';
+				if (mobile != oldMobile){
+					alert('您输入的手机号码和选座时的手机号码不一致');
+					return false;
+				}else{
+					alert('输入正确，现在可以支付了');
+					$('#paySubmitSpan').html('<input type="submit" value="" id="paySubmit" class="hy2_js" />');
+					return true;
+				}
+			}
+			function checkPayForm(){
+				var amount       = {$order.order_amount};
+				var money        = {$money};
+				var order_sn     = '{$order.order_sn}';
+				var order_id     = '{$order.order_id}';
+				var mobile = $('#mobile').val();
+				
+				if(checkSubmitFlg == true){ 
+					alert('已提交过，请耐心等待');
+					return false;
+				}
+				
+				var reg = /^1[3,5,7,8]\d{9}$/;
+				if (mobile == ''){
+					alert('请输入确认手机号码');
+					return false;
+				}else if (!reg.test(mobile)){
+					alert('手机号码格式不正确！');
+					return false;
+				}
+				var oldMobile = '{$order.mobile}';
+				if (mobile != oldMobile){
+					alert('您输入的手机号码和选座时的手机号码不一致');
+					return false;
+				}
+
+				var pwd = document.getElementById('password').value;
+				if (pwd.length == 0){
+					alert('卡密码不能为空');
+					return false;
+				}
+				checkSubmitFlg ==true;
+				$('#paySubmit').attr('disabled', 'true');
+				return true;
+			}
+
+			function countDown(time, htmlId){
+				var end_time   = new Date(time).getTime(),//月份是实际月份-1
+					sys_second = (end_time - new Date().getTime()) / 1000;
+
+				var timer = setInterval(function(){
+					if (sys_second > 1) {
+						//sys_second -= 0.1;
+						sys_second -= 1;
+						var day     = Math.floor((sys_second / 3600) / 24);
+						var hour    = Math.floor((sys_second / 3600) % 24);
+						var minute  = Math.floor((sys_second / 60) % 60);
+						var second  = Math.floor(sys_second % 60);
+						//var msecond = Math.floor(sys_second * 10) % 10;
+
+						hour    = hour < 10 ? "0" + hour : hour;//计算小时
+						minute  = minute < 10 ? "0" + minute : minute;//计算分
+						second  = second < 10 ? "0" + second : second;// 计算秒
+
+						//document.getElementById(htmlId).innerHTML = (day ? day + 'd ' : '') + (hour ? hour + ':' : '') + (minute ? minute + ':' : '') + second + '.' + msecond;
+						document.getElementById(htmlId).innerHTML = (minute ? minute + '分' : '') + second + '秒';
+					} else {
+						//document.getElementById(htmlId).innerHTML = '00分00秒'
+						clearInterval(timer);
+						delOrder();//未在规定时间内完成支付删除订单
+						
+					}
+				//}, 100);
+				}, 1000);
+			}
+
+			function delOrder(){
+				var orderid = '{$order.order_id}';
+				$.get('shiting_order.php', {act:'delorder', 'order_id':orderid}, function (result){
+					alert('抱歉，您未在规定时间内完成支付，该订单已删除');
+					location.href = 'shiting.php?id=1';
+				});
+			}
+			
+		//-->
+		</script>
+		{elseif $action == 'dzqdh_respond'}
+		<div class="hy2_detail01 hy2_bord">
+			<span class="hy2_ticket">确认订单</span>
+			<div class="gw_t02" id="gw_you02">
+				<span class="gw_102">第一步：确定订单信息并支付</span>
+				<span class="litter02 white01">第二步：支付成功，去影院兑换电影票</span>
+			</div>
+		</div>
+		<div class="hy2_dingdan01">
+			<div class="hy2_zhifu" style="margin-top:28px;">
+				<p class="zhifu_cheng_t1">订单支付成功</p>
+				<!-- <p class="zhifu_ts" style="text-align:center; margin-top:34px;"><span>温馨提示：</span>您的订单已经支付成功，我们会尽快帮您安排发货，请您耐心等待！</p> -->
+				<p class="zhifu_ts" style="text-indent:400px; margin-top:34px;"><a href="/">返回首页</a></p>
+				<div style="margin-left:280px;color:#c30000;float:left; margin-top:25px;">
+					<span class="label">温馨提示：</span>
+					<div class="field">
+						<p>1、支付成功后您将收到电子码短信，请在有效期内持短信至该影院售票口兑换对应类型的影票入场观影。</p>
+						<p>2、电影票一经售出概不退换，请在付款之前确定无误，敬请谅解！祝您观影愉快！</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		{elseif $action == 'dzqdh_payinfo'}
+		<div class="hy2_detail01 hy2_bord">
+			<span class="hy2_ticket">确认订单</span>
+			<div class="Step02" id="gw_you02">
+				<span class="gw_102 white01">第一步：确定订单信息并支付</span>
+				<span class="litter02">第二步：支付成功，去影院兑换电影票</span>
+			</div>
+		</div>
+		<form name="shiting_order.php" name="myDoneForm" method="post" onsubmit="return checkPayForm();">
+		<input type="hidden" name="act" value="dzqdh_done" />
+		<div class="hy2_dingdan01">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table">
+				<tr>
+					<th width="25%" scope="col">影院名称</th>
+					<th width="25%" scope="col">电子劵类型</th>
+					<th width="15%" scope="col">有效期</th>
+					<th width="10%" scope="col">单价</th>
+					<th width="5%" scope="col">数量</th>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table01">
+				<tr>
+					<th width="25%" scope="col"><img src="/images/hy2_deng.jpg" width="14" height="19" alt="" />{$order.CinemaName}</th>
+					<th width="25%" scope="col">{$order.TicketName}</th>
+					<th width="15%" scope="col">{$order.TicketYXQ }</th>
+					<th width="10%" scope="col">{$order.sjprice}点</th>
+					<th width="5%" scope="col">{$order.number}</th>
+				</tr>
+				<tr>
+					<td colspan="5">
+						<div class="hy2_zj_box" style="width:100%;">
+							<span class="hy2_dd_total" style="width:100%; border-bottom:1px solid #e3e3e3;">总价：<span>{$order.order_amount}点</span></span>
+							<p class="hy2_sure">请再次确认接收短信验票码的手机号</p>
+							<p class="hy2_haoma_dh"><img src="/images/hy2_shouji.jpg" width="15" height="26" alt="" /><input type="text" name="mobile" id="mobile" value="手机号" onfocus="if (this.value == '手机号') this.value='';" class="hy2_shouji_hm" /><input type="button" value="确定" onclick="checkMobile()" class="hy2_sure1" /></p>
+							<p class="hy2_huan"><b>温馨提示：</b>该号码为接收电子码短信的手机号码，有效期内持短信至该影院售票口兑换对应类型的影票入场观影。</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="hy2_dingdan01">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table">
+				<tr>
+					<th align="left" scope="col" style="text-indent:37px;">支付方式</th>
+				</tr>
+			</table>
+			<div class="hy2_zhifu">
+				<p class="hy2_zhi_t1 f_w"><span>華影卡号:</span>{$username}</p>
+				<p class="hy2_zhi_t1 f_w">
+					<span>華影卡密码</span>
+					<input type="password" name="password" id="password" value="" class="hy2_password" />
+					<span id="paySubmitSpan">
+						<input type="button" value="" id="paySubmit" class="hy2_js" onclick="checkMobileSub();" />
+					</span>
+				</p>
+			</div>
+		</div>
+		<input type="hidden" name="order_id" value="{$order.order_id}" />
+		<input type="hidden" name="order_sn" value="{$order.order_sn}" />
+		</form>
+		<script type="text/javascript">
+		<!--
+			$(document).ready(function(){
+				if ($('#mobile').val() != '' && $('#mobile').val() != '手机号'){
+					$('#paySubmitSpan').html('<input type="submit" value="" id="paySubmit" class="hy2_js" />');
+				}
+			});
+			var checkSubmitFlg = false;
+			function checkMobile(){
+				var mobile = $('#mobile').val();
+				var oldMobile = '{$order.mobile}';
+				if (mobile != oldMobile){
+					alert('您输入的手机号码和购票时的手机号码不一致');
+					return false;
+				}else{
+					alert('输入正确，现在可以支付了');
+					$('#paySubmitSpan').html('<input type="submit" value="" id="paySubmit" class="hy2_js" />');
+					return true;
+				}
+			}
+			function checkMobileSub(){
+				var mobile = $('#mobile').val();
+				if (mobile == '' || mobile == '手机号'){
+					alert('请输入确认手机号码');
+					$('#mobile').focus();
+					return false;
+				}else{
+					alert('请点击确认按钮查看确认手机是否正确');
+					return false;
+				}
+			}
+			function checkPayForm(){
+				var amount       = {$order.order_amount};
+				var money        = {$money};
+				var order_sn     = '{$order.order_sn}';
+				var order_id     = '{$order.order_id}';
+				var mobile = $('#mobile').val();
+				
+				if(checkSubmitFlg == true){ 
+					alert('已提交过，请耐心等待');
+					return false;
+				}
+				
+				var reg = /^1[3,5,7,8]\d{9}$/;
+				if (mobile == ''){
+					alert('请输入确认手机号码');
+					return false;
+				}else if (!reg.test(mobile)){
+					alert('手机号码格式不正确！');
+					return false;
+				}
+				var oldMobile = '{$order.mobile}';
+				if (mobile != oldMobile){
+					alert('您输入的手机号码和选座时的手机号码不一致');
+					return false;
+				}
+
+				var pwd = document.getElementById('password').value;
+				if (pwd.length == 0){
+					alert('卡密码不能为空');
+					return false;
+				}
+				checkSubmitFlg ==true;
+				$('#paySubmit').attr('disabled', 'true');
+				return true;
+			}
+		//-->
+		</script>
+		{else}
+		<div class="hy2_detail01">
+			<span class="hy2_ticket">电影票订购</span>
+			<div class="Step01" id="gw_you01">
+				<span class="gw_101 white01">第一步：选择场次和座位</span>
+				<span class="litter01">第二步：确定订单信息并支付</span>
+				<span class="success01">第三步：支付成功，去影院打印电影票</span>
+			</div>
+		</div>
+
+		<div class="hy2_detail02">
+			<div class="hy2_detail02_left">
+				<p class="hy2_detail02_lt"><span>温馨提示：</span>如果您在观看3D版本的影片时，中途离场请携带3D眼镜，以免工作人员禁止您正常出入影厅。</p>
+				<div class="hy2_detail02_ld01">
+					<div class="hy2_xuanzuo">
+						<span><img src="/images/hy2_de01.jpg" width="17" height="24" alt="可选座" />可选座</span>
+						<span><img src="/images/hy2_de02.jpg" width="34" height="24" alt="情侣座" />情侣座</span>
+						<span><img src="/images/hy2_de03.jpg" width="17" height="24" alt="已选座" />已选座</span>
+						<span><img src="/images/hy2_de04.jpg" width="21" height="24" alt="不可选座位" />不可选座位</span>
+					</div>
+					<p class="hy2_fangxiang">{$seqInfo.HallName}银幕方向</p>
+					<div class="hy2_zuowei">
+						<p class="zzx">中轴线</p>
+						<span class="zzx_bg"></span>
+						<table cellspacing="0" cellpadding="0" border="0" id="table_SeatList">
+							<tbody>
+								{foreach from=$seatInfo item=seat name=seat}
+								<tr id="{$seat.LocNo}_{$seat.RowNo}" seatimgrow="{$seat.SeatImgRow}" rowno="{$seat.RowNo}" locno="{$seat.LocNo}">
+									<td>
+									<table cellpadding="0" cellspacing="0" border="0" width="{$width}">
+									<tr>
+									<td align="left" width="{$seat.firstColumn}" valign="middle" height="40">
+										<span style="white-space: nowrap;" class=" f12">{$seat.SeatImgRow}</span>&nbsp;&nbsp;
+									</td>
+									{foreach from=$seat[Column][0] item=column name=column}
+									<td align="center" width="17" valign="middle" height="40"{if $column.SeatType == 2} colspan="2"{/if}>
+										{if $column.SeatType == 1}<!-- 普通座位 -->
+										
+										{if $column.SeatStatus == 2}<!-- 维修 -->
+										<a class="locked" seatimgrow="{$seat.SeatImgRow}" rowno="{$seat.RowNo}" locno="{$seat.LocNo}" columnno="{$column.ColumnNo}" title="{$seat.RowNo}排{$column.ColumnNo}座" seatno="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" id="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" href="javascript:void(0);"><img width="17" height="24" src="/images/hy2_de01_wx.jpg" alt="{$seat.SeatImgRow}排{$column.ColumnNo}座" id="img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}"></a>
+										{elseif $column.SeatStatus == 1}<!-- 已售 -->
+										<a class="locked" seatimgrow="{$seat.SeatImgRow}" rowno="{$seat.RowNo}" locno="{$seat.LocNo}" columnno="{$column.ColumnNo}" title="{$seat.RowNo}排{$column.ColumnNo}座" seatno="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" id="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" href="javascript:void(0);"><img width="17" height="24" src="/images/hy2_de04.jpg" alt="{$seat.SeatImgRow}排{$column.ColumnNo}座" id="img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}"></a>
+										{else}<!-- 可选 -->
+										<a seatimgrow="{$seat.SeatImgRow}" rowno="{$seat.RowNo}" locno="{$seat.LocNo}" columnno="{$column.ColumnNo}" title="{$seat.RowNo}排{$column.ColumnNo}座" onclick="changeSeatImg(this,'img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}');" seatno="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" id="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" href="javascript:void(0);">
+										<img width="17" height="24" src="/images/hy2_de01.jpg" alt="{$seat.RowNo}排{$column.ColumnNo}座" id="img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}">
+										</a>
+										{/if}
+
+										{elseif $column.SeatType == 2}<!-- 情侣座位 -->
+
+										{if $column.SeatStatus == 2}
+										<a class="locked" seatimgrow="{$seat.SeatImgRow}" rowno="{$seat.RowNo}" locno="{$seat.LocNo}" columnno="{$column.ColumnNo}" title="{$seat.RowNo}排{$column.ColumnNo}座" seatno="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" id="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" href="javascript:void(0);"><img width="18" height="16" src="/images/hy2_de02_wx.jpg" alt="{$seat.RowNo}排{$column.ColumnNo}座" id="img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}"></a>
+										{elseif $column.SeatStatus == 1}
+										<a class="locked" seatimgrow="{$seat.SeatImgRow}" rowno="{$seat.RowNo}" locno="{$seat.LocNo}" columnno="{$column.ColumnNo}" title="{$seat.RowNo}排{$column.ColumnNo}座" seatno="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" id="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" href="javascript:void(0);"><img width="18" height="16" src="/images/hy2_de02_ys.jpg" alt="{$seat.RowNo}排{$column.ColumnNo}座" id="img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}"></a>
+										{else}
+										<a seatimgrow="{$seat.SeatImgRow}" rowno="{$seat.RowNo}" locno="{$seat.LocNo}" columnno="{$column.ColumnNo}" title="{$seat.RowNo}排{$column.ColumnNo}座" onclick="changeSeatImg(this,'img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}');" seatno="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" id="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" href="javascript:void(0);">
+										<img width="18" height="16" src="/images/hy2_de02.jpg" alt="{$seat.RowNo}排{$column.ColumnNo}座" id="img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}">
+										</a>
+										{/if}
+										{elseif $column.SeatType == 3}<!-- 走廊 -->
+										&nbsp;
+										{/if}
+									</td>
+									{/foreach}
+									<td width="20" style="background:url(/images/hy2_de_bg2_zzx.png) no-repeat center top;">&nbsp;</td>
+									{foreach from=$seat[Column][1] item=column name=column}
+									<td align="center" width="17" valign="middle" height="40"{if $column.SeatType == 2} colspan="2"{/if}>
+										{if $column.SeatType == 1}<!-- 普通座位 -->
+										
+										{if $column.SeatStatus == 2}<!-- 维修 -->
+										<a class="locked" seatimgrow="{$seat.SeatImgRow}" rowno="{$seat.RowNo}" locno="{$seat.LocNo}" columnno="{$column.ColumnNo}" title="{$seat.RowNo}排{$column.ColumnNo}座" seatno="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" id="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" href="javascript:void(0);"><img width="17" height="24" src="/images/hy2_de01_wx.jpg" alt="{$seat.RowNo}排{$column.ColumnNo}座" id="img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}"></a>
+										{elseif $column.SeatStatus == 1}<!-- 已售 -->
+										<a class="locked" seatimgrow="{$seat.SeatImgRow}" rowno="{$seat.RowNo}" locno="{$seat.LocNo}" columnno="{$column.ColumnNo}" title="{$seat.RowNo}排{$column.ColumnNo}座" seatno="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" id="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" href="javascript:void(0);"><img width="17" height="24" src="/images/hy2_de04.jpg" alt="{$seat.RowNo}排{$column.ColumnNo}座" id="img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}"></a>
+										{else}<!-- 可选 -->
+										<a seatimgrow="{$seat.SeatImgRow}" rowno="{$seat.RowNo}" locno="{$seat.LocNo}" columnno="{$column.ColumnNo}" title="{$seat.RowNo}排{$column.ColumnNo}座" onclick="changeSeatImg(this,'img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}');" seatno="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" id="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" href="javascript:void(0);">
+										<img width="17" height="24" src="/images/hy2_de01.jpg" alt="{$seat.RowNo}排{$column.ColumnNo}座" id="img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}">
+										</a>
+										{/if}
+
+										{elseif $column.SeatType == 2}<!-- 情侣座位 -->
+
+										{if $column.SeatStatus == 2}
+										<a class="locked" seatimgrow="{$seat.SeatImgRow}" rowno="{$seat.RowNo}" locno="{$seat.LocNo}" columnno="{$column.ColumnNo}" title="{$seat.RowNo}排{$column.ColumnNo}座" seatno="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" id="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" href="javascript:void(0);"><img width="18" height="16" src="/images/hy2_de02_wx.jpg" alt="{$seat.RowNo}排{$column.ColumnNo}座" id="img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}"></a>
+										{elseif $column.SeatStatus == 1}
+										<a class="locked" seatimgrow="{$seat.SeatImgRow}" rowno="{$seat.RowNo}" locno="{$seat.LocNo}" columnno="{$column.ColumnNo}" title="{$seat.RowNo}排{$column.ColumnNo}座" seatno="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" id="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" href="javascript:void(0);"><img width="18" height="16" src="/images/hy2_de02_ys.jpg" alt="{$seat.RowNo}排{$column.ColumnNo}座" id="img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}"></a>
+										{else}
+										<a seatimgrow="{$seat.SeatImgRow}" rowno="{$seat.RowNo}" locno="{$seat.LocNo}" columnno="{$column.ColumnNo}" title="{$seat.RowNo}排{$column.ColumnNo}座" onclick="changeSeatImg(this,'img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}');" seatno="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" id="{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}" href="javascript:void(0);">
+										<img width="18" height="16" src="/images/hy2_de02.jpg" alt="{$seat.RowNo}排{$column.ColumnNo}座" id="img_{$seat.LocNo}_{$seat.RowNo}_{$column.ColumnNo}">
+										</a>
+										{/if}
+										{elseif $column.SeatType == 3}<!-- 走廊 -->
+										&nbsp;
+										{/if}
+									</td>
+									{/foreach}
+									</tr>
+									</table>
+									</td>
+								</tr>
+								{/foreach}
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<ul class="hy2_detail02_ld02">
+					<li class="f_w">注意事项：</li>
+					<li>1、选择你要预订的座位单击选中，重复点击取消所选座位；</li>
+					<li>2、每笔订单最多可选购5张电影票；情侣座不单卖；</li>
+					<li>3、选座时，请尽量选择相邻座位，请不要留下单个座位；</li>
+					<li>4、部分影院3D眼镜需要押金，请观影前准备好现金；</li>
+					<li>5、进入付款页面后，请15分钟内完成支付，超时系统将释放你选定的座位；</li>
+					<li>6、选座购票为特殊商品，出票成功后，如无使用问题，不得退换；</li>
+					<li>7、付款后若没有出票成功，我们将自动为您退款。出票成功后，请牢记取票密码，</li>
+					<li>若没有收到取票短信，请到订票中心查询，或拨打客服电话4000-998-998。</li>
+				</ul>
+			</div>
+			<form action="shiting_order.php" method="post" name="orderForm" onsubmit="return checkOrderForm(this);">
+			<input type="hidden" name="act" value="order" />
+			<input type="hidden" name="areaNo" value="{$areaNo}" />
+			<input type="hidden" name="filmNo" value="{$filmInfo.FilmNo}" />
+			<input type="hidden" name="cinemaNo" value="{$cinemaInfo.CinemaNo}" />
+			<input type="hidden" name="seqNo" value="{$seqInfo.SeqNo}" />
+			<input type="hidden" name="hallNo" value="{$seqInfo.HallNo}" />
+			<input type="hidden" name="price" value="{$seqInfo.SalePrice}" />
+			<input type="hidden" name="seats" id="Seats" value="" />
+			<input type="hidden" name="seatsName" id="seatsName" value="" />
+			<input type="hidden" name="seatsCount" id="SeatsCount" value="" />
+			<input type="hidden" name="best_time" id="best_time" value="{$date} 周{$week} {$seqInfo.ShowTime}" />
+			<input type="hidden" name="filmName" id="filmName" value="{$filmInfo.FilmName}" />
+			<input type="hidden" name="cinemaName" id="cinemaName" value="{$cinemaInfo.CinemaName}{$areaname}" />
+			<input type="hidden" name="hallName" id="hallName" value="{$seqInfo.HallName}" />
+			<input type="hidden" name="languageType" id="languageType" value="{$seqInfo.Language}/{$seqInfo.ShowType}" />
+			<input type="hidden" name="dateline" id="dateline" value="{$time}" />
+
+			<div class="hy2_detail02_right">
+				<p class="hy2_detail02_rt"></p>
+				<div class="hy2_detail02_rc">
+					<div class="hy2_detail02_rc1">
+						<ul class="hy2_detail01_list01">
+							<li><span class="hy2_yingyuan">影院：</span>{$cinemaInfo.CinemaName}{$areaname}</li>
+							<li><span class="hy2_yingyuan">影厅：</span>{$seqInfo.HallName}</li>
+							<li><span class="hy2_yingyuan">影片：</span>{$filmInfo.FilmName}</li>
+							<li><span class="hy2_yingyuan">版本：</span>{$ShowTypes[$seqInfo.ShowType]}</li>
+							<li><span class="hy2_yingyuan">语言：</span>{$seqInfo.Language}</li>
+							<li><span class="hy2_yingyuan">售价：</span><b id="salePrice">{$seqInfo.SalePrice1}</b>点</li>
+							<li><span class="hy2_yingyuan">时间：</span><b>{$date} 周{$week} {$seqInfo.ShowTime}</b></li>
+							<li><span class="hy2_yingyuan">所选座位</span></li>
+							<li id="seatSelectedList"></li>
+							<li id="price"></li>
+						</ul>
+						<p class="hy2_total" id="amount"></p>
+						<p class="hy2_phone">请输入取票手机号码</p>
+						<p class="hy2_phone mt10"><input type="text" name="mobile" id="mobile" value="" class="hy2_haoma" /></p>
+						<p class="hy2_phone mt10"><input type="submit" name="submit" value="" class="hy2_tj" /></p>
+						<p class="hy2_phone" style="margin-top:24px;">本产品不支持退换，请见谅。</p>
+					</div>
+					<p class="hy2_img"><a href="#"><img src="/images/hy2_de_img.jpg" width="300" height="68" alt="" /></a></p>
+				</div>
+				<p class="hy2_detail02_rd"></p>
+			</div>
+			</form>
+		</div>
+		{/if}
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+<script type="text/javascript">
+<!--
+function changeSeatImg(obj, imgId){
+	
+	var $_locno    = $(obj).attr('locno');//庁区
+	var $_rowno    = $(obj).attr('rowno');//排
+	var $_columnno = Number($(obj).attr('columnno'));//座
+
+	var is_zero = $(obj).attr('columnno').substr(0, 1) == '0' ? true : false;//判断座位号9以下的数字是否有前导0
+	if (is_zero){
+		var prevId = $_locno+'_' + $_rowno + '_' + (($_columnno - 1) < 10 ? '0' + ($_columnno - 1) : ($_columnno - 1));
+		var nextId = $_locno+'_' + $_rowno + '_' + (($_columnno + 1) < 10 ? '0' + ($_columnno + 1) : ($_columnno + 1));
+
+		var pPrevId = $_locno+'_' + $_rowno + '_' + (($_columnno - 2) < 10 ? '0' + ($_columnno - 2) : ($_columnno - 2));
+		var nNextId = $_locno+'_' + $_rowno + '_' + (($_columnno + 2) < 10 ? '0' + ($_columnno + 2) : ($_columnno + 2));
+	}else{
+		var prevId = $_locno+'_' + $_rowno + '_' + ($_columnno - 1);
+		var nextId = $_locno+'_' + $_rowno + '_' + ($_columnno + 1);
+
+		var pPrevId = $_locno+'_' + $_rowno + '_' + ($_columnno - 2);
+		var nNextId = $_locno+'_' + $_rowno + '_' + ($_columnno + 2);
+	}
+
+	var $_l = $('#'+prevId); //获取上一个座位
+	var $_r = $('#'+nextId); //获取下一个座位
+
+	var $_l_l = $('#'+pPrevId); //获取上一个座位的上一个座位
+	var $_r_r = $('#'+nNextId); //获取下一个座位的下一个座位
+
+	if ($(obj).hasClass('selected')){//该座位是否选中
+
+		if (($_l.hasClass('selected') && !$_r.hasClass('selected')) || (!$_l.hasClass('selected') && $_r.hasClass('selected'))){
+			//如果左边有选中右边没选中或左边没选中右边选中
+			$(obj).removeClass("selected"); //移除选中状态
+			$('#' + imgId).attr("src", "/images/hy2_de01.jpg");
+		}else if ($_l_l.hasClass('selected') && $_r.hasClass('selected')){//左边+2选中右边也选中
+			$(obj).removeClass("selected"); //移除选中状态
+			$('#' + imgId).attr("src", "/images/hy2_de01.jpg");
+			$_r.removeClass('selected');
+			$('#img_'+nextId).attr("src", "/images/hy2_de01.jpg");
+			$('#span_'+nextId).remove();
+		}else if ($_r_r.hasClass('selected') && $_l.hasClass('selected')){//右边+2选中左边也选中
+			$(obj).removeClass("selected"); //移除选中状态
+			$('#' + imgId).attr("src", "/images/hy2_de01.jpg");
+			$_l.removeClass('selected');
+			$('#img_'+prevId).attr("src", "/images/hy2_de01.jpg");
+			$('#span_'+prevId).remove();
+		}else if ($_l.hasClass('selected') && $_r.hasClass('selected')){//左右都选中针对共选中3个座位
+			$(obj).removeClass("selected"); //移除选中状态
+			$('#' + imgId).attr("src", "/images/hy2_de01.jpg");
+			$_r.removeClass('selected');
+			$('#img_'+nextId).attr("src", "/images/hy2_de01.jpg");
+			$('#span_'+nextId).remove();
+		}else{//左右都没选中
+			$(obj).removeClass("selected"); //移除选中状态
+			$('#' + imgId).attr("src", "/images/hy2_de01.jpg");
+		}
+		
+		if (!$(obj).hasClass("selected")) {
+			$("#seatSelectedList span").each(function() {
+				if ($(this).attr("id").substr(5) == $(obj).attr("id")) {
+					$(this).remove();
+				}
+			});
+		}
+	}else{
+		if ($("#seatSelectedList span").length >= 4) {
+			alert("对不起，每笔订单最多可购4个座位！！");
+			return false;
+		}else{
+			var _selected  = new Array();
+			var _locked    = new Array();
+			$.each($('#'+$_locno+'_'+$_rowno).find('a'), function (k, v){
+				if ($(this).hasClass('selected')){//自己选择的座位
+					_selected.push($(this).attr('columnno'));
+				}
+				if ($(this).hasClass('locked')){//系统已售出或维修的座位号
+					_locked.push($(this).attr('columnno'));
+				}
+			});
+			
+			var is_selected = _selected.length > 0 ? false : true;
+			for (var i=0; i<_selected.length; i++){
+				if ($_columnno + 1 == _selected[i] || $_columnno - 1 == _selected[i]){
+					is_selected = true;
+				}
+			}
+			if (!is_selected && _selected.length > 0){
+				for (var i=0; i<_locked.length; i++){
+					if ($_columnno + 1 == _locked[i] || $_columnno - 1 == _locked[i]){
+						is_selected = true;
+					}
+				}
+			}
+
+			if (!is_selected){
+				alert('请连续选择座位，不要留下单个的空闲座位！');
+				return false;
+			}else{
+				$(obj).addClass("selected");
+				$('#'+imgId).attr('src', '/images/hy2_de03.jpg');
+			}
+		}
+	}
+
+	if ($(obj).hasClass('selected')){
+		var _span_html = '<span class="hy2_weizhi" id="span_'+$(obj).attr("seatno")+'" locno="'+$_locno+'">'+$(obj).attr("title")+'</span>';
+		$("#seatSelectedList").append(_span_html);
+		$('#'+imgId).attr('src', '/images/hy2_de03.jpg');
+	}
+	$('#price').html('<span class="hy2_yingyuan">合计：</span><span class="f14" id="total_praice">'+$("#salePrice").text() + '点 * ' + $("#seatSelectedList span").length + '</span>');
+	$('#amount').html('总价：<span>' + parseFloat($("#seatSelectedList span").length * $("#salePrice").text()).toFixed(2) + '点</span>');
+	var selectedVal = "";
+	var selectedName = '';
+	
+	$("#seatSelectedList span").each(function() {
+		if (selectedVal == "") {
+			selectedVal = $(this).attr("id").substr(5);
+			selectedName = $(this).attr("locno")+'区'+$(this).text();
+		} else {
+			selectedVal = selectedVal + "|" + $(this).attr("id").substr(5);
+			selectedName = selectedName + '|' + $(this).attr("locno")+'区'+$(this).text();
+		}
+	});
+	$('#Seats').val(selectedVal);
+	$('#seatsName').val(selectedName);
+	$('#SeatsCount').val($("#seatSelectedList span").length);
+}
+
+function checkOrderForm(obj){
+	if ($('#Seats').val() == ''){
+		alert('请先选择座位！');
+		return false;
+	}
+	var cardMoney = '{$money}';
+	var amount    = parseFloat($("#seatSelectedList span").length * $("#salePrice").text());
+
+	if (amount > cardMoney){
+		alert('您的卡余额不足');
+		return false;
+	}
+
+	if ($('#mobile').val() == ''){
+		alert('手机号码不能为空！');
+		return false;
+	}else{
+		var reg = /^1[3,5,7,8]\d{9}$/;
+		if (!reg.test( $('#mobile').val() )){
+			alert('手机号码格式不正确！');
+			return false;
+		}
+	}
+
+	return true;
+}
+
+//-->
+</script>
+
+</body>
+</html>

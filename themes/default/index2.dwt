@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<link href="/css/index.css" rel="stylesheet" type="text/css" />
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript"  src="/js/carouse.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<script type="text/javascript"  src="/js/jquery_easing.js"></script>
+<script type="text/javascript" src="/js/jquery.pin.min.js"></script>
+
+<style>
+img{display:inline-block;}
+</style>
+<script>
+
+(function($){
+    $.fn.hoverDelay = function(options){
+        var defaults = {
+            hoverDuring: 200,
+            outDuring: 200,
+            hoverEvent: function(){
+                $.noop();
+            },
+            outEvent: function(){
+                $.noop();    
+            }
+        };
+        var sets = $.extend(defaults,options || {});
+        var hoverTimer, outTimer;
+        return $(this).each(function(){
+            $(this).hover(function(){
+                clearTimeout(outTimer);
+                hoverTimer = setTimeout(sets.hoverEvent, sets.hoverDuring);
+            },function(){
+                clearTimeout(hoverTimer);
+                outTimer = setTimeout(sets.outEvent, sets.outDuring);
+            });    
+        });
+    }      
+})(jQuery);
+</script>
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+<div style="position:relative;margin:0 auto; min-width:1200px; max-width:1920px; margin-top:140px;">
+  <!--幻灯片-->
+  <div id="carousel1" name="0">
+	<!-- TemplateBeginEditable name="首页flash广告1" -->
+    <!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+    {insert name='ads' id=$ads_id num=$ads_num}
+     <!-- #EndLibraryItem -->
+    <!-- TemplateEndEditable -->
+  </div>
+  <!--幻灯片结束-->
+  <div style="width:1250px;margin:0 auto; height:auto; position:relative; " class="outer">
+  
+  <div style="width:50px; float:left;">
+  	<div class="wang-cong">
+      {foreach from=$cenglist item=leftposition}
+      <div class="ceng n-ceng-{$leftposition.id}" data-miao="ceng-{$leftposition.id}"><img src="/images/index/fasd_{$leftposition.id}.gif" title="{$leftposition.name}"></div>   
+      {/foreach}   
+    </div>        
+  </div>
+  
+  <div style="width:1200px; float:left;">
+  	{foreach from=$cenglist item=clist}
+     <div class='fl' id='ceng-{$clist.id}'>
+      <div class="wang-f1">
+        <div style="display:inline-block;float:left;""><img src="/images/index/fasd_{$clist.id}.gif" width="21" height="22" style="vertical-align: sub;"/><span class="audio-visual">{$clist.name}</span></div>
+        <div class="wang-option">
+          <ul>
+          {foreach from=$clist.child item=childs name=foo}
+            <li {if $smarty.foreach.foo.index eq 0} class="wang-ch1"{/if} data-tp='{$childs.templates}' data-fu="{$childs.function}" data-ads="{$childs.ads}" data-fid="{$childs.fid}" data-height="{$clist.height}" data-size="{$childs.size}"><a target="_blank" href="{$childs.url}">{$childs.name}</a></li>
+          {/foreach}
+          </ul>
+        </div>
+      </div>
+      <div class="wof" style="height:{$clist.height}">
+       
+      </div>
+    </div>
+    {/foreach}
+  </div>
+   
+ </div>
+</div>
+ <!-- <div style="width:1200px;margin:0 auto;">
+    
+    <div>
+      <div class="wang-f1">
+        <div style="display:inline-block;float:left;""><img src="//images/index/index/fasd_03.gif" width="21" height="22" style="vertical-align: sub;"/><span class="audio-visual">视听盛宴</span></div>
+        <div class="wang-option">
+          <ul>
+            <li class="wang-ch1">电影</li>
+            <li>演唱会</li>
+            <li>话剧</li>
+            <li>音乐会</li>
+            <li>体育赛事</li>
+            <li>亲子儿童</li>
+            <li>戏曲综艺</li>
+          </ul>
+        </div>
+      </div>
+      <div class="wof">
+        <div class="wof1"> <img src="/images/index/dy_03.gif" /> </div>
+        <div class="wof2">
+          <div class="wof3"> <a href=""><img src="/images/index/dy_06.gif" /></a>
+            <p class="wp1">西游记之大圣归来</p>
+            <p>导演：田晓鹏</p>
+            <p>类型：喜剧</p>
+            <p>片长：113分钟</p>
+            <p>上映时间：2015-07-17</p>
+          </div>
+          <div class="wof3"> <a href=""><img src="/images/index/dy_08.gif" /></a>
+            <p class="wp1">西游记之大圣归来</p>
+            <p>导演：田晓鹏</p>
+            <p>类型：喜剧</p>
+            <p>片长：113分钟</p>
+            <p>上映时间：2015-07-17</p>
+          </div>
+          <div class="wof3"> <a href=""><img src="/images/index/dy_10.gif" /></a>
+            <p class="wp1">西游记之大圣归来</p>
+            <p>导演：田晓鹏</p>
+            <p>类型：喜剧</p>
+            <p>片长：113分钟</p>
+            <p>上映时间：2015-07-17</p>
+          </div>
+          <div class="wof3"> <a href=""><img src="/images/index/dy_12.gif" /></a>
+            <p class="wp1">西游记之大圣归来</p>
+            <p>导演：田晓鹏</p>
+            <p>类型：喜剧</p>
+            <p>片长：113分钟</p>
+            <p>上映时间：2015-07-17</p>
+          </div>
+          <div class="wof3"> <a href=""><img src="/images/index/dy_18.gif" /></a>
+            <p class="wp1">西游记之大圣归来</p>
+            <p>导演：田晓鹏</p>
+            <p>类型：喜剧</p>
+            <p>片长：113分钟</p>
+            <p>上映时间：2015-07-17</p>
+          </div>
+          <div class="wof3"> <a href=""><img src="/images/index/dy_19.gif" /></a>
+            <p class="wp1">西游记之大圣归来</p>
+            <p>导演：田晓鹏</p>
+            <p>类型：喜剧</p>
+            <p>片长：113分钟</p>
+            <p>上映时间：2015-07-17</p>
+          </div>
+          <div class="wof3"> <a href=""><img src="/images/index/dy_21.jpg" /></a>
+            <p class="wp1">西游记之大圣归来</p>
+            <p>导演：田晓鹏</p>
+            <p>类型：喜剧</p>
+            <p>片长：113分钟</p>
+            <p>上映时间：2015-07-17</p>
+          </div>
+          <div class="wof3"> <a href=""><img src="/images/index/dy_20.gif" /></a>
+            <p class="wp1">西游记之大圣归来</p>
+            <p>导演：田晓鹏</p>
+            <p>类型：喜剧</p>
+            <p>片长：113分钟</p>
+            <p>上映时间：2015-07-17</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <div class="wang-f1">
+        <div style="display:inline-block;float:left;""><img src="/images/index/fasd_07.gif" width="21" height="22" style="vertical-align: sub;"/><span class="audio-visual">生活服务</span></div>
+        <div class="wang-option">
+          <ul>
+            <li class="wang-ch1">蛋糕 </li>
+            <li>鲜花</li>
+            <li>蔬菜</li>
+            <li>禽肉</li>
+            <li>海鲜</li>
+            <li>五谷杂粮</li>
+            <li>粮油牛奶</li>
+          </ul>
+        </div>
+      </div>
+      <div class="wof">        
+        <div class="fl louceng-list">   
+          <div class="wf3" style="width:399px"> <a href="#"><img src="/images/index/fadgga_03.jpg" width="399" height="240" /></a></div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>     
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3" style="width:399px"> <a href="#"><img src="/images/index/fadgga_03.jpg" width="399" height="240" /></a></div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>          
+        </div>
+      </div>
+    </div>
+   
+    <div>
+      <div class="wang-f1">
+        <div style="display:inline-block;float:left;""><img src="/images/index/fasd_11.gif" width="21" height="28" style="vertical-align: sub;"/><span class="audio-visual">运动激情</span></div>
+        <div class="wang-option">
+          <ul>
+            <li class="wang-ch1">胜道体育</li>
+            <li style="margin-left:34px;">探路者</li>
+          </ul>
+        </div>
+      </div>
+     
+      <div class="wof">
+       
+      </div>
+    </div>
+    
+    
+    <div>
+      <div class="wang-f1">
+        <div style="display:inline-block;float:left;""><img src="/images/index/fasd_15.gif" width="21" height="22" style="vertical-align: sub;"/><span class="audio-visual">生活服务</span></div>
+        <div class="wang-option">
+          <ul>
+            <li class="wang-ch1">荣昌伊尔萨洗衣 </li>
+            <li  style="margin-left:70px;">鲜花</li>
+          </ul>
+        </div>
+      </div>
+      <div class="wof">
+        <div class="fl louceng-ad">
+        	<a href=""><img width="255" height="480"  src="/images/index/fadgga_03.jpg"/></a>
+        </div>
+        <div class="fl louceng-list">
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="http://www.huayingcul.com/images/201505/thumb_img/1215_thumb_G_1431417913773.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="http://www.huayingcul.com/images/201505/thumb_img/1214_thumb_G_1431418141151.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>
+          <div class="wf3"> <a href="#"><img width="170" height="170" src="/images/index/fadgga_06.jpg" /></a> <a href="#" class="a1">The Nut Job Big 布萊克</a>
+            <p>230点</p>
+          </div>          
+        </div>
+
+      </div>
+    </div>
+    
+    <div>
+      <div class="wang-f1">
+        <div style="display:inline-block;float:left;""><img src="/images/index/fasd_19.png" width="21" height="22" style="vertical-align: sub;"/><span class="audio-visual">智慧之门</span></div>
+        <div class="wang-option">
+          <ul>
+            <li class="wang-ch1">图书</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+      </div>
+      <div >
+        <div >
+          <div class="tushu"><img src="/images/index/wew_11.gif" /></div>
+          <div class="tusd"><img src="/images/index/wew_13.gif" /></div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>-->
+   
+<div style=" clear:both;"></div>
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+<script>
+
+
+$( document ).ready( function (){
+
+	$(".wang-option ul li").each(function(){
+		category_ajax_index($(this));
+	});
+	
+	$(".wang-option ul li").each(function(){
+		if($(this).hasClass('wang-ch1')){
+			loading_index($(this));
+		}
+	});
+		
+	// 经过加载数据
+	function category_ajax_index(that){
+		that.hoverDelay({           
+			hoverEvent: function(){
+				loading_index(that);
+			}
+		});
+	}
+	
+	// 默认加载第一个
+	function loading_index(that){
+		
+		// 改变选项卡样式
+		that.siblings().removeClass('wang-ch1');
+		that.addClass('wang-ch1'); 
+		// 得到模板、方法、广告、id 
+		var attr = ['data-tp','data-fu','data-ads','data-fid','data-size'];
+		var str = '';
+		$.each(attr, function(index,name){
+			str += eval('name')+'='+that.attr(eval('name'))+'&';
+		}); 
+		// ajax 加载
+		$.ajax({
+			url:'index2.php?act=index_category&'+str,
+			dataType:'json',
+			beforeSend:function(){
+				var cheight = that.attr('data-height'); 
+				that.closest('.wang-f1').next('.wof').html('<center style="line-height:'+cheight+'; height:'+cheight+'; text-align:center;">加载中...</center>');
+			},
+			success:function(data){
+				that.closest('.wang-f1').next('.wof').css('border',0);
+				that.closest('.wang-f1').next('.wof').html(data.content);
+			}
+			
+		});
+			
+	}	
+	
+	// 页面定位
+	$(".wang-cong").pin();
+	// 描点跳转
+	$('.ceng').click(function(){
+		var miao = $(this).attr('data-miao');
+		$("html,body").animate({scrollTop:$('#'+miao).offset().top-130},300)
+	});
+	
+	// 锚点滚动定位
+	$(window).scroll(function () {
+		var cengList = [];
+		$(".wang-cong .ceng").each(function(index,dom){	cengList.push($(dom).attr('data-miao'));});
+		$.each(cengList , function(i,x){
+			var divTop = $("#"+x).offset().top;
+			var scTop = $('body').scrollTop();
+			if(  divTop-scTop < 250 && divTop-scTop > 100){	
+				$(".wang-cong .ceng").each(function(index,dom){
+					 $(dom).removeClass('cut');
+				});			
+				$('.n-'+x).addClass('cut');
+			}
+		});
+		
+	})
+	
+});
+		
+</script>
+
+</body>
+</html>

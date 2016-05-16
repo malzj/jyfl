@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta name="Description" content="{$description}" />
+{if $auto_redirect}
+<meta http-equiv="refresh" content="3;URL={$message.back_url}" />
+{/if}
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+<!-- 主体 -->
+<div class="main_tiaozhuan">
+	<div class="tiaozhuan">
+		<!--<p class="tiao_img"><img src="/images/hy_tz_ren.jpg" width="334" height="148" alt="" /></p>-->
+		<p class="tiao_t1" style="padding-top:20px;">{$message.content}</p>
+		<p class="tiao_t1" style="margin-top:15px;">
+			<!-- {if $message.url_info} -->
+			<!--{foreach from=$message.url_info key=info item=url}-->
+			<a href="{$url}">{$info}</a>&nbsp;&nbsp;&nbsp;
+			<!--{/foreach}-->
+			<!--{/if}-->
+		</p>
+	</div>
+	<div class="clear"></div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+</body>
+</html>

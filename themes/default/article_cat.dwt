@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+</head>
+<body>
+	<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+    <!-- 头部 -->
+    <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+    <!-- 头部结束 -->
+    
+    
+    <!-- 主体 -->
+    <div class="main_big">
+	    <div class="main">
+          <p class="position"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+          <div class="hy_news_box">
+             <!-- #BeginLibraryItem "/library/article_category_tree.lbi" --><!-- #EndLibraryItem -->
+	    
+            <div class="news_right">
+            	<p class="hy_dz_t1" style="margin-top:27px;">订购帮助</p>
+                <p style="margin-top:23px;" class="person_t1">购物流程</p>
+                <ul class="hy_liucheng_list">
+                    <!-- {foreach from=$artciles_list1 item=article1 name=name1} -->
+		    <li><a href="{$article1.url}" title="{$article1.title|escape:html}">{$smarty.foreach.name1.iteration}.{$article1.short_title}</a></li>
+		    <!-- {/foreach} -->                   
+                </ul>
+                <p style="margin-top:23px;" class="person_t1">配送方式</p>
+                <ul class="hy_liucheng_list">
+                    <!-- {foreach from=$artciles_list2 item=article2 name=name2} -->
+		    <li><a href="{$article2.url}" title="{$article2.title|escape:html}">{$smarty.foreach.name2.iteration}.{$article2.short_title}</a></li>
+		    <!-- {/foreach} -->    
+                </ul>
+                <p style="margin-top:23px;" class="person_t1">用户指南</p>
+                <ul class="hy_liucheng_list">
+                    <!-- {foreach from=$artciles_list3 item=article3 name=name3} -->
+		    <li><a href="{$article3.url}" title="{$article3.title|escape:html}">{$smarty.foreach.name3.iteration}.{$article3.short_title}</a></li>
+		    <!-- {/foreach} -->    
+                </ul>
+                <p style="margin-top:23px;" class="person_t1">支付方式</p>
+                <ul class="hy_liucheng_list">
+                    <!-- {foreach from=$artciles_list4 item=article4 name=name4} -->
+		    <li><a href="{$article4.url}" title="{$article4.title|escape:html}">{$smarty.foreach.name4.iteration}.{$article4.short_title}</a></li>
+		    <!-- {/foreach} -->    
+                </ul>
+                <p style="margin-top:23px;" class="person_t1">售后服务</p>
+                <ul class="hy_liucheng_list">
+                    <!-- {foreach from=$artciles_list5 item=article5 name=name5} -->
+		    <li><a href="{$article5.url}" title="{$article5.title|escape:html}">{$smarty.foreach.name5.iteration}.{$article5.short_title}</a></li>
+		    <!-- {/foreach} -->    
+                </ul>
+                <p style="margin-top:23px;" class="person_t1">企业合作</p>
+                <ul class="hy_liucheng_list">
+                    <!-- {foreach from=$artciles_list6 item=article6 name=name6} -->
+		    <li><a href="{$article6.url}" title="{$article6.title|escape:html}">{$smarty.foreach.name6.iteration}.{$article6.short_title}</a></li>
+		    <!-- {/foreach} -->    
+                </ul>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+    </div>
+    <!-- 主体结束 -->
+    
+    <!-- 底部 -->
+ 	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    <!-- 底部结束 -->
+
+</body>
+</html>

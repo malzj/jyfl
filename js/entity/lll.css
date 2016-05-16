@@ -1,0 +1,199 @@
+
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+
+*{
+	border:0px #333 solid;
+	font-size:12px;
+}
+	#zhengge{
+	width:890px;
+	height:450px;
+		}
+
+#left1{
+	margin-left:0px;
+	float:left;
+	width:150px;
+	background-color:#F7F7F7;
+	}
+.xuanxiang{
+	border:1px #E5E4E4 solid;
+	text-align:center;
+	width:150px;
+	height:30px;
+	float:left;
+	margin:auto;
+	line-height: 30px;
+	font-size: 14px;
+	cursor:pointer;
+		}
+#left2{
+	background-color:#F7F7F7;
+	border:1px #E5E4E4 solid;
+	margin-left:-1px;
+	float:left;
+	width:580px;
+	height:493px;
+		}
+#left3{
+	background-color:#F7F7F7;
+	border:1px #E5E4E4 solid;
+	margin-left:15px;
+	float:left;
+	width:137px;
+	height:493px;
+	overflow-y:scroll;
+		}
+#sousuo{
+	margin-top:10px;
+	float:left;
+	text-indent:30em;
+	margin-right:20px;
+}
+#sousuo input{
+	border:solid #aaaaaa 1px;
+	background-color:#FFF;
+	font-size:12px;
+	}
+.jiupin{
+	background-color:#FFF;
+	width:545px;
+	height:120px;
+	margin-top:10px;
+	margin-left:10px;
+	float:left;
+	position:relative;
+			}
+.tupian{
+	margin-left:10px;
+	margin-top:10px;
+	float:left;
+	border:solid #c7c5c5 1px;
+}
+.tupian img{
+	width: 100px;
+	height: 100px;
+}
+.shangpinxinxi{
+	float:left;
+}
+.jianjie{
+	float:left;
+	margin-top:15px;
+	font-size:12px;
+	margin-left:7px;
+}
+.jianjie2{
+	margin-top:10px;
+	font-size:12px;
+	margin-left:7px;
+}
+.pinming{
+	float:left;
+	font-size: 12px;
+	width: 370px;
+						
+}
+.shuliang{
+	float:left;
+	margin-left:10px;
+	font-size: 12px;
+}
+.shuliang a{
+	display:inline-block;
+	width:15px;
+	height:15px;
+	border:solid #CCC 1px;
+	text-align:center;
+	font-weight:bord;
+	color:#000;
+	}
+.shuliang input{
+	border:solid #CCC 1px;
+	width:30px;
+	}
+.anniu{
+	display:inline-block;
+}
+.anniu input{
+	border: solid #aaaaaa 1px;
+	background-color: #f4f4f4;
+	height:20px;
+	width:43px;
+	cursor:pointer;
+	}
+.anniu input:hover{
+	background:#ccc;
+	
+}
+.rtp{
+	float:left;
+	margin-left:7px;
+	margin-top:10px;
+}
+#left3 .cashxj{
+	dispaly:inline-block;
+	width:100px;
+	height:130px;
+	border:solid #c7c5c5 1px;
+	margin:10px 0px 0px 10px;
+	float:left;
+	position:relative;
+	}
+#left3 .cashxj i{
+	width:14px;
+	height:14px;
+	background-image:url(./ffsdf_03.jpg);
+	position:absolute;
+	top:0px;
+	right:0px;
+	cursor: pointer;
+	}
+#left3 .cashxj span{
+	line-height:30px;
+	display:inline-block;
+	width:100px;
+	text-align:center;
+	font-size:12px;
+	}
+.entity-title, .entity-price, .entity-num{
+	float:left;
+	min-height:20px;
+	max-height:50px;
+	overflow:hidden;
+	line-height:25px;
+	width:410px;
+	padding-left:15px;
+}
+.entity-title{
+	margin-top:10px;
+	color:green;
+}
+.add-cart{
+	top:70px;
+	left:395px;
+	position:absolute;
+}
+.entity-list{
+	float:left;
+	width:100%;
+	height:450px;
+	overflow-y:scroll
+}
+.spinner{ display:inline-block;}
+#left1 .selected{
+	font-weight:700;
+	background:#e2e2e2;
+	color:green;
+}

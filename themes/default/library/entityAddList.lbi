@@ -1,0 +1,16 @@
+{if empty($goods_list.goods)} <center style="height:70px; line-height:70px; color:red;">没有数据</center>{/if}
+{foreach from=$goods_list.goods item=goods}
+    <div class="jiupin">
+        <div class="tupian" ><img src="{$goods.thumb}"  width="100" height="100"/></div>
+        <div class="entity-title">{$goods.name}	</div>
+        <div class="entity-price">单价：{$goods.show_price}{$unit}</div>
+       <!-- <div class="entity-num">库存：1000瓶</div>-->
+        <div class="shuliang add-cart">  
+            <input type="text" value="1" name="goods_num" class="spinner" />         
+            <div class="anniu">
+            <input type="hidden" name="goods_id" value="{$goods.id}"/>
+            <input type="submit" name="xuangou" class="xuangou" value="选购">
+            </div>
+        </div>       
+    </div>
+{/foreach}

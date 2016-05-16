@@ -1,0 +1,165 @@
+<!-- $Id: brand_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/transport.js,../js/region.js"}
+
+<div class="main-div">
+<form method="post" action="city_template.php" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">城市名称：</td>
+    <td>{$cityinfo.region_name}</td>
+  </tr>
+  <tr>
+    <td class="label">排序：</td>
+    <td><input name='city_sort' value='{$cityinfo.city_sort}' type='text'></input></td>
+  </tr>
+  <!-- <tr>
+    <td class="label">城市hom页内容：</td>
+    <td>{$FCKeditor}</td>
+  </tr> -->
+  <tr>
+    <td class="label">是否热门：</td>
+    <td><input type="radio" name="is_hot" value="1"{if $cityinfo.is_hot eq 1} checked="checked"{/if} /> 是
+        <input type="radio" name="is_hot" value="0"{if $cityinfo.is_hot eq 0} checked="checked"{/if} /> 否
+    </td>
+  </tr>
+  <!-- <tr>
+    <td class="label">是否跳往home页面：</td>
+    <td><input type="radio" name="is_home" value="1"{if $cityinfo.is_home eq 1} checked="checked"{/if} /> 是
+        <input type="radio" name="is_home" value="0"{if $cityinfo.is_home eq 0} checked="checked"{/if} /> 否
+    </td>
+  </tr>
+  <tr>
+    <td class="label">home页面停留时间：</td>
+    <td><input type="text" name="time" value="{$cityinfo.time}" /><br/>不填默认为3秒，不自动跳转请填写-1</td>
+  </tr> -->
+  <!-- <tr>
+    <td class="label">城市导航设置：<br/><span style="color:#666;">不设置该项表示该城市默认显示系统导航</span></td>
+    <td>
+		<table width="100%" id="nav_setting">
+			{foreach from=$cityinfo.navinfo item=setting name=setting}
+			<tr>
+				<td align="left" valign="top">
+					{if $smarty.foreach.setting.iteration eq 1}
+					<a href="javascript:;" onclick="addNavSetting(this)" style="float:left;">[+]</a>
+					{else}
+					<a href="javascript:;" onclick="removeNavSetting(this)" style="float:left;">[−]</a>
+					{/if}
+					<table style="float:left;width:90%;border:none;" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td valign="top" rowspan="2">导航<br/>按住ctrl可多选</td>
+							<td valign="top" rowspan="2">
+								<select id="nav_id_{$smarty.foreach.setting.index}" name="nav_id[{$smarty.foreach.setting.index}][]" style="width:80px;float:left;margin-left:10px;" size="10" multiple>
+									{foreach from=$navlist item=nav}
+									<option value="{$nav.id}"{$setting.selected[$nav.id]}>{$nav.name}</option>
+									{/foreach}
+								</select>
+							</td>
+							<td valign="top">
+								显示号段
+								<input type="text" name="start_xshd[{$smarty.foreach.setting.index}]" size="30" value="{$setting.start_xshd}" size="40" />
+								 ~~ 
+								<input type="text" name="end_xshd[{$smarty.foreach.setting.index}]" size="30" value="{$setting.end_xshd}" size="40" />
+								<span style="color:#666;">如果为一个，请前后填写一样</span>
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								隐藏号段
+								<input type="text" name="start_ychd[{$smarty.foreach.setting.index}]" size="30" value="{$setting.start_ychd}" size="40" />
+								 ~~ 
+								<input type="text" name="end_ychd[{$smarty.foreach.setting.index}]" size="30" value="{$setting.end_ychd}" size="40" />
+								<span style="color:#666;">如果为一个，请前后填写一样</span>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			{/foreach}
+		</table>
+	</td>
+  </tr> -->
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="update" />
+      <input type="hidden" name="id" value="{$cityinfo.region_id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js,validator.js"}
+{literal}
+<script language="JavaScript">
+<!--
+region.isAdmin = true;
+
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+
+
+function addNavSetting(obj){
+	var src      = obj.parentNode.parentNode;
+	var tbl      = document.getElementById('nav_setting');
+	var rowl = tbl.rows.length;
+	var validator  = new Validator('theForm');
+	/*checkGoodsSnData("0", validator, rowl);
+	if (!validator.passed()){
+		return false;
+	}*/
+	var row  = tbl.insertRow(tbl.rows.length);
+	var cell = row.insertCell(-1);
+	cell.align = 'center';
+
+	cell.innerHTML = src.cells[0].innerHTML.replace(/(.*)(addNavSetting)(.*)(\[\+\])([\s\S]*?)(nav_id\[\d*\])/igm, "$1removeNavSetting$3\[−\]$5nav_id\["+rowl+"\]");
+
+	cell.innerHTML = cell.innerHTML.replace(/<select(.*)(nav_id_\d*)/gi, "<select$1nav_id_"+rowl+"");
+	cell.innerHTML = cell.innerHTML.replace(/<input(.*)(start_xshd\[\d*\])/gi, "<input$1start_xshd["+rowl+"]");
+	cell.innerHTML = cell.innerHTML.replace(/<input(.*)(end_xshd\[\d*\])/gi, "<input$1end_xshd["+rowl+"]");
+	cell.innerHTML = cell.innerHTML.replace(/<input(.*)(start_ychd\[\d*\])/gi, "<input$1start_ychd["+rowl+"]");
+	cell.innerHTML = cell.innerHTML.replace(/<input(.*)(end_ychd\[\d*\])/gi, "<input$1end_ychd["+rowl+"]");
+
+	//清空新增加导航的值
+	var objSelect = document.getElementById('nav_id_'+rowl);
+	for (var i=0; i<objSelect.options.length; i++){
+		objSelect.options[i].selected = false
+	}
+
+	//清空新增加的值
+	var start_xshd = document.getElementsByName("start_xshd["+(rowl)+"]");
+	start_xshd[0].value = "";
+	var end_xshd = document.getElementsByName("end_xshd["+(rowl)+"]");
+	end_xshd[0].value = "";
+	var start_ychd = document.getElementsByName("start_ychd["+(rowl)+"]");
+	start_ychd[0].value = "";
+	var end_ychd = document.getElementsByName("end_ychd["+(rowl)+"]");
+	end_ychd[0].value = "";
+}
+
+/**
+* 鍒犻櫎浼樻儬浠锋牸
+*/
+function removeNavSetting(obj)
+{
+var row = rowindex(obj.parentNode.parentNode);
+var tbl = document.getElementById('nav_setting');
+
+tbl.deleteRow(row);
+}
+
+/**
+ * 检查表单输入的数据
+ */
+function validate()
+{
+	return true;
+}
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--底部导航 start-->
+ <div class="foot_index" style="top:0px;">
+    	<span class="foot_logo"><a href="/"><img src="/images/hy_dlogo.jpg" width="186" height="52" alt="" /></a></span>
+	<p class="foot1">copyright 2013 京ICP备14050571号-1</p>
+        <p class="foot2">
+	 <!-- {if $navigator_list.bottom} -->
+	   <!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+		<a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+		<!-- {if !$smarty.foreach.nav_bottom_list.last} -->
+		 |
+		 <!-- {/if} -->
+	      <!-- {/foreach} -->
+	  <!-- {/if} -->
+	</p>
+        <div class="clear"></div>
+ </div>
+

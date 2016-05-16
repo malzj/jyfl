@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<link href="/css/piaoduoduo.css" rel="stylesheet" type="text/css" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<link href="/css/piaoduoduo.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<script type="text/javascript" src="/js/jquery-1-11-3.min.js"></script>
+<script type="text/javascript" src="/js/spinner/jquery.spinner.js"></script>
+<script type="text/javascript" src="/js/layer.js"></script>
+<script type="text/javascript" src="/js/shenfen.js"></script>
+<script src="/js/layer/laydate/laydate.js"></script>
+</head>
+<body>
+ <!-- 防止360浏览器自动填写保存的账号密码 勿删 -->  
+    <input type="number" name="" id=""  class="hide"/> 
+    <input type="text" name="" id=""  class="hide"/>
+       
+    <input type="password" name="" id="" class="hide"/>    
+<!-- 防止360浏览器自动填写保存的账号密码 勿删 --> 
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+	<!-- 主体 -->
+<div class="main_big" style="margin-top:40px;">
+	<div class="main">
+{if $step eq "shopping"}
+
+<form action="piaoduoduo_list.php" method="post" onsubmit ="getElementById('submitInput').disabled=true;return true;"> 
+<input type="hidden" name="act" value="order"/>
+<input type="hidden" name="productVersionKeyId" value="{$piao.KeyId}"/>
+<input type="hidden" name="price" value="{$piao.SellPrice}"/>
+<input type="hidden" name="PeriodValidityOfRefund" value="{$piao.PeriodValidityOfRefund}"/>
+<div class="hy2_detail01 hy2_bord">
+	<span class="hy2_ticket">景点门票订购</span>
+	<div class="gw_t01" id="gw_you01">
+		<span class="gw_101">第一步：选择景点</span>
+		<span class="litter01 white01">第二步：填写核对订单信息</span>
+		<span class="success01">第三步：付款成功提交订单</span>
+	</div>
+</div>
+<div class="boxs">
+<span style="line-height:2em;height:2em;color:red;">温馨提示：下单后<b style="color:#e70012;">{$piao.AutoCancelTime}分钟</b>不支付自动取消订单，{$piao.PeriodValidityOfRefund}</span>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="zhifu_table dong-cart">
+		<tr>
+			<th width="4%" align="left">&nbsp;</th>
+			<th  colspan="-4" align="left">产品名称</th>
+			<th width="13%" align="left">单价</th>
+			<th width="300px" align="center">数量</th>
+			
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td name="product">{$piao.ProductName}</td>
+			<td><span id="price" name="price">{$piao.SellPrice}</span></td>
+			<td>
+				<div class="xiugai_num">
+					<input type="button" value="" class="hy_number_del" onclick="changeNumber('{$piao.TotalTicketQuantity}')" />
+					<input type="text" name="TotalTicketQuantity" id="TotalTicketQuantity" value="{if $piao.TotalTicketQuantity} {$piao.TotalTicketQuantity} {else} 1 {/if}" class="TotalTicketQuantity" onblur="changeNumber('{$piao.TotalTicketQuantity}', 2)" />
+					<input type="button" value="" class="hy_number_add" onclick="changeNumber('{$piao.TotalTicketQuantity}', 1)" />
+					            
+                <div class="clear"></div>	
+               </div> 
+				
+			</td>
+			<!-- <td><span id="total_price">{$piao.SellPrice}</span></td> -->
+		</tr>
+		<tr class="dong-cart-empty">
+            	<td colspan="4">&nbsp;{if $piao.BuyMaxNum gt 0 && $piao.BuyMaxNum lt 20}<span class="BuyMaxNumsss">最多{$piao.BuyMaxNum}个 </span>{/if} </td>
+        </tr>
+        <tr>
+        	<td colspan="4" align="right" class="dong-cart-total-background">
+            	<div class="price">
+
+                    总价：<span id="total_price" class="dongPrice">{if $piao.SellPrice}{$piao.SellPrice}{else}0{/if}</span>点</div>
+            </td>
+        </tr>
+	</table>
+
+</div>
+
+        <h3 style="font-size: 18px;">用户资料录入(因为用户资料错误导致无法入场，网站不承担责任)</h3>
+        <div class="box">
+            <ul class="use2">
+             
+                <li class="li13"><span class="span_width">真实姓名：</span><input type="text" name="name"/></li>
+                <li class="li13"><span class="span_width">
+                    <select name="card_class" id="sect">
+                        <option value="1">身份证</option>
+                        <option value="2">导游证</option>
+                        <option value="4">学生证</option>
+                        <option value="8">军官证</option>
+                        <option value="16">老年证</option>
+                        <option value="32">出生证</option>
+                        <option value="64">驾驶证</option>
+                        <option value="128">其他</option>
+                    </select>
+                    </span><input type="text" name="card_num" id="card_num" onBlur="shenfen();"/>        
+                </li>
+            </ul>
+            <ul class="use2">
+            
+                <li class="li13"><span class="span_width">手机号码：</span><input type="text" name="MobileNumberToGetEticket" id="mobile" onBlur="checkMobile();"/></li>  
+                <li class="li13"><span class="span_width">出行时间：</span><input placeholder="请输入日期" name="TripDate" class="laydate-icon"  id="TripDate">
+                <span style="color:red;margin-left:20px;">&nbsp;{$piao.TimeZone}</span>
+                </li>
+            
+            </ul>
+        </div>
+       
+		<script>
+        var start = {
+            elem: '#TripDate',
+            format: 'YYYY/MM/DD',
+            min: laydate.now(), //设定最小日期为当前日期
+            max: '2099-06-16 23:59:59', //最大日期
+            istime: true,
+            istoday: false,
+            choose: function(datas){
+                 end.min = datas; //开始日选好后，重置结束日的最小日期
+                 end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+        laydate(start);
+        </script>
+        <p class="hy_gou_di">
+            <input type="submit" value="下单" class="hy_js" id="submitInput"/>	
+        </p>
+
+	</form>
+{/if}
+	<!-- 订单 -->
+	{if $step eq 'order'}
+ <!-- 防止360浏览器自动填写保存的账号密码 勿删 -->  
+    <input type="number" name="" id=""  class="hide"/> 
+    <input type="text" name="" id=""  class="hide"/>
+       
+    <input type="password" name="" id="" class="hide"/>    
+<!-- 防止360浏览器自动填写保存的账号密码 勿删 --> 
+<div class="hy2_detail01 hy2_bord">
+	<span class="hy2_ticket">景点门票订购</span>
+        
+            <div class="gw_s01" id="gw_you01">
+                <span class="gw_101">第一步：选择景点</span>
+                <span class="litter01">第二步：填写核对订单信息</span>
+                <span class="success01 white01">第三步：付款成功提交订单</span>
+            </div>
+        </div>
+        <form action="piaoduoduo_list.php" method="post" onsubmit ="getElementById('submitInput').disabled=true;return true;"> 
+        <input type="hidden" name="act" value="pay"/>
+        <input type="hidden" name="order_sn" value="{$piao.order_sn}"/>
+        <div class="zhifu_box">
+            <p class="zhifu_t1">订单已提交成功，共计 <font style="color:red;"><b>{$piao.total_price}</b></font>点 请尽快付款</p>	
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="zhifu_table">
+                <tr>
+                    <th width="15%" scope="col">订单编号</th>
+                    <th width="15%" scope="col">产品数量</th>
+                    <th width="15%" scope="col">单价</th>
+                    <th width="30%" scope="col">预约时间</th>
+                    
+                </tr>	
+                <tr>
+                    <td align="left">&nbsp;{$piao.order_sn}</td>
+                    <td align="center" name="product">{$piao.TotalTicketQuantity}</td>
+                    <td align="center"><span id="price" name="price">{$piao.SellPrice}点</span></td>
+                    <td align="center">{$piao.TripDate}</td>
+                    
+                </tr>
+        
+            </table>
+        
+            <p class="zhifu_t2">
+                <span>華影卡号：</span>{$user_name}
+            </p>
+             <p class="zhifu_t3">
+            <span>请再次输入手机号：</span>
+        
+            <input name="mobile" id="mobile"  onfocus="if (this.value == '手机号') this.value='';" type="text" value="手机号" style="border:1px solid #dadada; width:144px; height:24px; line-height:24px;">
+            </p>
+            <p class="zhifu_t3">
+                <span>華影卡密码：</span>
+                <input type="password" name="password" id="password" value="" class="mima_input" />
+                
+            </p>
+           {if $piao.AutoCancelTime}
+            <p class="zhifu_ts" style="color:red;"><span>温馨提示：</span>可当天预订，要求必须<font style="color:#e70012;"><b>{$piao.AutoCancelTime}</b>分钟</font>内完成在线支付</p>
+            {/if}
+        </div>
+        <div>
+            <p class="hy_gou_di">        
+                <input type="submit" value="付款" class="hy_js" id="submitInput"/>	
+            </p>
+        </div>
+        </form>
+
+    {/if}
+	</div>
+</div>		
+
+<div class="clear"></div>
+
+<script>
+function shenfen(){
+	var card_num=$('#card_num').val();
+	var res= IdentityCodeValid(card_num);
+	if(card_num==''){
+		alert('请正确输入证件号码');
+	}
+	// alert(res);
+}
+
+function checkMobile(){
+	
+	var mobile1 = document.getElementById("mobile").value;
+	var mobile = mobile1.replace(/\s+/g,"");
+	var reg = /^1[3,4,5,7,8]\d{9}$/;
+		if (mobile == ''){
+			alert('请输入确认手机号码');
+			return false;
+		}else if (!reg.test(mobile)){
+			alert('手机号码格式不正确！');
+			return false;
+		}
+	// var oldMobile = "{$piao.mobile}";
+	//alert(oldMobile);
+	// if (mobile != oldMobile){
+	// 	alert('您输入的手机号码和前面输入的手机号码不一致');
+	// 	return false;
+	// }else{
+	// 	//alert('输入正确，请输入密码');
+	// 	//$('#paySubmitSpan').html('<input type="submit" value="" id="paySubmit" class="hy2_js" />');
+	// 	return true;
+	// }
+
+}
+function checkPayForm(){
+	checkMobile();
+	//checkSubmitFlg ==true;
+	$('#submit').attr('disabled', 'true');
+	return true;
+	location.replace(location.href);
+	//location.reload();
+}
+//功能：将浮点数四舍五入，取小数点后2位  
+function toDecimal(x) {    
+    var f = parseFloat(x);    
+    if (isNaN(f)) {    
+        return;    
+    }    
+    f = Math.round(x*10)/10;    
+    return f;    
+}
+function changeNumber(id, state){
+	var num = "{$piao.BuyMaxNum}";
+
+	var number = document.getElementById('TotalTicketQuantity');
+	if(isNaN(number.value)){
+		alert('请输入数字');
+		return false;
+	}
+	if(num>0){
+		var num1=num;
+	}
+	if(state == 1){
+		numbers = parseInt(number.value) + 1;
+		if(numbers>num1){
+			numbers=num1;
+		}
+	}else if(state == 2){
+		numbers = parseInt(number.value);
+	}else{
+		numbers = parseInt(number.value) - 1;
+	}
+	if(numbers < 1 || number.value == ''){
+		numbers = 1;
+	}
+	number.value = numbers;
+	var price = document.getElementById("price").innerText;
+	var total_price=(price*number.value).toFixed(1);
+	document.getElementById('total_price').innerHTML = total_price;
+	// document.getElementById('updateCartSub').click();
+}
+</script>
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+</body>
+</html>

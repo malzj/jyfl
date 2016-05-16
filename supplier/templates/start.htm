@@ -1,0 +1,66 @@
+<!-- $Id: start.htm 17216 2011-01-19 06:03:12Z liubo $ -->
+{include file="pageheader.htm"}
+<!-- directory install start -->
+<ul id="cloud_list" style="padding:0; margin: 0; list-style-type:none; color: #CC0000;">
+ 
+</ul>
+
+
+<!-- start personal message -->
+{if $admin_msg}
+<div class="list-div" style="border: 1px solid #CC0000">
+  <table cellspacing='1' cellpadding='3'>
+    <tr>
+      <th>{$lang.pm_title}</th>
+      <th>{$lang.pm_username}</th>
+      <th>{$lang.pm_time}</th>
+    </tr>
+    {foreach from=$admin_msg item=msg}
+      <tr align="center">
+        <td align="left"><a href="message.php?act=view&id={$msg.message_id}">{$msg.title|truncate:60:"..."}</a></td>
+        <td>{$msg.user_name}</td>
+        <td>{$msg.send_date}</td>
+      </tr>
+    {/foreach}
+  </table>
+  </div>
+<br />
+{/if}
+<!-- end personal message -->
+<!-- start order statistics -->
+<div class="list-div">
+<table cellspacing='1' cellpadding='3'>
+  <tr>
+    <th class="group-title">供应商公告：</th>
+  </tr>
+  <tr>
+    <td width="100%" style="padding:20px 20px 30px 20px;">{$supplier_notice}</td>    
+  </tr>
+
+  <tr>
+    <th class="group-title">通知文章：</th>
+  </tr>
+  <tr>
+    <td width="100%" >
+		<table cellpadding=1 cellspacing=1 width="100%" bgcolor="#f9fdff">
+		<tr><th style="background:#f4f9fc;font-weight:bold;">文章标题</th><th style="background:#f4f9fc;font-weight:bold;">发布时间</th></tr>
+		{foreach from=$supplier_article item=sarticle}
+		<tr><td><a href="{$sarticle.url}" >{$sarticle.title}</a></td><td align=center> {$sarticle.formated_addtime}</td></tr>
+		{/foreach}
+		</table>
+	</td>    
+  </tr>
+
+</table>
+</div>
+{if $inventory}
+  <div> <a href="/inventory.php" target="_blank"><span style="color:#444;margin-top:5px;background-color:#BBDDE5;line-height:2em;font-size:12px;">库存管理</span></a></div>
+{/if}  
+<!-- end order statistics -->
+<br />
+
+{literal}
+{insert_scripts files="../js/utils.js"}
+
+{/literal}
+{include file="pagefooter.htm"}

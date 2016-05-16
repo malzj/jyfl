@@ -1,0 +1,6 @@
+<?php
+$value =
+<<<EOF
+F:\wamp-php5.5\bin\php\php5.5.12\php Crontab/weixin/index.php
+EOF;
+exec($value);

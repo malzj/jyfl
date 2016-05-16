@@ -1,0 +1,113 @@
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<!-- 订单搜索 -->
+<div class="form-div">
+  <form action="order.php" name="searchForm">
+    <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+    合并来源卡<input name="card_from" type="text" id="order_sn" size="30">
+    合并去向卡<input name="card_to" type="text" id="consignee" size="30">
+	<input name="act" type="hidden" value="card_list" id="consignee" size="15">
+    <input type="submit" value="{$lang.button_search}" class="button" />
+  </form>
+</div>
+
+<!-- 订单列表 -->
+  <div class="list-div" id="listDiv">
+{/if}
+
+<table cellpadding="3" cellspacing="1">
+  <tr>
+    <th><a href="javascript:listTable.sort('order_sn', 'DESC'); ">日志编号</a></th>
+    <th><a href="javascript:listTable.sort('add_time', 'DESC'); ">合并来源卡</a></th>
+    <th><a href="javascript:listTable.sort('consignee', 'DESC'); ">合并去向卡</a></th>
+    <th><a href="javascript:listTable.sort('update_time', 'DESC'); ">合并时间</a></th>
+    <th><a href="javascript:listTable.sort('card_money', 'DESC'); ">金额</a></th>   
+    <th>来源</th>
+    <th>错误消息</th>
+  
+  <!--   <th>{$lang.handler}</th> -->
+  <tr>
+  {foreach from=$back_list item=back key=dkey}
+  <tr>
+    <td align="center">{$back.log_id}<br /></td>
+    <td align="center" valign="top" nowrap="nowrap">{$back.card_from}</td>
+    <td align="center" valign="top">{$back.card_to}</td>
+    <td align="center" valign="top" nowrap="nowrap">{$back.pay_time}</td>
+    <td align="center" valign="top" nowrap="nowrap">{$back.card_money}</td>
+    <td alien="center" valign="top"> {if $back.source eq 1} <font color="red">无线</font>{else} <font color="green">电脑</font>{/if}</td>
+     <td align="center" valign="top" nowrap="nowrap">{$back.message}</td>
+    <!-- <td align="center" valign="top"  nowrap="nowrap">   
+     <a onclick="{if(confirm('{$lang.confirm_delete}')){return true;}return false;}" href="order.php?act=operate&remove_back1=1&log_id={$back.log_id}">{$lang.remove}</a>
+    </td> -->
+  </tr>
+  {/foreach}
+</table>
+
+<!-- 分页 -->
+<table id="page-table" cellspacing="0">
+  <tr>
+    <td align="right" nowrap="true">
+    {include file="page.htm"}
+    </td>
+  </tr>
+</table>
+
+{if $full_page}
+  </div>
+<script language="JavaScript">
+listTable.recordCount = {$record_count};
+listTable.pageCount = {$page_count};
+
+{foreach from=$filter item=item key=key}
+listTable.filter.{$key} = '{$item}';
+{/foreach}
+{literal}
+
+    onload = function()
+    {
+        // 开始检查订单
+        startCheckOrder();
+                
+        //
+        listTable.query = "user_back_query";
+    }
+
+    /**
+     * 搜索订单
+     */
+    function searchOrder()
+    {
+        listTable.filter['card_from'] = Utils.trim(document.forms['searchForm'].elements['card_from'].value);
+        listTable.filter['card_to'] = Utils.trim(document.forms['searchForm'].elements['card_to'].value);
+        listTable.filter['page'] = 1;
+        listTable.query = "user_back_query";
+        listTable.loadList();
+    }
+
+    function check()
+    {
+      var snArray = new Array();
+      var eles = document.forms['listForm'].elements;
+      for (var i=0; i<eles.length; i++)
+      {
+        if (eles[i].tagName == 'INPUT' && eles[i].type == 'checkbox' && eles[i].checked && eles[i].value != 'on')
+        {
+          snArray.push(eles[i].value);
+        }
+      }
+      if (snArray.length == 0)
+      {
+        return false;
+      }
+      else
+      {
+        eles['order_id'].value = snArray.toString();
+        return true;
+      }
+    }
+</script>
+{/literal}
+
+{include file="pagefooter.htm"}
+{/if}

@@ -1,0 +1,10 @@
+<div class="fl louceng-list"> 
+{foreach from=$list item=li}
+    <div class="wfoq" style="height:210px;">
+      <div style="display:inline-block;width:210px;height:210px;float:left;margin-left:15px;"><a href="{$li.url}" target="_blank"><img src="{$li.goods_thumb}" /></a></div>
+      <p class="wfop1"><a href="{$li.url}" target="_blank">{$li.goods_name}</a></p>
+      <p class="wfop2"><strong>{$li.shop_price} 点 /1 张</strong></p>
+      <p class="wfop3" style="line-height:17px;" titile="{$li.goods_brief}">{$li.goods_brief}</p>
+    </div>    
+{/foreach}
+</div>

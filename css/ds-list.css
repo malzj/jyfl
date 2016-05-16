@@ -1,0 +1,46 @@
+@charset "utf-8";
+body{margin: 0px;font-family: Arial,Helvetica,sans-serif;font-size: 12px;}
+a{ color:#000000; text-decoration:none;}
+a:hover{ text-decoration:none;}
+ul,li{list-style:none;}
+/*top*/
+.h-wrop{width: 1200px;margin: 150px auto 0 auto;}
+.h-img{width: 1200px;}
+.h-position{margin-top: 19px;float: left;}
+.h-position a{color: #666;}
+.h-sou{float: right;width: 368px;height: 34px;line-height: 34px;margin-top: 10px;margin-bottom: 10px;border: solid 1px #E3E3E3;}
+.h-sou .h-text{border: 0px;color: #999;float: left;width: 330px;height: 32px;margin-left: 13px;font-size: 14px;}
+.h-sou .h-sb{border: 0px;background-image: url("../images/list-hy_04.jpg");width: 16px;height: 15px;margin-top: 9px;}
+.h-menu{float: left;position: relative;width: 100%;border:solid #c5c5c5 1px;}
+.h-menu .h-fort{display: inline-block;float: left;margin: 0px 0px 0px 15px;line-height: 50px;}
+.h-menu ul{margin:10px 50px;}
+.h-menu ul li{color: #333;float: left;line-height: 24px;}
+.h-menu ul li a{color: #666;display: inline-block;;line-height: 24px;margin:3px 6px;padding: 0px 8px;}
+.h-menu ul li a:hover{background-color:#AD968B;color: #FFF;}
+.h-menu ul li a.h-all{background-color: #AD968B;color: #fff;}
+.h-menu .h-show{position: absolute;right:5px;top:18px;cursor: pointer;}
+.h-menu .h-show .h-chs{border: solid 1px #c3c3c3;padding: 2px 3px;}
+
+/*central*/
+.h-listtop{float:left;border-bottom:solid 1px #C7C7C7; width: 100%;padding-bottom:8px;padding-top: 20px;position: relative;margin-bottom:20px;}   
+.h-listtop span{padding: 8px 16px;background-color: #EEE;font-size: 14px;cursor: pointer;color: #481909;} 
+.h-listtop .h-alllist{color: #FF8A00;font-weight: bold;border-top:1px solid #481909;}
+.h-listtop p{position: absolute;right: 0px;top: 10px;color: #AD968B;}
+.h-listtop p a{color: #AD968B;padding-left:5px;padding-right: 5px; }
+.h-centralImg{float: left;width: 100%;}
+.h-centralImg ul{margin: 0px;padding: 0px;}
+.h-centralImg ul li{margin-bottom:20px ;border-bottom:1px dotted #DADADA;padding-bottom:20px ;float: left; width:100%;}
+.h-centralImg ul li a{float: left;font-size: 18px;}
+.h-centralImg ul li p{padding-left:20px; }
+.h-centralImg ul li .h-cenT1{float: left; width: 557px;}
+.h-centralImg ul li .h-cenT1 a{width: 100%;padding-bottom: 30px; line-height:35px;}
+.h-centralImg ul li .h_list_money { float: left;width: 290px;text-align: center;font-size: 14px;color: #333;margin-top: 80px;}
+.h-centralImg ul li .h-list-ww{width: 160px;float: left;margin-top:40px;}
+.h-centralImg ul li .h-list-ww a span{background-image: url(../images/hy_l3.gif);width: 18px;height: 18px;float: left;margin-left: 31px;margin-right: 11px;display: inline;margin-top: 15px;}
+.h-centralImg ul li .h-list-ww a{background-color: #EEE;width: 100%;line-height: 48px;font-size: 14px;color: #666;}
+.h-centralImg ul li .h-list-ww a:hover{background-color: #E70012;color: #fff;}
+.h-centralImg ul li .h-list-ww a:hover span{background-image: url(../images/hy_l3_.jpg);}
+.h-flickr { padding: 42px 3px 13px;margin: 3px;text-align: center;}
+.h-manu a{margin-left:10px; }
+.h-flickr a {border: 1px solid #DCDCDC;padding: 1px 5px;color: #666;margin-right: 3px;text-decoration: none;}
+.h-flickr a:hover{border:1px solid #FFF;}

@@ -1,0 +1,84 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="{$app_path}js/juyoufuli/jquery.nicescroll.js"></script>
+<script src="{$app_path}js/juyoufuli/layer/layer.js"></script>
+<script src="{$app_path}js/juyoufuli/login_layer.js"></script>
+<script src="{$app_path}js/juyoufuli/laydate/laydate.js"></script>
+<script src="{$app_path}js/juyoufuli/jyflapi.js"></script>
+<script src="{$app_path}js/juyoufuli/file_img.js"></script>
+<script src="{$app_path}js/juyoufuli/ajaxfileupload.js"></script>
+<script src="{$app_path}js/utils.js"></script>
+<input type="hidden" value="1" id="user_id" />
+<input type="hidden" value="" id="img" />
+<div class="pop_left">
+    <ul class="list_main">
+    	<li class="shouye">
+        	<a class="home_href" href="user.php">
+        		<div class="li_img">
+                <span class="glyphicon glyphicon-home"></span>
+                <p>首页</p>
+                </div>
+            </a>            
+        </li>
+        <li class="gn">
+            <div class="li_img">	
+				<span class="glyphicon glyphicon-credit-card"></span>
+				<p>功能</p>
+			</div>
+            <div class="gn_1">
+                <ul class="list_1">
+                {foreach from=$navigator_list.middle item=nav name=foo}
+                <li class="movie" onClick="window.location='{$nav.url}'">
+                	<div>
+                    	<span class="movie_1"></span><br>
+                		<i>{$nav.name}</i>
+                	</div>
+                </li>
+                {/foreach}  
+                </ul>
+            </div>
+        </li>
+        
+       <li class="per">
+            <div class="li_img">
+                <span class="glyphicon glyphicon-user"></span>	
+                <p>个人信息</p>
+            </div>
+            <div class="per_1">
+                <ul class="list_2">
+                <li id="per"><div><span>个人资料</span></div></li>
+                <li id="saf"><div><span>安全中心</span></div></li>
+                <li id="shouhuo" onclick="showAddress()"><div><span>收货信息</span></div></li>
+                <li id="red_packet" onclick="showPack()"><div><span>我的红包</span></div></li>
+                <li id="reg"><div><span>卡充值</span></div></li>
+                <li id="merge"><div><span>卡合并</span></div></li>
+                </ul>
+            </div>
+        </li>
+        <li class="car">
+            <div class="li_img">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+                <p>购物车</p>
+            </div>
+            <div class="car_1">	</div>
+        </li>
+        <li class="order">
+            <div class="li_img">
+                <span class="glyphicon glyphicon-list-alt"></span>
+                <p>订单</p>
+            </div>
+            <div class="order_1">
+                
+            </div>
+        </li>
+    </ul>
+    <a class="switch"></a>
+</div>
+<>
+<script>
+	$('.list_1 li').hover(function(){
+		$(this).addClass('active').siblings().removeClass('active');
+		})
+	$('.list_main').animate({left:-100},'slow',function(){
+		$(this).css('left','0px');
+		});	
+</script>

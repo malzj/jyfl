@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/entity/menu.css" rel="stylesheet" type="text/css" />
+<link href="/js/skin/layer.css" rel="stylesheet" type="text/css" />
+<script src="/js/jquery-1-11-3.min.js"></script>
+<script type="text/javascript"  src="/js/layer.js"></script>
+<style>
+/*******头部******/
+body{ margin:0; padding:0; border:0;}
+a{text-decoration:none}
+.hy_ding{background:url(/images/hy_ding.jpg) repeat-x; height:38px; width:100%; line-height:38px;}
+.hy_ding_small{width:1200px; margin:0px auto;}
+.hy_ding_left{float:left; color:#fff; font-size:12px;margin-left: 5px;}
+.hy_ding_left span{font-weight:bold; color:#e60000;}
+.hy_ding_right{float:right;}
+.hy_ding_r1{float:right; color:#fff;}
+.hy_ding_r1 a{color:#fff; margin:0px 5px; display:inline; font-size:12px;}
+.hy_ding_r1 a span{font-weight:bold; color:#e40000; padding:0px 6px; font-size:12px;}
+/*******底部******/
+.foot{width:1200px; margin:0px auto; background:url(/images/hy_dibg.jpg) repeat-x; padding-top:38px; font-family:"宋体"; color:#4d3322;line-height:46px;position: relative;top: 140px;}
+.foot_index{width:100%; margin:0px auto; background:url(/images/hy_dibg.jpg) repeat-x; padding-top:38px; font-family:"宋体"; color:#4d3322;line-height:46px; margin-top:29px;position: relative;}
+.foot_logo{float:left;}
+.foot1{float:left; width:623px; text-align:center; font-size:12px;}
+.foot2{float:right; width:361px; text-align:center; font-size:12px;}
+.foot2 a{color:#4d3322; margin:0px 4px; display:inline; font-size:12px;}
+/*******底部结束******/
+
+</style>
+</head>
+<body>
+<div class="hy_ding_content" style="height:0; border:0; height: 0!important">
+	<!-- 头部 -->
+    <div class="hy_ding">
+        <div class="hy_ding_small" id="hy_ding_small"> 
+        <div class="hy_ding_left">
+        <a href="supplier" style="color:#fff;" target="_blank">管理中心</a>
+        </div>
+        <div class="hy_ding_left">
+        <a href="inventory.php" style="color:#fff;">库存管理</a>        
+        </div> 
+        </div>
+         
+       
+    </div>
+ </div>  
+
+<!-- 头部结束 -->
+<!-- <div style="height:50px;"></div> -->
+<div style="text-align:center;height:400px;"><!-- 加载中...... --></div>
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+<script>
+$(document).ready(function(){
+	var sid = 0;
+	$.get('/supplier/privilege.php',{is_ajax:'1',act:'checkSuppLogin' }, function(data){
+		var obj = jQuery.parseJSON(data);
+		// 没有登录，跳转到供应商登录页面
+		if(obj.supplier_id <=0){			
+			//alert(obj.supplier_id);
+			window.location.href="inventory.php?step=loginRef";	
+		}else{
+			sid = obj.supplier_id;
+			 var ii = layer.load();
+		    //此处用setTimeout演示ajax的回调
+		    setTimeout(function(){
+		        layer.close(ii);
+		    }, 1000);
+			window.location.href="inventory.php?step=list&sid="+sid;
+		}
+	
+		// sid = obj.supplier_id;		
+		// // 登录了，导入页面
+		// $.post('inventory.php',{sid:sid, step:'loadhtml', utype:{$utype}}, function(html){
+		// 	$('.inventory_content').html(html);
+		// });
+	});
+	
+	
+});
+</script>
+
+</body>
+</html>

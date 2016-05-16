@@ -1,0 +1,131 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<link href="/css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1-11-3.min.js"></script>
+<script type="text/javascript">
+	function checkOrderForm(){
+		var order_money  = {$order.order_amount};
+		//var price 		 = {$price};
+		var order_sn     = '{$order.order_sn}';
+		var order_id     = '{$order.order_id}';
+		var log_id       = '{$log_id}';				
+		var pwd 		 = document.getElementById('password').value;
+		
+		if (pwd.length == 0){
+			alert('卡密码不能为空');
+			return false;
+		}
+		
+		$.post('jieri_order.php', {act: 'act_pay', password:pwd, 'order_id':order_id, 'order_sn':order_sn, 'log_id':log_id}, function (result){
+			if (result.error > 0){
+				alert(result.message);
+			}else{
+				location.href="flow.php?step=respond";
+			}
+		}, 'json');
+		
+		return false;
+		
+	}
+		
+	</script>
+
+<style>
+	.main{ font-family: "Microsoft YaHei"; font-size:14px; color:#333;  }
+	input,select{border:1px #e0e0e0 solid; padding:3px;}
+	.fl{float:left;}
+	.hd-title{ height:40px; line-height:40px; font-size:16px;}
+	/** 商品信息 **/
+	.goods_lists,.shipping-detail,.noxindangao{ border:1px #e0e0e0 solid;}
+	.goods_lists ul li{float:left;}
+	.hd-images{ padding:20px; width:100px;}
+	.hd-goods-name{ width:840px;}
+	.hd-price{width:80px; line-height:140px; text-align:center;}
+	.hd-act{width:138px; text-align:center;}
+	.hd-act a{ display:inline-block; width:60px;  border:1px #e0e0e0 solid; height: 30px; line-height:30px; margin-top:55px; padding:0 15px; background:#F5F5F5;}
+	.hd-act a:hover{ background:lightcoral; color:#fff;}
+	.hd-goods-name span{ display:inline-block; height:30px; line-height:30px; font-size:16px; margin-top:20px; color:saddlebrown;}
+	.hd-goods-name p{ line-height:25px; height:50px; overflow:hidden; margin-top:10px;}
+	
+	/** 配送地址 **/
+	.shipping-detail,.noxindangao{display:block; width:100%}
+	.shipping-detail h3,.noxindangao h3{ border-bottom:1px #e0e0e0 dashed; height:35px; line-height:35px; text-indent:2em;}
+	.shipping-area{ padding:20px;}
+	
+	/** 诺心蛋糕配送时间 **/
+	.noxindangao{ margin-top:20px;}
+	.noxindangao-time{margin:20px; }
+	
+	.total-detail{ padding:15px 0 15px 0;}
+	.cart01 ul li select{ height:auto;}
+	.hy_hedui{margin-top:0; border:0;}
+	.addrs {width:1130px;}
+	.cart01{border:0; margin-top:0;}
+	
+	/** 支付页面 **/
+	.order-detail,.order-pay{ padding:20px;}
+	.order-detail span{ display:inline-block; float:left; width:200px; text-align:center;}
+	.order-phone{display:inline-block;float:left; width:300px;}
+	.cardno{margin-right:30px;}
+	.hdtj{background:red; color:#fff; padding:2px 5px; cursor: pointer;}	
+	
+	
+</style>
+</head>
+<body>
+    <!-- 头部 -->
+    <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+    <!-- 头部结束 -->
+    
+  
+  	<div class="main_big" style="margin-top:60px;">
+    	<div class="main">
+        	<!-- 当前位置 -->
+        	<!--<div class="hy_position">
+                <p class="position01"><a href=".">首页</a> <code>&gt;</code>七夕节活动 <code>&gt;</code> 下单页面</p>						
+            </div>-->
+           
+            <!-- 当前位置结束 -->
+            <form action="jieri_order.php" method="post" name="theForm" id="theForm">
+            <h2 class="hd-title fl">订单信息</h2>
+            <div class="noxindangao order-detail fl"> 
+                  <span>订单号：{$order.order_sn}</span>                 
+                  <span>总价格： {$order.order_amount}&nbsp;<font color='#888'>(含运费{$order.shipping_fee})</font></span>
+                  <span>待付款</span>
+            </div>
+            <div class="noxindangao order-pay fl">                   
+                  <div class="order-card">
+                  	<span class="cardno">華影卡号：{$username}</span>
+                  	<span>華影卡密码：<input type="password" name="password" id="password" size="10" /></span> 
+                  	<span>
+                    	<input type="hidden" name="act" value="act_pay"/>
+                        <input type="hidden" name="order_id" value="{$order_id}"/>
+                        <input type="button" name="button" class="hdtj" onclick="checkOrderForm()" value="支付" /> 
+                    </span>
+                  </div>
+            </div>            
+            <!-- 支付页面结束 -->        
+            </form> 
+          
+            <div style=" clear:both; height:10px;"></div>
+        </div>
+    </div>
+    
+  
+
+	
+    
+      <!-- 底部 -->
+    <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    <!-- 底部结束 -->
+                
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<SCRIPT type=text/javascript src="/js/slide.js"></SCRIPT>
+{insert_scripts files='jquery.region.js,utils.js'}
+
+
+<script type="text/javascript">
+$(function(){
+	$(".slide_close").click(function(){
+		$(this).hide().siblings('.slide_open').show().parent('.detail02_top').siblings(".showslide01").show();
+	});
+	$(".slide_open").click(function(){
+		$(this).hide().siblings('.slide_close').show().parent('.detail02_top').siblings(".showslide01").hide();
+		;
+	});
+})
+</script>
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+<div class="main_big">
+	<div class="main">
+		<!--当前位置 开始-->
+		<p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+		<!--当前位置 结束-->
+		{if $action == 'order'}
+		<div class="gw_t" id="gw_you">
+			<span class="gw_1">选择商品</span>
+			<span class="litter ">我的购物车</span>
+			<span class="success ">填写信息</span>
+			<span class="tijiao">提交订单</span>
+			<span class="gw_last">支付成功</span>
+		</div>
+		<form action="yanchu_order.php" method="post" name="theForm" id="theForm" onsubmit="return checkYcOrderForm(this)">
+		<p class="hy_hdxx">填写订单</p>
+		<div style="float:left;width:100%;" id="order_consignee">
+			<p class="hy_hedui">收货信息</p>
+			<div class="cart01">
+				<ul>
+					<li>
+						<p class="tj_shou"><span>收货人：</span></p><input type="text" name="consignee" id="consignee" value="{$consignee.consignee|escape}" class="name_input" />
+					</li>
+					<li>
+						<p class="tj_shou1"><span>所在地区：</span></p>
+						<input name="country" id="country" value="{$cityid}" type="hidden" />
+						<span style="float:left;margin-right:10px;">{$cityinfo.region_name}</span>
+						<span style="float:left;margin-top:5px;">
+							<select name="province" id="province" onchange="region.changed(this, 2, 'city', 1);" class="Select16">
+								<option value="0">请选择</option>
+								{foreach from=$province_list item=province}
+								<option value="{$province.region_id}" >{$province.region_name}</option>
+								{/foreach}
+							</select>
+							<select name="city" id="city" class="Select16">
+								<option value="0">请选择</option>
+							</select>
+							
+						</span>
+					</li>
+					<li>
+						<p class="tj_shou1"><span>详细地址：</span></p><input name="address" id="address" type="text" value="{$consignee.address|escape}" class="name_input"  style="width:320px;border:1px solid #ccc;" />
+					</li>
+					<li>
+						<p class="tj_shou1"><span>手机号码：</span></p><input type="text" name="mobile" id="mobile" value="{$consignee.mobile|escape}" class="name_input" style="width:144px;" /><em class="fl">或</em> <p style="width:70px;"  class="tj_shou">固定电话：</p><input name="tel" id="tel" type="text" class="name_input" value="{$consignee.tel|escape}" class="name_input" style="width:138px;" />
+					</li>
+					<li>
+						<p class="tj_shou1"><span>电子邮箱：</span></p>
+						<input type="text" name="email" id="email" value="{$consignee.email|escape}" class="name_input" style="width:144px;" />
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--支付配送-->
+		<div class="cart02" id="order_payshipping">
+			<p class="hy_hedui" style="border-top:none; padding-top:0px; margin-top:0;">支付及配送方式&nbsp;&nbsp;</p>
+			<div class="addrs">
+				<label class="l" for="addr" style="margin-left:15px;">支付方式：华影卡支付</label>
+			</div>
+			<div class="addrs" style="height:auto;">
+				<label class="l" for="addr" style="margin-left:15px;">配送方式：供货商物流&nbsp;&nbsp;</label>
+			</div>
+			<div class="addrs" style="height:auto; margin-top:0px;">
+				<div id="supplier_shipping" class="w" style="line-height:25px;float:left;width:100%;margin-left:15px;">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="mg2_hd_table">
+						<tr>
+							<td>本网店　　运费：<span id="shippingFee">{$shipping_info.shipping_fee}点</span></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<input type="hidden" name="shipping" id="shipping" value="1" />
+			<input type="hidden" name="payment" id="payment" value="2" />
+		</div>
+
+		<p class="hy_hedui" style="border-top:none; padding-top:0px; margin-bottom:15px;">商品清单&nbsp;&nbsp;</p>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hedui_table">
+			<tr>
+				<th width="2%" align="left">&nbsp;</th>
+				<th width="35%" colspan="-4" align="left">商品信息</th>
+				<th width="13%" align="center">时间</th>
+				<th width="20%" align="center">场馆</th>
+				<th width="11%" align="center">单价</th>
+				<th width="6%" align="center">购买数量</th>
+				<th width="13%" align="center">小计</th>
+			</tr>
+			<tr>
+				<td width="2%" align="center"></td>
+				<td width="35%" colspan="-4" align="center">
+					<img src="{$yanchu.imageUrl}" width="301" height="300" alt="{$yanchu.itemName}" style="float:left;" />
+					<p class="zl_t1" style="width:325px;">{$yanchu.itemName}</p>
+				</td>
+				<td width="13%" align="center">{$order[best_time]}</td>
+				<td width="20%" align="center">{$yanchu[site][@attributes][siteName]}</td>
+				<td width="11%" align="center">{$order.price}点</td>
+				<td width="6%" align="center">{$order.number}</td>
+				<td width="13%" align="center">{$order.goods_amount}点</td>
+			</tr>
+			<tr>
+				<td colspan="7" align="center" style="border:none;">
+					<p class="hy_qian1">商品总金额：{$order.goods_amount}点</p>
+				</td>
+			</tr>
+		</table>
+
+		<div class="hedui_box" id="ECS_ORDERTOTAL">
+			<p class="bo_money">
+				商品总金额：<span>{$order.goods_amount}</span>
+				<!-- 配送费用 -->
+				<span id="total_shippingFee" style="color:#666;">
+				{if $shipping_info.shipping_fee > 0}
+				 + 运费：<span>{$shipping_info.shipping_fee}</span>
+				{/if}
+				</span>
+			</p>
+			<input type="hidden" name="act" value="act_order" />
+			<input type="hidden" name="id" value="{$order.itemId}" />
+            <input type="hidden" name="market_price" value="{$order.market_price}" />
+			<input type="submit" value="提交订单" class="hd_tj" />
+			<span class="hy_hd_js">实际付款金额：<b id="amount">{$order.amount}</b>点</span>
+		</div>
+		</form>
+		{/if}
+		{if $action == 'pay'}
+		<div class="gw_s" id="gw_you">
+			<span class="gw_1">选择商品</span>
+			<span class="litter ">我的购物车</span>
+			<span class="success ">填写信息</span>
+			<span class="tijiao">提交订单</span>
+			<span class="gw_last">支付成功</span>
+		</div>
+		<div class="zhifu_box">
+			<p class="zhifu_t1">订单已提交成功，共计 <span>{$order.order_amount}</span>点 {if $order.order_amount gt 0}请尽快付款！{else}支付成功！{/if}</p>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="zhifu_table">
+				<tr>
+					<th width="22%" scope="col">订单编号</th>
+					<th width="23%" scope="col">商品数量</th>
+					<th width="29%" scope="col">订单金额</th>
+					<th width="26%" scope="col">订单状态</th>
+				</tr>
+				<tr>
+					<td align="center">{$order.order_sn}</td>
+					<td align="center">{$order.number}</td>
+					<td align="center">{$order.order_amount}点</td>
+					<td align="center">{if $order.order_amount gt 0}未付款{else}已付款{/if}</td>
+				</tr>
+			</table>
+			{if $order.order_amount gt 0}
+			<!-- <form name="payForm" action="flow.php" method="post"> -->
+			<p class="zhifu_t2">
+				<span>华影卡号：</span>{$username}
+			</p>
+			<p class="zhifu_t3">
+				<span>华影卡密码：</span>
+				<input type="password" name="password" id="password" value="" class="mima_input" />
+				<input type="button" value="" class="zhifu_js" onclick="checkPayForm()" />
+			</p>
+			<!-- </form> -->
+			{/if}
+			<p class="zhifu_ts"><span>温馨提示：</span>您的订单将在支付后安排发货，72小时内未支付的订单将自动取消，请尽快支付。</p>
+		</div>
+		<script type="text/javascript">
+		<!--
+			var buttonFlag = false;
+			function checkPayForm(){
+				var amount       = {$order.order_amount};
+				var money        = {$money};
+				var order_sn     = '{$order.order_sn}';
+				var order_id     = '{$order.order_id}';
+				var item_id      = '{$order.itemid}';
+				//var log_id       = '{$order.log_id}';
+
+				var pwd = document.getElementById('password').value;
+				if (pwd.length == 0){
+					alert('卡密码不能为空');
+					return false;
+				}
+				
+				if (!buttonFlag){
+					buttonFlag = true;
+					$.post('yanchu_order.php', {act: 'act_pay', password:pwd, id:item_id, 'order_id':order_id, 'order_sn':order_sn, 'order_amount':amount}, function (result){
+						if (result.error > 0){
+							buttonFlag = false;
+							alert(result.message);
+						}else{
+							location.href="yanchu_order.php?act=respond&id="+result.itemid+'&order_id='+result.content;
+						}
+					}, 'json');
+				}else{
+					alert('请不要重复提交');
+					return false;
+				}
+				
+			}
+		//-->
+		</script>
+		{/if}
+
+		{if $action eq "respond"}
+		<!-- 支付成功 -->
+		<div class="gw_l" id="gw_you">
+			<span class="gw_1">选择商品</span>
+			<span class="litter">我的购物车</span>
+			<span class="success">填写信息</span>
+			<span class="tijiao">提交订单</span>
+			<span class="gw_last">支付成功</span>
+		</div>
+		<div class="zhifu_box">
+			<p class="zhifu_cheng_t1">订单支付成功</p>
+			<p class="zhifu_ts" style="text-align:center; margin-top:34px;"><span>温馨提示：</span>您的订单已经支付成功，我们会尽快帮您安排发货，请您耐心等待！</p>
+			<p class="zhifu_ts" style="text-align:center; margin-top:34px;"><a href="/">返回首页</a>　　<a href="user.php?act=yanchu_order">查看订单</a></p>
+		</div>
+		{/if}
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+
+<script type="text/javascript">
+<!--
+
+function checkYcOrderForm(){
+	var consignee  = document.getElementById("consignee");
+	var country    = document.getElementById("country");
+	var province   = document.getElementById("province");
+	var city       = document.getElementById("city");
+	var district   = document.getElementById("district");
+	var address    = document.getElementById("address");
+	var mobile     = document.getElementById("mobile");
+	var tel        = document.getElementById("tel");
+	var email      = document.getElementById("email");
+	var partten    = /^1[3,5,8]\d{9}$/;
+	var msg        = new Array();
+	var err        = false;
+
+
+	//收货人不能为空
+	if (Utils.isEmpty(consignee.value)){
+		err = true;
+		msg.push('收货人信息不能为空');
+	}
+
+	//收货人所在地区不能为空
+	if (country && country.value == 0){
+		//msg.push(country_not_null);
+		msg.push('请正确填写收货人所在地区');
+		err = true;
+	}
+	if (province && province.value == 0 &&province.length > 1){
+		err = true;
+		//msg.push(province_not_null);
+		msg.push('请正确填写收货人所在地区');
+	}
+	if (city && city.value == 0 && city.length > 1){
+		err = true;
+		//msg.push(city_not_null);
+		msg.push('请正确填写收货人所在地区');
+	}
+	if (district && district.length > 1){
+		if (district.value == 0){
+			err = true;
+			//msg.push(district_not_null);
+			msg.push('请正确填写收货人所在地区');
+		}
+	}
+
+	//收货人详细地址不能为空
+	if (address && Utils.isEmpty(address.value)){
+		err = true;
+		msg.push('详细地址不能为空');
+	}
+	
+	//收货人联系方式不能为空
+	if (Utils.isEmpty(tel.value) && Utils.isEmpty(mobile.value)){
+		err = true;
+		msg.push('手机、固话电话选填一项！');
+	}else{
+		if (mobile.value.length > 0 && !partten.test(mobile.value)){
+			err = true;
+			msg.push('手机号不合法！');
+		}
+		if (tel.value.length > 0 && !Utils.isTel(tel.value)){
+			err = true;
+			msg.push('固定电话不合法！');
+		}
+	}
+
+	if (email && Utils.isEmpty(email.value)){
+		err = true;
+		msg.push('电子邮箱不能为空！');
+	}else{
+		if (!Utils.isEmail(email.value)){
+			err = true;
+			msg.push('电子邮箱格式不正确！');
+		}
+	}
+
+	if (err){
+		message = msg.join("\n");
+		alert(message);
+		$('html,body').animate({scrollTop:$('#order_consignee').offset().top - 130},500);
+		return false;
+	}else{
+		return true;
+	}
+}
+
+$(document).ready(function(){
+	$('.Select16').change(function(){
+		var itemId      = '{$order.itemId}';
+		var consignee   = $('#consignee').val();
+		var countryId   = '{$cityid}';
+		var provinceId  = $('#province option:selected"').val();
+		var cityId      = $('#city option:selected"').val();
+		var districtId  = $('#district option:selected"').val();
+		var address     = $('#address').val();
+		var mobile      = $('#mobile').val();
+		var tel         = $('#tel').val();
+		var email       = $('#email').val();
+		var goodsamount = '{$order.goods_amount}';
+		var number      = '{$order.number}';
+
+		$.get('yanchu_order.php', {act:'shippingFee', id:itemId, amount:goodsamount, number:number, consignee:consignee, country:countryId, province:provinceId, city:cityId, district:districtId, address:address, mobile:mobile, tel:tel, email:email}, function(result){
+			if (result.error == '0'){
+				$('#shippingFee').html(result.shippingFee+'点');
+				if (result.shippingFee > 0){
+					$('#total_shippingFee').html(' + 运费：<span>'+result.shippingFee+'</span>');
+				}else{
+					$('#total_shippingFee').html('');
+				}
+				$('#amount').html(result.amount);
+			}
+		}, 'json');
+
+	});
+})
+
+
+
+//-->
+</script>
+</body>
+</html>

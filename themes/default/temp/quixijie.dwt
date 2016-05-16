@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<link href="/css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1-11-3.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<script type="text/javascript"  src="/js/jquery_easing.js"></script>
+<script type="text/javascript" src="/js/lrtk.js"></script>
+<script type="text/javascript" src="/js/layer.js"></script>
+{insert_scripts files='jquery.region.js,utils.js,jquery.shoppingflow.js,jquery.common.js'}
+<style>
+	.main{ font-family: "Microsoft YaHei"; font-size:14px; color:#333;  }
+	input,select{border:1px #e0e0e0 solid; padding:3px;}
+	.fl{float:left;}
+	.hd-title{ height:40px; line-height:40px; font-size:16px;}
+	/** 商品信息 **/
+	.goods_lists,.shipping-detail,.noxindangao{ border:1px #e0e0e0 solid;}
+	.goods_lists ul li{float:left;}
+	.hd-images{ padding:20px; width:100px;}
+	.hd-goods-name{ width:760px;}
+	.hd-price{width:80px; line-height:140px; text-align:center;}
+	.hd-act{width:138px; text-align:center;}
+	.hd-act a{ display:inline-block; width:60px;  border:1px #e0e0e0 solid; height: 30px; line-height:30px; margin-top:55px; padding:0 15px; background:#F5F5F5;}
+	.hd-act a:hover{ background:lightcoral; color:#fff;}
+	.hd-goods-name span{ display:inline-block; height:30px; line-height:30px; font-size:16px; margin-top:20px; color:saddlebrown;}
+	.hd-goods-name p{ line-height:25px; height:50px; overflow:hidden; margin-top:10px;}
+	
+	/** 配送地址 **/
+	.shipping-detail,.noxindangao{display:block; width:100%}
+	.shipping-detail h3,.noxindangao h3{ border-bottom:1px #e0e0e0 dashed; height:35px; line-height:35px; text-indent:2em;}
+	.shipping-area{ padding:20px;}
+	
+	/** 诺心蛋糕配送时间 **/
+	.noxindangao{ margin-top:20px;}
+	.noxindangao-time{margin:20px; }
+	
+	.total-detail{ padding:15px 0 15px 0;}
+	.cart01 ul li select{ height:auto;}
+	.hy_hedui{margin-top:0; border:0;}
+	.addrs {width:1130px;}
+	.cart01{border:0; margin-top:0;}	
+	
+	
+</style>
+</head>
+<body>
+    <!-- 头部 -->
+    <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+    <!-- 头部结束 -->
+    
+  
+  	<div class="main_big" style="margin-top:60px;">
+    	<div class="main">
+        	<!-- 当前位置 -->
+        	<!--<div class="hy_position">
+                <p class="position01"><a href=".">首页</a> <code>&gt;</code>七夕节活动 <code>&gt;</code> 下单页面</p>						
+            </div>-->
+           
+            <!-- 当前位置结束 -->
+            <form action="jieri_order.php" method="post" name="theForm" id="theForm" onsubmit="return checkOrderForm(this)">
+            <!-- 商品信息 -->
+            <h2 class="hd-title fl">商品信息</h2>
+            <div class="goods_lists fl">
+        		<ul>
+		           
+		          <li class="hd-images"><img src="{$pictures[0].img_url}" alt="{$goods_info.goods_name}" width="100" height="100" /></li>
+		          
+                	<!-- <li class="hd-images"><img src="{$goods_info.goods_thumb}" width="100" height="100"/></li> -->
+                    <li class="hd-goods-name">
+                    	<span>{$goods_info.goods_name}</span>
+                        <p>{$goods_info.goods_brief}</p>
+                    </li>
+                    <li class="hd-price"> {$goods_info.spec_price} 点</li>
+                    <li class="hd-price" style="position: relative;"> {$goods_info.number} 件
+                    {if $limit_num}<div style="position: absolute;left: -50px;top: 48px;width: 230px;color: red;">温馨提示：您最多购买{$limit_num}件</div>{/if}
+                    </li>
+                    <li class="hd-act" style="position: relative;">
+                    	<a href="javascript:layerdetail();">查看详细</a>
+                    </li>
+                </ul>
+        	</div>
+           
+            <div style=" clear:both; height:10px;"></div>
+            
+            <!-- 配送信息-->
+            <h2 class="hd-title fl">配送信息</h2>            
+            <!-- 配送地址 -->
+            <div class="shipping-detail fl">
+            	<h3>收货地址 <font color=red>(实物统一配送地址)</font></h3>
+                <div class="shipping-area" id="order_consignee">
+                	{if $checkconsignee}
+						<!-- #BeginLibraryItem "/Library/my_consignee.lbi" --><!-- #EndLibraryItem -->
+                    {else}
+                        <!-- #BeginLibraryItem "/Library/consignee.lbi" --><!-- #EndLibraryItem -->
+                    {/if}
+                </div>
+            </div>
+            <!-- 配送地址结束-->
+         
+            <!-- 蛋糕 -->
+            {if $shipping.Atime eq 'true'}
+            <div class="noxindangao fl">
+            	<h3>蛋糕配送时间</h3>
+                <div class="noxindangao-time">
+                	<label class="l" for="addr" style="margin-left:15px;"><font color="red">*</font> 诺心送货时间&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    	
+                        <select name="A_time" class="st0" id='A_time' onchange="changeTimes(this,$(this).val(),'24','-1')">
+                        	<option value="0">请选择</option>
+                            {foreach from=$day item=dlist}  <option value="{$dlist}">{$dlist}</option> {/foreach}                            
+                        </select>
+                        <select name="A_city" class="st0" id='A_city' onchange="changeTimes(this,$('#A_time').val(),'24','1')">
+                        	<option value="0">请选择</option>
+                        </select>
+                        <select name="A_hours" class="st0" id="A_hours" >
+                            <option value="0">请选择</option>
+                        </select>
+                </div>
+            </div>
+            {/if}
+            <!-- 蛋糕结束 -->
+            <!-- 鲜花 -->
+            {if $shipping.Btime eq 'true'}
+            <div class="noxindangao fl">
+            	<h3>鲜花配送时间</h3>
+                <div class="noxindangao-time">
+                	<label class="l" for="addr" style="margin-left:15px;"><font color="red">*</font> 鲜花送货时间&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    	<select name="B_time" class="st0" id='B_time' onchange="changeTimes(this,$(this).val(),'21','-1')">
+                        	<option value="0">请选择</option>
+                            {foreach from=$day item=dlist}  <option value="{$dlist}">{$dlist}</option> {/foreach}
+                        </select>
+                        <select name="B_city" class="st0" id='B_city' onchange="changeTimes(this,$('#B_time').val(),'21','1')">
+                        	<option value="0">请选择</option>
+                        </select>
+                        <select name="B_hours" class="st0" id="B_hours" >
+                            <option value="0">请选择</option>
+                        </select>
+                </div>
+            </div>
+            {/if}
+            <!-- 鲜花结束 -->
+
+			<!-- 电影 -->
+            {if $shipping.Cphone eq 'true'}
+            <div class="noxindangao fl">
+            	<h3>电影通兑票接收手机号 <font color=red>(用于接收电影通兑票的手机号，可以和收货地址处的手机号一致)</font></h3>
+                <div class="noxindangao-time">
+                	<label class="l" for="addr" style="margin-left:15px;"><font color="red">*</font> 接收的手机号码&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="text" name="phone" id="phone" size="30"/>
+                </div>
+            </div>
+            {/if}
+            <!-- 电影结束 -->            
+            <!-- 配送信息结束-->
+            
+            <div style=" clear:both; height:10px;"></div>
+            
+            <!-- 统计-->
+             <h2 class="hd-title fl">订单信息</h2>
+             <div class="shipping-detail total-detail fl">
+             	<p class="bo_money">商品总金额：<span class="ax_goods_money">{$goods_info.show_price}</span> + 运费：<span class="ax_shipping_fee">0.00</span></p>
+                <input type="hidden" name="act" value="done"/>
+                <input type="hidden" name="goods_id" id="goods_id" value="{$goods_info.goods_id}"/>
+                <input type="hidden" name="number" id="number" value="{$goods_info.number}"/>
+                <input type="submit" value="提交订单" class="hd_tj">
+                <span class="hy_hd_js" style="font-family: 'Microsoft YaHei';">实际付款金额：<b class="ax_total_money">{$goods_info.show_price}</b>点</span>
+             </div>
+            <!-- 统计结束-->
+             </form> 
+          
+            <div style=" clear:both; height:10px;"></div>
+        </div>
+    </div>
+    
+    <!-- 底部 -->
+    <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    <!-- 底部结束 -->
+
+	<script type="text/javascript">
+	<!--
+		function changeTimes(dom,date,sid,cid){
+			// 
+			if(date == 0){
+				var dateValue = $(dom).prev('input').val();
+				if(dateValue == 'undefined'){
+					alert('请先选择配送时间！');
+					$('riqi'+sid).focus();
+				}else{
+					date = dateValue;
+				}
+			}
+			// cid 为1的时候，获取当前选择的cityid
+			if( cid == '1' ){
+				var cityId = $(dom).val();
+				if(cityId == 0 ) {
+					alert('请选择配送地区！');
+					$(dom).focus();
+				}else{
+					cid = cityId;
+				}							
+			}	
+			
+			$.ajax({
+				type:'GET',
+				url:'flow.php',
+				data:{step:'shippingTime', date:date, sid:sid, cid:cid},
+				beforeSend:function(){
+					var timeload = layer.load(0, {shade: [0.4,'#000']}); //0代表加载的风格，支持0-2
+				},
+				success:function(info){
+					layer.closeAll();					
+					var data = jQuery.parseJSON(info);
+					if (data.error > 0){
+						alert(data.message);
+						$(dom).find('option:first-child').attr('selected',true);
+					}else{								
+						var ptime = $(dom).next('select');										
+						ptime.empty();
+						ptime.append('<option value="0">请选择</option>');
+						$.each(data.content, function (k, v){
+							ptime.append('<option value="'+k+'">'+v+'</option>');
+						});
+					}
+					
+					// 更新订单的配送费用和总价格
+					if(data.supplier.fee > -1){						
+						// 显示快递信息			
+						//alert(dom.closest('div').html());			
+						var tableTr = '<input type="hidden" name="shippint_fee[]" class="shipping_fee" value="'+data.supplier.fee+'">';
+						$(dom).closest('div').find('.shipping_fee').remove();
+						$(dom).closest('div').append(tableTr);						
+						// 更新快递费用和总费用
+						var ax_goods_money = $('.ax_goods_money').text();
+						var ax_shipping_fee = $('.ax_shipping_fee').text();
+						var fee_price = 0;
+						$('.shipping_fee').each(function(){
+							fee_price += parseFloat($(this).val());
+						});
+						$('.ax_total_money').html((parseFloat(ax_goods_money)+fee_price).toFixed(2));
+						$('.ax_shipping_fee').html(parseFloat(fee_price).toFixed(2));
+						/*alert(data.supplier.fee);
+						alert(data.supplier.name);*/
+					}
+				}
+				
+			});			
+		}
+		
+		function layerdetail()
+		{			
+			layer.open({
+				type: 2,
+				title: false,				
+				shade: [0.5,'#333'],
+				shadeClose:true,
+				area: ['1100px', '500px'],
+				content: "/jieri_order.php?act=detail&goods_id={$goods_info.goods_id}"
+			})
+		}
+		
+		/**
+			信息验证
+		*/
+		function checkOrderForm(){			
+			// 收货地址判断
+			if($('#consignee_check').val() == 0){
+				alert('收货地址不完整，请修改！');
+				return false;
+			}
+			// 蛋糕
+			{if $shipping.Atime eq 'true'}
+				var A = true;
+				if($('#A_time').val() == 0){  A = false;	}
+				if($('#A_city').val() == 0){  A = false;	}
+				if($('#A_hours').val() == 0){  A = false;	}
+				if(A == false){
+					alert('请完善蛋糕的配送时间！');
+					return false;
+				}				
+			{\/if}
+			// 鲜花
+			{if $shipping.Btime eq 'true'}
+				var B = true;
+				if($('#B_time').val() == 0){  B = false;	}
+				if($('#B_city').val() == 0){  B = false;	}
+				if($('#B_hours').val() == 0){  B = false;	}
+				if(B == false){
+					alert('请完善鲜花的配送时间！');
+					return false;
+				}				
+			{\/if}
+			// 手机
+			{if $shipping.Cphone eq 'true'}
+				if($('#phone').val() == ''){
+					alert('请输入电影券接收手机号');
+					return false;
+				}
+			{\/if}
+			
+			return true;
+		}
+	//-->
+	</script>
+                
+</body>
+</html>

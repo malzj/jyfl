@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/js/nav.js"></script>
+{* 包含脚本文件 *}
+{insert_scripts files='jquery.common.js'}
+</head>
+<body>
+
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+
+<div class="main_big">
+	<div class="main">
+		<!--当前位置 开始-->		
+		<div class="hy_position">
+			<p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+			<form action="search.php" method="get" onsubmit="return checkSearForm();">
+			<input type="hidden" name="id" value="{$category}" />
+					<p class="head_sou">
+						<input type="text" name="keywords" id="keyword" value="搜索{$cat.cat_name}名称" onfocus="if (this.value == '搜索{$cat.cat_name}名称') this.value='';"  class="hy_sou_input" />
+						
+						<input type="submit" value="" class="hy_sou_but" />
+					</p>					
+					<script type="text/javascript">
+					<!--
+						function checkSearForm(){
+							if(document.getElementById('keyword').value && document.getElementById('keyword').value != 'search'){
+								return true;
+							}else{
+								alert("请输入您要搜索的关键字");
+								document.getElementById('keyword').focus();
+								return false;
+							}
+						}
+					//-->
+					</script>
+			</form>			
+		</div>
+		<!--当前位置 结束-->
+
+
+		<!--组合搜索 开始-->
+		<!-- #BeginLibraryItem "/library/coupons_filters.lbi" --><!-- #EndLibraryItem -->
+		<!--组合搜索 结束-->
+		<!-- #BeginLibraryItem "/library/coupons_list.lbi" --><!-- #EndLibraryItem -->
+		
+		<div class="clear"></div>
+		<div class="flickr"><!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --></div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<link href="/css/piaoduoduo.css" rel="stylesheet" type="text/css" />
+<link href="/css/dongsportlist.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<SCRIPT type=text/javascript src="/js/slide.js"></SCRIPT>
+{insert_scripts files='jquery.region.js,utils.js'}
+{insert_scripts files='transport.js,utils.js'}
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+<div class="main_big" style="margin-top: 5px;">
+	<div class="main h-wrop">
+    	<div>
+        <div class="hy_position">
+            <p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+            <form action="piaoduoduo.php" method="get" onsubmit="return checkSearForm();">
+               
+                <p class="head_sou">
+                    <input type="text" name="keywords" id="keyword"  placeholder="搜索名称" onfocus="if (this.value == '') this.value='';"  class="hy_sou_input" />
+                    
+                    <input type="submit" value="" class="hy_sou_but" />
+                </p>                    
+                <script type="text/javascript">
+             
+                    function checkSearForm(){
+                        if(document.getElementById('keyword').value && document.getElementById('keyword').value != 'search'){
+                            return true;
+                        }else{
+                            alert("请输入您要搜索的关键字");
+                            document.getElementById('keyword').focus();
+                            return false;
+                        }
+                    }
+                
+                </script>
+            </form>         
+        </div>
+        <div class="h-menu">
+           
+                     <div class="h-fort">分类：</div>
+            <ul style="margin-top:10px;">
+
+                {foreach from=$fenlei item=fenlei key=sk}
+               <li><a href="piaoduoduo.php?fenlei={$fenlei}&city={$pager.search.city}" {if $fenlei eq $pager.search.fenlei}class="h-all"{/if}>{$fenlei}</a></li>
+                {/foreach}
+                             
+            </ul>       
+        </div>
+        <div class="h-menu">
+          <div class="h-fort">地区：</div>
+            <ul style="margin-top:10px;">
+               
+               {foreach from=$cityArr item=city}
+               
+               <li><a href="piaoduoduo.php?city={$city}&fenlei={$pager.search.fenlei}" {if $city eq $pager.search.city} class="h-all" {/if} >{$city}</a></li>
+
+
+                {/foreach}
+                         
+            </ul>
+  
+        </div>
+
+
+ 
+         {if !$piaoduoduo} <div class="w-list" style="border-bottom:solid #eeeeee 1px;"><center style="color:red; height:80px; line-height:80px;"> 没有数据 </center> </div>{/if} 
+
+            {foreach from=$piaoduoduo key=kk item=list}
+            {if $list.SightName}          
+            <div class="w-list" style="border:0; border-top:#eeeeee 1px solid; padding-top:10px;">
+                 <div class="hy_list_rr1">
+                    <a href="piaoduoduo_list.php?KeyId={$list.SupplierKeyId}" class="hy_mai"><span class="hy_x1"></span>查看详情</a>
+                </div>
+                <div class="newprice">
+                    {if $list.price}{$list.price}{/if}
+                </div>
+
+            	<div class="w-list1">
+                 
+                	<img src="{$list.imgs}" width="230px" height="190px" />
+                   
+                </div>
+                <div class="w-list3">
+                    <a style="font-size:24px">{$list.SightName}</a>
+                    <p>地址：{$list.SightAddress}</p>                   
+                   
+                </div>
+                <div class="clear"></div>
+            </div>
+            {/if}
+
+<!--               <div class="w-mytable">
+              
+                	<table style="width:1200px; margin:5px 0;">
+                    	<thead>
+                        {foreach from=$list.entity item=djs }
+                        {if $djs.ProductName}
+                        <tr><td width="713" height="35"><a href="piaoduoduo_list.php?KeyId={$djs.KeyId}" style="padding-left:20px; font-size:14px;">{$djs.ProductName} </a></td>
+                        		<td width="200">{$djs.TicketCategory}</td>
+                        <td width="137">{$djs.SettlementPrice}点</td><td class="w-tablelist"><a href="piaoduoduo_list.php?KeyId={$djs.KeyId}"  class="w-text ">购买</a></td></tr>
+                        {/if}
+                        {/foreach}
+                        </thead>
+                    </table>
+                 
+                </div> --> 
+            {/foreach}
+                
+                    </div>
+        <div class="clear"></div>
+		<div class="flickr">
+			<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>  
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+</body>
+</html>

@@ -1,0 +1,16 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{foreach from=$moviePlan item=plan}
+<li>
+    <span class="span_1">{$plan.time}</span>
+    <span class="span_1">{$plan.screenType}/{$plan.language}</span>
+    <span class="span_1">{$plan.hallName}</span>
+    <span class="span_1"><span class="color_ff781e">{$plan.price}</span>点</span>
+    <span class="buy span_1">
+    {if $plan.is_cut eq 1}
+    	<span style="background:#CCC; cursor: default;">&nbsp;&nbsp;已过场&nbsp;&nbsp;</span>
+    {else}
+    	<span {if $plan.is_cut eq 0} onclick="location.href='movie.php?step=cinemaSeats&hallno={$plan.hallNo}&planid={$plan.planId}&movieid={$plan.movieId}&cinemaid={$plan.cinemaId}'"{/if}>选座购票</span>
+    {/if}
+    </span>
+</li>
+{/foreach}

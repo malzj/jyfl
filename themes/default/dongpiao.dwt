@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<link href="/css/dongsportlist.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<SCRIPT type=text/javascript src="/js/slide.js"></SCRIPT>
+{insert_scripts files='jquery.region.js,utils.js'}
+<style>
+.h-position, .h-position a{color:#fff;}
+</style>
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+<div class="main_big">
+	<div class="main h-wrop">
+    	<div>
+    		<div class="h-position"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+            <form method="get" action="dongpiao.php" > 
+                <div class="h-sou" style="background:#fff;">
+                    <input type="text" name="kword" class="h-text" />
+                    <input type="hidden" name="city" value="{$param.city}"/>                    
+                    <input type="hidden" name="orderBy" value="{$param.orderBy}"/>
+                    <input class="h-sb" type="submit" value=""  />
+                </div>
+            </form>	
+        </div>
+	<div class="h-menu">
+    
+					 <div class="h-fort">项目：</div>
+            <ul style="margin-top:10px;">
+                {foreach from=$searchList item=search key=sk}
+               <li><a href="dongpiao.php?word={$search}" {if $search eq $param.word}class="h-all"{/if}>{$search}</a></li>
+                {/foreach}
+                             
+            </ul>       
+					</div>
+		<div class="h-menu" style="border-top:0;">
+        
+            <div class="h-fort">城区：</div>
+            <ul style="margin-top:10px;">               
+                {foreach from=$dongcitys item=dongcity}
+                <li><a href="dongpiao.php?word={$smarty.get.word}&city={$dongcity}&orderBy={$param.orderBy}" {if $dongcity eq $param.city}class="h-all"{/if}>{$dongcity}</a></li>
+                {/foreach}   
+            </ul>           
+        </div>
+ 
+           
+			{if !$view} <div class="w-list" style="border-bottom:solid #eeeeee 1px;"><center style="color:red; height:80px; line-height:80px;"> 没有数据 </center> </div>{/if} 
+
+            {foreach from=$view item=arr key=kk}
+                      
+            <div class="w-list">
+              
+            	<div class="w-list1">
+                	<img src="{$arr.thumbnail}" width="230px" height="190px" />
+                </div>
+                <div class="w-list2">
+                	<a style="font-size:24px">{$arr.viewName}</a>                    
+                    <p>{$arr.viewAddress}</p>
+                </div>
+            </div>
+              <div class="w-mytable">
+              
+                	<table style="width:1200px; margin:5px 0;">
+                    	<thead>
+                        {foreach from=$arr.entity item=djs }
+                        <tr><td width="913" height="35"><a href="dongpiao_show.php?productno={$djs.productNo}" style="padding-left:20px; font-size:14px;">{$djs.productName} </a></td><td width="137">{$djs.SettlementPrice}点</td><td class="w-tablelist"><a href="dongpiao_show.php?productno={$djs.productNo}"  class="w-text ">购买</a></td></tr>
+                        {/foreach}
+                        </thead>
+                    </table>
+                 
+                </div> 
+            {/foreach}
+                
+                    </div>
+        <div class="clear"></div>
+		<div class="flickr">
+			<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>  
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+</body>
+</html>

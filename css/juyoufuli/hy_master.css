@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+.clear{clear:both;}
+/*******通用样式******/
+
+/* 城市样式  */
+.hy_dingwei{float:left; background:url(../images/index/area.png) no-repeat; padding-left:20px; line-height:16px; margin-top:33px; margin-left:50px; display:inline;}
+.hy_dingwei a{color:#f58718; background:url(../images/index/area-01.png) no-repeat right center; padding-right:15px;}
+.hy_dingwei a.up{background:url(../images/index/area-02.png) no-repeat right center;}
+.ui_city_plugs {overflow: hidden;background: #333;overflow: hidden;position: absolute;top: 0;width: 500px;z-index: 50;height: 500px;overflow-y: scroll;opacity: .9;}
+.ui_city_plugs .inner {padding: 15px;}
+.ui_city_plugs .ui_close {background: url(../images/ico_close.gif) no-repeat 3px 3px;cursor: pointer;display: block;height: 15px;opacity: 0.6;position: absolute;right: 10px;top: 10px;width: 15px;z-index: 11;}
+.ui_close{color: #000; font-size: 20px; font-weight: bold; line-height: 20px; opacity: 0.7; position: absolute; right: 10px; text-shadow: 0 1px 0 #fff; top: 10px;}
+.ui_city_cType{height: 35px;line-height: 35px;position: relative;}
+.ui_city_cType ul{padding-left: 1px; position: absolute; top: 1px;}
+.ui_city_cType ul li{display: inline;float: left;margin-left: -1px;}
+.ui_city_cType a.select{-moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-right-colors: none; -moz-border-top-colors: none; background: none repeat scroll 0 0 #fff; border-color: #cecece #cecece -moz-use-text-color; border-image: none; border-style: solid solid none; border-width: 1px 1px 0; color: #eb6120 !important; line-height: 32px; padding: 0 11px;}
+.ui_city_cType a{color: #999;cursor: pointer;display: inline-block;float: left;height: 34px;line-height: 34px;margin: 0;overflow: hidden;padding: 0 11px;text-align: center;width: auto;}
+.ui_city_cType a:focus {outline:none;}
+.ui_city_plugs a{text-decoration: none !important;}
+#hotCitys_content ul li{width: 61px;}
+.ui_city_List ul li{display: inline; float: left; margin: 0 0 1px;}
+.ui_city_List ul li a{color: #27C7AC;display: inline-block;float: left;height: 26px;line-height: 26px;margin: 0;overflow: hidden;padding: 0 12px;text-align: left;white-space: nowrap;}
+.ui_city_List ul li a:focus {outline:none;}
+.ui_city_List ul li a:hover, .ui_city_List ul li a.select{background-color: #ec6120; color: #fff;}
+.ui_city_List ul li a:hover, .ui_city_List ul li a.select{background-color: #27C7AC;color: #fff;border-radius: 10px;}
+.ui_city_List .inner{padding: 15px 0 0; float:left; width:100%; margin-bottom:15px;}
+.ui_city_List .inner ul{float:left; width:100%;}
+.tar {text-align: right; float:left; width:100%;}
+.ui_hide, .none{display: none !important;}
+.ui_city_List dl, .ui_city_List dl dd{overflow: hidden;}
+.ui_city_List dl{margin-top: 10px;}
+.mt0{margin-top: 0 !important;}
+.ui_city_List dl dt{float: left; height: 26px; margin-right: 15px; overflow: hidden;}
+.ui_city_List dl, .ui_city_List dl dd{overflow: hidden;}
+.ui_city_List dl dt span{border: 1px solid #27C7AC;display: inline-block;font-weight: bold;height: 24px;line-height: 24px;overflow: hidden;text-align: center;width: 24px;color: #27C7AC;}.ui_city_List ul li{display: inline; float: left; margin: 0 0 1px;}
+.ui_city_List dl.select dt span{background: none repeat scroll 0 0 #fc9; color: #fff;}
+
+
+
+.hy_position{float:left; width:100%; margin-bottom:10px;}

@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<link href="/css/ds-menu.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<SCRIPT type=text/javascript src="/js/slide.js"></SCRIPT>
+{insert_scripts files='jquery.region.js,utils.js'}
+<style>
+#tFocus-pic img  {
+	max-width: 520px ; 
+	max-height: 520px;
+	width:auto;
+	height:auto;
+}
+
+.middle{
+	width: 520px;
+	height: 520px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.h-position, .h-position a{color:#fff;}
+</style>
+</head>
+<body>
+<!-- 头部 --> 
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem --> 
+<!-- 头部结束 --> 
+
+<!-- 主体 -->
+<div class="main_big">
+  <div class="main h-wrop">
+        
+ 		<div>
+      		<div class="h-position"> <a href="/">首页</a> <code>></code> 运动激情 <code>></code> <a href="dongpiao.php">门票</a> <code>></code> {$detail.productName}
+      	</div>
+      	<div class="h-centimg" style="margin-top:20px;">      
+            <div class="h-imgArea">
+                <div id="tFocus">
+                    <div class="prev" id="prev"></div>
+                    <div class="next" id="next"></div>
+                    <ul id="tFocus-pic">
+                    	{foreach from=$detail.imgs item=img}
+                        <li> 
+                            <a href="javascript:;"></a> 
+                            <a href="javascript:;" class="middle"><img src="{$img}" alt="{$detail.productName}"></a> 
+                        </li>
+                        {/foreach}                       
+                    </ul>
+                    
+                    <div id="tFocusBtn"> <a href="javascript:void(0);" id="tFocus-leftbtn">上一张</a>
+                        <div id="tFocus-btn">
+                            <ul>
+                            <!-- {foreach from=$detail.imgs item=img key=key}-->
+                                <li {if $key == 0} class="active"{/if}><img src="{$img}" aalt="{$detail.productName}" width="87" height="57"></li>
+                            <!-- {/foreach}-->
+                            </ul>
+                        </div><a href="javascript:void(0);" id="tFocus-rightbtn">下一张</a> 
+                    </div>
+                </div>
+            </div>
+            
+            <script type="text/javascript">addLoadEvent(Focus());</script>
+            <div class="h-choice" >
+                <p class="h-title">{$detail.productName}</p>
+                <ul>
+                    <li><span class="h-spanleft">营业时间：</span><span class="h-span">{$detail.businessHours}</span></li>
+                    <li><span class="h-spanleft">详细地址：</span><span class="h-span">{$detail.viewAddress} </span></li>
+                    <li><span class="h-spanleft">价格：</span><span class="h-span1">{$detail.salePrice}</span><span class="h-span">点</span></li>
+                    <li ><a href="#goumai"><span></span>立即购买</a></li>
+                    <li  id="goumai" ></li>
+                </ul>
+            </div>
+        </div>
+        
+         <!--中部-->
+        <div class="h-inforbox" >
+          <div class="h-tabletitle" id="calendar" style="color:#F00;">   </div>
+        <div class="h-bot" >
+          	<h3>单品说明</h3>
+                {$detailww}
+         	</div>
+        </div>
+        
+        <div class="h-Product-profile">
+          	<p>产品简介</p>
+        </div>
+        
+        <div class="h-product">            
+             {$detail.content}
+        </div>
+    
+        
+  </div>
+</div>
+<div style=" clear:both"></div>
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+<script type="text/javascript">
+<!--
+var product = {$detail.productNo};
+var addate = 0;
+	loadPrice(0);
+
+
+
+function calendar(e){
+	if(e==1){
+		addate++;
+	}else{
+		addate--;
+	}
+	if(addate == 0){
+		loadPrice(0);
+		
+	}	
+	var myDate = new Date();
+	var year = myDate.getFullYear();
+	var month = myDate.getMonth()+1;
+	var day = myDate.getDate();
+	    month = month+addate;
+	var str = year+'-'+month+'-'+day;
+	loadPrice(str);
+}
+
+function loadPrice(date){
+	$.ajax({
+		type: "POST",
+		url: "dongpiao_show2.php?step=price",
+		data:'productno='+product+'&date='+date,
+		beforeSend : function(){
+			var beforeHtml = "<span style='display:inline-block; margin-left:320px;'><img src='/images/loadSeat2.gif'></span>";
+			$('#calendar').html(beforeHtml);
+		},
+		success: function(info){
+			$('#calendar').html(info);
+		}
+	});
+}
+
+$('#calendar .h-table2 tr td').live('click', function(){
+	var date = $(this).attr('date');
+	if(date != 0){
+		 window.location.href='dongpiao_order2.php?step=cart&product='+product+'&date='+date;
+	}
+});
+
+// 图片自适应高宽
+/*$("#tFocus-pic").find('img').each(function(){
+	var img = new Image();
+	img.src = $(this).attr('src');
+	img.onload = function(){
+		var img_width  = img.width;
+		var img_height = img.height;
+		if(img_width > img_height && img_width > 520){
+			$(this).attr('width','520');
+			alert(123);
+		}
+		if(img_height > img_width && img_height > 520){
+			$(this).attr('height','520');
+		}
+		if(img_height < 520 && img_width < 520){
+			$(this).attr('width',img_width);
+			$(this).attr('height',img_height);
+		}
+	}
+	
+	
+	
+});*/
+-->
+</script>
+
+</body>
+</html>

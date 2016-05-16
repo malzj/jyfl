@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+{insert_scripts files='jquery.region.js,utils.js'}
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+
+<!-- 主体 -->
+<div class="main_big">
+	<div class="main">
+		<!--当前位置 开始-->
+		<p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+		<!--当前位置 结束-->
+		
+		<div class="list01_box01">
+			<p class="list01_xuan">
+				<a href="shiting.php?act=skyy" class="list01_box01_cur">刷卡影院列表</a>
+				<a href="komovie.php?act=zxxz" >在线选座</a>
+				<a href="shiting.php?act=dzqdh">电子券兑换</a>
+			</p>
+		</div>
+
+
+		<div class="hy_per_dz">
+			<form name="yyForm" id="yyForm" action="shiting.php?act=skyy" method="POST">
+			<span class="hy_yy_name">按区域选择：</span>
+			<span style="float:left; line-height:26px; margin-right:10px;">{$cityinfo.region_name}</span>			
+			<select name="district" id="district" class="Select16">
+				<option value="0">请选择城区</option>
+				{foreach from=$province_list item=city}
+				<option value="{$city.region_id}" {if $int_city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+				{/foreach}
+			</select>			
+			<input type="image" src="/images/hy_sure.jpg" width="45" height="21" onclick="return dosubmit();">  
+			</form>
+		</div>
+		<div class="hy_ying_box">
+         	<table style="margin:20px 0 10px 0; color:red; line-height:30px; font-size:14px;"><tr><td>注：特殊影片（超长片、特殊限价片、3D影片、IMAX影片）等，请根据影院当日规则消费；<br />
+如遇特殊场次（电影节、包场、满场、首映、见面会、演出观摩、情人节2.14、平安夜12.24、圣诞节12.25）请兑换其他时间场次电影票或以影院公告为准。</td></tr></table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy_yy_table" style="margin-top:10px;">
+				<tr>
+					<th scope="col">城市</th>
+					<th scope="col">城区</th>
+					<th scope="col">影院名称</th>
+					<th scope="col">详细地址</th>
+					<!--<th scope="col">2D扣点</th>
+					<th scope="col">3D扣点</th>-->
+				</tr>
+				<tbody id="yingyuan">
+					{foreach from=$yingyuan_list item=yingyuan}
+					<tr>
+						<td align="center">{$yingyuan.city}</td>
+						<td align="center">{$yingyuan.district}</td>
+						<td align="center">{$yingyuan.title}</td>
+						<td align="center">{$yingyuan.address}</td>
+						<!--<td align="center">{$yingyuan.2d}</td>
+						<td align="center">{$yingyuan.3d}</td>-->
+					</tr>
+					{/foreach}
+				</tbody>
+			</table>
+			<p class="hy_notice">温馨提示</p>
+			<ul class="notice_list">
+				<li>1.华影文化卡可在影院售票台直接刷点兑换影票。</li>
+				<li>2.华影文化卡可凭卡号和密码在华影文化网站查询、充值或在线订购影票。</li> 
+				<li>3.如华影文化卡不慎丢失，可凭借卡号及密码进行挂失、补办。 </li>
+				<li>4.请在有效期内使用，过期无效。</li>
+				<li>5.华影文化卡卡内点数仅作为消费使用，不兑现，不找零。如您在使用华影文化卡时出现问题或者疑问，请咨询华影客服，客服电话：400-010-0689。</li>
+				<li>6.华影文化在法律允许范围内对文化卡具有最终解释权。</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+<script type="text/javascript">
+<!--
+function getYinYuan(){
+	var province = $('#province').val();
+	var city     = $('#city').val();
+	var district = $('#district').val();
+
+	if (province == 0){
+		alert('请选择省份');
+		return false;
+	}
+	//$('#yyForm').submit();
+	$.get('shiting.php', {act:'getYY', province:province, city:city, district:district}, function(result){
+	//alert(result);return;
+		$('#yingyuan').html(result.content);
+	}, 'json');
+}
+//-->
+</script>
+</body>
+</html>

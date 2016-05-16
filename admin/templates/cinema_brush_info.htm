@@ -1,0 +1,113 @@
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,../js/region.js,../js/transport.js"}
+<style>
+
+td.label { width:100px; font-weight:500;}
+.list-div{color:#666}
+select,input{ border:1px #f0f0f0 solid; height:20px; line-height:20px; text-indent:10px; color:#999;}
+select{height:25px; text-indent:0;}
+.list-div th { text-align:left; text-indent:3em; line-height:30px; background:none; font-size:14px; border-bottom:1px #BBDDE5 solid; margin-buttom:10px;}
+.cinema-name{margin-left:45px;}
+.cinema-name,.cinema-address,.cinema-delete{ min-width:100px; max-width:500px; float:left; padding-right:20px; line-height:25px; line-height:25px;}
+.cinema-name lable,.cinema-address lable{ width:70px; display:inline-block; text-align:right;}
+.search-cinemas,.search-cinemas-add,.delete-cinemas-del,.saveregion{border: 0px; cursor: pointer; height: 25px; background: red; text-align: center; color: #fff; text-indent: 0; width: 60px;}
+.search-cinemas:hover,.search-cinemas-add:hover,.delete-cinemas-del:hover,.saveregion:hover{ opacity: 0.6; }
+.search-cinemas-add{ background:sienna;}
+.delete-cinemas-del{ background:green;}
+.region-list-search{ border:1px bisque solid; height:50px;  line-height:50px; text-align:left;}
+</style>
+<div class="list-div">
+
+  <table width="100%" id="general-table" style="border-spacing:0">    
+    <tr>
+  		<th colspan='2'>影院信息</th>
+  	</tr>
+  	<tr><td colspan='2'>&nbsp;</td></tr>
+    <tr>    	
+    	<td  class="label" style="width:100px;">影院： </td>
+	    <td>
+	      <input type="text" name="cinema_name" value="{$cinema.title}" size="35" />        
+	    </td>
+    </tr>
+   <tr>
+      <td  class="label" style="width:100px;">影院地址： </td>
+      <td>
+        <input type="text" name="cinema_address" value="{$cinema.address}" size="100" />        
+      </td>
+    </tr>
+    <tr><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+  		<th colspan='2'>将影院添加到影院列表，并设置影院支持 <font color=red>《线下刷卡》</font></th>
+  	</tr>
+  	<tr><td colspan='2'>&nbsp;</td></tr>
+  	<form action="shiting.php" method="post" name="theForm" onsubmit="return validate()">
+  	<tr style="height:40px">
+      <td  class="label" style="width:100px;">影院名称： </td>
+      <td>
+        <input type="text" name="cinema_key" placeholder="影院名称 '关键字'" size="30" />        
+        <input type="button" name="search-cinemas" value="搜索" class="search-cinemas" onClick="searchCinema()"> 
+        <label>&nbsp;&nbsp; 模糊查找, 将查找影院列表里面的影院《cinema_list》，选择匹配的影院。</font></label>   
+      </td>
+    </tr>
+    <tr style="height:40px">
+      <td class="label" style="width:100px;">搜索结果： </td>
+      <td>
+      		<select name='search_cinema_name'><option value="0">--没有可选的影院--</option></select>
+      </td>
+    </tr>
+    <tr style="height:40px">
+      <td class="label" style="width:100px;">是否添加： </td>
+      <td>
+      		<input type="radio" name="insert" value="1" id="yes"><label for="yes">是</label>
+      		<input type="radio" name="insert" value="2" checked id="no"><label for="no">否</label> 
+      		&nbsp;&nbsp;&nbsp;<font color='red'>注：当搜索结果为空的时候，是否将该影院添加的影院列表里，并设置支持电子券兑换！</font>
+      </td>
+    </tr>
+    
+    <tr>
+      <td  class="label" style="width:100px;"> </td>
+      <td> 
+      	<input type="submit" name="search-cinemas" value="添加" class="search-cinemas-add"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      	<input type="hidden" name="act" value="cinemapushadd" />      	
+        <input type="hidden" name="id" value="{$cinema.article_id}" />
+      </td>
+    </tr>
+    <tr><td colspan='2'>&nbsp;</td></tr>
+    <tr><td colspan='2'>&nbsp;</td></tr>
+    </form>
+    
+ </table>
+
+</div>
+{insert_scripts files="../js/utils.js,validator.js"}
+<script language="JavaScript">
+	
+	  function searchCinema(){
+		  var key = document.forms['theForm'].elements['cinema_key'].value;	
+	  	  if ( key == '' ){
+	  		  alert('影院关键字，不能为空！');
+	  		  var html = '<option value="0">--没有可选的影院--</option>';
+	  		  document.forms['theForm'].elements['search_cinema_name'].innerHTML = html;
+			  return false;
+	  	  }
+	  	  
+	  	  var args = 'act=searchCinema&source=0&key='+key;
+	  	  Ajax.call('cinema_update.php?is_ajax=1', args, cinemaResult, "POST", "JSON");
+	  }
+	  
+	  function cinemaResult( result, txt ){
+		  if(result.error > 0){
+			  alert(result.message);
+			  return false;
+		  }
+		  if(result.html){
+			  document.forms['theForm'].elements['search_cinema_name'].innerHTML = result.html;
+		  }else{		 
+			  var html = '<option value="-1">-∨∨∨-没有您搜索的影院，可以把本影院添加的影院列表里-∨∨∨-</option>';
+	  		  document.forms['theForm'].elements['search_cinema_name'].innerHTML = html;
+			  return false;
+		  }
+	  }
+	  region.isAdmin = true;
+</script>
+{include file="pagefooter.htm"}

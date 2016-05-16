@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<link href="/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="/css/sports.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<style>
+img{ display:inline-block;}
+</style>
+
+</head>
+<body>
+    <!-- 头部 -->
+    <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+    <!-- 头部结束 -->
+    
+    <div class="main">
+		<!--当前位置 开始-->		
+		<div class="hy_position">
+			<p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>					
+		</div>
+	</div>
+    <div class="tg_n">
+        <div class="title">
+            <span>{$detail.venueName}</span>
+            <span class="facico">
+            {if $detail.equipment}
+		         {foreach from=$detail.equipment item=equipment}
+                 <img src="/images/dongwang/{$equipment.equipmentId}.jpg" width="20" height="20" title="{$equipment.equipmentName}"/>
+                 {/foreach}
+            {/if}   
+            </span>
+            <div style="overflow: hidden; margin-bottom:20px;line-height: 2;">
+                <div class="adress">详细地址：{$detail.place}     
+                    <p>营业时间：{$detail.stime}—{$detail.etime}</p>
+                </div>
+               <!-- <div class="yuding">
+                    <a href="#">立即预定</a>
+                </div>-->
+            </div>
+        </div>
+        <div class="img">
+            <div class="img_left">
+                <img src="{if $imgList.0}{$imgList.0}{else}/images/dongwang/null.jpg{/if}" width="464" height="360" />
+            </div>
+            <ul class="img_right">
+                <li><img src="{if $imgList.3}{$imgList.3}{else}/images/dongwang/null.jpg{/if}" width="235" height="175"></li>
+                <li><img src="{if $imgList.2}{$imgList.2}{else}/images/dongwang/null.jpg{/if}" width="235" height="175"></li>
+                <li><img src="{if $imgList.1}{$imgList.1}{else}/images/dongwang/null.jpg{/if}" width="235" height="175"></li>
+                <li><img src="{if $imgList.6}{$imgList.6}{else}/images/dongwang/null.jpg{/if}" width="235" height="175"></li>
+                <li><img src="{if $imgList.5}{$imgList.5}{else}/images/dongwang/null.jpg{/if}" width="235" height="175"></li>
+                <li><img src="{if $imgList.4}{$imgList.4}{else}/images/dongwang/null.jpg{/if}" width="235" height="175"></li>	
+            </ul>
+        </div>
+        <div class="tab">
+            <ul>
+            {if $venues}
+                <li class="active" data-tab='week'>{$detail.sportName}</li>
+            {/if}
+            {if $ticket}
+                <li data-tab='tickets' {if !$venues} class="active" {/if}>门票</li>
+            {/if}
+            </ul>
+            {if $venues}
+            <div class="week">
+            	{foreach from=$venues item=venue}
+                    <a href="venues_show.php?venueId={$venueId}&infoId={$venue.infoId}&orderDate={$venue.date}">
+                        <p><span class="day">{$venue.week}</span><span class="date">{$venue.date_mt}</span></p>
+                        <p><span class="money">{$venue.salePrice}</span><span>点起</span></p>
+                        <!--<p><span class="num">剩余 </span><span>{$venue.venueNum}</span></p>-->
+                    </a>
+                {/foreach}
+            </div>
+            {/if}
+            {if $ticket}
+            <div class="tickets" {if $venues} style="display:none"{/if}>
+                  <table>
+                  {foreach from=$ticket item=tic}
+                    <tr class="table_1 border_down">
+                        <td class="ticket_span1"><a href="dongpiao_show2.php?productno={$tic.infoId}">{$tic.infoTitle}</a></td>
+                        <td class="ticket_span2"><span class="font-18">{$tic.salePrice}</span><span class="font-12">点</span></td>
+                        <td class="ticket_span3"><a href="dongpiao_show2.php?productno={$tic.infoId}">立即预订</a></td>
+                    </tr>   
+                   {/foreach}               
+                  </table>
+            </div>
+            {/if}
+        </div>
+        <div class="help">
+            <div style="border-bottom: 2px solid #fda501;">
+                <span class='active xinxi'>场馆信息</span>
+            </div>
+            <p>{$detail.feature}</p>
+        </div>
+    </div>
+		<script type="text/javascript">
+		$(function(){
+
+			$('.tab ul li').click(function(){
+							var _that = $(this);
+							$(this).addClass('active').siblings().removeClass('active');
+							var thatClick = $(this).attr('data-tab');
+							var tabs = ['tickets', 'week'];
+							for(var i=0; i<tabs.length; i++){
+								if(tabs[i] == thatClick){
+									_that.parents('ul').siblings('.'+tabs[i]).show();
+								}else{
+									_that.parents('ul').siblings('.'+tabs[i]).hide();
+								}
+							}	
+						})	
+		})
+		</script>
+    <!-- 底部 -->
+    <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    <!-- 底部结束 -->
+	</body>
+</html>
+
+

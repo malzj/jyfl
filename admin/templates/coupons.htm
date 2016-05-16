@@ -1,0 +1,166 @@
+<!-- $Id: coupons.htm 17126 2015-8-11 16:52:57 李治华 $ -->
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+
+<style>
+.shuchu_right{ width:350px;position: absolute;right:20px;top:63px;}
+.yes_show,no_show{ display:inline-block; width:130px; float:left;}
+.daoru{
+  padding:3px;font-size:14px;width:100px;line-height:30px;text-align:center;background: #8CB5C0;text-decoration:none;margin-top: 5px;
+}
+.clear{ clear:both} 
+</style>
+
+<!-- 提货券搜索 -->
+<div class="form-div" style="height:22px;">
+
+<form action="javascript:searchConpons();" name="searchForm">
+    <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH">
+    提货券号码：<input name="coupons_card" type="text" id="coupons_card" size="15">	
+    &nbsp;供应商：<input name="supplier_name" type="text" id="supplier_name" size="15"> 
+    <input type="submit" value=" 搜索 " class="button">
+  </form>
+</div>
+
+
+
+<!-- 提货券列表 -->
+<form method="post" action="coupons.php?act=list" name="listForm" onsubmit="return check()">
+  <div class="list-div" id="listDiv">
+{/if}
+<div class="shuchu_right">
+    <span class="yes_show">已使用（{if $x}{$x}{else}0{/if}）</span>
+    <span class="yes_show">已锁定（{if $z}{$z}{else}0{/if}）</span>
+    <span class="no_show">未使用（{if $y}{$y}{else}0{/if}）</span>
+    <div class="clear"></div>
+</div>
+	<table cellpadding="3" cellspacing="1">
+	  <tr>
+	    <th>
+	      <input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox" /><a href="javascript:listTable.sort('order_sn', 'DESC'); ">序号</a>{$supplier_id}
+	    </th>
+      <th><a href="javascript:listTable.sort('coupons_card'); ">卡号</a></th>
+	    <th><a href="javascript:listTable.sort('coupons_number'); ">密码</a></th>
+      <th><a href="javascript:listTable.sort('price'); ">提货券价格</a></th>
+	    
+	    <th><a href="javascript:listTable.sort('end_time'); ">有效期</a></th>
+	    <th><a href="javascript:listTable.sort('supplier_name'); ">供应商</a></th>
+      <th><a href="javascript:listTable.sort('goods_name'); ">商品名称</a></th>
+	    <th><a href="javascript:listTable.sort('coupons_state'); ">状态</a></th>
+	  <tr>
+	{foreach from=$coupons_list item=coupons} 
+	 <div id="Idiv" style="display:none;position:fixed;left:20%;top:20%;z-index:1001;">
+        <textarea name="" id="orderMessage" cols="30" rows="10"></textarea>
+        <input type="button" value="关闭" onclick="closeDiv();" />
+        <!-- 【<a onclick="closeDiv()">点击关闭</a>】 -->
+        </div>
+    
+    <div id="Idiv" style="display:none;">
+      <textarea name="" id="orderMessage" cols="30" rows="10"></textarea>
+      </div>
+	  <tr>
+	   	 <td class="first-cell"><input type="checkbox" name="checkboxes" value="{$order.order_sn}" />{$coupons.id}</td>
+       <td class="first-cell">{$coupons.coupons_card}</td>
+	     <td class="first-cell">{$coupons.coupons_number}</td>
+	     <td class="first-cell">{$coupons.price}</td>
+	    
+	     <td class="first-cell">{$coupons.start_time}~{$coupons.end_time}</td>
+	     <td class="first-cell">{$coupons.supplier_name}</td>
+       <td class="first-cell">{$coupons.goods_name}</td>
+	     <td class="first-cell">{$coupons.coupons_state}</td>
+       <input type="hidden" name="market_price" value="{$coupons.market_price}">
+	  </tr>
+	 {/foreach}
+	</table>
+	
+	<!-- 分页 -->
+	<table id="page-table" cellspacing="0">
+	  <tr>
+	    <td align="right" nowrap="true">
+	    {include file="page.htm"}
+	    </td>
+	  </tr>
+	</table>
+  </div>
+</form>
+{if $full_page}
+<div style="margin-top:5px;">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="daoru" ><a href="coupons.php?act=coupons_excel_in">导入</a></span>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="daoru" ><a href="coupons.php?act=coupons_excel_out">导出</a></span>
+</div>
+<script type="text/javascript">
+listTable.recordCount = {$record_count};
+listTable.pageCount = {$page_count};
+
+{foreach from=$filter item=item key=key}
+listTable.filter.{$key} = '{$item}';
+{/foreach}
+{literal}
+
+    onload = function()
+    {
+        // 开始检查订单
+        startCheckOrder();
+    }
+    function check()
+    {
+      var snArray = new Array();
+      var eles = document.forms['listForm'].elements;
+      for (var i=0; i<eles.length; i++)
+      {
+        if (eles[i].tagName == 'INPUT' && eles[i].type == 'checkbox' && eles[i].checked && eles[i].value != 'on')
+        {
+          snArray.push(eles[i].value);
+        }
+      }
+      if (snArray.length == 0)
+      {
+        return false;
+      }
+      else
+      {
+        eles['number'].value = snArray.toString();
+        return true;
+      }
+    }
+    
+    //提货券更新
+    function updateOrder(id){    	   	
+    	Ajax.call('coupons.php', 'act=coupons_update' + '&id='+id, updateCouponsResponse, "GET", "JSON");
+    }
+    
+    function updateCouponsResponse(data){
+    	//alert(data.message);
+      var Idiv= document.getElementById("Idiv");
+      var orderMessage= document.getElementById("orderMessage");
+      Idiv.style.display = "block";
+      //显示div，赋值给textarea
+      document.getElementById("orderMessage").value = data.message;
+    }
+	function closeDiv() //关闭div
+	{
+	var Idiv=document.getElementById("Idiv");
+	 Idiv.style.display="none";
+ 	 }
+
+	
+	
+/**
+ * 搜索提货券
+ */
+function searchConpons()
+{
+	listTable.filter['coupons_card'] = Utils.trim(document.forms['searchForm'].elements['coupons_card'].value);
+	listTable.filter['supplier_name'] = document.forms['searchForm'].elements['supplier_name'].value;
+	listTable.filter['page'] = 1;
+    listTable.loadList();
+    //alert(listTable.loadList());
+}
+
+{/literal}
+</script>
+{include file="pagefooter.htm"}
+{/if}

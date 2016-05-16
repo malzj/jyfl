@@ -1,0 +1,4 @@
+{if empty($goods_list)} <center style="height:200px; line-height:200px; color:red;">没有现金支付的商品</center> {/if}
+{foreach from=$goods_list item=money}
+<div class="cashxj"><img src="{$money.goods_thumb}" width="100" height="100"/><span>{$money.show_price}元({$money.num})</span></div> 
+{/foreach}

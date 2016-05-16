@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+{insert_scripts files='jquery.region.js,utils.js'}
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+<div class="main_big">
+	<div class="main">
+		<!--当前位置 开始-->
+		<p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+		<!--当前位置 结束-->
+
+		<div class="list01_box01">
+			<p class="list01_xuan">
+				<a href="shiting.php?act=skyy">刷卡影院列表</a>
+				<a href="komovie.php?act=zxxz" class="list01_box01_cur">在线选座</a>
+				<a href="shiting.php?act=dzqdh">电子券兑换</a>				
+			</p>
+			<!-- <form action="shiting.php?act=yingyuan" method="get">
+			<p class="list01_search">
+				<span><input type="text" value="搜索影院名称" class="list01_input01" onfocus="if (this.value == '搜索影院名称') this.value='';" /></span>
+				<input type="submit" value="" class="list01_but01" />
+			</p>
+			</form> -->
+		</div>
+
+		<!-- <div class="list01_box02">
+			<span>选择城区： </span>
+			<p class="list01_box02_texts">
+				<a href="#" class="cur">全部影院</a>
+				<a href="#">热门影院</a>
+				<a href="#">海淀区（14）</a>
+				<a href="#">朝阳区（21）</a>
+				<a href="#">西城区（6）</a>
+				<a href="#">丰台区（7）</a>
+				<a href="#">东城区（12）</a>
+				<a href="#">顺义区（1）</a>
+				<a href="#">昌平区（4）</a>
+				<a href="#">大兴区（10）</a>
+				<a href="#">朝阳区（21）</a>
+				<a href="#">西城区（6）</a>
+				<a href="#">丰台区（7）</a>
+				<a href="#">东城区（12）</a>
+			</p>
+		</div> -->
+	
+		<div class="list01_box03">
+			<div class="list01_box03_top">
+				<span class="list01_title">
+					<a href="komovie.php?act=zxxz&op=hot"{if $op=='hot'} class="list01_title_cur"{/if}>热映电影</a>
+					<a href="komovie.php?act=zxxz&op=coming" style="margin-left:1px; display:inline;"{if $op=='coming'} class="list01_title_cur"{/if}>即将上映</a>
+				</span>
+				<p class="list01_page">
+					<a href="{if $pager.page_prev}{$pager.page_prev}{else}javascript:;{/if}">上一页</a>/<a href="{if $pager.page_next}{$pager.page_next}{else}javascript:;{/if}">下一页</a>
+				</p>
+			</div>
+			<ul class="hy_list02">
+				{foreach from=$films item=films}
+				<li>
+					<a href="komovie_show.php?act={$op}&id={$films.movieId}&cityId={$cityId}" class="list_img_bg2"><img src="{$films.pathVerticalS}" width="210" height="295" alt="{$films.movieName}" /></a>
+					<div class="hy_list01_texts">
+						<p class="list01_t1">{$films.movieName}</p>
+						<p class="list01_t2">导演：{$films.director}</p>
+						<p class="list01_t2">主演：{$films.actor}</p>
+						<p class="list01_t2">片长：{$films.movieLength}</p>
+						<p class="list01_t2">类型：{$films.movieType}</p>
+						<!-- <p class="list01_t2">关注：{$films.FouseAmount}</p> -->
+						<p class="list01_t2">上映日期：{$films.publishTime}</p>
+						<p class="list01_t3"></p>
+					</div>
+					<div class="hy_list01_rr">
+						<a href="komovie_show.php?act={$op}&id={$films.movieId}&cityId={$cityId}" class="hy2_list01_buy"><span class="hy2_list01_bg"></span>查看详情</a>
+					</div>
+				</li>
+				{/foreach}
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div class="flickr">
+			<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+<script type="text/javascript">
+<!--
+function getYinYuan(){
+	var province = $('#province').val();
+	var city     = $('#city').val();
+	var district = $('#district').val();
+
+	if (province == 0){
+		alert('请选择省份');
+		return false;
+	}
+	//$('#yyForm').submit();
+	$.get('komoive.php', {act:'getYY', province:province, city:city, district:district}, function(result){
+	//alert(result);return;
+		$('#yingyuan').html(result.content);
+	}, 'json');
+}
+//-->
+</script>
+</body>
+</html>

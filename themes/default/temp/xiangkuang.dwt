@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<link href="/css/css.css" rel="stylesheet" type="text/css" />
+<link href="/js/entity/lll.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1-11-3.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<script type="text/javascript"  src="/js/jquery_easing.js"></script>
+<script type="text/javascript" src="/js/lrtk.js"></script>
+<script type="text/javascript" src="/js/layer.js"></script>
+<script type="text/javascript" src="/js/spinner/jquery.spinner.js"></script>
+{insert_scripts files='jquery.region.js,utils.js,jquery.shoppingflow.js,jquery.common.js'}
+<style>
+body,div,table,tr,td{margin:0;padding:0;}
+table{margin-top:-4px;}
+#kinMaxShow{width:100%;margin:0 auto;max-width:1600px;min-width:1200px; position:relative;}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+.increase,.decrease{ height:20px; width:20px;}
+.spinner{ text-align:center;} 
+</style>
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+<div class="main_big" style="overflow:hidden; padding-top:0;">
+    <div id="kinMaxShow">
+        <div>
+        	<table>
+            	<tr>
+                	<td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+      
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (1).png" width="1600" /></td>
+                </tr>
+            </table>
+  		</div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (2).png" width="1600" /></td>
+                </tr>
+            </table>
+    
+  		</div>
+        <div style="position:relative;">
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (3).png" width="1600" /></td>
+                </tr>
+            </table>
+            <div id="pay-position" style="position:absolute; top:0px; right:237px;">
+       	<div style="display:inline-block;width:450px;">
+           	<p style="font-size:20px; font-weight:bold;">松鼠 SF101智能相框 互联网电子相框 电子相册 数码相框 APP照片传输 视频通话 送老人的礼物 </p>
+            <p style="color:#F00;font-size:12px; margin-top:16px; line-height:16px">【送爸妈！异地他乡通过相框陪伴他】【家人远程互动】【与众不同的礼物】【qq是相框的好伴侣】【智能+】【互联网+】</p>
+            <div style="margin-top:16px; line-height:16px"><span style="font-size:14px;color:#F30;">价格：666点</span> <span  style="text-decoration:line-through;font-size:14px;">原价：899元</span></div>
+            <div style="margin:20px 0;">数量&nbsp;&nbsp;<input type="text" style="width:80px;height:20px;" id="number" class="spinner" /></div>
+            <div style="margin-left:30px;margin-top:20px;"><input type="button" value="立即抢购" class="dg-enter" style="background-color:#F60;color:#FFF;width:137px;height:35px;font-size:16px;border:0;cursor:pointer;"/></div>
+        </div>
+    </div>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (4).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (5).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (6).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (7).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (8).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (9).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (10).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (11).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (12).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (13).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (14).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (15).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (16).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (17).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (18).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (19).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (20).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (21).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song1 (22).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song23 (1).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+       <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song23 (2).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song23 (3).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song23 (4).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+         <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song23 (5).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+         <div>
+        	<table>
+            	<tr>
+                	<td><img src="/themes/default/temp/xk_images/song23 (6).png" width="1600" /></td>
+                </tr>
+            </table>
+        </div>
+        
+     </div>
+</div>
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+<map name="Map" id="Map">
+  <area shape="rect" coords="1019,17,1190,75" href="http://www.huayingcul.com/jieri_order.php?act=index&amp;goods_id=1491" />
+</map>
+
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="1204,178,1366,238" href="http://www.huayingcul.com/jieri_order.php?act=index&amp;goods_id=1492" />
+</map>
+
+<map name="Map3" id="Map3">
+  <area shape="rect" coords="1102,380,1281,433" href="http://www.huayingcul.com/jieri_order.php?act=index&amp;goods_id=1493" />
+</map>
+
+<script>
+
+$(document).ready(function(){
+   $(window).resize(function(){
+	   jieri_width();	   
+	});
+	
+	jieri_width();
+	
+	function jieri_width(){
+		// 图片的宽
+	   var tw = 1600; 
+	   // 窗口的宽
+	   var wh = $(window).width();
+	  
+	   // 小于1300的屏幕不在缩放
+	   if(wh <1400){
+		    $('.main_big').css('width',1400);
+			var offceWidth = ((tw - 1400) / 2) - (tw - 1400);
+			$('#kinMaxShow').css("left",offceWidth);
+			return false;
+	   }else{
+		    // 设置
+		   $('.main_big').css('width',wh);
+		   
+		   if (wh < tw){
+				var offceWidth = ((tw - wh) / 2) - (tw - wh);
+				$('#kinMaxShow').css("left",offceWidth);
+				$('#pay-position').css('right',237-(tw-wh))
+		   }
+	   }
+	  
+	}
+	
+	// 数字加减
+	$('.spinner').spinner({value:1});
+
+	$(document).delegate('.dg-enter', 'click', function(){		
+		window.location.href="http://www.huayingcul.com/jieri_order.php?act=index&goods_id=1597&number="+$('#number').val();
+	});
+		
+	
+	
+});
+
+</script>
+</body>
+</html>

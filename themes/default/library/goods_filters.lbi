@@ -1,0 +1,50 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<a name='goods_list'></a>
+<ul class="fenlei_list">
+	<!--{if $brands.1 || $price_grade.1 || $filter_attr_list}-->
+	<!--{if $brands.1}-->
+	<li>
+		<span class="fenlei_name">{$lang.brand}：</span>
+		<div class="fenlei_box">
+			<!--{foreach from=$brands item=brand}-->
+			<!-- {if $brand.selected} -->
+			<a href="javascript:;" class="current">{$brand.brand_name}</a>
+			<!-- {else} -->
+			<a href="{$brand.url}">{$brand.brand_name}</a>&nbsp;
+			<!-- {/if} -->
+			<!--{/foreach}-->
+		</div>
+	</li>
+	<!-- {/if} -->
+
+	<!--{foreach from=$filter_attr_list item=filter_attr}-->
+	<li>
+		<span class="fenlei_name">{$filter_attr.filter_attr_name|escape:html} :</span>
+		<div class="fenlei_box">
+			<!--{foreach from=$filter_attr.attr_list item=attr}-->
+			<!-- {if $attr.selected} -->
+			<a href="javascript:;" class="current">{$attr.attr_value}</a>
+			<!-- {else} -->
+			<a href="{$attr.url}">{$attr.attr_value}</a>
+			<!-- {/if} -->
+			<!--{/foreach}-->
+		</div>
+	</li>
+	<!--{/foreach}-->
+
+	<!--{if $price_grade.1}-->
+	<li style="border:none;">
+		<span class="fenlei_name">{$lang.price}：</span>
+		<div class="fenlei_box">
+			<!--{foreach from=$price_grade item=grade}-->
+			<!-- {if $grade.selected} -->
+			<a href="javascript:;" class="current">{$grade.price_range}</a>
+			<!-- {else} -->
+			<a href="{$grade.url}">{$grade.price_range}</a>
+			<!-- {/if} -->
+			<!--{/foreach}-->
+		</div>
+	</li>
+	<!--{/if}-->
+	<!--{/if}-->
+</ul>

@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<style>
+.hy2_dingdan01 table{ font-size:14px;  color:#666;}
+</style>
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+<div class="main_big">
+	<div class="main">
+		<!--当前位置 开始-->
+		<p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+		<!--当前位置 结束-->
+		{if $action == 'respond'}
+		<div class="hy2_detail01 hy2_bord">
+			<span class="hy2_ticket">场馆订购</span>
+			<div class="gw_s01" id="gw_you01">
+				<span class="gw_101">第一步：选择场馆</span>
+				<span class="litter01">第二步：确定订单信息并支付</span>
+				<span class="success01 white01">第三步：支付成功</span>
+			</div>
+		</div>
+
+		<div class="hy2_dingdan01">
+			<div class="hy2_zhifu" style="margin-top:28px;">
+				<p class="zhifu_cheng_t1">订单提交成功，请耐心等待出票</p></p>
+				<p class="zhifu_ts" style="text-indent:360px; margin:20px; 0"><a href="/">返回首页</a>&nbsp;&nbsp; <a href="/user.php?act=venues_order" style="color:green;">我的订单</a></p>				
+			</div>
+		</div>
+		{elseif $action == 'saveOrder'}
+		<div class="hy2_detail01 hy2_bord" >
+			<span class="hy2_ticket">场馆订购</span>
+			<div class="gw_t01" id="gw_you01">
+				<span class="gw_101">第一步：选择场馆</span>
+				<span class="litter01 white01">第二步：确定订单信息并支付</span>
+				<span class="success01">第三步：支付成功</span>
+			</div>
+		</div>
+		
+		<form action="komovie_seat.php" name="myDoneForm" method="post" onsubmit="return checkPayForm();">
+		<input type="hidden" name="act" value="done" />
+		<div class="hy2_dingdan01">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table">
+				<tr>
+					<th width="17%" scope="col">场馆信息</th>
+					<th width="19%" scope="col">用户信息</th>
+					<th width="17%" scope="col">预订信息</th>
+					<th width="17%" scope="col">总售点</th>
+					<th width="4%" scope="col">数量</th>					
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table01">
+				<tr>
+					<td width="17%" scope="col" align="left" style="padding-left:10px;">场馆：{$order.venueName}<br /> 地址：{$detail.place}</td>
+					<td width="19%" scope="col" align="center">姓名：{$order.link_man} （{$order.link_phone}）</td>
+					<td width="18%" scope="col" align="left" style="padding-left:10px;">                    
+                    {foreach from=$order.times_mt item=time} {$order.date} {$time}<br />{/foreach}                        
+                    </td>
+					<td width="17%" scope="col" align="center">{$order.money} 点</td>
+					<td width="4%" scope="col" align="center"> {$order.total}块</td>					
+				</tr>				
+			</table>
+		</div>
+		<div class="hy2_dingdan01">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table">
+				<tr>
+					<th align="left" scope="col" style="text-indent:37px;">支付方式</th>
+				</tr>
+			</table>
+			<div class="hy2_zhifu">
+				<p class="hy2_zhi_t1 f_w"><span>華影卡号:</span>{$username}</p>
+				<p class="hy2_zhi_t1 f_w">
+					<span>華影卡密码</span>
+					<input type="password" name="password" id="password" value="" class="hy2_password" />
+					<span id="paySubmitSpan">
+						<input type="button" value="" id="paySubmit" class="hy2_js" />
+					</span>
+				</p>				
+			</div>
+		</div>
+		<input type="hidden" name="order_id" id="order_id" value="{$order.id}" />
+		</form>
+		<script type="text/javascript">
+			var checkSubmitFlg = false;
+			$('#paySubmit').click(function(){
+				var password = $('#password').val();
+				var orderid = $('#order_id').val();
+				if( password == ''){
+					alert('密码不能为空！');
+				}
+				if(checkSubmitFlg == true){ 
+					alert('已提交过，请耐心等待');
+					return false;
+				}
+				checkSubmitFlg = true;
+				$.ajax({
+					type : 'POST',
+					url: 'venues_order.php?action=pay',
+					data: "password="+password+"&orderid="+orderid,
+					success:function(data){
+						if(data.error == 1){
+							alert(data.message);
+							checkSubmitFlg = false;
+						}else{
+							window.location.href="venues_order.php?action=respond";
+						}
+					},
+					dataType:'json'
+				});
+			});
+		</script>	
+		
+		{/if}
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+</body>
+</html>

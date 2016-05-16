@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+{insert_scripts files='jquery.region.js,utils.js'}
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+<div class="main_big">
+	<div class="main">
+		<!--当前位置 开始-->		
+		<div class="hy_position">
+			<p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+			<form name="yancForm" method="get" action="yanchu.php">
+			<input type="hidden" name="id" value="{$cateid}" />
+					{if $regionname}
+					<input type="hidden" name="region" value="{$regionname}" />
+					{/if}
+					<p class="head_sou">
+					
+						<input type="text" name="yckeyword" id="keyword" value="{if $yckeyword}{$yckeyword}{else}搜索{$catname}名称{/if}" onfocus="if (this.value == '搜索{$catname}名称') this.value='';"  class="hy_sou_input" />
+						<input type="submit" value="" class="hy_sou_but" />
+					</p>					
+					<script type="text/javascript">
+					<!--
+						function checkSearForm(){
+							if(document.getElementById('keyword').value && document.getElementById('keyword').value != 'search'){
+								return true;
+							}else{
+								alert("请输入您要搜索的关键字");
+								document.getElementById('keyword').focus();
+								return false;
+							}
+						}
+					//-->
+					</script>
+			</form>			
+		</div>
+		<!--当前位置 结束-->
+		<!--
+		<div class="list01_box02_yan">
+			<form name="yancForm" method="get" action="yanchu.php">
+			<input type="hidden" name="id" value="{$cateid}" />
+			{if $regionname}
+			<input type="hidden" name="region" value="{$regionname}" />
+			{/if}
+			<p class="hy2_yanchu">
+				<input type="text" name="yckeyword" value="{$yckeyword}" class="yan_input" />
+				<input type="submit" value="" class="yan_sou" />
+			</p>
+			</form>
+			<span style="padding-left:12px;">选择城区： </span>
+			<p class="list01_box02_texts">
+				<a href="yanchu.php?id={$cateid}"{if !$regionname} class="list01_box02_texts_cur"{/if}>全部</a>
+				{foreach from=$regions item=region}
+				<a href="yanchu.php?id={$cateid}{if $keyword}&keyword={$keyword}{/if}&region={$region.short_region_name}"{if $regionname == $region.short_region_name} class="list01_box02_texts_cur"{/if}>{$region.region_name}</a>
+				{/foreach}
+			</p>
+		</div>
+		-->
+	
+		<div class="list01_box03">
+			<ul class="hy_list01">
+				{foreach from=$data item=data}
+				<li>
+					<a href="yanchu_show.php?cateid={$cateid}&id={$data.itemId}" class="list_img_bg"><img src="{$data.imageUrl}" width="448" height="300" alt="" /></a>
+					<div class="hy_list01_texts">
+						<p class="list01_t1">{$data.itemName}</p>
+						<p class="list01_t2">类型：{$data[cate][@attributes][cateName]}</p>
+						<p class="list01_t2">时间：{$data.startDate}{if $data.startDate}~{/if}{$data.endDate}</p>
+						<p class="list01_t2">场馆：{$data[site][@attributes][siteName]}</p>
+						<p class="list01_t3">{$data.introduction}</p>
+					</div>
+					<div class="hy_list01_rr">
+						<a href="yanchu_show.php?cateid={$cateid}&id={$data.itemId}" class="hy_mai"><span class="hy_x1"></span>查看详情</a>
+					</div>
+				</li>
+				{/foreach}
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div class="flickr">
+			<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+</body>
+</html>

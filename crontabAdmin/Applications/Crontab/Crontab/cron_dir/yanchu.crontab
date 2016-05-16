@@ -1,0 +1,2 @@
+﻿# 动网场馆数据抓取
+0 0 * * * C:\wamp\bin\php\php5.3.10\php Crontab/yanchu/index.php

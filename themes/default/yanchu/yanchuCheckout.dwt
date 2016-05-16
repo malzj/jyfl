@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="huaju2">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.shoppingflow.js"></script>
+        {insert_scripts files='jquery.region.js,utils.js'}
+		
+	</head>
+	<body>
+        <!-- 头部 -->
+        <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 -->
+        
+        <style>
+			html.huaju2 .w_1200 .shouhuoren .shouhuoren_item ul li div.selected{border:1px red solid;}
+        </style>
+        
+        <div class="w_1200">
+			<div class="yanchu_tip"></div>
+			<div class="goupiao">确认购票信息</div>
+            <form action="yanchu_order.php" method="post" name="theForm" id="theForm" onsubmit="return checkYcOrderForm(this)">
+			<div class="goupiaoxinxi">
+				<div class="xinxi_left f_l">
+					<div class="xinxi_img f_l">
+						<img src="{$yanchu.imageUrl}" width="150" height="150">
+					</div>
+					<div class="xinxi_zhanshi f_l">
+						<ul>
+							<li>演出：<span>{$yanchu.itemName}</span></li>
+							<li>场馆：<span>{$yanchu[site][@attributes][siteName]}</span></li>
+							<li>场次：<span>{$order[best_time]}</span></li>
+							<li>数量：<span>{$order.number}</span></li>
+						</ul>
+					</div>
+				</div>
+				<div class="xinxi_right f_r">
+					<ul>
+						<li>单价：<span>{$order.price}</span> 点</li>
+						<li>小计：<span>{$order.goods_amount}</span> 点</li>
+                        <li>运费：<span>{$shipping_info.shipping_fee}</span> 点</li>
+						<li>需支付：<span>{$order.amount}</span> 点</li>
+					</ul>
+				</div>
+			</div>
+			<div class="shouhuo">收货信息</div>			
+            <div class="shouhuoren" id="order_consignee"> LOADING ... </div>            
+			<div class="pay_way">
+				<div class="pay_way_title">支付及配送方式</div>
+				<div class="pay_way_details">
+					<ul>
+						<li><span>支付方式：</span><span>聚优文化卡支付</span></li>
+						<li><span>配送方式：</span><span>供货商物流</span></li>
+						<li><span>本网店 </span>运费：</span><span>{$shipping_info.shipping_fee} 点</span></li>
+					</ul>
+				</div>
+			</div>
+			<div class="tijiao">
+				<div class="f_r">
+					<span>实际付款金额：</span>
+					<span class="num">{$order.amount}</span> 点
+                    <input type="hidden" name="act" value="act_order" />		
+					<input type="submit" value="提交订单" class="act-submit btn zhuti_a_hover"/>				
+				</div>
+			</div>
+            </form>
+		</div>
+        
+        <!-- 底部 -->
+	 	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+	    <!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+        <script> 
+			
+			var checkconsignee = '{$checkconsignee}';
+		
+			updateConsignee(); 
+			// 提交订单
+			function checkYcOrderForm(){	
+				if(checkconsignee == 0){
+					alert('请选择你的收货地址');
+					return false;
+				}
+				return true;		
+			}
+        </script>
+
+   </body>
+</html>

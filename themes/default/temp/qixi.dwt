@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<link href="/css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1-11-3.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<script type="text/javascript"  src="/js/jquery_easing.js"></script>
+<script type="text/javascript" src="/js/lrtk.js"></script>
+<script type="text/javascript" src="/js/layer.js"></script>
+{insert_scripts files='jquery.region.js,utils.js,jquery.shoppingflow.js,jquery.common.js'}
+<style>
+body,div,table,tr,td{margin:0;padding:0;}
+table{margin-top:-4px;}
+#kinMaxShow{width:100%;margin:0 auto;max-width:1920px;min-width:1200px; position:relative;}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+</style>
+
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+<div class="main_big" style="overflow:hidden;">
+    <div id="kinMaxShow">
+        <div>
+            <table>
+                <tr>
+                    <td><img src="/themes/default/temp/qixi_image/zhuanti_02.jpg" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td><img src="/themes/default/temp/qixi_image/zhuanti_04.jpg" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td><img src="/themes/default/temp/qixi_image/zhuanti_05.jpg" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td><img src="/themes/default/temp/qixi_image/zhuanti_07.jpg" border="0" usemap="#Map"/></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td><img src="/themes/default/temp/qixi_image/zhuanti_08.jpg" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td><img src="/themes/default/temp/qixi_image/zhuanti_10.jpg"  usemap="#Map2"/></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td><img src="/themes/default/temp/qixi_image/zhuanti_12.jpg" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td><img src="/themes/default/temp/qixi_image/zhuanti_16.jpg"  usemap="#Map3"/></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td><img src="/themes/default/temp/qixi_image/zhuanti_17.jpg" /></td>
+                </tr>
+            </table>
+        </div>
+     </div>
+</div>
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+<map name="Map" id="Map">
+  <area shape="rect" coords="1019,17,1190,75" href="http://www.huayingcul.com/jieri_order.php?act=index&amp;goods_id=1491" />
+</map>
+
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="1204,178,1366,238" href="http://www.huayingcul.com/jieri_order.php?act=index&amp;goods_id=1492" />
+</map>
+
+<map name="Map3" id="Map3">
+  <area shape="rect" coords="1102,380,1281,433" href="http://www.huayingcul.com/jieri_order.php?act=index&amp;goods_id=1493" />
+</map>
+
+<script>
+
+$(document).ready(function(){
+   $(window).resize(function(){
+	   jieri_width();	   
+	});
+	
+	jieri_width();
+	
+	function jieri_width(){
+		// 图片的宽
+	   var tw = 1920; 
+	   // 窗口的宽
+	   var wh = $(window).width();
+	  
+	   // 小于1300的屏幕不在缩放
+	   if(wh <1300){
+		    $('.main_big').css('width',1300);
+			var offceWidth = ((tw - 1300) / 2) - (tw - 1300);
+			$('#kinMaxShow').css("left",offceWidth);
+			return false;
+	   }else{
+		    // 设置
+		   $('.main_big').css('width',wh);
+		   
+		   if (wh < tw){
+				var offceWidth = ((tw - wh) / 2) - (tw - wh);
+				$('#kinMaxShow').css("left",offceWidth);
+		   }
+	   }
+	  
+	}
+});
+
+</script>
+</body>
+</html>

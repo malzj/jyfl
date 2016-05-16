@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<link href="/css/test.css" rel="stylesheet" type="text/css" />
+	<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+	<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+	<link href="/css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="/css/sports.css" rel="stylesheet" type="text/css" />
+	<link href="/css/ds_menu.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fd.css">	
+	<link rel="stylesheet" href="css/main.css">
+<style>
+/*top*/
+	.h-wrop{width: 1200px;margin: 0 auto;}
+	.h-img{width: 1200px;}
+	.h-position{margin-top: 19px;float: left;}
+	.h-position a{color: #666;}
+	.h-centimg{width:100%;float: left;font-family: "Microsoft YaHei";padding-bottom:30px;border-bottom: solid 1px #eeeeee;}
+	.h-centimg .h-imgArea{width: 660px;padding-top:20px;}
+	.h-centimg .h-imgArea ul { margin: 0px;padding:0px;float: left;}
+	.h-centimg .h-imgArea ul li {float: left;padding:0;}
+	.h-centimg .h-imgArea ul  .h-action{border: 0px;margin: 0px;padding: 0px;}
+	.h-centimg .h-imgArea ul li a .img1{width: 520px;height: 520px;padding: 0px;}
+	.h-centimg .h-imgArea ul li img{width: 77px;height: 77px;}
+	.h-centimg .h-choice{width: 560px;float: left; margin-left:30px;}
+	.h-centimg .h-choice .h-title{font-size: 18px;border-bottom:dashed 1px #acacac;padding-bottom:30px; }
+	.h-centimg .h-choice ul li{font-size: 14px; margin: 20px 0px;}
+	.h-centimg .h-choice ul li .h-span{color: #666;line-height: 40px;}
+	.h-centimg .h-choice ul li .h-span1{color: #E40000;font-size: 24px;}
+	.h-centimg .h-choice ul li .h-spanleft{float: left;width: 70px;text-align: right;color: #333; margin-right: 12px;display: inline;line-height: 40px;color: #333;}
+	.h-centimg .h-choice ul li a span{background-image: url(../images/hy_l3_.jpg);width: 18px;height: 18px;float: left;margin-left: 31px;margin-right: 11px;display: inline;margin-top: 15px;}
+	.h-centimg .h-choice ul li a{background: #E70012 none repeat scroll 0% 0%;color: #FFF;margin-left: 95px;display: inline-block;line-height: 48px;width: 150px;}
+	/*cencer*/
+	.h-inforbox{float: left;margin-top:20px;position: relative;}
+	.h-inforbox .h-tabletitle{width: 100%; height:450px;}
+	.h-inforbox .h-table{line-height: 32px;background-color: #f2f2f2;}
+	.h-inforbox .h-table tr .h-left{line-height: 30px;}
+	.h-inforbox .h-table .h-tr{text-align: center; font-size:20px; height:40px;}
+	.h-inforbox table{width: 100%;}
+	.h-inforbox .h-table1{height: 40px; background: #fff;}
+	.h-inforbox .h-table1 table tr td{text-align: center; font-size:14px; line-height:40px;} 
+	.h-inforbox .h-table2{background-color:#f2f2f2; border: solid 10px #f2f2f2;}
+	.h-inforbox .h-table2 table{border: solid 1px #e6e6e6;}
+	.h-inforbox .h-table2 table tr td{text-align: center;font-size:12px;}
+	.h-inforbox .h-table2 table tr td p{margin: 0px;color: #999;font-weight: 700;font-size: 14px; cursor: pointer;}
+	.h-inforbox .h-table2 table tr td .h-p1{margin: 5px;color: #f43;font-weight:normal;}
+	.h-inforbox .h-table2 .t1{background-color:#fff; padding:3px;}
+	.h-inforbox .h-table2 .t1:hover{background-color:#FFDEB7;}
+	.h-inforbox .h-bot{width:556px;height: 420px;overflow-y: scroll;border: 2px solid #F7F7F7;background-color: #FEFEFE;margin-top: 10px;line-height: 25px;padding: 10px;position: absolute;right: 0px;top:-10px;}
+	/*Product profile*/
+	.h-Product-profile{float: left;width: 100%;border-bottom:solid 1px #eeeeee; margin-top:15px; }
+	.h-Product-profile p{width:100px;height: 35px;background-color: #eeeeee;font-size: 14px;line-height: 35px;text-align: center;margin-bottom: 0px;}
+	.h-product{float: left; padding: 20px 0; line-height:25px;}
+
+	.quantity{ position: relative; height: 30px;}
+	.decrement, .increment, .itxt{ float:left; text-align:center; width: 30px; height: 30px; line-height:30px; margin: 0; margin-left:-1px;  background:#fff; border:1px solid #9e9e9e;border-radius:0; }
+	.decrement, .increment { color:#666; font-size:16px; }
+	.decrement{ border-radius:3px 0 0 3px;}
+	.increment{ border-radius:0 3px 3px 0}
+	.decrement-disabled, .increment-disabled { cursor: no-drop; color:#aaa; background:#f1f1f1;}
+	.itxt {font-size: 12px; font-family: verdana; color: #000; -webkit-appearance: none;}
+	.itxt-disabled { border: 1px solid #dadada; background: #e6e6e6; color: #888 }
+	.quantity span{color: red;float: right;line-height: 30px;}
+	/*img{width: 100%;height: auto;}*/
+	table{margin-top: 0;}
+	.h-inforbox .h-table2 table tr td{cursor: pointer;   width: 70px;  border: 1px solid #E8E8E8;}
+	.title .adress{width: 550px;}
+	.title span{font-size: 16px;}
+	.adress div{margin: 2px;}
+	.adress div span:nth-child(1){width: 180px;display: inline-block;}
+	.quantity a{cursor: pointer;}
+	.price1,.all_price{font-size: 20px!important;color: orange;}
+	#td table tr td.active{background: #FFDEB7;}
+	.price_2 span{width: 120px!important;}
+	
+	
+	.huanlegu-img,.huanlegu-time,.huanlegu-time{margin-top:10px;}
+	.huanlegu-title-price{ position:relative; margin-top: 10px; background: #fff;}
+	.huanlegu-title{display:block; min-height:40px; line-height:20px; padding:10px; padding-right:50px; }
+	.huanlegu-price{position:absolute; top:0; right:0; min-height:40px; line-height:20px; padding:10px; width:50px; text-align: right; color:red;}
+	
+	.huanlegu-time{ background:#fff; padding:10px;}
+	.select-time{ margin:10px 0; border:1px #ccc solid; padding:3px;}
+	.h-inforbox{ position:absolute; top:30px; z-index:101}
+	.mengceng{ background:#333; opacity:0.8; position:absolute; top:39px; width:100%; height:100%; z-index:100}
+	.mengceng span{position: absolute;
+    bottom: 11%;
+    z-index: 102;
+    background: #fff;
+    color: #000;
+    padding: 10px;
+    left: 44%;
+    opacity: 1}
+	
+	.act-submit{
+		position: fixed;
+	    bottom: 0;
+	    color: white;
+	    background-color: #FF5500;
+	    border: 0;
+	    font-size: 15px;
+	    height: 35px;
+	    width: 100%;
+	}
+</style>	
+
+
+
+</head>
+<body>
+
+<!-- header start -->
+{$header}
+<!-- header end -->
+
+<!-- 图片 start -->
+<div class="huanlegu-img">
+	<img src="{$goods.Cover}" style="width:100%">
+</div>
+<!-- 图片 end -->
+
+<div class="huanlegu-title-price">
+	<span class="huanlegu-title">{$goods.GoodsName}</span>
+	<span class="huanlegu-price">{$goods.showPrice}</span>
+</div>
+<form name="f1" id="f1" action="huanlegu_goods_order.php" method="post">
+<div class="huanlegu-time">
+	<div class="huanlegu-youwantime">
+		<input type="text" name="time" class="select-time" placeholder="选择游玩时间">
+	</div>
+	<div class="huanlegu-number">
+		<span style="float:left; display:inline-block; height:40px; line-height:40px;">数量</span>
+		<div style="overflow: hidden; padding-left:10px; display:inline-block; padding-top: 4px;">
+			<a id="decrement" class="decrement" >-</a>
+			<input name="number" id="txtProductCount" class="itxt" value="1" type="text">
+			<a id="increment" class="increment" >+</a>				
+		</div>
+	</div>
+</div>
+
+<div class="h-inforbox hide">
+	<div class="h-tabletitle" id="calendar" style="color:#F00;"> </div>
+</div>	
+<div class="mengceng hide" > 
+	<span>关闭</span>
+</div>	
+		
+<div class="clear"></div>
+<div style="text-align: left; padding:10px; background:#fff; margin-top:10px;">
+	{if $goods.Description} {$goods.Description} {else} 
+     1、本套票为成人全价套票，适用于1.5米以上（含1.5米）成人游客购买，儿童套票、长者套票请现场购买；<br />
+     2、购买本套票后，可全天畅玩北京欢乐谷，并可于于欢乐谷内入口进入华侨城大剧院C区座位观看17:30场次的《金面王朝》演出；<br />
+     3、本套票请在您所选择的出游日期当天使用，且仅限使用一次，《金面王朝》演出开始时间为：当日17:30；<br />
+     4、不同日期，北京欢乐谷开闭园时间不同，本门票的使用时间也不同，具体请查看北京欢乐谷官方网站、官方微信的开放时间；<br />
+     5、请携带购票时预留的有效证件，至北京欢乐谷团体售票大厅5号窗口，将此短信交景区售票员验证后换取纸质门票；<br />
+     6、本票一经购买不可改期、退票，请游客合理安排购票。<br />
+     7、票务咨询电话：4000691111（咨询时间09:00-12:00；14:00-18:00）。
+
+     {/if}
+	
+</div>
+<div class="button">
+
+	<input type="hidden" name="scenicId" value="{$goods.ScenicId}">			
+    <input type="hidden" name="goodsId" value="{$goods.GoodsId}">	
+    <input type="hidden" name="date" id="date" value="">   
+    <input type="hidden" name="secret" id="secret" value="{$secret}">        					                      	
+    <input type="hidden" name="action" id="action" value="saveOrder"> 
+	<input type="button" value="立即预订" class="act-submit" onclick="sub();">
+
+</div>
+</form>
+			
+    <script>
+	
+		var ScenicId = "{$goods.ScenicId}";
+		var GoodsId = "{$goods.GoodsId}";	
+		var MaxBuy = "{$goods.MaxQuantityEachOrder}";
+			
+		var addate = 0;
+	
+    	$(".increment").click(function () {
+            var amount = parseInt($("#txtProductCount").val());
+            if (amount >= MaxBuy) {
+                return;
+            }
+            var num = amount + 1;
+            $("#txtProductCount").val(num);				
+        });
+        //减操作
+        $(".decrement").click(function () {
+            var amount = parseInt($("#txtProductCount").val());
+            var num = amount - 1;
+            if (num <= 0) {
+                return;
+            }
+            $("#txtProductCount").val(num);				
+        });
+		
+		//  加载日历
+		function loadPrice(date){
+			$.ajax({
+				type: "POST",
+				url: "huanlegu_goods_show.php?step=price",
+				data:'ScenicId='+ScenicId+'&GoodsId='+GoodsId+'&date='+date,
+				beforeSend : function(){
+					var beforeHtml = "<span style='display:inline-block; margin-left:320px;'><img src='/images/loadSeat2.gif'></span>";
+					$('#calendar').html(beforeHtml);
+				},
+				success: function(info){
+					$('#calendar').html(info);
+				}
+			});
+		}
+		// 页面打开时，第一次加载
+		loadPrice(0);
+		
+		// 上个月、下个月
+		function calendar(e){
+			if(e==1){
+				addate++;
+			}else{
+				addate--;
+			}
+			if(addate == 0){
+				loadPrice(0);
+				
+			}	
+			var myDate = new Date();
+			var year = myDate.getFullYear();
+			var month = myDate.getMonth()+1;
+			var day = myDate.getDate();
+				month = month+addate;
+			var str = year+'-'+month+'-'+day;
+			loadPrice(str);
+		}
+		
+		// 时间选择
+		
+		//$('#td table tr td').click(function(){
+		$(document).delegate("#td table tr td", "click", function(){
+			$(this).addClass('active').siblings().removeClass('active');
+			$(this).addClass('active').parents('tr').siblings().find('td').removeClass('active');
+			price();
+		
+		});
+		
+		function price(){
+			var price = $('.active').find('.h-p1').text();	
+
+			
+			if( $.trim(price) == ''){
+				alert('您选择的出行日期不支持，请从新222选择！');
+				return false;
+			}				
+			var dates =  $('.active').attr('date');
+			$('.select-time').val(dates);
+			
+			$('.h-inforbox').removeClass('show').addClass('hide');
+			$('.mengceng').removeClass('show').addClass('hide');
+			
+			$('#date').val(dates);
+			return true;	
+		}
+		
+		
+		function sub(){			
+			var thisDate = new Date();
+			$('#f1').submit();
+		}
+		
+		function buquan(num,length){
+			var numstr = num.toString();
+			var l=numstr.length;
+			if (numstr.length>=length) {return numstr;}
+			  
+			for(var  i = 0 ;i<length - l;i++){
+			  numstr = "0" + numstr;  
+			 }
+			return numstr; 
+		}
+		
+		/*显示日历 */		
+		$('.select-time').click(function(){
+			$('.h-inforbox').removeClass('hide').addClass('show');
+			$('.mengceng').removeClass('hide').addClass('show');
+		});
+		
+		$('.mengceng span').click(function(){
+			$('.h-inforbox').removeClass('show').addClass('hide');
+			$('.mengceng').removeClass('show').addClass('hide');
+		});
+		
+		
+
+    </script>
+    
+    <!-- 底部 -->
+    <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    <!-- 底部结束 -->
+	</body>
+</html>

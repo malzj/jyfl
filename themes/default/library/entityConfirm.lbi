@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/js/entity/menu.css" rel="stylesheet" type="text/css" />
+
+<script src="/js/jquery-1-11-3.min.js"></script>
+<script type="text/javascript" src="/js/spinner/jquery.spinner.js"></script>
+</head>
+
+<body>
+<div class="confirm-div">
+	<table  class="confirm-table">
+    	{if $entityCart.utype==1}
+    	<tr>
+        	<td width="100">卡支付</td>
+            <td>
+            	<table class="confirm-table-row">
+                	<tr><th width="60%">产品名称</th><th width="15%">单价</th> <th width="10%">数量</th> <th width="15$">总价</th></tr>
+                    {foreach from=$entityCart.order.order.goods item=goods}
+                    {if $goods.num > 0}<tr><td>{$goods.name}</td><td>{$goods.show_price}</td><td>{$goods.num}</td><td>{$goods.total_price}</td></tr>{/if}
+                    {/foreach}
+                </table>
+            </td>
+        </tr>
+        {/if}
+       <!-- <tr>
+        	<td colspan="2" class="confirm-right">卡支付共：125014 点&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>-->
+        <tr>
+        	<td width="100">现金支付</td>
+            <td>
+            	<table class="confirm-table-row">
+                	<tr><th width="60%">产品名称</th><th width="15%">单价</th> <th width="10%">数量</th> <th width="15$">总价</th></tr>
+                    {foreach from=$entityCart.order.money.goods item=goods}
+                    {if $goods.num > 0}<tr><td>{$goods.name}</td><td>{$goods.show_price}</td><td>{$goods.num}</td><td>{$goods.total_price}</td></tr>{/if}
+                    {/foreach}
+                </table>
+            </td>
+        </tr>
+        <!-- <tr>
+        	<td colspan="2" class="confirm-right">现金支付共：125014 元&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>-->
+    </table>
+    <div class="confirm-total">
+    	卡点共支付：<font class="f16">
+        {if $entityCart.order.order.pay_card_total}{$entityCart.order.order.pay_card_total}{else}0{/if}</font> 点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        现金共支付：<font class="f16">{if $entityCart.order.money.money}{$entityCart.order.money.money}{else}0{/if}</font> 元
+    </div>
+</div>
+</body>
+</html>

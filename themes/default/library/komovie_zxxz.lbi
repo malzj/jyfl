@@ -1,0 +1,73 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="hy2_xuan01">
+	<ul class="hy2_quyu_list">
+		
+		<li>
+			<span class="hy2_quyu">选择城区： </span>
+			<p class="list01_box02_texts f14" id="district_p">
+				<!--<a href="javascript:;"{if $defaultdistrict eq 'hot'} class="list01_box02_texts_cur"{/if} onclick="getFilmsByDis(this, 'hot')">热门影院</a>
+				<a href="javascript:;"{if $defaultdistrict eq 'all'} class="list01_box02_texts_cur"{/if} onclick="getFilmsByDis(this, 'all')">全部影院</a>-->
+				{foreach from=$districts item=district}
+				<a href="javascript:;"{if $defaultdistrict eq $district.districtId} class="list01_box02_texts_cur"{/if} onclick="getFilmsByDis(this, '{$district.districtId}')">{$district.districtName}({$district.num})</a>
+				{/foreach}
+				<input type="hidden" name="district" id="districtId" value="{$defaultdistrict}" />
+			</p>
+		</li>
+		<li>
+			<span class="hy2_quyu">选择影院： </span>
+			<p class="hy2_yingyuan_list f14" id="cinema_p">
+				{foreach from=$cinemas item=cinema name=cinema}
+				<a href="javascript:;"{if $defaultCinema == $cinema.cinemaId} class="hy2_yy_cur"{/if} onclick="getFilmsByCin(this, '{$cinema.cinemaId}')">{$cinema.cinemaName}</a>
+				{/foreach}
+				<input type="hidden" name="cinema" id="cinema" value="{$defaultCinema}" />
+			</p>
+		</li>
+		<li>
+			<span class="hy2_quyu">选择时间： </span>
+			<div class="hy2_time f14">
+				{foreach from=$weeks item=week key=key name=week}
+					{if $smarty.foreach.week.index < 7}
+						<a href="javascript:;"{if $week.date == $defaultDate} class="hy2_time_cur"{/if} onclick="getFilmsByWeek(this, '{$week.date}')"><span>{$week.riqi}</span><span>{if $week.date == $today}今天{else}{$week.xingqi}{/if}</span></a>
+					{/if}
+				{/foreach}
+				<input type="hidden" name="datetime" id="datetime" value="{$defaultDate}" />
+			</div>
+		</li>
+	</ul>
+</div>
+<div class="hy2_xuan02" id="cinema_info">
+	<p class="f18"><img src="/images/hy2_dw.jpg" width="22" height="28" alt="" style="display:inline;vertical-align:middle;" />&nbsp;{$cinemaName}</p>
+	<p class="f_w f14" style="color:#b6b6b6;">{$cinemaAddress}</p>
+</div>
+<div class="hy2_xuan03">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_xuan03_table">
+		<tr>
+			<th scope="col" style="border-left:1px solid #d0d0d0;">场次</th>
+			<th scope="col">语言/版本</th>
+			<th scope="col">放映厅</th>
+			<!--<th scope="col">余票情况</th>-->
+			<th scope="col">价格</th>
+			<th scope="col" style="border-right:1px solid #d0d0d0;">操作</th>
+		</tr>
+		<tbody id="seq_table">
+		{foreach from=$seqs item=seq name=seq}
+		<tr>
+			<td align="center">{$seq.featureTime}</td>
+			<td align="center">{$seq.language}/{$seq.screenType}</td>
+			<td align="center">{$seq.hallName}</td>
+			<!--<td align="center">{$seq.SeatNum}&nbsp;  <a href="#"><img src="/images/hy2_sou2.jpg" width="31" height="31" alt="实时查询余票情况" title="实时查询余票情况" style="vertical-align:middle;" /></a> </td>-->
+			<td align="center">{$seq.price}点</td>
+			<td align="center"><a href="javascript:;" onclick="ChangeSeat('{$seq.hallNo}',{$seq.planId},{$seq.movieId},{$seq.cinemaId})"><img src="/images/hy2_zai_xuan.jpg" width="79" height="30" alt="" /></a></td>
+		</tr>
+		{/foreach}
+		</tbody>
+	</table>
+</div>
+
+<script type="text/javascript">
+<!--
+function ChangeSeat(hallNo,planId,movieId,cinemaId){	
+	window.open('komovie_seat.php?act=xuanzuo&hallno='+hallNo+'&planid='+planId+'&movieid='+movieId+'&cinemaid='+cinemaId);
+}
+-->
+</script>

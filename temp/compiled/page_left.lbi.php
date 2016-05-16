@@ -32,7 +32,7 @@ if ($this->_foreach['foo']['total'] > 0):
 ?>
                 <li class="movie" onClick="window.location='<?php echo $this->_var['nav']['url']; ?>'">
                 	<div>
-                    	<span class="movie_1"></span><br>
+                    	<span class="movie_1"><img src="/images/juyoufuli/img_login/yundong.png"></span>
                 		<i><?php echo $this->_var['nav']['name']; ?></i>
                 	</div>
                 </li>
@@ -70,17 +70,23 @@ if ($this->_foreach['foo']['total'] > 0):
                 <p>订单</p>
             </div>
             <div class="order_1">
-                
             </div>
         </li>
     </ul>
+    <a class="switch"></a>
 </div>
-<>
+
 <script>
 	$('.list_1 li').hover(function(){
 		$(this).addClass('active').siblings().removeClass('active');
 		})
-	$('.list_main').animate({left:-100},'slow',function(){
-		$(this).css('left','0px');
-		});	
+	$('.switch').click(function(){
+		$(this).toggleClass('off');
+		if($(this).hasClass('off')){
+			
+			$('.list_main').animate({left:-100},'slow');	
+			}else{
+				$('.list_main').animate({left:0},'slow');	
+			}
+		})
 </script>

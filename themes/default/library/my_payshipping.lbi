@@ -1,0 +1,26 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="cart02">
+	<p class="hy_hedui" style="border-top:none; padding-top:0px; margin-top:0;">支付及配送方式&nbsp;&nbsp;<a href="javascript:void(0);" onclick="updatePayShipping('0');" style="color:#0075d9;">[修改]</a></p>
+	<div class="addrs">
+		<label class="l" for="addr" style="margin-left:15px;">{$payment_info.pay_name}</label>
+	</div>
+	{if $shipping_info}
+	<div class="addrs" style="height:auto;">
+		<label class="l" for="addr" style="margin-left:15px;">{$shipping_info.shipping_name}&nbsp;&nbsp;运费<span>{$shipping_info.format_shipping_fee}</label>
+		<div id="supplier_shipping" class="w" style="line-height:25px;float:left;width:100%;margin-left:15px;">
+			其中{if $total.supplier_goodsnumber.1}<font style="color:#ff3300;font-weight:bold;">{$total.supplier_goodsnumber.1}</font> 件商品由第三方为您配送 {/if} {if $total.supplier_goodsnumber.0}<font style="color:#ff3300;font-weight:bold;">{$total.supplier_goodsnumber.0}</font> 件商品由本网站为您配送{/if}
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="mg2_hd_table">
+				{foreach from=$total.supplier_shipping item=supp_ship}
+				<tr>
+					<td style="border:none;line-height:10px; padding:5px 0px; text-align:left; font-size:12px;">{$supp_ship.supplier_name}&nbsp;&nbsp;&nbsp;&nbsp;运费：&nbsp;&nbsp;{$supp_ship.formated_shipping_fee}</td>
+				</tr>
+				{/foreach}
+			</table>
+		</div>
+	</div>
+	{/if}
+	<div class="clear"></div>
+	<input type="hidden" name="shipping" id="shipping" value="{$shipping_info.shipping_id}" />
+	<input type="hidden" name="payment" id="payment" value="{$payment_info.pay_id}" />
+	<input type="hidden" name="payshipping_check" id="payshipping_check" value="1">
+</div>

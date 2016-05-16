@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="huaju">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+        <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
+	</head>
+	<body>
+        <!-- 头部 -->
+        <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 -->
+		<div class="newsimg">
+			<div class="fullSlide">
+				<div class="bd">
+					<ul>						
+						{foreach from=$banner item=moviebanner}
+						<li _src="url(/data/afficheimg/{$moviebanner.ad_code})" style="background:#{$moviebanner.bgcolor} center 0 no-repeat;">
+							<a target="_blank" href="{$moviebanner.ad_link}"></a>
+						</li>
+						{/foreach}	
+					</ul>
+				</div>
+				<div class="hd">
+					<ul></ul>
+				</div>
+				<span class="prev"></span>
+				<span class="next"></span>
+			</div>
+		</div>
+		<div class="search" id="search_yanchu">
+			<div class="search_1200">
+				<div class="tips f_l">
+					<span class="glyphicon glyphicon-volume-down tip"></span>
+					<div class="txtMarquee-top">
+						<div class="bd">
+							<div class="tempWrap">
+							<ul class="infoList">
+                            {foreach from=$text item=t}
+								<li><a href="{$t.ad_link}" target="_blank">{$t.ad_name}{$t.ad_name}{$t.ad_name}</a></li>
+                            {foreachelse}
+                            	<li> 暂无广播 </li>
+                            {/foreach}
+							</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="search_input f_r">
+					<form action="yanchu.php" method="get">
+                    	<input type="hidden" name="id" value="{$cateid}" />
+						<input type="text" name="yckeyword" placeholder="搜索“{$title}”">
+						<input type="submit" value="" style="display:none;" />
+					</form>
+				</div>
+				
+			</div>
+		</div>
+		<div class="w_1200">
+			<div class="big_img">
+            	{foreach from=$topticket item=top}
+				<div class="item f_l iwrap">
+					<a href="yanchu.php?act=show&id={$cateid}&itemid={$top.item_id}"><img src="{$top.thumb}" ></a>
+                    <a href="yanchu.php?act=show&id={$cateid}&itemid={$top.item_id}">
+                        <div class="big_img_xin float"></div>
+                        <div class="big_img_xinxi float">
+                            <div class="big_img_box"><span class="big_img_title">{$top.item_name}</span></div>
+                            <div class="big_img_btn"><span class="zhuti_a_hover">详情点击</span></div>
+                        </div>
+                    </a>
+				</div>
+				{/foreach}
+			</div>
+            
+			<div class="reying_bg">{$title}</div>
+			<div class="huaju_box">
+				{foreach  from=$list key=id item=listinfo}
+					<div class="box">
+						<div class="img_box f_l">
+							<a href="yanchu.php?act=show&id={$cateid}&itemid={$listinfo.item_id}"><img src="{$listinfo.thumb}" width="230" height="230"></a>
+						</div>
+						<div class="xinxi_box f_l">
+							<ul>
+								<li>
+									<h3><a href="yanchu.php?act=show&id={$cateid}&itemid={$listinfo.item_id}">{$listinfo.item_name}</a></h3>
+								</li>
+								<li>"<span>{$listinfo.item_name}</span>"</li>
+								<li><span>{$listinfo.data_ext}</span></li>
+								<li><span>[{$listinfo.site_name}]</span></li>
+								<li><span class="shoupiao f_l">售票中</span><a href="yanchu.php?act=show&id={$cateid}&itemid={$listinfo.item_id}"><span class="f_r xuanzuo zhuti_a_hover">选座购票</span></a></li>
+							</ul>
+						</div>
+					</div>
+				{/foreach}
+				<div class="flickr" style="text-align:center;"><!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --></div>
+			</div>
+		</div>
+		<!-- 底部 -->
+	 	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+	    <!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+		<script>
+			jQuery(".fullSlide").hover(function() {
+				jQuery(this).find(".prev,.next").stop(true, true).fadeTo("show", 0.5)
+			}, function() {
+				jQuery(this).find(".prev,.next").fadeOut()
+			});
+			jQuery(".fullSlide").slide({
+				titCell: ".hd ul",
+				mainCell: ".bd ul",
+				effect: "fold",
+				autoPlay: true,
+				autoPage: true,
+				trigger: "click",
+				delayTime:1000,
+				interTime:4000,
+				startFun: function(i) {
+					var curLi = jQuery(".fullSlide .bd li").eq(i);
+					if (!!curLi.attr("_src")) {
+						curLi.css("background-image", curLi.attr("_src")).removeAttr("_src")
+						}
+					}
+				});
+				jQuery(".txtMarquee-top").slide({mainCell:".bd ul",autoPlay:true,effect:"topMarquee",interTime:100,trigger:"click"});
+				//固定顶部
+				jQuery(function($) {
+				$(document).ready(function() {
+					$('#search_yanchu').stickUp();
+				});
+			});
+        </script>
+       
+			<script>
+				//鼠标悬停动画
+                $(function (){
+                    var iwrap = $(".iwrap");
+                    var float = $(".float");
+            
+                    $(".iwrap").hover(function(e){//mouse in
+                        $(this).children().find('.float').css(moveForward($(this), e)).stop(true, true).animate({"left":0, "top":0}, 500);
+                    },function(e){//mouse out
+                       $(this).children().find('.float').animate(moveForward($(this), e), 500);
+                    });
+                });
+            
+                var moveForward = function(elem, e){
+                    var w = elem.width(), h = elem.height(), direction=0, cssprop={};
+                    var x = (e.pageX - elem.offset().left - (w / 2)) * (w > h ? (h / w) : 1);
+                    var y = (e.pageY - elem.offset().top - (h / 2)) * (h > w ? (w / h) : 1);
+            
+                    direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;
+                    switch(direction)
+                    {
+                        case 0://from top
+                            cssprop.left = 0;
+                            cssprop.top = "-100%";
+                            break;
+                        case 1://from right
+                            cssprop.left = "100%";
+                            cssprop.top = 0;
+                            break;
+                        case 2://from bottom
+                            cssprop.left = 0;
+                            cssprop.top = "100%";
+                            break;
+                        case 3://from left
+                            cssprop.left = "-100%";
+                            cssprop.top = 0;
+                            break;
+                    }
+                    return cssprop;
+                }
+            </script>
+
+       
+	</body>
+</html>

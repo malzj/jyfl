@@ -1,0 +1,13 @@
+<div class="wof1" style="padding:10px; width:178px; border:1px #ededed solid; height:308px;"> 
+ <a href="{$yanchu.url}" target="_blank"> <img src="data/afficheimg/{$yanchu.images}" width="178" height="306"/></a>
+</div>
+<div class="wof2">
+{foreach from=$list item=yanchu}
+  <div class="wof3" style="width:332px;"> <a href="yanchu_show.php?cateid={$cateid}&id={$yanchu.itemId}" title="{$yanchu.itemName}" target="_blank"><img src="{$yanchu.imageUrl}" width="140" height="140" /></a>
+    <p class="wp1" style="width:160px;" title="{$yanchu.itemName}"><a href="yanchu_show.php?cateid={$cateid}&id={$yanchu.itemId}" style="margin:0; width:160px; target="_blank"">{$yanchu.itemName}</a></p>   
+    <p style="width:160px;">类型：{$yanchu.cateName}</p>
+    <p style="width:160px;">时间：{$yanchu.endDate}分钟</p>
+    <p style="width:160px;">场馆：{$yanchu.siteName}</p>
+  </div> 
+{/foreach}
+</div>

@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<SCRIPT type=text/javascript src="/js/slide.js"></SCRIPT>
+{insert_scripts files='jquery.region.js,utils.js'}
+
+
+<script type="text/javascript">
+$(function(){
+	$(".slide_close").click(function(){
+		$(this).hide().siblings('.slide_open').show().parent('.detail02_top').siblings(".showslide01").show();
+	});
+	$(".slide_open").click(function(){
+		$(this).hide().siblings('.slide_close').show().parent('.detail02_top').siblings(".showslide01").hide();
+		;
+	});
+})
+</script>
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+<div class="main_big">
+	<div class="main">
+		<!--当前位置 开始-->
+		<p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+		<!--当前位置 结束-->
+		<div class="detail_box">
+			<div class="detail01">
+				<div id="tFocus">
+					<div class="prev" id="prev"></div>
+					<div class="next" id="next"></div>
+					<ul id="tFocus-pic">
+						<li><a href="javascript:;"><img src="{$iteminfo.imageUrl}" width="338" height="243" alt="{$iteminfo.itemName}" /></a></li>
+					</ul>
+					<div id="tFocusBtn">
+						<a href="javascript:void(0);" id="tFocus-leftbtn">上一张</a>
+						<div id="tFocus-btn">
+							<ul>
+								<li class="active"><img src="{$iteminfo.imageUrl}" width="87" height="57" alt="{$iteminfo.itemName}" /></li>
+							</ul>
+						</div>
+						<a href="javascript:void(0);" id="tFocus-rightbtn">下一张</a>
+					</div>
+				</div>
+				<script type="text/javascript">addLoadEvent(Focus());</script>
+				<div class="detail01_rr">
+					<p class="hy_de_t1">{$iteminfo.itemName}</p>
+					<form name="ycForm" id="ycForm" method="post" action="yanchu_order.php" onsubmit="return checkYcForm();">
+					<ul class="hy_detail01_list">
+						<li>
+							<span class="hy_detail_name">类　型　：</span>
+							<p class="hy_detail_price line40">{$catename}</p>
+						</li>
+						<li>
+							<span class="hy_detail_name">时　间　：</span>
+							<p class="hy_detail_price line40">{$iteminfo.startDate}{if $iteminfo.startDate}~{/if}{$iteminfo.endDate}</p>
+						</li>
+						<li style=" border-bottom:1px dotted #dadada;">
+							<span class="hy_detail_name">场　馆　：</span>
+							<p class="hy_detail_price line40">{$iteminfo[site][@attributes][siteName]}</p>
+						</li>
+						<li>
+							<span class="hy_detail_name">售票状态：</span>
+							<p class="mg2_de_t5" id="showTimeStatus" style="line-height:40px;">
+								{foreach from=$showtime item=showtime name=showtime}
+								{if $smarty.foreach.showtime.first}
+								{$showtime.statusZn}
+								<input type="hidden" name="status" id="status" value="{$showtime.status}" />
+								{/if}
+								{/foreach}
+							</p>
+						</li>
+						<li>
+							<span class="hy_detail_name">选择时间：</span>
+							<p class="mg2_de_t5" style="width:390px;">
+								{foreach from=$showtime item=showtime key=key name=showtime}
+								<a href="javascript:;" style="width:110px; text-align:center;padding:0;" onclick="changeAttr(this, '{$key}', 'time');">{if $showtime.shStartDate}{$showtime.shStartDateFormat}{/if}{$showtime.shEndDateFormat}</a>
+								<input type="radio" name="time" id="time_{$key}"{if $smarty.foreach.showtime.first} checked{/if} value="{$showtime.shEndDate}" style="display:none;" />
+								{/foreach}
+							</p>
+						</li>
+						<li>
+							<span class="hy_detail_name">选择价格：</span>
+							<p class="mg2_de_t5" style="width:390px;" id="showTimePrice">
+								{foreach from=$showtime item=showtime key=key name=showtime}
+								{if $smarty.foreach.showtime.first}
+								{foreach from=$showtime.specs item=spec name=spec}
+								<a href="javascript:;"{if $spec.stock gt 0} onclick="changeAttr(this, '{$key}_{$spec.specId}', 'price')"{/if} style="width:110px;text-align:center;padding:0;{if $spec.stock == 0}background:#ddd;{/if}">
+									{if ($spec.layout !='')}{$spec.layout}{else}{$spec.price}{/if}点
+								</a>
+								<input type="radio" name="price" value="{$spec.price}" id="price_{$key}_{$spec.specId}" stock="{$spec.stock}" style="display:none;" />
+                                <input type="radio" name="market_price" value="{$spec.market_price}" id="market_price_{$key}_{$spec.specId}" style="display:none;" />
+								<input type="radio" name="specid" value="{$spec.specId}" id="specid_{$key}_{$spec.specId}" style="display:none;" />
+								{/foreach}
+								{/if}
+								{/foreach}
+							</p>
+						</li>
+						<li>
+							<span class="hy_detail_name">选择张数：</span>
+							<p class="hy_detail_price">
+								<input type="text" value="1" name="number" id="number" class="hy_shu_input" onblur="checkNum(this.value);" />
+								<span class="mai_buts">
+									<input type="button" value="" class="hy_up" onclick="add()" />
+									<input type="button" value="" class="hy_xia" onclick="del()" />
+								</span>
+								<span class="mai_buts" style="line-height:31px; padding-left:8px;">件</span>
+							</p>
+						</li>
+						<li class="detail_buy">
+							<a href="javascript:;" onclick="submitYcForm();" class="hy_mai01" style="width:162px;"><span class="hy_buy_de"></span>立即购买</a>
+						</li>
+                        <li style=" color:red; text-indent: 94px;">
+                        	演出前 <font style="font-size:24px;">3</font> 天仅支持上门自取
+                        </li>
+					</ul>
+					<input type="hidden" name="id" value="{$iteminfo.itemId}" />
+					<input type="hidden" name="cateid" value="{$cateid}" />
+					<input type="hidden" name="act" value="order" />
+					<input type="hidden" name="storeId" value="{$iteminfo[store][@attributes][storeId]}" />
+					<input type="hidden" name="storeName" value="{$iteminfo[store][@attributes][storeName]}" />
+					</form>
+				</div>
+			</div>
+			<div class="detail02">
+				<div class="detail02_top">
+					<span class="hy_de_xq"><b></b>详细介绍</span>
+					<span class="slide_close" style="display:none;"></span>
+					<span class="slide_open"></span>
+				</div>
+				<div class="showslide01">
+					<ul class="xiangqing_list02">
+						<li>
+							<div>
+								{$iteminfo.description}
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+
+<script type="text/javascript">
+<!--
+
+var showtime = '{$str_showtime}';
+function changeAttr(obj, id, type){
+	var child = obj.parentNode.children;
+	for (var i = 0; i<child.length;i++) {
+		if (child[i]){
+			if (child[i].className == 'checked'){
+				child[i].className = '';
+				break;
+			}
+		}
+	}
+	obj.className = "checked";
+	document.getElementById(type+'_'+id).click();	
+	if (type == 'price'){
+		document.getElementById('specid_'+id).click();
+		document.getElementById('market_price_'+id).click();
+	}
+	if (type == 'time'){
+		var objShowTime = eval(showtime);
+		for (var i=0; i<objShowTime.length; i++){
+			if (i == id){
+				document.getElementById('showTimeStatus').innerHTML = objShowTime[i]['statusZn']+'<input type="hidden" name="status" id="status" value="'+objShowTime[i]['status']+'" />';
+				var specs = objShowTime[i]['specs'];
+				var priceHtml = '';
+				for (var j=0; j<specs.length; j++){
+					//alert(typeof(specs[j]['layout']));
+					if(jQuery.trim(specs[j]['layout']) != ""){
+						var priceSpec = specs[j]['layout'];
+					}else{
+						var priceSpec = specs[j]['price'];
+					}
+					priceHtml += '<a href="javascript:;"'+(specs[j]['stock'] > 0 ? ' onclick="changeAttr(this, \''+i+'_'+specs[j]['specId']+'\', \'price\');"' : '')+' style="width:110px; text-align:center;padding:0;'+(specs[j]['stock'] == 0 ? 'background:#ddd;' : '')+'">'+priceSpec+'点</a><input type="radio" name="price" value="'+specs[j]['price']+'" id="price_'+i+'_'+specs[j]['specId']+'" stock="'+specs[j]['stock']+'" style="display:none;" /><input type="radio" name="market_price" value="'+specs[j]['market_price']+'" id="market_price_'+i+'_'+specs[j]['specId']+'" stock="'+specs[j]['stock']+'" style="display:none;" /><input type="radio" name="specid" value="'+specs[j]['specId']+'" id="specid_'+i+'_'+specs[j]['specId']+'" style="display:none;" />';
+				}
+				document.getElementById('showTimePrice').innerHTML = priceHtml;
+			}
+		}
+	}
+}
+
+function del(){
+	var num = document.getElementById("number");
+	var n = parseInt(num.value);
+	if(n-1<=0){
+		num.value = 1;
+	}else{
+		num.value = n-1;
+	}
+}
+function add(){
+	var stock = parseInt($('#showTimePrice input[name="price"]:checked').attr('stock'));
+	if (!stock){
+		alert('请先选择价格');
+		return false;
+	}
+	var num = document.getElementById("number");
+	var n = parseInt(num.value);
+	num.value = n+1 > stock ? stock : n+1;
+}
+function checkNum(num){
+	if (isNaN(num)){
+		alert('只能是数字');
+		document.getElementById("number").value = 1;
+		return false;
+	}
+	var stock = parseInt($('#showTimePrice input[name="price"]:checked').attr('stock'));
+	if (!stock){
+		alert('请先选择价格');
+		document.getElementById("number").value = 1;
+		return false;
+	}
+	if (num > stock){
+		document.getElementById("number").value = stock;
+	}else if (num < 1){
+		document.getElementById("number").value = 1;
+	}
+}
+function submitYcForm(){
+	var stock = parseInt($('#showTimePrice input[name="price"]:checked').attr('stock'));
+	if (!stock){
+		alert('请选择价格');
+		return false;
+	}
+	if ($('#status').val() > 3){
+		alert('抱歉，该演出不能购买');
+		return false;
+	}
+
+	var cardMoney = '{$money}';
+	var amount    = parseFloat($("#number").val() * $('#showTimePrice input[name="price"]:checked').val());
+	if (amount > cardMoney){
+		alert('您的卡余额不足');
+		return false;
+	}
+
+	$('#ycForm').submit();
+}
+function checkYcForm(){
+	var stock = parseInt($('#showTimePrice input[name="price"]:checked').attr('stock'));
+	if (!stock){
+		alert('请先选择价格');
+		return false;
+	}
+
+	if ($('#status').val() > 3){
+		alert('抱歉，该演出不能购买');
+		return false;
+	}
+	return true;
+}
+//-->
+</script>
+</body>
+</html>

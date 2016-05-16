@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/js/entity/menu.css" rel="stylesheet" type="text/css" />
+<link href="/js/skin/layer.css" rel="stylesheet" type="text/css" />
+
+
+
+
+<style>
+.spinner{ text-align:center;}
+.decrease, .increase{ border:0;}
+</style>
+</head>
+<body>
+
+
+<div  class="wrop">
+	{if $sinfo.show_ordinary eq 2}	
+    <div class="user">
+       <a {if $utype eq 1}class="huaying"{else}class="ordinary"{/if} href="entity.php?utype=1">华影VIP</a>
+       <a {if $utype eq 2}class="huaying"{else}class="ordinary"{/if} href="entity.php?utype=2">普通客户</a>
+    </div>
+    {/if}
+    <div class="product">
+          <div style="height:90px; line-height:90px">&nbsp;&nbsp;&nbsp;加载中...</div>            
+    </div>
+    
+    <div class="card">
+        <div class="hueying">华影卡支</div>
+        <div >
+        	<div class="card-list">
+            	<ul>
+                {if $entityCart.cardno}
+                	{foreach from=$entityCart.cardno key=cardid item=cardno}
+                    	<li class="card-id-{$cardid}" data-card-id="{$cardid}">
+                            <table width="100%">
+                            <tr><td class="t1">卡号</td> <td ><input  class="t2" name="cardno[]" value="{$cardno.cardno}" type="text" /></td> 
+                                <td class="t1">密码</td><td ><input size=10  name="cardpass[]" value="{$cardno.cardpass}" type="password"/></td> 
+                                <td class="t1">支付点数</td> <td ><input  class="w70" type="text" name="paycard[]" value="{if $cardno.cardpay}{$cardno.cardpay}{else}0{/if}"/></td> 
+                                <td class="t1">剩余点数</td> <td width="50" class='data-total'>{$cardno.cartprice}</td>
+                                <td width='40' style='cursor: pointer;'><img src='/js/entity/ok_16.jpg' /></td>
+                             </tr>
+                             </table>
+                        </li>
+                    {/foreach}
+                {else}
+                	<li class="card-id-1" data-card-id="1">
+                    	<table width="100%">
+                        <tr> 
+                            <td class="t1">卡号</td> 
+                            <td ><input  class="t2" name="cardno[]" type="text" /></td> 
+                            <td class="t1">密码</td> 
+                            <td ><input size=10  name="cardpass[]" type="password"/></td> 
+                            <td class="t1">支付点数</td> 
+                            <td ><input  class="w70" type="text" name="paycard[]" value="0"/></td> 
+                            <td class="t1">剩余点数</td> 
+                            <td width="50" class='data-total'>---</td>
+                            <td width="40"></td>
+                         </tr>
+                         </table>
+                    </li>
+                {/if}
+                	
+                                    
+                </ul>
+                
+                <div  class="added"><span>+</span>新增支付卡</div>
+            	<div class="query">查询余额</div>
+                <div class="card-ok">确认</div>
+            	<div class="ok_card">还需支付 <font id="pay_card_total">{$entityCart.order.order.pay_card_total}</font> 点</div>
+            </div>
+          
+            
+            <div class="myno"> 
+                <table>
+                    <tr> 
+                        <td class="mt1">所有卡余额：</td> 
+                        <td ><font id="card_total">{if $entityCart.order.order.card_total}{$entityCart.order.order.card_total}{else}0{/if}</font> 点</td> 
+                        <td class="mt2">可支付的门票数：</td> <td>
+                        <font id="pay_ticket_num">{if $entityCart.order.order.pay_ticket_num}{$entityCart.order.order.pay_ticket_num}{else}0{/if}</font> 张(
+                        <font id="pay_ticket_card">{if $entityCart.order.order.pay_ticket_card}{$entityCart.order.order.pay_ticket_card}{else}0{/if}</font>点)</td> 
+                        <td class="mt2 mt3" >未支付的门票数：</td> 
+                        <td class="mt3"><font id="unpay_ticket_num">{if $entityCart.order.order.unpay_ticket_card}{$entityCart.order.order.unpay_ticket_num}{else}0{/if}</font> 张</td> 
+                        <td class="mt2"></td> <td ></td> 
+                    </tr>
+                    <tr> <td></td> <td></td> 
+                        <td class="mt2">可支付的商品数：</td> 
+                        <td><font id="pay_goods_num">{if $entityCart.order.order.pay_goods_num}{$entityCart.order.order.pay_goods_num}{else}0{/if}</font> 种 (
+                        <font id="pay_goods_card">{if $entityCart.order.order.pay_goods_card}{$entityCart.order.order.pay_goods_card}{else}0{/if}</font>点)
+                        <img src="/js/entity/ok_013.png" class="showCardPayList" alt="修改支付商品" /></td> 
+                        <td class="mt2 mt3">未支付的商品数：</td> 
+                        <td class="mt3"><font id="unpay_goods_num">{if $entityCart.order.order.unpay_goods_num}{$entityCart.order.order.unpay_goods_num}{else}0{/if}</font> 种</td> 
+                        <td class="mt2">剩余：</td> 
+                        <td><font id="card_balance">{if $entityCart.order.order.card_balance}{$entityCart.order.order.card_balance}{else}0{/if}</font> {$nuit}</td> 
+                    </tr>
+                </table>
+                <!--单击触发事假-->
+               <div class="onclik" style="display:none;" id="onclick"> </div>
+            </div>
+        </div>
+        <div class="zhezhao" style="display:none;"> 不可操作区域</div>        
+    </div >
+        
+   
+    <div class="cash">
+        <div class="xianjin">现金支付</div>
+        <div class="cashx" >
+        	{if empty($entityCart.order.money.goods)} <center style="height:200px; line-height:200px; color:red;">没有现金支付的商品</center> {/if}
+        	{foreach from=$entityCart.order.money.goods item=money}
+            <div class="cashxj"><img src="{$money.goods_thumb}" width="100" height="100"/><span>{$money.show_price}元({$money.num})</span></div> 
+            {/foreach}           
+        </div>            
+       <div class="myno"><span>&nbsp;&nbsp;&nbsp;&nbsp;现金共支付：<font id="money_total">{if $entityCart.order.money.money}{$entityCart.order.money.money}{else}0{/if}</font>元</span></div>
+    </div>
+    
+    <div> 
+    	<input type="hidden" name="card-confirm" id="card-confirm" value="{$cardConfirm}"/>
+        <input type="button" value="确定支付" class="mybt"/>
+    </div>
+        
+</div>
+
+<div id="load-status" class="load-status" style=" display:none; position:fixed; left:0; top:200px; width:100%; height:80px;"><div style="width:150px; margin:0 auto; height:60px; line-height:60px; background:antiquewhite; text-align:center;">加载中...</div></div>
+</body>
+</html>
+
+$(document).ready(function(){
+
+	var sid = {$sinfo.supplier_id};
+	var utype = {$utype};
+	// 如果客户类型是普通的，遮罩卡支付区域
+	if(utype == 2){		
+		$('.zhezhao').show().animate({opacity:"0.6"},100);
+	}
+	
+	// 添加商品
+	$(document).delegate('.addProduct','click', function(){
+		layer.open({
+			type: 2,
+			title: '选择商品',
+			maxmin: true,
+			shadeClose: true, //点击遮罩关闭层
+			area : ['900px' , '600px'],
+			content: 'entity.php?step=addProduct&sid='+sid+'&utype='+{$utype},
+			btn:['确认'],
+			end:function(){
+				cart_list();
+				cart_total();
+			}			
+		});
+	});
+	
+	// 确认支付
+	$(document).delegate('.mybt','click', function(){
+		if($('.mybt').hasClass('active')){
+			exit;
+		}
+		$.ajax({
+			url: 'entity.php?step=confirm_pay',			
+			beforeSend: function(){
+				$('#load-status').show();
+			},
+			success: function(data){
+				$('#load-status').fadeOut();				
+				var obj = jQuery.parseJSON(data);
+				if(obj.error > 0){
+					alert(obj.message);
+				}else{
+					layer.open({
+						type: 2,
+						title: '确认支付',
+						maxmin: true,
+						shadeClose: true, //点击遮罩关闭层
+						area : ['900px' , '600px'],
+						content: 'entity.php?step=confirm',
+						btn:['确认支付', '返回修改'],
+						yes:function(index, layero){
+							layer.close(index);							
+							$.ajax({
+								url: 'entity.php?step=done',											
+								beforeSend: function(){
+									$('#load-status').html('<div style="width:150px; margin:0 auto; height:60px; line-height:60px; background:antiquewhite; text-align:center;">支付中...</div>').show();
+									$('.mybt').addClass('active');
+								},
+								success:function(data){
+									$('#load-status').fadeOut();
+									$('.mybt').removeClass('active');													
+									var obj = jQuery.parseJSON(data);
+									if(obj.error > 0){
+										alert(obj.message);
+									}else{
+										layer.msg('支付成功，即将刷新页面！');
+										setTimeout(function(){ window.location.reload();},2000);
+									}
+								}
+							});							
+						}
+					});
+				}
+			}
+		
+		});	
+	
+	});
+	
+	
+	cart_list();
+
+	// 购物车列表
+	function cart_list(){
+		$.post('entity.php?step=cart&template=entityCartRow', function(html){
+			$('.product').html(html);	
+			auto_height();
+			update_pay_card();	
+		});
+	};
+	
+	// 刷新统计信息
+	function cart_total(){
+		$.post('entity.php?step=cart_total', function(data){
+			var obj = jQuery.parseJSON(data);			
+			var goods = ['ticket_num','ticket_price','ticket_total','goods_num','goods_total','order_totals'];
+			var order = ['card_total','pay_ticket_num','unpay_ticket_num','pay_ticket_card','pay_goods_num','unpay_goods_num','card_balance','pay_goods_card','pay_card_total'];
+			var money = ['money_total'];
+			// 商品统计
+			$.each(goods, function(i,val){			
+				$('#'+val).html(eval('obj.goods.'+eval('val')));
+			});
+			
+			// 现金统计
+			$('#money_total').html(obj.money.money);
+			// 现金支付的商品
+			if(!jQuery.isEmptyObject(obj.money.goods)){			
+				$.ajax({ 
+					url:'entity.php?step=money_goods', 
+					beforeSend: function(){
+						$('#load-status').show();
+					},
+					success: function(html){
+						$('#load-status').fadeOut();
+						$('.cashx').html(html);
+					}	
+				});
+			}else{
+				$('.cashx').html('<center style="height:200px; line-height:200px; color:red;">没有现金支付的商品</center>');
+			}
+			
+			// 订单统计
+			if(obj.order.card_total > 0){
+				$.each(order, function(i,val){			
+					$('#'+val).html(eval('obj.order.'+eval('val')));
+				});
+			}
+			
+			// 更新还需要支付的点数
+			update_pay_card();
+						
+		});
+	};
+	
+	// 更新剩余的支付点数
+	function update_pay_card(){
+		
+		var pay_card_total = parseFloat($('#pay_goods_card').html())+parseFloat($('#pay_ticket_card').html());
+		var has_card_total = 0;
+		$('.card-list ul li input[name="paycard[]"]').each(function(){
+			has_card_total += parseFloat($(this).val());
+		});
+		//if(has_card_total>0){
+			var other_cart_total = pay_card_total - has_card_total;
+			$('#pay_card_total').text(other_cart_total);
+		//}
+		
+	};
+	
+	// 修改商品数量
+	$(document).delegate('.spinner', 'click', function(){
+		var num = $(this).find('input').val();
+		var goods_id = $(this).find('input').attr('date-goods-id');
+		$.post('entity.php?step=updateCart&template=entityCartRow&goods_num='+num+'&goods_id='+goods_id+'&utype='+{$utype}, function(data){
+			var obj = jQuery.parseJSON(data);
+			if(obj.error == 1){
+				alert(obj.message);
+			}
+			cart_total();
+		});
+	});
+	
+	// 查询卡余额
+	$(document).delegate('.query' ,'click', function(){
+		var string = '';		
+		$('.card-list ul li').each(function(){
+			var cardid = $(this).attr('data-card-id');
+			var cardno = $(this).find('input[name="cardno[]"]').val();
+			var cardpass = $(this).find('input[name="cardpass[]"]').val();
+			var paycard = $(this).find('input[name="paycard[]"]').val();	
+			if(cardno != '' && cardpass != ''){
+				string = string+cardno+'|'+cardpass+'|'+cardid+'|'+paycard+'@';
+			}			
+		});
+		$.ajax({
+			url: 'entity.php?step=query_cart&cardno='+string,			
+			beforeSend: function(){
+				$('#load-status').show();
+			},
+			success: function(data){
+				$('#load-status').fadeOut();				
+				var obj = jQuery.parseJSON(data);
+				$.each(obj,function(n,row){
+					$(".card-id-"+n).find('.data-total').html(row.cartprice);
+				});
+				cart_total()
+			}
+		
+		});		
+	});
+	
+	// 卡支付点数确认操作
+	$(document).delegate('.card-ok' ,'click', function(){
+		var string = '';
+		$('.card-list ul li').each(function(){
+			var cardid = $(this).attr('data-card-id');
+			var paycard = $(this).find('input[name="paycard[]"]').val();
+			if(cardid != ''){
+				string = string+cardid+'|'+paycard+'@';
+			}	
+		});
+		
+		$.ajax({
+			url: 'entity.php?step=confirm_card&cardno='+string,			
+			beforeSend: function(){
+				$('#load-status').show();
+			},
+			success: function(data){
+				$('#load-status').fadeOut();				
+				var obj = jQuery.parseJSON(data);
+				if(obj.error > 0){
+					alert(obj.message);
+				}else{
+					update_pay_card();
+					$('#card-confirm').val(1);
+					layer.msg('确认成功！');
+				}
+			}
+		
+		});
+		
+	});
+	
+	// 添加支付卡
+	$('.added').on('click', function(){
+		var card_id = 1;
+		$('.card-list ul li').each(function(){
+			card_id = parseInt($(this).attr('data-card-id'))+1;
+		});
+		var html = "<li class='card-id-"+card_id+"' data-card-id='"+card_id+"'><table width='100%'><tr> <td class='t1'>卡号</td><td ><input  class='t2' name='cardno[]' type='text'/></td><td class='t1'>密码</td><td ><input size=10 name='cardpass[]' type='password'/></td> <td class='t1'>支付点数</td> <td ><input class='w70' name='paycard[]' value='0' type='text' /></td> <td class='t1'>剩余点数</td> <td width='50' class='data-total'>---</td> <td width='40' style='cursor: pointer;'><img src='/js/entity/ok_16.jpg' /></td></tr> </table></li>";
+		$('.card-list ul').append(html);
+		auto_height();
+	});
+	
+	// 删除支付款
+	$(document).delegate('.card-list ul li img', 'click', function(){
+		var _this = $(this);
+		$.ajax({
+			url: 'entity.php?step=delete_cart&cardid='+$(this).closest('li').attr('data-card-id'),			
+			beforeSend: function(){
+				$('#load-status').show();
+			},
+			success: function(data){
+				$('#load-status').fadeOut();
+				_this.closest('li').remove();
+				cart_total();				
+			}
+		
+		});
+		
+		auto_height();
+	});
+		
+	//设置现金支付的高度，保证卡统计和现金统计
+	function auto_height(){
+		var cardHeight = $('.card-list').height();
+		if(cardHeight > 309){
+			var newHeight = cardHeight-310;
+			$('.cashx').height(newHeight+332);
+		}
+	};
+	
+	// 查看卡可支付的商品
+	$(document).delegate('.showCardPayList', 'click', function(){
+		$('.onclik').toggle();
+		$.ajax({
+			url: 'entity.php?step=pay_goods',			
+			beforeSend: function(){
+				$('#onclick').html('<center style="height:50px; line-height:50px">加载中 ...</center>');
+			},
+			success: function(html){
+				$('#onclick').html(html);									
+			}
+		
+		});		
+	});
+	
+	// 设置支付点数的时候，更新剩余支付点数
+	$(document).delegate('input[name="paycard[]"]', 'blur', function(){
+		var cardRowPrice = parseFloat($(this).closest('li').find('.data-total').html());
+		if($(this).val() > cardRowPrice ){
+			alert('支付点数大于卡内剩余点数，请重新填写！');
+			$(this).focus();
+		}else{
+			update_pay_card();
+			if(parseFloat($('#pay_card_total').html()) < 0 && $(this).val() !=0){
+				alert('你支付的点数超过了应付点数，请修改！');
+				$(this).focus();
+			}
+		}
+		
+	});
+	
+	// 修改可支付的商品
+	/*$(document).delegate('.onclik .cashxj1', 'click', function(){
+		var goods_id = $(this).attr('data-goods-id');
+		var goods_price = $(this).attr('data-price');
+		var card_balance = $('card_balance').text();
+		if(goods_price > card_balance && !$(this).hasClass('active')){
+			alert('你的剩余卡点不足以支付这个产品了，换个吧！');
+		}else{
+			$.ajax({
+			url: 'entity.php?step=pay_goods',			
+			beforeSend: function(){
+				$('#onclick').html('<center style="height:50px; line-height:50px">加载中 ...</center>');
+			},
+			success: function(html){
+				$('#onclick').html(html);									
+			}
+		
+		});
+		}
+				
+	});*/
+	
+})
+</script>

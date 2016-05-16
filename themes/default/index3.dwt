@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<link href="/css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<script type="text/javascript"  src="/js/jquery_easing.js"></script>
+<script type="text/javascript" src="/js/lrtk.js"></script>
+</head>
+<body style="background:#f8f8f8;">
+    <!-- 头部 -->
+    <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+    <!-- 头部结束 -->
+    
+    <div id="playBox"> 
+       <!--  <div id="banner_bg"></div>  -->
+        <!--标题背景--> 
+        <!-- <div id="banner_info"></div>  -->
+        <!--标题--> 
+           <!--  <ul> 
+                <li>1</li> 
+                <li>2</li> 
+                <li>3</li>
+                <li>4</li>
+                  
+                  
+            </ul>
+            <div id="banner_list">  -->
+		<!-- TemplateBeginEditable name="首页flash广告1" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+            <!-- </div>  -->
+    </div>     
+    
+    
+	<script type=text/javascript src="js/hy_focus.js"></script>
+    <!-- 主体 -->
+ <!--
+ <div class="main_big">
+    <div class="main">
+   	  <div class="main01">
+            <div class="main01_left">
+	    <p  class="hy_left_img">
+        <a href="#"><span>&nbsp;</span></a>
+	<a href="#"><span>&nbsp;</span></a>
+                    
+              
+		</p>
+            </div>
+            <div class="main01_center">
+           	  <div class="main01_ct">
+                    <div class="hy_c1">
+			   <p class="hy_c1_img">
+                            <a href="#"> <span>&nbsp;</span></a>
+			    <a href="#"> <span>&nbsp;</span></a>
+			    <a href="#"> <span>&nbsp;</span></a>
+			    <a href="#"> <span>&nbsp;</span></a>
+			    </p>
+                        
+                    </div>
+                    <div class="hy_c2">
+                        <a href="#" class="hy_c2_img">
+                        <span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="main01_cd">
+           	  <div class="main01_cd1">
+                    	<a href="#" class="main01_cd1_img">
+                        	<span></span>
+                        </a>
+                    </div>
+              <div class="main01_cd2">
+                    	 <p class="main01_cd2_img">
+			<a href="#"><span>&nbsp;</span></a>
+			<a href="#"><span>&nbsp;</span></a>
+			<a href="#"><span>&nbsp;</span></a>
+			<a href="#"><span>&nbsp;</span></a>
+                            
+                        
+			</p>
+                    </div>
+              <div class="main01_cd3">
+                    	<a href="user.php" class="main01_cd3_img">
+                        	 <span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+      </div>
+   	  <div class="clear"></div>
+    </div>
+    </div>-->
+    <!-- 主体结束 -->
+    
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+</body>
+</html>

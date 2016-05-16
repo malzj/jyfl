@@ -1,0 +1,76 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="paixu_box">
+	<p class="px_box01">
+		<a href="coupons.php?id={$category}{if $pager.search.keywords}&keywords={$pager.search.keywords}{/if}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=goods_id&order=DESC#coupons_list"{if $pager.search.sort == 'goods_id'} class="moren"{/if}>默认</a>
+		<a href="coupons.php?id={$category}{if $pager.search.keywords}&keywords={$pager.search.keywords}{/if}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=sales_num&order=<!-- {if $pager.search.sort == 'sales_num' && $pager.search.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#coupons_list" class="hy_xl{if $pager.search.sort == 'sales_num'} moren {$pager.search.order}{/if}">销量<i></i></a>
+		<a href="coupons.php?id={$category}{if $pager.search.keywords}&keywords={$pager.search.keywords}{/if}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=shop_price&order=<!-- {if $pager.search.sort == 'shop_price' && $pager.search.order == 'ASC'} -->DESC<!-- {else} -->ASC<!-- {/if} -->#coupons_list" class="hy_xl{if $pager.search.sort == 'shop_price'} moren {$pager.search.order}{/if}">价格<i></i></a>
+		<a href="coupons.php?id={$category}{if $pager.search.keywords}&keywords={$pager.search.keywords}{/if}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=last_update&order=<!-- {if $pager.search.sort == 'last_update' && $pager.search.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#coupons_list" class="hy_xl{if $pager.search.sort == 'last_update'} moren {$pager.search.order}{/if}">上架时间<i style="left:65px;"></i></a>
+	</p>
+	<p class="px_box02"><a href="{if $pager.page_prev}{$pager.page_prev}{else}javascript:;{/if}">上一页</a>/<a href="{if $pager.page_next}{$pager.page_next}{else}javascript:;{/if}">下一页</a></p>
+</div>
+
+<ul class="hy_list01">
+	<!--{foreach name=coupons_list from=$coupons_list item=goods}-->
+	{if $goods.goods_id}
+	<li>
+		<a href="{$goods.url}" class="list_img_bg"><img src="{$goods.goods_thumb}" width="210" height="210" alt="{$goods.goods_name}" /></a>
+		<div class="hy_list_texts">
+			<p class="list_t1">
+				<!-- {if $goods.goods_style_name} -->
+				<a href="{$goods.url}">{$goods.goods_style_name}</a>
+				<!-- {else} -->
+				{$goods.goods_name}
+				<!-- {/if} -->
+			</p>
+
+			<p class="list_t2">
+				<!-- {if $goods.goods_brief} -->
+				{$goods.goods_brief}<br />
+				<!-- {/if} -->
+			</p>
+		</div>
+		<div class="hy_list_money">
+			<span>
+				<!--{if $goods.unit_price neq "" } -->
+				{$goods.unit_price}
+				<!--{else}-->
+				{$goods.shop_price}
+				<!--{/if}-->点
+				<!--{if $goods.goods_num neq "" } -->
+				/{$goods.goods_num}
+				<!--{/if}-->
+			</span>
+		</div>
+		<div class="hy_list_rr">
+			<a href="{$goods.url}" class="hy_mai"><span class="hy_x1"></span>查看详情</a>
+			<!--<a href="{$goods.url}" class="hy_mai"><span class="hy_buy"></span>立即购买</a>-->
+
+			<!--<a href="javascript:;" onclick="addToCart({$goods.goods_id}, 0, 1);" class="hy_mai"><span class="hy_jr"></span>加入购物车</a>-->
+			
+		</div>
+	</li>
+	{/if}
+	<!--{/foreach}-->
+</ul>
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel){
+	sel.form.submit();
+}
+{/literal}
+//-->
+</script>
+<script type="text/javascript">
+{foreach from=$lang.compare_js item=item key=key}
+{if $key neq 'button_compare'}
+var {$key} = "{$item}";
+{else}
+var button_compare = '';
+{/if}
+{/foreach}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>

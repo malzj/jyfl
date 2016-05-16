@@ -1,0 +1,61 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<p class="hy_hedui">收货信息&nbsp;&nbsp;<a href="javascript:void(0);" onclick="saveConsignee('{$address_id}');" style="color:#0075d9;">[修改]</a></p>
+{foreach from=$consignee_list item=consignee key=sn}
+<div id="consi{$consignee.address_id}" class="addrs{if $consignee.address_id == $address_id} curr{/if}">
+	<input type="radio" class="i" name="consignee_radio" id="consignee_radio_{$consignee.address_id}" value="{$consignee.address_id}" {if $consignee.address_id == $address_id}checked="checked"{/if} onclick="selectConsignee('{$consignee.address_id}')">
+	<label class="l" for="addr">{$consignee.consignee}&nbsp;&nbsp;&nbsp;{$consignee.country_cn|escape}&nbsp;&nbsp;&nbsp;{$consignee.province_cn|escape}&nbsp;&nbsp;{$consignee.city_cn|escape}&nbsp;&nbsp;{$consignee.district_cn|escape}&nbsp;&nbsp;{$consignee.address|escape}&nbsp;&nbsp;{if $consignee.mobile && $consignee.tel}{$consignee.tel|escape}({$consignee.mobile|escape}){elseif $consignee.tel}{$consignee.tel|escape}{else $consignee.mobile}{$consignee.mobile|escape}{/if}</label>
+	<a href="javascript:dropConsignee('{$consignee.address_id}');" style="color:#0075d9;">[删除]</a>
+</div>
+{/foreach}
+{if $consignee_list}
+<div id="consi0" class="addrs{if !$address_id} curr{/if}">
+	<input type="radio" class="i" name="consignee_radio" onclick="selectConsignee('0')" value="0"{if !$address_id} checked="checked"{/if}>
+	<label class="l" for="addr">使用新收货地址</label>
+</div>
+{/if}
+<div class="cart01">
+	<ul>
+		<li>
+			<p class="tj_shou"><span>收货人：</span></p><input type="text" name="consignee" id="consignee" value="{$consignees.consignee|escape}" class="name_input" />
+		</li>
+		<li>
+			<p class="tj_shou1"><span>所在地区：</span></p>
+			<input name="country" id="country" value="{$cityid}" type="hidden" />
+			<span style="float:left;margin-right:10px;">{$cityinfo.region_name}</span>
+			<span style="float:left;margin-top:5px;">
+				<select name="province" id="province" onchange="region.changed(this, 2, 'city')" class="Select16">
+					<option value="0">{$lang.please_select}{$name_of_region[1]}</option>
+					{foreach from=$province_list item=province}
+					<option value="{$province.region_id}" {if $consignees.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
+					{/foreach}
+				</select>
+				<!--<select name="city" id="city" onchange="region.changed(this, 3, 'district')" class="Select16">
+					<option value="0">{$lang.please_select}{$name_of_region[2]}</option>
+					{foreach from=$city_list item=city}
+					<option value="{$city.region_id}" {if $consignees.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+					{/foreach}
+				</select>
+				<select name="district" id="district" {if !$district_list}style="display:none"{/if} class="Select16">
+					<option value="0">{$lang.please_select}{$name_of_region[3]}</option>
+					{foreach from=$district_list item=district}
+					<option value="{$district.region_id}" {if $consignees.district eq $district.region_id}selected{/if}>{$district.region_name}</option>
+					{/foreach}
+				</select>-->
+			</span>
+		</li>
+		<li>
+			<p class="tj_shou1"><span>详细地址：</span></p><input name="address" id="address" type="text" value="{$consignees.address|escape}" class="name_input"  style="width:320px;border:1px solid #ccc;"/>
+		</li>
+		<li>
+			<p class="tj_shou1"><span>手机号码：</span></p><input type="text" name="mobile" id="mobile" value="{if $consignees.mobile}{$consignees.mobile|escape}{/if}" class="name_input" style="width:144px;" /><em class="fl">或</em> <p style="width:70px;"  class="tj_shou">固定电话：</p><input name="tel" id="tel" type="text" class="name_input" value="{$consignees.tel|escape}" class="name_input" style="width:138px;" />
+		</li>
+        <!--<li>
+			<p class="tj_shou1"><span> 备 注：</span></p><input name="sign_building" id="sign_building" type="text" value="{if $consignees}{$consignees.sign_building|escape}{/if}" class="name_input"/><span class="mg2_name"></span>
+		</li>
+		 <li>
+			<p class="tj_shou1"><span>邮箱：</span></p><input name="email" id="email" type="text" value="{if $consignees}{$consignees.email|escape}{/if}" class="name_input"/><span class="mg2_name">用来接收订单提醒邮件，便于您及时了解订单状态</span>
+		</li> -->
+		<li><input type="button" value="" onclick="saveConsignee('{$address_id}');" class="save_tj"/></li>
+	</ul>
+</div>
+<input type="hidden" name="consignee_check" id="consignee_check" value="0">

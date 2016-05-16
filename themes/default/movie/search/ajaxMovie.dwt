@@ -1,0 +1,7 @@
+<div class="searcher">
+    <input id="movieSelectText_1461722661474" type="text" class="input c_a5" placeholder="输入影片名称快速定位"><i class="sub"></i></div>
+<ul>
+{foreach from=$data item=row}
+    <li><a href="javaScript:;" data-id="{$row.movieId}" data-type="movie"><b class="db_point">{$row.score}</b><span>{$row.movieName}</span></a></li>
+{/foreach}
+</ul>

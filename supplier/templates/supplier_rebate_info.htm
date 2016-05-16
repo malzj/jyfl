@@ -1,0 +1,179 @@
+<!-- $Id: order_info.htm 17060 2010-03-25 03:44:42Z liuhui $ -->
+
+{include file="pageheader.htm"}
+{insert_scripts files="topbar.js,../js/utils.js,listtable.js,selectzone.js,../js/common.js"}
+<script type="text/javascript" src="../js/calendar.php?lang={$cfg_lang}"></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+<style>
+.pay_type{position:relative;}
+.pay_type_list{position:absolute;width:100px;height:auto;padding-bottom:50px;background:#eeeeee;border:1px solid #000;left:2px;top:25px;}
+</style>
+{if $supplier}
+<div id="topbar">
+  <div align="right"><a href="" onclick="closebar(); return false"><img src="images/close.gif" border="0" /></a></div>
+  <table width="100%" border="0">
+    <caption><strong> 供货商信息 </strong></caption>
+    <tr>
+      <td width="35%"> 供货商等级： </td>
+      <td> {$supplier.rank_name} </td>
+    </tr>
+    <tr>
+      <td> 供货商名称： </td>
+      <td> {$supplier.supplier_name} </td>
+    </tr>
+	<tr>
+      <td> 公司名称： </td>
+      <td> {$supplier.company_name} </td>
+    </tr>
+	<tr>
+      <td> 供货商管理员： </td>
+      <td> {$supplier.user_name} </td>
+    </tr>
+    <tr>
+      <td> 公司所在地： </td>
+      <td> {$supplier.province}{$supplier.city}{$supplier.district} </td>
+    </tr>
+    <tr>
+      <td> 详细地址： </td>
+      <td> {$supplier.address} </td>
+    </tr>
+    <tr>
+      <td> 公司电话： </td>
+      <td> {$supplier.tel} </td>
+    </tr>
+    <tr>
+      <td> 电子邮箱：</td>
+      <td> {$supplier.email} </td>
+    </tr>
+	<tr>
+      <td valign=top> 公司规模： </td>
+      <td> {$supplier.guimo} </td>
+    </tr>
+    <tr>
+      <td> 企业类型： </td>
+      <td> {$supplier.company_type} </td>
+    </tr>
+  </table>
+</div>
+{/if}
+
+<form action="supplier_rebate.php" method="post" name="theForm" onsubmit="return check_submit();">
+<div class="list-div" style="margin-bottom: 5px">
+<table width="100%" cellpadding="3" cellspacing="1">
+  <tr>
+    <td colspan="4">
+      <div align="center">
+        <input name="prev" type="button" class="button" onClick="location.href='order.php?act=info&order_id={$prev_id}';" value="前一笔佣金" {if !$prev_id}disabled{/if} />
+        <input name="next" type="button" class="button" onClick="location.href='order.php?act=info&order_id={$next_id}';" value="后一笔佣金" {if !$next_id}disabled{/if} />
+        
+    </div></td>
+  </tr>
+  <tr>
+    <th colspan="4">时间段：{$rebate.rebate_paytime_start}----{$rebate.rebate_paytime_end}</th>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>供货商名称：</strong></div></td>
+    <td width="34%"><a href="" onclick="staticbar();return false;">{$rebate.supplier_name}</a></td>
+    <td width="15%"><div align="right"><strong>总营业额：</strong></div></td>
+    <td>{$rebate.all_money_formated}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>供货商银行账号：</strong></div></td>
+    <td>{$rebate.bank_arr.0}</td>
+    <td><div align="right"><strong>佣金：</strong></div></td>
+    <td>{$rebate.rebate_money_formated}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>开户行地址：</strong></div></td>
+    <td>{$rebate.bank_arr.2}</td>
+    <td><div align="right"><strong>转账时间：</strong></div></td>
+    <td>{if $rebate.pay_time}{$rebate.pay_time_formated}<input type="hidden" size=10 name="pay_time" id="pay_time" value="{$rebate.pay_time_formated}">{else}<input type="hidden" size=10 name="pay_time" id="pay_time" value=""><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('pay_time', '%Y-%m-%d', false, false, 'selbtn1');" value="选择转账时间" class="button"/>{/if}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>开户行名称：</strong></div></td>
+    <td>{$rebate.bank_arr.1}</td>
+    <td><div align="right"><strong>转账金额：</strong></div></td>
+    <td>{$rebate.pay_money_formated}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>汇款方式：</strong></div></td>
+    <td>
+		<input type="hidden"  id="pay_type_input" name="pay_type_input" value="{$rebate.pay_type}">
+		<div style="float:left;padding-top:5px;" id="pay_type_txt">{$rebate.pay_type}</div>
+		{if !$rebate.pay_type}
+		<div style="float:left;" id="pay_type" class="pay_type"><input type="button" value="编辑" onclick="open_pay_type();"><div id="pay_type_list" class="pay_type_list" style="padding-top:6px;line-height:150%;display:none;">{foreach from=$pay_type_list item=pay_type}&nbsp;&nbsp;<a href="javascript:get_pay_type('{$pay_type}')">{$pay_type}</a><br>{/foreach}</div>
+		</div>
+		{/if}
+	</td>
+    <td><div align="right"><strong>转账人：</strong></div></td>
+    <td>{$smarty.session.admin_name}</td>
+  </tr>
+  <tr>
+    <td valign=top><div align="right" ><strong>备注：</strong></div></td>
+    <td colspan=3><textarea name="remark" rows=5 cols=80>{$rebate.remark}</textarea></td>
+  </tr>
+  <tr>
+    <th colspan="4">
+	<input type="hidden" name="act" value="update">
+	<input type="hidden" name="id" value="{$rebate.rebate_id}">
+	
+	</th>
+    </tr>
+  
+  
+</table>
+</div>
+
+
+</form>
+{literal}
+<script language="JavaScript">
+{/literal}
+  var oldAgencyId = {$order.agency_id|default:0};
+{literal}
+  onload = function()
+  {
+    // 开始检查订单
+    startCheckOrder();
+  }
+
+function open_pay_type()
+{
+	var pay_type_list=document.getElementById('pay_type_list');
+	if (pay_type_list.style.display == 'none')
+	{
+		pay_type_list.style.display='block';
+	}
+	else
+    {
+		pay_type_list.style.display='none';
+	}
+	
+}
+
+function get_pay_type(pay_type_txt)
+{
+	var pay_type_txt_obj=document.getElementById('pay_type_txt');
+	var pay_type_list=document.getElementById('pay_type_list');
+	pay_type_txt_obj.innerHTML=pay_type_txt;
+	document.forms['theForm'].elements['pay_type_input'].value=pay_type_txt;
+	pay_type_list.style.display='none';
+}
+
+function check_submit(){
+	var pay_time = document.getElementById('pay_time');
+	var pay_type = document.getElementById('pay_type_input');
+	if(pay_time.value==''){
+		alert('请选择转帐时间！');
+		return false;
+	}
+	if(pay_type.value==''){
+		alert('请编辑汇款方式！');
+		return false;
+	}
+	return true;
+}
+</script>
+{/literal}
+
+{include file="pagefooter.htm"}

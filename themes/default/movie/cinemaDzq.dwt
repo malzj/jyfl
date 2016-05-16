@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html class="dianziquan">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+
+	</head>
+
+	<body>
+		
+        <!-- 公用头部 -->
+		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 --> 
+        
+        <div class="w_1200">
+			<div class="select_area">
+				<div class="title">选择城区：</div>
+				<ul>
+					<li><a href="#">热门影院</a></li>
+					<li><a href="#">全部影院</a></li>
+					{foreach from=$arealist item=area}
+					<li><a href="movie.php?step=cinemaDzq&area={$area.areaNo}"{if $type eq $area.areaNo} class="acitve"{/if}>{$area.areaName}（{$area.count}）</a></li>
+                    {/foreach}
+				</ul>
+			</div>
+			<div class="reying_bg">影院列表</div>
+			<div class="select_buy">
+            
+            {foreach from=$dzq item=item}
+				<div class="box">
+					<div class="img_left">
+						<img src="{$item.CinemaLogo}" width="170">
+					</div>
+					<div class="yingyuan_details">
+						<ul>
+							<li>
+								<h3>{$item.CinemaName}</h3>
+								<span class="pingfen">{$item.intComment}.{$item.floComment}</span>
+								<div class="myxin">
+									<div class="myxin2" style="width: {$item.AverageDegreeFormat}%">
+									</div>
+								</div>
+							</li>
+							<li>地址：<span>{$item.Address} </span></li>
+							<li>电话：<span>{if $item.PhoneNo}{$item.PhoneNo}{else}暂无{/if}</span></li>
+							<li>交通：<span>{$item.Traffic}</span></li>
+							<li>
+								<div class="renshu">关注人数：<span>{$item.FouseAmount}</span></div>
+								<div class="xuanzuo_buy">
+									<span><a href="movie.php?step=showDzq&id={$item.CinemaNo}">选座购票</a></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+          	{/foreach}
+               
+				
+			</div>
+			<div class="clear"></div>
+            <div class="flickr" style="text-align:center; margin:10px 0;">
+                <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+            </div>
+            <div class="clear"></div>
+		</div>
+        <!-- 公用底部 -->
+		<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+        <!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+        
+        <script>
+			$('.select_area ul li a').click(function(){
+				$(this).addClass('active').parent('li').siblings().children('a').removeClass('active');
+			})
+		</script>
+        
+     </body>
+     
+</html>

@@ -1,0 +1,25 @@
+<div class="i_datetab">
+	<div class="hd">
+	<a class="lastday prev" style="left:0;" href="javaScript:;"><i></i></a>
+    <a class="nextday next" style="right:0;" href="javaScript:;"><i></i></a>
+    </div>
+    <div class="i_dates bd">
+        <dl class="transition4" style="left:0px;">
+        	{foreach from=$featureTimes item=featureTime}
+            <dd menuindex="0" data-movieid="{$movieid}" data-cinemaid="{$cinemaid}" style="float:left;" >{$featureTime}</dd>
+            {/foreach}
+        </dl>
+    </div>
+</div>
+<div class="showdate">
+    <ul>
+    {foreach from=$moviePlan item=plan}
+    {if $plan.is_cut eq 1}
+     <li> <a href="javascript:;" target="_blank"><span class="time">{$plan.time}</span> <span class="ting">{$plan.screenType}/{$plan.hallName}/{$plan.language}</span> <span class="mprice">{$plan.price}</span><span class="tbtn" style="background:#f4f4f4; color:#8E8E8E;">已过场</span></a></li>
+    {else}
+     <li> <a href="movie.php?step=cinemaSeats&hallno={$plan.hallNo}&planid={$plan.planId}&movieid={$plan.movieId}&cinemaid={$plan.cinemaId}" target="_blank"><span class="time">{$plan.time}</span> <span class="ting">{$plan.screenType}/{$plan.hallName}/{$plan.language}</span> <span class="mprice">{$plan.price}</span><span class="tbtn">选座购票</span></a>									</li>
+    {/if}
+    {/foreach} 
+    </ul>
+
+</div>

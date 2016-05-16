@@ -1,0 +1,241 @@
+
+	<p class="zzx">中轴线</p>
+	<span class="zzx_bg"></span>
+    
+    <table cellspacing="0" cellpadding="0" border="0" id="table_SeatList">
+	  <tbody>
+       {foreach from=$seatInfo item=seat name=seat}
+		 <tr id="{$seat.hallId}_{$seat.graphRow}" rowno="{$seat.graphRow}" locno="{$seat.hallId}">
+		   <td>
+		     <table cellpadding="0" cellspacing="0" border="0" width="{$seat.allWidth}">
+			   <tbody>
+               <!-- 座位图 开始 -->   
+               {if $seat.seatRow}                                
+                 <tr>
+					<td align="left" width="{$seat.leftsWidth}" valign="middle" height="40">
+					  <span style="white-space: nowrap;" class=" f12">{$seat.seatRow}</span>&nbsp;&nbsp;
+				    </td>
+                    {foreach from=$seat[columns][0] item=column name=column key=ki}
+                    <td align="center" width="17" valign="middle" height="40">
+                    {if $column.seatType == 0}<!-- 普通座位 -->   
+                                                         
+                    {if $column.seatEmpty==true}  <!--走廊-->
+                    <a class="locked" href="javascript:;" columnno="{$ki}">&nbsp;</a>
+                    {elseif $column.seatState == 1} <!-- 已售-->
+                    <a class="locked" rowno="{$column.graphRow}" locno="{$column.hallId}" columnno="{$ki}" title="{$column.graphRow}排{$column.seatCol}座"  seatno="{$column.seatNo}" id="{$column.seatNo}" href="javascript:void(0);">
+                    <img width="17" height="24" src="/images/hy2_de04.jpg" alt="{$column.graphRow}排{$column.seatCol}座" id="img_{$column.seatNo}"></a>
+                    {else} <!--可选座位-->
+                    <a rowno="{$column.seatRow}" locno="{$column.hallId}" columnno="{$ki}" title="{$column.seatRow}排{$column.seatCol}座" onclick="changeSeatImg(this,'img_{$column.seatNo}');" seatno="{$column.seatNo}" id="{$column.seatNo}" href="javascript:void(0);">
+                    <img width="17" height="24" src="/images/hy2_de01.jpg" alt="{$column.seatRow}排{$column.seatCol}座" id="img_{$column.seatNo}"></a>
+                    {/if}
+                    
+                    {elseif $column.seatType == 1}<!-- 情侣座位 -->
+                     
+                    {if $column.seatEmpty==true}  <!-- 走廊-->
+                     <a class="locked" href="javascript:;" columnno="{$ki}">&nbsp;</a>
+                    {elseif $column.seatState == 1} <!-- 已售-->
+                    <a class="locked" rowno="{$column.graphRow}" locno="{$column.hallId}" columnno="{$ki}" title="{$column.graphRow}排{$column.seatCol}座" seatno="{$column.seatNo}" id="{$column.seatNo}" href="javascript:void(0);">
+                    <img width="17" height="24" src="{if $column.conplesPos == 1}/images/conples_l_yes.gif{else}/images/conples_r_yes.gif {/if}" alt="{$column.graphRow}排{$column.seatCol}座" id="img_{$column.seatNo}"></a>
+                    {else} <!--可选座位-->
+                    <a class='couples' rowno="{$column.seatRow}" locno="{$column.hallId}" columnno="{$ki}" title="{$column.seatRow}排{$column.seatCol}座" onclick="changeSeatImg(this,'img_{$column.seatNo}');" seatno="{$column.seatNo}" id="{$column.seatNo}" href="javascript:void(0);">
+                    <img width="17" height="24" src="{if $column.conplesPos == 1}/images/conples_l.gif{else}/images/conples_r.gif {/if}" alt="{$column.seatRow}排{$column.seatCol}座" id="img_{$column.seatNo}"></a>
+                    {/if}
+                    
+                    {/if}
+                    </td>                                        
+                    {/foreach}
+                    <!--中轴线 start -->                    
+                    <td width="20" style="background:url(/images/hy2_de_bg2_zzx.png) no-repeat center top;">&nbsp;</td>                    
+                    <!--中轴线 end -->
+                    {foreach from=$seat[columns][1] item=column name=column key=ki2}
+                    <td align="center" width="17" valign="middle" height="40">
+                    {if $column.seatType == 0}<!-- 普通座位 -->   
+                                                         
+                    {if $column.seatEmpty==true}  <!--走廊-->
+                     <a class="locked" href="javascript:;" columnno="{$ki2}">&nbsp;</a>
+                    {elseif $column.seatState == 1} <!-- 已售-->
+                    <a class="locked" rowno="{$column.seatRow}" locno="{$column.hallId}" columnno="{$ki2}" title="{$column.seatRow}排{$column.seatCol}座" seatno="{$column.seatNo}" id="{$column.seatNo}" href="javascript:void(0);">
+                    <img width="17" height="24" src="/images/hy2_de04.jpg" alt="{$column.seatRow}排{$column.seatCol}座" id="img_{$column.seatNo}"></a>
+                    {else} <!--可选座位-->
+                    <a rowno="{$column.seatRow}" locno="{$column.hallId}" columnno="{$ki2}" title="{$column.seatRow}排{$column.seatCol}座" onclick="changeSeatImg(this,'img_{$column.seatNo}');" seatno="{$column.seatNo}" id="{$column.seatNo}" href="javascript:void(0);">
+                    <img width="17" height="24" src="/images/hy2_de01.jpg" alt="{$column.seatRow}排{$column.seatCol}座" id="img_{$column.seatNo}"></a>
+                    {/if}
+                    
+                    {elseif $column.seatType == 1}<!-- 情侣座位 -->
+                     
+                    {if $column.seatEmpty==true}  <!-- 走廊-->
+                     <a class="locked" href="javascript:;" columnno="{$ki2}">&nbsp;</a>
+                    {elseif $column.seatState == 1} <!-- 已售-->
+                    <a class="locked" rowno="{$column.seatRow}" locno="{$column.hallId}" columnno="{$ki2}" title="{$column.seatRow}排{$column.seatCol}座" seatno="{$column.seatNo}" id="{$column.seatNo}" href="javascript:void(0);">
+                    <img width="17" height="24" src="{if $column.conplesPos == 1}/images/conples_l_yes.gif{else}/images/conples_r_yes.gif {/if}" alt="{$column.seatRow}排{$column.seatCol}座" id="img_{$column.seatNo}"></a>
+                    {else} <!--可选座位-->
+                    <a class="couples" rowno="{$column.seatRow}" locno="{$column.hallId}" columnno="{$ki2}" title="{$column.seatRow}排{$column.seatCol}座" onclick="changeSeatImg(this,'img_{$column.seatNo}');" seatno="{$column.seatNo}" id="{$column.seatNo}" href="javascript:void(0);">
+                    <img width="17" height="24" src="{if $column.conplesPos == 1}/images/conples_l.gif{else}/images/conples_r.gif {/if}" alt="{$column.seatRow}排{$column.seatCol}座" id="img_{$column.seatNo}"></a>
+                    {/if}
+                    
+                    {/if}
+                    </td>                                
+                    {/foreach}
+
+		         </tr>
+                 {/if}
+                 <!-- 座位图 结束 -->
+                  
+		      </tbody>
+            </table>
+          </td>
+	  </tr>
+      {/foreach}
+    </tbody>
+  </table>                        
+
+<script type="text/javascript">
+<!--
+function changeSeatImg(obj, imgId){
+
+	var _columnno = Number($(obj).attr('columnno'));//座
+	
+	var _seatno = $(obj).attr('seatno'); // 座位号	
+	var _prev_seatno = $(obj).closest('td').prev('td').find('a').attr('seatno');		// 上一个座位号
+	var _prev_prev_seatno = $(obj).closest('td').prev('td').prev('td').find('a').attr('seatno');	// 上上一个座位号
+	var _next_seatno = $(obj).closest('td').next('td').find('a').attr('seatno');		// 下一个座位号
+	var _next_next_seatno = $(obj).closest('td').next('td').next('td').find('a').attr('seatno');	// 下下一个座位号
+	
+	// 删除座位
+	if($(obj).hasClass('selected')){
+		if(($('#'+_prev_seatno).hasClass('selected') && !$('#'+_next_seatno).hasClass('selected'))|| 		// 左边选中右边没选中
+		  (!$('#'+_prev_seatno).hasClass('selected') && $('#'+_next_seatno).hasClass('selected'))||  		// 右边选中左边没选中
+		  (!$('#'+_prev_seatno).hasClass('selected') && !$('#'+_next_seatno).hasClass('selected'))||		// 左右都没有
+		  (_prev_seatno == undefined && $('#'+_next_seatno).hasClass('selected'))||
+		  (!$('#'+_prev_seatno).hasClass('selected') && _next_seatno == undefined)
+		  ){
+			$(obj).removeClass('selected');
+			$('#'+imgId).attr("src", "/images/hy2_de01.jpg");
+		}else{
+			alert('亲，不要留下单个座位！');
+			return false;
+		}
+		
+		var conples = undefined;
+		
+		// 情侣座删除
+		if($(obj).hasClass('couples')){
+			var prev_td = $(obj).closest('td').prev('td').find('a');
+			var next_td = $(obj).closest('td').next('td').find('a');
+			
+			if(prev_td.hasClass('couples')){
+				prev_td.removeClass("selected");									
+				$('#'+imgId).attr('src', '/images/conples_r.gif');
+				prev_td.find('img').attr('src', '/images/conples_l.gif');
+				conples = prev_td.attr('id');
+			}else{			
+				next_td.removeClass("selected");
+				$('#'+imgId).attr('src', '/images/conples_l.gif');
+				next_td.find('img').attr('src', '/images/conples_r.gif');
+				conples = next_td.attr('id');
+			}
+		}
+		
+		// 删除选中的座位
+		if (!$(obj).hasClass("selected")) {
+			$("#seatSelectedList span").each(function() {				
+				if ($(this).attr("id").substr(5) == $(obj).attr("id") || $(this).attr("id").substr(5) == conples ) {					
+					$(this).remove();
+				}
+			});
+		}
+		
+	// 添加座位
+	}else{
+		if ($("#seatSelectedList span").length >= 4) {
+			alert("对不起，每笔订单最多可购4个座位！！");
+			return false;
+		}else{
+			var _selected  = new Array();
+			var _locked    = new Array();
+			
+			$.each($(obj).closest('tr').find('a'), function (k, v){
+				if ($(this).hasClass('selected')){//自己选择的座位
+					_selected.push($(this).attr('columnno'));
+				}
+				if ($(this).hasClass('locked')){//系统已售出或维修的座位号
+					_locked.push($(this).attr('columnno'));
+				}
+			});
+			
+			var is_selected = _selected.length > 0 ? false : true;
+			for (var i=0; i<_selected.length; i++){
+				if (_columnno + 1 == _selected[i] || _columnno - 1 == _selected[i]){
+					is_selected = true;
+				}
+			}
+			if (!is_selected && _selected.length > 0){
+				for (var i=0; i<_locked.length; i++){
+					if (_columnno + 1 == _locked[i] || _columnno - 1 == _locked[i]){
+						is_selected = true;
+					}
+				}
+			}
+
+
+			if (!is_selected){
+				alert('亲，不要留下单个座位！');
+				return false;
+			}
+			// 情侣座位处理
+			if($(obj).hasClass('couples')){
+				var prev_td = $(obj).closest('td').prev('td').find('a');
+				var next_td = $(obj).closest('td').next('td').find('a');
+				
+				if(prev_td.hasClass('couples')){
+					$(obj).addClass("selected");
+					prev_td.addClass("selected");					
+					
+					var _span_html = '<span class="hy2_weizhi" id="span_'+prev_td.attr("seatno")+'" locno="'+prev_td.attr('locno')+'">'+prev_td.attr("title")+'</span>';
+					$("#seatSelectedList").append(_span_html);
+					
+					$('#'+imgId).attr('src', '/images/conples_r_s.gif');
+					prev_td.find('img').attr('src', '/images/conples_l_s.gif');
+				}else{
+					$(obj).addClass("selected");
+					next_td.addClass("selected");					
+					
+					var _span_html = '<span class="hy2_weizhi" id="span_'+next_td.attr("seatno")+'" locno="'+next_td.attr('locno')+'">'+next_td.attr("title")+'</span>';
+					$("#seatSelectedList").append(_span_html);
+					
+					$('#'+imgId).attr('src', '/images/conples_l_s.gif');
+					next_td.find('img').attr('src', '/images/conples_r_s.gif');
+				}
+			}else{
+				$(obj).addClass("selected");
+				$('#'+imgId).attr('src', '/images/hy2_de03.jpg');
+			}
+		}
+	}	
+	
+	if ($(obj).hasClass('selected')){
+		var _span_html = '<span class="hy2_weizhi" id="span_'+$(obj).attr("seatno")+'" locno="'+$(obj).attr('locno')+'">'+$(obj).attr("title")+'</span>';
+		$("#seatSelectedList").append(_span_html);
+		//$('#'+imgId).attr('src', '/images/hy2_de03.jpg');
+	}
+	$('#price').html('<span class="hy2_yingyuan">合计：</span><span class="f14" id="total_praice">'+$("#vipPrice").val() + '点 * ' + $("#seatSelectedList span").length + '</span>');
+	$('#amount').html('总价：<span>' + parseFloat($("#seatSelectedList span").length * $("#vipPrice").val()).toFixed(2) + '点</span>');
+	var selectedVal = "";
+	var selectedName = '';
+	
+	$("#seatSelectedList span").each(function() {
+		if (selectedVal == "") {
+			selectedVal = $(this).attr("id").substr(5);
+			selectedName = $(this).text();
+		} else {
+			selectedVal = selectedVal + "|" + $(this).attr("id").substr(5);
+			selectedName = selectedName + '|' + $(this).text();
+		}
+	});
+	$('#seatsNo').val(selectedVal);	
+	$('#seatsName').val(selectedName);
+	$('#seatsCount').val($("#seatSelectedList span").length);
+	
+}
+-->
+</script>

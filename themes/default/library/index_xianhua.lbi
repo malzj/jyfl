@@ -1,0 +1,11 @@
+<div class="fl louceng-list">  
+{foreach from=$list item=li}
+	{if $li.is_ad eq 1} 
+    	<div class="wf3" style="width:379px; height:219px; padding:10px;"> {if $li.images} <a href="{$li.url}" target="_blank"><img src="data/afficheimg/{$li.images}" width="379" height="220" /> {else} <span style="width:399px; height:240px; display:table-cell; vertical-align:middle; text-align:center;"><img src="/images/no_picture.gif"></span>{/if}</a></div>
+    {else}
+    	<div class="wf3"> <a href="{$li.url}" style="height:183px;" target="_blank"><img width="175" height="160" src="{$li.goods_thumb}" /></a> <a href="{$li.url}" class="a1" style="height:33px;" target="_blank">{$li.goods_name}</a>
+           <p>{$li.shop_price}点</p>
+         </div>
+    {/if}
+{/foreach}          
+</div>

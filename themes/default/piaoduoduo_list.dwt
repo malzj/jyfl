@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<link href="/css/piaoduoduo.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<SCRIPT type=text/javascript src="/js/slide.js"></SCRIPT>
+{insert_scripts files='jquery.region.js,utils.js'}
+{insert_scripts files='transport.js,utils.js'}
+
+<script type="text/javascript">
+$(function(){
+	$(".slide_close").click(function(){
+		$(this).hide().siblings('.slide_open').show().parent('.detail02_top').siblings(".showslide01").show();
+	});
+	$(".slide_open").click(function(){
+		$(this).hide().siblings('.slide_close').show().parent('.detail02_top').siblings(".showslide01").hide();
+		;
+	});
+})
+</script>
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+<div class="main_big" style="margin-top:10px;">
+	<div class="main">
+		<!--当前位置 开始-->
+		<p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+		<!--当前位置 结束-->
+		<div class="detail_box">
+			<div class="detail01">
+                <div id="tFocus">
+                    <div class="prev" id="prev"></div>
+                    <div class="next" id="next"></div>
+                    <ul id="tFocus-pic">
+                    	
+                    	
+                    		{foreach from=$piaoduoduo.Imgs item=imgs}
+                        <li> 
+                            <a href="javascript:;"></a> 
+                            <a href="javascript:;" class="middle"><img src="{$imgs}" alt="{$piaoduoduo.ProductName}"></a> 
+                        </li>
+                        	{/foreach}
+                       
+                                            
+                    </ul>
+                    
+                    <div id="tFocusBtn"> <a href="javascript:void(0);" id="tFocus-leftbtn">上一张</a>
+                        <div id="tFocus-btn">
+                            <ul>
+                           
+                            
+                            <!-- {foreach from=$piaoduoduo.Imgs item=imgs key=key}-->
+                                <li {if $key == 0} class="active"{/if}><img src="{$imgs}" aalt="{$piaoduoduo.ProductName}" width="87" height="57"></li>
+                                 <!-- {/foreach}-->
+                          
+                           
+                            </ul>
+                        </div><a href="javascript:void(0);" id="tFocus-rightbtn">下一张</a> 
+                    </div>
+                </div>
+				
+				<script type="text/javascript">addLoadEvent(Focus());</script>
+				<form name="ycForm" id="ycForm" method="post" action="piaoduoduo_list.php" onsubmit="return checkYcForm();">
+				<input type="hidden" name="act" value="shopping"/>
+				<div class="detail01_rr">
+					<p class="hy_de_t1">{$piao_jingqu.SightName}</p>
+					
+					<ul class="hy_detail01_list2">
+						<li>
+							<span class="hy_detail_name">类　型　：</span>
+							<p class="hy_detail_price1">{$piao_jingqu.SightBusinessCategory}</p>
+						</li>
+
+						<li>
+							<span class="hy_detail_name">地　点　：</span>
+							<p class="hy_detail_price1">{$piao_jingqu.SightAddress}</p>
+						</li>
+						
+						<li>
+							<span class="hy_detail_name">级　别　：</span>
+							<p class="hy_detail_price1">{$piao_jingqu.SupplierLevel}</p>
+						</li>
+						 
+						
+						<li>
+							<span class="hy_detail_name">选择票种：</span>
+							<p class="mg2_de_t5">
+							
+								{foreach from=$piaoduoduo item=piao key=key name=piao}
+								{if $piao.ProductName}
+									<a class="ProductName" id="ProductName_{$key}" onclick="change({$key});">{if ($piao.ProductName !='')}{$piao.ProductName}{/if}</a>
+									<input type="hidden" id="KeyId_{$key}" name="KeyId" value="{$piao.KeyId}"/>
+									<input type="hidden" id="SellPrice_{$key}" name="SellPrice" value="{$piao.SellPrice}"/> 
+								{/if}
+								{/foreach}
+								
+							</p>
+
+						</li>
+						<li>
+							<span class="hy_detail_name">价　格　：</span>
+							<p class="hy_detail_price">
+								<span id="Price" style="color:red;height: 27px;line-height: 41px;"></span>
+							</p>
+						</li>
+
+						<li class="detail_buy">
+							
+							<a href="javascript:;" onclick="submitYcForm();" class="hy_mai01" style="width:162px;"><span class="hy_buy_de"></span>立即购买</a>
+						</li>
+					</ul>
+					<input type="hidden" id="key" name="key" value="" />
+				</div>
+				</form>
+			</div>
+			{if $piao_jingqu.SightIntroduction}
+			<div class="detail02">
+				<div class="detail02_top">
+					<span class="hy_de_xq"><b></b>详细介绍</span>
+					
+				</div>
+				<div class="showslide01">
+					<ul class="xiangqing_list02">
+						<li>
+							<div style="text-indent:2em;">
+								{$piao_jingqu.SightIntroduction}
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			{/if}
+<!-- 产品详情 -->
+<style>
+	.box{width:980px;}
+</style>
+<div class="detail02">
+	<div class="detail02_top">
+		<span class="hy_de_xq"><b></b>票种说明</span>
+		
+	</div>
+	<div class="showslide01">
+		<ul class="xiangqing_list02">
+			<li>
+				<div>                    
+                    {foreach from=$piaoduoduo item=list key=key name=list}
+                    {if $list.ProductName}
+                    <div class="piaobox" id="piaobox_{$key}" style="display:none;">
+                        <div class="piao_name"><img src="/images/piaoduoduo/diandian.png" alt="" class="piao_img"/>
+                        <span class="piao_ProductName">{$list.ProductName}</span></div>
+                    <!-- 	{if $list.CertificateType}
+                        <ul class="piaoul">
+                            <li class="ul_left">使用有效期：</li>
+                            <li class="ul_right">{$list.CertificateType}</li>
+                        </ul>
+                        {/if} -->
+                        {if $list.CertificateType}
+                        <ul class="piaoul">
+                            <li class="ul_left">生效时间：</li>
+                            <li class="ul_right">购买后{$list.CertificateType}日生效</li>
+                        </ul>
+                        {/if}
+                        {if $list.Remind}
+                        <ul class="piaoul">
+                            <li class="ul_left">使用说明：</li>
+                            <li class="ul_right">{$list.Remind}</li>
+                        </ul>
+                        {/if}
+                        {if $list.PeriodValidityOfRefund}
+                        <ul class="piaoul">
+                            <li class="ul_left">退票说明：</li>
+                            <li class="ul_right">{if $list.RefundInfo}{$list.RefundInfo}{/if}{$list.PeriodValidityOfRefund}</li>
+                        </ul>
+                        {/if}
+                        {if $list.UseAdvanceHour}
+                        <ul class="piaoul">
+                            <li class="ul_left">购买说明：</li>
+                            <li class="ul_right">
+                            购票限制：{$list.TimeZone}<br/>
+                            使用限制: {$list.UseAdvanceHour}<br/>
+                            购买数量: {if $list.BuyMinNum eq -1}最小购买数量{$list.BuyMinNum}，最大购买数量{$list.BuyMaxNum}{else}不限制{/if}<br/>
+                            星期使用：{$list.ValidWeek}</li>
+                        </ul>
+                        {/if}
+                        {if $list.FeeInclude}
+                        <ul class="piaoul">
+                            <li class="ul_left">服务内容：</li>
+                            <li class="ul_right" style="white-space:pre-line;line-height:18px;">
+                            {$list.FeeInclude}<br/>
+                            
+                            </li>
+                        </ul>
+                        {/if}
+                    
+                    </div>
+                    {/if}
+                    {/foreach}						
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+		
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+<script>
+var rows="{$piao_jingqu.rows}";//产品数目
+onload = function(){
+	change(0);
+}
+function change(data) {
+	var KeyId=document.getElementById("KeyId_"+data).value;
+	var SellPrice=document.getElementById("SellPrice_"+data).value;
+	var ProductName=document.getElementById("ProductName_"+data).value;
+	document.getElementById('Price').innerHTML = SellPrice+"点";
+	document.getElementById('key').value = KeyId;
+	navCheck(data);
+} 
+//选中改变样式
+function navCheck(num) {
+    for (var i = 0; i < rows; i++) {
+        if (num == i) {
+        	document.getElementById("piaobox_"+num).style.display="block";
+    	    document.getElementById("ProductName_"+num).style.border='1px solid #e70012';
+    		document.getElementById("ProductName_"+num).style.background='url(../images/hy_hj.jpg) no-repeat right bottom';
+            // continue;
+        }else{
+        	document.getElementById("piaobox_"+i).style.display="none";
+	        document.getElementById("ProductName_"+i).style.border='';
+	    	document.getElementById("ProductName_"+i).style.background=''; 
+        }
+    }
+}
+function submitYcForm(){
+	
+	$('#ycForm').submit();
+}
+</script>
+
+
+</body>
+</html>

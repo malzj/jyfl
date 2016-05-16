@@ -1,0 +1,64 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<p class="bo_money">
+	商品总金额：<span class="ax_goods_money">{$total.goods_price_formated}</span>
+	<!-- 折扣 -->
+	{if $total.discount gt 0}
+	 - 折扣：<span>{$total.discount_formated}</span>
+	{/if}
+	<!-- 税 -->
+	{if $total.tax gt 0}
+	 + 发票税：<span>{$total.tax_formated}</span>
+	{/if}
+	<!-- 支付费用 -->
+	{if $total.pay_fee > 0}
+	 + 支付费用：<span>{$total.pay_fee_formated}</span>
+	{/if}
+	<!-- 配送费用 -->
+	{if $total.shipping_fee >= 0}
+	 + 运费：<span class="ax_shipping_fee">{$total.shipping_fee_formated}</span>
+	{/if}
+	<!-- 保价费用 -->
+	{if $total.shipping_insure > 0}
+	 + 保价费用：<span>{$total.shipping_insure_formated}</span>
+	{/if}
+	<!-- 使用优惠券 -->
+	{if $total.bonus > 0}
+	 - 红包：<span>{$total.bonus_formated}</span>
+	{/if}
+	<!-- 使用供货商优惠券 -->
+	{if $total.supplier_bonus > 0}
+	 - 供货商红包：<span>{$total.supplier_bonus_formated}</span>
+	{/if}
+	<!-- 使用积分 -->
+	{if $total.integral > 0}
+	 - 积分支付：<span>{$total.integral_formated}</span>
+	{/if}
+</p>
+
+<input type="hidden" name="step" value="done" />
+<input type="submit" value="提交订单" class="hd_tj" />
+<span class="hy_hd_js">实际付款金额：<b class="ax_total_money">{$total.amount_formated}</b>点</span>
+
+{if $is_group_buy || $total.exchange_integral}
+<p class="bo_money" style="margin-top:5px;margin-bottom:0px;font-size:14px;font-weight:100">
+{if $is_group_buy}{$lang.notice_gb_order_amount}{/if}
+<!--{if $total.exchange_integral }消耗积分--><br />
+{$lang.notice_eg_integral}<font class="f4_b">{$total.exchange_integral}</font>
+<!--{/if}-->
+</p>
+{/if}
+
+{if $smarty.session.user_id > 0 and $is_dealers !=1 and ($config.use_integral or $config.use_bonus)}
+<p class="bo_money" style="margin-top:5px;font-size:14px;font-weight:100">
+	{$lang.complete_acquisition} 
+	{if $config.use_integral}{$points_name}
+	{$total.will_get_integral}
+	{/if}
+	{if $config.use_integral and $config.use_bonus}
+	，{$lang.with_price}
+	{/if}
+	{if $config.use_bonus}
+	<span>{$total.will_get_bonus}</span>点{$lang.de}{$lang.bonus}。
+	{/if}
+</p>
+{/if}

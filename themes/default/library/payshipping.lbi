@@ -1,0 +1,33 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="cart02">
+	<p class="hy_hedui" style="border-top:none; padding-top:0px; margin-top:0; margin-bottom:15px;">支付及配送方式</p>
+	<!--{if $is_exchange_goods neq 1 || $total.real_goods_count neq 0}-->
+	<h2 class="zhifu">支付方式</h2>
+	<!-- {foreach from=$payment_list item=payment name=name} 循环支付方式 -->
+	<div class="addrs{if $order.pay_id eq $payment.pay_id} curr{/if}" style="padding-left:47px;">
+		<input type="radio" class="i" name="payment" value="{$payment.pay_id}"{if $order.pay_id eq $payment.pay_id} checked{/if} isCod="{$payment.is_cod}" onclick="selectPayment(this)"{if $cod_disabled and $payment.is_cod eq "1"} disabled="true"{/if} />
+		<label class="l" for="addr">{$payment.pay_name}</label>
+		<label class="l" for="addr" style="margin-left:50px; display:inline;">{$payment.pay_desc}</label>
+	</div>
+	<!-- {/foreach} 循环支付方式 -->
+	<!--{else}-->
+	<input name = "payment" type="radio" value = "-1" checked="checked"  style="display:none"/>
+	<!-- {/if} -->
+
+	<!--{if $total.real_goods_count neq 0}-->
+	<h2 class="zhifu" style="margin-top:35px;">配送方式</h2>
+	<!-- {foreach from=$shipping_list item=shipping} 循环配送方式 -->
+	<div class="addrs{if $order.shipping_id eq $shipping.shipping_id} curr{/if}" style="padding-left:47px;">
+		<input type="radio" class="i" name="shipping" value="{$shipping.shipping_id}"{if $order.shipping_id eq $shipping.shipping_id} checked{/if} supportCod="{$shipping.support_cod}" insure="{$shipping.insure}" onclick="selectShipping(this)" />
+		<label class="l" for="addr">{$shipping.shipping_name}</label>
+		<label class="l" for="addr" style="margin-left:50px; display:inline;">{$shipping.format_shipping_fee}</label>
+	</div>
+	<!-- {/foreach} 循环配送方式 -->
+	<!--{else}-->
+	<input name = "shipping" type="radio" value = "-1" checked="checked"  style="display:none"/>
+	<!--{/if}-->
+
+	<p class="mg2_fu_f1"><input type="button" value="" onclick="savePayShipping();" class="save_tj_"/></p>
+</div>
+<input type="hidden" name="payshipping_check" id="payshipping_check" value="0">
+<div class="clear"></div>

@@ -1,0 +1,51 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="shouhuo_title">
+    <span class="shouhuorenxinxi f_l">收货人信息</span>
+    <span class="add_adress f_r" onclick="selectConsignee(0)">新增收货地址</span>
+</div>
+<div class="shouhuoren_item">
+    <ul>
+        {foreach from=$consignee_list item=consignee key=sn}
+        <li>
+            <div class="f_l shouhuoren_name {if $consignee.selected eq 1}selected{/if}" onClick="javascript:setDefaultConsignee('{$consignee.address_id}');">
+                <span>{$consignee.consignee}</span>
+            </div>
+            <div class="f_l shouhuoren_xinxi">
+                <span class="name">{$consignee.consignee}</span>
+                <span class="addr">{$consignee.country_cn|escape}&nbsp;&nbsp;&nbsp;{$consignee.province_cn|escape}&nbsp;&nbsp;{$consignee.city_cn|escape}&nbsp;&nbsp;{$consignee.district_cn|escape}&nbsp;&nbsp;{$consignee.address|escape}</span>
+                <span class="addr_tel">{if $consignee.mobile && $consignee.tel}{$consignee.tel|escape}({$consignee.mobile|escape}){elseif $consignee.tel}{$consignee.tel|escape}{else $consignee.mobile}{$consignee.mobile|escape}{/if}</span>
+            </div>
+            <div class="f_r shouhuoren_hover">
+                <a href="javascript:setDefaultConsignee('{$consignee.address_id}');">设为默认地址</a>
+                <a href="javascript:selectConsignee('{$consignee.address_id}');">编辑</a>
+                <a href="javascript:dropConsignee('{$consignee.address_id}');">删除</a>
+            </div>
+        </li>
+        {foreachelse}
+        <li> 没有收货地址，添加一个去吧！</li>
+        {/foreach}            
+    </ul>
+</div> 
+
+<div class="more">
+   <span id="more">更多地址<span class="glyphicon glyphicon-chevron-down jiantou"></span></span>
+</div>
+
+<div class="add_item" id="add_item">
+    
+</div>
+<script>
+$('.shouhuoren_item li').hover(function(){
+	$(this).children('.shouhuoren_hover').toggle();
+});
+$('#more').click(function(){
+	var height=$('.shouhuoren_item').height();
+	if(height=='40'){
+		$('html.huaju2 .w_1200 .shouhuoren .more span.jiantou').css('transform','rotate(180deg)');
+		$('.shouhuoren_item').css('height','auto');
+	}else{
+		$('html.huaju2 .w_1200 .shouhuoren .more span.jiantou').css('transform','rotate(0deg)');
+		$('.shouhuoren_item').css('height','40px');
+	}
+})
+</script>

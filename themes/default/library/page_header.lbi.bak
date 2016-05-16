@@ -1,0 +1,262 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="/js/artDialog/skins/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/artDialog/artDialog.js"></script>
+<div class="hy_ding_content">
+	<div class="hy_ding">
+		<div class="hy_ding_small">
+			<div class="hy_ding_left">
+				卡号：{$username}  |  余额：<span>{$money}</span> 点|&nbsp;&nbsp;
+				{if $cityid}
+				<!-- {$cityinfo.region_name}<a href="JavaScript:void(0);" id="thiscity" onclick="openCityLayer(1);" style="color:#fff;">[更换城市]</a> -->
+				{/if}
+				<div id="evercity" style="display:none;">
+					<!--{foreach from=$citys item=city}-->
+					<a href="{$city.url}"{if $city.region_id eq $cityinfo.region_id} style="font-weight:bold;"{/if}>{$city.region_name}</a>
+					<!--{/foreach}-->
+				</div>
+			</div>
+			<div class="hy_ding_right">
+				<p class="hy_ding_r1">
+					<a href="flow.php" style="background:url(/images/hy_che1.jpg) no-repeat left 1px; padding-left:25px;">购物车<span id="ECS_CARTINFO">{insert name='cart_info'}</span>件</a>| <a href="article.php?id=34">订购帮助</a> | <a href="user.php?act=logout">[退出]</a>
+				</p>
+				<ul id="navul" class="cl">
+					<li>
+						<a href="user.php">我的華影</a>
+						<ul>
+							<li><a href="user.php?act=order_list">我的订单</a></li>
+							<li><a href="user.php?act=address_list">收货地址</a></li>
+							<li><a href="user.php?act=bonus">我的红包</a></li>
+							
+							<li><a href="user.php?act=account_deposit">卡充值</a></li>
+							<li><a href="user.php?act=profile">卡密码</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+	<div class="head_big">
+		<div class="head">
+			<span class="logon"><a href="/"><img src="/images/hy_logo1.jpg" width="232" height="53" alt="華影文化" /></a></span>
+			<span class="hy_dingwei"><a href="javascript:;">{$cityinfo.region_name}</a></span>
+			<div class="head_right">
+				<div class="head_r1" style="height:34px;">
+					<!--<form action="search.php" method="get" onsubmit="return checkSearForm();">
+					<p class="head_sou">
+						<input type="text" name="keywords" id="keyword" value="search" onfocus="if (this.value == 'search') this.value=''" class="hy_sou_input" />
+						<input type="submit" value="" class="hy_sou_but" />
+					</p>
+					</form>-->
+					<script type="text/javascript">
+					<!--
+						function checkSearForm(){
+							if(document.getElementById('keyword').value && document.getElementById('keyword').value != 'search'){
+								return true;
+							}else{
+								alert("请输入您要搜索的关键字");
+								document.getElementById('keyword').focus();
+								return false;
+							}
+						}
+					//-->
+					</script>
+				</div>
+				<div class="menu">
+					<ul class="nav">
+						
+						{foreach name=nav_middle_list from=$navigator_list.middle item=nav}
+						<li class="mainlevel_1" id="mainlevel_02">
+							{if $nav.realCCount != $nav.currCCount}
+							{$nav.name}
+							{else}
+							{$nav.name}
+							{/if}
+							{if $nav.child}
+							<ul id="sub_02">
+								{foreach from=$nav.child item=child name=child}
+								<li><a href="{$child.url}"{if $child.opennew eq 1} target="_blank"{/if}>{$child.name}</a></li>
+								{/foreach}
+							</ul>
+							{/if}
+						</li>
+						{/foreach}
+						<!--<li class="mainlevel"><a href="/" >首页</a></li>-->
+						<!--#
+						<li class="mainlevel_1" id="mainlevel_02">视听盛宴
+							<ul id="sub_02">
+								<li><a href="shiting.php?act=skyy">电影</a></li>
+								<li><a href="yanchu.php?id=1217">演唱会</a></li>
+								<li><a href="yanchu.php?id=1220">话剧</a></li>
+								<li><a href="yanchu.php?id=1218">音乐会</a></li>
+								<li><a href="yanchu.php?id=1211">体育赛事</a></li>
+								<li><a href="yanchu.php?id=1227">亲子儿童</a></li>
+								<li><a href="yanchu.php?id=1224">戏曲综艺</a></li>
+							</ul>
+						</li>
+						<li class="mainlevel_1" id="mainlevel_03"><a href="category.php?id=2">舌尖上的美食</a>
+							<ul id="sub_03">
+								{foreach name=meishi from=$meishi item=nav2}
+								<li><a href="category.php?id={$nav2.url}">{$nav2.name}</a></li>
+								{/foreach}
+							</ul>
+						</li>
+						
+						<li class="mainlevel_1" id="mainlevel_04"><a href="category.php?id=3">运动激情</a>
+							<ul id="sub_04">
+								{foreach name=yundong from=$yundong item=nav3}
+								<li><a href="category.php?id={$nav3.url}">{$nav3.name}</a></li>
+								{/foreach}
+							</ul>
+						</li>
+						<li class="mainlevel_1" id="mainlevel_05"><a href="tushu.php?id=9">智慧之门</a>
+							<ul id="sub_05">
+								<li><a href="tushu.php?id=9">图书</a></li>
+								{foreach name=zhihui from=$zhihui item=nav4}
+								<li><a href="category.php?id={$nav4.url}">{$nav4.name}</a></li>
+								{/foreach}
+							</ul>
+						</li>
+						
+						<li class="mainlevel_1" id="mainlevel_06"><a href="category.php?id=5"> 应季甄选</a>
+							<ul id="sub_06">
+								{foreach name=yingji from=$yingji item=nav5}
+								<li><a href="category.php?id={$nav5.url}">{$nav5.name}</a></li>
+								{/foreach}
+							</ul>
+						</li>-->
+					</ul>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="ui_city_plugs" class="ui_city_plugs none clear" style="position: absolute; left: 306px; top:140px;">
+			<div style="position:relative;" class="inner"> <span title="关闭" class="ui_close"></span>
+				<div class="ui_city_cType clear">
+					<ul>
+						<li><a href="javascript:void(0);" id="city_hot" class="select" hidefocus="true">热门</a></li>
+						<li><a href="javascript:void(0);" id="city_ABCDE" hidefocus="true">ABCDE</a></li>
+						<li><a href="javascript:void(0);" id="city_FGHIJ" hidefocus="true">FGHIJ</a></li>
+						<li><a href="javascript:void(0);" id="city_KLMNO" hidefocus="true">KLMNO</a></li>
+						<li><a href="javascript:void(0);" id="city_PQRST" hidefocus="true">PQRST</a></li>
+						<li class="last"><a href="javascript:void(0);" id="city_VWXYZ" hidefocus="true">VWXYZ</a></li>
+					</ul>
+				</div>
+				{foreach from=$citys item=city key=key name=city}
+				{if $key eq 'hot'}
+				<div id="city_{$key}_content" class="ui_city_List clear">
+					<div class="inner clear">
+						<ul class="clear">
+							{foreach from=$city item=c}
+							<li><a href="index.php?cityid={$c.region_id}"{if $c.region_id eq $cityid} class="select"{/if} hidefocus="true">{$c.region_name}</a></li>
+							{/foreach}
+						</ul>
+					</div>
+				</div>
+				{else}
+				<div id="city_{$key}_content" class="ui_city_List clear{if $key neq 'hot'} none{/if}">
+					<div class="inner clear">
+						{foreach from=$city item=c key=k name=c}
+						<dl class="{if $smarty.foreach.c.first}mt0{/if}">
+							<dt><span>{$k}</span></dt>
+							<dd>
+								<ul>
+									{foreach from=$c item=item}
+									<li><a{if $item.region_id eq $cityid} class="select"{/if} href="index.php?cityid={$item.region_id}" hidefocus="true">{$item.region_name}</a></li>
+									{/foreach}
+								</ul>
+							</dd>
+						</dl>
+						{/foreach}
+					</div>
+				</div>
+				{/if}
+				{/foreach}
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+
+
+
+<script type="text/javascript">
+<!--
+
+$(document).ready(function(){
+	$('.ui_city_cType').find('a').bind('click', function (){
+		$('.ui_city_cType').find('a').removeClass('select');
+		$(this).addClass('select');
+		var _this = $(this);
+		$('.ui_city_List').each(function(){
+			if ($(this).attr('class').indexOf('none') == -1 && $(this).attr('id') != _this.attr('id')+'_content'){
+				$(this).addClass('none');
+			}
+		});
+		$('#'+_this.attr('id')+'_content').removeClass('none');
+	});
+
+	$('.ui_city_List').find('dl').hover(function(){
+		var _this = $(this);
+		$('.ui_city_List').find('dl').each(function (){
+			$(this).removeClass('select');
+		});
+		_this.addClass('select');
+	},function (){
+		$(this).removeClass('select');
+	});
+
+	$('.ui_close').click(function (){
+		$('.hy_dingwei').find('a').removeClass('up');
+		$('#ui_city_plugs').addClass('none');
+	});
+	
+	$('.hy_dingwei').click(function() {
+		var _self = $(this);
+		var _this = $(this).find('a');
+		if ($('#ui_city_plugs').attr('class').indexOf('none') == -1){
+			_this.removeClass('up');
+			$('#ui_city_plugs').addClass('none');
+		}else{
+			_this.addClass('up');
+			$('#ui_city_plugs').removeClass('none');
+		}
+
+		$(document).click( function (event){
+			var j = $(event.target);
+			//alert($('#ui_city_plugs').html().contains(j.html()));
+			if ($('#ui_city_plugs').html().indexOf(j.html()) == -1 && _self.html().indexOf(j.html()) == -1){
+				$('.hy_dingwei').find('a').removeClass('up');
+				$('#ui_city_plugs').addClass('none');
+			}
+		});
+	});
+});
+
+
+/*var cityid = '{$cityid}'
+if (cityid == 0){
+	openCityLayer(0);
+}
+
+function openCityLayer(isClose){
+	isClose = isClose == 0 ? true : false;
+	window.top.art.dialog({
+		esc:false
+		,title: '请选择城市'
+		,content:document.getElementById('evercity')
+		,lock:true
+		,dblclick_enable:true
+		,zIndex:2000001
+		,background:'#000'
+		,opacity:.4
+		,fixed:true
+		,drag:false
+		,cancel: isClose ? false : ''//禁用右上角关闭按钮
+	})
+}*/
+//-->
+</script>

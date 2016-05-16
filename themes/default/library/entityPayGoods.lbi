@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/js/entity/menu.css" rel="stylesheet" type="text/css" />
+<link href="/js/entity/lll.css" rel="stylesheet" type="text/css" />
+
+<script src="/js/jquery-1-11-3.min.js"></script>
+<script type="text/javascript" src="/js/spinner/jquery.spinner.js"></script>
+<style>
+	.entity-pay-goods{
+		width:100%;
+	}
+	.entity-pay-goods th{ background:gainsboro; height:25px; line-height:25px;}
+	.entity-pay-goods td{
+		text-align:center;
+		height:25px;
+		line-height:25px;
+		border-bottom:1px #eee dashed;
+	}
+	.entity-pay-goods .pay-goods-left{ text-align:left; text-indent:1em;}
+	.entity-pay-goods tr:hover{ background:seashell;}
+</style>
+
+</head>
+<body>
+<div class="confirm-div">
+	<table class="entity-pay-goods">
+        <tr><th align="left">&nbsp;&nbsp;&nbsp;名称</th><th width="100">扣点价格</th><th width="100">现金价格</th><th width="100">购买数量</th><th width="100">支付数量</th></tr>
+        {foreach from=$goods_list item=pay_goods}
+        <tr>
+            <td class="pay-goods-left">{$pay_goods.name}。</td>
+            <td>{$pay_goods.show_price}点</td>
+            <td>{$pay_goods.market_price}元</td>
+            <td>{$pay_goods.max}</td>
+            <td><input type="text" value="{$pay_goods.num}" name="goods_num" class="spinner" size="3" style="border:1px #ccc solid; text-align:center;" max="{$pay_goods.max}"  goods-id ="{$pay_goods.goods_id}"/> </td>
+        </tr>
+        {/foreach}
+    </table>
+    
+    <div class="confirm-total">
+    	卡余额：<font class="f16" id="card-total">{$card_balance}</font> 点
+    </div>
+    
+</div>
+
+</body>
+</html>
+<script>
+$(document).ready(function(){
+	// 数字加减
+	$('.spinner').spinner({min:0});
+	
+	// 更改支付数量
+	$('.spinner button').on('click', function(){
+		var cardTotal = parseInt($('#card-total').text());
+		var input = $(this).closest('.spinner').find('input');
+		var maxNum = parseInt(input.attr('max'));
+		var value = parseInt(input.val());
+			// 不能超过最大购买数量
+		if (value > maxNum){
+			alert('不能超过您购买的数量！');
+			input.val(maxNum);
+			exit;
+		}
+		// 更新支付数量
+		$.ajax({
+			url:'entity.php?step=change_goods&num='+value+'&goods_id='+input.attr('goods-id'),			
+			async:false,
+			success:function(data){
+				var obj = jQuery.parseJSON(data);
+				if(obj.error > 0){
+					alert(obj.message);
+					input.val(value-1);
+					exit;
+				}else{
+					$('#card-total').text(obj.content);
+				}
+			}	
+		});
+		
+		
+	});
+});
+	
+	
+</script>
+{if empty($goods_list)} <center style="height:150px; line-height:150px; font-size:16px; color:red;">没有可支付的商品</center> {/if}
+

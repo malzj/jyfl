@@ -1,0 +1,38 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.index-promotion{width:1200px;height:300px;margin:10px 0 0 0;}
+.index-promotion ul li{list-style:none;width:100px;height:210px;float:left;}
+.index-promotion ul li.pic{width:205px; overflow:hidden;}
+.index-promotion ul li.picShow{width:585px;}
+
+</style>
+<div class="index-promotion">
+	<ul>
+		<li class="pic picShow">
+			<a href="http://www.huayingcul.com/coupons_list.php?id=1620" target="_blank" title="网酒网提货码-免费">
+				<img src="/images/index/cu1.jpg" width="585" height="210px;">
+			</a>
+		</li>
+		<li class="pic">
+			<a href="http://www.huayingcul.com/coupons_list.php?id=1621" target="_blank" title="100元汽车内饰深度清洁优惠券">
+				<img src="/images/index/cu2.jpg" width="585" height="210px;">
+			</a>
+		</li>
+		<li class="pic"> 
+			<a href="http://www.huayingcul.com/jieri_order.php?act=index&goods_id=1618&number=1" target="_blank">
+				<img src="/images/index/cu3.jpg" width="585" height="210px;">
+			</a>
+		</li>
+		<li class="pic">          
+			<a href="http://www.huayingcul.com/jieri_order.php?act=index&goods_id=1619&number=1" target="_blank">
+				<img src="/images/index/cu4.jpg" width="585" height="210px;">
+			</a>
+		</li>
+	</ul>
+</div>
+
+<script type="text/javascript">
+$(".index-promotion ul li").hover(function(){
+	$(this).stop(true).animate({width:"584px"},500).siblings().stop(true).animate({width:"205px"},500);
+});
+</script>

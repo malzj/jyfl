@@ -1,0 +1,12 @@
+<div class="wof1" style="padding:10px; width:178px; border:1px #ededed solid; height:308px;"> <a href="komovie_show.php?act=hot&id={$first.movieId}" title="{$first.movieName}" target="_blank"> <img src="{$first.pathVerticalS}" width="178" height="306"/></a> </div>
+<div class="wof2">
+{foreach from=$films item=komovie}
+  <div class="wof3"> <a href="komovie_show.php?act=hot&id={$komovie.movieId}" target="_blank"><img src="{$komovie.pathVerticalS}" width="100" height="140" alt="{$komovie.movieName}" /></a>
+    <p class="wp1"><a href="komovie_show.php?act=hot&id={$komovie.movieId}" title="{$komovie.movieName}" style="margin:0;" target="_blank">{$komovie.movieName}</a></p>
+    <p>导演：{$komovie.director}</p>
+    <p>类型：{$komovie.movieType}</p>
+    <p>片长：{$komovie.movieLength}分钟</p>
+    <p>上映：{$komovie.publishTime}</p>
+  </div> 
+{/foreach}
+</div>

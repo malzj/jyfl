@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+{insert_scripts files='jquery.region.js,utils.js'}
+{insert_scripts files='transport.js,utils.js'}
+
+<script type="text/javascript">
+<!--
+function setTab(name,cursel,n){
+	for(i=1;i<=n;i++){
+		var menu=document.getElementById(name+i);
+		var con=document.getElementById("con_"+name+"_"+i);
+		menu.className=i==cursel?"hover":"";
+		con.style.display=i==cursel?"block":"none";
+	}
+}
+//-->
+</script>
+
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+
+<div class="main_big">
+	<div class="main">
+		<!--当前位置 开始-->
+		<p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+		<!--当前位置 结束-->
+
+		
+		<div class="hy2_detail01 hy2_bord">
+			<span class="hy2_ticket">确认订单</span>
+			<div class="Step02" id="gw_you02">
+				<span class="gw_102 white01">第一步：确定订单信息并支付</span>
+				<span class="litter02">第二步：支付成功，请注意查收短信</span>
+			</div>
+		</div>
+		<form name="coupons_pay.php" name="myForm" method="post" onsubmit="return checkPayForm();">
+		<input type="hidden" name="act" value="payinfo" />
+ <!-- 防止360浏览器自动填写保存的账号密码 勿删 --> 
+ <div style="position:absolute;width:0;height:0;">
+    <input type="number" name="" id=""  class="hide" style="width:0;height:0;"/> 
+    <input type="text" name="" id=""  class="hide" style="width:0;height:0;"/> 
+  
+    <input type="password" name="" id="" class="hide" style="width:0;height:0;"/>
+ </div>     
+<!-- 防止360浏览器自动填写保存的账号密码 勿删 --> 
+		<div class="hy2_dingdan01">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table">
+				<tr>
+					<th width="20%" scope="col">提货券订单号</th>
+					<th width="20%" scope="col">商品名称</th>
+					<th width="15%" scope="col">单价</th>
+					<th width="10%" scope="col">数量</th>
+					<th width="15%" scope="col">总价</th>
+					
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table01">
+				<tr>
+					<th width="20%" scope="col" id="orderid"><img src="/images/hy2_deng.jpg" width="14" height="19" alt="" /><span id="orderid">{$data.orderid}</span></th>
+					<th width="20%" scope="col">{$data.mingcheng}</th>
+					<th width="15%" scope="col" ><span id="unit_price">{$data.unit_price}</span>点</th>
+
+					<th width="10%" scope="col" style="align:center;">
+					
+						<span class="mai_buts1" onMouseOut="changeNum();">
+							<input type="button" class="hy_number_del" onclick="del()" value="" />
+							<!-- <input id="NUMBER1" maxlength="20" type="number" title="" class="hy_shu_input1"/>  -->
+							<input type="text" value="{if $data.number}{$data.number}{else}1{/if}" name="number" id="number" class="hy_shu_input1" onBlur="checkNum();" autocomplete="off" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+							<input type="button" class="hy_number_add" onclick="add()" value="" />
+							<span calss="mai_buts1_tishi" style="position:absolute;left:13px;top:35px;color:red;width:73px;display:none;" id="tishi">库存暂无<span>
+						</span>
+													
+					</th>
+
+					<th width="15%" scope="col"><span id="total_price">{$data.total_price}</span>点</th>
+					
+				</tr>
+
+ 
+				
+			</table>
+	
+			
+		</div>
+		<div class="hy2_dingdan01">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table">
+				<tr>
+					<th align="left" scope="col" style="text-indent:37px;">支付方式</th>
+				</tr>
+			</table>
+			<div class="hy2_zhifu">
+				
+				<p class="hy2_zhi_t1 f_w"><span>华影卡号：</span>{$username}</p>
+				<p class="hy2_zhi_t1 f_w"><span>手机号码：</span><input type="text" name="mobile" id="mobile" value=""  class="hy2_password" placeholder="请再次确认接收短信的手机号" onBlur="checkMobile();"/></p>
+				<p class="hy2_zhi_t1 f_w">
+					<span>华影卡密码：</span>
+					<input type="password" name="password" id="password" value="" class="hy2_password" />
+					<span id="paySubmitSpan">
+						<!-- <input type="button" value="" id="paySubmit" class="hy2_js" onclick="paySubmit();" /> -->
+						<input type="submit" class="hy2_js" value="" id="paySubmit"/>
+					</span>
+				</p>
+			</div>
+		</div>
+		<input type="hidden" name="username" value="{$username}" />
+		<input type="hidden" name="orderid" value="{$data.orderid}" />
+		<input type="hidden" name="goods_id" value="{$data.goods_id}" />
+		
+		
+		</div>
+		</form>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+<script type="text/javascript">
+{if $xiangou.start == 1}
+var xiaogousum = {$xiangou.number};
+{else}
+var xiaogousum = 0;
+{\/if}
+//onload 事件会在页面或图像加载完成后立即发生。
+onload = function(){
+	changePrice();
+	// countDown('{$data.endPayTime}', 'times');
+}
+
+
+/**
+ * 点选可选属性或改变数量时修改商品价格的函数
+ */
+function changePrice(){
+	var orderid = document.getElementById("orderid").innerText;
+	var number = document.getElementById("number").value;
+	var unit_price = document.getElementById("unit_price").innerText;
+	//alert(number);
+	Ajax.call( 'coupons_pay.php?act=changePrice', 'unit_price=' + unit_price+'&orderid='+orderid+'&number='+number, changePrice_callback , 'POST', 'TEXT', true, true );
+	
+}
+function changeNum(){
+	var orderid = document.getElementById("orderid").innerText;
+	Ajax.call( 'coupons_pay.php?act=inventory', 'orderid=' + orderid+'&coupons_state='+0, inventory_callback , 'POST', 'TEXT', true, true );
+
+}
+/**
+ * 接收返回的信息
+ */
+function changePrice_callback(res){
+	// var number = document.getElementById("number").value;
+	// var num=number-1;
+	// var unit_price = document.getElementById("unit_price").innerText;
+	// var total_price1=unit_price*num;
+	// var total_price=toDecimal(total_price1);
+	// if (res== 0){
+	// 	document.getElementById("tishi").style.display= "block" ;//显示
+	// 	document.getElementById('total_price').innerHTML = total_price;
+	// 	document.getElementById("number").value=num;
+
+	// }else{
+	// 	document.getElementById("tishi").style.display= "none" ;//隐藏
+	// }
+}
+/**
+ * 接收返回的信息
+ */
+function inventory_callback(data){
+	//alert(data);
+	var person = $.parseJSON(data);
+	var oldnum=person.oldnum;//库存数
+	var number=person.number;//原数量
+	var numbers=person.numbers;//最大数
+	var newnum = document.getElementById("number").value;//修改的数
+	var unit_price = document.getElementById("unit_price").innerText;
+	if (numbers <= newnum){
+		//alert('库存不足');
+		document.getElementById("tishi").style.display= "block" ;//显示
+		document.getElementById("number").value=numbers;
+		var total_price1=unit_price*numbers;
+		var total_price=toDecimal(total_price1);
+		document.getElementById('total_price').innerHTML = total_price;
+	}else{
+		document.getElementById("tishi").style.display= "none" ;//隐藏
+		document.getElementById("number").value=newnum;
+		var total_price1=unit_price*newnum;
+		var total_price=toDecimal(total_price1);
+		document.getElementById('total_price').innerHTML = total_price;
+		//alert('库存充足');
+	}
+	changePrice();
+}
+//功能：将浮点数四舍五入，取小数点后2位  
+function toDecimal(x) {    
+    var f = parseFloat(x);    
+    if (isNaN(f)) {    
+        return;    
+    }    
+    f = Math.round(x*100)/100;    
+    return f;    
+}
+//限制输入数量的大小
+// function checkinput_zzjs(event){
+//   if (event.srcElement.name=="number") {
+//     if (event.srcElement.value>10) {
+//       event.srcElement.value="10";
+//       alert("必须是小于等于10的数字！");
+//       event.srcElement.select();
+//     }
+//   }
+// }   
+function del(){
+	var num = document.getElementById("number");
+	var n = parseInt(num.value);
+	if(n-1<=0){
+		num.value = 1;
+	}else{
+		num.value= n-1;
+	}
+	var unit_price = document.getElementById("unit_price").innerText;
+	var total_price1=unit_price*num.value;
+	var total_price=toDecimal(total_price1);
+	document.getElementById('total_price').innerHTML = total_price;
+	//changePrice();
+}
+function add(){
+	
+	var num = document.getElementById("number");
+	var n = parseInt(num.value);
+	if (xiaogousum !=0 && n >= xiaogousum) {
+		alert('你只能购买'+xiaogousum+'件');
+		return false;
+	};
+	if(num.value>=10){
+		num.value = 10;
+	}else{
+		num.value = n+1;
+	}
+
+	var unit_price = document.getElementById("unit_price").innerText;
+	var total_price1=unit_price*num.value;
+	var total_price=toDecimal(total_price1);
+	document.getElementById('total_price').innerHTML = total_price;
+	//changePrice();
+}
+
+//直接书写改变数量
+function checkNum(){
+	var unit_price = document.getElementById("unit_price").innerText;
+	var num = document.getElementById("number").value;
+	if (xiaogousum !=0 && num >= xiaogousum) {
+		alert('你只能购买'+xiaogousum+'件');
+		document.getElementById('number').value = xiaogousum;
+		var total_price1=unit_price*xiaogousum;
+		//return false;
+	}
+	var total_price=toDecimal(total_price1);
+	document.getElementById('total_price').innerHTML = total_price;
+	//changePrice();
+	
+}
+function checkMobile(){
+	
+	var mobile1 = document.getElementById("mobile").value;
+	var mobile = mobile1.replace(/\s+/g,"");
+	var reg = /^1[3,4,5,7,8]\d{9}$/;
+		if (mobile == ''){
+			alert('请输入确认手机号码');
+			return false;
+		}else if (!reg.test(mobile)){
+			alert('手机号码格式不正确！');
+			return false;
+		}
+	var oldMobile = "{$data.mobile}";
+	//alert(oldMobile);
+	if (mobile != oldMobile){
+		alert('您输入的手机号码和前面输入的手机号码不一致');
+		return false;
+	}else{
+		//alert('输入正确，请输入密码');
+		//$('#paySubmitSpan').html('<input type="submit" value="" id="paySubmit" class="hy2_js" />');
+		return true;
+	}
+
+}
+
+
+function delOrder(){
+	var orderid = "{$data.orderid}";
+	var goods_id= "{$data.goods_id}";
+	$.get('coupons_pay.php', {act:'delorder', 'orderid':orderid}, function (result){
+		alert('抱歉，您未在规定时间内完成支付，该订单已删除');
+		location.href ='coupons_list.php?id='+session_orderid;
+	});
+}
+// http://www.huaying.ccc/coupons_pay.php?act=delorder&orderid=2015082209862&goods_id=1495
+function checkPayForm(){
+	var pwd = document.getElementById('password').value;
+	if (pwd.length == 0){
+		alert('卡密码不能为空');
+		return false;
+	}
+	//checkSubmitFlg ==true;
+	$('#paySubmit').attr('disabled', 'true');
+	return true;
+	location.replace(location.href);
+	//location.reload();
+}
+// function countDown(time, htmlId){
+// 	var end_time   = new Date(time).getTime(),//月份是实际月份-1
+// 		sys_second = (end_time - new Date().getTime()) / 1000;
+
+// 	var timer = setInterval(function(){
+// 		if (sys_second > 1) {
+// 			//sys_second -= 0.1;
+// 			sys_second -= 1;
+// 			var day     = Math.floor((sys_second / 3600) / 24);
+// 			var hour    = Math.floor((sys_second / 3600) % 24);
+// 			var minute  = Math.floor((sys_second / 60) % 60);
+// 			var second  = Math.floor(sys_second % 60);
+// 			//var msecond = Math.floor(sys_second * 10) % 10;
+
+// 			hour    = hour < 10 ? "0" + hour : hour;//计算小时
+// 			minute  = minute < 10 ? "0" + minute : minute;//计算分
+// 			second  = second < 10 ? "0" + second : second;// 计算秒
+
+// 			//document.getElementById(htmlId).innerHTML = (day ? day + 'd ' : '') + (hour ? hour + ':' : '') + (minute ? minute + ':' : '') + second + '.' + msecond;
+// 			var msg="请在60分钟内完成付款，如未付款，订单删除，距离结束还有";
+// 			document.getElementById(htmlId).innerHTML =msg+ (hour ? hour + '时' : '')+(minute ? minute + '分' : '') + second + '秒';
+// 		} else {
+// 			//document.getElementById(htmlId).innerHTML = '00分00秒'
+// 			clearInterval(timer);
+// 			delOrder();//未在规定时间内完成支付删除订单
+// 		}
+// 	//}, 100);
+// 	}, 1000);
+// }
+</script>
+</body>
+</html>

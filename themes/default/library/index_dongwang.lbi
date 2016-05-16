@@ -1,0 +1,27 @@
+<div class="fl louceng-list" style="padding-top:10px; border:1px #ededed solid; width:1198px;"> 
+	<div class="wf3" style="width:200px; height:422px;">
+    	<a href="{$ad.1.url}" target="_blank" style="height:auto" target="_blank"><img src="data/afficheimg/{$ad.1.images}" width="200" height="422"></a>
+   	</div>
+    <div class="wf3" style="width:332px; height:290px;">
+    	<a href="{$ad.2.url}" target="_blank" style="height:auto" target="_blank"><img src="data/afficheimg/{$ad.2.images}" width="332" height="290"></a>
+   	</div>
+    <div class="wf3" style="width:220px; height:290px;">
+    	<a href="{$ad.3.url}" target="_blank" style="height:auto" target="_blank"><img src="data/afficheimg/{$ad.3.images}" width="220" height="290"></a>
+   	</div>
+    <div class="wf3" style="width:220px; height:290px;">
+    	<a href="{$ad.4.url}" target="_blank" style="height:auto" target="_blank"><img src="data/afficheimg/{$ad.4.images}" width="220" height="290"></a>
+   	</div>
+    <div class="wf3" style="width:221px; height:290px;">
+    	<a href="{$ad.5.url}" target="_blank" style="height:auto" target="_blank"><img src="data/afficheimg/{$ad.5.images}" width="221" height="290"></a>
+   	</div>
+    <div class="wf3" style="width:332px; height:131px">
+    	<a href="{$ad.6.url}" target="_blank" style="height:auto" target="_blank"><img src="data/afficheimg/{$ad.6.images}" width="332" height="131"></a>
+   	</div>
+    <div class="wf3" style="width:331px; height:131px">
+    	<a href="{$ad.7.url}" target="_blank" style="height:auto" target="_blank"><img src="data/afficheimg/{$ad.7.images}" width="331" height="131"></a>
+   	</div>
+    <div class="wf3" style="width:331px; height:131px">
+    	<a href="{$ad.8.url}" target="_blank" style="height:auto" target="_blank"><img src="data/afficheimg/{$ad.8.images}" width="331" height="131"></a>
+   	</div>
+   
+</div>

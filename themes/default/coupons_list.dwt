@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<script type="text/javascript" src="/js/slide.js"></script>
+{* 包含脚本文件 *}
+{insert_scripts files='jquery.common.js'}
+<script type="text/javascript">
+function $id(element) {
+	return document.getElementById(element);
+}
+</script>
+
+<script type="text/javascript">
+$(function(){
+	$(".slide_close").click(function(){
+		$(this).hide().siblings('.slide_open').show().parent('.detail02_top').siblings(".showslide01").show();
+	});
+	$(".slide_open").click(function(){
+		$(this).hide().siblings('.slide_close').show().parent('.detail02_top').siblings(".showslide01").hide();
+		;
+	});
+})
+</script>
+<style>
+	.hy_shu_tel {
+  float: left;
+  border: 1px solid #cbcbcb;
+  height: 31px;
+  line-height: 31px;
+  width: 120px;
+  margin-right: 4px;
+  display: inline;
+  color: #666;
+}
+.hy_detail_tel{float:left; margin-left:12px; display:inline;width:120px;}/*手机号码*/
+.hy_detail_name{float:left; width:70px; text-align:right;  color:#333; margin-right:12px; display:inline; line-height:40px;}
+
+</style>
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+<div class="main_big">
+	<div class="main">
+	<!--当前位置 开始-->		
+		<div class="hy_position">
+			<p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+			<form action="search.php" method="get" onsubmit="return checkSearForm();">
+			<input type="hidden" name="id" value="{$cateid}" />
+
+					<p class="head_sou">
+						<input type="text" name="keywords" id="keyword" value="搜索{$cat.cat_name}名称" onfocus="if (this.value == '搜索{$cat.cat_name}名称') this.value='';"  class="hy_sou_input" />
+						
+						<input type="submit" value="" class="hy_sou_but" />
+					</p>					
+					<script type="text/javascript">
+					<!--
+						function checkSearForm(){
+							if(document.getElementById('keyword').value && document.getElementById('keyword').value != 'search'){
+								return true;
+							}else{
+								alert("请输入您要搜索的关键字");
+								document.getElementById('keyword').focus();
+								return false;
+							}
+						}
+					//-->
+					</script>
+			</form>			
+		</div>
+		<!--当前位置 结束-->
+
+
+		<div class="detail_box">
+		
+			<form name="ECS_FORMBUY" id="ECS_FORMBUY" method="post" action="coupons_pay.php?act=submitOrders" onsubmit="return checkDzqForm();">
+			<div class="detail01">
+				
+				
+				<div id="tFocus">
+					<div class="prev" id="prev"></div>
+					<div class="next" id="next"></div>
+					<ul id="tFocus-pic">
+						<!-- {foreach from=$pictures item=picture name=picture}-->
+						<li><a href="javascript:;"><a href="javascript:;"><img src="{$picture.img_url}" alt="{$goods.goods_name}" width="338" height="243" /></a></li>
+						<!--{/foreach}-->
+					</ul>
+					<div id="tFocusBtn">
+						<a href="javascript:void(0);" id="tFocus-leftbtn">上一张</a>
+						<div id="tFocus-btn">
+							<ul>
+								<!-- {foreach from=$pictures item=picture name=picture}-->
+								<li{if $smarty.foreach.picture.first} class="active"{/if}><img src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}" alt="{$goods.goods_name}" width="87" height="57" /></li>
+								<!--{/foreach}-->
+							</ul>
+						</div>
+						<a href="javascript:void(0);" id="tFocus-rightbtn">下一张</a>
+					</div>
+				</div>
+				<script type="text/javascript">addLoadEvent(Focus());</script>
+
+				<div class="detail01_rr">
+					<p class="hy_de_t1">{$goods.goods_style_name}</p>
+					<ul class="hy_detail01_list">
+						<li>
+							<span class="hy_detail_name">价格：</span>
+							<p class="hy_detail_price"><strong id="ECS_GOODS_AMOUNT">
+							<!--{if $goods.unit_price neq "" } -->
+							{$goods.unit_price}
+							<!--{else}-->
+							{$goods.shop_price}
+							<!--{/if}-->
+							<font id="ECS_GOODS_AMOUNT" class="shop"></strong>点</p>
+							<input type="hidden" name="unit_price" value="{$goods.unit_price}"/>
+							<input type="hidden" name="goods_id" value="{$goods_id}" />
+							<input type="hidden" name="mingcheng" value="{$goods.goods_style_name}" />
+						</li>
+						
+						<li>
+							<span class="hy_detail_name">购买数量：</span>
+							<p class="hy_detail_price">
+								<input type="text" value="1" name="number" id="number" class="hy_shu_input" onblur="checkNum(this.value);" />
+								<span class="mai_buts">
+									<input type="button" value="" class="hy_up" onclick="add()" />
+									<input type="button" value="" class="hy_xia" onclick="del()" />
+								</span>
+								<span class="mai_buts" style="line-height:31px; padding-left:8px;">件</span>
+															</p>
+							<div class="mai_buts" id="xianzhi" style="position: relative;width:110px;left:17px;top:0px;line-height:31px; padding-left:8px;"> 
+							{if $xiangou.start == 1} {$xiangou.msg} {/if}
+							</div>
+						</li>
+
+
+						{if !empty($specs)}
+						<li>
+							<span class="hy_detail_name">规格：</span>							
+							<p class="mg2_de_t5">						
+								{foreach from=$specs item=specno key=specno_key name=specno}
+								<a href="javascript:;"{if $specno_key eq 0} class="checked"{/if} onclick="changeAttr(this, 'S_{$specno.spec_nember}');">{$specno.spec_name}</a>
+								<input type="radio" name="spec_100}" value="S_{$specno.spec_nember}" id="spec_value_S_{$specno.spec_nember}" {if $specno_key eq 0}checked{/if} onclick="changePrice()" style="display:none;" />
+								{/foreach}								
+							</p>							
+						</li>
+						{/if}
+						 <input type="hidden" name="market_price" value="{$goods.market_price}">
+						<li>
+							<span class="hy_detail_name">手机号码：</span>
+							<p class="hy_detail_tel">
+								<input type="tel" value="" name="mobile" id="mobile" class="hy_shu_tel" />
+							
+							</p>
+						</li>
+						<li class="detail_buy">
+							<a href="javascript:submitDzqForm({$goods.goods_id})" class="hy_mai01" style="width:162px;"><span class="hy_buy_de"></span>立即购买</a>
+							<!--<a href="javascript:;" onclick="addToCart({$goods.goods_id}, 0, 1)" class="hy_mai_de" style="width:162px;"><span class="hy_jr_de"></span>加入购物车</a>-->
+						</li>
+						<li>
+							<p class="hy_de_t3">{$goods.goods_brief}</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			</form>
+			<div class="detail02">
+				<div class="detail02_top">
+					<span class="hy_de_xq"><b></b>商品详情</span>
+					<span class="slide_close" style="display:none;"></span>
+					<span class="slide_open"></span>
+				</div>
+				<div class="showslide01">
+					<ul class="xiangqing_list01">
+						<!-- {foreach from=$properties item=property_group key=key} -->
+						<!-- {foreach from=$property_group item=property} -->
+						<li>{$property.name|escape:html}：{$property.value}</li>
+						<!-- {/foreach}-->
+						<!-- {/foreach}-->
+					</ul>
+					<ul class="xiangqing_list02">
+						<li> {$goods.goods_desc}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+</body>
+
+<script type="text/javascript">
+
+
+{if $xiangou.start == 1}
+var xiaogousum = {$xiangou.number};
+{else}
+var xiaogousum = 0;
+{\/if}
+/*检测是否限制数量*/
+/*function checkXZ(){
+	var goods_id="{$goods_id}";
+	var msg="每人限购<span style='color:red;'>";
+	$.get('coupons_pay.php', {act:'checkXZ', 'goods_id':goods_id}, function (result){
+		if(result>0){
+			$("#xianzhi").show();
+			var xianzhi = $("#xianzhi").html(msg+result+"</span>件");
+			
+		}else{
+			//alert(result);
+			$("#xianzhi").hide();
+		}
+		
+	});
+	
+}*/
+
+function submitDzqForm(){
+	var cardMoney = '{$money}';
+	var price     = $('#ticketInfo input[name="ticketNo"]:checked').attr('price');
+	var sjprice     = $('#ticketInfo input[name="ticketNo"]:checked').attr('shijiprice');
+	var amount    = parseFloat($("#number").val() * price)/1.2*1.06;
+	
+	if (amount > cardMoney){
+		alert('您的卡余额不足');
+		return false;
+	}
+	$('#price').val(price);
+	$('#sjprice').val(sjprice);
+
+	if ($('#mobile').val() == '' || $('#mobile').val() == '请输入手机号码'){
+		alert('抱歉，手机号码不能为空');
+		return false;
+	}else{
+		var reg = /^1[3,4,5,7,8]\d{9}$/;
+		if (!reg.test( $('#mobile').val() )){
+			alert('手机号码格式不正确！');
+			return false;
+		}
+	}
+	$('#ECS_FORMBUY').submit();
+}
+function checkDzqForm(){
+	if ($('#mobile').val() == '' || $('#mobile').val() == '请输入手机号码'){
+		alert('抱歉，手机号码不能为空');
+		return false;
+	}else{
+		var reg = /^1[3,4,5,7,8]\d{9}$/;
+		if (!reg.test( $('#mobile').val() )){
+			alert('手机号码格式不正确！');
+			return false;
+		}
+	}
+	return true;
+}
+var goods_id = {$goods_id};
+var goodsattr_style = {$cfg.goodsattr_style|default:1};
+var gmt_end_time = {$promote_end_time|default:0};
+{foreach from=$lang.goods_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+var goodsId = {$goods_id};
+var now_time = {$now_time};
+
+<!-- {literal} -->
+onload = function(){
+	changePrice();
+	checkXZ();
+	
+	//try { onload_leftTime(); }
+		//catch (e) {}
+}
+
+//设置选中规格的样式
+function changeAttr(obj, id){
+	var child = obj.parentNode.children;
+	for (var i = 0; i<child.length;i++) {
+		if (child[i]){
+			if (child[i].className == 'checked'){
+				child[i].className = '';
+				break;
+			}
+		}
+	}
+	obj.className = "checked";
+	document.getElementById('spec_value_'+id).click();
+}
+
+/**
+ * 点选可选属性或改变数量时修改商品价格的函数
+ */
+function changePrice(){
+	var attr = getSelectedAttributes(document.forms['ECS_FORMBUY']);
+	var qty = document.forms['ECS_FORMBUY'].elements['number'].value;
+	
+	jQuery.get("coupons_list.php",{act:"price", id:goods_id, attr:attr, number:qty}, function(data){
+		changePriceResponse(data);
+	}, 'json');
+}
+
+/**
+ * 接收返回的信息
+ */
+function changePriceResponse(res)
+{
+	if (res.err_msg.length > 0)
+	{
+		alert(res.err_msg);
+	}
+	else
+	{
+		document.forms['ECS_FORMBUY'].elements['number'].value = res.qty;
+		if (document.getElementById('ECS_GOODS_AMOUNT'))
+			document.getElementById('ECS_GOODS_AMOUNT').innerHTML = res.result;
+	}
+}
+
+function del(){
+	var num = document.getElementById("number");
+	var n = parseInt(num.value);
+	if(n-1<=0){
+		num.value = 1;
+	}else{
+		num.value = n-1;
+	}
+	changePrice();
+}
+function add(){
+	var num = document.getElementById("number");	
+	var n = parseInt(num.value);
+	if (xiaogousum !=0 && n >= xiaogousum) {
+		alert('你只能购买'+xiaogousum+'件');
+		return false;
+	};
+	num.value = n+1;
+	
+	changePrice();
+	
+}
+function checkNum(num){
+	if (xiaogousum !=0 && num >= xiaogousum) {
+		alert('你只能购买'+xiaogousum+'件');
+		document.getElementById('number').value = xiaogousum;
+		return false;
+	};
+	changePrice();
+}
+<!-- {/literal} -->
+</script>
+</html>

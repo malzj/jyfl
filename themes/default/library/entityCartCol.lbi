@@ -1,0 +1,6 @@
+{foreach from=$goods_list item=goods}
+<div class="cashxj">
+	<img src="{$goods.goods_thumb}" width="100" height="100" />
+    <span>{$goods.show_price}×{$goods.num}</span>
+    <i class="del-cart" delete-id={$goods.goods_id}>&nbsp;</i></div>
+{/foreach}

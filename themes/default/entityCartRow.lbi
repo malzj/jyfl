@@ -1,0 +1,26 @@
+<script type="text/javascript" src="/js/spinner/jquery.spinner.js"></script>
+{foreach from=$cart_list.goods item=goods}
+<div class="p-one"> 
+  <img src="{$goods.goods_thumb}"  width="100" height="100"/> 
+  <input type="text" value="{$goods.num}" date-goods-id="{$goods.goods_id}" class="spinner" style=" height:12px;"/>
+</div>
+{/foreach}
+  
+<div class="p-one addProduct"><img src="/js/entity/ok_09.jpg" /></div>
+<div class="post">
+  <ul>
+    <li class="p1">门票数量：<font id="ticket_num">{if $cart_list.order.goods.ticket_num}{$cart_list.order.goods.ticket_num}{else}0{/if}</font></li>
+    <li class="p1">单张点数：<font id="ticket_price">{if $cart_list.order.goods.ticket_price}{$cart_list.order.goods.ticket_price}{else}0{/if}</font>{$utype}</li>
+    <li class="p1">应付点数：<font id="ticket_total">{if $cart_list.order.goods.ticket_total}{$cart_list.order.goods.ticket_total}{else}0{/if}</font>{$utype}</li>
+    <br />
+    <li class="p2">商品数量：<font id="goods_num">{if $cart_list.order.goods.goods_num}{$cart_list.order.goods.goods_num} {else}0{/if}</font></li>
+    <li class="p2">应付点数：<font id="goods_total">{if $cart_list.order.goods.goods_total}{$cart_list.order.goods.goods_total}{else}0{/if}</font>{$utype}</li>
+    <br />
+    <li class="p3">应付总点数：<font id="order_totals">{if $cart_list.order.goods.order_totals}{$cart_list.order.goods.order_totals}{else}0{/if}</font>{$utype}</li>
+  </ul>
+</div>
+<script>
+// 数字加减
+$('.spinner').spinner();
+				
+</script>

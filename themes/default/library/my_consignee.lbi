@@ -1,0 +1,8 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<p class="hy_hedui">收货信息&nbsp;&nbsp;<a href="javascript:void(0);" onclick="updateConsignee('0');" style="color:#0075d9;">[修改]</a></p>
+<div class="addrs">
+	<label class="l" for="addr" style="margin-left:15px;">{$consignee.consignee|escape}&nbsp;&nbsp;&nbsp;{$consignee.country_cn|escape}&nbsp;&nbsp;&nbsp;{$consignee.province_cn|escape}&nbsp;&nbsp;{$consignee.city_cn|escape}&nbsp;&nbsp;{$consignee.district_cn|escape}&nbsp;&nbsp;{$consignee.address|escape}&nbsp;&nbsp;&nbsp;&nbsp;{$consignee.mobile|escape}{if $consignee.tel}{if $consignee.mobile}({/if}{$consignee.tel|escape}{if $consignee.mobile}){/if}{/if}{if $consignee.email}&nbsp;&nbsp;&nbsp;&nbsp;{$consignee.email}{/if}</label>
+</div>
+<div class="cart01">
+<input type="hidden" name="consignee_check" id="consignee_check" value="1">
+</div>

@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/js/entity/lll.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+
+<body>
+<div id="zhengge">
+    <div id="main">
+    
+        <div id="left1">
+            {foreach from=$category_list item=category}
+            <span class="xuanxiang {if $category.cat_id eq $default_cat_id} selected{/if}" data-id="{$category.cat_id}">{$category.cat_name}</span>
+            {/foreach}
+        </div>
+        
+        <div id="left2">
+            <!--<div id="sousuo"><input type="text" style="margin-right:20px;"><input type="submit" value="搜索"></div>-->
+            <div class="entity-list">
+            	{if empty($goods_list.goods)} <center style="height:70px; line-height:70px; color:red;">没有数据</center>{/if}
+            	{foreach from=$goods_list.goods item=goods}
+                <div class="jiupin">
+                    <div class="tupian" ><img src="{$goods.thumb}"  width="100" height="100"/></div>
+                    <div class="entity-title">{$goods.name}	</div>
+                    <div class="entity-price">单价：{$goods.show_price}{$unit}</div>
+                   <!-- <div class="entity-num">库存：1000瓶</div>-->
+                    <div class="shuliang add-cart">  
+                        <input type="text" value="1" name="goods_num" class="spinner" />         
+                        <div class="anniu">
+                        <input type="hidden" name="goods_id" value="{$goods.id}"/>
+                        <input type="submit" name="xuangou" class="xuangou" value="选购">
+                        </div>
+                    </div>       
+                </div>
+                {/foreach}
+                
+                
+            </div>        
+        </div>        
+        
+        <div id="left3">
+            
+        </div>
+    
+    </div>
+</div>
+
+
+$(document).ready(function(){
+	
+	//加载购物车数据
+	$.post('entity.php?step=cart',function(html){
+		$('#left3').html(html);
+	});
+	// 数字加减
+	$('.spinner').spinner();
+	
+	// 分类商品
+	$('#left1 .xuanxiang').on('click',function(){
+		var catid = $(this).attr('data-id');
+		if(!$(this).hasClass('selected')){
+			var _this = $(this);
+			$.ajax({
+				type :"POST",
+				url :"/entity.php",
+				data:"step=category_list&cat_id="+catid+"&utype={$utype}",
+				beforeSend:function(){
+					$('.entity-list').html("<center style='height:50px; line-height:50px;'>加载中...</center>");
+				},
+				success:function(data){
+					_this.parent().find('*').removeClass('selected');
+					_this.addClass('selected');
+					$('.entity-list').html(data);
+					$('.spinner').spinner();
+				}	
+			});
+		}
+	});
+	
+	// 选购
+	$(document).delegate('.xuangou','click',function(){		
+		var goods_num = $(this).closest('.add-cart').find('input[name=goods_num]').val();
+		var goods_id  = $(this).closest('.add-cart').find('input[name=goods_id]').val();
+		$.ajax({
+			type :"POST",
+			url :"/entity.php",
+			data:"step=updateCart&goods_id="+goods_id+'&goods_num='+goods_num+'&utype={$utype}&sid={$sid}',			
+			success:function(data){
+				var obj = jQuery.parseJSON(data);
+				if(obj.error == 1){
+					alert(obj.message);
+				}else{
+					$('#left3').html(obj.message);
+				}
+			}
+		});
+	})
+	// 删除选购的商品
+	$(document).delegate('.del-cart','click',function(){
+		_this = $(this);
+		var goods_id = $(this).attr('delete-id');
+		$.post('entity.php?step=deleteCart&goods_id='+goods_id, function(data){
+			var obj = jQuery.parseJSON(data);
+			if (obj.error==1){
+				alert(obj.message);
+			}else{				
+				_this.closest('.cashxj').fadeOut('fast',function(){ 
+					$(this).remove()
+				});
+			}
+		})
+	});
+});
+</script>
+</body>
+</html>

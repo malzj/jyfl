@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="shuaka">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+
+	</head>
+
+	<body>
+		
+        <!-- 公用头部 -->
+		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 --> 
+        
+        <div class="w_1200">
+			<div class="select">				
+				<form name="yyForm" id="yyForm" action="movie.php?step=shuaka" method="POST" style="height: 30px;line-height: 30px;">
+                <span class="hy_yy_name" style="float:left;">按区域选择：</span>
+                <span style="float:left; line-height:30px; margin-right:10px;">{$cityinfo.region_name}</span>			
+                <select name="district" id="district" class="Select16">
+                    <option value="0">请选择城区</option>
+                    {foreach from=$province_list item=city}
+                    <option value="{$city.region_id}" {if $int_city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+                    {/foreach}
+                </select>			
+                <input type="image" src="/images/hy_sure.jpg" width="45" height="21" onclick="return dosubmit();" style="margin-top: -4px;vertical-align: middle;">  
+                </form>
+			</div>
+			<div class="select_tips">
+				<div> 注：特殊影片（超长片、特殊限价片、3D影片、IMAX影片）等，请根据影院当日规则消费；
+				<br>如遇特殊场次（电影节、包场、满场、首映、见面会、演出观摩、情人节2.14、平安夜12.24、圣诞节12.25）请兑换其他时间场次电影票或以影院公告为准。</div>
+			</div>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<td class="city">城市</td>
+							<td class="chengqu">城区</td>
+							<td class="name">影院名称</td>
+							<td class="adress">详细地址</td>
+						</tr>
+					</thead>
+					<tbody>                    
+						<tr>
+                            {foreach from=$yingyuan_list item=yingyuan}
+                            <tr>
+                                <td >{$yingyuan.city}</td>
+                                <td >{$yingyuan.district}</td>
+                                <td >{$yingyuan.title}</td>
+                                <td >{$yingyuan.address}</td>                            
+                            </tr>
+                            {/foreach}
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+        
+        <!-- 公用底部 -->
+		<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+        <!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+        
+   </body>
+   
+</html>

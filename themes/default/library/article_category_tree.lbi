@@ -1,0 +1,11 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="news_left">
+            	<p class="news_lt">華影文化</p>
+                <ul class="dinggou_list">
+                    <!--{foreach from=$article_categories2 item=cat2}-->
+		    <li><a href="{$cat2.url}">{$cat2.title|escape:html}</a></li>
+		    <!--{/foreach}-->
+		    
+                    
+                </ul>
+            </div>

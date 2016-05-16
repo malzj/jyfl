@@ -1,0 +1,564 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/entity/menu.css" rel="stylesheet" type="text/css" />
+<link href="/js/skin/layer.css" rel="stylesheet" type="text/css" />
+<script src="/js/jquery-1-11-3.min.js"></script>
+<script type="text/javascript"  src="/js/layer.js"></script>
+<script type="text/javascript" src="../js/calendar.php"></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<SCRIPT type=text/javascript src="/js/slide.js"></SCRIPT>
+{insert_scripts files='jquery.region.js,utils.js'}
+<style>
+/*******头部******/
+body{ margin:0; padding:0; border:0;font-family:"Microsoft YaHei";word-wrap: break-word;word-break: normal;}
+a{text-decoration:none}
+.hy_ding{background:url(/images/hy_ding.jpg) repeat-x; height:38px; width:100%; line-height:38px;}
+.hy_ding_small{width:1200px; margin:0px auto;}
+.hy_ding_left{float:left; color:#fff; font-size:12px;margin-left: 5px;}
+.hy_ding_left span{font-weight:bold; color:#e60000;}
+.hy_ding_right{float:right;}
+.hy_ding_r1{float:right; color:#fff;}
+.hy_ding_r1 a{color:#fff; margin:0px 5px; display:inline; font-size:12px;}
+.hy_ding_r1 a span{font-weight:bold; color:#e40000; padding:0px 6px; font-size:12px;}
+/*******底部******/
+.foot{width:1200px; margin:0px auto; background:url(/images/hy_dibg.jpg) repeat-x; padding-top:38px; font-family:"宋体"; color:#4d3322;line-height:46px;position: relative;top: 140px;}
+.foot_index{width:100%; margin:0px auto; background:url(/images/hy_dibg.jpg) repeat-x; padding-top:38px; font-family:"宋体"; color:#4d3322;line-height:46px; margin-top:29px;position: relative;}
+.foot_logo{float:left;}
+.foot1{float:left; width:623px; text-align:center; font-size:12px;}
+.foot2{float:right; width:361px; text-align:center; font-size:12px;}
+.foot2 a{color:#4d3322; margin:0px 4px; display:inline; font-size:12px;}
+/*******底部结束******/
+/*table样式*/
+.hy2_dd02_table{text-align: center; width:100%;letter-spacing: 5px;font-family:"Microsoft YaHei";}
+.hy2_dd02_table{text-align: center; width:100%; border-top:2px solid #512516; margin-top:28px;margin-bottom:28px;font-family:"Microsoft YaHei";}
+.hy2_dd02_table th{color:#747474; background:#fffdd3; height:31px; line-height:31px;}
+/*.hy2_dd02_table{float:left; width:99.99%;border-right:1px solid #cdcdcd; font-family:"Microsoft YaHei";}*/
+.hy2_dd02_table th{color:#5d5d5d; padding:10px 0; border:1px solid #cdcdcd; border-right:none;}
+.hy2_dd02_table img{display:inline; vertical-align:middle; padding-right:10px;}
+.hy2_dd02_table tr{color:#747474; padding:10px 0; border:1px solid #cdcdcd; border-right:none;}
+.hy2_dd02_table td{ padding:10px 0; border-bottom:1px solid #cdcdcd;border-left:1px solid #cdcdcd;}
+.hy2_dd02_table td a:hover{color:#f60;}
+.hy2_dd02_table caption{font-size:24px;line-height:2em;}
+.button3{float:right;margin-right:20px;width: 83px; color:#FFF; background:#f60;text-align: center;letter-spacing: 5px;height:27px; line-height:31px;font-size: 14px;font-family:"Microsoft YaHei";vertical-align:middle;padding-bottom: 5px;margin-top: 10px;}
+.dibu{height: 50px;width: 100%}
+.hy_position2{position:absolute;right:20px;top:30px;}
+.position02{}
+.head_sou1{float:left; width:368px; height:24px; line-height:24px;margin-top:10px;margin-bottom:10px;}
+.hy_sou_input1{float:left; width:200px; line-height:24px; height:24px;color:#999; display:inline;}
+.hy_sou_but1{float:left; background:url(../images/hy_sou.jpg) no-repeat; width:64px; height:24px;margin-top:2px;margin-left:5px;}
+.gonggong{height:27px;margin-bottom: 20px;}
+.inventory_input{width:80%;margin-top: 10px;height:27px;text-align: center;}
+.inventory_input1{width:80%;margin-top: 10px;height:27px;position:relative;}
+.inventory_input1 li{display:inline;position:relative;left:20px;top:10px;margin-left: 20px;color:#000;}
+.inventory_input1 li:hover{color:#D32;}
+.inventory_ul{width: 100%;text-align: left;}
+.inventory_ul li{width: 400px;text-align: left;height: 32px;margin-top: 10px;list-style-type:none;}
+.inventory_ul li select{width: 240px;text-align: center;height: 32px;margin-top: 10px;}
+.middle_add{width:1200px;margin:auto;}
+.button1{margin-right:20px;width: 83px; color:#FFF; background:#f60;text-align: center;letter-spacing: 5px;height:32px; line-height:26px;font-size: 14px;font-family:"Microsoft YaHei";vertical-align:middle;padding-bottom: 10px;margin-top: 10px;}
+.button2{margin-right:10px;width: 83px; color:#FFF; background:#f60;text-align: center;letter-spacing: 5px;height:27px; line-height:14px;font-size: 14px;font-family:"Microsoft YaHei";vertical-align:middle;padding: 5px 20px;}
+.inventory_ul li a{text-align: center;height: 27px;margin-top: 15px;}
+.tishi{margin-top:20px;color:#bbb;background:#232411;padding:5px 10px; width:350px; height:2em;font-size: 6px;
+    border: 1px solid #dedede;
+    -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */}
+.pages1{height:5px; line-height:5px;/* _margin:-3px 0;*/ clear:both; visibility:hidden;}
+.flickr{text-align: center;}
+</style>
+</head>
+<body>
+
+<div class="hy_ding_content" style="height:0;border:0; height: 0!important">
+	<!-- 头部 -->
+    <div class="hy_ding">
+        <div class="hy_ding_small" id="hy_ding_small"> 
+        <div class="hy_ding_left">
+        <a href="supplier" style="color:#fff;" target="_blank">管理中心</a>
+        </div>
+        <div class="hy_ding_left">
+        <a href="inventory.php" style="color:#fff;">库存管理</a>        
+        </div> 
+        </div>
+         
+       
+    </div>
+ </div>  
+<div class="gonggong"></div>
+<!-- 头部结束 -->
+{if $act eq 'list'}
+<!-- 主体开始 -->
+<!-- 搜索 -->
+		<div class="hy_position2">
+			<p class="position02"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+			<form action="inventory.php" method="post" onsubmit="return checkSearForm();">
+				
+				<input type="hidden" name="step" value="search" />
+					<p class="head_sou1">
+						<input type="text" name="shop_name" id="shop_name" value="搜索{$list.shop_name}名称" onfocus="if (this.value == '搜索{$list.shop_name}名称') this.value='';"  class="hy_sou_input1" />
+						
+						<input type="submit" value="提交" class="hy_sou_but1" />
+					</p>					
+					<script type="text/javascript">
+						// function checkSearForm(){
+						// 	if(document.getElementById('keyword').value && document.getElementById('keyword').value != 'search'){
+						// 		return true;
+
+						// 	}else{
+						// 		alert("请输入您要搜索的关键字");
+						// 		document.getElementById('keyword').focus();
+						// 		return false;
+						// 	}
+						// }
+				
+					</script>
+			</form>			
+		</div>
+<!-- 搜索 -->
+<div>
+
+<table border="0" cellspacing="0" cellpadding="0" class="hy2_dd02_table">
+<caption class="caption">库存管理</caption>
+
+<tr>
+  <th width="10%" scope="col">序号</th>
+  <th width="10%" scope="col">名称</th>
+  <th width="10%" scope="col">分类</th>
+  <!-- <th width="10%" scope="col">进价</th> -->
+  <th width="10%" scope="col">库存</th>
+  <th width="10%" scope="col">时间</th>
+  <th width="10%" scope="col">修改|删除</th>
+</tr>
+{foreach from=$res item=list key=key}
+<tr>
+  <td style="letter-spacing: 0px;">{$list.Id}</td>
+  <td>{$list.shop_name}</td>
+  <td>{$list.name}</td>
+  <!-- <td><span style="letter-spacing: 0px;">{$list.pur_price}</span>元</td> -->
+  <td style="letter-spacing: 0px;">{$list.inventory}</td>
+  <td style="letter-spacing: 0px;">{$list.add_time}</td>
+  <td><a href="inventory.php?step=editor&sid={$sid}&Id={$list.Id}">操作</a>|<a href="inventory.php?step=view&sid={$sid}&Id={$list.Id}">查看</a></td>
+</tr>
+
+{/foreach}
+</table>
+		<div class="clear"></div>
+		<div class="flickr"><!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --></div>
+		<div class="clear"></div>
+<div>
+	<a href="inventory.php?step=daochu&sid={$sid}" class="button3">导出</a>
+	<a href="inventory.php?step=add&sid={$sid}" class="button3">添加</a>
+</div>
+<div class="dibu"></div>
+</div>
+{/if}
+
+{if $act eq 'add'}
+<div class="middle_add">
+<h2 style="text-align:center;margin-top:20px;line-height:1.5em;">添加商品</h2>
+<form method="post" action="inventory.php" name="from"> 
+	<input type="hidden" name="step" value="doadd"/>
+	<input type="hidden" name="sid" value="{$sid}"/>
+	<ul class="inventory_ul">
+		<li>名称：<input class="inventory_input" type="text" name="shop_name"/></li>
+		
+		<li>
+		分类：
+		<select name="inventory_class_id" id="inventory_class_id">
+		{foreach from=$class item=list key=key}
+			<option value="{$list.name}">{$list.name}</option>
+		{/foreach}
+		
+		</select>
+		&nbsp;&nbsp;<span id="add_class" onclick="add_class()" style="color:#f60">添加</span>	
+		</li>
+<!-- 		<li>导入：<input class="inventory_input" type="file" name="card1"/></li>
+		<li>卡号：<input class="inventory_input" type="text" name="card2"/></li> -->
+		<!-- <li>入库：<input class="inventory_input" type="number" name="put_storage"/></li> -->
+<!-- 		<li>折损：<input class="inventory_input" type="number" name="wreck"/></li> -->
+		<!-- <li>库存：<input class="inventory_input" type="number" name="inventory"/></li> -->
+		<!-- <li>出库：<input class="inventory_input" type="number" name="outbound"/></li>
+		<li>进价：<input class="inventory_input" type="number" name="pur_price"/></li> -->
+		<li>备注：<input class="inventory_input" type="text" name="note"/></li>
+		<li><input type="submit" name="submit" value="确定" class="button1"/></li>
+	
+	</ul>
+</form>
+</div>
+<script>
+// function add_class(){
+// 	layer.open({
+//     type: 2,
+//     title: false,
+//     closeBtn: false,
+//     shade: [0],
+//     area: ['340px', '215px'],
+//     offset: 'rb', //右下角弹出
+//     time: 2000, //2秒后自动关闭
+//     shift: 2,
+//     content: ['/inventory.php?step=inventory_class_editor', 'no'], //iframe的url，no代表不显示滚动条
+//     end: function(){ //此处用于演示
+//         layer.open({
+//             type: 2,
+//             title: '分类编辑',
+//             shadeClose: true,
+//             shade: false,
+//             maxmin: true, //开启最大化最小化按钮
+//             area: ['200px', '300px'],
+//             content: '/inventory.php?step=inventory_class_editor'
+//         });
+//     }
+// });
+// }
+
+function add_class(){
+	// alert(1111);
+	    layer.open({
+        type: 1,
+        title: false,        
+        area: ['300px', '120px'],
+        shadeClose: true, //点击遮罩关闭
+        content: '<div style="height:40px; padding-top:30px; text-indent:2em;">分类名：<input type="text" size="20" id="fenleinew"/></div>',
+        btn:['确定'],
+        yes:function(index){
+        	var name=$("#fenleinew").val();
+        	$.post('inventory.php',{ step:'inventory_class_add', name:name}, function(data){
+        		window.location.reload();
+			});
+        	layer.close(index); 
+        	//alert(name);
+        }
+
+    });
+}
+</script>
+{/if}
+
+
+{if $act eq 'fenlei'}
+<div class="middle_add">
+	
+分类：
+<ul>
+	{foreach from=$class item=list key=key}
+		<li name="inventory_class_id">{$list.name}</option>
+	{/foreach}			
+</ul>
+
+</div>
+<script>
+
+
+</script>
+{/if}
+
+{if $act eq 'editor'}
+<div class="middle_add">
+<style type="text/css">  
+body,div{margin:0 auto;padding:0;}  
+body{font:14px "宋体";text-align:center;}  
+a:link{color:#00F;text-decoration:none;}  
+a:visited {color: #00F; text-decoration:none;}  
+a:hover {color: #c00;text-decoration:underline;}  
+ul,li{list-style:none;}  
+.main{clear:both;padding:8px;text-align:left;}  
+/*第一种形式*/  
+#tabs0 {height: auto;width: 1200px;border: 1px solid #cbcbcb;background-color: #f2f6fb;}  
+.menu0{width: 1200px;}  
+.menu0 li{display:block;float: left;padding: 4px 0;width:100px;text-align: center; cursor:pointer;background: #f2f6fb;}  
+.menu0 li.hover{background: #f60;}  
+#main0 ul{display: none;}  
+#main0 ul.block{display: block;}  
+/*第二种形式*/  
+#tabs1{text-align:left;width:400px;}  
+.menu1box{position:relative;overflow:hidden;height:22px;width:1200px;text-align:left;}  
+#menu1{position:absolute;top:0;left:0;z-index:1;}  
+#menu1 li{float:left;display:block; cursor:pointer;width:72px;text-align:center;line-height:21px;height:21px;}  
+#menu1 li.hover{ background:#fff; border-left:1px solid #333; border-top:1px solid #333;border-right:1px solid #333;}  
+.main1box{clear:both;margin-top:-1px;border:1px solid #333;height:181px;width:400px;}  
+#main1 ul{  display: none;}  
+#main1 ul.block{ display: block; }  
+/*第三种形式*/  
+.menu2box{position:relative;overflow:hidden;height:22px;width:400px;text-align:left;background: #FFFFff; 
+}  
+#tabs2 {height: 200px;width: 400px; border: 1px solid #cbcbcb;background-color: #f2f6fb;}  
+#tip2{position:absolute;top:0;left:0;height:22px;line-height:22px;z-index:0;width:100px;background: #f2f6fb;}  
+#menu2{position:absolute;top:0;left:0;z-index:1;}   
+#menu2 li{display:block;float: left;padding: 4px 0;width:100px;text-align: left;cursor:pointer;}  
+ 
+</style>  
+  
+<script>  
+  
+
+  
+/*第一种形式 第二种形式 更换显示样式*/  
+  
+function setTab(m,n){  
+
+ var tli=document.getElementById("menu"+m).getElementsByTagName("li");  
+  
+ var mli=document.getElementById("main"+m).getElementsByTagName("ul");  
+  
+ for(i=0;i<tli.length;i++){  
+  
+  tli[i].className=i==n?"hover":"";  
+  
+  mli[i].style.display=i==n?"block":"none";  
+  
+ }  
+var o =document.getElementById("ruku").style.display;
+if(o=="none") //已经是隐藏状态
+{
+$("input[name='qianzui']").attr("value",'');//清空内容
+$("input[name='qianzui_start']").attr("value",'');//清空内容
+$("input[name='qianzui_end']").attr("value",'');//清空内容
+$("input[name='youxiaoqi']").attr("value",'');//清空内容
+$("input[name='note']").attr("value",'');//清空内容
+}
+else
+{
+$("input[name='outbound']").attr("value",'');//清空内容
+$("input[name='orderid']").attr("value",'');//清空内容
+$("input[name='note']").attr("value",'');//清空内容
+}
+ 
+}  
+
+/*第三种形式 利用一个背景层定位*/  
+  
+var m3={0:"",1:"评论内容",2:"技术内容",3:"点评内容"}  
+  
+function nowtab(m,n){  
+  
+ if(n!=0 && m3[0]=="")m3[0]=document.getElementById("main2").innerHTML;  
+  
+ document.getElementById("tip"+m).style.left=n*100+'px';  
+  
+ document.getElementById("main2").innerHTML=m3[n];  
+  
+}  
+  
+  
+  
+</script>  
+   
+<!--第一种形式-->  
+<h2 style="text-align:center;line-height:1.5em;">编辑商品</h2>
+<form method="post" action="inventory.php" name="ycForm" onsubmit="return checkPayForm();">> 
+<input type="hidden" name="step" value="xiugai"/>
+<input type="hidden" name="Id" value="{$cat.Id}"/>
+<input type="hidden" name="sid" value="{$sid}"/> 
+<div id="tabs0">  
+  
+ <ul class="menu0" id="menu0">  
+   <li onclick="setTab(0,0)" class="hover">入库</li>  
+   <li onclick="setTab(0,1)">出库</li>  
+ </ul>
+
+<div class="main" id="main0">
+   <li style="margin-left:37px;">
+  	名称：<input class="" type="text" name="shop_name" value="{$cat.shop_name}" />
+  	分类：<input class="" type="text" name="inventory_class_id" value="{$cat.name}" />
+  </li>
+<!-- 入库 -->
+  <ul class="block" id="ruku">
+  <li>
+	前缀：<input type="text" name="qianzui"/>
+	开始：<input type="text" name="qianzui_start"/>
+	结束：<input type="text" name="qianzui_end"/>
+	有效期：<input type="date" name="youxiaoqi"/>
+  </li>
+
+  </ul>  
+<!-- 出库 -->  
+  <ul id="chuku">
+	<li>
+	出库：<input class="" type="number" name="outbound" value="0" />
+	单号：<input class="" type="text" name="orderid"/>
+  	</li>
+ 
+  </ul> 
+ <li style="margin-left:37px;">
+备注：<input class="" type="text" name="note"/><br />
+	<input type="submit" value="修改" class="button2" style="margin-top:20px;" />
+</li> 	
+	
+	<br />
+	<span class="tishi">温馨提示：填写的数字为在原数上添加的数量，不能减少！库存=总入库数-总折损-总出库</span>
+
+</div>  
+</div>  
+</form> 
+</div>
+{/if}
+
+{if $act eq 'view'}
+<style>
+	div{ 
+word-wrap: break-word; 
+word-break: normal; 
+}
+</style>
+<!-- 主体开始 -->
+<!-- 搜索 -->
+	<!-- 	<div class="hy_position2">
+			<p class="position02"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+			<form action="inventory.php" method="post" onsubmit="return checkSearForm();">
+			<input type="hidden" name="id" value="{$cat.id}" />
+
+					<p class="head_sou1">
+						<input type="text" name="keywords" id="keyword" value="搜索{$list.shop_name}名称" onfocus="if (this.value == '搜索{$cat.shop_name}名称') this.value='';"  class="hy_sou_input1" />
+						
+						<input type="submit" value="提交" class="hy_sou_but1" />
+					</p>					
+					<script type="text/javascript">
+					
+						function checkSearForm(){
+							// alert(111);
+							if(document.getElementById('keyword').value && document.getElementById('keyword').value != 'search'){
+								return true;
+							}else{
+								alert("请输入您要搜索的关键字");
+								document.getElementById('keyword').focus();
+								return false;
+							}
+						}
+				
+					</script>
+			</form>			
+		</div> -->
+<!-- 搜索 -->
+<div>
+
+<table border="0" cellspacing="0" cellpadding="0" class="hy2_dd02_table">
+<caption class="caption">库存日志管理</caption>
+
+<tr>
+  <th width="9%" scope="col">序号</th>
+  <th width="9%" scope="col">名称</th>
+  <th width="9%" scope="col">分类</th>
+ <!--  <th width="9%" scope="col">进价</th> -->
+  <th width="9%" scope="col">现有库存</th>
+  <th width="9%" scope="col">入库</th>
+  <th width="9%" scope="col">出库</th>
+ <!--  <th width="9%" scope="col">折损</th> -->
+  <th width="9%" scope="col">时间</th>
+  <th width="200px" style="word-break:break-all;width:200px; overflow:auto;" scope="col">卡号</th>
+  <th width="9%" scope="col">订单号</th>
+  <th width="9%" scope="col">备注</th>
+ 
+</tr>
+{foreach from=$res item=list key=key}
+<tr>
+  <td style="letter-spacing: 0px;">{$list.Id}</td>
+  <td>{$list.shop_name}</td>
+  <td>{$list.name}</td>
+  <!-- <td><span style="letter-spacing: 0px;">{$list.pur_price}</span>元</td> -->
+  <td style="letter-spacing: 0px;">{$list.inventory}</td>
+  <td style="letter-spacing: 0px;">{$list.put_storage}</td>
+  <td style="letter-spacing: 0px;">{$list.outbound}</td>
+  <!-- <td style="letter-spacing: 0px;">{$list.wreck}</td> -->
+  <td style="letter-spacing: 0px;">{$list.add_time}</td>
+  <td style="letter-spacing: 0px;word-break:break-all;width:200px; overflow:auto;">{$list.card_id}</td>
+  <td style="letter-spacing: 0px;">{$list.orderid}</td>
+  <td style="letter-spacing: 0px;">{$list.note}</td>
+ 
+</tr>
+{/foreach}
+</table>
+		<div class="clear"></div>
+		<div class="flickr"><!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --></div>
+		<div class="clear"></div>
+<div>
+	<a href="inventory.php?step=daochu_log&sid={$sid}&Id={$list.shop_id}" class="button3">导出</a>
+</div>
+<div class="dibu"></div>
+</div>
+{/if}
+
+<!-- 导出库存商品表 -->
+{if $act eq 'daochu'}
+<form action="inventory.php?step=do_daochu" method="post" enctype="multipart/form-data" name="searchForm">
+  <table cellspacing="1" cellpadding="3" width="100%">
+      <tr>
+      <td><div align="right"><strong>请选择时间：</strong></div></td>
+      <td>
+      <input type="text" name="start_time" maxlength="60" size="20" readonly="readonly" id="start_time_id" />
+      <input name="start_time_btn" type="button" id="start_time_btn" onclick="return showCalendar('start_time_id', '%Y-%m-%d %H:%M', '24', false, 'start_time_btn');" value="{$lang.btn_select}" class="button"/>
+      ~      
+      <input type="text" name="end_time" maxlength="60" size="20" readonly="readonly" id="end_time_id" />
+      <input name="end_time_btn" type="button" id="end_time_btn" onclick="return showCalendar('end_time_id', '%Y-%m-%d %H:%M', '24', false, 'end_time_btn');" value="{$lang.btn_select}" class="button"/>  
+      </td>
+    </tr>  
+    <tr>
+      <td colspan="4"><div align="center">
+      	   <input name="query" type="submit" class="button" id="query" value="开始导出" />
+      </div></td>
+      </tr>
+  </table>
+</form>
+{/if}
+<!-- 导出库存商品表 -->
+
+<!-- 导出库存商品日志表 -->
+{if $act eq 'daochu_log'}
+<form action="inventory.php?step=do_daochu_log" method="post" enctype="multipart/form-data" name="searchForm">
+  <table cellspacing="1" cellpadding="3" width="100%">
+      <tr>
+      <td><div align="right"><strong>请选择时间：</strong></div></td>
+      <td>
+      <input type="text" name="start_time" maxlength="60" size="20" readonly="readonly" id="start_time_id" />
+      <input name="start_time_btn" type="button" id="start_time_btn" onclick="return showCalendar('start_time_id', '%Y-%m-%d %H:%M', '24', false, 'start_time_btn');" value="{$lang.btn_select}" class="button"/>
+      ~      
+      <input type="text" name="end_time" maxlength="60" size="20" readonly="readonly" id="end_time_id" />
+      <input name="end_time_btn" type="button" id="end_time_btn" onclick="return showCalendar('end_time_id', '%Y-%m-%d %H:%M', '24', false, 'end_time_btn');" value="{$lang.btn_select}" class="button"/>  
+      </td>
+    </tr>  
+    <tr>
+      <td colspan="4"><div align="center">
+      		 <input name="Id" type="hidden"  value="{$Id}" />
+      	   <input name="query" type="submit" class="button" id="query" value="开始导出" />
+      </div></td>
+      </tr>
+  </table>
+</form>
+{/if}
+<!-- 导出库存商品日志表 -->
+{insert_scripts files="../js/transport.org.js,../js/region.js"}
+{literal}
+<script language="JavaScript">
+region.isAdmin = true;
+onload = function()
+{
+  // 开始检查订单
+  startCheckOrder();
+}
+//*****Javascript防重复提交************
+var submitcount=0;
+function checkPayForm (form){
+if (submitcount == 0){
+     submitcount++;
+     return true;
+} else{
+    alert("已提交，请不要重复提交，谢谢！");
+    return false;
+}
+}
+</script>
+{/literal}
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+</body>
+</html>

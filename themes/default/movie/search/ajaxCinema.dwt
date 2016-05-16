@@ -1,0 +1,9 @@
+<p class="clearfix pb9">
+	<span class="searcher"><input type="text" class="input c_a5" placeholder="输入影院名称快速定位"><i class="sub"></i></span><span class="lh25">当前共有135家影院</span>
+</p>
+<div class="arealist">
+{foreach from=$list item=row}
+    <p class="oftenlist alist"><span>{$row.districtName}</span><a href="javaScript:;" data-id="{$movieid}" data-cid="{$row.cinemaId}" data-type="cinema">{$row.cinemaName}</a></p>
+{/foreach}
+   
+</div>

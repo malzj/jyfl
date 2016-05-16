@@ -1,0 +1,9 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<p style="float:left;width:100%;margin-bottom:8px;color:#666;"><span style="float:left;">索要发票</span><input type="checkbox" style="margin-left:8px; margin-top:2px;" class="yi_radio" name="need_inv" id="ECS_NEEDINV" value="1" onclick="changeNeedInv()"{if $order.need_inv} checked="true"{/if} /></p>
+<span style="float:left;color:#666;">{$invs.inv_type}　{$invs.inv_payee}　{$invs.inv_content}</span>
+<a href="javascript:;" style="color:#0075d9; margin-left:10px; float:left;" onclick="updateInv(0);">修改</a>
+
+<input type="hidden" name="inv_type" value="{$invs.inv_type}" id="ECS_INVTYPE" />
+<input type="hidden" name="inv_content" value="{$invs.inv_content}" id="ECS_INVCONTENT" />
+<input type="hidden" name="inv_payee" value="{$invs.inv_payee}" id="ECS_INVPAYEE" />

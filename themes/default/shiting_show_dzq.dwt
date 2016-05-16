@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+<SCRIPT type=text/javascript src="js/slide.js"></SCRIPT>
+{insert_scripts files='jquery.region.js,utils.js'}
+
+<script type="text/javascript">
+$(function(){
+	$(".slide_close").click(function(){
+		$(this).hide().siblings('.slide_open').show().parent('.detail02_top').siblings(".showslide01").show();
+	});
+	$(".slide_open").click(function(){
+		$(this).hide().siblings('.slide_close').show().parent('.detail02_top').siblings(".showslide01").hide();
+		;
+	});
+})
+</script>
+
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+<div class="main_big">
+	<div class="main">
+		<!--当前位置 开始-->
+		<p class="position01"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+		<!--当前位置 结束-->
+
+		<div class="detail_box">
+			<div class="detail01">
+				<div id="tFocus">
+					<div class="prev" id="prev"></div>
+					<div class="next" id="next"></div>
+					<ul id="tFocus-pic">
+						{foreach from=$dzqyy.CinemaImages item=img}
+						<li><a href="javascript:;"><img src="{$img}" width="338" height="243" alt="" /></a></li>
+						{/foreach}
+					</ul>
+					<div id="tFocusBtn">
+						<a href="javascript:void(0);" id="tFocus-leftbtn">上一张</a>
+						<div id="tFocus-btn">
+							<ul>
+								{foreach from=$dzqyy.CinemaImages item=img name=img}
+								<li{if $smarty.foreach.img.first} class="active"{/if}><img src="{$img}" width="87" height="57" alt="" /></li>
+								{/foreach}
+							</ul>
+						</div>
+						<a href="javascript:void(0);" id="tFocus-rightbtn">下一张</a>
+					</div>
+				</div>
+				<script type="text/javascript">addLoadEvent(Focus());</script>
+				<div class="detail02_rr">
+					<p class="hy2_de_t1">{$dzqyy.CinemaName}</p>
+					<ul class="hy2_de02_t1">
+						<li style="margin-left:50px; text-indent:0px;">
+							<span style="float:left;">综合评分：</span>
+							{if $dzqyy.AverageDegree gt 0}
+							<div class="yc_myxin"><div style="width: {$dzqyy.AverageDegreeFormat}%" class="yc_myxin2"></div></div>
+							<i style="float:left; margin-left:10px;color:#ff8a00;margin-right:4px;">{$dzqyy.intComment}</i>
+							<span style="display:inline;width:auto;color:#ff8a00;">.{$dzqyy.floComment}</span>
+							{else}
+							暂无评分
+							{/if}
+						</li>
+						<li>电话：{if $dzqyy.PhoneNo}{$dzqyy.PhoneNo}{/if}</li>
+						<li>地址：{$dzqyy.Address}</li>
+						<li>影厅介绍：{$dzqyy.Introduction}</li>
+					</ul>
+					<form name="dzqForm" id="dzqForm" method="post" action="shiting_order.php" onsubmit="return checkDzqForm();">
+					<ul class="hy2_detail02_list">
+						<li>
+							<span class="hy2_detail_name">类型：</span>
+							<p class="hy2_leixing" style="width:392px;" id="ticketInfo">
+								{foreach from=$dzq item=item name=dzq}
+								<a href="javascript:;" {if $smarty.foreach.dzq.first} class="checked"{/if} onclick="changeAttr(this, '{$item.TicketNo}');"><span>{$item.TicketName}</span>　<span>{$item.SalePriceFormat}点</span></a>
+								<input type="radio" name="ticketNo" id="TicketNo_{$item.TicketNo}" price="{$item.SalePrice}" shijiprice="{$item.CinemaPriceFormat}" value="{$item.TicketNo}" {if $smarty.foreach.dzq.first} checked
+								{/if} style="display:none;"/>
+								{/foreach}
+							</p>
+						</li>
+						<li>
+							<span class="hy2_detail_name">数量：</span>
+							<p class="hy_detail_price" style="margin-left:0;">
+								<input type="text" value="1" name="number" id="number" class="hy_shu_input" onblur="checkNum(this.value);" />
+								<span class="mai_buts">
+									<input type="button" value="" class="hy_up" onclick="add()" />
+									<input type="button" value="" class="hy_xia" onclick="del()" />
+								</span>
+								<span class="mai_buts" style="line-height:31px; padding-left:8px;">件</span>
+							</p>
+						</li>
+						<li>
+							<p class="hy2_de02_phone">
+								<a href="javascript:;"><img src="/images/hy2_shouji2.jpg" width="15" height="26" alt="" /></a>
+								<input type="text" name="mobile" id="mobile" value="请输入手机号码" class="hy2_input2" onfocus="if (this.value == '请输入手机号码') this.value = ''" />
+							</p>
+						</li>
+						<li><p class="hy2_de02_t2">该号码为接收电子码短信的手机号码，有效期内可兑换该影院指定类型电影票1张(首映式、明星见面会、vip厅、国
+定节假日和
+特殊节日如情人节,圣诞节,平安夜、不参加早（10:00Q前）、晚（含22:00后）场场次等不可用,特殊影片以影院公告现场补
+差价)打印小
+票仅限当日兑换使用,逾期作废！</p></li>
+						<li class="detail_buy_bor">
+							<a href="javascript:;" onclick="submitDzqForm();" class="hy_mai01" style="width:162px; margin-left:52px;"><span class="hy_buy_de"></span>立即购买</a>
+						</li>
+					</ul>
+					<input type="hidden" name="areaNo" value="{$dzqyy.AreaNo}" />
+					<input type="hidden" name="areaName" value="{$dzqyy.AreaName}" />
+					<input type="hidden" name="cinemaNo" value="{$cinemaNo}" />
+					<input type="hidden" name="cinemaName" value="{$dzqyy.CinemaName}" />
+					<input type="hidden" name="act" value="dzqdh_order" />
+					<input type="hidden" name="price" id="price" value="" />
+					<input type="hidden" name="sjprice" id="sjprice" value="" />
+					</form>
+				</div>
+			</div>
+			<div class="detail02">
+				<div class="detail02_top">
+					<span class="hy_de_xq"><b></b>影院介绍</span><span class="slide_close" style="display:none;"></span>
+					<span class="slide_open"></span>
+				</div>
+				<div class="showslide01">
+					<ul class="xiangqing_list02">
+						<li>
+							<div>
+								{$dzqyy.Introduction}
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+
+<script type="text/javascript">
+<!--
+function changeAttr(obj, id){
+	var child = obj.parentNode.children;
+	for (var i = 0; i<child.length;i++) {
+		if (child[i]){
+			if (child[i].className == 'checked'){
+				child[i].className = '';
+				break;
+			}
+		}
+	}
+	obj.className = "checked";
+	document.getElementById('TicketNo_'+id).click();
+}
+
+function submitDzqForm(){
+	var cardMoney = '{$money}';
+	var price     = $('#ticketInfo input[name="ticketNo"]:checked').attr('price');
+	var sjprice     = $('#ticketInfo input[name="ticketNo"]:checked').attr('shijiprice');
+	var amount    = parseFloat($("#number").val() * price)/1.2*1.06;
+	
+	if (amount > cardMoney){
+		alert('您的卡余额不足');
+		return false;
+	}
+	$('#price').val(price);
+	$('#sjprice').val(sjprice);
+
+	if ($('#mobile').val() == '' || $('#mobile').val() == '请输入手机号码'){
+		alert('抱歉，手机号码不能为空');
+		return false;
+	}else{
+		var reg = /^1[3,5,7,8]\d{9}$/;
+		if (!reg.test( $('#mobile').val() )){
+			alert('手机号码格式不正确！');
+			return false;
+		}
+	}
+	$('#dzqForm').submit();
+}
+function checkDzqForm(){
+	if ($('#mobile').val() == '' || $('#mobile').val() == '请输入手机号码'){
+		alert('抱歉，手机号码不能为空');
+		return false;
+	}else{
+		var reg = /^1[3,5,7,8]\d{9}$/;
+		if (!reg.test( $('#mobile').val() )){
+			alert('手机号码格式不正确！');
+			return false;
+		}
+	}
+	return true;
+}
+
+function del(){
+	var num = document.getElementById("number");
+	var n = parseInt(num.value);
+	if(n-1<=0){
+		num.value = 1;
+	}else{
+		num.value = n-1;
+	}
+}
+function add(){
+	var num = document.getElementById("number");
+	var n = parseInt(num.value);
+	num.value = n+1 > 99 ? 99 : n+1;
+}
+function checkNum(num){
+	if (isNaN(num)){
+		alert('只能是数字');
+		document.getElementById("number").value = 1;
+		return false;
+	}
+	if (num > 99){
+		document.getElementById("number").value = 99;
+	}else if (num < 1){
+		document.getElementById("number").value = 1;
+	}
+}
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<p class="wei_hongbao">
+	{foreach from=$inv_type_list item=inv_type key=key name=inv_type}
+	<span class="hong_text" style="font-weight:100; margin-right:15px;">
+		<input type="radio" name="inv_type" value="{$key}" tax="{$inv_type}" id="ECS_INVTYPE_{$smarty.foreach.inv_type.index}" class="yi_radio" style="margin-right:3px;margin-top:5px; float:left;"{if $invs.inv_type == $key} checked{/if} />
+		<label for="ECS_INVTYPE_{$smarty.foreach.inv_type.index}" style="float:left;margin-right:10px;">{$key}</label>
+	</span>
+	{/foreach}
+</p>
+<p class="wei_hongbao" style="border:none;">
+	<span class="hong_text">发票抬头：</span>
+	<input name="inv_payee" type="text"  class="hong_input" id="ECS_INVPAYEE" size="20" value="{if $invs.inv_payee}{$invs.inv_payee}{else}{$order.inv_payee}{/if}" style="width:200px;" />
+</p>
+<p class="wei_hongbao" style="border:none;">
+	<span class="hong_text">发票内容：</span>
+	{foreach from=$inv_content_list item=inv_content key=key}
+	<input type="radio" name="inv_content" value="{$inv_content}" id="ECS_INVCONTENT_{$key}" class="yi_radio" style="margin-left:10px;margin-right:2px;margin-top:5px;float:left;"{if $invs.inv_content == $inv_content} checked{/if} /><label for="ECS_INVCONTENT_{$key}" style="float:left;margin-right:10px;margin-top:4px;color:#666;">{$inv_content}</label>
+	{/foreach}
+</p>
+<a href="javascript:;" onclick="saveInv('{$inv_id}');" class="save_hongbao" style="margin-top:10px;"></a>

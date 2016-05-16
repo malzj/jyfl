@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="/js/nav.js"></script>
+</head>
+<body>
+  
+	<div class="head_big">
+		<div class="head">
+		<span class="logon"><a href="#"><img src="/images/hy_logo1.jpg" width="232" height="53" alt="华影文化" /></a></span>
+		<div class="head_right">
+		<div class="head_r1"></div>
+		   
+		</div>
+		<div class="clear"></div>
+	    </div>
+	    </div>
+  </div>
+    <!-- 头部结束 -->
+    
+    
+    <!-- 主体 -->
+    <div class="main_big" style="top: 10px;">
+	  <div class="main">
+          <p class="position"><a href="#">首页</a> > 关于我们</p>
+          <div class="hy_news_box">
+           <div class="news_left">
+            	<p class="news_lt">华影文化</p>
+                <ul class="dinggou_list">
+                    <!-- {foreach from=$article_categories2 item=article1} -->
+		    <li><a href="{$article1.url}" title="{$article1.title|escape:html}">{$article1.title|escape}</a></li>
+		    <!-- {/foreach} -->                     
+                </ul>
+            </div>
+            <div class="news_right">
+            	<p class="hy_dz_t1" style="margin-top:27px;">{$article.title|escape:html}</p>
+                <div class="help_t1">{$article.content}</div>
+                
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+    </div>
+    <!-- 主体结束 -->
+    
+    <!-- 底部 -->
+ 	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    <!-- 底部结束 -->
+
+</body>
+</html>

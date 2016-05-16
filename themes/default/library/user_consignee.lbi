@@ -1,0 +1,36 @@
+<p class="hy_per_dz">
+	<span class="hy_dz_name">收货人：</span>
+	<input type="text" value="{$consignees.consignee|escape}" name="consignee" id="consignee" class="hy_dz_input" />
+</p>
+<p class="hy_per_dz">
+	<span class="hy_dz_name">所在地：</span>
+	<input name="country" id="country" value="{$consignees.country}" type="hidden" />
+	<span style="float:left; margin-right:10px;">
+	{$consignees.country_cn|escape}
+	</span>
+	<select name="province" id="province" onchange="region.changed(this, 2, 'city')" class="Select16">
+		<option value="0">{$lang.please_select}{$name_of_region[1]}</option>
+		{foreach from=$province_list item=province}
+		<option value="{$province.region_id}" {if $consignees.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
+		{/foreach}
+	</select>
+	<select name="city" id="city" onchange="region.changed(this, 3, 'district')" class="Select16"{if !$city_list} style="display:none;"{/if}>
+		<option value="0">{$lang.please_select}{$name_of_region[2]}</option>
+		{foreach from=$city_list item=city}
+		<option value="{$city.region_id}" {if $consignees.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+		{/foreach}
+	</select>
+	<select name="district" id="district" class="Select16"{if !$district_list} style="display:none;"{/if}>
+		<option value="0">{$lang.please_select}{$name_of_region[3]}</option>
+		{foreach from=$district_list item=district}
+		<option value="{$district.region_id}" {if $consignees.district eq $district.region_id}selected{/if}>{$district.region_name}</option>
+		{/foreach}
+	</select>
+</p>
+<p class="hy_per_dz"><span class="hy_dz_name">&nbsp;</span><input name="address" id="address" type="text" value="{$consignees.address|escape}" class="hy_dz_input" style="width:497px;" /></p>
+<p class="hy_per_dz"><span class="hy_dz_name">手机号：</span> <input  name="mobile" id="mobile" type="text" value="{if $consignees.mobile}{$consignees.mobile|escape}{/if}" class="hy_dz_input" /></p>
+<p class="hy_per_dz"><span class="hy_dz_name">电话：</span> <input  name="tel" id="tel" type="text" value="{if $consignees.tel}{$consignees.tel|escape}{/if}" class="hy_dz_input" /></p>
+<p class="hy_per_dz">
+	<input type="button" name="submit" class="bnt_blue_2" onclick="saveConsignee('{$consignees.address_id}', 'user')" value="确认修改"/>
+	<input type="button" name="quxiao" onclick="location.reload();" class="bnt_blue_2" value="取消" style="margin-left:10px" />
+</p>

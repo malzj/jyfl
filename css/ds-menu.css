@@ -1,0 +1,46 @@
+@charset "utf-8";
+body{margin: 0px;font-family:"Microsoft YaHei";font-size: 12px;}
+a{ color:#000000; text-decoration:none;}
+a:hover{ text-decoration:none;}
+ul,li{list-style:none;}
+/*top*/
+.h-wrop{width: 1200px;margin: 0 auto;}
+.h-img{width: 1200px;}
+.h-position{margin-top: 19px;float: left;}
+.h-position a{color: #666;}
+.h-centimg{width:100%;float: left;font-family: "Microsoft YaHei";padding-bottom:30px;border-bottom: solid 1px #eeeeee;}
+.h-centimg .h-imgArea{width: 660px;padding-top:20px;}
+.h-centimg .h-imgArea ul { margin: 0px;padding:0px;float: left;}
+.h-centimg .h-imgArea ul li {float: left;padding:0;}
+.h-centimg .h-imgArea ul  .h-action{border: 0px;margin: 0px;padding: 0px;}
+.h-centimg .h-imgArea ul li a .img1{width: 520px;height: 520px;padding: 0px;}
+.h-centimg .h-imgArea ul li img{width: 77px;height: 77px;}
+.h-centimg .h-choice{width: 560px;float: left; margin-left:30px;}
+.h-centimg .h-choice .h-title{font-size: 18px;border-bottom:dashed 1px #acacac;padding-bottom:30px; }
+.h-centimg .h-choice ul li{font-size: 14px; margin: 20px 0px;}
+.h-centimg .h-choice ul li .h-span{color: #666;line-height: 40px;}
+.h-centimg .h-choice ul li .h-span1{color: #E40000;font-size: 24px;}
+.h-centimg .h-choice ul li .h-spanleft{float: left;width: 70px;text-align: right;color: #333; margin-right: 12px;display: inline;line-height: 40px;color: #333;}
+.h-centimg .h-choice ul li a span{background-image: url(../images/hy_l3_.jpg);width: 18px;height: 18px;float: left;margin-left: 31px;margin-right: 11px;display: inline;margin-top: 15px;}
+.h-centimg .h-choice ul li a{background: #E70012 none repeat scroll 0% 0%;color: #FFF;margin-left: 95px;display: inline-block;line-height: 48px;width: 150px;}
+/*cencer*/
+.h-inforbox{float: left;margin-top:20px;position: relative;width: 100%;	}
+.h-inforbox .h-tabletitle{width: 600px; height:450px;}
+.h-inforbox .h-table{line-height: 32px;background-color: #f2f2f2;}
+.h-inforbox .h-table tr .h-left{line-height: 30px;margin-left:20px; }
+.h-inforbox .h-table .h-tr{text-align: center; font-size:14px;}
+.h-inforbox table{width: 100%;}
+.h-inforbox .h-table1{height: 50px;}
+.h-inforbox .h-table1 table tr td{text-align: center; font-size:14px; line-height:50px;} 
+.h-inforbox .h-table2{background-color:#f2f2f2; border: solid 10px #f2f2f2;}
+.h-inforbox .h-table2 table{border: solid 1px #e6e6e6;}
+.h-inforbox .h-table2 table tr td{text-align: right;padding-right:15px; font-size:12px;}
+.h-inforbox .h-table2 table tr td p{margin: 10px;color: #999;font-weight: 700;font-size: 14px; cursor: pointer;}
+.h-inforbox .h-table2 table tr td .h-p1{margin: 5px;color: #f43;font-weight:normal;}
+.h-inforbox .h-table2 .t1{background-color:#fff; }
+.h-inforbox .h-table2 .t1:hover{background-color:#FFDEB7;}
+.h-inforbox .h-bot{width:556px;height: 420px;overflow-y: scroll;border: 2px solid #F7F7F7;background-color: #FEFEFE;margin-top: 10px;line-height: 25px;padding: 10px;position: absolute;right: 0px;top:-10px;}
+/*Product profile*/
+.h-Product-profile{float: left;width: 100%;border-bottom:solid 1px #eeeeee; margin-top:15px; }
+.h-Product-profile p{width:100px;height: 35px;background-color: #eeeeee;font-size: 14px;line-height: 35px;text-align: center;margin-bottom: 0px;}
+.h-product{float: left; padding: 20px 0; line-height:25px;}

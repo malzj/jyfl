@@ -1,0 +1,96 @@
+@charset "utf-8";
+html,body{
+	height: 100%;
+}
+body{
+	padding: 0;
+	margin:0px;
+	font-family:'微软雅黑';
+	}
+.main{
+	height: 100%;
+}	
+
+.w-wrop{
+	width:1200px;
+	margin:0 auto;
+	padding-top:10px;
+	}
+.w-top{
+	height:10%;
+	/* [disabled]background-color:#333a40; */
+	}
+.w-topbc{
+	height:40px;
+	background-color:#cedcdd;
+	}
+.w-centre{
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	width:100%;
+	margin:0 auto;
+	height:60%;
+	background-image:url('/images/login/laoda-_02.png');
+		}
+.w-flower{
+	display:inline-block;
+	margin:110px 0px 0px 110px;
+	float:left;
+	}
+.w-text{
+	display:inline-block;
+	width:260px;
+	float:right;
+	margin:47px 150px 0 0;
+	font-size: 16px;
+	background-color:rgba(0,0,0,0.4);
+	/*position:absolute;
+	top:120px;
+	right:160px;*/
+	}
+.w-inp{
+	background:url('/images/login/lagin.png') no-repeat;
+	border: 1px solid #999;
+	padding: 2px 2px 2px 38px;/*名称输入框*/
+	width: 160px;
+	height: 31px;
+	margin-left: 20px;
+	}
+.w-inpa{
+	background:url('/images/login/login.png') no-repeat;
+	border: 1px solid #999;
+	padding: 2px 2px 2px 38px;/*名称输入框*/
+	width: 160px;
+	height: 31px;
+	margin-left: 20px;
+	}
+.w-bottom{
+	
+	height: 12%;
+	width:1200px;
+	margin:0 auto;
+}
+.w-bottom img{
+	height: 50px;
+}
+.w-bottom table tr td{
+	width:300px;
+	padding-top:3px;
+	text-align:center;
+	font-size: 14px;
+	}
+.w-hehe{
+	margin-top: 15px;
+	background-color:#e5e5e5;
+	height:12%;
+}
+.hide{
+	display: none;
+}
+.login_input01{
+	width:87px;height:30px;margin-left:20px;
+}
+.w-hehe a{
+	text-decoration:none;
+	color: #333;
+}

@@ -1,0 +1,2303 @@
+[ 2016-04-20T08:42:15+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000778s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.044754s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005456s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000648s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.039693s ]
+INFO: [ app_end ] --END-- [ RunTime:0.039854s ]
+
+[ 2016-04-20T08:42:19+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000809s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001781s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.034320s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000595s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000810s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000972s ]
+
+[ 2016-04-20T08:42:41+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000723s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001262s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004758s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000591s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000932s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001199s ]
+
+[ 2016-04-20T08:46:12+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001221s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004619s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000485s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000653s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000799s ]
+
+[ 2016-04-20T08:46:25+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000398s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000786s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004975s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000555s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000532s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000692s ]
+
+[ 2016-04-20T08:46:47+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000414s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000814s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004271s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 0 ) LIMIT 1   [ RunTime:0.000485s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000535s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000688s ]
+
+[ 2016-04-20T08:46:51+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000738s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001231s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004328s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000508s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000540s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000696s ]
+
+[ 2016-04-20T08:46:52+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000399s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000783s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004698s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000620s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000514s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000707s ]
+
+[ 2016-04-20T08:46:53+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000398s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000812s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004156s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000493s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000538s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000688s ]
+
+[ 2016-04-20T08:48:17+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000783s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001434s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004015s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000578s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000623s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000763s ]
+
+[ 2016-04-20T08:48:26+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000384s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000789s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.003876s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000481s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000541s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000684s ]
+
+[ 2016-04-20T08:48:47+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000455s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000916s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005303s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000607s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000616s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000851s ]
+
+[ 2016-04-20T08:52:02+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000494s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000906s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004367s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000464s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000613s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000773s ]
+
+[ 2016-04-20T08:53:28+08:00 ] 192.168.1.134 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000419s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000808s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004197s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000471s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000549s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000692s ]
+
+[ 2016-04-20T09:01:50+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001173s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004751s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000548s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 29 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000846s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001010s ]
+
+[ 2016-04-20T09:02:33+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000471s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000985s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004914s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000579s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 29 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000583s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000750s ]
+
+[ 2016-04-20T09:02:40+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001129s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004525s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000561s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 29 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000625s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000798s ]
+
+[ 2016-04-20T09:03:07+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000465s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000896s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004289s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000610s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 29 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000600s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000760s ]
+
+[ 2016-04-20T09:05:25+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001046s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001903s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004623s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000476s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 29 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000687s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000844s ]
+
+[ 2016-04-20T09:06:20+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000837s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006109s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000601s ]
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 29 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000627s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000905s ]
+
+[ 2016-04-20T09:07:53+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000556s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001056s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005142s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000585s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000716s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000892s ]
+
+[ 2016-04-20T09:08:17+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000649s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001339s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006395s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000596s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000587s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000744s ]
+
+[ 2016-04-20T09:08:56+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000705s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001446s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005030s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000511s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000641s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000846s ]
+
+[ 2016-04-20T09:08:58+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000475s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000948s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005141s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000676s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000757s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001050s ]
+
+[ 2016-04-20T09:09:22+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000464s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000957s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005013s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000579s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000606s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000825s ]
+
+[ 2016-04-20T09:09:47+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000853s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004289s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000485s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000560s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000715s ]
+
+[ 2016-04-20T09:10:29+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000711s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001205s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004236s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000469s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000732s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000905s ]
+
+[ 2016-04-20T09:12:26+08:00 ] 192.168.1.134 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.002905s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005713s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005645s ]
+SQL: UPDATE `ecs_users` SET `nickname`='大不点',`sex`=2,`birthday`='2015-12-01',`basic`='未婚',`xingqu`='篮球',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-19/5715ed78da645.jpg' WHERE ( id=1 ) [ RunTime:0.126197s ]
+ERR: 1054:Unknown column 'id' in 'where clause'
+ [ SQL语句 ] : UPDATE `ecs_users` SET `nickname`='大不点',`sex`=2,`birthday`='2015-12-01',`basic`='未婚',`xingqu`='篮球',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-19/5715ed78da645.jpg' WHERE ( id=1 )
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000999s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001327s ]
+
+[ 2016-04-20T09:13:12+08:00 ] 192.168.1.134 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000983s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001759s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004782s ]
+SQL: UPDATE `ecs_users` SET `nickname`='大不点',`sex`=2,`birthday`='2015-12-01',`basic`='未婚',`xingqu`='篮球',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-19/5715ed78da645.jpg' WHERE ( id=1 ) [ RunTime:0.000232s ]
+ERR: 1054:Unknown column 'id' in 'where clause'
+ [ SQL语句 ] : UPDATE `ecs_users` SET `nickname`='大不点',`sex`=2,`birthday`='2015-12-01',`basic`='未婚',`xingqu`='篮球',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-19/5715ed78da645.jpg' WHERE ( id=1 )
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000725s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000920s ]
+
+[ 2016-04-20T09:13:20+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001032s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001715s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004814s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000631s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000758s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000959s ]
+
+[ 2016-04-20T09:13:35+08:00 ] 192.168.1.134 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000773s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001585s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004998s ]
+SQL: UPDATE `ecs_users` SET `nickname`='大不点',`sex`=2,`birthday`='2015-12-01',`basic`='未婚',`xingqu`='篮球',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-19/5715ed78da645.jpg' WHERE ( user_id=1 ) [ RunTime:0.210640s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000565s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000713s ]
+
+[ 2016-04-20T09:14:00+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000423s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000890s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004482s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000442s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000910s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001178s ]
+
+[ 2016-04-20T09:14:31+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000443s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001049s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004925s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000472s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000552s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000730s ]
+
+[ 2016-04-20T09:14:59+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000500s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001051s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004240s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000663s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000812s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001070s ]
+
+[ 2016-04-20T09:15:43+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000712s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001327s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005002s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000527s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000712s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000933s ]
+
+[ 2016-04-20T09:17:51+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000981s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001872s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005208s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000763s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000851s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001104s ]
+
+[ 2016-04-20T09:19:49+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000409s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000800s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004577s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000474s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000709s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000913s ]
+
+[ 2016-04-20T09:22:26+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000652s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001470s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004017s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000492s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000974s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001172s ]
+
+[ 2016-04-20T09:27:36+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000980s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004196s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000478s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000837s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000987s ]
+
+[ 2016-04-20T09:27:47+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000467s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000984s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005887s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000571s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000922s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001161s ]
+
+[ 2016-04-20T09:27:48+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000484s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001136s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.013297s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000686s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000959s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001278s ]
+
+[ 2016-04-20T09:28:21+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000442s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000870s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004185s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000454s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000529s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000671s ]
+
+[ 2016-04-20T09:34:56+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000632s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001204s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006632s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000756s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001019s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001314s ]
+
+[ 2016-04-20T09:35:50+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000408s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000813s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004376s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000521s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000544s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000706s ]
+
+[ 2016-04-20T09:38:35+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000834s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001365s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005697s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000548s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000768s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000919s ]
+
+[ 2016-04-20T09:40:29+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000407s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000822s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004424s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000486s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000534s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000678s ]
+
+[ 2016-04-20T09:41:20+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000553s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001018s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004753s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000552s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000696s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000876s ]
+
+[ 2016-04-20T09:43:21+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000525s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000963s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004469s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000728s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000741s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000897s ]
+
+[ 2016-04-20T09:44:08+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000478s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001046s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004716s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000691s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000609s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000761s ]
+
+[ 2016-04-20T09:44:50+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000869s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004219s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000455s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000534s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000678s ]
+
+[ 2016-04-20T09:48:29+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000529s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000993s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004466s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000518s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000709s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000854s ]
+
+[ 2016-04-20T09:49:54+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000649s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001574s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.007713s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000555s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000800s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-04-20T09:53:13+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001130s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004885s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000572s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000749s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000905s ]
+
+[ 2016-04-20T09:53:37+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000485s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001112s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004933s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000588s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000628s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000785s ]
+
+[ 2016-04-20T09:54:02+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000461s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000912s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005620s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000544s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000540s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000695s ]
+
+[ 2016-04-20T09:54:47+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000515s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000986s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005515s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000527s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000587s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000770s ]
+
+[ 2016-04-20T09:59:36+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000642s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001318s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004706s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000654s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000817s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001040s ]
+
+[ 2016-04-20T10:02:21+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001036s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005226s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000610s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000743s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000898s ]
+
+[ 2016-04-20T10:03:14+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000683s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001534s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006703s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000757s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001017s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001357s ]
+
+[ 2016-04-20T10:06:06+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001028s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004406s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000485s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000670s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000812s ]
+
+[ 2016-04-20T10:07:10+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000404s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000843s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004546s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000598s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000591s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000766s ]
+
+[ 2016-04-20T10:08:00+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000560s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001116s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.115188s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000813s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000931s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001247s ]
+
+[ 2016-04-20T10:16:58+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001096s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004721s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000515s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000649s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000821s ]
+
+[ 2016-04-20T10:26:12+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000570s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001065s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.044150s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000529s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000708s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000877s ]
+
+[ 2016-04-20T10:27:34+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000448s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001220s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005963s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000647s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000607s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000819s ]
+
+[ 2016-04-20T10:28:28+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000778s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001253s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005143s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000482s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000845s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001010s ]
+
+[ 2016-04-20T10:28:45+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000457s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000881s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004845s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000461s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000561s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000765s ]
+
+[ 2016-04-20T10:29:39+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000426s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000858s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004617s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000541s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000881s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001186s ]
+
+[ 2016-04-20T10:36:22+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000740s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001384s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004522s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000461s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000738s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000905s ]
+
+[ 2016-04-20T10:43:49+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001142s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005224s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000546s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000696s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000850s ]
+
+[ 2016-04-20T10:45:19+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000630s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001279s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005695s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000657s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000823s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001113s ]
+
+[ 2016-04-20T10:45:29+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001108s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001808s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005041s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000605s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000781s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001058s ]
+
+[ 2016-04-20T10:47:26+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000762s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001383s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006277s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000741s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000843s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001063s ]
+
+[ 2016-04-20T10:49:24+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000442s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000896s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004301s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000469s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000567s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000744s ]
+
+[ 2016-04-20T10:49:47+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000770s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001425s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004546s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000447s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001010s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001282s ]
+
+[ 2016-04-20T10:50:46+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000859s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004825s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000514s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000577s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000731s ]
+
+[ 2016-04-20T11:05:22+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001406s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004572s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000529s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000777s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000973s ]
+
+[ 2016-04-20T11:13:10+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000798s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001546s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.039775s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000990s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001032s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001289s ]
+
+[ 2016-04-20T11:13:58+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000473s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000948s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004699s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000492s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000697s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000916s ]
+
+[ 2016-04-20T11:14:14+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000786s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001468s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006139s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000648s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000818s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001078s ]
+
+[ 2016-04-20T11:15:02+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000448s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000900s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004823s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000594s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000571s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000719s ]
+
+[ 2016-04-20T11:15:49+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001049s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004819s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000689s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001021s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001326s ]
+
+[ 2016-04-20T11:18:18+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000670s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001135s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004400s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000495s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000969s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001189s ]
+
+[ 2016-04-20T11:19:52+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000451s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000919s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004238s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000467s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000567s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000731s ]
+
+[ 2016-04-20T11:20:51+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000882s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001476s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004825s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000527s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000966s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001233s ]
+
+[ 2016-04-20T11:23:24+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000755s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001457s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005031s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000477s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000677s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000853s ]
+
+[ 2016-04-20T11:24:06+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000519s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001092s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004961s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000457s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000550s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000718s ]
+
+[ 2016-04-20T11:26:31+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000766s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001376s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004302s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000531s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000714s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000884s ]
+
+[ 2016-04-20T11:26:56+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000511s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000987s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004870s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000991s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000602s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000764s ]
+
+[ 2016-04-20T11:28:31+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000429s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000873s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004290s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000467s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000565s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000729s ]
+
+[ 2016-04-20T11:29:29+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000736s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001413s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004266s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000465s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000682s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000861s ]
+
+[ 2016-04-20T11:31:40+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001091s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004729s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000542s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000685s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000866s ]
+
+[ 2016-04-20T11:32:48+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000599s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001217s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004652s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000557s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000752s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001020s ]
+
+[ 2016-04-20T11:34:34+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000709s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001368s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004892s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000514s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000985s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001308s ]
+
+[ 2016-04-20T11:34:55+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000467s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000872s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004747s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000568s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000527s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000709s ]
+
+[ 2016-04-20T11:38:23+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000549s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001016s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004593s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000531s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000691s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000875s ]
+
+[ 2016-04-20T11:39:07+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000831s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004275s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000512s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000538s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000683s ]
+
+[ 2016-04-20T11:46:52+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000690s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001287s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005134s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000560s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001074s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001436s ]
+
+[ 2016-04-20T11:49:39+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000516s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000970s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004470s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000472s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000591s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000736s ]
+
+[ 2016-04-20T11:51:29+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000799s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005035s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000460s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000528s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000669s ]
+
+[ 2016-04-20T11:53:23+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000518s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000951s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004773s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000508s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000682s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000876s ]
+
+[ 2016-04-20T11:53:54+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000385s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000845s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004182s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000471s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000585s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000727s ]
+
+[ 2016-04-20T11:55:53+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000520s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000934s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004541s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000499s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000605s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000762s ]
+
+[ 2016-04-20T11:56:53+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000492s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000976s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004238s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000491s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000498s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000639s ]
+
+[ 2016-04-20T11:57:58+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000501s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000920s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004199s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000511s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000925s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001143s ]
+
+[ 2016-04-20T11:58:57+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000385s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000797s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004455s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000456s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000495s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000640s ]
+
+[ 2016-04-20T11:59:24+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000462s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000920s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004345s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000514s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000569s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000764s ]
+
+[ 2016-04-20T12:00:31+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000493s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000968s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004396s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000683s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000609s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000786s ]
+
+[ 2016-04-20T12:01:12+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000407s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000830s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004341s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000507s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000536s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000679s ]
+
+[ 2016-04-20T12:01:34+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000390s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000869s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004064s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000522s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000612s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000783s ]
+
+[ 2016-04-20T12:02:05+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000466s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001089s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005304s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000544s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000739s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001023s ]
+
+[ 2016-04-20T12:02:15+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000480s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001143s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005316s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000630s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000795s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001070s ]
+
+[ 2016-04-20T12:02:59+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000494s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000935s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004577s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000463s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000940s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001163s ]
+
+[ 2016-04-20T12:03:23+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000507s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001097s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004205s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000458s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000557s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000701s ]
+
+[ 2016-04-20T13:36:02+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000507s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000973s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004791s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000561s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000724s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000880s ]
+
+[ 2016-04-20T13:36:44+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000640s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001344s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.040980s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000551s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000579s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000749s ]
+
+[ 2016-04-20T13:42:48+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000820s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001508s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004474s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000449s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000643s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000804s ]
+
+[ 2016-04-20T13:44:03+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005376s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000520s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000607s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000814s ]
+
+[ 2016-04-20T13:45:14+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000973s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004852s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000469s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000645s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000813s ]
+
+[ 2016-04-20T13:50:16+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000693s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001185s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005617s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000564s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000724s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000881s ]
+
+[ 2016-04-20T13:58:36+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000666s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001273s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005599s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000551s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000731s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001054s ]
+
+[ 2016-04-20T14:00:34+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000676s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001231s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006459s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000515s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000666s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000887s ]
+
+[ 2016-04-20T14:08:13+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000884s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002399s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006496s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000633s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000777s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001026s ]
+
+[ 2016-04-20T14:08:24+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000894s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001687s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005805s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000654s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000784s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000943s ]
+
+[ 2016-04-20T14:14:37+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000958s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001688s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004965s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000582s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001082s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001330s ]
+
+[ 2016-04-20T14:35:13+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000665s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001258s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006678s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.001244s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001806s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002002s ]
+
+[ 2016-04-20T14:35:27+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000708s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001219s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004643s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000583s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000897s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001044s ]
+
+[ 2016-04-20T14:37:25+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000693s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001250s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004294s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000559s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001514s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001754s ]
+
+[ 2016-04-20T14:43:24+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000732s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001239s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005291s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000703s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001971s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002603s ]
+
+[ 2016-04-20T14:43:48+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000923s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001576s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004700s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000518s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000906s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001069s ]
+
+[ 2016-04-20T14:45:57+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000726s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001302s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004324s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000489s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001147s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001333s ]
+
+[ 2016-04-20T14:46:18+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001107s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001954s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005327s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000531s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000944s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001137s ]
+
+[ 2016-04-20T14:46:56+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000815s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001395s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.007184s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000526s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000983s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001169s ]
+
+[ 2016-04-20T14:49:08+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000947s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001709s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004990s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000643s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000996s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001150s ]
+
+[ 2016-04-20T14:50:19+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000702s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001200s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004284s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000543s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001034s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001247s ]
+
+[ 2016-04-20T14:50:38+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000751s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001282s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004377s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000606s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001504s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001826s ]
+
+[ 2016-04-20T14:57:43+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000893s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001387s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004513s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000463s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000784s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000952s ]
+
+[ 2016-04-20T14:58:51+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000773s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001436s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005648s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000898s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001039s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001312s ]
+
+[ 2016-04-20T15:00:16+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000703s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001268s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005042s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000621s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000754s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000942s ]
+
+[ 2016-04-20T15:01:15+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000609s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001199s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004437s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000457s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000785s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000951s ]
+
+[ 2016-04-20T15:09:25+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001229s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001912s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005202s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000472s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001022s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001276s ]
+
+[ 2016-04-20T15:11:45+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000602s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001063s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004768s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000447s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000724s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000866s ]
+
+[ 2016-04-20T15:15:20+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000647s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001107s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005001s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000583s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000802s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000955s ]
+
+[ 2016-04-20T15:23:23+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000696s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001362s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004920s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000620s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000760s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000979s ]
+
+[ 2016-04-20T15:26:56+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001003s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001729s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006200s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000604s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001118s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001426s ]
+
+[ 2016-04-20T15:27:29+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000705s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001477s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005381s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000481s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000752s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000927s ]
+
+[ 2016-04-20T15:29:09+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000597s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001086s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005520s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000519s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000730s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000902s ]
+
+[ 2016-04-20T15:30:37+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000776s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001395s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005950s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000611s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001174s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001457s ]
+
+[ 2016-04-20T15:31:51+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000857s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001548s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003825s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005088s ]
+
+[ 2016-04-20T15:32:43+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001082s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001862s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005056s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000737s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001163s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001426s ]
+
+[ 2016-04-20T15:32:44+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000865s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001584s ]
+
+[ 2016-04-20T15:32:46+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000778s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001436s ]
+
+[ 2016-04-20T15:36:03+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000645s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001138s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000685s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000895s ]
+
+[ 2016-04-20T15:37:08+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000605s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001111s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004619s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000591s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000761s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000917s ]
+
+[ 2016-04-20T15:37:09+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000608s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001091s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000620s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000797s ]
+
+[ 2016-04-20T15:37:20+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000628s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001126s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000686s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000880s ]
+
+[ 2016-04-20T15:42:50+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001086s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001909s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005835s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000637s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000833s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001005s ]
+
+[ 2016-04-20T15:42:51+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000979s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001542s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000635s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000800s ]
+
+[ 2016-04-20T15:46:44+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000687s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001180s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000757s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000966s ]
+
+[ 2016-04-20T15:59:57+08:00 ] 192.168.1.134 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.008224s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.019564s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.007341s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000927s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001351s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001669s ]
+
+[ 2016-04-20T16:04:44+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000617s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001112s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004339s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000577s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000767s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000925s ]
+
+[ 2016-04-20T16:05:18+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000606s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001091s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004530s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000542s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000707s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000859s ]
+
+[ 2016-04-20T16:05:50+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000729s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001446s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005142s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000453s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000670s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000814s ]
+
+[ 2016-04-20T16:07:18+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000619s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001109s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004785s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000492s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000727s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000869s ]
+
+[ 2016-04-20T16:08:38+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000606s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001069s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004597s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000524s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000712s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000861s ]
+
+[ 2016-04-20T16:09:19+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000661s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001166s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005665s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000684s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000769s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000944s ]
+
+[ 2016-04-20T16:17:49+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000609s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001070s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004589s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000582s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000780s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000948s ]
+
+[ 2016-04-20T16:19:30+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001173s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004968s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000464s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001228s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001506s ]
+
+[ 2016-04-20T16:19:33+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000740s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001734s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001016s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001232s ]
+
+[ 2016-04-20T16:20:47+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001109s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001198s ]
+
+[ 2016-04-20T16:21:45+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000675s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001189s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005858s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000623s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000906s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001092s ]
+
+[ 2016-04-20T16:21:47+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000913s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001410s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001115s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001342s ]
+
+[ 2016-04-20T16:22:08+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000723s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001321s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005920s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000535s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001204s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001403s ]
+
+[ 2016-04-20T16:22:10+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001734s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002782s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001200s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001468s ]
+
+[ 2016-04-20T16:31:55+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000843s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001447s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005297s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000522s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000736s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000882s ]
+
+[ 2016-04-20T16:36:39+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000560s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000986s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005208s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000563s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000785s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000972s ]
+
+[ 2016-04-20T16:37:42+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000449s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000936s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004684s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000551s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000564s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000713s ]
+
+[ 2016-04-20T16:42:14+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000649s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001324s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004658s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000523s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000698s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000870s ]
+
+[ 2016-04-20T16:45:58+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000859s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001553s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000972s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001213s ]
+
+[ 2016-04-20T16:46:45+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000939s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001626s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001059s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001344s ]
+
+[ 2016-04-20T16:47:31+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000826s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001469s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000750s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000924s ]
+
+[ 2016-04-20T16:48:23+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000746s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001336s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001174s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001473s ]
+
+[ 2016-04-20T16:50:50+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000755s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001310s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005363s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000521s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001172s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001399s ]
+
+[ 2016-04-20T16:50:53+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000927s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001712s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000840s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001072s ]
+
+[ 2016-04-20T16:55:39+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000688s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001275s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005561s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000622s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000779s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001022s ]
+
+[ 2016-04-20T16:55:41+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000934s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001614s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001022s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001354s ]
+
+[ 2016-04-20T16:57:53+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000808s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001575s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004792s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000543s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000672s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000814s ]
+
+[ 2016-04-20T16:57:55+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001094s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000599s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000760s ]
+
+[ 2016-04-20T16:59:36+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000556s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001014s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004632s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000529s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000619s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000778s ]
+
+[ 2016-04-20T16:59:38+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001023s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000624s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001508s ]
+
+[ 2016-04-20T17:00:55+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001079s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004797s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000484s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000615s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000783s ]
+
+[ 2016-04-20T17:00:57+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000992s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001889s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000854s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001140s ]
+
+[ 2016-04-20T17:02:20+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001149s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004400s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000551s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000728s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000873s ]
+
+[ 2016-04-20T17:02:23+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000937s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000906s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001145s ]
+
+[ 2016-04-20T17:05:38+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000604s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001041s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004204s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000442s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000633s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000776s ]
+
+[ 2016-04-20T17:06:21+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001004s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004458s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000459s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000616s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000759s ]
+
+[ 2016-04-20T17:08:28+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001938s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003057s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006002s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000559s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000800s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000966s ]
+
+[ 2016-04-20T17:08:54+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000782s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001314s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004900s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000550s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000922s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001119s ]
+
+[ 2016-04-20T17:10:59+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001074s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004639s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000520s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000697s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000850s ]
+
+[ 2016-04-20T17:11:35+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000544s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001074s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004472s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000580s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000644s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000895s ]
+
+[ 2016-04-20T17:13:39+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000668s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001139s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004439s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000510s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000626s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000779s ]
+
+[ 2016-04-20T17:13:42+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000646s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001204s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000615s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000870s ]
+
+[ 2016-04-20T17:13:53+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001656s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004561s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000437s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000662s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000838s ]
+
+[ 2016-04-20T17:13:59+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001054s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000835s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004300s ]
+
+[ 2016-04-20T17:20:23+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000905s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001664s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004938s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000681s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000807s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001084s ]
+
+[ 2016-04-20T17:38:30+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001065s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002005s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005036s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000530s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000729s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000895s ]
+
+[ 2016-04-20T17:38:45+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000560s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001125s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005595s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000602s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000710s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000899s ]
+
+[ 2016-04-20T17:41:42+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000728s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001309s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004087s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000550s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000662s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000861s ]
+
+[ 2016-04-20T17:41:49+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000807s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001519s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004456s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000724s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000672s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000841s ]
+
+[ 2016-04-20T17:41:52+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000822s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001466s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000763s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001014s ]
+
+[ 2016-04-20T17:48:40+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000543s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000976s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004675s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000535s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000610s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000762s ]
+
+[ 2016-04-20T18:03:32+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000606s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001087s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004927s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000576s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000630s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000854s ]
+
+[ 2016-04-20T18:03:37+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000624s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001305s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001555s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001865s ]
+

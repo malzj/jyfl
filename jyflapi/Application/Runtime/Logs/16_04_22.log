@@ -1,0 +1,455 @@
+[ 2016-04-22T15:22:18+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001848s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002806s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.007311s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.001037s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001285s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001583s ]
+
+[ 2016-04-22T15:22:25+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000948s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001678s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006564s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-21/5718ae64229dc.jpg' WHERE ( user_id=1 ) [ RunTime:0.000624s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000665s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000868s ]
+
+[ 2016-04-22T15:22:27+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001076s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004759s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-21/5718ae64229dc.jpg' WHERE ( user_id=1 ) [ RunTime:0.000520s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000781s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001012s ]
+
+[ 2016-04-22T15:22:27+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000993s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001600s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005528s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-21/5718ae64229dc.jpg' WHERE ( user_id=1 ) [ RunTime:0.000409s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000567s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000719s ]
+
+[ 2016-04-22T15:22:27+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000784s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001463s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004330s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-21/5718ae64229dc.jpg' WHERE ( user_id=1 ) [ RunTime:0.000369s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000535s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000710s ]
+
+[ 2016-04-22T15:22:28+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000866s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001711s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004533s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-21/5718ae64229dc.jpg' WHERE ( user_id=1 ) [ RunTime:0.000376s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000574s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000726s ]
+
+[ 2016-04-22T15:22:28+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000622s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001084s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004940s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-21/5718ae64229dc.jpg' WHERE ( user_id=1 ) [ RunTime:0.000298s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000593s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000756s ]
+
+[ 2016-04-22T15:22:28+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000609s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001070s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005180s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-21/5718ae64229dc.jpg' WHERE ( user_id=1 ) [ RunTime:0.000383s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000621s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000774s ]
+
+[ 2016-04-22T15:22:28+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000551s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001101s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004845s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-21/5718ae64229dc.jpg' WHERE ( user_id=1 ) [ RunTime:0.000381s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000588s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000741s ]
+
+[ 2016-04-22T15:22:28+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000990s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001888s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004571s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-21/5718ae64229dc.jpg' WHERE ( user_id=1 ) [ RunTime:0.000401s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000529s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000675s ]
+
+[ 2016-04-22T15:22:28+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000924s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001690s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004717s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-21/5718ae64229dc.jpg' WHERE ( user_id=1 ) [ RunTime:0.000374s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000777s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001018s ]
+
+[ 2016-04-22T15:22:29+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000990s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001647s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.009558s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-21/5718ae64229dc.jpg' WHERE ( user_id=1 ) [ RunTime:0.000446s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000844s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001080s ]
+
+[ 2016-04-22T15:22:29+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000680s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001200s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005576s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-21/5718ae64229dc.jpg' WHERE ( user_id=1 ) [ RunTime:0.000423s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000837s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001122s ]
+
+[ 2016-04-22T15:22:34+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001233s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002500s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000840s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001163s ]
+
+[ 2016-04-22T15:22:35+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000943s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001614s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003794s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004148s ]
+
+[ 2016-04-22T15:22:35+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000653s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001286s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000515s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000692s ]
+
+[ 2016-04-22T15:22:35+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000557s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001028s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005808s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-22/5719d13b5df37.jpg' WHERE ( user_id=1 ) [ RunTime:0.000455s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000637s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000832s ]
+
+[ 2016-04-22T15:22:39+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000777s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001494s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005116s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000456s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000580s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000747s ]
+
+[ 2016-04-22T15:22:44+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000660s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001116s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005345s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='酒店,旅游,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-22/5719d13b5df37.jpg' WHERE ( user_id=1 ) [ RunTime:0.000412s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000535s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000690s ]
+
+[ 2016-04-22T15:22:47+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000792s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001402s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005073s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000528s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000732s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001002s ]
+
+[ 2016-04-22T15:22:52+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000626s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001204s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005421s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000490s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000568s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000744s ]
+
+[ 2016-04-22T15:22:58+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000619s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001045s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000738s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000988s ]
+
+[ 2016-04-22T15:22:59+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000895s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001613s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004648s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='单身',`xingqu`='酒店',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-22/5719d1527e568.jpg' WHERE ( user_id=1 ) [ RunTime:0.000384s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000531s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000682s ]
+
+[ 2016-04-22T15:23:03+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000548s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001027s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004909s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000508s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000598s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000771s ]
+
+[ 2016-04-22T15:23:12+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000633s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001246s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004985s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000560s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000543s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000699s ]
+
+[ 2016-04-22T15:23:18+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000909s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001741s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006048s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000614s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000639s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000818s ]
+
+[ 2016-04-22T16:01:41+08:00 ] 192.168.1.127 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000801s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001469s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005699s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000777s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001057s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001235s ]
+
+[ 2016-04-22T16:07:37+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000816s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001335s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005779s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000536s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000789s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000933s ]
+
+[ 2016-04-22T16:11:36+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001043s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004581s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000634s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000754s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001002s ]
+
+[ 2016-04-22T16:11:37+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000985s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004844s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000539s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000516s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000708s ]
+
+[ 2016-04-22T16:12:42+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001114s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001914s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004810s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000461s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000511s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000654s ]
+
+[ 2016-04-22T16:12:49+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000627s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001178s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005195s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='恋爱中',`xingqu`='酒店',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-22/5719d1527e568.jpg' WHERE ( user_id=1 ) [ RunTime:0.000566s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000605s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000747s ]
+
+[ 2016-04-22T16:12:54+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000644s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001119s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004436s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000490s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000543s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000686s ]
+
+[ 2016-04-22T16:13:32+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Upload/Upload/upload
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000562s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001046s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001194s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001702s ]
+
+[ 2016-04-22T16:13:34+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001054s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004968s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='恋爱中',`xingqu`='酒店',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-22/5719dd2c759ce.jpg' WHERE ( user_id=1 ) [ RunTime:0.000372s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000735s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000875s ]
+
+[ 2016-04-22T16:13:37+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000710s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001312s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004376s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000750s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000866s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001040s ]
+
+[ 2016-04-22T16:13:42+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001049s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005056s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=2,`birthday`='2015-12-01',`basic`='恋爱中',`xingqu`='美食,电影,酒店,',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-22/5719dd2c759ce.jpg' WHERE ( user_id=1 ) [ RunTime:0.000371s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000720s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000881s ]
+
+[ 2016-04-22T16:13:45+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000690s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001216s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004832s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000545s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000822s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000993s ]
+
+[ 2016-04-22T16:13:50+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userUpdate
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001223s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004824s ]
+SQL: UPDATE `ecs_users` SET `nickname`='你发',`sex`=1,`birthday`='2015-12-01',`basic`='恋爱中',`xingqu`='美食',`pic`='http://192.168.1.134/jyflapi/Uploads/2016-04-22/5719dd2c759ce.jpg' WHERE ( user_id=1 ) [ RunTime:0.000358s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000733s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000874s ]
+
+[ 2016-04-22T16:13:53+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000598s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001005s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004966s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000469s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000743s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000889s ]
+
+[ 2016-04-22T16:15:02+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000715s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001272s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005488s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000689s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000902s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001157s ]
+
+[ 2016-04-22T16:16:58+08:00 ] 192.168.1.138 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000627s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001164s ]
+NOTIC: [8] Undefined index: user_id F:\wamp\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 24 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wamp\wamp\www\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006156s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = %d ) LIMIT 1   [ RunTime:0.049569s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%d ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `ecs_users` WHERE ( user_id = %d ) LIMIT 1  
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000856s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001086s ]
+

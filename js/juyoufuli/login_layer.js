@@ -1,17 +1,27 @@
 var data_url ="http://192.168.1.161/jyflapi/";
 $(function(){
 $('#saf').on('click',function(){
-    layer.open({
-        type: 1,
-        title:false,
-        area:'570px',
-        shadeClose: false, //点击遮罩关闭
-        content:'<div class="saf"><h3>安全中心</h3><table class="table"><tr class="tr_1"><td><span></span>登录密码</td><td class="td_2">未设置</td><td class="td_3">设置登陆密码，降低盗号风险；</td><td class="td_4">立即设置</td></tr><tr class="tr_2"><td><span></span>手机号</td><td class="td_2">未设置</td><td class="td_3">绑定手机，可直接使用手机号登陆；</td><td class="td_4">立即设置</td></tr><tr class="tr_3"><td><span></span>安全问题</td><td class="td_2">未设置</td><td class="td_3">保护账户安全，验证您身份的工具之一；</td><td class="td_4">立即设置</td></tr></table></div>'
-    });
-    //var user_id=$('#user_id');
-    //var data=userShow(user_id);
-    
+	showSafeCenter();
 });
+	/**
+	 * 安全中心渲染
+	 * @author zhaoyingchao
+	 */
+	function showSafeCenter(){
+		var user_id=$('#user_id').val();
+		var data=showSafe(user_id);
+		if(data.result == "true"){
+			layer.open({
+				type: 1,
+				title:false,
+				area:'570px',
+				shadeClose: false, //点击遮罩关闭
+				content:'<div class="saf"><h3>安全中心</h3><table class="table"><tr class="tr_1"><td><span></span>登录密码</td><td class="td_2">'+data.password.msg+'</td><td class="td_3">设置登陆密码，降低盗号风险；</td><td class="td_4">立即设置</td></tr><tr class="tr_2"><td><span></span>手机号</td><td class="td_2">'+data.phone.msg+'</td><td class="td_3">绑定手机，可直接使用手机号登陆；</td><td class="td_4">立即设置</td></tr><tr class="tr_3"><td><span></span>安全问题</td><td class="td_2">'+data.answer.msg+'</td><td class="td_3">保护账户安全，验证您身份的工具之一；</td><td class="td_4">立即设置</td></tr></table></div>'
+			});
+		}else{
+			layer.msg("获取数据失败，请重试！");
+		}
+	}
 // $('#shouhuo').on('click',function(){
 //     layer.open({
 //         type: 1,
@@ -69,15 +79,108 @@ $(document).delegate('.btn_all .btn_2','click',function(){
 	$('.layui-layer-content').html('<div class="log"><h3>充值记录</h3><table class="table"><thead><tr><td>操作时间</td><td>类型</td><td>金额</td><td>会员备注</td><td>管理员备注</td><td>状态</td><td>操作</td></tr></thead><tbody><tr></tr></tbody></table></div>');
 });
 $(document).delegate('.tr_1 .td_4','click',function(){
-	$('.layui-layer-content').html('<div class="set"><h3>设置密码</h3><div class="form-group ps"><form name="form1" method="post" action="" id="form1" style="overflow:hidden"><div class="ywz_zhucexiaobo"><div class="ywz_zhuce_youjian">密码：</div><div class="ywz_zhuce_xiaoxiaobao"><div class="ywz_zhuce_kuangzi"><input name="tbPassword" type="password" id="tbPassword" class="ywz_zhuce_kuangwenzi1"></div><div class="ywz_zhuce_huixian" id="pwdLevel_1"></div><div class="ywz_zhuce_huixian" id="pwdLevel_2"></div><div class="ywz_zhuce_huixian" id="pwdLevel_3"></div><span class="ywz_zhuce_hongxianwenzi">弱</span> <span class="ywz_zhuce_hongxianwenzi">中</span> <span class="ywz_zhuce_hongxianwenzi">强</span></div></div></form></div><div class="form-group ps"><label style="margin-left:-20px">确认密码：</label><span class="password"><input style="width:200px" type="password"></span></div><div class="set_btn"><button>确定</button><button>取消</button></div></div>')
+	$('.layui-layer-content').html(
+		'<div class="set"><h3>设置密码</h3>' +
+		'<div class="form-group ps">' +
+		'<div class="ywz_zhucexiaobo">' +
+		'<div class="ywz_zhuce_youjian">旧密码：</div>' +
+		'<div class="ywz_zhuce_xiaoxiaobao">' +
+		'<div class="ywz_zhuce_kuangzi">' +
+		'<input name="oldPassword" type="password" id="old_password" class="ywz_zhuce_kuangwenzi1">' +
+		'</div>' +
+		'</div>' +
+		'</div>' +
+		'</div>' +
+		'<div class="form-group ps">' +
+		'<div class="ywz_zhucexiaobo">' +
+		'<div class="ywz_zhuce_youjian">新密码：</div>' +
+		'<div class="ywz_zhuce_xiaoxiaobao">' +
+		'<div class="ywz_zhuce_kuangzi">' +
+		'<input name="tbPassword" type="password" id="tbPassword" class="ywz_zhuce_kuangwenzi1">' +
+		'</div>' +
+		'<div class="ywz_zhuce_huixian" id="pwdLevel_1"></div>' +
+		'<div class="ywz_zhuce_huixian" id="pwdLevel_2"></div>' +
+		'<div class="ywz_zhuce_huixian" id="pwdLevel_3"></div>' +
+		'<span class="ywz_zhuce_hongxianwenzi">弱</span>' +
+		' <span class="ywz_zhuce_hongxianwenzi">中</span> ' +
+		'<span class="ywz_zhuce_hongxianwenzi">强</span>' +
+		'</div>' +
+		'</div>' +
+		'</div>' +
+		'<div class="form-group ps">' +
+		'<label style="margin-left:-20px">确认密码：</label>' +
+		'<span class="password"><input style="width:200px" id="con_password" type="password"></span>' +
+		'</div>' +
+		'<div class="set_btn"><button class="edit_password">确定</button><button>取消</button></div></div>'
+	)
 });
-$(document).delegate('.tr_2 .td_4','click',function(){
-	$('.layui-layer-content').html('<div class="tel"><h3>绑定手机号</h3><div class="form-group"><label>手机号：</label><input type="text"><div class="ach"><input onclick="settime(this)" value="获取验证码"></div></div><div class="form-group"><label>动态码：</label><input type="text"></div><div class="btn_tel"><button class="btn_bound">绑定</button> <button class="btn_cancel">取消</button></div></div>');
+	/**
+	 * 修改密码确定
+	 * @author zhaoyingchao
+	 */
+	$(document).delegate('.set .set_btn .edit_password','click',function(){
+		var user_id = $("#user_id").val();
+		var old_password = $('#old_password').val();
+		var new_password = $('#tbPassword').val();
+		var con_password = $('#con_password').val();
+		// alert(user_id+'-'+old_password+'-'+new_password+'-'+con_password);
+		var data = userLoginPass(user_id,old_password,new_password,con_password);
+		if(data.result == "true"){
+			layer.msg(data.msg);
+		}else if(data.result == "false"){
+			layer.msg(data.msg);
+		}
+	});
+    $(document).delegate('.tr_2 .td_4','click',function(){
+	$('.layui-layer-content').html('<div class="tel"><h3>绑定手机号</h3><div class="form-group"><label>手机号：</label><input id="tel" type="text"><div class="ach"><input id="getverification" value="获取验证码"></div></div><div class="form-group"><label>动态码：</label><input id="captcha" type="text"></div><div class="btn_tel"><button class="btn_bound">绑定</button> <button class="btn_cancel">取消</button></div></div>');
 });
-$(document).delegate('.tr_3 .td_4','click',function(){
-	$('.layui-layer-content').html('<div class="question"><h3>绑定手机号</h3><div class="form-group"><div><label>问题一：</label><select><option value="">你第一次坐飞机去哪里</option></select></div><div><label>答案：</label><input type="text"></div></div><div class="form-group"><div><label>问题一：</label><select><option value="">你第一次坐飞机去哪里</option></select></div><div><label>答案：</label><input type="text"></div></div><div class="form-group"><div><label>问题一：</label><select><option value="">你第一次坐飞机去哪里</option></select></div><div><label>答案：</label><input type="text"></div></div><div class="btn_question"><button class="yes">确认提交</button> <button class="no">返回安全中心</button></div></div>');
+	/**
+	 * 获取验证码
+	 * @author zhaoyingchao
+	 */
+	$(document).delegate('#getverification','click',function(){
+		var user_id = $('#user_id').val();
+		var tel = $('#tel').val();
+		alert(user_id+'-'+tel);
+		settime(this);
+		var data = getverification(user_id,tel);
+	});
+	/**
+	 * 绑定手机
+	 * @author zhaoyingchao
+	 */
+	$(document).delegate('.btn_tel .btn_bound','click',function(){
+		var user_id = $('#user_id').val();
+		var tel = $('#tel').val();
+		var captcha = $('#captcha').val();
+		boundPhone(user_id,tel,captcha);
+	});
+	/**
+	 * 绑定手机取消
+	 * @author zhaoyingchao
+	 */
+	$(document).delegate('.btn_tel .btn_cancel','click',function(){
+		layer.closeAll();
+		showSafeCenter();
+	});
+	/**
+	 * 安全问题页面渲染
+	 */
+	$(document).delegate('.tr_3 .td_4','click',function(){
+		var user_id = $('#user_id').val();
+		showQuestionAnswer(user_id);
 });
-
+	/**
+	 * 安全问题提交
+	 * @author zhaoyingchao
+	 */
+	$(document).delegate('.btn_question .yes','click',function(){
+		var user_id = $('#user_id').val();
+		var answerone = $('#answerone').val();
+		var answertwo = $('#answertwo').val();
+		var answerthree = $('#answerthree').val();
+		editLoginQues(user_id,answerone,answertwo,answerthree);
+	});
 //单选按钮点击样式
 			$(document).delegate('.radio_img','click',function(){
 				  $(this).addClass("on").siblings().removeClass("on");
@@ -92,15 +195,14 @@ $(document).delegate('.radio_img1','click',function(){
 				})
 
 $(document).delegate('.set_btn .no','click',function(){
-				$('.layui-layer-content').html('<div class="saf"><h3>安全中心</h3><table class="table"><tr class="tr_1"><td><span></span>登录密码</td><td class="td_2">未设置</td><td class="td_3">设置登陆密码，降低盗号风险；</td><td class="td_4">立即设置</td></tr><tr class="tr_2"><td><span></span>手机号</td><td class="td_2">未设置</td><td class="td_3">绑定手机，可直接使用手机号登陆；</td><td class="td_4">立即设置</td></tr><tr class="tr_3"><td><span></span>安全问题</td><td class="td_2">未设置</td><td class="td_3">保护账户安全，验证您身份的工具之一；</td><td class="td_4">立即设置</td></tr></table></div>')
-				})
-$(document).delegate('.btn_tel .btn_cancel','click',function(){
-				$('.layui-layer-content').html('<div class="saf"><h3>安全中心</h3><table class="table"><tr class="tr_1"><td><span></span>登录密码</td><td class="td_2">未设置</td><td class="td_3">设置登陆密码，降低盗号风险；</td><td class="td_4">立即设置</td></tr><tr class="tr_2"><td><span></span>手机号</td><td class="td_2">未设置</td><td class="td_3">绑定手机，可直接使用手机号登陆；</td><td class="td_4">立即设置</td></tr><tr class="tr_3"><td><span></span>安全问题</td><td class="td_2">未设置</td><td class="td_3">保护账户安全，验证您身份的工具之一；</td><td class="td_4">立即设置</td></tr></table></div>')
-				})
+	layer.closeAll();
+	showSafeCenter();
+})
 //返回安全中心
 $(document).delegate('.btn_question .no','click',function(){
-				$('.layui-layer-content').html('<div class="saf"><h3>安全中心</h3><table class="table"><tr class="tr_1"><td><span></span>登录密码</td><td class="td_2">未设置</td><td class="td_3">设置登陆密码，降低盗号风险；</td><td class="td_4">立即设置</td></tr><tr class="tr_2"><td><span></span>手机号</td><td class="td_2">未设置</td><td class="td_3">绑定手机，可直接使用手机号登陆；</td><td class="td_4">立即设置</td></tr><tr class="tr_3"><td><span></span>安全问题</td><td class="td_2">未设置</td><td class="td_3">保护账户安全，验证您身份的工具之一；</td><td class="td_4">立即设置</td></tr></table></div>')
-				})
+	layer.closeAll();
+	showSafeCenter();
+})
 //添加地址保存
 $(document).on('click','.set_add_btn .yes',function(){
 	addAddress();
@@ -248,12 +350,12 @@ $('#tbPassword').focus(function () {
 	var countdown=120; 
 function settime(obj) { 
     if (countdown == 0) { 
-        obj.removeAttribute("disabled");    
+        obj.removeAttribute("disabled");
         obj.value="获取验证码"; 
         countdown = 120; 
         return;
     } else { 
-        obj.setAttribute("disabled", true); 
+        obj.setAttribute("disabled", true);
         obj.value="重新发送(" + countdown + ")"; 
         countdown--; 
     } 

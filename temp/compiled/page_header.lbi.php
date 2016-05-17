@@ -10,5 +10,5 @@
         <li class="exit">【<a href="user.php?act=logout" style="color:#fff;">退出</a>】</li>
         </ul>
     </ul>
-    <div class="bg"></div>			
+    <div class="bg_top"></div>			
 </div>

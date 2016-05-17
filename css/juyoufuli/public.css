@@ -26,7 +26,7 @@ table tr td{vertical-align: middle;}
 a:focus{outline: none;}
 .font-16{font-size: 16px;}
 .ver_bottom{vertical-align: bottom;}
-.bg{
+.bg_top{
     position: absolute;
     top: 0;
     left: 0;
@@ -2129,25 +2129,25 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .sport_all{overflow: hidden;width: 80%;margin: 50px auto;}
 .sport_item_content{width: 150px;margin: 0 auto;}
 .sport_pic{width: 95px;height: 95px;margin: 0 auto;}
-.pic_1{background: url(../images/img_login/sport_cg_icon.png) no-repeat 2px 0px;transition: background .5s linear;}
+.pic_1{background: url(/images/juyoufuli/img_login/sport_cg_icon.png) no-repeat 2px 0px;transition: background .5s linear;}
 .sport_item_content:hover .pic_1{background-position: 2px -127px;}
-.pic_2{background: url(../images/img_login/sport_cg_icon.png) no-repeat -157px 0px;transition: background .5s linear;}
+.pic_2{background: url(/images/juyoufuli/img_login/sport_cg_icon.png) no-repeat -157px 0px;transition: background .5s linear;}
 .sport_item_content:hover .pic_2{background-position: -157px -128px;}
-.pic_3{background: url(../images/img_login/sport_cg_icon.png) no-repeat -318px 0px;transition: background .5s linear;}
+.pic_3{background: url(/images/juyoufuli/img_login/sport_cg_icon.png) no-repeat -318px 0px;transition: background .5s linear;}
 .sport_item_content:hover .pic_3{background-position:-318px -127px;}
-.pic_4{background: url(../images/img_login/sport_cg_icon.png) no-repeat -478px 0px;transition: background .5s linear;}
+.pic_4{background: url(/images/juyoufuli/img_login/sport_cg_icon.png) no-repeat -478px 0px;transition: background .5s linear;}
 .sport_item_content:hover .pic_4{background-position: -478px -127px;}
-.pic_5{background: url(../images/img_login/sport_cg_icon.png) no-repeat -638px 0px;transition: background .5s linear;}
+.pic_5{background: url(/images/juyoufuli/img_login/sport_cg_icon.png) no-repeat -638px 0px;transition: background .5s linear;}
 .sport_item_content:hover .pic_5{background-position:-638px -127px;}
-.pic_6{background: url(../images/img_login/sport_cg_icon.png) no-repeat 2px -312px;transition: background .5s linear;}
+.pic_6{background: url(/images/juyoufuli/img_login/sport_cg_icon.png) no-repeat 2px -312px;transition: background .5s linear;}
 .sport_item_content:hover .pic_6{background-position: 2px -442px;}
-.pic_7{background: url(../images/img_login/sport_cg_icon.png) no-repeat -157px -312px;transition: background .5s linear;}
+.pic_7{background: url(/images/juyoufuli/img_login/sport_cg_icon.png) no-repeat -157px -312px;transition: background .5s linear;}
 .sport_item_content:hover .pic_7{background-position: -157px -442px;}
-.pic_8{background: url(../images/img_login/sport_cg_icon.png) no-repeat -318px -313px;transition: background .5s linear;}
+.pic_8{background: url(/images/juyoufuli/img_login/sport_cg_icon.png) no-repeat -318px -313px;transition: background .5s linear;}
 .sport_item_content:hover .pic_8{background-position:-318px -442px;}
-.pic_9{background: url(../images/img_login/sport_cg_icon.png) no-repeat -478px -313px;transition: background .5s linear;}
+.pic_9{background: url(/images/juyoufuli/img_login/sport_cg_icon.png) no-repeat -478px -313px;transition: background .5s linear;}
 .sport_item_content:hover .pic_9{background-position:-478px -442px;}
-.pic_10{background: url(../images/img_login/sport_cg_icon.png) no-repeat -638px -313px;transition: background .5s linear;}
+.pic_10{background: url(/images/juyoufuli/img_login/sport_cg_icon.png) no-repeat -638px -313px;transition: background .5s linear;}
 .sport_item_content:hover .pic_10{background-position:-638px -442px;}
 .sport_title1{margin-bottom: 5px;text-align: center;font-size: 15px;color:#000000;}
 .sport_title2{margin-bottom: 5px;text-align: center;color: #ccc;font-size: 12px;}

@@ -330,9 +330,9 @@ function showQuestionAnswer(user_id){
 		dataType:"json",
 		success:function(data){
 			if(data.result == "true"){
-				$('.layui-layer-content').html('<div class="question"><h3>安全问题</h3><div class="form-group"><div><label>问题一：</label><select><option value="">您的姓名是？</option></select></div><div><label>答案：</label><input id="answerone" type="text" value="'+data.answerone+'"></div></div><div class="form-group"><div><label>问题二：</label><select><option value="">您的年龄是？</option></select></div><div><label>答案：</label><input id="answertwo" type="text" value="'+data.answertwo+'"></div></div><div class="form-group"><div><label>问题三：</label><select><option value="">您的身高是？</option></select></div><div><label>答案：</label><input id="answerthree" type="text" value="'+data.answerthree+'"></div></div><div class="btn_question"><button class="yes">确认提交</button> <button class="no">返回安全中心</button></div></div>');
+				$('.layui-layer-content').html('<div class="question"><h3>安全问题</h3><div class="form-group"><div><label>问题一：</label><span>您的姓名是？</span></div><div><label>答案：</label><input id="answerone" type="text" value="'+data.answerone+'"></div></div><div class="form-group"><div><label>问题二：</label><span>您的年龄是？</span></div><div><label>答案：</label><input id="answertwo" type="text" value="'+data.answertwo+'"></div></div><div class="form-group"><div><label>问题三：</label><span>您的身高是？</span></div><div><label>答案：</label><input id="answerthree" type="text" value="'+data.answerthree+'"></div></div><div class="btn_question"><button class="yes">确认提交</button> <button class="no">返回安全中心</button></div></div>');
 			}else{
-				$('.layui-layer-content').html('<div class="question"><h3>安全问题</h3><div class="form-group"><div><label>问题一：</label><select><option value="">您的姓名是？</option></select></div><div><label>答案：</label><input id="answerone" type="text"></div></div><div class="form-group"><div><label>问题二：</label><select><option value="">您的年龄是？</option></select></div><div><label>答案：</label><input id="answertwo" type="text"></div></div><div class="form-group"><div><label>问题三：</label><select><option value="">您的身高是？</option></select></div><div><label>答案：</label><input id="answerthree" type="text"></div></div><div class="btn_question"><button class="yes">确认提交</button> <button class="no">返回安全中心</button></div></div>');
+				$('.layui-layer-content').html('<div class="question"><h3>安全问题</h3><div class="form-group"><div><label>问题一：</label><span>您的姓名是？</span></div><div><label>答案：</label><input id="answerone" type="text"></div></div><div class="form-group"><div><label>问题二：</label><span>您的年龄是？</span></div><div><label>答案：</label><input id="answertwo" type="text"></div></div><div class="form-group"><div><label>问题三：</label><span>您的身高是？</span></div><div><label>答案：</label><input id="answerthree" type="text"></div></div><div class="btn_question"><button class="yes">确认提交</button> <button class="no">返回安全中心</button></div></div>');
 			}
 
 		}
@@ -724,7 +724,6 @@ function delAddress(data){
 		data:{user_id:user_id,address_id:address_id},
 		dataType:"json",
 		success:function(data){
-			
 			if(data.result=='true'){
 				var html = getAddressHtml();
 				$('.layui-layer-content').html('<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');

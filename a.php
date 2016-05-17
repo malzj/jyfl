@@ -9,6 +9,7 @@
  *  
  * @var unknown
  */
+ echo 123132;
 phpinfo(); exit;
 define('IN_ECS', true);
 

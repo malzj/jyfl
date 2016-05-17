@@ -240,7 +240,7 @@ function initVenues( &$data, $push)
 function initDUData( $data=array(), $ids=array(), $col)
 {
     $return = array();
-    if (!empty($dorpData))
+    if (!empty($ids))
     {
         $return = $data;
     }

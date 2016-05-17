@@ -12,7 +12,7 @@ if ((DEBUG_MODE & 2) != 2)
 
 assign_template();
 
-$customRatio = get_card_rule_ratio(10003);
+$customRatio = 1; //get_card_rule_ratio(10003);
 
 $venueId = isset($_REQUEST['venueId']) ? intval($_REQUEST['venueId']) : 0 ;
 $infoId = isset($_REQUEST['infoId']) ? intval($_REQUEST['infoId']) : 0 ;
@@ -159,6 +159,9 @@ if ($venue['code'] == 0)
     
     $width = count($timeList)*51+$width;
 }
+
+
+
 // 效验吗
 $secret = mt_rand().$venueId.$infoId;
 $smarty->assign('secret', $secret);

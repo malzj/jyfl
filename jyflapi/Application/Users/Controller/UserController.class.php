@@ -132,23 +132,45 @@ class UserController extends Controller
      */
 
     public function userLoginPass(){
-        $cardPay = new Huayingcard();
-        $id = $_POST['user_id'];
-        $password = $_POST['tbPassword'];
-        $old_password = $_POST['oldPassword'];
-        $rudata = array();
-        $Dao = M("users");
-        $result = $Dao->where("user_id=".$id)->find();
-        
+      $cardPay = new Huayingcard();
+      $id = $_POST['user_id'];
+      $old_password = $_POST['old_password'];
+      $password = $_POST['new_password'];
+      $con_password = $_POST['con_assword'];
+
+//      $id = 1;
+//      $old_password = 123456;
+//      $password = 444444;
+//      $con_password = 444444;
+
+      $rudata = array();
+      $Dao = M("users");
+      $result = $Dao->where("user_id=".$id)->find();
+
+      if($password == $con_password){
         if(strlen($password) < 6){
           $rudata['result'] = "false";
-          $rudata['msg'] = "失败";
+          $rudata['msg'] = "密码不能小于6位！";
         } else {
-          $arr_param = array( 'CardInfo' =>array('CardNo'=>$result['user_name'], "CardPwd"=>$old_password));
-          $state = $cardPay->action($arr_param, 8);
+          $arr_param = array( 'CardInfo' =>array('CardNo'=>$result['user_name'], "CardPwd"=>$old_password,'CardNewPwd'=>$password));
 
-          // var_dump($state);
-        } 
+          $state = $cardPay->action($arr_param, 2);
+
+          if($state == 1){
+            $rudata['result'] = "true";
+            $rudata['msg'] = "密码修改成功！";
+          }else{
+            $rudata['result'] = "false";
+            $rudata['msg'] = "密码修改失败！";
+          }
+        }
+      }else{
+        $rudata['result'] = "false";
+        $rudata['msg'] = "新密码与确认密码不匹配！";
+      }
+
+      $jsondData = json_encode($id);
+      echo $jsondData;
     }
 
 
@@ -200,7 +222,7 @@ class UserController extends Controller
       if($captcha == $result['verify'] && time()-$result['verifytime'] < 1800){
         $data['mobile_phone'] = $telphone;
         if($Dao->create($data)){
-          $result = $Dao->where("user_id=".$id)->save();
+          $Dao->where("user_id=".$id)->save();
           $rudata['result'] = "true";
           $rudata['msg'] = "成功";
         }else{
@@ -237,9 +259,9 @@ class UserController extends Controller
      */
     public function editLoginQues(){
       $id = $_REQUEST['user_id'];
-      $one_answer = $_REQUEST['one_answer'];
-      $two_answer = $_REQUEST['two_answer'];
-      $three_answer = $_REQUEST['three_answer'];
+      $one_answer = $_REQUEST['answerone'];
+      $two_answer = $_REQUEST['answertwo'];
+      $three_answer = $_REQUEST['answerthree'];
       $Dao = M("users");
       $data['answerone'] = $one_answer;
       $data['answertwo'] = $two_answer;
@@ -248,14 +270,14 @@ class UserController extends Controller
       if($Dao->create($data)){
         if($Dao->where("user_id=".$id)->save() !== false){
           $rudata['result'] = "true";
-          $rudata['msg'] = "成功";
+          $rudata['msg'] = "修改安全问题成功！";
         }else{
           $rudata['result'] = "false";
-          $rudata['msg'] = "失败";
+          $rudata['msg'] = "修改安全问题失败！";
         }
       }else{
         $rudata['result'] = "false";
-        $rudata['msg'] = "失败";
+        $rudata['msg'] = "修改安全问题失败！";
       }
 
       $jsondData = json_encode($rudata);

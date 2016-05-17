@@ -1,4 +1,5 @@
 var api_url ="http://192.168.1.161/jyflapi/";
+// var api_url ="http://hy.com/jyflapi/";
 function userShow(data){
 	var user_id = data;
 	var rudata ="";
@@ -198,6 +199,180 @@ function userSave(){
 	},
 	});
 };
+
+/**
+ * 安全设置的状态
+ * function showSafe
+ *
+ * @param int user_id 用户id
+ * @return array result
+ */
+function showSafe(user_id){
+	var url =api_url+"index.php/Users/User/showSafe";
+	var result = new Array();
+	$.ajax({
+		type:"post",
+		url:url,
+		async:false,
+		data:{user_id:user_id},
+		dataType:"json",
+		success:function(data){
+			result = data;
+		}
+	});
+	return result;
+}
+
+/**
+ * 修改登录密码
+ * @author zhaoyingchao
+ * 
+ * @param user_id  用户id
+ * @param old_password	旧密码
+ * @param new_password	新密码
+ * @param con_password  确认密码
+ */
+function userLoginPass(user_id,old_password,new_password,con_password){
+	var url = api_url+'index.php/Users/User/userLoginPass';
+	var result = new Array();
+	// alert(userid+'-'+oldpassword+'-'+newpassword+'-'+conpassword);
+	$.ajax({
+		type:"post",
+		url:url,
+		data:{
+			user_id:user_id,
+			old_password:old_password,
+			new_password:new_password,
+			con_password:con_password
+		},
+		dataType:"json",
+		success:function(data){
+			result = data;
+		},
+	});
+}
+
+/**
+ * 获取验证码
+ * @author zhaoyingchao
+ *
+ * @param user_id	用户id
+ * @param tel		电话号码
+ */
+function getverification(user_id,tel){
+	var url = api_url+'index.php/Users/User/smsvrerifyJs';
+	var result = new Array();
+	$.ajax({
+		type:"post",
+		url:url,
+		data:{
+			user_id:user_id,
+			tel:tel,
+		},
+		dataType:"json",
+		success:function (data) {
+			result = data;
+		}
+	});
+	return result;
+}
+
+/**
+ * 绑定手机
+ * @author zhaoyingchao
+ *
+ * @param user_id		用户id
+ * @param dynamic_code	动态码
+ */
+function boundPhone(user_id,tel,captcha){
+	var url = api_url+'index.php/Users/User/editphone';
+	// var result = new Array();
+	$.ajax({
+		type:"post",
+		url:url,
+		data:{
+			user_id:user_id,
+			tel:tel,
+			captcha:captcha,
+		},
+		dataType:"json",
+		success:function(data){
+			// result = data;
+			// console.log(result);
+			if(data.result == "true"){
+				layer.closeAll();
+				// showSafeCenter();
+				layer.msg("手机绑定成功！");
+			}else{
+				layer.closeAll();
+				// showSafeCenter();
+				layer.msg("手机绑定失败！");
+			}
+
+		}
+	});
+}
+
+/**
+ * 显示安全问题答案
+ * @author zhaoyingchao
+ *
+ * @param user_id	用户id
+ */
+function showQuestionAnswer(user_id){
+	var url = api_url+'index.php/Users/User/saveLoginQues';
+	$.ajax({
+		type:"post",
+		url:url,
+		data:{
+			user_id:user_id,
+		},
+		dataType:"json",
+		success:function(data){
+			if(data.result == "true"){
+				$('.layui-layer-content').html('<div class="question"><h3>安全问题</h3><div class="form-group"><div><label>问题一：</label><select><option value="">您的姓名是？</option></select></div><div><label>答案：</label><input id="answerone" type="text" value="'+data.answerone+'"></div></div><div class="form-group"><div><label>问题二：</label><select><option value="">您的年龄是？</option></select></div><div><label>答案：</label><input id="answertwo" type="text" value="'+data.answertwo+'"></div></div><div class="form-group"><div><label>问题三：</label><select><option value="">您的身高是？</option></select></div><div><label>答案：</label><input id="answerthree" type="text" value="'+data.answerthree+'"></div></div><div class="btn_question"><button class="yes">确认提交</button> <button class="no">返回安全中心</button></div></div>');
+			}else{
+				$('.layui-layer-content').html('<div class="question"><h3>安全问题</h3><div class="form-group"><div><label>问题一：</label><select><option value="">您的姓名是？</option></select></div><div><label>答案：</label><input id="answerone" type="text"></div></div><div class="form-group"><div><label>问题二：</label><select><option value="">您的年龄是？</option></select></div><div><label>答案：</label><input id="answertwo" type="text"></div></div><div class="form-group"><div><label>问题三：</label><select><option value="">您的身高是？</option></select></div><div><label>答案：</label><input id="answerthree" type="text"></div></div><div class="btn_question"><button class="yes">确认提交</button> <button class="no">返回安全中心</button></div></div>');
+			}
+
+		}
+	});
+}
+
+
+/**
+ * 编辑安全问题
+ * @author zhaoyingchao
+ *
+ * @param user_id		用户id
+ * @param answerone		问题一
+ * @param answertwo		问题二
+ * @param answerthree	问题三
+ */
+function editLoginQues(user_id,answerone,answertwo,answerthree){
+	var url = api_url+'index.php/Users/User/editLoginQues';
+	$.ajax({
+		type:"post",
+		url:url,
+		data:{
+			user_id:user_id,
+			answerone:answerone,
+			answertwo:answertwo,
+			answerthree:answerthree,
+		},
+		dataType:"json",
+		success:function(data){
+			if(data.result == "true"){
+				layer.closeAll();
+				layer.msg(data.msg);
+			}else{
+				layer.closeAll();
+				layer.msg(data.msg);
+			}
+		}
+	});
+}
+
 function showAddress(){
 		var url ="http://192.168.1.161/jyflapi/index.php?s=Users/User/showAddress";
 		var user_id = $('#user_id').val();
@@ -229,7 +404,7 @@ function showAddress(){
         content:'<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+htmlshouhuolist+'</tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>'
     });
 	return index;
-	};
+	}
 
 /*
  获取地址列表

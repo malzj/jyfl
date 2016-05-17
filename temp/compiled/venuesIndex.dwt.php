@@ -6,11 +6,14 @@
 		<title></title>
 		<script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/jquery.min.js"></script>
 		<script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+        
 	</head>
 	<body>
         
         <?php echo $this->fetch('library/page_top.lbi'); ?>
         
+        
+        <style> .sport_item_content{width:200px;}</style>
         
         <div class="newsimg">
 			<div class="fullSlide">
@@ -42,14 +45,7 @@
 							<div class="tempWrap">
 							<ul class="infoList">
 								<li><a href="#" target="_blank">欧美惊悚喜剧《夜莺别墅的死神》—北京站</a></li>
-								<li><a href="#" target="_blank">欧美惊悚喜剧《夜莺别墅的死神》—北京站</a></li>
-								<li><a href="#" target="_blank">欧美惊悚喜剧《夜莺别墅的死神》—北京站！</a></li>
-								<li><a href="#" target="_blank">欧美惊悚喜剧《夜莺别墅的死神》—北京站</a></li>
-								<li><a href="#" target="_blank">欧美惊悚喜剧《夜莺别墅的死神》—北京站</a></li>
-								<li><a href="#" target="_blank">欧美惊悚喜剧《夜莺别墅的死神》—北京站</a></li>
-								<li><a href="#" target="_blank">欧美惊悚喜剧《夜莺别墅的死神》—北京站</a></li>
-								<li><a href="#" target="_blank">欧美惊悚喜剧《夜莺别墅的死神》—北京站</a></li>
-								<li><a href="#" target="_blank">欧美惊悚喜剧《夜莺别墅的死神》—北京站</a></li>
+								
 							</ul>
 							</div>
 						</div>
@@ -68,10 +64,11 @@
                     <div class="sport_item_content">
                         <a href="#">
                             <div class="sport_pic pic_1"></div>
-                            <div class="sport_title1">羽毛球场地</div>
+                            <div class="sport_title1">羽毛球</div>
                             <div class="sport_title2">
-                                <span class="font_1">59</span>场馆
-                                <span class="font_2">129</span>场地
+                                <?php if ($this->_var['data']['0L20']['venuesTotal']): ?><span class="font_1"><?php echo $this->_var['data']['0L20']['venuesTotal']; ?></span>场馆<?php endif; ?>
+                                <?php if ($this->_var['data']['0L20']['venueTotal']): ?><span class="font_2"><?php echo $this->_var['data']['0L20']['venueTotal']; ?></span>场地<?php endif; ?>
+                                <?php if ($this->_var['data']['0L20']['ticketTotal']): ?><span class="font_2 font_3"><?php echo $this->_var['data']['0L20']['ticketTotal']; ?></span>门票<?php endif; ?>
                             </div>
                             <div class="sport_btn">立即预定</div>
                         </a>
@@ -81,10 +78,11 @@
                     <div class="sport_item_content">
                         <a href="#">
                             <div class="sport_pic pic_2"></div>
-                            <div class="sport_title1">乒乓球场地</div>
+                            <div class="sport_title1">乒乓球</div>
                             <div class="sport_title2">
-                                <span class="font_1">59</span>场馆
-                                <span class="font_2">129</span>场地
+                                <?php if ($this->_var['data']['0L11']['venuesTotal']): ?><span class="font_1"><?php echo $this->_var['data']['0L11']['venuesTotal']; ?></span>场馆<?php endif; ?>
+                                <?php if ($this->_var['data']['0L11']['venueTotal']): ?><span class="font_2"><?php echo $this->_var['data']['0L11']['venueTotal']; ?></span>场地<?php endif; ?>
+                                <?php if ($this->_var['data']['0L11']['ticketTotal']): ?><span class="font_2 font_3"><?php echo $this->_var['data']['0L11']['ticketTotal']; ?></span>门票<?php endif; ?>
                             </div>
                             <div class="sport_btn">立即预定</div>
                         </a>
@@ -94,10 +92,11 @@
                     <div class="sport_item_content">
                         <a href="#">
                             <div class="sport_pic pic_3"></div>
-                            <div class="sport_title1">网球场地</div>
+                            <div class="sport_title1">网球</div>
                             <div class="sport_title2">
-                                <span class="font_1">59</span>场馆
-                                <span class="font_2">129</span>场地
+                                 <?php if ($this->_var['data']['0L18']['venuesTotal']): ?><span class="font_1"><?php echo $this->_var['data']['0L18']['venuesTotal']; ?></span>场馆<?php endif; ?>
+                                <?php if ($this->_var['data']['0L18']['venueTotal']): ?><span class="font_2"><?php echo $this->_var['data']['0L18']['venueTotal']; ?></span>场地<?php endif; ?>
+                                <?php if ($this->_var['data']['0L18']['ticketTotal']): ?><span class="font_2 font_3"><?php echo $this->_var['data']['0L18']['ticketTotal']; ?></span>门票<?php endif; ?>
                             </div>
                             <div class="sport_btn">立即预定</div>
                         </a>
@@ -107,10 +106,11 @@
                     <div class="sport_item_content">
                         <a href="#">
                             <div class="sport_pic pic_4"></div>
-                            <div class="sport_title1">篮球场地</div>
+                            <div class="sport_title1">篮球</div>
                             <div class="sport_title2">
-                                <span class="font_1">59</span>场馆
-                                <span class="font_2">129</span>场地
+                                <?php if ($this->_var['data']['0L06']['venuesTotal']): ?><span class="font_1"><?php echo $this->_var['data']['0L06']['venuesTotal']; ?></span>场馆<?php endif; ?>
+                                <?php if ($this->_var['data']['0L06']['venueTotal']): ?><span class="font_2"><?php echo $this->_var['data']['0L06']['venueTotal']; ?></span>场地<?php endif; ?>
+                                <?php if ($this->_var['data']['0L06']['ticketTotal']): ?><span class="font_2 font_3"><?php echo $this->_var['data']['0L06']['ticketTotal']; ?></span>门票<?php endif; ?>
                             </div>
                             <div class="sport_btn">立即预定</div>
                         </a>
@@ -120,10 +120,11 @@
                     <div class="sport_item_content">
                         <a href="#">
                             <div class="sport_pic pic_5"></div>
-                            <div class="sport_title1">足球场地</div>
+                            <div class="sport_title1">足球</div>
                             <div class="sport_title2">
-                                <span class="font_1">59</span>场馆
-                                <span class="font_2">129</span>场地
+                                 <?php if ($this->_var['data']['0L22']['venuesTotal']): ?><span class="font_1"><?php echo $this->_var['data']['0L22']['venuesTotal']; ?></span>场馆<?php endif; ?>
+                                <?php if ($this->_var['data']['0L22']['venueTotal']): ?><span class="font_2"><?php echo $this->_var['data']['0L22']['venueTotal']; ?></span>场地<?php endif; ?>
+                                <?php if ($this->_var['data']['0L22']['ticketTotal']): ?><span class="font_2 font_3"><?php echo $this->_var['data']['0L22']['ticketTotal']; ?></span>门票<?php endif; ?>
                             </div>
                             <div class="sport_btn">立即预定</div>
                         </a>
@@ -133,10 +134,11 @@
                     <div class="sport_item_content">
                         <a href="#">
                             <div class="sport_pic pic_6"></div>
-                            <div class="sport_title1">台球场地</div>
+                            <div class="sport_title1">台球</div>
                             <div class="sport_title2">
-                                <span class="font_1">59</span>场馆
-                                <span class="font_2">129</span>场地
+                                <?php if ($this->_var['data']['0L16']['venuesTotal']): ?><span class="font_1"><?php echo $this->_var['data']['0L16']['venuesTotal']; ?></span>场馆<?php endif; ?>
+                                <?php if ($this->_var['data']['0L16']['venueTotal']): ?><span class="font_2"><?php echo $this->_var['data']['0L16']['venueTotal']; ?></span>场地<?php endif; ?>
+                                <?php if ($this->_var['data']['0L16']['ticketTotal']): ?><span class="font_2 font_3"><?php echo $this->_var['data']['0L16']['ticketTotal']; ?></span>门票<?php endif; ?>
                             </div>
                             <div class="sport_btn">立即预定</div>
                         </a>
@@ -146,10 +148,11 @@
                     <div class="sport_item_content">
                         <a href="#">
                             <div class="sport_pic pic_7"></div>
-                            <div class="sport_title1">羽毛球场地</div>
+                            <div class="sport_title1">高尔夫</div>
                             <div class="sport_title2">
-                                <span class="font_1">59</span>场馆
-                                <span class="font_2">129</span>场地
+                                 <?php if ($this->_var['data']['0L04']['venuesTotal']): ?><span class="font_1"><?php echo $this->_var['data']['0L04']['venuesTotal']; ?></span>场馆<?php endif; ?>
+                                <?php if ($this->_var['data']['0L04']['venueTotal']): ?><span class="font_2"><?php echo $this->_var['data']['0L04']['venueTotal']; ?></span>场地<?php endif; ?>
+                                <?php if ($this->_var['data']['0L04']['ticketTotal']): ?><span class="font_2 font_3"><?php echo $this->_var['data']['0L04']['ticketTotal']; ?></span>门票<?php endif; ?>
                             </div>
                             <div class="sport_btn">立即预定</div>
                         </a>
@@ -159,10 +162,11 @@
                     <div class="sport_item_content">
                         <a href="#">
                             <div class="sport_pic pic_8"></div>
-                            <div class="sport_title1">羽毛球场地</div>
+                            <div class="sport_title1">游泳</div>
                             <div class="sport_title2">
-                                <span class="font_1">59</span>场馆
-                                <span class="font_2">129</span>场地
+                                <?php if ($this->_var['data']['0N07']['venuesTotal']): ?><span class="font_1"><?php echo $this->_var['data']['0N07']['venuesTotal']; ?></span>场馆<?php endif; ?>
+                                <?php if ($this->_var['data']['0N07']['venueTotal']): ?><span class="font_2"><?php echo $this->_var['data']['0N07']['venueTotal']; ?></span>场地<?php endif; ?>
+                                <?php if ($this->_var['data']['0N07']['ticketTotal']): ?><span class="font_2 font_3"><?php echo $this->_var['data']['0N07']['ticketTotal']; ?></span>门票<?php endif; ?>
                             </div>
                             <div class="sport_btn">立即预定</div>
                         </a>
@@ -172,10 +176,11 @@
                     <div class="sport_item_content">
                         <a href="#">
                             <div class="sport_pic pic_9"></div>
-                            <div class="sport_title1">羽毛球场地</div>
+                            <div class="sport_title1">瑜伽</div>
                             <div class="sport_title2">
-                                <span class="font_1">59</span>场馆
-                                <span class="font_2">129</span>场地
+                                 <?php if ($this->_var['data']['0P09']['venuesTotal']): ?><span class="font_1"><?php echo $this->_var['data']['0P09']['venuesTotal']; ?></span>场馆<?php endif; ?>
+                                <?php if ($this->_var['data']['0P09']['venueTotal']): ?><span class="font_2"><?php echo $this->_var['data']['0P09']['venueTotal']; ?></span>场地<?php endif; ?>
+                                <?php if ($this->_var['data']['0P09']['ticketTotal']): ?><span class="font_2 font_3"><?php echo $this->_var['data']['0P09']['ticketTotal']; ?></span>门票<?php endif; ?>
                             </div>
                             <div class="sport_btn">立即预定</div>
                         </a>
@@ -185,10 +190,11 @@
                     <div class="sport_item_content">
                         <a href="#">
                             <div class="sport_pic pic_10"></div>
-                            <div class="sport_title1">羽毛球场地</div>
+                            <div class="sport_title1">游泳健身</div>
                             <div class="sport_title2">
-                                <span class="font_1">59</span>场馆
-                                <span class="font_2">129</span>场地
+                                <?php if ($this->_var['data']['0P02']['venuesTotal']): ?><span class="font_1"><?php echo $this->_var['data']['0P02']['venuesTotal']; ?></span>场馆<?php endif; ?>
+                                <?php if ($this->_var['data']['0P02']['venueTotal']): ?><span class="font_2"><?php echo $this->_var['data']['0P02']['venueTotal']; ?></span>场地<?php endif; ?>
+                                <?php if ($this->_var['data']['0P02']['ticketTotal']): ?><span class="font_2 font_3"><?php echo $this->_var['data']['0P02']['ticketTotal']; ?></span>门票<?php endif; ?>
                             </div>
                             <div class="sport_btn">立即预定</div>
                         </a>

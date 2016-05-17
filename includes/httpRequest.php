@@ -96,7 +96,9 @@ class HttpRequest{
 	}
 
 	public function curl($str_url, $mix_data, $str_method = 'POST', $str_contentType = '',$httpheader=array()){
-		$ch = curl_init();
+	    //echo $this->buildUrlQuery($mix_data, $str_url).'<br>';//拼接url
+	    
+	    $ch = curl_init();
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $httpheader);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 180 );
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);

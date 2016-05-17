@@ -134,7 +134,7 @@ function get_venues($where, $start, $size)
     $venueIds = array_keys($return);
     if (!empty($venueIds))
     {
-        $tsql = "SELECT * FROM ".$GLOBALS['ecs']->table('venues_ticket')." WHERE venueId IN(".implode(',', $venueIds).")";
+        $tsql = "SELECT * FROM ".$GLOBALS['ecs']->table('venues_ticket')." WHERE venueId IN(".implode(',', $venueIds).") order by id ASC";
         $tickets = $GLOBALS['db']->getAll($tsql); 
         if ( !empty($tickets) )
         {

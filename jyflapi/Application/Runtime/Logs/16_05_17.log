@@ -1,0 +1,24 @@
+[ 2016-05-17T16:20:17+08:00 ] 192.168.1.127 /jyflapi/index.php/Users/User/showSafe
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000945s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002151s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.281133s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id=1 ) LIMIT 1   [ RunTime:0.016334s ]
+NOTIC: [8] Undefined index: answerone F:\wamp-php5.5\www\juyoufuli\jyflapi\Application\Users\Controller\UserController.class.php 第 116 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000977s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001102s ]
+
+[ 2016-05-17T16:20:23+08:00 ] 192.168.1.127 /jyflapi/index.php/Users/User/saveLoginQues
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000845s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001611s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.099309s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id=1 ) LIMIT 1   [ RunTime:0.000433s ]
+NOTIC: [8] Undefined index: answerone F:\wamp-php5.5\www\juyoufuli\jyflapi\Application\Users\Controller\UserController.class.php 第 226 行.
+NOTIC: [8] Undefined index: answertwo F:\wamp-php5.5\www\juyoufuli\jyflapi\Application\Users\Controller\UserController.class.php 第 227 行.
+NOTIC: [8] Undefined index: answerthree F:\wamp-php5.5\www\juyoufuli\jyflapi\Application\Users\Controller\UserController.class.php 第 228 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001049s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001166s ]
+

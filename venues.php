@@ -1,12 +1,6 @@
 <?php
 
 define('IN_ECS', true);
-/** 显示类型 
- *  ALL     （门票和场地都显示）
- *  TICKET  （只显示门票）
- *  VENUES  （只显示场地）
- */
-define('SHOW_TYPE', 'ALL');
 
 require(dirname(__FILE__) . '/includes/init.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
@@ -18,10 +12,6 @@ if ((DEBUG_MODE & 2) != 2)
 }
 
 assign_template();
- 
-$position = assign_ur_here(0,       '运动激情 <code>&gt;</code> 运动健身');
-$smarty->assign('page_title',       '运动健身_运动激情_'.$GLOBALS['_CFG']['shop_name']);    // 页面标题
-$smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
 
 // 分页
 $int_page     = (isset($_GET['page']) && $_GET['page'] > 1) ? intval($_GET['page']) : 1;
@@ -106,7 +96,7 @@ $smarty->assign('area_list', $areaList);
 $smarty->assign('venues_type', $venues);
 $smarty->assign('list', $data);
 $smarty->assign('pager', $pager);
-$smarty->display('venues.dwt');
+$smarty->display('venues/venuesList.dwt');
 
 // 获得场馆项目
 function venuesType()
@@ -122,7 +112,7 @@ function get_venues_count($where)
 function get_venues($where, $start, $size)
 {
     // 卡规则比例
-    $customRatio = get_card_rule_ratio(10003);
+    $customRatio = 1;//get_card_rule_ratio(10003);
     $return = array();
     $sql = "SELECT * FROM ".$GLOBALS['ecs']->table('venues')."". $where.' ORDER BY id DESC';
     $res = $GLOBALS['db']->selectLimit($sql, $size, $start);

@@ -29,7 +29,7 @@
                 {foreach from=$navigator_list.middle item=nav name=foo}
                 <li class="movie" onClick="window.location='{$nav.url}'">
                 	<div>
-                    	<span class="movie_1"></span><br>
+                    	<span class="movie_1" style="background:url({$app_path}images/juyoufuli/icon/nav-{$nav.id}.png)"></span><br>
                 		<i>{$nav.name}</i>
                 	</div>
                 </li>

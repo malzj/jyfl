@@ -32,7 +32,7 @@ if ($this->_foreach['foo']['total'] > 0):
 ?>
                 <li class="movie" onClick="window.location='<?php echo $this->_var['nav']['url']; ?>'">
                 	<div>
-                    	<span class="movie_1" style="background:url(<?php echo $this->_var['app_path']; ?>images/juyoufuli/icon/nav-<?php echo $this->_var['nav']['id']; ?>.png)"></span><br>
+                    	<span class="movie_1"><img src="/images/juyoufuli/img_login/yundong.png"></span>
                 		<i><?php echo $this->_var['nav']['name']; ?></i>
                 	</div>
                 </li>
@@ -70,18 +70,28 @@ if ($this->_foreach['foo']['total'] > 0):
                 <p>订单</p>
             </div>
             <div class="order_1">
-                
             </div>
         </li>
     </ul>
-    <a class="switch"></a>
+    <a class="switch off"></a>
 </div>
-<>
+
 <script>
+//	首页左侧公共部分默认展开
+	if(window.location.pathname == '/user.php'){
+			$('.switch').removeClass('off');
+	}
 	$('.list_1 li').hover(function(){
 		$(this).addClass('active').siblings().removeClass('active');
 		})
-	$('.list_main').animate({left:-100},'slow',function(){
-		$(this).css('left','0px');
-		});	
+//	公共左侧部分展示或者隐藏
+	$('.switch').click(function(){
+		$(this).toggleClass('off');
+		if($(this).hasClass('off')){
+			
+			$('.list_main').animate({left:-100},'slow');	
+			}else{
+				$('.list_main').animate({left:0},'slow');	
+			}
+		})
 </script>

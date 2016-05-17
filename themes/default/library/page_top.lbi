@@ -19,7 +19,7 @@
             <li class="exit">【<a href="user.php?act=logout">退出</a>】</li>
         </ul>
     </ul>
-    <div class="bg"></div>
+    <div class="bg_top"></div>
 </div>
 <div id="ui_city_plugs" class="ui_city_plugs none clear" style="position: absolute; left: 180px; top:50px; z-index:120;">
     <div style="position:relative;" class="inner"> <span title="关闭" class="ui_close"></span>

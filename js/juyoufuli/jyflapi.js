@@ -1,4 +1,5 @@
-var api_url ="http://192.168.1.161/jyflapi/";
+// var api_url ="http://192.168.1.161/jyflapi/";
+var api_url ="http://jy.com/jyflapi/";
 function userShow(data){
 	var user_id = data;
 	var rudata ="";
@@ -93,8 +94,7 @@ layer.open({
 						
 					});
 					$('#xingqu').val(xingqu);
-					console.log(("已选择兴趣："+xingqu));
-					
+
 				});
 				
 					$(":checkbox[name='favorite']").prop("checked",false);
@@ -164,7 +164,6 @@ function userSave(){
     var xingqu_1=$('#xingqu').val();
     if (xingqu_1==""||xingqu_1==null){
     	xingqu=$('input[type="checkbox"]:checked').val().split(",");
-    	console.log(xingqu+"22222");
     }else{
     	xingqu =$('#xingqu').val();
     }
@@ -176,7 +175,6 @@ function userSave(){
     }else{
     	pic=$('#img').val();
     	    }
-    console.log(sex,basic,xingqu);
 	var url="http://192.168.1.161/jyflapi/index.php?s=Users/User/userUpdate"
     $.ajax({
 		type:"post",
@@ -185,11 +183,9 @@ function userSave(){
 		data:{user_id:user_id,nickname:nickname,sex:sex,birthday:birthday,xingqu:xingqu,basic:basic,pic:pic},
 		dataType:"json",
 		success:function(data){
-			console.log(data.result)
 			 var usertx=$('#img').val();
 			  $('#usertx').attr('src',usertx);
 			if(data.result=='true'){
-              console.log(data.result)
 				layer.msg('保存成功！')
 			return ;
 			}else if(data.result=='false'){
@@ -198,6 +194,181 @@ function userSave(){
 	},
 	});
 };
+
+/**
+ * 安全设置的状态
+ * function showSafe
+ *
+ * @param int user_id 用户id
+ * @return array result
+ */
+function showSafe(user_id){
+	var url =api_url+"index.php/Users/User/showSafe";
+	var result = new Array();
+	$.ajax({
+		type:"post",
+		url:url,
+		async:false,
+		data:{user_id:user_id},
+		dataType:"json",
+		success:function(data){
+			result = data;
+		}
+	});
+	return result;
+}
+
+/**
+ * 修改登录密码
+ * @author zhaoyingchao
+ * 
+ * @param user_id  用户id
+ * @param old_password	旧密码
+ * @param new_password	新密码
+ * @param con_password  确认密码
+ */
+function userLoginPass(user_id,old_password,new_password,con_password){
+	var url = api_url+'index.php/Users/User/userLoginPass';
+	$.ajax({
+		type:"post",
+		url:url,
+		data:{
+			user_id:user_id,
+			old_password:old_password,
+			new_password:new_password,
+			con_password:con_password,
+		},
+		dataType:"json",
+		success:function(data){
+			if(data.result == "true"){
+				layer.closeAll();
+				layer.msg(data.msg);
+			}else if(data.result == "false"){
+				layer.msg(data.msg);
+			}
+		},
+	});
+}
+
+/**
+ * 获取验证码
+ * @author zhaoyingchao
+ *
+ * @param user_id	用户id
+ * @param tel		电话号码
+ */
+function getverification(user_id,tel){
+	var url = api_url+'index.php/Users/User/smsvrerifyJs';
+	var result = new Array();
+	$.ajax({
+		type:"post",
+		url:url,
+		data:{
+			user_id:user_id,
+			tel:tel,
+		},
+		dataType:"json",
+		success:function (data) {
+			result = data;
+		}
+	});
+	return result;
+}
+
+/**
+ * 绑定手机
+ * @author zhaoyingchao
+ *
+ * @param user_id		用户id
+ * @param dynamic_code	动态码
+ */
+function boundPhone(user_id,tel,captcha){
+	var url = api_url+'index.php/Users/User/editphone';
+	// var result = new Array();
+	$.ajax({
+		type:"post",
+		url:url,
+		data:{
+			user_id:user_id,
+			tel:tel,
+			captcha:captcha,
+		},
+		dataType:"json",
+		success:function(data){
+			if(data.result == "true"){
+				layer.closeAll();
+				// showSafeCenter();
+				layer.msg("手机绑定成功！");
+			}else{
+				layer.closeAll();
+				// showSafeCenter();
+				layer.msg("手机绑定失败！");
+			}
+
+		}
+	});
+}
+
+/**
+ * 显示安全问题答案
+ * @author zhaoyingchao
+ *
+ * @param user_id	用户id
+ */
+function showQuestionAnswer(user_id){
+	var url = api_url+'index.php/Users/User/saveLoginQues';
+	$.ajax({
+		type:"post",
+		url:url,
+		data:{
+			user_id:user_id,
+		},
+		dataType:"json",
+		success:function(data){
+			if(data.result == "true"){
+				$('.layui-layer-content').html('<div class="question"><h3>安全问题</h3><div class="form-group"><div><label>问题一：</label><span>您的姓名是？</span></div><div><label>答案：</label><input id="answerone" type="text" value="'+data.answerone+'"></div></div><div class="form-group"><div><label>问题二：</label><span>您的年龄是？</span></div><div><label>答案：</label><input id="answertwo" type="text" value="'+data.answertwo+'"></div></div><div class="form-group"><div><label>问题三：</label><span>您的身高是？</span></div><div><label>答案：</label><input id="answerthree" type="text" value="'+data.answerthree+'"></div></div><div class="btn_question"><button class="yes">确认提交</button> <button class="no">返回安全中心</button></div></div>');
+			}else{
+				$('.layui-layer-content').html('<div class="question"><h3>安全问题</h3><div class="form-group"><div><label>问题一：</label><span>您的姓名是？</span></div><div><label>答案：</label><input id="answerone" type="text"></div></div><div class="form-group"><div><label>问题二：</label><span>您的年龄是？</span></div><div><label>答案：</label><input id="answertwo" type="text"></div></div><div class="form-group"><div><label>问题三：</label><span>您的身高是？</span></div><div><label>答案：</label><input id="answerthree" type="text"></div></div><div class="btn_question"><button class="yes">确认提交</button> <button class="no">返回安全中心</button></div></div>');
+			}
+
+		}
+	});
+}
+
+
+/**
+ * 编辑安全问题
+ * @author zhaoyingchao
+ *
+ * @param user_id		用户id
+ * @param answerone		问题一
+ * @param answertwo		问题二
+ * @param answerthree	问题三
+ */
+function editLoginQues(user_id,answerone,answertwo,answerthree){
+	var url = api_url+'index.php/Users/User/editLoginQues';
+	$.ajax({
+		type:"post",
+		url:url,
+		data:{
+			user_id:user_id,
+			answerone:answerone,
+			answertwo:answertwo,
+			answerthree:answerthree,
+		},
+		dataType:"json",
+		success:function(data){
+			if(data.result == "true"){
+				layer.closeAll();
+				layer.msg(data.msg);
+			}else{
+				layer.closeAll();
+				layer.msg(data.msg);
+			}
+		}
+	});
+}
+
 function showAddress(){
 		var url ="http://192.168.1.161/jyflapi/index.php?s=Users/User/showAddress";
 		var user_id = $('#user_id').val();
@@ -229,7 +400,7 @@ function showAddress(){
         content:'<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+htmlshouhuolist+'</tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>'
     });
 	return index;
-	};
+	}
 
 /*
  获取地址列表
@@ -363,7 +534,6 @@ function addAddress()
 			},
 			datatype: "json",
 			success: function (data) {
-				console.log(data);
 				if(data.result=='true'){
 					var html = getAddressHtml();
 					$('.layui-layer-content').html('<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
@@ -396,7 +566,6 @@ function saveAddress(address_id){
 		data:{user_id:user_id,address_id:address_id},
 		dataType:"json",
 		success:function(data){
-			// console.log(data);
 			//渲染省市县select数据
 			var country_list = data.countryList;
 			for(var i=0;i<country_list.length;i++){
@@ -523,7 +692,6 @@ function updateAddress(){
 			},
 			datatype: "json",
 			success: function (data) {
-				console.log(data);
 				if(data.result=='true'){
 					var html = getAddressHtml();
 					$('.layui-layer-content').html('<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
@@ -549,7 +717,6 @@ function delAddress(data){
 		data:{user_id:user_id,address_id:address_id},
 		dataType:"json",
 		success:function(data){
-			
 			if(data.result=='true'){
 				var html = getAddressHtml();
 				$('.layui-layer-content').html('<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
@@ -557,5 +724,4 @@ function delAddress(data){
 			}
 	},
 	});
-    console.log(data);
 };

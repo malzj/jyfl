@@ -171,7 +171,8 @@
 /*设置安全保护问题*/
 .layui-layer-content .question{padding-bottom: 20px;}
 .layui-layer-content .question .form-group{text-align: center;}
-.layui-layer-content .question .form-group input{border: 1px solid;border-radius: 5px;width: 200px;}
+.layui-layer-content .question .form-group input{border: 1px solid;border-radius: 5px;width: 200px;margin-left: 20px;padding-left: 10px;}
+.layui-layer-content .question .form-group span{font-size: 14px;margin-left: 30px;text-align: left;display:inline-block;width: 200px;}
 .layui-layer-content .question .btn_question{text-align: center;}
 .layui-layer-content .question .btn_question button{background: #ff9f14;padding: 0 15px;border: 0;border-radius: 5px;margin: 0px 5px;}
 .layui-layer-content .question .form-group select{outline: none;background: transparent;border: 1px solid;border-radius: 5px;padding: 2px;width: 200px;}

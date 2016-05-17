@@ -123,13 +123,7 @@ $(document).delegate('.tr_1 .td_4','click',function(){
 		var old_password = $('#old_password').val();
 		var new_password = $('#tbPassword').val();
 		var con_password = $('#con_password').val();
-		// alert(user_id+'-'+old_password+'-'+new_password+'-'+con_password);
-		var data = userLoginPass(user_id,old_password,new_password,con_password);
-		if(data.result == "true"){
-			layer.msg(data.msg);
-		}else if(data.result == "false"){
-			layer.msg(data.msg);
-		}
+		userLoginPass(user_id,old_password,new_password,con_password);
 	});
     $(document).delegate('.tr_2 .td_4','click',function(){
 	$('.layui-layer-content').html('<div class="tel"><h3>绑定手机号</h3><div class="form-group"><label>手机号：</label><input id="tel" type="text"><div class="ach"><input id="getverification" value="获取验证码"></div></div><div class="form-group"><label>动态码：</label><input id="captcha" type="text"></div><div class="btn_tel"><button class="btn_bound">绑定</button> <button class="btn_cancel">取消</button></div></div>');

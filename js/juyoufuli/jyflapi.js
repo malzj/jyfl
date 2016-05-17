@@ -1,5 +1,5 @@
-var api_url ="http://192.168.1.161/jyflapi/";
-// var api_url ="http://hy.com/jyflapi/";
+// var api_url ="http://192.168.1.161/jyflapi/";
+var api_url ="http://jy.com/jyflapi/";
 function userShow(data){
 	var user_id = data;
 	var rudata ="";
@@ -94,8 +94,7 @@ layer.open({
 						
 					});
 					$('#xingqu').val(xingqu);
-					console.log(("已选择兴趣："+xingqu));
-					
+
 				});
 				
 					$(":checkbox[name='favorite']").prop("checked",false);
@@ -165,7 +164,6 @@ function userSave(){
     var xingqu_1=$('#xingqu').val();
     if (xingqu_1==""||xingqu_1==null){
     	xingqu=$('input[type="checkbox"]:checked').val().split(",");
-    	console.log(xingqu+"22222");
     }else{
     	xingqu =$('#xingqu').val();
     }
@@ -177,7 +175,6 @@ function userSave(){
     }else{
     	pic=$('#img').val();
     	    }
-    console.log(sex,basic,xingqu);
 	var url="http://192.168.1.161/jyflapi/index.php?s=Users/User/userUpdate"
     $.ajax({
 		type:"post",
@@ -186,11 +183,9 @@ function userSave(){
 		data:{user_id:user_id,nickname:nickname,sex:sex,birthday:birthday,xingqu:xingqu,basic:basic,pic:pic},
 		dataType:"json",
 		success:function(data){
-			console.log(data.result)
 			 var usertx=$('#img').val();
 			  $('#usertx').attr('src',usertx);
 			if(data.result=='true'){
-              console.log(data.result)
 				layer.msg('保存成功！')
 			return ;
 			}else if(data.result=='false'){
@@ -234,8 +229,6 @@ function showSafe(user_id){
  */
 function userLoginPass(user_id,old_password,new_password,con_password){
 	var url = api_url+'index.php/Users/User/userLoginPass';
-	var result = new Array();
-	// alert(userid+'-'+oldpassword+'-'+newpassword+'-'+conpassword);
 	$.ajax({
 		type:"post",
 		url:url,
@@ -243,11 +236,16 @@ function userLoginPass(user_id,old_password,new_password,con_password){
 			user_id:user_id,
 			old_password:old_password,
 			new_password:new_password,
-			con_password:con_password
+			con_password:con_password,
 		},
 		dataType:"json",
 		success:function(data){
-			result = data;
+			if(data.result == "true"){
+				layer.closeAll();
+				layer.msg(data.msg);
+			}else if(data.result == "false"){
+				layer.msg(data.msg);
+			}
 		},
 	});
 }
@@ -297,8 +295,6 @@ function boundPhone(user_id,tel,captcha){
 		},
 		dataType:"json",
 		success:function(data){
-			// result = data;
-			// console.log(result);
 			if(data.result == "true"){
 				layer.closeAll();
 				// showSafeCenter();
@@ -538,7 +534,6 @@ function addAddress()
 			},
 			datatype: "json",
 			success: function (data) {
-				console.log(data);
 				if(data.result=='true'){
 					var html = getAddressHtml();
 					$('.layui-layer-content').html('<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
@@ -571,7 +566,6 @@ function saveAddress(address_id){
 		data:{user_id:user_id,address_id:address_id},
 		dataType:"json",
 		success:function(data){
-			// console.log(data);
 			//渲染省市县select数据
 			var country_list = data.countryList;
 			for(var i=0;i<country_list.length;i++){
@@ -698,7 +692,6 @@ function updateAddress(){
 			},
 			datatype: "json",
 			success: function (data) {
-				console.log(data);
 				if(data.result=='true'){
 					var html = getAddressHtml();
 					$('.layui-layer-content').html('<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
@@ -732,5 +725,4 @@ function delAddress(data){
 			}
 	},
 	});
-    console.log(data);
 };

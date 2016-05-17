@@ -7,13 +7,12 @@
 		<title></title>
 		<script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/jquery.min.js"></script>
 		<script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
-        
-        <link rel="stylesheet" href="<?php echo $this->_var['app_path']; ?>css/juyoufuli/sport1.css">
 	</head>
 	<body>
         
         <?php echo $this->fetch('library/page_top.lbi'); ?>
         
+        <link rel="stylesheet" href="<?php echo $this->_var['app_path']; ?>css/juyoufuli/sport1.css">
         
         <div class="tg_sx" style="border-top:none;margin-top: 90px;">
             <div class="tg_area">

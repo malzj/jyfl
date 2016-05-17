@@ -6,13 +6,12 @@
 		<title></title>
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
-        
-        <link rel="stylesheet" href="{$app_path}css/juyoufuli/sport1.css">
 	</head>
 	<body>
         <!-- 头部 -->
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->
+        <link rel="stylesheet" href="{$app_path}css/juyoufuli/sport1.css">
         
         <div class="tg_sx" style="border-top:none;margin-top: 90px;">
             <div class="tg_area">

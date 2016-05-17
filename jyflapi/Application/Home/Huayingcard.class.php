@@ -7,8 +7,9 @@ namespace Home;
 class Huayingcard {
     
     // wsdl 地址
+    //public $wsdl = 'http://210.75.200.74:17020/services/InterFaceService.asmx?wsdl';
     public $wsdl = 'http://1.93.129.186:8089/InterFaceService.asmx?wsdl';
-    
+
     // 编码
     protected $coding = 'UTF-8';
     
@@ -35,6 +36,7 @@ class Huayingcard {
 
     // des 加密/解密
     protected $open3Des = true;
+//    protected $open3Des = true;
     protected $desIV = 'ZS@zzOrc';
     protected $desKey = 'XAdsAxxs';
 
@@ -108,8 +110,7 @@ class Huayingcard {
     
     // 华影卡支付
     protected function _huayingCard( $param, $ext)
-    {   
-        
+    {
         $no = 0;
         // xml头
         $strXml  = '<?xml version="1.0" encoding="UTF-8"?><Msg>';
@@ -119,42 +120,39 @@ class Huayingcard {
         $strXml .= $this->_stringParams( $param );
         // 结束标签
         $strXml .='</Msg>';
-        
-        echo $strXml;die();
 
         if ($this->open3Des === true)
         {
             $strXml = $this->_crypt3Des('encrypt', $strXml);
         }
+
         // 执行操作
-        
-        print_r($this->client->__soapCall('OperationInterface',array(array('Xml'=>$strXml))));die();
         $result = $this->client->__soapCall('OperationInterface',array(array('Xml'=>$strXml)));
         $obj_xmlRoot = simplexml_load_string($result->OperationInterfaceResult, 'SimpleXMLElement', LIBXML_NOCDATA | LIBXML_NOBLANKS);
         $resultData = @json_decode(@json_encode($obj_xmlRoot), 1);
-        
+
         foreach ( $resultData as $key=>$val)
         {
             switch ( $key )
             {
                 // 状态信息
                 case 'ResultInfo':
-                    $no = $val['Flag']  == 1 ? 0 : 1 ;
-                    $this->message      = $val['MessageContent'];
+                    $no = $val['Flag'] 	== 1 ? 0 : 1 ;
+                    $this->message 		= $val['MessageContent'];
                     // 消费和充值时的订单号，放到结果集里
-                    $this->result       = isset($val['OrderNumber']) ? $val['OrderNumber'] : NULL;
+                    $this->result 		= isset($val['OrderNumber']) ? $val['OrderNumber'] : NULL;
                     break;
                 // 卡交易内容
                 case 'TransationInfoList':
-                    $this->result       = $val['TransationInfo'];
+                    $this->result 		= $val['TransationInfo'];
                     break;
                 // 卡信息内容
                 case 'CardInfoList':
-                    $this->result       = $val['CardInfo'];                 
+                    $this->result		= $val['CardInfo'];
                     break;
-            }           
+            }
         }
-        
+
         return $no;
     }
     
@@ -477,17 +475,19 @@ class Huayingcard {
 class Crypt3Des {
     var $key;
     var $iv;
-    function Crypt3Des($key,$iv=null){
+    function __construct($key,$iv=null){
         $this->key = $key;
         $this->iv = $iv;
 
+
+
     }
 
-
     function encrypt($input){
+
         $size = mcrypt_get_block_size(MCRYPT_3DES,'ecb');
         $input = $this->pkcs5_pad($input, $size);
-        $key = str_pad($this->key,24,'0');      
+        $key = str_pad($this->key,24,'0');
         if ($this->iv == null){
             $td = mcrypt_module_open(MCRYPT_3DES, '', 'ecb', '');
         }else{
@@ -497,7 +497,7 @@ class Crypt3Des {
         $data = mcrypt_generic($td, $input);
         mcrypt_generic_deinit($td);
         mcrypt_module_close($td);
-        //$data = base64_encode($this->PaddingPKCS7($data)); 
+        //$data = base64_encode($this->PaddingPKCS7($data));
         $data = base64_encode($data);
         return $data;
     }
@@ -505,7 +505,7 @@ class Crypt3Des {
     function decrypt($encrypted){
         $encrypted = base64_decode($encrypted);
         $key = str_pad($this->key,24,'0');
-        
+
         if ($this->iv == null){
             $td = mcrypt_module_open(MCRYPT_3DES,'','ecb','');
         }else{
@@ -515,7 +515,7 @@ class Crypt3Des {
         @mcrypt_generic_init($td, $key, $this->iv);
         $decrypted = mdecrypt_generic($td, $encrypted);
         mcrypt_generic_deinit($td);
-        mcrypt_module_close($td); 
+        mcrypt_module_close($td);
         $y=$this->pkcs5_unpad($decrypted);
         return $y;
     }
@@ -535,7 +535,7 @@ class Crypt3Des {
         }
         return substr($text, 0, -1 * $pad);
     }
-    
+
     function PaddingPKCS7($data) {
         $block_size = mcrypt_get_block_size(MCRYPT_3DES, MCRYPT_MODE_CBC);
         $padding_char = $block_size - (strlen($data) % $block_size);
@@ -543,6 +543,5 @@ class Crypt3Des {
         return $data;
     }
 }
-
 
 ?>

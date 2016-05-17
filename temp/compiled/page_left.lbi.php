@@ -73,13 +73,18 @@ if ($this->_foreach['foo']['total'] > 0):
             </div>
         </li>
     </ul>
-    <a class="switch"></a>
+    <a class="switch off"></a>
 </div>
 
 <script>
+//	首页左侧公共部分默认展开
+	if(window.location.pathname == '/user.php'){
+			$('.switch').removeClass('off');
+	}
 	$('.list_1 li').hover(function(){
 		$(this).addClass('active').siblings().removeClass('active');
 		})
+//	公共左侧部分展示或者隐藏
 	$('.switch').click(function(){
 		$(this).toggleClass('off');
 		if($(this).hasClass('off')){

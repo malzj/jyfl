@@ -1,0 +1,48 @@
+[ 2016-05-18T09:19:44+08:00 ] 127.0.0.1 /jyflapi/index.php/Users/User/showSafe
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002189s ]
+ERR: Unknown database 'juyoufuli'
+
+[ 2016-05-18T09:20:34+08:00 ] 127.0.0.1 /jyflapi/index.php/Users/User/showSafe
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000709s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001601s ]
+ERR: Unknown database 'juyoufuli'
+
+[ 2016-05-18T09:20:38+08:00 ] 127.0.0.1 /jyflapi/index.php/Users/User/showSafe
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000749s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001387s ]
+ERR: Unknown database 'juyoufuli'
+
+[ 2016-05-18T09:22:48+08:00 ] 127.0.0.1 /jyflapi/index.php/Users/User/getEditAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001213s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001791s ]
+ERR: Unknown database 'juyoufuli'
+
+[ 2016-05-18T09:25:36+08:00 ] 127.0.0.1 /jyflapi/index.php/Users/User/showSafe
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001010s ]
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'root'@'LIZHIHUA' (using password: NO) E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+ERR: Access denied for user 'root'@'LIZHIHUA' (using password: NO)
+
+[ 2016-05-18T09:25:46+08:00 ] 127.0.0.1 /jyflapi/index.php/Users/User/getEditAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.002206s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002702s ]
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'root'@'LIZHIHUA' (using password: NO) E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+ERR: Access denied for user 'root'@'LIZHIHUA' (using password: NO)
+
+[ 2016-05-18T09:26:15+08:00 ] 127.0.0.1 /jyflapi/index.php/Users/User/showSafe
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001074s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002057s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.014010s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id=1 ) LIMIT 1   [ RunTime:0.003433s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.020143s ]
+INFO: [ app_end ] --END-- [ RunTime:0.020300s ]
+

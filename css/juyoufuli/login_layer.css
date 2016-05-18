@@ -120,6 +120,7 @@
 				.ywz_zhuce_yongyu1 a:hover{ color:#C00;}
 
 /*添加地址*/
+.layui-layer-content option{background:black;}
 .layui-layer-content .set_add label{width: 80px;text-align: right;}
 .layui-layer-content .set_add input{border: 1px solid;width: 200px;border-radius: 5px;padding: 0 2px;}
 .layui-layer-content .set_add .form-group{text-align: center;}
@@ -146,7 +147,7 @@
 }
 .layui-layer-content .shouhuo{padding-bottom: 20px;}
 .layui-layer-content .shouhuo table td.td_1{width: 60px;}
-.layui-layer-content .shouhuo table td.gn_btn{width: 65px;}
+.layui-layer-content .shouhuo table td.gn_btn{width: 85px;}
 
 
 /*绑定手机号*/
@@ -157,7 +158,7 @@
 .layui-layer-content .tel .btn_tel button{background: #ff9f14;padding: 0 15px;border: 0;border-radius: 5px;margin: 0px 5px;}
 .layui-layer-content .tel .form-group .ach input{
     cursor: pointer;
-    width: 80px;
+    width: 100px;
     display: inline-block;
     color: black;
     margin-left: 30px;
@@ -166,12 +167,12 @@
     border-radius: 5px;
     margin-top: 10px;
     text-align: center;
-    height: 25px;
+    height: 30px;
 }
 /*设置安全保护问题*/
 .layui-layer-content .question{padding-bottom: 20px;}
 .layui-layer-content .question .form-group{text-align: center;}
-.layui-layer-content .question .form-group input{border: 1px solid;border-radius: 5px;width: 200px;margin-left: 20px;padding-left: 10px;}
+.layui-layer-content .question .form-group input{height: 22px;border: 1px solid;border-radius: 5px;width: 200px;margin-left: 20px;padding-left: 10px;}
 .layui-layer-content .question .form-group span{font-size: 14px;margin-left: 30px;text-align: left;display:inline-block;width: 200px;}
 .layui-layer-content .question .btn_question{text-align: center;}
 .layui-layer-content .question .btn_question button{background: #ff9f14;padding: 0 15px;border: 0;border-radius: 5px;margin: 0px 5px;}

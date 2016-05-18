@@ -201,26 +201,6 @@ function hasData( $secret )
         return false;
 }
 
-/**
- * 得到指定数据列表
- *
- * @param 	$table	string	数据表
- * @param 	$find	string	查询条件
- * @param	$field	string	返回字段
- */
-function findData( $table='venues_order', $find=null, $field="*")
-{
-    $where = ' WHERE 1 ';
-    if ( !is_null($find) )
-    {
-        $where .= " AND ".$find;
-    }
-
-    return $GLOBALS['db']->getAll( 'SELECT '.$field.' FROM '.$GLOBALS['ecs']->table($table). $where);
-}
-
-
-
 /** 获得场馆信息  
  *  
  *  @param string   $venue_id       场馆id

@@ -126,7 +126,7 @@ $(document).delegate('.tr_1 .td_4','click',function(){
 		userLoginPass(user_id,old_password,new_password,con_password);
 	});
     $(document).delegate('.tr_2 .td_4','click',function(){
-	$('.layui-layer-content').html('<div class="tel"><h3>绑定手机号</h3><div class="form-group"><label>手机号：</label><input id="tel" type="text"><div class="ach"><input id="getverification" value="获取验证码"></div></div><div class="form-group"><label>动态码：</label><input id="captcha" type="text"></div><div class="btn_tel"><button class="btn_bound">绑定</button> <button class="btn_cancel">取消</button></div></div>');
+	$('.layui-layer-content').html('<div class="tel"><h3>绑定手机号</h3><div class="form-group"><label>手机号：</label><input id="tel" type="text"><div class="ach"><input type="button" id="getverification" value="获取验证码"></div></div><div class="form-group"><label>动态码：</label><input id="captcha" type="text"></div><div class="btn_tel"><button class="btn_bound">绑定</button> <button class="btn_cancel">取消</button></div></div>');
 });
 	/**
 	 * 获取验证码
@@ -346,11 +346,13 @@ function settime(obj) {
     if (countdown == 0) { 
         obj.removeAttribute("disabled");
         obj.value="获取验证码"; 
+        $(obj).css({'background':'#f2f2f2','color':'black'});
         countdown = 120; 
         return;
     } else { 
         obj.setAttribute("disabled", true);
-        obj.value="重新发送(" + countdown + ")"; 
+        obj.value="重新发送(" + countdown + ")";
+        $(obj).css({'background':'#8C8686','color':'#3C3838'});
         countdown--; 
     } 
 setTimeout(function() { 

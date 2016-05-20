@@ -1,5 +1,5 @@
-// var api_url ="http://192.168.1.161/jyflapi/";
-var api_url ="http://jy.com/jyflapi/";
+   var api_url ="http://192.168.1.161/jyflapi/";
+//var api_url ="http://127.0.0.1:8025/jyflapi/";
 function userShow(data){
 	var user_id = data;
 	var rudata ="";

@@ -97,9 +97,9 @@
     foreach ($_from AS $this->_var['ticket']):
 ?>
                             <tr class="table_1">
-                                <td class="ticket_span1"><a href="dongpiao_show2.php?productno=<?php echo $this->_var['ticket']['infoId']; ?>"><?php echo $this->_var['ticket']['infoTitle']; ?></a></td>
+                                <td class="ticket_span1"><a href="ticket_show.php?productno=<?php echo $this->_var['ticket']['infoId']; ?>"><?php echo $this->_var['ticket']['infoTitle']; ?></a></td>
                                 <td class="ticket_span2"><span class="font-18"><?php echo $this->_var['ticket']['salePrice']; ?></span><span class="font-12">点</span></td>
-                                <td class="ticket_span3"><a href="dongpiao_show2.php?productno=<?php echo $this->_var['ticket']['infoId']; ?>">立即预订</a></td>
+                                <td class="ticket_span3"><a href="ticket_show.php?productno=<?php echo $this->_var['ticket']['infoId']; ?>">立即预订</a></td>
                             </tr>     
                         	<?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>   
                         </tbody>

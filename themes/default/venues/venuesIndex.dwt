@@ -41,15 +41,20 @@
 						<div class="bd">
 							<div class="tempWrap">
 							<ul class="infoList">
-								<li><a href="#" target="_blank">欧美惊悚喜剧《夜莺别墅的死神》—北京站</a></li>
-								
+								{foreach from=$category item=cate}
+                                <li><a href="{$cate.url}">{$cate.name}</a></li>
+                                {foreachelse}
+                                <li>暂无广播</li>
+                                {/foreach}								
 							</ul>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="search_input f_r">
-					<input type="text" placeholder="选场馆">
+				<div class="search_input f_r">					
+                    <form action="venues.php" method="get">
+                    	<input type="text"  name="keywords" placeholder="搜索场馆">
+                    </form>
 					<i></i>	
 				</div>
 			</div>

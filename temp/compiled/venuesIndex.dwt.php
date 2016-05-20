@@ -44,15 +44,22 @@
 						<div class="bd">
 							<div class="tempWrap">
 							<ul class="infoList">
-								<li><a href="#" target="_blank">欧美惊悚喜剧《夜莺别墅的死神》—北京站</a></li>
-								
+								<?php $_from = $this->_var['category']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'cate');if (count($_from)):
+    foreach ($_from AS $this->_var['cate']):
+?>
+                                <li><a href="<?php echo $this->_var['cate']['url']; ?>"><?php echo $this->_var['cate']['name']; ?></a></li>
+                                <?php endforeach; else: ?>
+                                <li>暂无广播</li>
+                                <?php endif; unset($_from); ?><?php $this->pop_vars();; ?>								
 							</ul>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="search_input f_r">
-					<input type="text" placeholder="选场馆">
+				<div class="search_input f_r">					
+                    <form action="venues.php" method="get">
+                    	<input type="text"  name="keywords" placeholder="搜索场馆">
+                    </form>
 					<i></i>	
 				</div>
 			</div>
@@ -62,7 +69,7 @@
             <ul class="sport_all">
                 <li class="sport_item f_l">
                     <div class="sport_item_content">
-                        <a href="#">
+                        <a href="venues.php?type=0L20">
                             <div class="sport_pic pic_1"></div>
                             <div class="sport_title1">羽毛球</div>
                             <div class="sport_title2">
@@ -76,7 +83,7 @@
                 </li>
                 <li class="sport_item f_l">
                     <div class="sport_item_content">
-                        <a href="#">
+                        <a href="venues.php?type=0L11">
                             <div class="sport_pic pic_2"></div>
                             <div class="sport_title1">乒乓球</div>
                             <div class="sport_title2">
@@ -90,7 +97,7 @@
                 </li>
                 <li class="sport_item f_l">
                     <div class="sport_item_content">
-                        <a href="#">
+                        <a href="venues.php?type=0L18">
                             <div class="sport_pic pic_3"></div>
                             <div class="sport_title1">网球</div>
                             <div class="sport_title2">
@@ -104,7 +111,7 @@
                 </li>
                 <li class="sport_item f_l">
                     <div class="sport_item_content">
-                        <a href="#">
+                        <a href="venues.php?type=0L06">
                             <div class="sport_pic pic_4"></div>
                             <div class="sport_title1">篮球</div>
                             <div class="sport_title2">
@@ -118,7 +125,7 @@
                 </li>
                 <li class="sport_item f_l">
                     <div class="sport_item_content">
-                        <a href="#">
+                        <a href="venues.php?type=0L22">
                             <div class="sport_pic pic_5"></div>
                             <div class="sport_title1">足球</div>
                             <div class="sport_title2">
@@ -132,7 +139,7 @@
                 </li>
                 <li class="sport_item f_l">
                     <div class="sport_item_content">
-                        <a href="#">
+                        <a href="venues.php?type=0L16">
                             <div class="sport_pic pic_6"></div>
                             <div class="sport_title1">台球</div>
                             <div class="sport_title2">
@@ -146,7 +153,7 @@
                 </li>
                 <li class="sport_item f_l">
                     <div class="sport_item_content">
-                        <a href="#">
+                        <a href="venues.php?type=0L04">
                             <div class="sport_pic pic_7"></div>
                             <div class="sport_title1">高尔夫</div>
                             <div class="sport_title2">
@@ -160,7 +167,7 @@
                 </li>
                 <li class="sport_item f_l">
                     <div class="sport_item_content">
-                        <a href="#">
+                        <a href="venues.php?type=0N07">
                             <div class="sport_pic pic_8"></div>
                             <div class="sport_title1">游泳</div>
                             <div class="sport_title2">
@@ -174,7 +181,7 @@
                 </li>
                 <li class="sport_item f_l">
                     <div class="sport_item_content">
-                        <a href="#">
+                        <a href="venues.php?type=0P09">
                             <div class="sport_pic pic_9"></div>
                             <div class="sport_title1">瑜伽</div>
                             <div class="sport_title2">
@@ -188,7 +195,7 @@
                 </li>
                 <li class="sport_item f_l">
                     <div class="sport_item_content">
-                        <a href="#">
+                        <a href="venues.php?type=0P02">
                             <div class="sport_pic pic_10"></div>
                             <div class="sport_title1">游泳健身</div>
                             <div class="sport_title2">

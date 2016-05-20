@@ -86,9 +86,9 @@
                         <tbody>
                             {foreach from=$row.venueTicket item=ticket}
                             <tr class="table_1">
-                                <td class="ticket_span1"><a href="dongpiao_show2.php?productno={$ticket.infoId}">{$ticket.infoTitle}</a></td>
+                                <td class="ticket_span1"><a href="ticket_show.php?productno={$ticket.infoId}">{$ticket.infoTitle}</a></td>
                                 <td class="ticket_span2"><span class="font-18">{$ticket.salePrice}</span><span class="font-12">点</span></td>
-                                <td class="ticket_span3"><a href="dongpiao_show2.php?productno={$ticket.infoId}">立即预订</a></td>
+                                <td class="ticket_span3"><a href="ticket_show.php?productno={$ticket.infoId}">立即预订</a></td>
                             </tr>     
                         	{/foreach}   
                         </tbody>

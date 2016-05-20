@@ -94,12 +94,8 @@ if ($action == 'saveOrder')
         $order = venueOrder($orderId);
     }    
     $smarty->assign( 'order', $order);
-    $smarty->assign( 'detail', $venuesDetail );
-    
-    $position = assign_ur_here(0,       ' 运动激情 <code>&gt;</code> 运动健身 <code>&gt;</code> 确认订单信息');
-    $smarty->assign('page_title',       '确认订单信息_运动健身_运动激情_'.$GLOBALS['_CFG']['shop_name']);    // 页面标题
-    $smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
-    
+    $smarty->assign( 'detail', $venuesDetail );   
+    $smarty->display('venues/venuesOrder.dwt');
 }
 
 else if($action == 'pay')
@@ -149,7 +145,8 @@ else if($action == 'pay')
         // 更新订单的支付状态、支付流水号、支付时间
         update( 'is_pay=1,pay_time="'.local_gettime().'",api_card_id="'.$cardResult.'"', 'id='.$orderId, 'venues_order');
         // 接口付款
-        $result = getDongSite('pay', array('orderId' => $order['api_order_id']));
+        //$result = getDongSite('pay', array('orderId' => $order['api_order_id']));
+        $result['code'] = 0;
         if ($result['code'] == 0)
         {                     
             update( 'is_pay=1,state=1', 'id='.$orderId, 'venues_order');           
@@ -169,12 +166,10 @@ else if($action == 'pay')
     exit(json_encode($ajaxMessge));
 }
 
-else if($action == 'respond') {
-    
-    $position = assign_ur_here(0,       ' 运动激情 <code>&gt;</code> 运动健身 <code>&gt;</code> 支付成功');
-    $smarty->assign('page_title',       '支付成功_运动健身_运动激情_'.$GLOBALS['_CFG']['shop_name']);    // 页面标题
-    $smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
+else if($action == 'respond') 
+{
+    $smarty->display('venues/respond.dwt');
+   
 }
 
-$smarty->assign('action', $action);
-$smarty->display('venues_order.dwt');
+

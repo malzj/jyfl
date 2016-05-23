@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+	</head>
+	<body>
+        <!-- 头部 -->
+        <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 --> 
+        
+       <div class="w_1200">
+			<div class="sport6_tip margin_top_90"></div>
+            <form id="formCart" name="formCart" method="post" action="ticket_order.php" onsubmit="return checkSubmit();">
+			<div class="sport6_main">            
+				<div class="color_or margin_15">{$validity}。</div>
+				<table class="table sport6_table sportAll_table">
+					<thead>
+						<tr>
+							<td class="text_left margin_left_100">产品名称</td>
+							<td>购买数量</td>
+							<td>价格</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="text_left">{$detail.productName}</td>
+							<td>
+								<div class="quantity">
+									<a id="decrement" class="decrement" onclick="changeNumber()">-</a>
+									<input name="goods_number" id="goods_number" class="itxt" value="{if $detail.startNum == 0}1{else}{$detail.startNum}{/if}" type="text" >
+									<a id="increment" class="increment" onclick="changeNumber(1)">+</a>				
+								</div>
+							</td>
+							<td>{$detail.salePrice}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="sport6_xinxi">
+					<div class="f_r sport6_dianshu">
+						产品总价：<span class="color_zhuti font_24 dongPrice">0</span>点
+					</div>
+					<div class="f_r">
+						数量：<span class="color_zhuti font_24 dongNum">{if $detail.startNum == 0}1{else}{$detail.startNum}{/if}</span>
+					</div>
+				</div>
+				<div class="sport6_tips">游客资料录入（因为游客资料错误导致无法入场，网站不承担责任）</div>
+				<div class="sport6——shuru">
+                
+                {foreach from=$fields item=field}
+                	{if $field.link eq 'link_credit_type'}
+                    <div class="yourName">
+                    	{$field.name}：&nbsp;&nbsp;&nbsp;
+                    	<select name="links[{$field.link}]" style="border:1px #ccc solid; padding:3px;">
+                        	{foreach from=$field.selects key=key item=select}
+                            	<option value="{$key}">{$select}</option>
+                            {/foreach}
+                        </select>
+                    </div>
+                    {else}
+                	<div class="yourName">{$field.name}：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="links[{$field.link}]" class="input_def"/> <font>{$field.tip}</font></div>
+                	{/if}
+                {/foreach}                
+				</div>
+			</div>
+			<div class="sport6_btn">				
+                <input type="submit" value="立即结算" class="sport6_liji"/>	
+                <input type="hidden" name="step" value="done"/>
+                <input type="hidden" name="productno" value="{$detail.productNo}" />
+                <input type="hidden" name="traveldate" value="{$travelDate}" />		
+                <input type="hidden" name="step" value="done" />
+			</div>
+            </form>
+		</div>
+		<script>
+		
+		<!--
+			var cardMoney    = {$usernames.card_money};
+			var startNum 	 = {$detail.startNum};
+			var maxNum   	 = {$detail.maxNum};
+			var salePrice 	 = {$detail.salePrice};	
+			var expressPrice = {$expressPrice};		
+			
+			changeTotal();
+			
+			function changeNumber(state){
+				
+				var number = document.getElementById('goods_number');
+				if(isNaN(number.value)){
+					alert('请输入数字');
+					return false;
+				}
+				if(state == 1){
+					numbers = parseFloat(number.value) + 1;
+				}else if(state == 2){
+					numbers = parseFloat(number.value);
+				}else{
+					numbers = parseFloat(number.value) - 1;
+				}
+				if(numbers < 1 || number.value == ''){
+					numbers = 1;
+				}
+				
+				if(startNum > 0 && numbers < startNum){
+					return false;
+				}
+				if(maxNum > 0 && numbers > startNum){
+					return false;
+				}
+				number.value = numbers;
+				changeTotal();
+			}
+			
+			// 价格统计
+			function changeTotal(){
+				var number 		= parseFloat($('#goods_number').val());
+				var expPrice    = parseFloat($('.dongExpress'));
+				salePrice       = parseFloat(salePrice);
+				if(isNaN(expPrice)){
+					expPrice    = 0;
+				}
+				var total = ((number*salePrice)+expPrice).toFixed(1);
+				
+				$('.dongNum').text(number);
+				$('.dongPrice').text(total);
+			}
+			
+			function checkSubmit(){
+				var totalPrice = parseFloat($('.dongPrice').text());
+				cardMoney       = parseFloat(cardMoney);
+				if(cardMoney < totalPrice ){
+					alert('你的卡点数不足以支付当前订单，请选择 '+cardMoney+' 以内的产品！');
+					return false;
+				}
+				var is_sub = true;
+				$('.dong-name-phone input').each(function(){
+					if($(this).val() == '')
+					{
+						alert('资料录入不完整，请完善！');
+						$(this).focus();
+						is_sub = false;
+						return false;
+					}
+				});
+				return is_sub;
+				//return true;
+			}
+		//-->		
+		</script>
+        
+        <!-- 底部 -->
+	 	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+	    <!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+    </body>
+</html>

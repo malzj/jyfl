@@ -19,12 +19,10 @@ if (!isset($_REQUEST['step']))
 assign_template();
 // 购物车
 if ($_REQUEST['step'] == 'cart')
-{
-	
-	$smarty->assign('page_title',       '购物车_运动激情_'.$GLOBALS['_CFG']['shop_name']);    // 页面标题
-	
+{	
 	// 产品id
 	$product = intval($_REQUEST['product']);
+
 	// 游玩日期
 	$travelDate = trim($_REQUEST['date']);
 	if ($product == 0)
@@ -45,7 +43,7 @@ if ($_REQUEST['step'] == 'cart')
 	
 	// 价格日历为空，跳转到产品详情页
 	if (empty($travelDate))
-		ecs_header("location:dongpiao_show2.php?productno=".$product);
+		ecs_header("location:ticket_show.php?productno=".$product);
 	else
 		$date = $travelDate;
 		
@@ -134,14 +132,13 @@ if ($_REQUEST['step'] == 'cart')
 	$smarty->assign('fields', 		$fields);
 	$smarty->assign('validity', 	$validity);
 	$smarty->assign('detail', 		$detail);
-	
+	$smarty->display('venues/ticketOrder.dwt');
 }
 
 // 下单
 else if ($_REQUEST['step'] == 'done')
-{
+{	
 	
-	$smarty->assign('page_title',       '下单_运动激情_'.$GLOBALS['_CFG']['shop_name']);    // 页面标题
 	$num 				=  !empty($_POST['goods_number']) ? intval($_POST['goods_number']) : 0 ;
 	$productNo	 		=  !empty($_POST['productno']) ? intval($_POST['productno']) : 0;
 	$traveldate 		=  trim($_POST['traveldate']);
@@ -281,11 +278,10 @@ else if ($_REQUEST['step'] == 'done')
 	$smarty->assign('validit', 	$validity);
 	$smarty->assign('list', $lists);
 	
+	$smarty->display('venues/ticketPay.dwt');
 }
 // 我的订单点过来的支付操作
 else if ($_REQUEST['step'] == 'upay'){
-	
-	$smarty->assign('page_title',       '支付_运动激情_'.$GLOBALS['_CFG']['shop_name']);    // 页面标题
 	
 	$orderId = isset($_REQUEST['order_id']) ? intval($_REQUEST['order_id']) : 0 ;
 	if ($orderId == 0)
@@ -332,17 +328,12 @@ else if ($_REQUEST['step'] == 'upay'){
 	else
 		$validity = sprintf($validityType[$detail['validityType']], $detail['validityCon']);
 	$smarty->assign('validit', 	$validity);
-	
-	
-	
 	$smarty->assign('list', $lists);	
+	$smarty->display('venues/ticketPay.dwt');
 }
 // 支付
 else if ($_REQUEST['step'] == 'pay')
 {
-	
-	
-	$smarty->assign('page_title',       '支付_运动激情_'.$GLOBALS['_CFG']['shop_name']);    // 页面标题
 	$str_password = !empty($_POST['password']) ? $_POST['password'] : '';
 	$order_id     = $_POST['order_id'];
 	$order_amount = floatval($_POST['order_amount']);
@@ -364,13 +355,6 @@ else if ($_REQUEST['step'] == 'pay')
 		$arr_result['message'] = '卡余额不足';
 		die(json_encode($arr_result));
 	}
-	
-	/* $str_pwd = $db->getOne('SELECT password FROM '.$ecs->table('users')." WHERE user_id = '".$_SESSION['user_id']."'");
-	if (md5($str_password) != $str_pwd){
-		$arr_result['error'] = 5;
-		$arr_result['message'] = '密码错误';
-		die(json_encode($arr_result));
-	} */
 	
 	$orders = $db->getAll('SELECT * FROM '.$ecs->table('venues_order').' WHERE id = '.$order_id);
 	if (empty($orders))
@@ -394,14 +378,14 @@ else if ($_REQUEST['step'] == 'pay')
 	);
 	$state = $cardPay->action($arr_param, 1, $orders[0]['order_sn']);
 	
-	//$arr_cardInfo = array('ReturnCode'=>0);
 	if ($state == 0){
 		$cardResult = $cardPay->getResult();
 		$_SESSION['BalanceCash'] -= $orders[0]['money']; //重新计算用户卡余额
 		
 		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('users')." SET card_money = card_money - (".$orders[0]['money'].") WHERE user_id = '".intval($_SESSION['user_id'])."'");
 		// 动网支付
-		$dongPay = getDongapi('pay',array('orderId'=>$orders[0]['api_order_id']));
+		//$dongPay = getDongapi('pay',array('orderId'=>$orders[0]['api_order_id']));
+		$dongPay['status'] = '1';
 		if ($dongPay['status'] == '1')
 		{
 			$arr_result['error'] = 0;
@@ -420,11 +404,10 @@ else if ($_REQUEST['step'] == 'pay')
 	die(json_encode($arr_result));
 }
 else if($_REQUEST['step'] == 'respond'){
-	
+    $smarty->display('venues/respond2.dwt');
 }
 
-$smarty->assign('step', $_REQUEST['step']);
-$smarty->display('dongpiao_order2.dwt');
+
 
 // 产品详细
 function get_detail($product){	
@@ -447,7 +430,7 @@ function get_detail($product){
 
 // 日期的合法性，根据选择的日期，遍历价格日历，如果不存在返回false ，否则 true
 function check_price($price, $date){
-    $customRatio = get_card_rule_ratio(10003);
+    $customRatio = 1;//get_card_rule_ratio(10003);
 	$salePrice = 0;
 	// 如果只有一个时间
 	if ($price['date'] == $date)

@@ -47,188 +47,14 @@
 						<li class="sport4_mar">营业时间：<span><?php echo $this->_var['detail']['businessHours']; ?> </span></li>
 						<li class="sport4_mar">详细地址：<span><?php echo $this->_var['detail']['viewAddress']; ?></span></li>
 						<li><a href="#goumai"><span class="sport4_btn">立即购买</span></a></li>
-                        
+                        <li id="goumai"></li>
 					</ul>
 				</div>
 			</div>
 			<div class="h-inforbox">
 				<div class="h-tabletitle" id="calendar" style="color:#F00;"> 
                 	
-                    <div>
-						<table class="h-table">
-							<tbody>
-								<tr>
-									<td>
-										<a href="javascript:calendar(2);" class="h-left"><img src="themes/default/images/img_login/l8.gif"></a>
-									</td>
-									<td class="h-tr">2016年05月价格日历 (选择游玩日期预订) </td>
-									<td>
-										<a href="javascript:calendar(1);"><img src="themes/default/images/img_login/r8.gif"></a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="h-table1">
-						<table>
-							<tbody>
-								<tr>
-									<td>星期日</td>
-									<td>星期一</td>
-									<td>星期二</td>
-									<td>星期三</td>
-									<td>星期四</td>
-									<td>星期五</td>
-									<td>星期六</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="h-table2" id="td">
-						<p></p>
-						<p></p>
-						<p></p>
-						<p></p>
-						<p></p>
-						<table>
-							<tbody>
-								<tr>
-									<td class="t1" date="0">
-										<p>01</p>
-										<p class="h-p1">&nbsp;</p>
-									</td>
-									<td class="t1" date="0">
-										<p>02</p>
-										<p class="h-p1">&nbsp;</p>
-									</td>
-									<td class="t1" date="0">
-										<p>03</p>
-										<p class="h-p1">&nbsp;</p>
-									</td>
-									<td class="t1" date="2016-05-04">
-										<p>04</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-05">
-										<p>05</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-06">
-										<p>06</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-07">
-										<p>07</p>
-										<p class="h-p1">61点</p>
-									</td>
-								</tr>
-								<tr class="t1">
-									<td class="t1" date="2016-05-08">
-										<p>08</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-09">
-										<p>09</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-10">
-										<p>10</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-11">
-										<p>11</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-12">
-										<p>12</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-13">
-										<p>13</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-14">
-										<p>14</p>
-										<p class="h-p1">61点</p>
-									</td>
-								</tr>
-								<tr class="t1">
-									<td class="t1" date="2016-05-15">
-										<p>15</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-16">
-										<p>16</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-17">
-										<p>17</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-18">
-										<p>18</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-19">
-										<p>19</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-20">
-										<p>20</p>
-										<p class="h-p1">61点</p>
-									</td>
-									<td class="t1" date="2016-05-21">
-										<p>21</p>
-										<p class="h-p1">61点</p>
-									</td>
-								</tr>
-								<tr class="t1">
-									<td class="t1" date="0">
-										<p>22</p>
-										<p class="h-p1">&nbsp;</p>
-									</td>
-									<td class="t1" date="0">
-										<p>23</p>
-										<p class="h-p1">&nbsp;</p>
-									</td>
-									<td class="t1" date="0">
-										<p>24</p>
-										<p class="h-p1">&nbsp;</p>
-									</td>
-									<td class="t1" date="0">
-										<p>25</p>
-										<p class="h-p1">&nbsp;</p>
-									</td>
-									<td class="t1" date="0">
-										<p>26</p>
-										<p class="h-p1">&nbsp;</p>
-									</td>
-									<td class="t1" date="0">
-										<p>27</p>
-										<p class="h-p1">&nbsp;</p>
-									</td>
-									<td class="t1" date="0">
-										<p>28</p>
-										<p class="h-p1">&nbsp;</p>
-									</td>
-								</tr>
-								<tr class="t1">
-									<td class="t1" date="0">
-										<p>29</p>
-										<p class="h-p1">&nbsp;</p>
-									</td>
-									<td class="t1" date="0">
-										<p>30</p>
-										<p class="h-p1">&nbsp;</p>
-									</td>
-									<td class="t1" date="0">
-										<p>31</p>
-										<p class="h-p1">&nbsp;</p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+                    
                 </div>
 				<div class="h-bot">
 					 <?php echo $this->_var['detailww']; ?>
@@ -258,6 +84,53 @@
 				var img = $(this).attr('src');
 				$('.sport_img img').attr('src', img);
 			})
+	
+			var product = <?php echo $this->_var['detail']['productNo']; ?>;
+			var addate = 0;
+				loadPrice(0);			
+			
+			
+			function calendar(e){
+				if(e==1){
+					addate++;
+				}else{
+					addate--;
+				}
+				if(addate == 0){
+					loadPrice(0);
+					
+				}	
+				var myDate = new Date();
+				var year = myDate.getFullYear();
+				var month = myDate.getMonth()+1;
+				var day = myDate.getDate();
+					month = month+addate;
+				var str = year+'-'+month+'-'+day;
+				loadPrice(str);
+			}
+			
+			function loadPrice(date){
+				$.ajax({
+					type: "POST",
+					url: "ticket_show.php?step=price",
+					data:'productno='+product+'&date='+date,
+					beforeSend : function(){
+						var beforeHtml = "<span style='display:inline-block; margin-left:320px;'><img src='<?php echo $this->_var['app_path']; ?>images/loadSeat2.gif'></span>";
+						$('#calendar').html(beforeHtml);
+					},
+					success: function(info){
+						$('#calendar').html(info);
+					}
+				});
+			}
+			
+			$(document).on('click', '#calendar .h-table2 tr td', function(){
+				var date = $(this).attr('date');
+				if(date != 0){
+					 window.location.href='ticket_order.php?step=cart&product='+product+'&date='+date;
+				}
+			});
+
 		</script>
         
         

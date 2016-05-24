@@ -1,9 +1,9 @@
 <?php
 $data = array (
-  1 => 
+  4 => 
   array (
-    'cat_id' => '1',
-    'cat_name' => '试听盛宴',
+    'cat_id' => '4',
+    'cat_name' => '蛋糕',
     'measure_unit' => '',
     'parent_id' => '0',
     'is_show' => '1',
@@ -13,15 +13,15 @@ $data = array (
     'has_children' => '2',
     'goods_num' => 0,
     'level' => 0,
-    'id' => '1',
-    'name' => '试听盛宴',
+    'id' => '4',
+    'name' => '蛋糕',
   ),
-  2 => 
+  5 => 
   array (
-    'cat_id' => '2',
-    'cat_name' => '电影',
+    'cat_id' => '5',
+    'cat_name' => '诺心 • 蛋糕',
     'measure_unit' => '',
-    'parent_id' => '1',
+    'parent_id' => '4',
     'is_show' => '1',
     'show_in_nav' => '0',
     'grade' => '0',
@@ -29,15 +29,15 @@ $data = array (
     'has_children' => '0',
     'goods_num' => 0,
     'level' => 1,
-    'id' => '2',
-    'name' => '电影',
+    'id' => '5',
+    'name' => '诺心 • 蛋糕',
   ),
-  3 => 
+  6 => 
   array (
-    'cat_id' => '3',
-    'cat_name' => '演出',
+    'cat_id' => '6',
+    'cat_name' => '味多美',
     'measure_unit' => '',
-    'parent_id' => '1',
+    'parent_id' => '4',
     'is_show' => '1',
     'show_in_nav' => '0',
     'grade' => '0',
@@ -45,8 +45,8 @@ $data = array (
     'has_children' => '0',
     'goods_num' => 0,
     'level' => 1,
-    'id' => '3',
-    'name' => '演出',
+    'id' => '6',
+    'name' => '味多美',
   ),
 );
 ?>

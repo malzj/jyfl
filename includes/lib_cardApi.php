@@ -411,7 +411,6 @@ function getDongapi($tradaId="list",$arr_param=array(), $method="post"){
 	
 	$str_request = array_merge($default,$arr_param);
 	$result = $http->post($str_apiUrl, $str_request,'','fopen');
-	
 	if (!empty($result)){
 		$obj_xmlRoot = simplexml_load_string($result, 'SimpleXMLElement', LIBXML_NOCDATA | LIBXML_NOBLANKS);
 		$arr_result = object2array($obj_xmlRoot);

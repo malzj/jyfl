@@ -5,7 +5,7 @@ require(dirname(__FILE__) . '/includes/init.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_dongsport.php');
 
-$customRatio = get_card_rule_ratio(10003);
+$customRatio = 1; //get_card_rule_ratio(10003);
 
 if ((DEBUG_MODE & 2) != 2)
 {
@@ -90,9 +90,5 @@ if ( !empty($apiPrice) )
 $smarty->assign('ticket', $ticketData);
 $smarty->assign('venues', $venueData);
 $smarty->assign('venueId', $venueId);
-$position = assign_ur_here(0,       ' 运动激情 <code>&gt;</code> 运动健身 <code>&gt;</code> '.$detail['venueName']);
-$smarty->assign('page_title',       '运动健身_运动激情_'.$GLOBALS['_CFG']['shop_name']);    // 页面标题
-$smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
-
-$smarty->display('venues_detail.dwt');
+$smarty->display('venues/venuesDetail.dwt');
 ?>

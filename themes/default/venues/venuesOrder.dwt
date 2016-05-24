@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>        
+        <link rel="stylesheet" href="{$app_path}css/juyoufuli/sport1.css">
+        <link rel="stylesheet" href="{$app_path}css/juyoufuli/venues.css">
+	</head>
+	<body>
+        <!-- 头部 -->
+        <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 -->
+        
+        <div class="w_1200" style="margin-top: 90px;">
+			<div class="sport5_tips o_hidden">
+				<div class="f_l sport5_title">场馆订购</div>
+				<div class="sport5_tip f_l"></div>
+			</div>
+			<div class="sport5_bottom">
+                <div class="sport5_table">
+                    <table class="table sportAll_table table-bordered">
+                        <thead>
+                            <tr>
+                                <td>场馆信息</td>
+                                <td>用户信息</td>
+                                <td>预定信息</td>
+                                <td>总售点</td>
+                                <td>数量</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="sport_5_td">
+                                    <div class="sport5_cg">场馆：<span>{$order.venueName}</span></div>
+                                    <div class="sport5_dz">地址：<span>{$detail.place}</span></div>
+                                </td>
+                                <td class="sport_5_td1">姓名：{$order.link_man}（{$order.link_phone}）</td>
+                                <td class="sport_5_td2">{foreach from=$order.times_mt item=time} {$order.date} {$time}<br />{/foreach}    </td>
+                                <td class="sport_5_td3">{$order.money}点</td>
+                                <td class="sport_5_td4">{$order.total}块</td>
+                            </tr>                           
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pay_password o_hidden">
+                	<form action="komovie_seat.php" name="myDoneForm" method="post" onsubmit="return checkPayForm();">		
+                    <div class="f_l jy_kahao">聚优卡号：<span>{$usernames.user_name}</span></div>
+                    <div class="f_l jy_pass">聚优卡密码：<span><input type="password" name="password" id="password" placeholder="请输入密码"></span></div>
+                    <div class="f_l jy_jiesuan">结算</div>
+                    <input type="hidden" name="act" value="done" />
+                    <input type="hidden" name="order_id" id="order_id" value="{$order.id}" />
+                    </form>
+                </div>
+            </div>
+		</div>
+        
+        <script type="text/javascript">
+			var checkSubmitFlg = false;
+			$('.jy_jiesuan').click(function(){
+				var password = $('#password').val();
+				var orderid = $('#order_id').val();
+				if( password == ''){
+					alert('密码不能为空！');
+					return false;
+				}
+				if(checkSubmitFlg == true){ 
+					alert('已提交过，请耐心等待');
+					return false;
+				}
+				checkSubmitFlg = true;
+				$.ajax({
+					type : 'POST',
+					url: 'venues_order.php?action=pay',
+					data: "password="+password+"&orderid="+orderid,
+					success:function(data){
+						if(data.error == 1){
+							alert(data.message);
+							checkSubmitFlg = false;
+						}else{
+							window.location.href="venues_order.php?action=respond";
+						}
+					},
+					dataType:'json'
+				});
+			});
+		</script>
+        
+        <!-- 底部 -->
+	 	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+	    <!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+     </body>
+</html>

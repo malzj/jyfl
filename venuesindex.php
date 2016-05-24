@@ -32,6 +32,8 @@ foreach ( (array)$type as $key=>$val)
     }
 }
 
+$smarty->assign('banner', getNavadvs(14));
+$smarty->assign('text', getNavadvs(13));
 $smarty->assign('data', $totalData);
 $smarty->display('venues/venuesIndex.dwt');
 

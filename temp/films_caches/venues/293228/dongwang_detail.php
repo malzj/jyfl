@@ -1,0 +1,27 @@
+<?php	return array (
+  'stime' => '9',
+  'cityId' => '1001113',
+  'cityName' => '北京',
+  'score' => '3.9',
+  'img' => 'http://www.dongsport.com/data/imgthumb/94/37/77789437_1460294461679_720x285.jpg,http://www.dongsport.com/data/imgthumb/81/48/1479598148_1460448435003_720x285.jpg,http://www.dongsport.com/data/imgthumb/68/81/242986881_1460448443324_720x285.jpg,http://www.dongsport.com/data/imgthumb/95/80/1996539580_1460448457421_720x285.jpg,http://www.dongsport.com/data/imgthumb/93/99/1986509399_1460448469252_720x285.jpg,http://www.dongsport.com/data/imgthumb/8/11/219710811_1460448480222_720x285.jpg,http://www.dongsport.com/data/imgthumb/88/36/36708836_1460448489417_720x285.jpg,http://www.dongsport.com/data/imgthumb/33/22/5833322_1460448490963_720x285.jpg,http://www.dongsport.com/data/imgthumb/33/32/1695823332_1460448499339_720x285.jpg',
+  'equipment' => 
+  array (
+  ),
+  'environmentScore' => 3.8,
+  'signImg' => 'http://www.dongsport.com/data/imgthumb/94/37/77789437_1460294461679_720x285.jpg',
+  'priceScore' => 5,
+  'feature' => '北京市昌平区回龙观体育公园网球馆',
+  'place' => '北京市昌平区回龙观体育公园网球馆',
+  'venueName' => '回龙观体育公园（篮球场）',
+  'venueId' => '293228',
+  'lat' => '40.084168',
+  'serviceScore' => 3.9,
+  'lon' => '116.347171',
+  'sportName' => '篮球',
+  'filedDesc' => '',
+  'etime' => '22',
+  'sportType' => '0L06',
+  'trafficScore' => 5,
+  'salePrice' => '14',
+  'viewId' => 'view_139885',
+);?>

@@ -11,6 +11,7 @@
 			<div class="act_title"></div>	
 			<div class="message_1">
 				<div class="message_1_content">
+					<a href="#" class="pop_right_goods">
 					<div class="act_item1 f_l">
 						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
 					</div>
@@ -22,15 +23,17 @@
 		                        <span style="float: left;">30%</span>
 		                	</div>
 					</div>
+					</a>
 					<div class="act_item3 f_l">
 						<a href="#" class="jinbi">
-							<img src="/images/juyoufuli/img_login/jieshu.png">
+							<img src="/images/juyoufuli/img_login/jieshu.png" class="end">
 						</a>
 					</div>
 				</div>
 			</div>	
 			<div class="message_1">
 				<div class="message_1_content">
+					<a href="#" class="pop_right_goods">
 					<div class="act_item1 f_l">
 						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
 					</div>
@@ -42,9 +45,10 @@
 		                        <span style="float: left">30%</span>
 		                	</div>
 					</div>
+					</a>
 					<div class="act_item3 f_l">
 						<a href="#" class="jinbi">
-							<img src="/images/juyoufuli/img_login/duo.png">
+							<img src="/images/juyoufuli/img_login/duo.png" class="duo">
 						</a>
 					</div>
 				</div>
@@ -53,6 +57,7 @@
 			<div class="act_title1"></div>
 			<div class="message_1">
 				<div class="message_1_content">
+					<a href="#" class="pop_right_goods">
 					<div class="act_item1 f_l">
 						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
 					</div>
@@ -64,15 +69,17 @@
 		                        <span style="float: left;">30%</span>
 		                	</div>
 					</div>
+					</a>
 					<div class="act_item3 f_l">
 						<a href="#" class="jinbi">
-							<img src="/images/juyoufuli/img_login/jieshu.png">
+							<img src="/images/juyoufuli/img_login/jieshu.png" class="end">
 						</a>
 					</div>
 				</div>
 			</div>	
 			<div class="message_1">
 				<div class="message_1_content">
+					<a href="#" class="pop_right_goods">
 					<div class="act_item1 f_l">
 						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
 					</div>
@@ -84,15 +91,17 @@
 		                        <span style="float: left;">30%</span>
 		                	</div>
 					</div>
+					</a>
 					<div class="act_item3 f_l">
 						<a href="#" class="jinbi">
-							<img src="/images/juyoufuli/img_login/jieshu.png">
+							<img src="/images/juyoufuli/img_login/jieshu.png" class="end">
 						</a>
 					</div>
 				</div>
 			</div>	
 			<div class="message_1">
 				<div class="message_1_content">
+					<a href="#" class="pop_right_goods">
 					<div class="act_item1 f_l">
 						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
 					</div>
@@ -104,15 +113,17 @@
 		                        <span style="float: left;">30%</span>
 		                	</div>
 					</div>
+					</a>
 					<div class="act_item3 f_l">
 						<a href="#" class="jinbi">
-							<img src="/images/juyoufuli/img_login/jieshu.png">
+							<img src="/images/juyoufuli/img_login/jieshu.png" class="end">
 						</a>
 					</div>
 				</div>
 			</div>	
 			<div class="message_1">
 				<div class="message_1_content">
+					<a href="#" class="pop_right_goods">
 					<div class="act_item1 f_l">
 						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
 					</div>
@@ -124,9 +135,10 @@
 		                        <span style="float: left;">30%</span>
 		                	</div>
 					</div>
+					</a>
 					<div class="act_item3 f_l">
 						<a href="#" class="jinbi">
-							<img src="/images/juyoufuli/img_login/duo.png">
+							<img src="/images/juyoufuli/img_login/duo.png" class="duo">
 						</a>
 					</div>
 				</div>

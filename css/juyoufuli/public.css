@@ -39,8 +39,8 @@ a:focus{outline: none;}
 .input_submit{border:none;outline: none;font-size: 14px;font-family: "微软雅黑";}
 .bg_color{background: #2fd0b5!important;}
 .zhuti_a_hover:hover{background: #35A794!important;}
-.hd .prevStop{display:none}
-.hd .nextStop{display:none}
+.hd .prevStop{display:none!important;}
+.hd .nextStop{display:none!important;}
 /*login.html*/
 
 html.login {
@@ -91,6 +91,7 @@ html.login .header_nav .username img {
 }
 
 html.login .wrap {
+	-webkit-animation: donghua 3.5s linear;
 	animation: donghua 3.5s linear;
 }
 
@@ -326,10 +327,51 @@ html.login .pop_right{transform: translateX(0);}
 .act_title{height: 60px;background: url(/images/juyoufuli/img_login/pop_right_title.png) no-repeat -8px 0px;}
 .act_item1{width: 80px;height: 90px;}
 .act_item1 img{width: 100%;height: 100%;}
-.act_item2{line-height: 1.8;margin-left: 10px;width: 155px;margin-top: 5px;}
+.act_item2{color: white;line-height: 1.8;margin-left: 10px;width: 155px;margin-top: 5px;}
 .act_title1{background: url(/images/juyoufuli/img_login/pop_right_title.png) no-repeat -7px -55px;height: 60px;}
 .jinbi{display: block;width: 80px;height: 80px;}
 .jinbi img{width: 100%;height: 100%;}
+/* 往期中奖 */
+.guize_content,.xieyi_content{padding: 0 10px 10px 10px;}
+.old_win_item{margin: 0 30px 10px 30px;}
+.old_win_qihao{margin-bottom: 5px;font-size: 14px;}
+.old_win_img{margin-right: 15px;width: 80px;height: 80px;}
+.old_win_img img{width: 100%;height: 100%;}
+.old_win_item{border-bottom: 1px solid;overflow:hidden;padding-bottom: 10px;}
+.old_win_msg{line-height: 2.2;height: 80px;}
+.old_win_username{color:#ff781e;}
+/*商品详情*/
+.goods_details_img{width: 125px;height: 130px;}
+.goods_details_img img{width: 100%;height: 100%;}
+.goods_details_box{
+    padding-bottom: 15px;
+    margin: 15px 30px;
+    border-bottom: 1px solid;
+    overflow: hidden;
+}
+.goods_details_name{font-size: 16px;}
+.goods_details_content{overflow: hidden;margin-left: 25px;width: 340px;height: 130px;}
+.goods_details_jishao{margin-top: 10px;}
+.yigou_name{padding-top: 10px;margin: 20px 30px;font-size: 18px;overflow: hidden;}
+.yigouhao{letter-spacing: 2px;padding: 2px 20px;display: inline-block;font-size: 14px;background: #30d7b9;box-shadow: 1px 1px 15px;border-radius: 5px;margin: 0px 10px 20px;}
+.yigouhao_all{width: 430px;}
+
+/*抢购页面*/
+.qianggou_details_content input.itxt{background: white!important;border: 1px solid #9e9e9e!important;}
+.qianggou_img{width: 125px;height: 130px;}
+.qianggou_img img{width: 100%;height: 100%;}
+.qianggou_details{padding-bottom: 15px;overflow: hidden;margin: 15px 30px;border-bottom: 1px solid;}
+.qianggou_details_content{margin-left: 20px;}
+.qianggou_details_name{font-size: 18px;}
+.qianggou_num .decrement{margin-left: 10px;}
+.qianggou_num{margin-top: 5px;}
+.qianggou_password{width: 160px;height: 24px;padding: 0 5px;border-radius: 5px;border: 1px solid!important;margin-right: 10px;}
+.qianggou_password_box{margin-top: 10px;}
+.qianggou_password_box button{background: #ffa116;border: none;outline: none;padding: 0px 10px;border-radius: 5px;}
+
+
+
+
 @media only screen and (max-height: 700px) {
 	.pop_right .border_radio{
 		margin: 15px auto;
@@ -338,7 +380,7 @@ html.login .pop_right{transform: translateX(0);}
 		margin: 15px auto;
 		width: 250px;
 	}
-	.pop_right .scroll_msg{top: 258px;}
+	.pop_right .scroll_msg{top: 150px;}
 	.message_1{padding: 10px 0;}
 	
 }
@@ -1269,6 +1311,7 @@ html.movie_1 .w_1200 .select_cinema ul li.active{
 	background-size: 100% 100%;
 }
 html.movie_1 .w_1200 .movie_xiangqing .select_cinema ul li {
+	cursor: pointer;
 	padding: 15px 0;
 	padding-left: 45px;
 	margin-left: 10px;
@@ -2165,7 +2208,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .sport1_li_margin li{margin: 8px 0;}
 
 /*sport4.html*/
-.sport_img{width: 460px;height: 350px;}
+.sport_img{width: 460px;height: 350px;overflow: hidden;}
 .sport_img img{width:100%;height:100%;}
 
 .sport4_title{line-height: 1.3;font-size: 24px;color: #FF781E;}
@@ -2182,9 +2225,9 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .sport4_list .tempWrap{margin: 0 auto;}
 
 .h-inforbox{float: left;margin-top:20px;position: relative;width: 100%;}
-.h-inforbox .h-tabletitle{background: white;width: 600px;}
+.h-inforbox .h-tabletitle{background: white;width: 600px;height: 462px;}
 .h-inforbox .h-table{line-height: 32px;background-color: white;}
-.h-inforbox .h-table tr .h-left{line-height: 30px;margin-left:20px; }
+.h-inforbox .h-table tr .h-left{line-height: 30px;margin-left: 10px;}
 .h-inforbox .h-table .h-tr{text-align: center; font-size:14px;}
 .h-inforbox table{width: 100%;}
 .h-inforbox .h-table1{height: 50px;}
@@ -2194,7 +2237,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .h-inforbox .h-table2 table tr td{text-align: center;font-size:12px;}
 .h-inforbox .h-table2 table tr td p{margin: 10px;color: #999;font-weight: 700;font-size: 14px; cursor: pointer;}
 .h-inforbox .h-table2 table tr td .h-p1{margin: 5px;color: #f43;font-weight:normal;}
-.h-inforbox .h-table2 .t1{background-color:#fff; }
+.h-inforbox .h-table2 .t1{border-right: 1px solid #ddd;border-top: 1px solid #ddd;background-color:#fff;}
 .h-inforbox .h-table2 .t1:hover{background-color:#FFDEB7;}
 .h-inforbox .h-bot{width:556px;height: 440px;overflow-y: scroll;border: 2px solid #F7F7F7;background-color: #FEFEFE;margin-top: 10px;line-height: 25px;padding: 10px;position: absolute;right: 0px;top:-10px;}
 /*Product profile*/

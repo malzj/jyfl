@@ -1,8 +1,8 @@
 <div class="pop_right">
-			<div class="right"><span class="glyphicon glyphicon-chevron-right"></span></div>
+			<div class="right"><span class="glyphicon glyphicon-chevron-left"></span></div>
 			<div class="message">
 				<div class="border_radio">
-					<img src="images/img_login/02.png" alt="可口可乐" width="80%">
+					<img src="/images/juyoufuli/img_login/02.png" alt="可口可乐" width="80%">
 				</div>	
 				<div class="text-center">可口可乐有限公司</div>
 			</div>
@@ -12,7 +12,7 @@
 			<div class="message_1">
 				<div class="message_1_content">
 					<div class="act_item1 f_l">
-						<img src="images/img_login/pop_right_bottombtn1.png">
+						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
 					</div>
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
@@ -24,7 +24,7 @@
 					</div>
 					<div class="act_item3 f_l">
 						<a href="#" class="jinbi">
-							<img src="images/img_login/jieshu.png">
+							<img src="/images/juyoufuli/img_login/jieshu.png">
 						</a>
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 			<div class="message_1">
 				<div class="message_1_content">
 					<div class="act_item1 f_l">
-						<img src="images/img_login/pop_right_bottombtn1.png">
+						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
 					</div>
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
@@ -44,7 +44,7 @@
 					</div>
 					<div class="act_item3 f_l">
 						<a href="#" class="jinbi">
-							<img src="images/img_login/duo.png">
+							<img src="/images/juyoufuli/img_login/duo.png">
 						</a>
 					</div>
 				</div>
@@ -54,7 +54,7 @@
 			<div class="message_1">
 				<div class="message_1_content">
 					<div class="act_item1 f_l">
-						<img src="images/img_login/pop_right_bottombtn1.png">
+						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
 					</div>
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
@@ -66,7 +66,7 @@
 					</div>
 					<div class="act_item3 f_l">
 						<a href="#" class="jinbi">
-							<img src="images/img_login/jieshu.png">
+							<img src="/images/juyoufuli/img_login/jieshu.png">
 						</a>
 					</div>
 				</div>
@@ -74,7 +74,7 @@
 			<div class="message_1">
 				<div class="message_1_content">
 					<div class="act_item1 f_l">
-						<img src="images/img_login/pop_right_bottombtn1.png">
+						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
 					</div>
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
@@ -86,7 +86,7 @@
 					</div>
 					<div class="act_item3 f_l">
 						<a href="#" class="jinbi">
-							<img src="images/img_login/jieshu.png">
+							<img src="/images/juyoufuli/img_login/jieshu.png">
 						</a>
 					</div>
 				</div>
@@ -94,7 +94,7 @@
 			<div class="message_1">
 				<div class="message_1_content">
 					<div class="act_item1 f_l">
-						<img src="images/img_login/pop_right_bottombtn1.png">
+						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
 					</div>
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
@@ -106,7 +106,7 @@
 					</div>
 					<div class="act_item3 f_l">
 						<a href="#" class="jinbi">
-							<img src="images/img_login/jieshu.png">
+							<img src="/images/juyoufuli/img_login/jieshu.png">
 						</a>
 					</div>
 				</div>
@@ -114,7 +114,7 @@
 			<div class="message_1">
 				<div class="message_1_content">
 					<div class="act_item1 f_l">
-						<img src="images/img_login/pop_right_bottombtn1.png">
+						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
 					</div>
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
@@ -126,7 +126,7 @@
 					</div>
 					<div class="act_item3 f_l">
 						<a href="#" class="jinbi">
-							<img src="images/img_login/duo.png">
+							<img src="/images/juyoufuli/img_login/duo.png">
 						</a>
 					</div>
 				</div>

@@ -1,86 +1,143 @@
 <div class="pop_right">
-   	<div class="right"><span class="glyphicon glyphicon-chevron-left"></span></div>
-    <div class="message">
-        <div class="border_radio">
-            <img src="/images/juyoufuli/img_login/02.png" alt="可口可乐" width="80%">
-        </div>	
-       	<div class="text-center">可口可乐有限公司</div>
-    </div>
-    <hr></hr>
-	<div class="scroll_msg">
-        <div class="message_1">
-            <div class="message_1_content">
-                <div>
-                    <strong>电影票抢购</strong>
-                    <strong>共<span>1000</span>积分</strong>
-                </div>
-                <div>
-                        <span class="jindu"><span class="jindu1"></span></span>
-                        <span style="float: left;margin-top: 15px;margin-top: .75rem;">30%</span>
-                        <span class="qianggou"></span>
-                </div>
-            </div>
-        </div>
-        <div class="message_1">
-            <div class="message_1_content">
-                <div>
-                    <strong>电影票抢购</strong>
-                    <strong>共<span>1000</span>积分</strong>
-                </div>
-                <div>
-                        <span class="jindu"><span class="jindu1"></span></span>
-                        <span style="float: left;margin-top: 15px;margin-top: .75rem;">30%</span>
-                        <span class="qianggou"></span>
-                </div>
-            </div>
-        </div>
-        <div class="message_1">
-            <div class="message_1_content">
-                <div>
-                    <strong>电影票抢购</strong>
-                    <strong>共<span>1000</span>积分</strong>
-                </div>
-                <div>
-                        <span class="jindu"><span class="jindu1"></span></span>
-                        <span style="float: left;margin-top: 15px;margin-top: .75rem;">30%</span>
-                        <span class="qianggou"></span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="message_1">
-            <div class="message_1_content">
-                <div>
-                    <strong>电影票抢购</strong>
-                    <strong>共<span>1000</span>积分</strong>
-                </div>
-                <div>
-                        <span class="jindu"><span class="jindu1"></span></span>
-                        <span style="float: left;margin-top: 15px;margin-top: .75rem;">30%</span>
-                        <span class="qianggou"></span>
-                </div>
-            </div>
-        </div>
-        <div class="message_1">
-            <div class="message_1_content">
-                <div>
-                    <strong>电影票抢购</strong>
-                    <strong>共<span>1000</span>积分</strong>
-                </div>
-                <div>
-                        <span class="jindu"><span class="jindu1"></span></span>
-                        <span style="float: left;margin-top: 15px;margin-top: .75rem;">30%</span>
-                        <span class="qianggou"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="pop_right_bottom">
-    	<div class="f_l pop_right_bottombtn"><a href="#">游戏规则</a></div>
-    	<div class="f_l pop_right_bottombtn"><a href="#">服务协议</a></div>
-    	<div class="f_l pop_right_bottombtn"><a href="#">往期中奖</a></div>
-    </div>
-</div>
+			<div class="right"><span class="glyphicon glyphicon-chevron-left"></span></div>
+			<div class="message">
+				<div class="border_radio">
+					<img src="/images/juyoufuli/img_login/02.png" alt="可口可乐" width="80%">
+				</div>	
+				<div class="text-center">可口可乐有限公司</div>
+			</div>
+			
+			<div class="scroll_msg">
+			<div class="act_title"></div>	
+			<div class="message_1">
+				<div class="message_1_content">
+					<div class="act_item1 f_l">
+						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
+					</div>
+					<div class="act_item2 f_l">
+							<div>iPhone6</div>
+							<div>共1000点</div>
+							<div>
+		                        <span class="jindu"><span class="jindu1"></span></span>
+		                        <span style="float: left;">30%</span>
+		                	</div>
+					</div>
+					<div class="act_item3 f_l">
+						<a href="#" class="jinbi">
+							<img src="/images/juyoufuli/img_login/jieshu.png">
+						</a>
+					</div>
+				</div>
+			</div>	
+			<div class="message_1">
+				<div class="message_1_content">
+					<div class="act_item1 f_l">
+						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
+					</div>
+					<div class="act_item2 f_l">
+							<div>iPhone6</div>
+							<div>共1000点</div>
+							<div>
+		                        <span class="jindu"><span class="jindu1"></span></span>
+		                        <span style="float: left">30%</span>
+		                	</div>
+					</div>
+					<div class="act_item3 f_l">
+						<a href="#" class="jinbi">
+							<img src="/images/juyoufuli/img_login/duo.png">
+						</a>
+					</div>
+				</div>
+			</div>	
+			
+			<div class="act_title1"></div>
+			<div class="message_1">
+				<div class="message_1_content">
+					<div class="act_item1 f_l">
+						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
+					</div>
+					<div class="act_item2 f_l">
+							<div>iPhone6</div>
+							<div>共1000点</div>
+							<div>
+		                        <span class="jindu"><span class="jindu1"></span></span>
+		                        <span style="float: left;">30%</span>
+		                	</div>
+					</div>
+					<div class="act_item3 f_l">
+						<a href="#" class="jinbi">
+							<img src="/images/juyoufuli/img_login/jieshu.png">
+						</a>
+					</div>
+				</div>
+			</div>	
+			<div class="message_1">
+				<div class="message_1_content">
+					<div class="act_item1 f_l">
+						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
+					</div>
+					<div class="act_item2 f_l">
+							<div>iPhone6</div>
+							<div>共1000点</div>
+							<div>
+		                        <span class="jindu"><span class="jindu1"></span></span>
+		                        <span style="float: left;">30%</span>
+		                	</div>
+					</div>
+					<div class="act_item3 f_l">
+						<a href="#" class="jinbi">
+							<img src="/images/juyoufuli/img_login/jieshu.png">
+						</a>
+					</div>
+				</div>
+			</div>	
+			<div class="message_1">
+				<div class="message_1_content">
+					<div class="act_item1 f_l">
+						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
+					</div>
+					<div class="act_item2 f_l">
+							<div>iPhone6</div>
+							<div>共1000点</div>
+							<div>
+		                        <span class="jindu"><span class="jindu1"></span></span>
+		                        <span style="float: left;">30%</span>
+		                	</div>
+					</div>
+					<div class="act_item3 f_l">
+						<a href="#" class="jinbi">
+							<img src="/images/juyoufuli/img_login/jieshu.png">
+						</a>
+					</div>
+				</div>
+			</div>	
+			<div class="message_1">
+				<div class="message_1_content">
+					<div class="act_item1 f_l">
+						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
+					</div>
+					<div class="act_item2 f_l">
+							<div>iPhone6</div>
+							<div>共1000点</div>
+							<div>
+		                        <span class="jindu"><span class="jindu1"></span></span>
+		                        <span style="float: left;">30%</span>
+		                	</div>
+					</div>
+					<div class="act_item3 f_l">
+						<a href="#" class="jinbi">
+							<img src="/images/juyoufuli/img_login/duo.png">
+						</a>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<div class="pop_right_bottom">
+	    	<div class="f_l pop_right_bottombtn"><a href="#" id="guize">游戏规则</a></div>
+	    	<div class="f_l pop_right_bottombtn"><a href="#" id="xieyi">服务协议</a></div>
+	    	<div class="f_l pop_right_bottombtn"><a href="#" id="old_win">往期中奖</a></div>
+	    </div>
+		</div>
 <script>
 		$('#per').click(function(){
 			var user_id = $('#user_id').val();

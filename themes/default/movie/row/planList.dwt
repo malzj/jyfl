@@ -9,7 +9,7 @@
     {if $plan.is_cut eq 1}
     	<span style="background:#CCC; cursor: default;">&nbsp;&nbsp;已过场&nbsp;&nbsp;</span>
     {else}
-    	<span {if $plan.is_cut eq 0} onclick="location.href='movie.php?step=cinemaSeats&hallno={$plan.hallNo}&planid={$plan.planId}&movieid={$plan.movieId}&cinemaid={$plan.cinemaId}'"{/if}>选座购票</span>
+    	<span {if $plan.is_cut eq 0} onclick="location.href='movie.php?step=cinemaSeats&hallno={$plan.hallNo}&planid={$plan.planId}&movieid={$plan.movieId}&cinemaid={$plan.cinemaId}'"{/if} class="zhuti_a_hover">选座购票</span>
     {/if}
     </span>
 </li>

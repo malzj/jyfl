@@ -4,9 +4,7 @@
         <div class="border_radio">
             <img src="/images/juyoufuli/img_login/02.png" alt="可口可乐" width="80%">
         </div>	
-        <div class="grade">公司等级：<span class="font_color">LV</span><span class="font_color">17</span></div>
-        <div class="chengzhang"><span style="float: left;">公司成长值：</span><span class="jindu"><span class="jindu1"></span></span><span class="font_color">30%</span></div>
-        <div class="pubic_fen">公司公共积分：<span class="font_color">300</span></div>
+       	<div class="text-center">可口可乐有限公司</div>
     </div>
     <hr></hr>
 	<div class="scroll_msg">
@@ -76,6 +74,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="pop_right_bottom">
+    	<div class="f_l pop_right_bottombtn"><a href="#">游戏规则</a></div>
+    	<div class="f_l pop_right_bottombtn"><a href="#">服务协议</a></div>
+    	<div class="f_l pop_right_bottombtn"><a href="#">往期中奖</a></div>
     </div>
 </div>
 <script>

@@ -300,7 +300,7 @@ function getCDYapi($arr_param, $method="post"){
 	//$str_sUser      = "158";//接口商户用户名
 	//$str_sKey       = "fdhJKy";//接口密钥
 	$str_apiUrl     = "http://test.komovie.cn/api_movie/service";//接口地址
-	$str_sUser      = "9";//接口商户用户名
+	$str_sUser      = "158";//接口商户用户名
 	$str_sKey       = "mq3CwYZL";//接口密钥
 	
 	require_once(ROOT_PATH . 'includes/httpRequest.php');

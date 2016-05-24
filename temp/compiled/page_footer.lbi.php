@@ -1,4 +1,3 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <div class="footer">
 	<div class="footer_box">
 		<div class="footer_content">
@@ -12,4 +11,9 @@
 
 
 
-{insert name='cron_info'}
+<?php 
+$k = array (
+  'name' => 'cron_info',
+);
+echo $this->_echash . $k['name'] . '|' . serialize($k) . $this->_echash;
+?>

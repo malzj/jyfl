@@ -22,30 +22,20 @@ class GamesApiController extends Controller
         $CompanyModel = M('Company');
         $UserModel = M('Users');
         $GradeModel = M('Grade');
-        
-        $gameGlobal = $GamesModel ->where(array('grade_id'=>1,'status'=>1)) -> limit(2) -> select();
-        $gameCompany = $GamesModel ->where(array('grade_id'=>2,'status'=>1)) -> limit(2) -> select();
-
-
-        $username = $_SESSION['user_name'];
-        $int_cid = $db->getOne('SELECT company_id FROM '.$ecs->table('users')." WHERE user_name = '$username'");
-        $company_info = $db->getRow('SELECT * FROM '.$ecs->table('company')." WHERE card_company_id='".$int_cid."'");
-        $grade_name = $db->getOne('SELECT grade_name FROM '.$ecs->table('grade')." WHERE id='".$company_info['grade_id']."'");
+        $user_id = I('requset.user_id');
+        $int_cid = $UserModel -> where(array('user_id'=>$user_id)) -> getFeild('company_id');
+        $company_info = $CompanyModel -> where(array('card_company_id'=>$int_cid)) -> find();
+        $grade_name = $GradeModel -> where(array('id'=>$company_info['grade_id'])) -> getFeidl('grade_name');
         $company_info['grade_name'] = $grade_name;
-        $game_global = $db->getAll('SELECT * FROM '.$ecs->table('games')." WHERE status=1 AND grade_id=1 ORDER BY create_time DESC LIMIT 2");
-        $game_company = $db->getAll('SELECT * FROM '.$ecs->table('games')." WHERE status=1 AND grade_id='".$company_info['grade_id']."' ORDER BY create_time DESC LIMIT 5");
+        $game_global = $GamesModel ->where(array('grade_id'=>1,'status'=>1)) -> order('create_time DESC') -> limit(2) -> select();
+        $game_company = $GamesModel ->where(array('grade_id'=>$company_info['grade_id'],'status'=>1)) -> order('create_time DESC') -> limit(5) -> select();
 
-        $smarty->assign('company_info',$company_info);
-        $smarty->assign('game_global',$game_global);
-        $smarty->assign('game_company',$game_company);
-        $rudata['game_global'] = $gameGlobal;
-        $rudata['game_company'] = $gameCompany;
+        $rudata['company_info'] = $company_info;
+        $rudata['game_global'] = $game_global;
+        $rudata['game_company'] = $game_company;
         $rudata['result'] = 'true';
-        var_dump($rudata);
-        exit;
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
 
+        $this -> ajaxReturn($rudata);
 
     }
     

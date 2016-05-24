@@ -2,42 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d140c78-d344-42ae-b072-33dc06091a40" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/ads_list.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/category_info.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/category_list.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/drag.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/index.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/login.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/menu.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/message.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/page.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/pagefooter.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/pageheader.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/start.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/supplier_info.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/supplier_list.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/top.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/user_info.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/users_list.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/venues_order_list.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/message.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/page_footer.lbi.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/page_top.lbi.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/pages.lbi.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/respond2.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/ticketOrder.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/ticketPay.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/ticketShow.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/venuesIndex.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/venuesList.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/query_caches/sqlcache_config_file_51d939d972134bed16bc0f2d7b5d7dfc.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/query_caches/sqlcache_config_file_84ddd25ac9a397560bd2755bb8a62b2d.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/static_caches/shop_config.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesApiController.class.php" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesApiController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/compiled/page_left.lbi.php" afterPath="$PROJECT_DIR$/temp/compiled/page_left.lbi.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/static_caches/cat_option_static.php" afterPath="$PROJECT_DIR$/temp/static_caches/cat_option_static.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/static_caches/cat_pid_releate.php" afterPath="$PROJECT_DIR$/temp/static_caches/cat_pid_releate.php" />
     </list>
     <ignored path="jyfl.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,16 +57,47 @@
       <file leaf-file-name="GamesApiController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesApiController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+            <state relative-caret-position="420">
+              <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
               <folding>
                 <element signature="e#117#138#0#PHP" expanded="true" />
-                <marker date="1464054973159" expanded="true" signature="700:777" placeholder="SELECT compa... ${$ecs-&gt;table('users')}" />
-                <marker date="1464054973159" expanded="true" signature="818:895" placeholder="SELECT * FRO... ${$ecs-&gt;table('company')}" />
-                <marker date="1464054973159" expanded="true" signature="934:1022" placeholder="SELECT grade... ${$ecs-&gt;table('grade')}" />
-                <marker date="1464054973159" expanded="true" signature="1113:1215" placeholder="SELECT * FRO... ${$ecs-&gt;table('games')}" />
-                <marker date="1464054973159" expanded="true" signature="1256:1388" placeholder="SELECT * FRO... ${$ecs-&gt;table('games')}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login_layer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/juyoufuli/login_layer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1447">
+              <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+              <folding>
+                <marker date="1463553507374" expanded="true" signature="1846:1861" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="2342:2352" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="3668:3683" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="5627:5668" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="5777:5818" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="5874:5915" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="8020:8037" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="8096:8107" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="11976:12017" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="12119:12160" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="12209:12250" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="16216:16251" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="16332:16367" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="16444:16479" placeholder="..." />
+                <marker date="1463553507374" expanded="true" signature="16765:16800" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jyflapi/Application/Users/Controller/UserController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -157,7 +153,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/jyflapi/Application/Home/Huayingcard.class.php" />
-        <option value="$PROJECT_DIR$/js/juyoufuli/login_layer.js" />
         <option value="$PROJECT_DIR$/jyflapi/Application/Users/Controller/UserController.class.php" />
         <option value="$PROJECT_DIR$/js/juyoufuli/jyflapi.js" />
         <option value="$PROJECT_DIR$/jyflapi/ThinkPHP/Conf/convention.php" />
@@ -171,6 +166,7 @@
         <option value="$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesController.class.php" />
         <option value="$PROJECT_DIR$/jyflapi/Application/Home/View/index/index.html" />
         <option value="$PROJECT_DIR$/user.php" />
+        <option value="$PROJECT_DIR$/js/juyoufuli/login_layer.js" />
         <option value="$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesApiController.class.php" />
       </list>
     </option>
@@ -288,6 +284,96 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jyfl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jyfl" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jyflapi" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jyfl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jyfl" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jyflapi" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jyfl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jyfl" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jyflapi" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Users" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jyfl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jyfl" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jyfl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jyfl" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="juyoufuli" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -359,12 +445,12 @@
       <workItem from="1463730032354" duration="8047000" />
       <workItem from="1463963984239" duration="5354000" />
       <workItem from="1463984355019" duration="13993000" />
-      <workItem from="1464050360315" duration="4306000" />
+      <workItem from="1464050360315" duration="5864000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63746000" />
+    <option name="totallyTimeSpent" value="65304000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="0" />
@@ -420,11 +506,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#117#138#0#PHP" expanded="true" />
-            <marker date="1464054973159" expanded="true" signature="700:777" placeholder="SELECT compa... ${$ecs-&gt;table('users')}" />
-            <marker date="1464054973159" expanded="true" signature="818:895" placeholder="SELECT * FRO... ${$ecs-&gt;table('company')}" />
-            <marker date="1464054973159" expanded="true" signature="934:1022" placeholder="SELECT grade... ${$ecs-&gt;table('grade')}" />
-            <marker date="1464054973159" expanded="true" signature="1113:1215" placeholder="SELECT * FRO... ${$ecs-&gt;table('games')}" />
-            <marker date="1464054973159" expanded="true" signature="1256:1388" placeholder="SELECT * FRO... ${$ecs-&gt;table('games')}" />
           </folding>
         </state>
       </provider>
@@ -619,13 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/juyoufuli/login_layer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="988">
-          <caret line="82" column="42" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -664,13 +738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Users/Controller/UserController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1810">
-          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -833,17 +900,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Users/Controller/UserController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/juyoufuli/login_layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1447">
+          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+          <folding>
+            <marker date="1463553507374" expanded="true" signature="1846:1861" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="2342:2352" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="3668:3683" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="5627:5668" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="5777:5818" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="5874:5915" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="8020:8037" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="8096:8107" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="11976:12017" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="12119:12160" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="12209:12250" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="16216:16251" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="16332:16367" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="16444:16479" placeholder="..." />
+            <marker date="1463553507374" expanded="true" signature="16765:16800" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesApiController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+        <state relative-caret-position="420">
+          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
           <folding>
             <element signature="e#117#138#0#PHP" expanded="true" />
-            <marker date="1464054973159" expanded="true" signature="700:777" placeholder="SELECT compa... ${$ecs-&gt;table('users')}" />
-            <marker date="1464054973159" expanded="true" signature="818:895" placeholder="SELECT * FRO... ${$ecs-&gt;table('company')}" />
-            <marker date="1464054973159" expanded="true" signature="934:1022" placeholder="SELECT grade... ${$ecs-&gt;table('grade')}" />
-            <marker date="1464054973159" expanded="true" signature="1113:1215" placeholder="SELECT * FRO... ${$ecs-&gt;table('games')}" />
-            <marker date="1464054973159" expanded="true" signature="1256:1388" placeholder="SELECT * FRO... ${$ecs-&gt;table('games')}" />
           </folding>
         </state>
       </provider>

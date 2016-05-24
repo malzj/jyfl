@@ -2,34 +2,335 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d140c78-d344-42ae-b072-33dc06091a40" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Runtime/Logs/16_05_18.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/temp/query_caches/sqlcache_config_file_84ddd25ac9a397560bd2755bb8a62b2d.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/temp/static_caches/city_list.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/temp/static_caches/shop_config.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/AjaxMovie.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/ad_position.lbi.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/card_rule_list.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/drag.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/index.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/login.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/menu.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/page.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/pagefooter.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/pageheader.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/start.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/top.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/index.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/message.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/movieList.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/ur_here.lbi.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/venuesIndex.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/venuesList.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/venues_show.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/films_caches/venues/165/dongwang_detail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/films_caches/venues/165/dongwang_price.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/query_caches/sqlcache_config_file_51d939d972134bed16bc0f2d7b5d7dfc.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/images/back_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/images/back_enabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/images/back_enabled_hover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/images/forward_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/images/forward_enabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/images/forward_enabled_hover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/images/sort_asc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/images/sort_asc_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/images/sort_both.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/images/sort_desc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/images/sort_desc_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-colorpicker/img/alpha.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-colorpicker/img/hue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-colorpicker/img/saturation.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/data-tables/images/sort_asc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/data-tables/images/sort_both.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/data-tables/images/sort_desc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/dropzone/images/spritemap.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/dropzone/images/spritemap@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/fancybox/source/blank.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/fancybox/source/fancybox_loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/fancybox/source/fancybox_overlay.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/fancybox/source/fancybox_sprite.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/img/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/img/progressbar.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/font-awesome/fonts/fontawesome-webfont-.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/font-awesome/fonts/fontawesome-webfont-v=4.0.3.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/font-awesome/fonts/fontawesome-webfont-v=4.0.3.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/font-awesome/fonts/fontawesome-webfont-v=4.0.3.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/fuelux/img/tree-icons.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/gritter/images/gritter-light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/gritter/images/gritter.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/gritter/images/ie-spacer.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jcrop/css/Jcrop.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-file-upload/img/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-file-upload/img/progressbar.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-multi-select/img/switch.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/animated-overlay.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-bg_diagonals-thick_18_b81900_40x40.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-bg_diagonals-thick_20_666666_40x40.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-bg_flat_10_000000_40x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-bg_glass_100_f6f6f6_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-bg_glass_100_fdf5ce_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-bg_glass_65_ffffff_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-bg_gloss-wave_35_f6a828_500x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-icons_222222_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-icons_228ef1_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-icons_ef8c08_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-icons_ffd27a_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/images/ui-icons_ffffff_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/fonts/glyphicons-halflings-regular-.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/404_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/500_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/arrow-up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/avatar-mini.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/avatar-mini2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/avatar-mini3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/avatar-mini4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/avatar1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/avatar1_small.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/chart-texture.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/chat-attach.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/chat-avatar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/chat-avatar2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/chat-search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/checkbox/check-off.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/checkbox/check-on.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/checkbox/radio-off.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/checkbox/radio-on.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/customSelect-arrow.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/banner.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/icon-cal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/icon-tel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/image1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/image2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/image3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/image4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/main-img.png.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/social-facebook.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/social-google.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/social-linkedin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/social-twitter.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/social-youtube.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/email-img/vector-lab.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/fb-img.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/file-search/ai.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/file-search/doc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/file-search/email.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/file-search/eps.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/file-search/jpg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/file-search/pdf.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/file-search/ppt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/file-search/psd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/file-search/rss.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/file-search/xls.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/file-search/zip.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/flags/de.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/flags/es.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/flags/fr.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/flags/ru.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/flags/us.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/follower-avatar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/gallery/1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/gallery/2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/gallery/3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/gallery/4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/gallery/5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/gallery/6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/input-spinner.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/left-arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/lock-bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/mail-avatar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/mask.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/nav-expand.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/photos/user1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/photos/user2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/photos/user3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/photos/user4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/photos/user5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/pro-ac-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/pro-ac-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/product-list/pro-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/product-list/pro-thumb-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/product-list/pro-thumb-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/product-list/pro-thumb-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/product-list/pro-thumb-big.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/product-list/pro1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/product-list/pro2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/product-list/pro3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/product1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/product2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/product3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/profile-avatar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/right-arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/ring.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/search-icon.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/slider/1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/sm-img-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/sm-img-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/sm-img-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/img/vector-lab.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/upload/573d76aca5d54.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/upload/573d783fccac5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/upload/573d7a5bd483c.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/upload/573d7ada76723.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/upload/573d7af628de2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/upload/573d7b011eb01.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/upload/573d7c77da749.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/upload/573d80010c3af.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/Controller/CompanyController.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesController.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/Controller/GradeController.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/Controller/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/Model/CompanyModel.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/Model/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/View/Common/header.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/View/Common/side.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/View/Company/companyList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/View/Company/companycreate.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/View/Company/companyedite.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/View/Company/companyshow.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/View/Games/gameAdd.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/View/Games/gameEdit.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/View/Games/gameList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/View/Grade/gradeAdd.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/View/Grade/gradeEdit.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/View/Grade/gradeList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Games/View/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Application/Home/View/index/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/css/demo_page.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/css/demo_table.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/advanced-datatable/media/js/jquery.dataTables.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-colorpicker/css/colorpicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-datepicker/css/datepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-datepicker/js/bootstrap-datepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-daterangepicker/date.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-daterangepicker/daterangepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-daterangepicker/daterangepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-daterangepicker/moment.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-datetimepicker/css/datetimepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-fileupload/bootstrap-fileupload.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-fileupload/bootstrap-fileupload.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-inputmask/bootstrap-inputmask.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-timepicker/compiled/timepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-timepicker/js/bootstrap-timepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/chart-master/Chart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/ckeditor/ckeditor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/data-tables/DT_bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/data-tables/DT_bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/data-tables/jquery.dataTables.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/dropzone/css/dropzone.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/dropzone/dropzone.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/fancybox/source/jquery.fancybox.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/fancybox/source/jquery.fancybox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/css/jquery.fileupload-noscript.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/css/jquery.fileupload-ui-noscript.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/css/jquery.fileupload-ui.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/css/jquery.fileupload.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/js/jquery.fileupload-audio.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/js/jquery.fileupload-image.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/js/jquery.fileupload-process.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/js/jquery.fileupload-ui.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/js/jquery.fileupload-validate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/js/jquery.fileupload-video.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/js/jquery.fileupload.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/js/jquery.iframe-transport.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/js/main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/file-uploader/js/vendor/jquery.ui.widget.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/flot/jquery.flot.crosshair.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/flot/jquery.flot.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/flot/jquery.flot.pie.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/flot/jquery.flot.resize.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/flot/jquery.flot.stack.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/font-awesome/css/font-awesome.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/font-awesome/fonts/fontawesome-webfont-v=4.0.3.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/fuelux/css/tree-style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/fuelux/js/spinner.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/fuelux/js/tree.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/fullcalendar/fullcalendar/fullcalendar.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/gritter/css/jquery.gritter.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/gritter/js/jquery.gritter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jcrop/css/jquery.Jcrop.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jcrop/js/jquery.Jcrop.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jcrop/js/jquery.color.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-file-upload/css/jquery.fileupload-ui.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-file-upload/js/jquery.fileupload-fp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-file-upload/js/jquery.fileupload-ui.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-file-upload/js/jquery.fileupload.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-file-upload/js/jquery.iframe-transport.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-file-upload/js/vendor/canvas-to-blob.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-file-upload/js/vendor/jquery.ui.widget.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-file-upload/js/vendor/load-image.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-file-upload/js/vendor/tmpl.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-knob/js/jquery.knob.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-multi-select/css/multi-select.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-multi-select/js/jquery.multi-select.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-multi-select/js/jquery.quicksearch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/jquery-ui-1.10.1.custom.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/jquery-ui/jquery-ui-1.10.1.custom.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/morris.js-0.4.3/morris.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/morris.js-0.4.3/morris.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/morris.js-0.4.3/raphael-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/nestable/jquery.nestable.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/nestable/jquery.nestable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/xchart/d3.v3.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/xchart/xcharts.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/assets/xchart/xcharts.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/css/bootstrap-reset.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/css/gallery.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/css/image-crop.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/css/invoice-print.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/css/owl.carousel.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/css/slidebars.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/css/soon.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/css/style-responsive.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/css/table-responsive.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/css/tasks.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/advanced-form-components.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/all-chartjs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/bootstrap-switch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/common-scripts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/count.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/draggable-portlet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/dynamic_table_init.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/easy-pie-chart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/editable-table.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/external-dragging-calendar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/flot-chart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/form-component.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/form-image-crop.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/form-validation-script.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/ga.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/gmaps-scripts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/gmaps.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/gritter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/hover-dropdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/jquery-migrate-1.2.1.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/jquery-ui-1.9.2.custom.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/jquery.customSelect.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/jquery.dcjqaccordion.2.7.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/jquery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/jquery.nicescroll.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/jquery.pulsate.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/jquery.scrollTo.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/jquery.sparkline.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/jquery.stepy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/jquery.tagsinput.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/jquery.ui.touch-punch.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/jquery.validate.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/modernizr.custom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/morris-script.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/nestable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/owl.carousel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/pulstate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/respond.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/slidebars.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/sliders.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/soon/custom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/soon/plugins.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/sparkline-chart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/tasks.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/toucheffects.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jyflapi/Public/games/js/tree.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/query_caches/sqlcache_config_file_4adbe8489bb27571d5a562c339b09215.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jyflapi/Application/Home/Controller/IndexController.class.php" afterPath="$PROJECT_DIR$/jyflapi/Application/Home/Controller/IndexController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jyflapi/Application/Home/View/index.html" afterPath="$PROJECT_DIR$/jyflapi/Application/Home/View/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jyflapi/ThinkPHP/Conf/convention.php" afterPath="$PROJECT_DIR$/jyflapi/ThinkPHP/Conf/convention.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/compiled/page_right.lbi.php" afterPath="$PROJECT_DIR$/temp/compiled/page_right.lbi.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/query_caches/sqlcache_config_file_84ddd25ac9a397560bd2755bb8a62b2d.php" afterPath="$PROJECT_DIR$/temp/query_caches/sqlcache_config_file_84ddd25ac9a397560bd2755bb8a62b2d.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/default/library/page_right.lbi" afterPath="$PROJECT_DIR$/themes/default/library/page_right.lbi" />
     </list>
     <ignored path="jyfl.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,113 +352,164 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="jyflapi.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/juyoufuli/jyflapi.js">
+      <file leaf-file-name="GamesController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
-              <folding>
-                <marker date="1463473668437" expanded="true" signature="1671:1688" placeholder="..." />
-                <marker date="1463473668437" expanded="true" signature="3245:3262" placeholder="..." />
-                <marker date="1463473668437" expanded="true" signature="17191:17226" placeholder="..." />
-                <marker date="1463473668437" expanded="true" signature="17572:17607" placeholder="..." />
-                <marker date="1463473668437" expanded="true" signature="17767:17802" placeholder="..." />
-                <marker date="1463473668437" expanded="true" signature="17961:17996" placeholder="..." />
-                <marker date="1463473668437" expanded="true" signature="18159:18194" placeholder="..." />
-                <marker date="1463473668437" expanded="true" signature="18341:18376" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="convention.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/jyflapi/ThinkPHP/Conf/convention.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state relative-caret-position="443">
+              <caret line="153" column="44" selection-start-line="153" selection-start-column="44" selection-end-line="153" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login_layer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/juyoufuli/login_layer.js">
+      <file leaf-file-name="Model.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jyflapi/ThinkPHP/Library/Think/Model.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1722">
-              <caret line="82" column="42" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
-              <folding>
-                <marker date="1463472027666" expanded="true" signature="1846:1861" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="2342:2352" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="3668:3683" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="5627:5668" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="5777:5818" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="5874:5915" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="8020:8037" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="8096:8107" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="11962:12003" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="12105:12146" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="12195:12236" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="16077:16112" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="16193:16228" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="16305:16340" placeholder="..." />
-                <marker date="1463472027666" expanded="true" signature="16626:16661" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jyflapi/Application/Users/Controller/UserController.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2604">
-              <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+            <state relative-caret-position="91">
+              <caret line="425" column="29" selection-start-line="425" selection-start-column="29" selection-end-line="425" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Huayingcard.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jyflapi/Application/Home/Huayingcard.class.php">
+      <file leaf-file-name="gameAdd.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/View/Games/gameAdd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-              <folding>
-                <marker date="1463471225917" expanded="true" signature="12887:13158" placeholder="..." />
-                <marker date="1463471225917" expanded="true" signature="12923:13133" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="httpRequest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/httpRequest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4473">
-              <caret line="213" column="21" selection-start-line="213" selection-start-column="21" selection-end-line="213" selection-end-column="21" />
+            <state relative-caret-position="1848">
+              <caret line="88" column="35" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lib_huayingcard.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/lib_huayingcard.php">
+      <file leaf-file-name="GamesApiController.class.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesApiController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2352">
-              <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+            <state relative-caret-position="378">
+              <caret line="35" column="54" selection-start-line="25" selection-start-column="8" selection-end-line="35" selection-end-column="54" />
               <folding>
-                <element signature="n#_huayingCard#0;n#huayingcard#0;n#!!top" expanded="false" />
-                <marker date="1462515332252" expanded="true" signature="9957:10135" placeholder="..." />
-                <marker date="1462515332252" expanded="true" signature="9978:10119" placeholder="..." />
+                <element signature="e#117#138#0#PHP" expanded="true" />
+                <marker date="1464054092542" expanded="true" signature="586:663" placeholder="SELECT compa... ${$ecs-&gt;table('users')}" />
+                <marker date="1464054092542" expanded="true" signature="704:781" placeholder="SELECT * FRO... ${$ecs-&gt;table('company')}" />
+                <marker date="1464054092542" expanded="true" signature="820:908" placeholder="SELECT grade... ${$ecs-&gt;table('grade')}" />
+                <marker date="1464054092542" expanded="true" signature="999:1101" placeholder="SELECT * FRO... ${$ecs-&gt;table('games')}" />
+                <marker date="1464054092542" expanded="true" signature="1142:1274" placeholder="SELECT * FRO... ${$ecs-&gt;table('games')}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="soap.php" pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/soap.php">
+      <file leaf-file-name="user.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6552">
-              <caret line="312" column="20" selection-start-line="312" selection-start-column="20" selection-end-line="312" selection-end-column="20" />
+            <state relative-caret-position="191">
+              <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+              <folding>
+                <marker date="1464054133411" expanded="true" signature="3099:3166" placeholder="SELECT value... ${$ecs-&gt;table('shop_config')}" />
+                <marker date="1464054133411" expanded="true" signature="5738:5813" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+                <marker date="1464054133411" expanded="true" signature="5926:6184" placeholder="INSERT INTO ${$GLOBALS['ecs']-&gt;table(&quot;users&quot;)}... " />
+                <marker date="1464054133411" expanded="true" signature="9912:10042" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+                <marker date="1464054133411" expanded="true" signature="14375:14449" placeholder="SELECT user_... ${$GLOBALS['ecs']-&gt;table('users')}" />
+                <marker date="1464054133411" expanded="true" signature="15881:15960" placeholder="SELECT COUNT... ${$ecs-&gt;table('order_info')}" />
+                <marker date="1464054133411" expanded="true" signature="24268:24403" placeholder="SELECT COUNT... ${$ecs-&gt;table('collect_goods')}" />
+                <marker date="1464054133411" expanded="true" signature="25241:25341" placeholder="DELETE FROM " />
+                <marker date="1464054133411" expanded="true" signature="26412:26550" placeholder="SELECT COUNT... ${$ecs-&gt;table('feedback')}" />
+                <marker date="1464054133411" expanded="true" signature="26588:26689" placeholder="SELECT * FRO... ${$ecs-&gt;table('order_info')}" />
+                <marker date="1464054133411" expanded="true" signature="26810:26980" placeholder="SELECT COUNT... ${$ecs-&gt;table('feedback')}" />
+                <marker date="1464054133411" expanded="true" signature="27691:27796" placeholder="SELECT COUNT... ${$ecs-&gt;table('comment')}" />
+                <marker date="1464054133411" expanded="true" signature="34294:34420" placeholder="SELECT COUNT... ${$ecs-&gt;table('user_account')}" />
+                <marker date="1464054133411" expanded="true" signature="34891:34963" placeholder="SELECT pay_t... ${$GLOBALS['ecs']-&gt;table('card_rule')}" />
+                <marker date="1464054133411" expanded="true" signature="35972:36102" placeholder="SELECT COUNT... ${$ecs-&gt;table('account_log')}" />
+                <marker date="1464054133411" expanded="true" signature="36431:36594" placeholder="SELECT * FRO... ${$ecs-&gt;table('account_log')}" />
+                <marker date="1464054133411" expanded="true" signature="37768:37894" placeholder="SELECT COUNT... ${$ecs-&gt;table('user_account')}" />
+                <marker date="1464054133411" expanded="true" signature="41095:41167" placeholder="SELECT pay_t... ${$GLOBALS['ecs']-&gt;table('card_rule')}" />
+                <marker date="1464054133411" expanded="true" signature="41725:41812" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+                <marker date="1464054133411" expanded="true" signature="46332:46416" placeholder="SELECT order... ${$ecs-&gt;table('pay_log')}" />
+                <marker date="1464054133411" expanded="true" signature="49001:49142" placeholder="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('collect_goods')}" />
+                <marker date="1464054133411" expanded="true" signature="49430:49593" placeholder="INSERT INTO ${$GLOBALS['ecs']-&gt;table('collect_goods')}... " />
+                <marker date="1464054133411" expanded="true" signature="50263:50354" placeholder="SELECT user_... ${$ecs-&gt;table('feedback')}" />
+                <marker date="1464054133411" expanded="true" signature="50658:50741" placeholder="DELETE FROM " />
+                <marker date="1464054133411" expanded="true" signature="51017:51107" placeholder="DELETE FROM " />
+                <marker date="1464054133411" expanded="true" signature="52524:52604" placeholder="SELECT user_... ${$ecs-&gt;table('order_info')}" />
+                <marker date="1464054133411" expanded="true" signature="61551:61627" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+                <marker date="1464054133411" expanded="true" signature="62387:62739" placeholder="SELECT count... ${$ecs-&gt;table('order_info')}" />
+                <marker date="1464054133411" expanded="true" signature="62763:63268" placeholder="SELECT o.*, ${$ecs-&gt;table('order_info')}" />
+                <marker date="1464054133411" expanded="true" signature="64113:64500" placeholder="SELECT count... ${$ecs-&gt;table('order_info')}" />
+                <marker date="1464054133411" expanded="true" signature="64525:65058" placeholder="SELECT o.*, ${$ecs-&gt;table('order_info')}" />
+                <marker date="1464054133411" expanded="true" signature="69227:69297" placeholder="SELECT * FRO... ${$ecs-&gt;table('email_list')}" />
+                <marker date="1464054133411" expanded="true" signature="69432:69527" placeholder="INSERT INTO ${$ecs-&gt;table('email_list')}... " />
+                <marker date="1464054133411" expanded="true" signature="72358:72425" placeholder="DELETE FROM " />
+                <marker date="1464054133411" expanded="true" signature="73783:73949" placeholder="SELECT order... ${$ecs-&gt;table('order_info')}" />
+                <marker date="1464054133411" expanded="true" signature="76313:76410" placeholder="SELECT shipp... ${$ecs-&gt;table('shipping')}" />
+                <marker date="1464054133411" expanded="true" signature="77873:77983" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+                <marker date="1464054133411" expanded="true" signature="81708:81817" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+                <marker date="1464054133411" expanded="true" signature="84820:84930" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+                <marker date="1464054133411" expanded="true" signature="86733:86975" placeholder="INSERT INTO ${$ecs-&gt;table('account_log')}... " />
+                <marker date="1464054133411" expanded="true" signature="88434:88587" placeholder="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('card_log')}" />
+                <marker date="1464054133411" expanded="true" signature="88841:88990" placeholder="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('card_log')}" />
+                <marker date="1464054133411" expanded="true" signature="91880:92061" placeholder="INSERT INTO ${$GLOBALS['ecs']-&gt;table('card_log')}... " />
+                <marker date="1464054133411" expanded="true" signature="92748:92954" placeholder="INSERT INTO ${$GLOBALS['ecs']-&gt;table('card_log')}... " />
+                <marker date="1464054133411" expanded="true" signature="93306:93385" placeholder="SELECT COUNT... ${$ecs-&gt;table('piao_order')}" />
+                <marker date="1464054133411" expanded="true" signature="96528:96608" placeholder="SELECT COUNT... ${$ecs-&gt;table('seats_order')}" />
+                <marker date="1464054133411" expanded="true" signature="98459:98537" placeholder="SELECT COUNT... ${$ecs-&gt;table('dzq_order')}" />
+                <marker date="1464054133411" expanded="true" signature="99145:99231" placeholder="SELECT COUNT... ${$ecs-&gt;table('coupons_order')}" />
+                <marker date="1464054133411" expanded="true" signature="99347:99465" placeholder="select * fro... ${$GLOBALS ['ecs']-&gt;table ('coupons_order')}" />
+                <marker date="1464054133411" expanded="true" signature="100724:100809" placeholder="SELECT COUNT... ${$ecs-&gt;table('piaoduoduo_order')}" />
+                <marker date="1464054133411" expanded="true" signature="101371:101452" placeholder="SELECT COUNT... ${$ecs-&gt;table('venues_order')}" />
+                <marker date="1464054133411" expanded="true" signature="102645:102726" placeholder="SELECT COUNT... ${$ecs-&gt;table('yanchu_order')}" />
+                <marker date="1464054133411" expanded="true" signature="103232:103325" placeholder="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jyflapi/ThinkPHP/Library/Think/Controller.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4200">
+              <caret line="208" column="23" selection-start-line="208" selection-start-column="23" selection-end-line="208" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jyflapi/Application/Home/View/index/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+              <folding>
+                <element signature="e#2088#2753#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jyflapi/Application/Home/Controller/IndexController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="companyedite.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/View/Company/companyedite.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page_right.lbi" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/default/library/page_right.lbi">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="26" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -176,6 +528,17 @@
         <option value="$PROJECT_DIR$/jyflapi/Application/Users/Controller/UserController.class.php" />
         <option value="$PROJECT_DIR$/js/juyoufuli/jyflapi.js" />
         <option value="$PROJECT_DIR$/jyflapi/ThinkPHP/Conf/convention.php" />
+        <option value="$PROJECT_DIR$/themes/default/library/page_right.lbi" />
+        <option value="$PROJECT_DIR$/jyflapi/Application/Home/View/index.html" />
+        <option value="$PROJECT_DIR$/jyflapi/Application/Home/View/index/companyList.html" />
+        <option value="$PROJECT_DIR$/jyflapi/Application/Home/Controller/IndexController.class.php" />
+        <option value="$PROJECT_DIR$/jyflapi/Application/Games/View/Games/gameEdit.html" />
+        <option value="$PROJECT_DIR$/jyflapi/Application/Games/View/Games/gameList.html" />
+        <option value="$PROJECT_DIR$/jyflapi/Application/Games/View/Games/gameAdd.html" />
+        <option value="$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesController.class.php" />
+        <option value="$PROJECT_DIR$/jyflapi/Application/Home/View/index/index.html" />
+        <option value="$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesApiController.class.php" />
+        <option value="$PROJECT_DIR$/user.php" />
       </list>
     </option>
   </component>
@@ -190,9 +553,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="800" />
-    <option name="width" value="800" />
-    <option name="height" value="860" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -219,7 +583,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -248,7 +611,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="jyflapi" />
+              <option name="myItemId" value="themes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -262,33 +625,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="jyflapi" />
+              <option name="myItemId" value="themes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ThinkPHP" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jyfl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jyfl" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jyflapi" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ThinkPHP" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Conf" />
+              <option name="myItemId" value="default" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -302,82 +643,68 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="jyflapi" />
+              <option name="myItemId" value="themes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jyfl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jyfl" />
+              <option name="myItemId" value="default" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="jyflapi" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Users" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jyfl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jyfl" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jyfl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jyfl" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="juyoufuli" />
+              <option name="myItemId" value="library" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jyflapi" />
+    <property name="last_opened_file_path" value="I:/工作/怡口莲/html" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\wamp\www\hy\jyfl\jyflapi\Application\Home\View\index" />
+      <recent name="E:\wamp\www\hy\jyfl\jyflapi\Public" />
+      <recent name="E:\wamp\www\hy\jyfl\jyflapi\Application" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -394,17 +721,23 @@
       <updated>1463457650977</updated>
       <workItem from="1463457653377" duration="9623000" />
       <workItem from="1463532499885" duration="2777000" />
+      <workItem from="1463650126257" duration="1958000" />
+      <workItem from="1463705059079" duration="17688000" />
+      <workItem from="1463730032354" duration="8047000" />
+      <workItem from="1463963984239" duration="5354000" />
+      <workItem from="1463984355019" duration="13993000" />
+      <workItem from="1464050360315" duration="3684000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12400000" />
+    <option name="totallyTimeSpent" value="63124000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="800" y="0" width="800" height="860" extended-state="0" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.53918916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18830334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -435,122 +768,38 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/juyoufuli/jyflapi.js">
+    <entry file="file://$PROJECT_DIR$/jyflapi/ThinkPHP/Conf/convention.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1155">
+          <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesApiController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1463473668437" expanded="true" signature="1671:1688" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="3245:3262" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="17191:17226" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="17572:17607" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="17767:17802" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="17961:17996" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="18159:18194" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="18341:18376" placeholder="..." />
+            <element signature="e#117#138#0#PHP" expanded="true" />
+            <marker date="1464054092542" expanded="true" signature="586:663" placeholder="SELECT compa... ${$ecs-&gt;table('users')}" />
+            <marker date="1464054092542" expanded="true" signature="704:781" placeholder="SELECT * FRO... ${$ecs-&gt;table('company')}" />
+            <marker date="1464054092542" expanded="true" signature="820:908" placeholder="SELECT grade... ${$ecs-&gt;table('grade')}" />
+            <marker date="1464054092542" expanded="true" signature="999:1101" placeholder="SELECT * FRO... ${$ecs-&gt;table('games')}" />
+            <marker date="1464054092542" expanded="true" signature="1142:1274" placeholder="SELECT * FRO... ${$ecs-&gt;table('games')}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/juyoufuli/login_layer.js">
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1722">
-          <caret line="82" column="42" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
-          <folding>
-            <marker date="1463472027666" expanded="true" signature="1846:1861" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="2342:2352" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="3668:3683" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="5627:5668" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="5777:5818" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="5874:5915" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="8020:8037" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="8096:8107" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="11962:12003" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="12105:12146" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="12195:12236" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="16077:16112" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="16193:16228" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="16305:16340" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="16626:16661" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Users/Controller/UserController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2604">
-          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Home/Huayingcard.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-          <folding>
-            <marker date="1463471225917" expanded="true" signature="12887:13158" placeholder="..." />
-            <marker date="1463471225917" expanded="true" signature="12923:13133" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/httpRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4473">
-          <caret line="213" column="21" selection-start-line="213" selection-start-column="21" selection-end-line="213" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/lib_huayingcard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2352">
-          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
-          <folding>
-            <element signature="n#_huayingCard#0;n#huayingcard#0;n#!!top" expanded="false" />
-            <marker date="1462515332252" expanded="true" signature="9957:10135" placeholder="..." />
-            <marker date="1462515332252" expanded="true" signature="9978:10119" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/soap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6552">
-          <caret line="312" column="20" selection-start-line="312" selection-start-column="20" selection-end-line="312" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/soap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6552">
-          <caret line="312" column="20" selection-start-line="312" selection-start-column="20" selection-end-line="312" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/lib_huayingcard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2352">
-          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
-          <folding>
-            <element signature="n#_huayingCard#0;n#huayingcard#0;n#!!top" expanded="false" />
-            <marker date="1462515332252" expanded="true" signature="9957:10135" placeholder="..." />
-            <marker date="1462515332252" expanded="true" signature="9978:10119" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/httpRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4473">
-          <caret line="213" column="21" selection-start-line="213" selection-start-column="21" selection-end-line="213" selection-end-column="21" />
+        <state relative-caret-position="735">
+          <caret line="42" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -559,34 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1722">
           <caret line="82" column="42" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
-          <folding>
-            <marker date="1463472027666" expanded="true" signature="1846:1861" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="2342:2352" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="3668:3683" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="5627:5668" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="5777:5818" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="5874:5915" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="8020:8037" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="8096:8107" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="11962:12003" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="12105:12146" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="12195:12236" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="16077:16112" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="16193:16228" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="16305:16340" placeholder="..." />
-            <marker date="1463472027666" expanded="true" signature="16626:16661" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Home/Huayingcard.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-          <folding>
-            <marker date="1463471225917" expanded="true" signature="12887:13158" placeholder="..." />
-            <marker date="1463471225917" expanded="true" signature="12923:13133" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -594,7 +815,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2604">
           <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Home/Huayingcard.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/httpRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4473">
+          <caret line="213" column="21" selection-start-line="213" selection-start-column="21" selection-end-line="213" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/lib_huayingcard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2352">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -602,24 +843,375 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/ThinkPHP/Conf/convention.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/juyoufuli/login_layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1722">
+          <caret line="82" column="42" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Users/Controller/UserController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2604">
+          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Home/Huayingcard.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/httpRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4473">
+          <caret line="213" column="21" selection-start-line="213" selection-start-column="21" selection-end-line="213" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/lib_huayingcard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2352">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/soap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6552">
+          <caret line="312" column="20" selection-start-line="312" selection-start-column="20" selection-end-line="312" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/juyoufuli/jyflapi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/juyoufuli/login_layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1722">
+          <caret line="82" column="42" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Users/Controller/UserController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2604">
+          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Home/Huayingcard.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/httpRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4473">
+          <caret line="213" column="21" selection-start-line="213" selection-start-column="21" selection-end-line="213" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/lib_huayingcard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2352">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/soap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6552">
+          <caret line="312" column="20" selection-start-line="312" selection-start-column="20" selection-end-line="312" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/soap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6552">
+          <caret line="312" column="20" selection-start-line="312" selection-start-column="20" selection-end-line="312" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/lib_huayingcard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2352">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/httpRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4473">
+          <caret line="213" column="21" selection-start-line="213" selection-start-column="21" selection-end-line="213" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/juyoufuli/jyflapi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Public/games/js/soon/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Home/Huayingcard.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/juyoufuli/login_layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="988">
+          <caret line="82" column="42" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crontabAdmin/Crontab/dongwang/lib/_init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1827">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/cls_mysql.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8526">
+          <caret line="417" column="13" selection-start-line="417" selection-start-column="13" selection-end-line="417" selection-end-column="13" />
           <folding>
-            <marker date="1463473668437" expanded="true" signature="1671:1688" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="3245:3262" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="17191:17226" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="17572:17607" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="17767:17802" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="17961:17996" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="18159:18194" placeholder="..." />
-            <marker date="1463473668437" expanded="true" signature="18341:18376" placeholder="..." />
+            <marker date="1459819010558" expanded="true" signature="16918:17017" placeholder="INSERT INTO ${$table}... " />
+            <marker date="1459819010558" expanded="true" signature="18981:19080" placeholder="INSERT INTO ${$table}... " />
+            <marker date="1459819010558" expanded="true" signature="19270:19369" placeholder="INSERT INTO ${$table}... " />
+            <marker date="1459819010558" expanded="true" signature="20341:20375" placeholder="SELECT COUNT... ${$table}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jyflapi/ThinkPHP/Conf/convention.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        <state relative-caret-position="3360">
+          <caret line="168" column="53" selection-start-line="168" selection-start-column="53" selection-end-line="168" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/Controller/CompanyController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Users/Controller/UserController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1810">
+          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Home/View/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Home/View/index/companyList.html" />
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/View/Company/companyList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1760">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/View/Games/gameList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1155">
+          <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/View/Games/gameEdit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1302">
+          <caret line="62" column="51" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/View/Games/gameAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1848">
+          <caret line="88" column="35" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/ThinkPHP/Library/Think/Controller.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4200">
+          <caret line="208" column="23" selection-start-line="208" selection-start-column="23" selection-end-line="208" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Home/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/View/Company/companyedite.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/ThinkPHP/Library/Think/Model.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="425" column="29" selection-start-line="425" selection-start-column="29" selection-end-line="425" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="153" column="44" selection-start-line="153" selection-start-column="44" selection-end-line="153" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding>
+            <marker date="1464054133411" expanded="true" signature="3099:3166" placeholder="SELECT value... ${$ecs-&gt;table('shop_config')}" />
+            <marker date="1464054133411" expanded="true" signature="5738:5813" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+            <marker date="1464054133411" expanded="true" signature="5926:6184" placeholder="INSERT INTO ${$GLOBALS['ecs']-&gt;table(&quot;users&quot;)}... " />
+            <marker date="1464054133411" expanded="true" signature="9912:10042" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+            <marker date="1464054133411" expanded="true" signature="14375:14449" placeholder="SELECT user_... ${$GLOBALS['ecs']-&gt;table('users')}" />
+            <marker date="1464054133411" expanded="true" signature="15881:15960" placeholder="SELECT COUNT... ${$ecs-&gt;table('order_info')}" />
+            <marker date="1464054133411" expanded="true" signature="24268:24403" placeholder="SELECT COUNT... ${$ecs-&gt;table('collect_goods')}" />
+            <marker date="1464054133411" expanded="true" signature="25241:25341" placeholder="DELETE FROM " />
+            <marker date="1464054133411" expanded="true" signature="26412:26550" placeholder="SELECT COUNT... ${$ecs-&gt;table('feedback')}" />
+            <marker date="1464054133411" expanded="true" signature="26588:26689" placeholder="SELECT * FRO... ${$ecs-&gt;table('order_info')}" />
+            <marker date="1464054133411" expanded="true" signature="26810:26980" placeholder="SELECT COUNT... ${$ecs-&gt;table('feedback')}" />
+            <marker date="1464054133411" expanded="true" signature="27691:27796" placeholder="SELECT COUNT... ${$ecs-&gt;table('comment')}" />
+            <marker date="1464054133411" expanded="true" signature="34294:34420" placeholder="SELECT COUNT... ${$ecs-&gt;table('user_account')}" />
+            <marker date="1464054133411" expanded="true" signature="34891:34963" placeholder="SELECT pay_t... ${$GLOBALS['ecs']-&gt;table('card_rule')}" />
+            <marker date="1464054133411" expanded="true" signature="35972:36102" placeholder="SELECT COUNT... ${$ecs-&gt;table('account_log')}" />
+            <marker date="1464054133411" expanded="true" signature="36431:36594" placeholder="SELECT * FRO... ${$ecs-&gt;table('account_log')}" />
+            <marker date="1464054133411" expanded="true" signature="37768:37894" placeholder="SELECT COUNT... ${$ecs-&gt;table('user_account')}" />
+            <marker date="1464054133411" expanded="true" signature="41095:41167" placeholder="SELECT pay_t... ${$GLOBALS['ecs']-&gt;table('card_rule')}" />
+            <marker date="1464054133411" expanded="true" signature="41725:41812" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+            <marker date="1464054133411" expanded="true" signature="46332:46416" placeholder="SELECT order... ${$ecs-&gt;table('pay_log')}" />
+            <marker date="1464054133411" expanded="true" signature="49001:49142" placeholder="SELECT COUNT... ${$GLOBALS['ecs']-&gt;table('collect_goods')}" />
+            <marker date="1464054133411" expanded="true" signature="49430:49593" placeholder="INSERT INTO ${$GLOBALS['ecs']-&gt;table('collect_goods')}... " />
+            <marker date="1464054133411" expanded="true" signature="50263:50354" placeholder="SELECT user_... ${$ecs-&gt;table('feedback')}" />
+            <marker date="1464054133411" expanded="true" signature="50658:50741" placeholder="DELETE FROM " />
+            <marker date="1464054133411" expanded="true" signature="51017:51107" placeholder="DELETE FROM " />
+            <marker date="1464054133411" expanded="true" signature="52524:52604" placeholder="SELECT user_... ${$ecs-&gt;table('order_info')}" />
+            <marker date="1464054133411" expanded="true" signature="61551:61627" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+            <marker date="1464054133411" expanded="true" signature="62387:62739" placeholder="SELECT count... ${$ecs-&gt;table('order_info')}" />
+            <marker date="1464054133411" expanded="true" signature="62763:63268" placeholder="SELECT o.*, ${$ecs-&gt;table('order_info')}" />
+            <marker date="1464054133411" expanded="true" signature="64113:64500" placeholder="SELECT count... ${$ecs-&gt;table('order_info')}" />
+            <marker date="1464054133411" expanded="true" signature="64525:65058" placeholder="SELECT o.*, ${$ecs-&gt;table('order_info')}" />
+            <marker date="1464054133411" expanded="true" signature="69227:69297" placeholder="SELECT * FRO... ${$ecs-&gt;table('email_list')}" />
+            <marker date="1464054133411" expanded="true" signature="69432:69527" placeholder="INSERT INTO ${$ecs-&gt;table('email_list')}... " />
+            <marker date="1464054133411" expanded="true" signature="72358:72425" placeholder="DELETE FROM " />
+            <marker date="1464054133411" expanded="true" signature="73783:73949" placeholder="SELECT order... ${$ecs-&gt;table('order_info')}" />
+            <marker date="1464054133411" expanded="true" signature="76313:76410" placeholder="SELECT shipp... ${$ecs-&gt;table('shipping')}" />
+            <marker date="1464054133411" expanded="true" signature="77873:77983" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+            <marker date="1464054133411" expanded="true" signature="81708:81817" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+            <marker date="1464054133411" expanded="true" signature="84820:84930" placeholder="SELECT user_... ${$ecs-&gt;table('users')}" />
+            <marker date="1464054133411" expanded="true" signature="86733:86975" placeholder="INSERT INTO ${$ecs-&gt;table('account_log')}... " />
+            <marker date="1464054133411" expanded="true" signature="88434:88587" placeholder="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('card_log')}" />
+            <marker date="1464054133411" expanded="true" signature="88841:88990" placeholder="SELECT * FRO... ${$GLOBALS['ecs']-&gt;table('card_log')}" />
+            <marker date="1464054133411" expanded="true" signature="91880:92061" placeholder="INSERT INTO ${$GLOBALS['ecs']-&gt;table('card_log')}... " />
+            <marker date="1464054133411" expanded="true" signature="92748:92954" placeholder="INSERT INTO ${$GLOBALS['ecs']-&gt;table('card_log')}... " />
+            <marker date="1464054133411" expanded="true" signature="93306:93385" placeholder="SELECT COUNT... ${$ecs-&gt;table('piao_order')}" />
+            <marker date="1464054133411" expanded="true" signature="96528:96608" placeholder="SELECT COUNT... ${$ecs-&gt;table('seats_order')}" />
+            <marker date="1464054133411" expanded="true" signature="98459:98537" placeholder="SELECT COUNT... ${$ecs-&gt;table('dzq_order')}" />
+            <marker date="1464054133411" expanded="true" signature="99145:99231" placeholder="SELECT COUNT... ${$ecs-&gt;table('coupons_order')}" />
+            <marker date="1464054133411" expanded="true" signature="99347:99465" placeholder="select * fro... ${$GLOBALS ['ecs']-&gt;table ('coupons_order')}" />
+            <marker date="1464054133411" expanded="true" signature="100724:100809" placeholder="SELECT COUNT... ${$ecs-&gt;table('piaoduoduo_order')}" />
+            <marker date="1464054133411" expanded="true" signature="101371:101452" placeholder="SELECT COUNT... ${$ecs-&gt;table('venues_order')}" />
+            <marker date="1464054133411" expanded="true" signature="102645:102726" placeholder="SELECT COUNT... ${$ecs-&gt;table('yanchu_order')}" />
+            <marker date="1464054133411" expanded="true" signature="103232:103325" placeholder="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Home/View/index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+          <folding>
+            <element signature="e#2088#2753#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/library/page_right.lbi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="26" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesApiController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="35" column="54" selection-start-line="25" selection-start-column="8" selection-end-line="35" selection-end-column="54" />
+          <folding>
+            <element signature="e#117#138#0#PHP" expanded="true" />
+            <marker date="1464054092542" expanded="true" signature="586:663" placeholder="SELECT compa... ${$ecs-&gt;table('users')}" />
+            <marker date="1464054092542" expanded="true" signature="704:781" placeholder="SELECT * FRO... ${$ecs-&gt;table('company')}" />
+            <marker date="1464054092542" expanded="true" signature="820:908" placeholder="SELECT grade... ${$ecs-&gt;table('grade')}" />
+            <marker date="1464054092542" expanded="true" signature="999:1101" placeholder="SELECT * FRO... ${$ecs-&gt;table('games')}" />
+            <marker date="1464054092542" expanded="true" signature="1142:1274" placeholder="SELECT * FRO... ${$ecs-&gt;table('games')}" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -3,18 +3,21 @@
     <div class="message">
         <div class="border_radio">
             <img src="/images/juyoufuli/img_login/02.png" alt="可口可乐" width="80%">
-        </div>	
+        </div>
         <div class="grade">公司等级：<span class="font_color">LV</span><span class="font_color">17</span></div>
         <div class="chengzhang"><span style="float: left;">公司成长值：</span><span class="jindu"><span class="jindu1"></span></span><span class="font_color">30%</span></div>
         <div class="pubic_fen">公司公共积分：<span class="font_color">300</span></div>
     </div>
     <hr></hr>
 	<div class="scroll_msg">
+        <?php $_from = $this->_var['game_global']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'val');if (count($_from)):
+    foreach ($_from AS $this->_var['val']):
+?>
         <div class="message_1">
             <div class="message_1_content">
                 <div>
-                    <strong>电影票抢购</strong>
-                    <strong>共<span>1000</span>积分</strong>
+                    <strong><?php echo $this->_var['val']['game_name']; ?></strong>
+                    <strong>共<span><?php echo $this->_var['val']['value']; ?></span>积分</strong>
                 </div>
                 <div>
                         <span class="jindu"><span class="jindu1"></span></span>
@@ -23,59 +26,8 @@
                 </div>
             </div>
         </div>
-        <div class="message_1">
-            <div class="message_1_content">
-                <div>
-                    <strong>电影票抢购</strong>
-                    <strong>共<span>1000</span>积分</strong>
-                </div>
-                <div>
-                        <span class="jindu"><span class="jindu1"></span></span>
-                        <span style="float: left;margin-top: 15px;margin-top: .75rem;">30%</span>
-                        <span class="qianggou"></span>
-                </div>
-            </div>
-        </div>
-        <div class="message_1">
-            <div class="message_1_content">
-                <div>
-                    <strong>电影票抢购</strong>
-                    <strong>共<span>1000</span>积分</strong>
-                </div>
-                <div>
-                        <span class="jindu"><span class="jindu1"></span></span>
-                        <span style="float: left;margin-top: 15px;margin-top: .75rem;">30%</span>
-                        <span class="qianggou"></span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="message_1">
-            <div class="message_1_content">
-                <div>
-                    <strong>电影票抢购</strong>
-                    <strong>共<span>1000</span>积分</strong>
-                </div>
-                <div>
-                        <span class="jindu"><span class="jindu1"></span></span>
-                        <span style="float: left;margin-top: 15px;margin-top: .75rem;">30%</span>
-                        <span class="qianggou"></span>
-                </div>
-            </div>
-        </div>
-        <div class="message_1">
-            <div class="message_1_content">
-                <div>
-                    <strong>电影票抢购</strong>
-                    <strong>共<span>1000</span>积分</strong>
-                </div>
-                <div>
-                        <span class="jindu"><span class="jindu1"></span></span>
-                        <span style="float: left;margin-top: 15px;margin-top: .75rem;">30%</span>
-                        <span class="qianggou"></span>
-                </div>
-            </div>
-        </div>
+        <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+
     </div>
 </div>
 <script>
@@ -90,37 +42,37 @@
 			var data = userSave();
 //			console.log(data);
 		});
-		
+
 		</script>
 		<script>
-		
+
 		$(function(){
-				
+
 			if(window.location.pathname == '/user.php'){
 				$('.pop_right .right span').removeClass('glyphicon-chevron-left').addClass('glyphicon-chevron-right');
 			}
-			$('.pop_right .right span').click(function(){						
+			$('.pop_right .right span').click(function(){
 				if($(this).hasClass('glyphicon-chevron-right')){
 					$('.pop_right').css('transform','translateX(100%)');
 					$(this).removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-left');
 				}else{
 					$('.pop_right').css('transform','translateX(0)');
 					$(this).removeClass('glyphicon-chevron-left').addClass('glyphicon-chevron-right');
-				}	
+				}
 			})
-		})	
+		})
 			//		右侧滚动条美化
-			$(".scroll_msg").niceScroll({  
-				cursorcolor:"#BFB1B1",  
-				cursoropacitymax:1,  
-				touchbehavior:false,  
-				cursorwidth:"5px",  
-				cursorborder:"0",  
-				cursorborderradius:"5px"  
-			}); 
-			$('.pop_left ul.list_main>li').hover(function(){  
+			$(".scroll_msg").niceScroll({
+				cursorcolor:"#BFB1B1",
+				cursoropacitymax:1,
+				touchbehavior:false,
+				cursorwidth:"5px",
+				cursorborder:"0",
+				cursorborderradius:"5px"
+			});
+			$('.pop_left ul.list_main>li').hover(function(){
 				$(this).children('div:nth-child(2)').toggle().parents('li').siblings().children('div:nth-child(2)').css('display','none');
-					
+
 			})
 			$('.pop_left ul.list_main>li').hover(function(){
 				$(this).addClass('active').siblings().removeClass('active');
@@ -128,14 +80,14 @@
 			$('ul.list_1 li div').click(function(){
 				$(this).addClass('active').parents('li').siblings().children('div').removeClass('active');
 			})
-		
+
 			$('.pop_left .per_1 ul.list_2 li').hover(function(){
 						$(this).addClass('active').siblings().removeClass('active');
-					})	
-					
-//			地区选择		
+					})
+
+//			地区选择
 				$(document).delegate('#city','click',function (e) {
 					SelCity(this,e);
 				});
-				
+
 			</script>

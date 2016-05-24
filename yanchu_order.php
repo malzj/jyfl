@@ -383,7 +383,10 @@ else if ($str_action == 'act_pay'){
 
 	die(json_encode($arr_result));
 }
-
+else if ($str_action == 'respond')
+{
+    $smarty->display('yanchu/respond.dwt');
+}
 // 判断演出票是否是三天内的，如果是运费就是0，演出票自取
 function ispick( $data=array() )
 {

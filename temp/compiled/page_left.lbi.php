@@ -32,7 +32,7 @@ if ($this->_foreach['foo']['total'] > 0):
 ?>
                 <li class="movie" onClick="window.location='<?php echo $this->_var['nav']['url']; ?>'">
                 	<div>
-                    	<span class="movie_1"><img src="/images/juyoufuli/img_login/yundong.png"></span>
+                    	<span class="movie_1"><img src="<?php echo $this->_var['app_path']; ?>images/juyoufuli/icon/nav-<?php echo $this->_var['nav']['id']; ?>.png"></span>
                 		<i><?php echo $this->_var['nav']['name']; ?></i>
                 	</div>
                 </li>

@@ -108,7 +108,7 @@
 						checkSubmitFlg = false;
 						$('.pay-loading').html(' ');
 					}else{
-						window.location.href = "movie_order.php?act=payinfoDzq&id="+data.message;
+						window.location.href = "yanchu_order.php?act=respond";
 					}
 				}
 			});			

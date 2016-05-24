@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>        
+        <link rel="stylesheet" href="{$app_path}css/juyoufuli/sport1.css">
+        <link rel="stylesheet" href="{$app_path}css/juyoufuli/venues.css">
+	</head>
+	<body>
+        <!-- 头部 -->
+        <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 -->
+        
+        <div class="wrap">
+            <div class="buy-warp">
+                <div class="title">
+                    <span>{$detail.venueName}</span>
+                    <span class="facico">
+                    {if $detail.equipment}
+                         {foreach from=$detail.equipment item=equipment}
+                         <img src="/images/dongwang/{$equipment.equipmentId}.jpg" width="20" height="20" title="{$equipment.equipmentName}"/>
+                         {/foreach}
+                    {/if}   
+                    </span>
+                    <div style="overflow: hidden; margin-bottom:20px;line-height: 2;">
+                        <div class="adress">详细地址：{$detail.place}     
+                            <p>营业时间：{$detail.stime}—{$detail.etime}</p>
+                        </div>
+                       <!-- <div class="yuding">
+                            <a href="#">立即预定</a>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="buy-warp-left">
+                    <div class="StatusBar">
+                        <div class="bastab left">
+                            <span class="bastabcur"><a href="#">全场</a></span>
+                        </div>
+                        <div class="Statusright">
+                            <span><em class="k1"></em>可预订</span>
+                            <span><em class="k2"></em>不可订</span>
+                            <span><em class="k3"></em>已预订</span>
+                        </div>
+                    </div>
+                    <div class="" id="subtype">
+                        <div class="week">
+                          {foreach from=$venues item=venue}
+                            <a {if $venue.active eq 1} class="active" {/if} href="venues_show.php?venueId={$venueId}&infoId={$venue.infoId}&orderDate={$venue.date}">
+                                <p><span class="day">{$venue.week}</span><span class="date">{$venue.date_mt}</span></p>
+                                <p><span class="money">{$venue.salePrice}</span><span>点起</span></p>
+                                <!--<p><span class="num">剩余 </span><span>{$venue.venueNum}</span></p>-->
+                            </a>
+                         {/foreach}
+                            
+                            
+                        </div>
+                        <div class="subtimes">
+                            <ul>
+                            {foreach from=$timeData item=time}
+                                <li><span>{$time}</span></li>
+                            {/foreach}							
+                            </ul>
+                        </div>
+                        <div class="ros-list" style="width:{$width}px;float: left;overflow: hidden;">
+                            {foreach from=$priceData item=price}
+                            <dl data-date="{$date}" venue-no="{$price.rows}">
+                                <dt>{$price.rows}号场地</dt>
+                                {foreach from=$price.list item=list}
+                                <dd class="pk_dd2">
+                                    <div class="ros">
+                                        {if $list.num eq 0}
+                                        <span class="cursor"></span>
+                                        {else}                                    
+                                        <span data-price="{$list.salePrice}" data-fee="0" data-sale-price="{$list.salePrice}" data-id="{$price.rows}{$list.sTime}" data-clock="{$list.sTime_mt}" data-s="{$list.sTime}" data-e="{$list.eTime}" title="{$list.sTime_mt}-{$list.eTime_mt} {$list.rows}号场地 {$list.salePrice}点"></span>
+                                        {/if}
+                                    </div>
+                                </dd>
+                                {/foreach}
+                            </dl>
+                            {/foreach}
+                            
+                        </div>
+                    </div>
+                </div>
+                <form name="f1" id="f1" action="venues_order.php" method="post">
+                    <div class="buy-warpright" style="float:right">
+                        <div class="buy-warp-right" style="float:none">
+                            <div class="yd_venname">{$detail.venueName}</div>
+                            <div class="selectvenues">
+                                <div class="ydxx_vstyle"><span>全场</span></div>
+                                <div class="once">场次</div>
+                                <div>
+                                    <div class="selsected" id="_id_contianer">
+                                    </div>
+                                    <span id="dhpos"></span>
+                                    <div style="line-height:24px; height:24px; margin-top:10px;">已选择<em style="color:#f60; margin:0 3px; font-size:18px;" id="_id_total">0</em>个场地
+                                        <span style="color:#51B5E7">，再次单击取消</span></div>
+                                    <div class="tj_main" style="padding:5px 0">共计<b id="_id_amount" style="color:#F60; margin:0 5px; font-size:22px;">0</b>点</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="input-t">姓名</div>
+                                <div class="mobiled">
+                                    <label class="inpt">
+                                        <input class="G_input" type="text" name="link_man" id="real_name" value="" alt="姓名">
+                                    </label>
+                                </div>
+                                <div class="input-t">手机号码</div>
+                                <div class="mobiled">
+                                    <label class="inpt">
+                                        <input class="G_input" type="text" name="link_phone" id="mobile" alt="手机号码">
+                                    </label>
+                                </div>
+                                <div class="mobiled">
+                                    <a href="javascript:void(0);" class="T_btn_g" id="sub1" name="sub1" onclick="sub();">提交订单</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="info_id" value="{$infoId}">			
+                    <input type="hidden" name="travel_date" id="travel_date" value="{$date}">
+                    <input type="hidden" name="num" id="num" value="">
+                    <input type="hidden" name="amount" id="amount" value="">
+                    <input type="hidden" name="param" id="param" value="">	
+                    <input type="hidden" name="venue_id" id="venue_id" value="{$venueId}">	
+                    <input type="hidden" name="secret" id="secret" value="{$secret}">		
+                    <input type="hidden" name="action" id="action" value="saveOrder">
+                </form>
+                <div class="clear"></div>
+                <div class="title_1">
+                    <div class="subtitle">
+                        <div class="subtitleic"></div>
+                        <div class="subtitletxt">预订说明</div>
+                    </div>
+                    <div class="ven-text">
+                        {$detail.feature}
+                    </div>
+                </div>
+            </div>
+		</div>
+        <script>
+        	var cart = {id: "{$infoId}", total:0, amount:0, date:"{$date}"};
+        </script>
+		<script src="{$app_path}js/juyoufuli/venues.js"></script>
+        <!-- 底部 -->
+	 	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+	    <!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+     </body>
+</html>

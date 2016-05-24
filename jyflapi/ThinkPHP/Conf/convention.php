@@ -53,7 +53,10 @@ return  array(
 //    'DB_HOST'               =>  '1.93.129.196', // 服务器地址
 //    'DB_HOST'               =>  'localhost:3306', // 服务器地址
     'DB_HOST'               =>  '192.168.1.161', // 服务器地址
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4777b14eb835f695d5f9a1112ac4ecfb4f202eca
 
 //    'DB_NAME'               =>  'sql_huayingtest160114',          // 数据库名
     'DB_NAME'               =>  'juyoufuli',          // 数据库名

@@ -175,10 +175,5 @@ $smarty->assign('detail', $detail);
 $smarty->assign('ticket', $ticketData);
 $smarty->assign('venues', $venueData);
 
-
-$position = assign_ur_here(0,       ' 运动激情 <code>&gt;</code> 运动健身 <code>&gt;</code>');
-$smarty->assign('page_title',       '运动健身_运动激情_'.$GLOBALS['_CFG']['shop_name']);    // 页面标题
-$smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
-
-$smarty->display('venues_show.dwt');
+$smarty->display('venues/venuesShow.dwt');
 ?>

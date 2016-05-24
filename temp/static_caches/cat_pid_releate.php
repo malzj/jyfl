@@ -2,8 +2,8 @@
 $data = array (
   0 => 
   array (
-    'cat_id' => '1',
-    'cat_name' => '试听盛宴',
+    'cat_id' => '4',
+    'cat_name' => '蛋糕',
     'measure_unit' => '',
     'parent_id' => '0',
     'is_show' => '1',
@@ -15,10 +15,10 @@ $data = array (
   ),
   1 => 
   array (
-    'cat_id' => '2',
-    'cat_name' => '电影',
+    'cat_id' => '5',
+    'cat_name' => '诺心 • 蛋糕',
     'measure_unit' => '',
-    'parent_id' => '1',
+    'parent_id' => '4',
     'is_show' => '1',
     'show_in_nav' => '0',
     'grade' => '0',
@@ -28,10 +28,10 @@ $data = array (
   ),
   2 => 
   array (
-    'cat_id' => '3',
-    'cat_name' => '演出',
+    'cat_id' => '6',
+    'cat_name' => '味多美',
     'measure_unit' => '',
-    'parent_id' => '1',
+    'parent_id' => '4',
     'is_show' => '1',
     'show_in_nav' => '0',
     'grade' => '0',

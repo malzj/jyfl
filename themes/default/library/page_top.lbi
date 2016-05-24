@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="{$app_path}css/juyoufuli/public.css">
 <link rel="stylesheet" href="{$app_path}css/juyoufuli/login_layer.css">
 <script src="{$app_path}js/juyoufuli/jquery.nicescroll.js"></script>
-
 <div class="header">
     <ul class="header_nav">
         <li class="m_left"><img src="{$app_path}images/juyoufuli/img_login/logo.png" alt="聚优福利"></li>

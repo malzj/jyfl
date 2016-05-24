@@ -19,6 +19,10 @@ class GamesApiController extends Controller
      */
     public function gameList(){
         $GamesModel = M('Games');
+        $CompanyModel = M('Company');
+        $UserModel = M('Users');
+        $GradeModel = M('Grade');
+        
         $gameGlobal = $GamesModel ->where(array('grade_id'=>1,'status'=>1)) -> limit(2) -> select();
         $gameCompany = $GamesModel ->where(array('grade_id'=>2,'status'=>1)) -> limit(2) -> select();
 

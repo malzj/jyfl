@@ -37,7 +37,7 @@ $data = array (
     'grade' => '0',
     'sort_order' => '50',
     'has_children' => '0',
-    'goods_num' => 0,
+    'goods_num' => '61',
   ),
   3 => 
   array (

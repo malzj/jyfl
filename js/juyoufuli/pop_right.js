@@ -1,3 +1,4 @@
+var api_url = 'http://jy.com/jyflapi/';
 $(function(){
 //	游戏规则
 	$('#guize').on('click',function(){
@@ -32,28 +33,131 @@ $(function(){
 	})
 	
 //	详情介绍
-	$('.pop_right_goods').on('click',function(){
-		layer.open({
-        type: 1,
-        title:false,
-        area:['570px','415px'],
-        shadeClose: false, //点击遮罩关闭
-        content:'<div class="pop_right_goods_details"><h3>详情介绍</h3><div class="goods_details_box"><div class="goods_details_img f_l"><img src></div><div class="f_l goods_details_content"><div class="goods_details_name">iPhone6</div><div class="goods_details_jishao">自购机日起（以购机发票为准），如因质量问题或故障，凭厂商维修中心或特约维修点的质量检测证明，享受15日内退货或更换一部享有重新</div></div></div><div class="yigou_name"><div class="f_l">已购号：</div><div class="f_l yigouhao_all"><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span></div></div></div>'
-      })
+	$('.scroll_msg').on('click','.pop_right_goods',function(){
+        var id = $(this).attr('data-id');
+        var uid = $('#user_id').val();
+        $.ajax({
+            type: 'post',
+            url: api_url + 'index.php/Games/GamesApi/getGame',
+            data: {game_id: id, user_id: uid},
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                var html = '<div class="pop_right_goods_details">' +
+                    '<h3>详情介绍</h3>' +
+                    '<div class="goods_details_box">' +
+                    '<div class="goods_details_img f_l">' +
+                    '<img src="'+api_url+"Public/games/upload/"+data.game_info.thumbnail+'">' +
+                    '</div>' +
+                    '<div class="f_l goods_details_content">' +
+                    '<div class="goods_details_name">'+data.game_info.game_name+'</div>' +
+                    '<div class="goods_details_jishao">'+data.game_info.description+'</div>' +
+                    '</div></div>' +
+                    '<div class="yigou_name"><div class="f_l">已购号：</div>' +
+                    '<div class="f_l yigouhao_all">';
+                var partinfo = data.part_info;
+                if(partinfo != "false"){
+                    for(var i=0;i<partinfo.length;i++){
+                        html += '<span class="yigouhao">'+partinfo[i].lottery_num+'</span>';
+                    }
+                }
+                html += '</div></div></div>';
+                layer.open({
+                    type: 1,
+                    title: false,
+                    area: ['570px', '415px'],
+                    shadeClose: false, //点击遮罩关闭
+                    content:html,
+                })
+            }
+        })
 	})
 	
 //	抢购页面
-	$('.duo').on('click',function(){
-		layer.open({
-        type: 1,
-        title:false,
-        area:['570px','415px'],
-        shadeClose: false, //点击遮罩关闭
-        content:'<div class="qianggou_box"><h3>聚优夺宝</h3><div class="qianggou_details"><div class="qianggou_img f_l"><img src></div><div class="qianggou_details_content f_l"><div class="qianggou_details_name">iPhone</div><div class="qianggou_num"><div class="f_l" style="margin-top:5px">数量：</div><div class="quantity"><a id="decrement" class="decrement" onclick="del()">-</a><input name="number" id="number" class="itxt" value="1" type="text"><a id="increment" class="increment" onclick="add()">+</a></div></div><div class="all_price font-16 color_zhuti">共1000点</div><div class="qianggou_password_box"><input type="password" class="qianggou_password" placeholder="请输入聚优密码"><button type="submit">确定</button></div></div></div><div class="yigou_name"><div class="f_l">已购号：</div><div class="f_l yigouhao_all"><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span></div></div></div>'
-      })
+	$('.scroll_msg').on('click','.duo',function(){
+		var id = $(this).parent('a').attr('data-id');
+        var cid = $(this).parent('a').attr('data-cid');
+        var uid = $('#user_id').val();
+        var cnum = $(this).parent('a').attr('data-cnum');
+        $.ajax({
+            type:'post',
+            url:api_url+'index.php/Games/GamesApi/getGame',
+            data:{game_id:id,user_id:uid},
+            dataType:'json',
+            success:function (data) {
+                var html = '<div class="qianggou_box">' +
+                    '<h3>聚优夺宝</h3>' +
+                    '<div class="qianggou_details">' +
+                    '<div class="qianggou_img f_l">' +
+                    '<img src="'+api_url+"Public/games/upload/"+data.game_info.thumbnail+'">' +
+                    '</div>' +
+                    '<div class="qianggou_details_content f_l">' +
+                    '<div class="qianggou_details_name">'+data.game_info.game_name+'</div>' +
+                    '<input name="user_id" value="'+uid+'" type="hidden" />' +
+                    '<input name="game_id" value="'+id+'" type="hidden" />' +
+                    '<input name="card_num" value="'+cnum+'" type="hidden" />' +
+                    '<input name="company_id" value="'+cid+'" type="hidden" />' +
+                    '<div class="qianggou_num">' +
+                    '<div class="f_l" style="margin-top:5px">数量：</div>' +
+                    '<div class="quantity">' +
+                    '<a id="decrement" class="decrement" onclick="del()">-</a>' +
+                    '<input name="number" id="number" class="itxt" value="1" type="text">' +
+                    '<a id="increment" class="increment" onclick="add()">+</a></div></div>' +
+                    '<div class="all_price font-16 color_zhuti">共1000点</div>' +
+                    '<div class="qianggou_password_box">' +
+                    '<input type="password" name="password" class="qianggou_password" placeholder="请输入聚优密码">' +
+                    '<button id="">确定</button></div></div>' +
+                    '</div>' +
+                    '<div class="yigou_name">' +
+                    '<div class="f_l">已购号：</div>' +
+                    '<div class="f_l yigouhao_all">';
+                var partinfo = data.part_info;
+                if(partinfo != "false"){
+                    for(var i=0;i<partinfo.length;i++){
+                        html += '<span class="yigouhao">'+partinfo[i].lottery_num+'</span>';
+                    }
+                }
+                html += '</div></div></div>';
+                layer.open({
+                    type: 1,
+                    title:false,
+                    area:['570px','415px'],
+                    shadeClose: false, //点击遮罩关闭
+                    content:html,
+
+                })
+
+            }
+        })
 	})
+//确认购买
+    $(document).on('click','.qianggou_box button',function(){
+        var user_id = $('input[name="user_id"]').val();
+        var game_id = $('input[name="game_id"]').val();
+        var card_num = $('input[name="card_num"]').val();
+        var company_id = $('input[name="company_id"]').val();
+        var number = $('input[name="number"]').val();
+        var password = $('input[name="password"]').val();
+        alert(user_id);
+        $.ajax({
+            type:'post',
+            url:api_url+'index.php/Games/GamesApi/purchase',
+            data:{
+                user_id:user_id,
+                game_id:game_id,
+                card_num:card_num,
+                company_id:company_id,
+                number:number,
+                password:password,
+            },
+            dataType:'json',
+            success:function (data) {
+                console.log(data);
+            }
+        });
+    });
 //	已结束
-	$('.end').on('click',function(){
+	$('.scroll_msg').on('click','.end',function(){
 		layer.open({
         type: 1,
         title:false,
@@ -61,5 +165,25 @@ $(function(){
         shadeClose: false, //点击遮罩关闭
         content:'<div class="old_winBox"><h3>已结束</h3><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">您（可口可乐）</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">您（可口可乐）</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">您（可口可乐）</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div></div>'
       })
-	})
+	});
+    //
+    // function del(){
+    //     var num = document.getElementById("number");
+    //     var n = parseInt(num.value);
+    //     if(n-1<=0){
+    //         num.value = 1;
+    //     }else{
+    //         num.value = n-1;
+    //     }
+    //     changePrice();
+    // }
+    // function add(){
+    //     var num = document.getElementById("number");
+    //     var n = parseInt(num.value);
+    //     num.value = n+1;
+    //     changePrice();
+    // }
+    // function checkNum(num){
+    //     changePrice();
+    // }
 })

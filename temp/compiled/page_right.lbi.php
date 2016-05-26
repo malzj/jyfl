@@ -181,10 +181,12 @@
 				}	
 			})
             var id = $('#user_id').val();
-            showRight(id);
+            var cnum = <?php echo $this->_var['usernames']['user_name']; ?>
+
+            showRight(id,cnum);
 
             // 右侧渲染函数
-				function showRight(id){
+				function showRight(id,cnum){
             		var api_url = 'http://jy.com/jyflapi/';
             		$.ajax({
             			type:'post',
@@ -200,23 +202,32 @@
 
             				var game_list_html = '<div class="act_title"></div>';
             				for(var i=0;i<game_glo.length;i++){
-                                var img = (game_glo[i].buy_status==0)?"duo.png":"jieshu.png";
+                                var img = '';
+                                var iclass = '';
+                                if(game_glo[i].buy_status==0){
+                                    img = "duo.png";
+                                    iclass = 'class="duo"';
+                                }else{
+                                    img = "jieshu.png";
+                                    iclass = 'class="end"';
+                                }
             					game_list_html += '<div class="message_1">'+
             						'<div class="message_1_content">'+
+            						'<a href="#" class="pop_right_goods" data-id="'+game_glo[i].id+'">'+
             						'<div class="act_item1 f_l">'+
             						'<img src="'+api_url+'Public/games/upload/'+game_glo[i].thumbnail+'">'+
             						'</div>'+
             						'<div class="act_item2 f_l">'+
             						'<div>'+game_glo[i].game_name+'</div>'+
-            						'<div>共'+(game_glo[i].total*game_glo[i].point)+'点</div>'+
+            						'<div>共'+game_glo[i].total_point+'点</div>'+
             						'<div>'+
-            						'<span class="jindu"><span class="jindu1"></span></span>'+
-            						'<span style="float: left;">30%</span>'+
+            						'<span class="jindu"><span class="jindu1" style="width:'+game_glo[i].percent+'px"></span></span>'+
+            						'<span style="float: left;">'+game_glo[i].percent+'%</span>'+
             						'</div>'+
-            						'</div>'+
+            						'</div></a>'+
             						'<div class="act_item3 f_l">'+
-            						'<a href="#" class="jinbi">'+
-            						'<img src="/images/juyoufuli/img_login/'+img+'">'+
+            						'<a href="#" class="jinbi" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.id+'" data-cnum="'+cnum+'">'+
+            						'<img src="/images/juyoufuli/img_login/'+img+'" '+iclass+'>'+
             						'</a>'+
             						'</div>'+
             						'</div>'+
@@ -224,23 +235,32 @@
             				}
             				game_list_html+='<div class="act_title1"></div>';
             				for(var i=0;i<game_com.length;i++){
-                                var img = (game_com[i].buy_status==0)?"duo.png":"jieshu.png";
+                                var img1 = '';
+                                var iclass1 = '';
+                                if(game_com[i].buy_status==0){
+                                    img1 = "duo.png";
+                                    iclass1 = 'class="duo"';
+                                }else{
+                                    img1 = "jieshu.png";
+                                    iclass1 = 'class="end"';
+                                }
             					game_list_html += '<div class="message_1">'+
             						'<div class="message_1_content">'+
+            						'<a href="#" class="pop_right_goods" data-id="'+game_com[i].id+'">'+
             						'<div class="act_item1 f_l">'+
             						'<img src="'+api_url+'Public/games/upload/'+game_com[i].thumbnail+'">'+
             						'</div>'+
             						'<div class="act_item2 f_l">'+
             						'<div>'+game_com[i].game_name+'</div>'+
-            						'<div>共'+(game_com[i].total*game_com[i].point)+'点</div>'+
+            						'<div>共'+game_com[i].total_point+'点</div>'+
             						'<div>'+
-            						'<span class="jindu"><span class="jindu1"></span></span>'+
-            						'<span style="float: left;">30%</span>'+
+            						'<span class="jindu"><span class="jindu1" style="width:'+game_com[i].percent+'px"></span></span>'+
+            						'<span style="float: left;">'+game_com[i].percent+'%</span>'+
             						'</div>'+
-            						'</div>'+
+            						'</div></a>'+
             						'<div class="act_item3 f_l">'+
-            						'<a href="#" class="jinbi">'+
-            						'<img src="/images/juyoufuli/img_login/'+img+'">'+
+            						'<a href="#" class="jinbi" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.id+'" data-cnum="'+cnum+'">'+
+            						'<img src="/images/juyoufuli/img_login/'+img1+'" '+iclass1+'>'+
             						'</a>'+
             						'</div>'+
             						'</div>'+
@@ -257,15 +277,25 @@
 
 		})	
 			//		右侧滚动条美化
-			$(".scroll_msg").niceScroll({  
-				cursorcolor:"#BFB1B1",  
-				cursoropacitymax:1,  
-				touchbehavior:false,  
-				cursorwidth:"5px",  
-				cursorborder:"0",  
-				cursorborderradius:"5px"  
-			}); 
-			$('.pop_left ul.list_main>li').hover(function(){  
+			$(".scroll_msg").niceScroll({
+				cursorcolor:"#BFB1B1",
+				cursoropacitymax:1,
+				touchbehavior:false,
+				cursorwidth:"5px",
+				cursorborder:"0",
+				cursorborderradius:"5px"
+			});
+            //		弹窗滚动条美化
+            $(".qianggou_box").niceScroll({
+                cursorcolor:"#BFB1B1",
+                cursoropacitymax:1,
+                touchbehavior:false,
+                cursorwidth:"5px",
+                cursorborder:"0",
+                cursorborderradius:"5px"
+            });
+
+			$('.pop_left ul.list_main>li').hover(function(){
 				$(this).children('div:nth-child(2)').toggle().parents('li').siblings().children('div:nth-child(2)').css('display','none');
 					
 			})

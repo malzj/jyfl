@@ -179,9 +179,15 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">描述</label>
+                            <div class="col-sm-10">
+                                <textarea type="text" name="description" class="form-control"><?php echo ($game_info['description']); ?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">规则</label>
                             <div class="col-sm-10">
-                                <textarea type="text" name="rules" class="form-control"> <?php echo ($game_info['rules']); ?></textarea>
+                                <textarea type="text" name="rules" class="form-control"><?php echo ($game_info['rules']); ?></textarea>
                             </div>
                         </div>
                         <button type="submit" id="s" class="btn btn-info">提交</button>

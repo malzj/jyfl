@@ -977,3 +977,1220 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTrace [ RunTime:0.041121s ]
 INFO: [ app_end ] --END-- [ RunTime:0.041670s ]
 
+[ 2016-05-24T16:39:30+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000633s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001107s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010571s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010069s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.009816s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.005214s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005306s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001001s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.000981s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.002395s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001626s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001028s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001667s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000988s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001110s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001029s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001510s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001714s ]
+
+[ 2016-05-24T16:41:58+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000506s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000905s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011214s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010988s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.009352s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.007264s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006408s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000636s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001054s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001962s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.002032s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001849s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001503s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001671s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001017s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000831s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001876s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.002316s ]
+
+[ 2016-05-24T16:44:51+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000681s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001122s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010927s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010025s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.009009s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.005586s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005756s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000983s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001283s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001521s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001223s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001576s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001049s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001481s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000635s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001693s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000675s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000878s ]
+
+[ 2016-05-24T16:46:54+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001127s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001861s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010597s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010210s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.011813s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.005064s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005857s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001299s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.000942s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001124s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001244s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001265s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001073s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001172s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.002073s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001278s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001108s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000960s ]
+
+[ 2016-05-24T16:47:36+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000511s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000891s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.005957s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.005727s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008039s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.004996s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004200s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001211s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001014s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000969s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001088s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001164s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001153s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001188s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.002004s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000627s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001076s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001219s ]
+
+[ 2016-05-24T16:49:44+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001064s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011791s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010360s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.026887s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009095s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.011552s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001313s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001337s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000993s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001107s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001164s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001059s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001049s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.002191s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000918s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001041s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000968s ]
+
+[ 2016-05-24T16:50:25+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000523s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000974s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010137s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010672s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.012284s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009880s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005076s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001095s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001581s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000577s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001953s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001398s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001455s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000934s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001708s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000767s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001479s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001258s ]
+
+[ 2016-05-24T16:50:50+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001939s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002429s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010112s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.078502s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.013153s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009167s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006931s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001913s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001237s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001334s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.002315s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.000903s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001025s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001133s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001172s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001130s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001072s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000904s ]
+
+[ 2016-05-24T16:51:23+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000532s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001109s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011044s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.008612s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008978s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.006269s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006298s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001815s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.000678s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.002152s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001026s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.000886s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001666s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001383s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.002165s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000428s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000774s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001625s ]
+
+[ 2016-05-24T16:53:49+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000512s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000927s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010423s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009918s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005866s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.005542s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004589s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000871s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001189s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.002250s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.002678s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001448s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001592s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000692s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001462s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001263s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001514s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001450s ]
+
+[ 2016-05-24T16:54:20+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000508s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000924s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011319s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.008194s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008027s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.006782s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006367s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001342s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001643s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001166s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001807s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001499s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001571s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001939s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000820s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001299s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000926s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001725s ]
+
+[ 2016-05-24T16:55:52+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000997s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.012565s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010445s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.013339s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.006212s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005334s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.002270s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001717s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001035s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001384s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001185s ]
+
+[ 2016-05-24T16:56:32+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000513s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001110s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010717s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010395s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.012344s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.007324s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005187s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.002097s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001237s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001375s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001929s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001703s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001488s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001131s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000880s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.002204s ]
+
+[ 2016-05-24T16:57:57+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000673s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001089s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011279s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009962s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.012769s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009456s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005167s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001313s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001598s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000626s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001629s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.002306s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001190s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001320s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001049s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001429s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001237s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000878s ]
+
+[ 2016-05-24T17:00:15+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Games/gameList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000731s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001479s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011113s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009113s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_games` LIMIT 1   [ RunTime:0.001040s ]
+SQL: SELECT * FROM `ecs_games` LIMIT 0,10   [ RunTime:0.002689s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001316s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.006170s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001211s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001190s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.002850s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001460s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.002278s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000981s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001766s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001137s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000101s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000236s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\43aab50a8f3b17ce4b8f4bd431d6dbd4.php 第 193 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.055935s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056187s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000517s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000794s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000884s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-05-24T17:00:41+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/purchase
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000824s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.010308s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = '2' ) LIMIT 1   [ RunTime:0.000976s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010124s ]
+SQL: SELECT `total` FROM `ecs_games` WHERE ( `id` = '2' ) LIMIT 1   [ RunTime:0.001041s ]
+
+[ 2016-05-24T17:00:45+08:00 ] 127.0.0.1 /jyflapi/index.php/
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001064s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000152s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000339s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.041339s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.041538s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000298s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000614s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000764s ]
+
+[ 2016-05-24T17:01:41+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000793s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002100s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010052s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010110s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.012621s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.007841s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006219s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001110s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001632s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.002433s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001606s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001651s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001697s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000763s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.002033s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001047s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001434s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000623s ]
+
+[ 2016-05-24T17:03:05+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000536s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001089s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010360s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010007s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.007742s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.005744s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006154s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001356s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.003164s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001422s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001408s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001491s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001590s ]
+
+[ 2016-05-24T17:03:32+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000536s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000986s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010382s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.015893s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008811s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.007614s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.007077s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000865s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.002408s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001489s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001774s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001374s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001608s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 38 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001050s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001007s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.003451s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001509s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000986s ]
+
+[ 2016-05-24T17:04:10+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000498s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000882s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010637s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009840s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.012674s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.005266s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005737s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001475s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001611s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001538s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001440s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001512s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.001380s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.001174s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.002356s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001057s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.000729s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001472s ]
+
+[ 2016-05-24T17:05:20+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/purchase
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000415s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000798s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.011154s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = '2' ) LIMIT 1   [ RunTime:0.001292s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010692s ]
+SQL: SELECT `total` FROM `ecs_games` WHERE ( `id` = '2' ) LIMIT 1   [ RunTime:0.001649s ]
+
+[ 2016-05-24T17:05:28+08:00 ] 127.0.0.1 /jyflapi/index.php/
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000508s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001090s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000084s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000293s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.007829s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008138s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000516s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000679s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000955s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001143s ]
+
+[ 2016-05-24T17:05:35+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/purchase
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000657s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001151s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.010072s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = '10' ) LIMIT 1   [ RunTime:0.000945s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010430s ]
+SQL: SELECT `total` FROM `ecs_games` WHERE ( `id` = '10' ) LIMIT 1   [ RunTime:0.000911s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.009035s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '10' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001315s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.005198s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '10' ) AND ( `id` > 0 ) ORDER BY id asc LIMIT 1   [ RunTime:0.001228s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005392s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('10','7110','1','2016-05-24 17:05:35','32','10000009') [ RunTime:0.001132s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005406s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '10' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001128s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.005215s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '10' ) AND ( `id` > '32' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001169s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005245s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('10','7110','1','2016-05-24 17:05:35','33','10000004') [ RunTime:0.001103s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005372s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '10' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001202s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.005239s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '10' ) AND ( `id` > '33' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001167s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003831s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('10','7110','1','2016-05-24 17:05:35','34','10000008') [ RunTime:0.000654s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004161s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '10' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001154s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.003753s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '10' ) AND ( `id` > '34' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001385s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003734s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('10','7110','1','2016-05-24 17:05:35','35','10000006') [ RunTime:0.001079s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004454s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '10' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001114s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.003783s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '10' ) AND ( `id` > '35' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001133s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003829s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('10','7110','1','2016-05-24 17:05:35','36','10000003') [ RunTime:0.000516s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003911s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '10' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001300s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.004125s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '10' ) AND ( `id` > '36' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001085s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004113s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('10','7110','1','2016-05-24 17:05:35','37','10000010') [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004168s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '10' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.000922s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.003852s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '10' ) AND ( `id` > '37' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001102s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004131s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('10','7110','1','2016-05-24 17:05:35','38','10000007') [ RunTime:0.000922s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004020s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '10' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001065s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.003841s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '10' ) AND ( `id` > '38' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001137s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003990s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('10','7110','1','2016-05-24 17:05:35','39','10000005') [ RunTime:0.000984s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004002s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '10' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001041s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.003839s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '10' ) AND ( `id` > '39' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001175s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003672s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('10','7110','1','2016-05-24 17:05:35','40','10000002') [ RunTime:0.000994s ]
+
+[ 2016-05-24T17:05:39+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000634s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001419s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010393s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009368s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.010365s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.006301s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006487s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001277s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001580s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001869s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001683s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001504s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.001777s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.000886s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001341s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001182s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001743s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = null ) LIMIT 1   [ RunTime:0.001344s ]
+
+[ 2016-05-24T17:11:24+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000950s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001671s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011303s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010404s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.016410s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.005264s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.018046s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001747s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001690s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001173s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.000901s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001595s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.001235s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.001380s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.002549s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.001863s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.000947s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.001508s ]
+
+[ 2016-05-24T17:12:43+08:00 ] 127.0.0.1 /jyflapi/index.php/
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000476s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000915s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000115s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000256s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.013625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013778s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000343s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000613s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000732s ]
+
+[ 2016-05-24T17:12:54+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/purchase
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000714s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001204s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.010232s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = '11' ) LIMIT 1   [ RunTime:0.001004s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010244s ]
+SQL: SELECT `total` FROM `ecs_games` WHERE ( `id` = '11' ) LIMIT 1   [ RunTime:0.001086s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.009855s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '11' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001031s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.005395s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '11' ) AND ( `id` > 0 ) ORDER BY id asc LIMIT 1   [ RunTime:0.001300s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005476s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('11','7110','1','2016-05-24 17:12:54',null,null) [ RunTime:0.001259s ]
+ERR: 1048:Column 'lottery_id' cannot be null
+ [ SQL语句 ] : INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('11','7110','1','2016-05-24 17:12:54',null,null)
+
+[ 2016-05-24T17:12:59+08:00 ] 127.0.0.1 /jyflapi/index.php/
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001969s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000097s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000445s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.008982s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009201s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000362s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000483s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000630s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000759s ]
+
+[ 2016-05-24T17:13:06+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/purchase
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000944s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.010120s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = '11' ) LIMIT 1   [ RunTime:0.000994s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010305s ]
+SQL: SELECT `total` FROM `ecs_games` WHERE ( `id` = '11' ) LIMIT 1   [ RunTime:0.000969s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.009740s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '11' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001581s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.005354s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '11' ) AND ( `id` > 0 ) ORDER BY id asc LIMIT 1   [ RunTime:0.001019s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005573s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('11','7110','1','2016-05-24 17:13:06',null,null) [ RunTime:0.000957s ]
+ERR: 1048:Column 'lottery_id' cannot be null
+ [ SQL语句 ] : INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('11','7110','1','2016-05-24 17:13:06',null,null)
+
+[ 2016-05-24T17:14:32+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/purchase
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000659s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001198s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.011110s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = '11' ) LIMIT 1   [ RunTime:0.001425s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010797s ]
+SQL: SELECT `total` FROM `ecs_games` WHERE ( `id` = '11' ) LIMIT 1   [ RunTime:0.001483s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005901s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '11' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001515s ]
+
+[ 2016-05-24T17:14:41+08:00 ] 127.0.0.1 /jyflapi/index.php/
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000526s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000975s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000091s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000235s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.008801s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009482s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001287s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001862s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001156s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001335s ]
+
+[ 2016-05-24T17:14:51+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/purchase
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000956s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001623s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.009935s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = '11' ) LIMIT 1   [ RunTime:0.000987s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010544s ]
+SQL: SELECT `total` FROM `ecs_games` WHERE ( `id` = '11' ) LIMIT 1   [ RunTime:0.000966s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.008573s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '11' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001117s ]
+
+[ 2016-05-24T17:15:14+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/purchase
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000914s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001608s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.009969s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = '11' ) LIMIT 1   [ RunTime:0.000989s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010506s ]
+SQL: SELECT `total` FROM `ecs_games` WHERE ( `id` = '11' ) LIMIT 1   [ RunTime:0.001052s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005996s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '11' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001032s ]
+
+[ 2016-05-24T17:15:52+08:00 ] 127.0.0.1 /jyflapi/index.php/
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000985s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002008s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000219s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.006955s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007090s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000338s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000581s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000698s ]
+
+[ 2016-05-24T17:15:57+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/purchase
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001112s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.010205s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = '11' ) LIMIT 1   [ RunTime:0.001279s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.009932s ]
+SQL: SELECT `total` FROM `ecs_games` WHERE ( `id` = '11' ) LIMIT 1   [ RunTime:0.001207s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006554s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '11' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.006374s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.005516s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '11' ) AND ( `id` > 0 ) ORDER BY id asc LIMIT 1   [ RunTime:0.001495s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005387s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('11','7110','1','2016-05-24 17:15:57',null,null) [ RunTime:0.001768s ]
+ERR: 1048:Column 'lottery_id' cannot be null
+ [ SQL语句 ] : INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('11','7110','1','2016-05-24 17:15:57',null,null)
+
+[ 2016-05-24T17:17:57+08:00 ] 127.0.0.1 /jyflapi/index.php/
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000690s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001683s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000219s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.007012s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007160s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000347s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000672s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000826s ]
+
+[ 2016-05-24T17:18:01+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/purchase
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000467s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000873s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.011090s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = '12' ) LIMIT 1   [ RunTime:0.001450s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010049s ]
+SQL: SELECT `total` FROM `ecs_games` WHERE ( `id` = '12' ) LIMIT 1   [ RunTime:0.000964s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.009971s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '12' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001041s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.009473s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '12' ) AND ( `id` > 0 ) ORDER BY id asc LIMIT 1   [ RunTime:0.001083s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006216s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('12','7110','1','2016-05-24 17:18:01','52','10000010') [ RunTime:0.001072s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005724s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '12' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001098s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.005447s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '12' ) AND ( `id` > '52' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001154s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005922s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('12','7110','1','2016-05-24 17:18:01','53','10000007') [ RunTime:0.001146s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004198s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '12' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.000994s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.003978s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '12' ) AND ( `id` > '53' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001162s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004136s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('12','7110','1','2016-05-24 17:18:01','54','10000002') [ RunTime:0.001126s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004057s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '12' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001203s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.004092s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '12' ) AND ( `id` > '54' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001230s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004064s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('12','7110','1','2016-05-24 17:18:01','55','10000006') [ RunTime:0.001229s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003762s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '12' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001154s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.003727s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '12' ) AND ( `id` > '55' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001256s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004027s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('12','7110','1','2016-05-24 17:18:01','56','10000009') [ RunTime:0.001036s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004097s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '12' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001084s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.003820s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '12' ) AND ( `id` > '56' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001303s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003845s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('12','7110','1','2016-05-24 17:18:01','57','10000003') [ RunTime:0.001123s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004219s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '12' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001178s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.004756s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '12' ) AND ( `id` > '57' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001193s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004058s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('12','7110','1','2016-05-24 17:18:01','58','10000004') [ RunTime:0.001182s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004286s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '12' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.000988s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.003973s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '12' ) AND ( `id` > '58' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001230s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003809s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('12','7110','1','2016-05-24 17:18:01','59','10000005') [ RunTime:0.001087s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003833s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '12' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001222s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.003822s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '12' ) AND ( `id` > '59' ) ORDER BY id asc LIMIT 1   [ RunTime:0.000596s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004062s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('12','7110','1','2016-05-24 17:18:01','60','10000008') [ RunTime:0.001160s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003833s ]
+SQL: SELECT `lottery_id` FROM `ecs_participation` WHERE ( `game_id` = '12' ) ORDER BY lottery_id desc LIMIT 1   [ RunTime:0.001055s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.003876s ]
+SQL: SELECT * FROM `ecs_lottery` WHERE ( `game_id` = '12' ) AND ( `id` > '60' ) ORDER BY id asc LIMIT 1   [ RunTime:0.001240s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003938s ]
+SQL: INSERT INTO `ecs_participation` (`game_id`,`card_num`,`company_id`,`buy_time`,`lottery_id`,`lottery_num`) VALUES ('12','7110','1','2016-05-24 17:18:01','61','10000001') [ RunTime:0.001091s ]
+
+[ 2016-05-24T17:18:17+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002165s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010952s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010839s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.013847s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.016057s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006461s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001305s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001567s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001129s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.002218s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.000956s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.001107s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.001753s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.001598s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.001569s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.001392s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.002670s ]
+
+[ 2016-05-24T17:18:28+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000525s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000985s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011403s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.008683s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008200s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.008241s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005849s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001921s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001161s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001026s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001507s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001693s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.001623s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.000989s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.002035s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.001040s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.001399s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.001274s ]
+
+[ 2016-05-24T17:19:46+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000430s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001024s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011348s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010373s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006805s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.005900s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005733s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001424s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001001s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001659s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001291s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001618s ]
+
+[ 2016-05-24T17:20:27+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000497s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000881s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.012127s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011498s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008251s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.007448s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006997s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.003535s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001652s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000780s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.002717s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001627s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.001271s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.000958s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.001490s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.001592s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.001713s ]
+NOTIC: [8] Undefined index: game_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 50 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = null ) LIMIT 1   [ RunTime:0.001059s ]
+
+[ 2016-05-24T17:21:33+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001462s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001898s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011033s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010584s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.011129s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.005771s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006094s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001174s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001442s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001328s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001620s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001481s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.001410s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.001884s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 11 ) LIMIT 1   [ RunTime:0.001690s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 12 ) LIMIT 1   [ RunTime:0.002652s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 4 ) LIMIT 1   [ RunTime:0.001405s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 3 ) LIMIT 1   [ RunTime:0.001718s ]
+
+[ 2016-05-24T17:32:48+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Games/gameEdit/id/11.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002235s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.012040s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.010680s ]
+SQL: SELECT `id`,`grade_name` FROM `ecs_grade`  [ RunTime:0.001561s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 11 ) LIMIT 1   [ RunTime:0.001626s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000119s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000270s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\ee014967f3e0f179ede4d86d993a978c.php 第 223 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.035918s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036061s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000375s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000499s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000571s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000692s ]
+
+[ 2016-05-24T17:32:59+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Games/gameEdit.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000685s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001945s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011171s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.010813s ]
+SQL: DELETE FROM `ecs_lottery` WHERE ( `game_id` = '11' ) [ RunTime:0.002112s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011623s ]
+SQL: UPDATE `ecs_games` SET `game_name`='85',`total`='20',`point`='8',`grade_id`='2',`rules`='  ',`status`='1',`buy_status`='1',`create_time`='2016-05-24 17:32:59' WHERE ( `id` = '11' ) [ RunTime:0.002095s ]
+SQL: SHOW COLUMNS FROM `ecs_lottery` [ RunTime:0.009540s ]
+SQL: INSERT INTO `ecs_lottery` (`game_id`,`num`) VALUES ('11','10000013'),('11','10000007'),('11','10000005'),('11','10000001'),('11','10000003'),('11','10000011'),('11','10000008'),('11','10000016'),('11','10000002'),('11','10000019'),('11','10000018'),('11','10000006'),('11','10000017'),('11','10000020'),('11','10000014'),('11','10000015'),('11','10000012'),('11','10000009'),('11','10000004'),('11','10000010') [ RunTime:0.002028s ]
+
+[ 2016-05-24T17:33:00+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Games/gameList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000415s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000782s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010106s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009170s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_games` LIMIT 1   [ RunTime:0.001020s ]
+SQL: SELECT * FROM `ecs_games` LIMIT 0,10   [ RunTime:0.000932s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001046s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001052s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001180s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001189s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001226s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001149s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001182s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001701s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000646s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.002146s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000233s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\43aab50a8f3b17ce4b8f4bd431d6dbd4.php 第 193 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.017623s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017852s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001035s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001188s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000696s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000839s ]
+
+[ 2016-05-24T17:33:42+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000735s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001215s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010247s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010057s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.012692s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009066s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005949s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000937s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001433s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.002101s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001312s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.003471s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.000866s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.002429s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 11 ) LIMIT 1   [ RunTime:0.002575s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 12 ) LIMIT 1   [ RunTime:0.001190s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 4 ) LIMIT 1   [ RunTime:0.001090s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 3 ) LIMIT 1   [ RunTime:0.001166s ]
+
+[ 2016-05-24T17:40:16+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000519s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000945s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.032072s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009955s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.014717s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.004863s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006188s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001557s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001433s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000977s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001631s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001495s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.001484s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.001587s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 11 ) LIMIT 1   [ RunTime:0.001539s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 12 ) LIMIT 1   [ RunTime:0.001634s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 4 ) LIMIT 1   [ RunTime:0.001278s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 3 ) LIMIT 1   [ RunTime:0.001647s ]
+
+[ 2016-05-24T17:40:35+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001043s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010950s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010737s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.010415s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.007906s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005834s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.006943s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001502s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.009517s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001501s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.002041s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.001765s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.001283s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 11 ) LIMIT 1   [ RunTime:0.001507s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 12 ) LIMIT 1   [ RunTime:0.002068s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 4 ) LIMIT 1   [ RunTime:0.001487s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 3 ) LIMIT 1   [ RunTime:0.001455s ]
+
+[ 2016-05-24T17:42:17+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000512s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011015s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010551s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.013665s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.007765s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006046s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001642s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001408s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001262s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001548s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001418s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.001643s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.016933s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 11 ) LIMIT 1   [ RunTime:0.001067s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 12 ) LIMIT 1   [ RunTime:0.001800s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 4 ) LIMIT 1   [ RunTime:0.001126s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 3 ) LIMIT 1   [ RunTime:0.001597s ]
+
+[ 2016-05-24T17:43:02+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000512s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000908s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011071s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011323s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.012080s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.006247s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005673s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001372s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001646s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000504s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001634s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001563s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.001569s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.001529s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 11 ) LIMIT 1   [ RunTime:0.001492s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 12 ) LIMIT 1   [ RunTime:0.001492s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 4 ) LIMIT 1   [ RunTime:0.013442s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 3 ) LIMIT 1   [ RunTime:0.001362s ]
+
+[ 2016-05-24T17:43:35+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000495s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000890s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011024s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009571s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.013008s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.006823s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005653s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001887s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.000902s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001747s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001916s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.000959s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.001396s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.002517s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 11 ) LIMIT 1   [ RunTime:0.002337s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 12 ) LIMIT 1   [ RunTime:0.007336s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 4 ) LIMIT 1   [ RunTime:0.001589s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 3 ) LIMIT 1   [ RunTime:0.001405s ]
+
+[ 2016-05-24T17:52:11+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.002089s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002560s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010721s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010094s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.012995s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.010275s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006644s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001179s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001447s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001503s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001881s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.002354s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 2 ) LIMIT 1   [ RunTime:0.001605s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 10 ) LIMIT 1   [ RunTime:0.001464s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 11 ) LIMIT 1   [ RunTime:0.002237s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 12 ) LIMIT 1   [ RunTime:0.001357s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 4 ) LIMIT 1   [ RunTime:0.000946s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 3 ) LIMIT 1   [ RunTime:0.001714s ]
+

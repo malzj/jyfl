@@ -11,7 +11,6 @@ namespace Games\Controller;
 
 use Think\Controller;
 use Think\Model;
-
 class GamesApiController extends Controller
 {
     /**
@@ -107,6 +106,7 @@ class GamesApiController extends Controller
         $Model = new Model();
         $card_pass =I('request.password');
         $num =I('request.number');
+        $num = intval($num);
 
         $data = array();
         $data['user_id'] = I('request.user_id');
@@ -115,7 +115,8 @@ class GamesApiController extends Controller
         $data['company_id'] =I('request.company_id');
         $data['buy_time'] = date('Y-m-d H:i:s',time());
         $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();
-        $total = $Model ->table('__GAMES__') -> where(array('id' => $data['game_id'])) ->getField('total');
+        $game_info = $Model ->table('__GAMES__') -> where(array('id' => $data['game_id'])) ->find();
+        $total = $game_info['total'];
         $surplus = intval($total) - intval($count);
         if($surplus<$num){
             $rudata['result'] = 'false';
@@ -143,6 +144,8 @@ class GamesApiController extends Controller
             if ($result) {
                 $rudata['result'] = 'true';
                 $rudata['msg'] = '抢购成功！';
+                $this->ajaxReturn($data);
+
             } else {
                 $Model ->rollback();
                 $rudata['result'] = 'false';
@@ -150,18 +153,19 @@ class GamesApiController extends Controller
                 $this -> ajaxReturn($rudata);
             }
         }
-
         //判断是否已抢完，如抢完更改buy_status=1,且根据算法得出中奖号码存入中奖表
         $count_all = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();
         if($count_all==$total){
-            $winner = $this->_getWinner($total);
+            $sdInfo = $this ->_get3DLottery();
+            $winner_num = $this->_getWinner($total,$sdInfo['opencode']);
+            $winnerInfo = $Model -> table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'lottery_num'=>$winner_num)) -> find();
             $wdata['company_id'] = $data['company_id'];
             $wdata['game_id'] = $data['game_id'];
-            $wdata['card_num'] = $data['card_num'];
-            $wdata['lottery'] = $winner;
+            $wdata['card_num'] = $winnerInfo['card_num'];
+            $wdata['lottery'] = $winner_num;
             $wdata['create_time'] = date('Y-m-d H:i:s',time());
             $wre = $Model ->table('__WINNERS_LIST__') -> data($wdata) -> add();
-            $update_game = $Model ->table('__GAMES__')->data(array('buy_status'=>1))->save();
+            $update_game = $Model ->table('__GAMES__')->where(array('id' => $data['game_id']))->data(array('buy_status'=>1))->save();
             if(($wre !== false)&&($update_game !== false)){
                 $rudata['result'] = 'true';
                 $rudata['msg'] = '抢购成功！';
@@ -172,41 +176,82 @@ class GamesApiController extends Controller
                 $this -> ajaxReturn($rudata);
             }
         }
+
         //链接付款接口进行付款，付款成功commit
-        $is_pay = true;
-        if($is_pay){
-            $this -> commit();
+        $Card = new \Ext\card\huayingcard();
+        $card_data['CardInfo']['CardNo'] = $data['card_num'];
+        $card_data['CardInfo']['CardPwd'] = $card_pass;
+        $card_data['TransationInfo']['TransRequestPoints'] = $num*$game_info['point'];
+
+        $is_pay = $Card -> action($card_data,1);
+        $Model -> table('__USERS__')->where('user_name')->setDec('card_money',$num*$game_info['point']);
+        if($is_pay == 0){
+            $Model -> commit();
+            $rudata['result'] = 'true';
+            $rudata['msg'] = '抢购成功！';
+            $this -> ajaxReturn($rudata);
         }else{
-            $this -> rollback();
+            $Model -> rollback();
+            $rudata['result'] = 'false';
+            $rudata['msg'] = $Card->getMessage();
+            $this -> ajaxReturn($rudata);
         }
-
-
-        $Model -> commit();
-        $this -> ajaxReturn($rudata);
-
     }
 
-    public function test(){
+    /**
+     * 获取商品剩余量
+     */
+    public function getSurplus(){
+        $game_id = I('request.game_id');
         $Model = new Model();
-        $wdata['company_id'] = 1;
-        $wdata['game_id'] = 1;
-        $wdata['card_num'] = 123;
-        $wdata['lottery'] = 12345;
-        $wdata['create_time'] = date('Y-m-d H:i:s',time());
-        $wre = $Model ->table('__WINNERS_LIST__')->data($wdata)->add();
-        echo '结果：'.$wre.'<br>';
-        $total = 99;
-        $re = $this->_getWinner($total);
-        echo $re;
+        $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $game_id)) -> count();
+        $game_info = $Model ->table('__GAMES__') -> where(array('id' => $game_id)) ->find();
+        $total = $game_info['total'];
+        $surplus = intval($total) - intval($count);
+        $this ->ajaxReturn($surplus);
     }
     /**
-     * 获取中奖号码
+     * 获取游戏中奖信息
+     * @author  zhaoyingchao
+     *
+     * @param   game_id int 如有值则获取相应的获奖信息，如果无值则获取所有游戏中奖信息
      */
-    private function _getWinner($total){
-        $sdLottery = 521;
+    public function getWinners(){
+        $game_id = I('request.game_id');
+        $PartModel = M('Participation');
+        $WinnerModel = M('WinnersList');
+        $UserModel = M('Users');
+        $GamesModel = M('Games');
+        if($game_id){
+            $winnerList = $WinnerModel -> where(array('game_id'=>$game_id)) -> select();
+        }else{
+            $winnerList = $WinnerModel ->where('company_id = 1') -> select();
+        }
+        $list = array();
+        foreach($winnerList as $key => $val){
+            $gameInfo = $GamesModel->where(array('id'=>$val['game_id']))->find();
+            $peo_num = $PartModel ->where(array('game_id'=>$val['game_id'])) -> group('user_id') -> select();
+            $userInfo = $UserModel -> where(array('user_name'=>$val['card_num'])) -> find();
+            $peo_count = count($peo_num);
+            $list[$key]['issue'] = date('Ymd',strtotime($val['create_time']));//期号
+            $list[$key]['thumbnail'] = $gameInfo['thumbnail'];
+            $list[$key]['user_name'] = $userInfo['nickname'];
+            $list[$key]['card_num'] = $val['card_num'];
+            $list[$key]['peo_count'] = $peo_count;
+        }
+        $this->ajaxReturn($list);
+    }
+    /**
+     * 获取中奖号码及中奖人
+     * @author zhaoyingchao
+     *
+     * @param   int $total      商品总数
+     * @param   int $opencode   3D福彩开奖号
+     */
+    private function _getWinner($total,$opencode){
         $time = date('His',time());
         $total = $total-1;
-        $pro = intval($sdLottery)*intval($time);
+        $pro = intval($opencode)*intval($time);
         $tot_len = strlen($total);
         $cut = substr($pro,-$tot_len);
         $contrast = intval($cut)-intval($total);
@@ -218,5 +263,21 @@ class GamesApiController extends Controller
             $winner = 10000000+intval($cut);
         }
         return $winner;
+    }
+
+    /**
+     * 获取3D福彩信息
+     */
+    private function _get3DLottery(){
+        $url = 'http://f.apiplus.cn/fc3d-1.json';
+        $httpRequest = new \Ext\card\HttpRequest;
+        $jsoncode = $httpRequest->get($url);
+        $openInfo = json_decode($jsoncode);
+        $expect = $openInfo->data[0]->expect;
+        $code = $openInfo->data[0]->opencode;
+        $opencode = str_replace(',','',$code);
+        $data['expect'] = $expect;
+        $data['opencode'] = intval($opencode);
+        return $data;
     }
 }

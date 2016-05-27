@@ -23,13 +23,42 @@ $(function(){
 	
 //	往期中奖
 	$('#old_win').on('click',function(){
-		layer.open({
-        type: 1,
-        title:false,
-        area:['500px','415px'],
-        shadeClose: false, //点击遮罩关闭
-        content:'<div class="old_winBox"><h3>往期中奖</h3><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">可口可乐</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">可口可乐</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">可口可乐</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div></div>'
-      })
+        $.ajax({
+            type: 'post',
+            url: api_url + 'index.php/Games/GamesApi/getWinners',
+            dataType: 'json',
+            success: function (data) {
+                //console.log(data);
+                var html = '<div class="old_winBox"><h3>往期中奖</h3>' ;
+                for(var i=0;i<data.length;i++){
+
+                    html+='<div class="old_win_item">' +
+                        '<div class="old_win_qihao">期号 <span>'+data[i].issue+'</span></div>' +
+                        '<div class="old_win_img f_l"><img src="'+api_url+"Public/games/upload/"+data[i].thumbnail+'"></div>' +
+                        '<div class="f_l old_win_msg">' +
+                        '<div class="old_win_name">恭喜&nbsp;<span class="old_win_username">'+data[i].user_name+'</span>&nbsp;获得本期商品</div>' +
+                        '<div>用户卡号：<span>'+data[i].card_num+'</span></div>' +
+                        '<div>本期参与：<span class="color_zhuti">'+data[i].peo_count+'人次</span></div></div></div>';
+                }
+
+                html+='</div>';
+                layer.open({
+                    type: 1,
+                    title:false,
+                    area:['570px','415px'],
+                    shadeClose: false, //点击遮罩关闭
+                    content:html,
+                })
+
+            },
+        });
+        // layer.open({
+        // type: 1,
+        // title:false,
+        // area:['500px','415px'],
+        // shadeClose: false, //点击遮罩关闭
+        // content:'<div class="old_winBox"><h3>往期中奖</h3><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">可口可乐</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">可口可乐</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">可口可乐</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div></div>'
+        // })
 	})
 	
 //	详情介绍
@@ -42,7 +71,7 @@ $(function(){
             data: {game_id: id, user_id: uid},
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                //console.log(data);
                 var html = '<div class="pop_right_goods_details">' +
                     '<h3>详情介绍</h3>' +
                     '<div class="goods_details_box">' +
@@ -97,13 +126,14 @@ $(function(){
                     '<input name="game_id" value="'+id+'" type="hidden" />' +
                     '<input name="card_num" value="'+cnum+'" type="hidden" />' +
                     '<input name="company_id" value="'+cid+'" type="hidden" />' +
+                    '<input name="point" id="point" value="'+data.game_info.point+'" type="hidden" />' +
                     '<div class="qianggou_num">' +
                     '<div class="f_l" style="margin-top:5px">数量：</div>' +
                     '<div class="quantity">' +
-                    '<a id="decrement" class="decrement" onclick="del()">-</a>' +
+                    '<a id="decrement" class="decrement" onclick="numdel()">-</a>' +
                     '<input name="number" id="number" class="itxt" value="1" type="text">' +
-                    '<a id="increment" class="increment" onclick="add()">+</a></div></div>' +
-                    '<div class="all_price font-16 color_zhuti">共1000点</div>' +
+                    '<a id="increment" class="increment" onclick="numadd()">+</a></div></div>' +
+                    '<div class="all_price font-16 color_zhuti">共<span id="price">'+data.game_info.point+'</span>点</div>' +
                     '<div class="qianggou_password_box">' +
                     '<input type="password" name="password" class="qianggou_password" placeholder="请输入聚优密码">' +
                     '<button id="">确定</button></div></div>' +
@@ -138,7 +168,6 @@ $(function(){
         var company_id = $('input[name="company_id"]').val();
         var number = $('input[name="number"]').val();
         var password = $('input[name="password"]').val();
-        alert(user_id);
         $.ajax({
             type:'post',
             url:api_url+'index.php/Games/GamesApi/purchase',
@@ -153,37 +182,102 @@ $(function(){
             dataType:'json',
             success:function (data) {
                 console.log(data);
+                if(data.result == 'true'){
+                    layer.alert(data.msg,function () {
+                        location.reload();
+                    });
+                }else{
+                    layer.alert(data.msg,function () {
+                        location.reload();
+                    });
+                }
             }
         });
     });
 //	已结束
 	$('.scroll_msg').on('click','.end',function(){
-		layer.open({
-        type: 1,
-        title:false,
-        area:['570px','415px'],
-        shadeClose: false, //点击遮罩关闭
-        content:'<div class="old_winBox"><h3>已结束</h3><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">您（可口可乐）</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">您（可口可乐）</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">您（可口可乐）</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div></div>'
-      })
+        var id = $(this).parent('a').attr('data-id');
+        $.ajax({
+            type: 'post',
+            url: api_url + 'index.php/Games/GamesApi/getWinners',
+            data: {game_id: id},
+            dataType: 'json',
+            success: function (data) {
+                //console.log(data);
+                var html = '<div class="old_winBox"><h3>已结束</h3>' ;
+                for(var i=0;i<data.length;i++){
+
+                    html+='<div class="old_win_item">' +
+                    '<div class="old_win_qihao">期号 <span>'+data[i].issue+'</span></div>' +
+                    '<div class="old_win_img f_l"><img src="'+api_url+"Public/games/upload/"+data[i].thumbnail+'"></div>' +
+                    '<div class="f_l old_win_msg">' +
+                    '<div class="old_win_name">恭喜&nbsp;<span class="old_win_username">'+data[i].user_name+'</span>&nbsp;获得本期商品</div>' +
+                    '<div>用户卡号：<span>'+data[i].card_num+'</span></div>' +
+                    '<div>本期参与：<span class="color_zhuti">'+data[i].peo_count+'人次</span></div></div></div>';
+                }
+
+                html+='</div>';
+                layer.open({
+                    type: 1,
+                    title:false,
+                    area:['570px','415px'],
+                    shadeClose: false, //点击遮罩关闭
+                    content:html,
+                })
+
+            },
+        });
+
 	});
-    //
-    // function del(){
-    //     var num = document.getElementById("number");
-    //     var n = parseInt(num.value);
-    //     if(n-1<=0){
-    //         num.value = 1;
-    //     }else{
-    //         num.value = n-1;
-    //     }
-    //     changePrice();
-    // }
-    // function add(){
-    //     var num = document.getElementById("number");
-    //     var n = parseInt(num.value);
-    //     num.value = n+1;
-    //     changePrice();
-    // }
-    // function checkNum(num){
-    //     changePrice();
-    // }
 })
+function numdel(){
+    var num = $("#number").val();
+    var pricespan = $("#price");
+    var point = $('#point').val();
+
+    var n = parseInt(num);
+    if(n-1<=0){
+        num = 1;
+    }else{
+        num = n - 1;
+    }
+    $("#number").val(num);
+    var price = parseInt(num)*parseInt(point);
+    pricespan.html(price);
+}
+function numadd(){
+    var num = $("#number").val();
+    var pricespan = $("#price");
+    var point = $('#point').val();
+    var game_id = $('input[name="game_id"]').val();
+    var surplus = checkSurplus(game_id);
+    var n = parseInt(num);
+
+    if(n>=surplus){
+        num = n;
+        layer.msg('储量不够了，亲！！！');
+    }else{
+        num = n+1
+    }
+    $("#number").val(num);
+    var price = parseInt(num)*parseInt(point);
+    pricespan.html(price);
+}
+/**
+ * 点选可选属性或改变数量时修改商品价格的函数
+ */
+function checkSurplus(game_id){
+    var surplus;
+    $.ajax({
+        type:'post',
+        url:api_url + 'index.php/Games/GamesApi/getSurplus',
+        async:false,
+        data:{game_id:game_id},
+        dataType:'json',
+        success:function(data){
+            surplus = data;
+        }
+    });
+    return surplus;
+}
+

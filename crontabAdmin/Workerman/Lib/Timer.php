@@ -22,8 +22,8 @@ use \Exception;
  * <b>example:</b>
  * <pre>
  * <code>
- * Workerman\Lib\Timer::init();
- * Workerman\Lib\Timer::add($time_interval, callback, array($arg1, $arg2..));
+ * Workerman\Ext\Timer::init();
+ * Workerman\Ext\Timer::add($time_interval, callback, array($arg1, $arg2..));
  * <code>
  * </pre>
 * @author walkor <walkor@workerman.net>

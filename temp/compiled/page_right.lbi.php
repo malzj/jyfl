@@ -167,7 +167,11 @@
 		<script>
 		
 		$(function(){
-				
+            var id = $('#user_id').val();
+            var cnum = <?php echo $this->_var['usernames']['user_name']; ?>
+
+            showRight(id,cnum);
+
 			if(window.location.pathname == '/user.php'){
 				$('.pop_right .right span').removeClass('glyphicon-chevron-left').addClass('glyphicon-chevron-right');
 			}
@@ -178,12 +182,9 @@
 				}else{
 					$('.pop_right').css('transform','translateX(0)');
 					$(this).removeClass('glyphicon-chevron-left').addClass('glyphicon-chevron-right');
-				}	
+					showRight(id,cnum);
+				}
 			})
-            var id = $('#user_id').val();
-            var cnum = <?php echo $this->_var['usernames']['user_name']; ?>
-
-            showRight(id,cnum);
 
             // 右侧渲染函数
 				function showRight(id,cnum){
@@ -196,7 +197,7 @@
             			},
             			dataType:'json',
             			success:function(data){
-            				console.log(data);
+            				//console.log(data);
             				var game_glo = data.game_global;
             				var game_com = data.game_company;
 

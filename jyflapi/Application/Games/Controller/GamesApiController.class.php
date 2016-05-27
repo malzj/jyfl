@@ -16,23 +16,52 @@ class GamesApiController extends Controller
 {
     /**
      * 游戏列表接口(右侧渲染)
+     * @author zhaoyingchao
+     * @param   user_id int 用户id
      */
     public function gameList(){
         $GamesModel = M('Games');
         $CompanyModel = M('Company');
         $UserModel = M('Users');
         $GradeModel = M('Grade');
-        $user_id = I('requset.user_id');
-        $int_cid = $UserModel -> where(array('user_id'=>$user_id)) -> getFeild('company_id');
+        $PartModel = M('Participation');
+        $user_id = I('request.user_id');
+        $int_cid = $UserModel -> where(array('user_id'=>$user_id)) -> getField('company_id');
         $company_info = $CompanyModel -> where(array('card_company_id'=>$int_cid)) -> find();
-        $grade_name = $GradeModel -> where(array('id'=>$company_info['grade_id'])) -> getFeidl('grade_name');
+        $grade_name = $GradeModel -> where(array('id'=>$company_info['grade_id'])) -> getField('grade_name');
         $company_info['grade_name'] = $grade_name;
         $game_global = $GamesModel ->where(array('grade_id'=>1,'status'=>1)) -> order('create_time DESC') -> limit(2) -> select();
         $game_company = $GamesModel ->where(array('grade_id'=>$company_info['grade_id'],'status'=>1)) -> order('create_time DESC') -> limit(5) -> select();
+        $glo_list = array();
+        $com_list = array();
+        foreach($game_global as $key => $val){
+            $count = $PartModel -> where(array('game_id'=>$val['game_id'])) -> count();
+            $percent = ($count/$val['total'])*100;
+            $glo_list[$key]['percent'] = round($percent,1);
+            $glo_list[$key]['total_point'] = $val['total']*$val['point'];
+            $glo_list[$key]['id'] = $val['id'];
+            $glo_list[$key]['grade_id'] = $val['grade_id'];
+            $glo_list[$key]['game_name'] = $val['game_name'];
+            $glo_list[$key]['thumbnail'] = $val['thumbnail'];
+            $glo_list[$key]['rules'] = $val['rules'];
+            $glo_list[$key]['buy_status'] = $val['buy_status'];
+        }
+        foreach($game_company as $k => $v){
+            $com_count = $PartModel -> where(array('game_id'=>$v['game_id'])) -> count();
+            $com_percent = ($com_count/$v['total'])*100;
+            $com_list['percent'] = round($com_percent,1);
+            $com_list[$k]['total_point'] = $v['total']*$v['point'];
+            $com_list[$k]['id'] = $v['id'];
+            $com_list[$k]['grade_id'] = $v['grade_id'];
+            $com_list[$k]['game_name'] = $v['game_name'];
+            $com_list[$k]['thumbnail'] = $v['thumbnail'];
+            $com_list[$k]['rules'] = $v['rules'];
+            $com_list[$k]['buy_status'] = $v['buy_status'];
+        }
 
         $rudata['company_info'] = $company_info;
-        $rudata['game_global'] = $game_global;
-        $rudata['game_company'] = $game_company;
+        $rudata['game_global'] = $glo_list;
+        $rudata['game_company'] = $com_list;
         $rudata['result'] = 'true';
 
         $this -> ajaxReturn($rudata);

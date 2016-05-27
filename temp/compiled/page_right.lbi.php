@@ -180,7 +180,86 @@
 					$(this).removeClass('glyphicon-chevron-left').addClass('glyphicon-chevron-right');
 				}	
 			})
+<<<<<<< HEAD
 			
+=======
+            var id = $('#user_id').val();
+            showRight(id);
+
+            // 右侧渲染函数
+				function showRight(id){
+            		var api_url = 'http://jy.com/jyflapi/';
+            		$.ajax({
+            			type:'post',
+            			url:api_url+'index.php/Games/GamesApi/gameList',
+            			data:{
+            				user_id:id,
+            			},
+            			dataType:'json',
+            			success:function(data){
+            				console.log(data);
+            				var game_glo = data.game_global;
+            				var game_com = data.game_company;
+
+            				var game_list_html = '<div class="act_title"></div>';
+            				for(var i=0;i<game_glo.length;i++){
+                                var img = (game_glo[i].buy_status==0)?"duo.png":"jieshu.png";
+            					game_list_html += '<div class="message_1">'+
+            						'<div class="message_1_content">'+
+            						'<div class="act_item1 f_l">'+
+            						'<img src="'+api_url+'Public/games/upload/'+game_glo[i].thumbnail+'">'+
+            						'</div>'+
+            						'<div class="act_item2 f_l">'+
+            						'<div>'+game_glo[i].game_name+'</div>'+
+            						'<div>共'+(game_glo[i].total*game_glo[i].point)+'点</div>'+
+            						'<div>'+
+            						'<span class="jindu"><span class="jindu1"></span></span>'+
+            						'<span style="float: left;">30%</span>'+
+            						'</div>'+
+            						'</div>'+
+            						'<div class="act_item3 f_l">'+
+            						'<a href="#" class="jinbi">'+
+            						'<img src="/images/juyoufuli/img_login/'+img+'">'+
+            						'</a>'+
+            						'</div>'+
+            						'</div>'+
+            						'</div>';
+            				}
+            				game_list_html+='<div class="act_title1"></div>';
+            				for(var i=0;i<game_com.length;i++){
+                                var img = (game_com[i].buy_status==0)?"duo.png":"jieshu.png";
+            					game_list_html += '<div class="message_1">'+
+            						'<div class="message_1_content">'+
+            						'<div class="act_item1 f_l">'+
+            						'<img src="'+api_url+'Public/games/upload/'+game_com[i].thumbnail+'">'+
+            						'</div>'+
+            						'<div class="act_item2 f_l">'+
+            						'<div>'+game_com[i].game_name+'</div>'+
+            						'<div>共'+(game_com[i].total*game_com[i].point)+'点</div>'+
+            						'<div>'+
+            						'<span class="jindu"><span class="jindu1"></span></span>'+
+            						'<span style="float: left;">30%</span>'+
+            						'</div>'+
+            						'</div>'+
+            						'<div class="act_item3 f_l">'+
+            						'<a href="#" class="jinbi">'+
+            						'<img src="/images/juyoufuli/img_login/'+img+'">'+
+            						'</a>'+
+            						'</div>'+
+            						'</div>'+
+            						'</div>';
+            				}
+            				var com_html = '<div class="border_radio">'+
+            					'<img src="'+api_url+'Public/games/upload/'+data.company_info.logo_img+'" alt="'+data.company_info.company_name+'" width="80%"></div>'+
+            					'<div class="text-center">'+data.company_info.company_name+'</div>';
+            				$('.pop_right .message').html(com_html);
+            				$('.pop_right .scroll_msg').html(game_list_html);
+            			}
+            		});
+            	}
+
+		})	
+>>>>>>> ad245eb0441182e41b1f45ccb6f2d2251c871b2f
 			//		右侧滚动条美化
 			$(".scroll_msg").niceScroll({  
 				cursorcolor:"#BFB1B1",  

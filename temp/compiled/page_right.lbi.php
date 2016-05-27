@@ -180,9 +180,7 @@
 					$(this).removeClass('glyphicon-chevron-left').addClass('glyphicon-chevron-right');
 				}	
 			})
-<<<<<<< HEAD
-			
-=======
+
             var id = $('#user_id').val();
             showRight(id);
 
@@ -259,7 +257,6 @@
             	}
 
 		})	
->>>>>>> ad245eb0441182e41b1f45ccb6f2d2251c871b2f
 			//		右侧滚动条美化
 			$(".scroll_msg").niceScroll({  
 				cursorcolor:"#BFB1B1",  
@@ -271,7 +268,6 @@
 			}); 
 			
 			
-		})	
 			
 			
 			$('.pop_left ul.list_main>li').hover(function(){  

@@ -351,9 +351,9 @@ html.login .pop_right{transform: translateX(0);}
 .guize_content,.xieyi_content{padding: 0 10px 10px 10px;}
 .old_win_item{margin: 0 30px 10px 30px;}
 .old_win_qihao{text-align: center;margin-bottom: 5px;font-size: 14px;}
-.old_win_img{margin-left: 20px;width: 80px;height: 80px;line-height: 115px;}
+.old_win_img{width: 80px;height: 80px;line-height: 115px;}
 .old_win_img img{width: 100%;height: 100%;}
-.old_win_userimg{line-height: 115px;width: 80px;height: 80px;margin-right: 20px;}
+.old_win_userimg{line-height: 115px;width: 80px;height: 80px;margin: 0 30px;}
 .old_win_userimg img{border-radius:50%;width: 100%;height: 100%;}
 .old_win_item{/* border-bottom: 1px solid; */overflow:hidden;padding-bottom: 10px;}
 .old_win_msg{

@@ -147,7 +147,7 @@
 		<div class="pop_right_bottom">
 	    	<div class="f_l pop_right_bottombtn"><a href="#" id="guize">游戏规则</a></div>
 	    	<div class="f_l pop_right_bottombtn"><a href="#" id="xieyi">服务协议</a></div>
-	    	<div class="f_l pop_right_bottombtn"><a href="#" id="old_win">往期中奖</a></div>
+	    	<div class="f_l pop_right_bottombtn"><a href="#" id="old_win" data_uid='<?php echo $this->_var['usernames']['user_id']; ?>'>往期中奖</a></div>
 	    </div>
 		</div>
 <script>

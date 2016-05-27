@@ -144,8 +144,6 @@ class GamesApiController extends Controller
             if ($result) {
                 $rudata['result'] = 'true';
                 $rudata['msg'] = '抢购成功！';
-                $this->ajaxReturn($data);
-
             } else {
                 $Model ->rollback();
                 $rudata['result'] = 'false';
@@ -162,6 +160,7 @@ class GamesApiController extends Controller
             $wdata['company_id'] = $data['company_id'];
             $wdata['game_id'] = $data['game_id'];
             $wdata['card_num'] = $winnerInfo['card_num'];
+            $wdata['grade_id'] = $game_info['grade_id'];
             $wdata['lottery'] = $winner_num;
             $wdata['create_time'] = date('Y-m-d H:i:s',time());
             $wre = $Model ->table('__WINNERS_LIST__') -> data($wdata) -> add();
@@ -212,34 +211,77 @@ class GamesApiController extends Controller
     }
     /**
      * 获取游戏中奖信息
+     */
+    public function gameWinner(){
+        $game_id = I('request.game_id');
+        $WinnerModel = M('WinnersList');
+        $GamesModel = M('Games');
+        $UserModel = M('Users');
+        $PartModel = M('Participation');
+        $winner = $WinnerModel -> where(array('game_id'=>$game_id)) -> find();
+
+        $gameInfo = $GamesModel->where(array('id'=>$game_id))->find();
+
+        $userInfo = $UserModel -> where(array('user_name'=>$winner['card_num'])) -> find();
+        $peo_num = $PartModel ->where(array('game_id'=>$game_id)) -> group('user_id') -> select();
+        $peo_count = count($peo_num);
+        $winner['issue'] = date('Ymd',strtotime($winner['create_time']));//期号
+        $winner['thumbnail'] = $gameInfo['thumbnail'];
+        $winner['user_name'] = $userInfo['nickname'];
+        $winner['peo_count'] = $peo_count;
+        $winner['user_img'] = $userInfo['pic'];
+
+        $this->ajaxReturn($winner);
+    }
+    /**
+     * 获取往期中奖信息
      * @author  zhaoyingchao
      *
-     * @param   game_id int 如有值则获取相应的获奖信息，如果无值则获取所有游戏中奖信息
+     * @param   game_id     int     如有值则获取相应游戏的获奖信息，如果无值则获取所有游戏中奖信息
+     * @param   grade_id    int     grade_id=1全站游戏，其他为对应等级游戏
      */
     public function getWinners(){
-        $game_id = I('request.game_id');
+        $uid = I('request.user_id');
         $PartModel = M('Participation');
         $WinnerModel = M('WinnersList');
         $UserModel = M('Users');
+        $CompanyModel = M('Company');
         $GamesModel = M('Games');
-        if($game_id){
-            $winnerList = $WinnerModel -> where(array('game_id'=>$game_id)) -> select();
-        }else{
-            $winnerList = $WinnerModel ->where('company_id = 1') -> select();
+        $selfInfo = $UserModel -> where(array('user_id'=>$uid))->find();
+        $selfCompany = $CompanyModel -> where(array('id'=>$selfInfo['company_id'])) -> find();
+        //全民夺宝
+        $gwinnerList = $WinnerModel ->where(array('company_id'=>$selfInfo['company_id'],'grade_id'=>1)) -> select();
+        //专属夺宝
+        $cwinnerList = $WinnerModel ->where(array('company_id'=>$selfInfo['company_id'],'grade_id'=>$selfCompany['grade_id'])) -> select();
+        $glist = array();
+        foreach($gwinnerList as $key => $val){
+            $ggameInfo = $GamesModel->where(array('id'=>$val['game_id']))->find();
+            $gpeo_num = $PartModel ->where(array('game_id'=>$val['game_id'])) -> group('user_id') -> select();
+            $guserInfo = $UserModel -> where(array('user_name'=>$val['card_num'])) -> find();
+            $peo_count = count($gpeo_num);
+            $glist[$key]['issue'] = date('Ymd',strtotime($val['create_time']));//期号
+            $glist[$key]['thumbnail'] = $ggameInfo['thumbnail'];
+            $glist[$key]['user_name'] = $guserInfo['nickname'];
+            $glist[$key]['card_num'] = $val['card_num'];
+            $glist[$key]['peo_count'] = $peo_count;
+            $glist[$key]['user_img'] = $guserInfo['pic'];
         }
-        $list = array();
-        foreach($winnerList as $key => $val){
+        $clist = array();
+        foreach($cwinnerList as $key => $val){
             $gameInfo = $GamesModel->where(array('id'=>$val['game_id']))->find();
             $peo_num = $PartModel ->where(array('game_id'=>$val['game_id'])) -> group('user_id') -> select();
             $userInfo = $UserModel -> where(array('user_name'=>$val['card_num'])) -> find();
             $peo_count = count($peo_num);
-            $list[$key]['issue'] = date('Ymd',strtotime($val['create_time']));//期号
-            $list[$key]['thumbnail'] = $gameInfo['thumbnail'];
-            $list[$key]['user_name'] = $userInfo['nickname'];
-            $list[$key]['card_num'] = $val['card_num'];
-            $list[$key]['peo_count'] = $peo_count;
+            $clist[$key]['issue'] = date('Ymd',strtotime($val['create_time']));//期号
+            $clist[$key]['thumbnail'] = $gameInfo['thumbnail'];
+            $clist[$key]['user_name'] = $userInfo['nickname'];
+            $clist[$key]['card_num'] = $val['card_num'];
+            $clist[$key]['peo_count'] = $peo_count;
+            $clist[$key]['user_img'] = $userInfo['pic'];
         }
-        $this->ajaxReturn($list);
+        $rudata['glist'] = $glist;
+        $rudata['clist'] = $clist;
+        $this->ajaxReturn($rudata);
     }
     /**
      * 获取中奖号码及中奖人

@@ -67,7 +67,7 @@ function insert_query_info()
 
 function insert_cron_info() {
 	/* 加入触发cron代码 */
-	$cron_method = empty($GLOBALS['_CFG']['cron_method']) ? '<img src="api/cron.php?t=' . gmtime() . '" alt="" style="width:0px;height:0px;" />' : '';
+	$cron_method = empty($GLOBALS['_CFG']['cron_method']) ? '<img src="api/cron.php?t=' . gmtime() . '" alt="" style="width:0px;height:0px;display:none;" />' : '';
 	return $cron_method;
 }
 

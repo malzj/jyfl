@@ -27,8 +27,18 @@ $(function(){
         title:false,
         area:['500px','415px'],
         shadeClose: false, //点击遮罩关闭
-        content:'<div class="old_winBox"><h3>往期中奖</h3><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">可口可乐</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">可口可乐</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">可口可乐</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div></div>'
+        content:'<div class="old_winBox"><h3 style="margin-bottom:0">往期中奖</h3><div class="old_win_item"><div class="old_win_title o_hidden"><div class="old_winTitle f_l"><a href="#" id="all_duobao" class="zhuti_a_hovercolor">全民夺宝</a></div><div class="old_winTitle1 f_l"><a href="#" id="person_duobao" class="zhuti_a_hovercolor">专属夺宝</a></div></div><div class="all_duobao"><div class="old_win_content"><div class="old_win_userimg f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_qihao">期号<span>20160527111</span></div><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">可口可乐</span>&nbsp;获得本期商品</div><div>昵称：<span>可口可乐</span></div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div><div class="old_win_img f_l"><img src=""></div></div></div><div class="person_duobao" style="display:none"><div class="old_win_content"><div class="old_win_userimg f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_qihao">期号<span>20160527</span></div><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">可口可乐</span>&nbsp;获得本期商品</div><div>昵称：<span>可口可乐</span></div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div><div class="old_win_img f_l"><img src=""></div></div></div></div></div>'
       })
+//		点击全民夺宝
+		$('#all_duobao').click(function(){
+			$('.all_duobao').css('display','block').siblings('.person_duobao').css('display','none')
+			$(this).addClass('active').parent().siblings().find('a').removeClass('active');
+		})
+//		点击专属夺宝
+		$('#person_duobao').click(function(){
+			$('.person_duobao').css('display','block').siblings('.all_duobao').css('display','none')
+			$(this).addClass('active').parent().siblings().find('a').removeClass('active');
+		})
 	})
 	
 //	详情介绍
@@ -49,8 +59,16 @@ $(function(){
         title:false,
         area:['570px','415px'],
         shadeClose: false, //点击遮罩关闭
-        content:'<div class="qianggou_box"><h3>聚优夺宝</h3><div class="qianggou_details"><div class="qianggou_img f_l"><img src></div><div class="qianggou_details_content f_l"><div class="qianggou_details_name">iPhone</div><div class="qianggou_num"><div class="f_l" style="margin-top:5px">数量：</div><div class="quantity"><a id="decrement" class="decrement" onclick="del()">-</a><input name="number" id="number" class="itxt" value="1" type="text"><a id="increment" class="increment" onclick="add()">+</a></div></div><div class="all_price font-16 color_zhuti">共1000点</div><div class="qianggou_password_box"><input type="password" class="qianggou_password" placeholder="请输入聚优密码"><button type="submit">确定</button></div></div></div><div class="yigou_name"><div class="f_l">已购号：</div><div class="f_l yigouhao_all"><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span></div></div></div>'
+        content:'<div class="qianggou_box"><h3>聚优夺宝</h3><div class="qianggou_details"><div class="qianggou_img f_l"><img src></div><div class="qianggou_details_content f_l"><div class="qianggou_details_name">iPhone</div><div class="qianggou_num"><div class="f_l" style="margin-top:5px">数量：</div><div class="quantity"><a id="decrement" class="decrement" onclick="del()">-</a><input name="number" id="number" class="itxt" value="1" type="text"><a id="increment" class="increment" onclick="add()">+</a></div></div><div class="all_price font-16 color_zhuti">共1000点</div><div class="qianggou_password_box"><input type="password" class="qianggou_password" placeholder="请输入聚优密码"><button type="submit">确定</button></div></div></div><div class="yigou_name"><div class="f_l">已购号：</div><div class="f_l yigouhao_all"><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span><span class="yigouhao">12345678</span></div></div></div>'
       })
+		$(".layui-layer-content").niceScroll({  
+				cursorcolor:"#BFB1B1",  
+				cursoropacitymax:1,  
+				touchbehavior:false,  
+				cursorwidth:"5px",  
+				cursorborder:"0",  
+				cursorborderradius:"5px",
+			}); 
 	})
 //	已结束
 	$('.end').on('click',function(){
@@ -62,4 +80,5 @@ $(function(){
         content:'<div class="old_winBox"><h3>已结束</h3><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">您（可口可乐）</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">您（可口可乐）</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div><div class="old_win_item"><div class="old_win_qihao">期号 <span>2015024</span></div><div class="old_win_img f_l"><img src=""></div><div class="f_l old_win_msg"><div class="old_win_name">恭喜&nbsp;<span class="old_win_username">您（可口可乐）</span>&nbsp;获得本期商品</div><div>用户卡号：<span>123465789123456789</span></div><div>本期参与：<span class="color_zhuti">55人次</span></div></div></div></div>'
       })
 	})
-})
+	
+	})

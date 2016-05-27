@@ -1,17 +1,17 @@
 <?php	return array (
   0 => 
   array (
-    'actor' => '胡严彦 / 刘沛 / 李晶 / 戴逸 / 张金玲 / 蔡丹 / 泽飞 / 李明 / 毛毛',
-    'director' => '孟文龙 / 管霄超 / 汤华宝',
-    'hot' => 12,
+    'actor' => '胡影怡 / 朱璇 / 周骏 / 孙晨 / 李亚真 / 荣益 / 王宇 / 王艺禅 / 王澜',
+    'director' => '姬雨',
+    'hot' => 13,
     'hot_priority' => 0,
-    'movieId' => 387737,
-    'movieLength' => 90,
-    'movieName' => '小蚂蚁之环球大冒险',
-    'movieType' => '喜剧 / 动画 / 冒险',
-    'pathVerticalS' => 'http://img.komovie.cn/poster/big/14623478884383.jpg',
-    'publishTime' => '2016-05-27',
-    'score' => '8.0',
+    'movieId' => 386772,
+    'movieLength' => 88,
+    'movieName' => '筷仙',
+    'movieType' => '惊悚 / 恐怖',
+    'pathVerticalS' => 'http://img.komovie.cn/poster/big/14504103853418.jpg',
+    'publishTime' => '2016-06-24',
+    'score' => '8.5',
   ),
   1 => 
   array (
@@ -105,19 +105,31 @@
   ),
   7 => 
   array (
-    'actor' => '韩雪 / 唐宸禹 / 吴艺璇',
-    'director' => '张江南',
+    'actor' => '赵薇 / 古天乐 / 钟汉良',
+    'director' => '杜琪峰',
     'hot' => 12,
     'hot_priority' => 0,
-    'movieId' => 387609,
-    'movieLength' => 119,
-    'movieName' => '古曼',
-    'movieType' => '惊悚 / 恐怖 / 鬼怪',
-    'pathVerticalS' => 'http://img.komovie.cn/poster/big/14610337867477.jpg',
-    'publishTime' => '2016-05-27',
+    'movieId' => 387610,
+    'movieName' => '三人行',
+    'movieType' => '动作 / 犯罪',
+    'pathVerticalS' => 'http://img.komovie.cn/poster/big/14610340059652.jpg',
+    'publishTime' => '2016-06-24',
     'score' => '8.0',
   ),
   8 => 
+  array (
+    'actor' => '朱一龙 / 邱敏敏 / 李嘉明',
+    'director' => '皮查农·塔玛杰拉',
+    'hot' => 12,
+    'hot_priority' => 0,
+    'movieId' => 387466,
+    'movieName' => '育婴室',
+    'movieType' => '惊悚 / 恐怖',
+    'pathVerticalS' => 'http://img.komovie.cn/poster/big/14617478492532.jpg',
+    'publishTime' => '2016-06-24',
+    'score' => '8.0',
+  ),
+  9 => 
   array (
     'actor' => '李敏镐 / 钟汉良 / 唐嫣 / 徐正曦 / 吴千语 / 樊少皇',
     'director' => '申太罗',
@@ -138,7 +150,7 @@
       'type' => 1,
     ),
   ),
-  9 => 
+  10 => 
   array (
     'actor' => '徐洁儿 / 陈炳强 / 陈欢',
     'director' => '麦子',
@@ -151,7 +163,7 @@
     'publishTime' => '2016-06-08',
     'score' => '8.0',
   ),
-  10 => 
+  11 => 
   array (
     'actor' => '陈美行 / 翟子陌 / 罗翔 / 付曼 / 王良 / 苗青 / 赵吉 / 常亦然 / 夏星翎',
     'director' => '李红建',
@@ -165,7 +177,7 @@
     'publishTime' => '2016-06-08',
     'score' => '8.0',
   ),
-  11 => 
+  12 => 
   array (
     'actor' => '祖晴 / 明婧 / 小玉 / 蒋林辰 / 李晶 / 黄珊珊 / 毛毛 / 小马 / 齐冀宁 / 马瑞',
     'director' => '杨劲松 / 梁董龙 / 刘平劼 / 陆伟',
@@ -177,28 +189,6 @@
     'pathVerticalS' => 'http://img.komovie.cn/poster/big/14582068234640.jpg',
     'publishTime' => '2016-06-01',
     'score' => '8.0',
-  ),
-  12 => 
-  array (
-    'actor' => '雷佳音 / 夏梓桐 / 李菁 / 孙宁 / 何云伟',
-    'director' => '朴裕焕',
-    'hot' => 12,
-    'hot_priority' => 0,
-    'movieId' => 387323,
-    'movieLength' => 90,
-    'movieName' => '记忆碎片',
-    'movieType' => '喜剧 / 悬疑',
-    'pathVerticalS' => 'http://img.komovie.cn/poster/big/14619098114227.jpg',
-    'publishTime' => '2016-05-27',
-    'score' => '8.0',
-    'trailer' => 
-    array (
-      'movieId' => 387323,
-      'trailerCover' => 'http://img.komovie.cn/poster/big/14605269829676.jpg',
-      'trailerId' => 15492,
-      'trailerPath' => 'http://media.komovie.cn/trailer/14605269823815.mp4',
-      'type' => 1,
-    ),
   ),
   13 => 
   array (
@@ -237,28 +227,6 @@
   ),
   15 => 
   array (
-    'actor' => '黄莺 / 安琪 / 李正翔 / 张欣 / 姜玉玲',
-    'director' => '(小)徐克',
-    'hot' => 12,
-    'hot_priority' => 0,
-    'movieId' => 386209,
-    'movieLength' => 90,
-    'movieName' => '糖果世界大冒险 ',
-    'movieType' => '动画 / 奇幻 / 冒险',
-    'pathVerticalS' => 'http://img.komovie.cn/poster/big/14338291609811.jpg',
-    'publishTime' => '2016-05-27',
-    'score' => '8.0',
-    'trailer' => 
-    array (
-      'movieId' => 386209,
-      'trailerCover' => 'http://img.komovie.cn/poster/big/14607041151441.jpg',
-      'trailerId' => 14999,
-      'trailerPath' => 'http://media.komovie.cn/trailer/14607041159931.mp4',
-      'type' => 1,
-    ),
-  ),
-  16 => 
-  array (
     'actor' => '艾伯特·布鲁克斯 / 艾伦·德杰尼勒斯',
     'country' => '美国',
     'director' => '安德鲁·斯坦顿',
@@ -279,7 +247,7 @@
       'type' => 1,
     ),
   ),
-  17 => 
+  16 => 
   array (
     'actor' => '崔维斯·费米尔 / 本·福斯特 / 托比·凯贝尔 / 宝拉·巴顿 / 多米尼克·库珀 / 鲁丝·内伽',
     'director' => '邓肯·琼斯',

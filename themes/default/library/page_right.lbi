@@ -180,7 +180,7 @@
 					$(this).removeClass('glyphicon-chevron-left').addClass('glyphicon-chevron-right');
 				}	
 			})
-		})	
+			
 			//		右侧滚动条美化
 			$(".scroll_msg").niceScroll({  
 				cursorcolor:"#BFB1B1",  
@@ -190,6 +190,11 @@
 				cursorborder:"0",  
 				cursorborderradius:"5px"  
 			}); 
+			
+			
+		})	
+			
+			
 			$('.pop_left ul.list_main>li').hover(function(){  
 				$(this).children('div:nth-child(2)').toggle().parents('li').siblings().children('div:nth-child(2)').css('display','none');
 					

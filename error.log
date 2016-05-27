@@ -17256,4 +17256,944 @@ array (
       0 => NULL,
     ),
   ),
+)array (
+  0 => '2016',
+  1 => '05',
+  2 => '25',
+)array (
+  'productNo' => '7242878',
+  'status' => '1',
+  'prices' => 
+  array (
+    'price' => 
+    array (
+      0 => 
+      array (
+        'date' => '2016-05-25',
+        'marketPrice' => '90.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '25',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      1 => 
+      array (
+        'date' => '2016-05-26',
+        'marketPrice' => '90.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '25',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      2 => 
+      array (
+        'date' => '2016-05-27',
+        'marketPrice' => '90.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '25',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      3 => 
+      array (
+        'date' => '2016-05-28',
+        'marketPrice' => '90.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '25',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      4 => 
+      array (
+        'date' => '2016-05-29',
+        'marketPrice' => '90.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '25',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      5 => 
+      array (
+        'date' => '2016-05-30',
+        'marketPrice' => '90.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '25',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      6 => 
+      array (
+        'date' => '2016-05-31',
+        'marketPrice' => '90.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '25',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      7 => 
+      array (
+        0 => 
+        array (
+          'date' => '2016-05-25',
+          'marketPrice' => '90.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '25',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        1 => 
+        array (
+          'date' => '2016-05-26',
+          'marketPrice' => '90.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '25',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        2 => 
+        array (
+          'date' => '2016-05-27',
+          'marketPrice' => '90.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '25',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        3 => 
+        array (
+          'date' => '2016-05-28',
+          'marketPrice' => '90.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '25',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        4 => 
+        array (
+          'date' => '2016-05-29',
+          'marketPrice' => '90.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '25',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        5 => 
+        array (
+          'date' => '2016-05-30',
+          'marketPrice' => '90.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '25',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        6 => 
+        array (
+          'date' => '2016-05-31',
+          'marketPrice' => '90.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '25',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+      ),
+    ),
+  ),
+)array (
+  0 => '2016',
+  1 => '05',
+  2 => '25',
+)array (
+  'productNo' => '8117879',
+  'status' => '1',
+  'prices' => 
+  array (
+    'price' => 
+    array (
+      0 => 
+      array (
+        'date' => '2016-05-25',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      1 => 
+      array (
+        'date' => '2016-05-26',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      2 => 
+      array (
+        'date' => '2016-05-27',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      3 => 
+      array (
+        'date' => '2016-05-28',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      4 => 
+      array (
+        'date' => '2016-05-29',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      5 => 
+      array (
+        'date' => '2016-05-30',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      6 => 
+      array (
+        'date' => '2016-05-31',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      7 => 
+      array (
+        0 => 
+        array (
+          'date' => '2016-05-25',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        1 => 
+        array (
+          'date' => '2016-05-26',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        2 => 
+        array (
+          'date' => '2016-05-27',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        3 => 
+        array (
+          'date' => '2016-05-28',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        4 => 
+        array (
+          'date' => '2016-05-29',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        5 => 
+        array (
+          'date' => '2016-05-30',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        6 => 
+        array (
+          'date' => '2016-05-31',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+      ),
+    ),
+  ),
+)array (
+  0 => '2016',
+  1 => '05',
+  2 => '25',
+)array (
+  'productNo' => '8117879',
+  'status' => '1',
+  'prices' => 
+  array (
+    'price' => 
+    array (
+      0 => 
+      array (
+        'date' => '2016-05-25',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      1 => 
+      array (
+        'date' => '2016-05-26',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      2 => 
+      array (
+        'date' => '2016-05-27',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      3 => 
+      array (
+        'date' => '2016-05-28',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      4 => 
+      array (
+        'date' => '2016-05-29',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      5 => 
+      array (
+        'date' => '2016-05-30',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      6 => 
+      array (
+        'date' => '2016-05-31',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      7 => 
+      array (
+        0 => 
+        array (
+          'date' => '2016-05-25',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        1 => 
+        array (
+          'date' => '2016-05-26',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        2 => 
+        array (
+          'date' => '2016-05-27',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        3 => 
+        array (
+          'date' => '2016-05-28',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        4 => 
+        array (
+          'date' => '2016-05-29',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        5 => 
+        array (
+          'date' => '2016-05-30',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        6 => 
+        array (
+          'date' => '2016-05-31',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+      ),
+    ),
+  ),
+)array (
+  0 => '2016',
+  1 => '05',
+  2 => '25',
+)array (
+  'productNo' => '8117879',
+  'status' => '1',
+  'prices' => 
+  array (
+    'price' => 
+    array (
+      0 => 
+      array (
+        'date' => '2016-05-25',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      1 => 
+      array (
+        'date' => '2016-05-26',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      2 => 
+      array (
+        'date' => '2016-05-27',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      3 => 
+      array (
+        'date' => '2016-05-28',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      4 => 
+      array (
+        'date' => '2016-05-29',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      5 => 
+      array (
+        'date' => '2016-05-30',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      6 => 
+      array (
+        'date' => '2016-05-31',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      7 => 
+      array (
+        0 => 
+        array (
+          'date' => '2016-05-25',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        1 => 
+        array (
+          'date' => '2016-05-26',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        2 => 
+        array (
+          'date' => '2016-05-27',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        3 => 
+        array (
+          'date' => '2016-05-28',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        4 => 
+        array (
+          'date' => '2016-05-29',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        5 => 
+        array (
+          'date' => '2016-05-30',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        6 => 
+        array (
+          'date' => '2016-05-31',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+      ),
+    ),
+  ),
+)array (
+  0 => '2016',
+  1 => '05',
+  2 => '25',
+)array (
+  'productNo' => '8117879',
+  'status' => '1',
+  'prices' => 
+  array (
+    'price' => 
+    array (
+      0 => 
+      array (
+        'date' => '2016-05-25',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      1 => 
+      array (
+        'date' => '2016-05-26',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      2 => 
+      array (
+        'date' => '2016-05-27',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      3 => 
+      array (
+        'date' => '2016-05-28',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      4 => 
+      array (
+        'date' => '2016-05-29',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      5 => 
+      array (
+        'date' => '2016-05-30',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      6 => 
+      array (
+        'date' => '2016-05-31',
+        'marketPrice' => '80.0',
+        'salePrice' => '65',
+        'SettlementPrice' => '64',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      7 => 
+      array (
+        0 => 
+        array (
+          'date' => '2016-05-25',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        1 => 
+        array (
+          'date' => '2016-05-26',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        2 => 
+        array (
+          'date' => '2016-05-27',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        3 => 
+        array (
+          'date' => '2016-05-28',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        4 => 
+        array (
+          'date' => '2016-05-29',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        5 => 
+        array (
+          'date' => '2016-05-30',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        6 => 
+        array (
+          'date' => '2016-05-31',
+          'marketPrice' => '80.0',
+          'salePrice' => '65',
+          'SettlementPrice' => '64',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+      ),
+    ),
+  ),
+)array (
+  0 => '2016',
+  1 => '05',
+  2 => '25',
+)array (
+  'productNo' => '7641250',
+  'status' => '1',
+  'prices' => 
+  array (
+    'price' => 
+    array (
+      0 => 
+      array (
+        'date' => '2016-05-25',
+        'marketPrice' => '50.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '30',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      1 => 
+      array (
+        'date' => '2016-05-26',
+        'marketPrice' => '50.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '30',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      2 => 
+      array (
+        'date' => '2016-05-27',
+        'marketPrice' => '50.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '30',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      3 => 
+      array (
+        'date' => '2016-05-28',
+        'marketPrice' => '50.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '30',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      4 => 
+      array (
+        'date' => '2016-05-29',
+        'marketPrice' => '50.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '30',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      5 => 
+      array (
+        'date' => '2016-05-30',
+        'marketPrice' => '50.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '30',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      6 => 
+      array (
+        'date' => '2016-05-31',
+        'marketPrice' => '50.0',
+        'salePrice' => '30',
+        'SettlementPrice' => '30',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      7 => 
+      array (
+        0 => 
+        array (
+          'date' => '2016-05-25',
+          'marketPrice' => '50.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '30',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        1 => 
+        array (
+          'date' => '2016-05-26',
+          'marketPrice' => '50.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '30',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        2 => 
+        array (
+          'date' => '2016-05-27',
+          'marketPrice' => '50.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '30',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        3 => 
+        array (
+          'date' => '2016-05-28',
+          'marketPrice' => '50.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '30',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        4 => 
+        array (
+          'date' => '2016-05-29',
+          'marketPrice' => '50.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '30',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        5 => 
+        array (
+          'date' => '2016-05-30',
+          'marketPrice' => '50.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '30',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        6 => 
+        array (
+          'date' => '2016-05-31',
+          'marketPrice' => '50.0',
+          'salePrice' => '30',
+          'SettlementPrice' => '30',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+      ),
+    ),
+  ),
+)array (
+  0 => '2016',
+  1 => '05',
+  2 => '25',
+)array (
+  'productNo' => '7672014',
+  'status' => '1',
+  'prices' => 
+  array (
+    'price' => 
+    array (
+      0 => 
+      array (
+        'date' => '2016-05-28',
+        'marketPrice' => '100.0',
+        'salePrice' => '88',
+        'SettlementPrice' => '84',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      1 => 
+      array (
+        'date' => '2016-05-29',
+        'marketPrice' => '100.0',
+        'salePrice' => '88',
+        'SettlementPrice' => '84',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      2 => 
+      array (
+        'date' => '2016-05-30',
+        'marketPrice' => '100.0',
+        'salePrice' => '88',
+        'SettlementPrice' => '84',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      3 => 
+      array (
+        'date' => '2016-05-31',
+        'marketPrice' => '100.0',
+        'salePrice' => '88',
+        'SettlementPrice' => '84',
+        'remainNum' => '999',
+        'startNum' => '1',
+      ),
+      4 => 
+      array (
+        0 => 
+        array (
+          'date' => '2016-05-28',
+          'marketPrice' => '100.0',
+          'salePrice' => '88',
+          'SettlementPrice' => '84',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        1 => 
+        array (
+          'date' => '2016-05-29',
+          'marketPrice' => '100.0',
+          'salePrice' => '88',
+          'SettlementPrice' => '84',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        2 => 
+        array (
+          'date' => '2016-05-30',
+          'marketPrice' => '100.0',
+          'salePrice' => '88',
+          'SettlementPrice' => '84',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+        3 => 
+        array (
+          'date' => '2016-05-31',
+          'marketPrice' => '100.0',
+          'salePrice' => '88',
+          'SettlementPrice' => '84',
+          'remainNum' => '999',
+          'startNum' => '1',
+        ),
+      ),
+    ),
+  ),
 )

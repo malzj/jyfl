@@ -247,7 +247,7 @@ class GamesApiController extends Controller
         $UserModel = M('Users');
         $CompanyModel = M('Company');
         $GamesModel = M('Games');
-        $selfInfo = $UserModel -> where(array('user_id'=>$uid))->find();
+        $selfInfo = $UserModel -> where(array('id'=>$uid))->find();
         $selfCompany = $CompanyModel -> where(array('id'=>$selfInfo['company_id'])) -> find();
         //全民夺宝
         $gwinnerList = $WinnerModel ->where(array('company_id'=>$selfInfo['company_id'],'grade_id'=>1)) -> select();

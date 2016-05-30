@@ -33,6 +33,7 @@ $(function(){
                 console.log(data);
                 var global_list = data.glist;
                 var company_list = data.clist;
+
                 var html = '<div class="old_winBox"><h3 style="margin-bottom:0">往期中奖</h3>' +
                     '<div class="old_win_item">' +
                     '<div class="old_win_title o_hidden">' +
@@ -45,7 +46,7 @@ $(function(){
                 for(var i=0;i<global_list.length;i++){
 
                     html+='<div class="old_win_content"><div class="old_win_userimg f_l">' +
-                        '<img src="'+data[i].user_img+'">' +
+                        '<img src="'+global_list[i].user_img+'">' +
                         '</div><div class="f_l old_win_msg"><div class="old_win_qihao">期号<span>'+global_list[i].issue+'</span></div>' +
                         '<div class="old_win_name">恭喜&nbsp;<span class="old_win_username">'+global_list[i].user_name+'</span>&nbsp;获得本期商品</div>' +
                         '<div>昵称：<span>'+global_list[i].user_name+'</span></div>' +
@@ -55,10 +56,11 @@ $(function(){
 
                 }
                 html+='</div><div class="person_duobao" style="display:none">';
+
                 for(var i=0;i<company_list.length;i++){
 
                     html+='<div class="old_win_content"><div class="old_win_userimg f_l">' +
-                        '<img src="'+data[i].user_img+'">' +
+                        '<img src="'+company_list[i].user_img+'">' +
                         '</div><div class="f_l old_win_msg"><div class="old_win_qihao">期号<span>'+company_list[i].issue+'</span></div>' +
                         '<div class="old_win_name">恭喜&nbsp;<span class="old_win_username">'+company_list[i].user_name+'</span>&nbsp;获得本期商品</div>' +
                         '<div>昵称：<span>'+company_list[i].user_name+'</span></div>' +
@@ -78,12 +80,12 @@ $(function(){
         });
       })
 //		点击全民夺宝
-    $('#all_duobao').click(function(){
+    $(document).on('click','#all_duobao',function(){
         $('.all_duobao').css('display','block').siblings('.person_duobao').css('display','none')
         $(this).addClass('active').parent().siblings().find('a').removeClass('active');
     })
 //		点击专属夺宝
-    $('#person_duobao').click(function(){
+    $(document).on('click','#person_duobao',function(){
         $('.person_duobao').css('display','block').siblings('.all_duobao').css('display','none')
         $(this).addClass('active').parent().siblings().find('a').removeClass('active');
     })
@@ -124,7 +126,16 @@ $(function(){
                     area: ['570px', '415px'],
                     shadeClose: false, //点击遮罩关闭
                     content:html,
-                })
+                });
+                //		弹窗滚动条美化
+                $(".layui-layer-content").niceScroll({
+                    cursorcolor:"#BFB1B1",
+                    cursoropacitymax:1,
+                    touchbehavior:false,
+                    cursorwidth:"5px",
+                    cursorborder:"0",
+                    cursorborderradius:"5px"
+                });
             }
         })
 	})
@@ -183,7 +194,6 @@ $(function(){
                     content:html,
 
                 })
-
             }
         })
 	})
@@ -208,7 +218,7 @@ $(function(){
             },
             dataType:'json',
             success:function (data) {
-                console.log(data);
+                //console.log(data);
                 if(data.result == 'true'){
                     layer.alert(data.msg,function () {
                         location.reload();
@@ -230,16 +240,22 @@ $(function(){
             data: {game_id: id},
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                //.log(data);
                 var html = '<div class="old_winBox"><h3>已结束</h3>' +
-                    '<div class="old_win_item">' +
-                    '<div class="old_win_qihao">期号 <span>'+data.issue+'</span></div>' +
-                    '<div class="old_win_img f_l"><img src="'+api_url+"Public/games/upload/"+data.thumbnail+'"></div>' +
-                    '<div class="f_l old_win_msg">' +
-                    '<div class="old_win_name">恭喜&nbsp;<span class="old_win_username">'+data.user_name+'</span>&nbsp;获得本期商品</div>' +
-                    '<div>用户卡号：<span>'+data.card_num+'</span></div>' +
-                    '<div>本期参与：<span class="color_zhuti">'+data.peo_count+'人次</span></div></div></div></div>';
-
+                '<div class="old_win_item">' +
+                '<div class="all_duobao">' +
+                '<div class="old_win_content">' +
+                '<div class="old_win_userimg f_l">' +
+                '<img src="'+data.user_img+'">' +
+                '</div><div class="f_l old_win_msg">' +
+                '<div class="old_win_qihao">期号<span>'+data.issue+'</span></div>' +
+                '<div class="old_win_name">恭喜&nbsp;<span class="old_win_username">'+data.user_name+'</span>&nbsp;获得本期商品</div>' +
+                '<div>昵称：<span>'+data.user_name+'</span></div>' +
+                '<div>用户卡号：<span>'+data.card_num+'</span></div>' +
+                '<div>本期参与：<span class="color_zhuti">'+data.peo_count+'人次</span></div>' +
+                '</div>' +
+                '<div class="old_win_img f_l"><img src="'+api_url+"Public/games/upload/"+data.thumbnail+'"></div></div></div>' +
+                '</div></div>';
                 layer.open({
                     type: 1,
                     title:false,

@@ -40,14 +40,15 @@
 <a id="get_game" data-id="1">获取游戏详情</a>
 
 <form name="buy">
-    <div>游戏id<input type="hidden" id="game_id" value="2"/></div>
+    <div>游戏id<input type="hidden" id="game_id" value="12"/></div>
     <div>卡号<input type="hidden" id="card_num" value="7110"/></div>
     <div>公司id<input type="hidden" id="company_id" value="1"/></div>
     <div>购买数量<input type="text" id="num" /></div>
     <div>卡密<input type="text" id="card_pass" /></div>
     <a id="buy_btn">购买</a>
 </form>
-
+<?php
+$sd = 526; $time = date('His',time()); $total = 20; echo $time.'<br>'; $pro = intval($sd)*intval($time); $tot_len = strlen($total); echo $pro.'<br>'; $cut = substr($pro,-$tot_len); echo $cut.'<br>'; $contrast = intval($total)-intval($cut); echo $contrast; if($contrast>0){ $winner = 10000000+$contrast; }else{ $cut = substr($cut,1-$tot_len); $winner = 10000000+intval($cut); } dump($winner); ?>
 <script type="text/javascript">
     $(function(){
         $('#get_game').click(function(){

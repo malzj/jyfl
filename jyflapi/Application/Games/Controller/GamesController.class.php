@@ -63,6 +63,7 @@ class GamesController extends Controller
             $data['total'] = I('post.total');
             $data['point'] = I('post.point');
             $data['grade_id'] = I('post.grade_id',0);
+            $data['description'] = I('post.description');
             $data['rules'] = I('post.rules');
             $data['status'] = I('post.status');
             $data['buy_status'] = 0;
@@ -101,7 +102,7 @@ class GamesController extends Controller
                 $total = intval($data['total']);
                 while ($count < $total)
                 {
-                    $return[] = mt_rand(1, $total);
+                    $return[] = mt_rand(0, $total-1);
                     $return = array_flip(array_flip($return));
                     $count = count($return);
                 }
@@ -146,6 +147,7 @@ class GamesController extends Controller
             $data['total'] = I('post.total');
             $data['point'] = I('post.point');
             $data['grade_id'] = I('post.grade_id',0);
+            $data['description'] = I('post.description');
             $data['rules'] = I('post.rules');
             $data['status'] = I('post.status');
             $data['buy_status'] = I('post.buy_status');
@@ -185,7 +187,7 @@ class GamesController extends Controller
                     $total = intval($data['total']);
                     while ($count < $total)
                     {
-                        $return[] = mt_rand(1, $total);
+                        $return[] = mt_rand(0, $total-1);
                         $return = array_flip(array_flip($return));
                         $count = count($return);
                     }

@@ -102,3 +102,917 @@ SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 13 ) GROUP BY user_id
 SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = '7110010995430713' ) LIMIT 1   [ RunTime:0.001295s ]
 NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 270 行.
 
+[ 2016-05-30T11:29:08+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000618s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001743s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.014560s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.037747s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.015433s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.013921s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.010762s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.002697s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.002442s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001040s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001760s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.009556s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 13 ) LIMIT 1   [ RunTime:0.002211s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1 ) AND ( `game_id` = 14 ) LIMIT 1   [ RunTime:0.002247s ]
+
+[ 2016-05-30T11:29:11+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameWinner
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.014453s ]
+SQL: SHOW COLUMNS FROM `ecs_winners_list` [ RunTime:0.012542s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011871s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.024207s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006653s ]
+SQL: SELECT * FROM `ecs_winners_list` WHERE ( `game_id` = 13 ) LIMIT 1   [ RunTime:0.001805s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 13 ) LIMIT 1   [ RunTime:0.003575s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = '7110010995430713' ) LIMIT 1   [ RunTime:0.002033s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 13 ) GROUP BY user_id  [ RunTime:0.012952s ]
+
+[ 2016-05-30T14:26:10+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/getGame
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000680s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001344s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011010s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.009935s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 14 ) LIMIT 1   [ RunTime:0.001679s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 14 ) AND ( `user_id` = 1 )  [ RunTime:0.001178s ]
+
+[ 2016-05-30T14:29:38+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000733s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001319s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.013033s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013331s ]
+
+[ 2016-05-30T14:30:45+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000702s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001630s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000503s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000665s ]
+
+[ 2016-05-30T14:37:50+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000750s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001347s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000815s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001065s ]
+
+[ 2016-05-30T14:37:52+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000675s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001219s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000684s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000887s ]
+
+[ 2016-05-30T14:37:53+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001107s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000513s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000693s ]
+
+[ 2016-05-30T14:38:17+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001476s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002559s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001999s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002486s ]
+
+[ 2016-05-30T14:38:19+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001134s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002033s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001564s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001851s ]
+
+[ 2016-05-30T14:44:13+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000953s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001696s ]
+ERR: 服务器无法处理请求。 ---> 索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+
+[ 2016-05-30T14:45:35+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000440s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000857s ]
+ERR: 服务器无法处理请求。 ---> 索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+
+[ 2016-05-30T14:46:12+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000722s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001288s ]
+ERR: 服务器无法处理请求。 ---> 根级别上的数据无效。 第 1 行，位置 1。
+
+[ 2016-05-30T14:47:03+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000560s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001051s ]
+ERR: 服务器无法处理请求。 ---> 索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+
+[ 2016-05-30T14:47:17+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000682s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001299s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001727s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002083s ]
+
+[ 2016-05-30T14:47:39+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000902s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001699s ]
+ERR: 服务器无法处理请求。 ---> 索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+
+[ 2016-05-30T14:47:59+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001105s ]
+
+[ 2016-05-30T14:48:20+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000800s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001580s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000925s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001273s ]
+
+[ 2016-05-30T14:51:39+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.002020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003051s ]
+ERR: 服务器无法处理请求。 ---> 根级别上的数据无效。 第 1 行，位置 1。
+
+[ 2016-05-30T14:52:25+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001797s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003837s ]
+ERR: 服务器无法处理请求。 ---> 索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+
+[ 2016-05-30T14:54:17+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000439s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000896s ]
+ERR: 服务器无法处理请求。 ---> 索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+
+[ 2016-05-30T14:55:47+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001101s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001835s ]
+
+[ 2016-05-30T14:57:18+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000854s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001639s ]
+
+[ 2016-05-30T14:57:55+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000738s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001394s ]
+ERR: 服务器无法处理请求。 ---> 索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+
+[ 2016-05-30T15:06:47+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000526s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000950s ]
+
+[ 2016-05-30T15:15:26+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002890s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000691s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000886s ]
+
+[ 2016-05-30T15:16:32+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000930s ]
+
+[ 2016-05-30T15:19:22+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000732s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001380s ]
+
+[ 2016-05-30T15:32:46+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000526s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000943s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000749s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000943s ]
+
+[ 2016-05-30T15:38:18+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000606s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001287s ]
+ERR: 服务器无法处理请求。 ---> 未将对象引用设置到对象的实例。
+
+[ 2016-05-30T15:38:56+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000659s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001415s ]
+ERR: 服务器无法处理请求。 ---> 未将对象引用设置到对象的实例。
+
+[ 2016-05-30T15:39:14+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000932s ]
+ERR: 服务器无法处理请求。 ---> 未将对象引用设置到对象的实例。
+
+[ 2016-05-30T15:40:30+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000726s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001371s ]
+ERR: 服务器无法处理请求。 ---> 未将对象引用设置到对象的实例。
+
+[ 2016-05-30T15:43:00+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000921s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001696s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000781s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001079s ]
+
+[ 2016-05-30T16:07:51+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000529s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000969s ]
+ERR: 非法操作:index
+
+[ 2016-05-30T16:08:54+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001083s ]
+ERR: 非法操作:index
+
+[ 2016-05-30T16:09:17+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001137s ]
+ERR: 非法操作:index
+
+[ 2016-05-30T16:09:31+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000608s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001158s ]
+ERR: 非法操作:index
+
+[ 2016-05-30T16:09:45+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003226s ]
+ERR: 非法操作:index
+
+[ 2016-05-30T16:09:47+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000609s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001114s ]
+ERR: 非法操作:index
+
+[ 2016-05-30T16:10:13+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000562s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001047s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001131s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001671s ]
+
+[ 2016-05-30T16:10:52+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000550s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001052s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001111s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001452s ]
+
+[ 2016-05-30T16:11:38+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002109s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001302s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001624s ]
+
+[ 2016-05-30T16:12:26+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000738s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001285s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001636s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001995s ]
+
+[ 2016-05-30T16:13:21+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001031s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000592s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000774s ]
+
+[ 2016-05-30T16:13:37+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000429s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000819s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000596s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000775s ]
+
+[ 2016-05-30T16:14:03+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000604s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001144s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001368s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001662s ]
+
+[ 2016-05-30T16:16:11+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000666s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001197s ]
+
+[ 2016-05-30T16:16:27+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001358s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002539s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010618s ]
+NOTIC: [2] Missing argument 1 for Think\Model::addAll(), called in E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php on line 27 and defined E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Model.class.php 第 320 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001955s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002456s ]
+
+[ 2016-05-30T16:18:25+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000526s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000992s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011216s ]
+NOTIC: [2] Missing argument 1 for Think\Model::addAll(), called in E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php on line 26 and defined E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Model.class.php 第 320 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000670s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000814s ]
+
+[ 2016-05-30T16:18:28+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000516s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000936s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010004s ]
+NOTIC: [2] Missing argument 1 for Think\Model::addAll(), called in E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php on line 26 and defined E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Model.class.php 第 320 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000919s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001169s ]
+
+[ 2016-05-30T16:18:29+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000967s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001778s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009679s ]
+NOTIC: [2] Missing argument 1 for Think\Model::addAll(), called in E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php on line 26 and defined E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Model.class.php 第 320 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001416s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001669s ]
+
+[ 2016-05-30T16:19:58+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000729s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001315s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009878s ]
+SQL: INSERT INTO `ecs_company` (`card_company_id`,`company_name`) VALUES (1604070027,'中国移动'),(1604050026,'中国化工'),(1601110025,'刘博文测试'),(1601070024,'asd'),(1512160023,'asd'),(1512160022,'asddddd'),(1510100021,'交通银行总行'),(1510100020,'工商银行'),(1510100019,'北京中信股份有限公司'),(1510100018,'华西证券有限责任公司'),(1510100017,'交通银行'),(1510100016,'张磊有限公司') [ RunTime:0.030382s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000690s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000851s ]
+
+[ 2016-05-30T16:32:23+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000757s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001401s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011177s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 23 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001811s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002315s ]
+
+[ 2016-05-30T16:53:11+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000858s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001407s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010141s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001674s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002187s ]
+
+[ 2016-05-30T16:57:50+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000548s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001032s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010830s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000694s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000872s ]
+
+[ 2016-05-30T16:59:35+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000638s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002207s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011371s ]
+NOTIC: [8] A non well formed numeric value encountered E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 23 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000955s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001214s ]
+
+[ 2016-05-30T16:59:55+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000778s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001649s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010885s ]
+NOTIC: [8] A non well formed numeric value encountered E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 23 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001625s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002023s ]
+
+[ 2016-05-30T17:00:30+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000557s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001022s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010318s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001541s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001900s ]
+
+[ 2016-05-30T17:00:44+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001075s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010148s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000708s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001033s ]
+
+[ 2016-05-30T17:02:51+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001103s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010695s ]
+NOTIC: [8] Undefined index: CustomerID E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 27 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 27 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000729s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000889s ]
+
+[ 2016-05-30T17:03:24+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000621s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001175s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010037s ]
+NOTIC: [8] Undefined index: CustomerID E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 27 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 27 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000854s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001110s ]
+
+[ 2016-05-30T17:05:14+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000546s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000965s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010719s ]
+NOTIC: [8] Undefined index: CustomerID E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 27 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 27 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000852s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001016s ]
+
+[ 2016-05-30T17:05:36+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001039s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002190s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010715s ]
+NOTIC: [8] Undefined index: CustomerID E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 27 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 27 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002931s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003140s ]
+
+[ 2016-05-30T17:06:17+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000813s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001574s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010624s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 31 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001504s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001768s ]
+
+[ 2016-05-30T17:08:29+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000532s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000959s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010131s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 31 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002191s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002677s ]
+
+[ 2016-05-30T17:08:31+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000645s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001240s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011011s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 31 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002319s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002913s ]
+
+[ 2016-05-30T17:10:14+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001034s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011030s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 31 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002014s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002470s ]
+
+[ 2016-05-30T17:11:23+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000465s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000882s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010064s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 31 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001255s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001564s ]
+
+[ 2016-05-30T17:11:36+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000675s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001120s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010413s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 31 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000716s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000875s ]
+
+[ 2016-05-30T17:11:51+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000856s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011169s ]
+NOTIC: [8] Undefined index: CustomerID E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 27 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 27 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002622s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002948s ]
+
+[ 2016-05-30T17:12:32+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000488s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000968s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010361s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 31 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000894s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001202s ]
+
+[ 2016-05-30T17:13:05+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000447s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000872s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010804s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 31 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000623s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000790s ]
+
+[ 2016-05-30T17:19:54+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000794s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001254s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011568s ]
+ERR: Think\Model:getFiled方法不存在！
+
+[ 2016-05-30T17:20:14+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000542s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001264s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010110s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001610s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000713s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000875s ]
+
+[ 2016-05-30T17:24:10+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001195s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011994s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001154s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 36 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001660s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002056s ]
+
+[ 2016-05-30T17:24:12+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000843s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001441s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009692s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.000991s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 36 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000707s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000868s ]
+
+[ 2016-05-30T17:25:56+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001388s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001946s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011921s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001611s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 36 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001002s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001148s ]
+
+[ 2016-05-30T17:26:13+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000909s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001555s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011435s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001005s ]
+NOTIC: [8] Undefined index: CustomerID E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000682s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000827s ]
+
+[ 2016-05-30T17:26:54+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000692s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001522s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010487s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.000955s ]
+NOTIC: [8] Undefined index: CustomerID E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000656s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000830s ]
+
+[ 2016-05-30T17:27:40+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000557s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001002s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010406s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.002318s ]
+NOTIC: [8] Undefined index: CustomerID E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000706s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000887s ]
+
+[ 2016-05-30T17:28:06+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001045s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010521s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.000984s ]
+NOTIC: [8] Undefined index: CustomerID E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000703s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000851s ]
+
+[ 2016-05-30T17:28:42+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000853s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001742s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010153s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.000945s ]
+NOTIC: [8] Undefined index: CustomerID E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000682s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000834s ]
+
+[ 2016-05-30T17:29:06+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002492s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011020s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.000932s ]
+NOTIC: [8] Undefined index: CustomerID E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 33 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 33 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001165s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001368s ]
+
+[ 2016-05-30T17:29:20+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000533s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001013s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010587s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.000908s ]
+NOTIC: [8] Undefined index: CustomerID E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 33 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 33 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001201s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001507s ]
+
+[ 2016-05-30T17:29:42+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000636s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001244s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011219s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001011s ]
+SQL: INSERT INTO `ecs_company` (`card_company_id`,`company_name`,`grade_id`,`create_time`) VALUES (1604070027,'中国移动',2,'2016-04-07 14:23:39'),(1604050026,'中国化工',2,'2016-04-07 14:23:39'),(1601110025,'刘博文测试',2,'2016-04-07 14:23:39'),(1601070024,'asd',2,'2016-04-07 14:23:39'),(1512160023,'asd',2,'2016-04-07 14:23:39'),(1512160022,'asddddd',2,'2016-04-07 14:23:39'),(1510100021,'交通银行总行',2,'2016-04-07 14:23:39'),(1510100020,'工商银行',2,'2016-04-07 14:23:39'),(1510100019,'北京中信股份有限公司',2,'2016-04-07 14:23:39'),(1510100018,'华西证券有限责任公司',2,'2016-04-07 14:23:39'),(1510100017,'交通银行',2,'2016-04-07 14:23:39'),(1510100016,'张磊有限公司',2,'2016-04-07 14:23:39'),(1509100015,'康泰',2,'2016-04-07 14:23:39'),(1509100014,'厦门国际银行北京分行',2,'2016-04-07 14:23:39'),(1509100013,'11',2,'2016-04-07 14:23:39'),(1509100012,'中石油',2,'2016-04-07 14:23:39'),(1509100011,'中石化集团',2,'2016-04-07 14:23:39'),(1509100010,'新时代新能源投资有限公司',2,'2016-04-07 14:23:39'),(1509100009,'中国水电工程总公司',2,'2016-04-07 14:23:39'),(1509100008,'中诚信托有限责任公司',2,'2016-04-07 14:23:39'),(1509070007,'华影文化',2,'2016-04-07 14:23:39'),(1509070006,'北京银行',2,'2016-04-07 14:23:39'),(1509060005,'人民教育出版社',2,'2016-04-07 14:23:39'),(1509060003,'北京影化科技有限公司',2,'2016-04-07 14:23:39'),(1509010002,'中粮集团有限公司',2,'2016-04-07 14:23:39') [ RunTime:0.036408s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000777s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000940s ]
+
+[ 2016-05-30T17:30:06+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000654s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001233s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011050s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001944s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 33 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000970s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001142s ]
+
+[ 2016-05-30T17:31:10+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000705s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001474s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010695s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001159s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 33 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000808s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000982s ]
+
+[ 2016-05-30T17:31:59+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000795s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001914s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010191s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.000950s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 33 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000904s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001125s ]
+
+[ 2016-05-30T17:32:20+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000958s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009982s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.002377s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 33 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000820s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001005s ]
+
+[ 2016-05-30T17:33:39+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000731s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001572s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010710s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.000989s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 34 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001379s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001608s ]
+
+[ 2016-05-30T17:34:18+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000706s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001266s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010162s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001058s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 33 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000719s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000878s ]
+
+[ 2016-05-30T17:34:35+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000490s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001299s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010309s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001164s ]
+SQL: INSERT INTO `ecs_company` (`card_company_id`,`company_name`,`grade_id`,`create_time`) VALUES (1604070027,'中国移动',2,'2016-04-07 14:23:39'),(1604050026,'中国化工',2,'2016-04-07 14:23:39') [ RunTime:0.034249s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002510s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003242s ]
+
+[ 2016-05-30T17:35:23+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000692s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001369s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009823s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001092s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 33 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000609s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000786s ]
+
+[ 2016-05-30T17:36:11+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000807s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001800s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010137s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001005s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 33 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000932s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001265s ]
+
+[ 2016-05-30T17:36:59+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000955s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001192s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001499s ]
+
+[ 2016-05-30T17:37:41+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000625s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001327s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001710s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002050s ]
+
+[ 2016-05-30T17:40:50+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001329s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003059s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010585s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001154s ]
+SQL: INSERT INTO `ecs_company` (`card_company_id`,`company_name`,`grade_id`,`create_time`) VALUES (1604070027,'中国移动',2,'2016-04-07 14:23:39'),(1604050026,'中国化工',2,'2016-04-07 14:23:39') [ RunTime:0.033636s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001130s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001405s ]
+
+[ 2016-05-30T17:41:32+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002435s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010390s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001054s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000746s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000944s ]
+
+[ 2016-05-30T17:41:45+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001682s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010823s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.000981s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001764s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002429s ]
+
+[ 2016-05-30T17:42:35+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000433s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000851s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011116s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001026s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001384s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001760s ]
+
+[ 2016-05-30T17:43:05+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000971s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010560s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001621s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 32 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001282s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001761s ]
+

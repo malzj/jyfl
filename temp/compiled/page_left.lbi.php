@@ -62,6 +62,7 @@ if ($this->_foreach['foo']['total'] > 0):
             <div class="li_img">
                 <span class="glyphicon glyphicon-shopping-cart"></span>
                 <p>购物车</p>
+                <i class="ci-count" id="shopping_amount">9</i>
             </div>
             <div class="car_1">	</div>
         </li>
@@ -108,4 +109,6 @@ if ($this->_foreach['foo']['total'] > 0):
 				$('.list_main').animate({left:0},'slow');	
 			}
 		})
+	
+	
 </script>

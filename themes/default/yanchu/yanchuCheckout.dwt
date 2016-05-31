@@ -6,17 +6,14 @@
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.shoppingflow.js"></script>
         {insert_scripts files='jquery.region.js,utils.js'}
-		
+		<style>
+			html.huaju2 .shouhuoren_item .shouhuoren_name.selected{border:1px red solid!important;background:white url(/images/index/img_login/hy_hj.jpg) no-repeat right bottom!important;}
+        </style>
 	</head>
 	<body>
         <!-- 头部 -->
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->
-        
-        <style>
-			html.huaju2 .w_1200 .shouhuoren .shouhuoren_item ul li div.selected{border:1px red solid;}
-        </style>
-        
         <div class="w_1200">
 			<div class="yanchu_tip"></div>
 			<div class="goupiao">确认购票信息</div>

@@ -6,6 +6,7 @@
 <script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/file_img.js"></script>
 <script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/ajaxfileupload.js"></script>
 <script src="<?php echo $this->_var['app_path']; ?>js/utils.js"></script>
+<script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/pop_right.js"></script>
 <input type="hidden" value="1" id="user_id" />
 <input type="hidden" value="" id="img" />
 <div class="pop_left">
@@ -51,7 +52,7 @@ if ($this->_foreach['foo']['total'] > 0):
                 <li id="per"><div><span>个人资料</span></div></li>
                 <li id="saf"><div><span>安全中心</span></div></li>
                 <li id="shouhuo" onclick="showAddress()"><div><span>收货信息</span></div></li>
-                <li id="red_packet" onclick="showPack()"><div><span>我的红包</span></div></li>
+                <!--<li id="red_packet" onclick="showPack()"><div><span>我的红包</span></div></li>-->
                 <li id="reg"><div><span>卡充值</span></div></li>
                 <li id="merge"><div><span>卡合并</span></div></li>
                 </ul>
@@ -61,6 +62,7 @@ if ($this->_foreach['foo']['total'] > 0):
             <div class="li_img">
                 <span class="glyphicon glyphicon-shopping-cart"></span>
                 <p>购物车</p>
+                <i class="ci-count" id="shopping_amount">9</i>
             </div>
             <div class="car_1">	</div>
         </li>
@@ -70,6 +72,16 @@ if ($this->_foreach['foo']['total'] > 0):
                 <p>订单</p>
             </div>
             <div class="order_1">
+            	<ul>
+            		<li><div>实物订单</div></li>
+            		<li><div>影院选座</div></li>
+            		<li><div>电子券</div></li>
+            		<li><div>演出订单</div></li>
+            		<li><div>运动健身</div></li>
+            		<li><div>提货券</div></li>
+            		<li><div>景点门票</div></li>
+            		<li><div>旅游产品</div></li>
+            	</ul>
             </div>
         </li>
     </ul>
@@ -84,6 +96,9 @@ if ($this->_foreach['foo']['total'] > 0):
 	$('.list_1 li').hover(function(){
 		$(this).addClass('active').siblings().removeClass('active');
 		})
+	$('.order_1 li').hover(function(){
+		$(this).addClass('active').siblings().removeClass('active');
+		})
 //	公共左侧部分展示或者隐藏
 	$('.switch').click(function(){
 		$(this).toggleClass('off');
@@ -94,4 +109,6 @@ if ($this->_foreach['foo']['total'] > 0):
 				$('.list_main').animate({left:0},'slow');	
 			}
 		})
+	
+	
 </script>

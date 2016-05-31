@@ -114,6 +114,7 @@ text-decoration:none;
     padding: 5px 0;
     border: 2px solid #ff7900;
     margin-right: 15px;
+    transition: color .25s ease;
     }
 .week>a p{margin-left: 15px;font-size: 14px;} 
 .week>a p .day{font-size: 16px;display:inline-block;width: 50px;} 
@@ -123,7 +124,7 @@ text-decoration:none;
 /*.tickets{display: none;}*/
 .ticket_span1{display: inline-block;width: 510px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
 .ticket_span2{display: inline-block;width: 548px;text-align: center;}
-.ticket_span3 a{background: #ff7900;font-size: 14px;border-radius: 5px;padding: 3px 15px;color: white;display: inline-block;cursor: pointer;}
+.ticket_span3 a{background: #ff7900;font-size: 14px;border-radius: 5px;padding: 3px 15px;color: white;display: inline-block;cursor: pointer;transition: background .25s ease;}
 .ticket_span3{display: inline-block;}
 .ticket_span3 a:hover{background: #E27B1E;}
 .table_1{font-size: 14px;display: block;padding: 10px 0;border-top: 1px solid #E6E5E5;}

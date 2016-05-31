@@ -2380,7 +2380,7 @@
          * @class File
          * @constructor 构造函数
          * @grammar new File( source ) => File
-         * @param {Lib.File} source [lib.File](#Lib.File)实例, 此source对象是带有Runtime信息的。
+         * @param {Ext.File} source [lib.File](#Ext.File)实例, 此source对象是带有Runtime信息的。
          */
         function WUFile( source ) {
     

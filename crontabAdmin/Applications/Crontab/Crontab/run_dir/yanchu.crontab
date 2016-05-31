@@ -1,2 +1,0 @@
-﻿# 演出票数据抓取
-59 9 * * * F:\wamp\bin\php\php5.3.10\php Crontab/yanchu/index.php

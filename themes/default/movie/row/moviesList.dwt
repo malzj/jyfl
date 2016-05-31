@@ -3,9 +3,9 @@
     <div class="pic">
         <a href="javascript:goMovie({$mo.movieId});" target="_blank"><img src="{$mo.thumb}" width="140" height="196"></a>
     </div>
-    <div class="title">
+    <div class="title juqingA">
     	<a href="javascript:goMovie({$mo.movieId});" target="_blank"><span>{$mo.movieName}</span>  </a>  	
-    	<a href="javascript:goMovie({$mo.movieId});" target="_blank"><div class="buy">选座购票</div></a>
+    	<a href="javascript:goMovie({$mo.movieId});" target="_blank"><div class="buy zhuti_a_hover">选座购票</div></a>
     </div>
 </li>
 {/foreach} 

@@ -110,7 +110,7 @@
 					url: "ticket_show.php?step=price",
 					data:'productno='+product+'&date='+date,
 					beforeSend : function(){
-						var beforeHtml = "<span style='display:inline-block; margin-left:320px;'><img src='{$app_path}images/loadSeat2.gif'></span>";
+						var beforeHtml = "<span style='display:inline-block; margin-left:290px;line-height: 400px;'><img src='{$app_path}images/loadSeat2.gif'></span>";
 						$('#calendar').html(beforeHtml);
 					},
 					success: function(info){

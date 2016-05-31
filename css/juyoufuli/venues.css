@@ -20,8 +20,8 @@
 .once{padding:10px 0; font-size:16px;}
 .selectvenues{height:100%;overflow:hidden;border-bottom:1px solid #d9d9d9;padding-bottom:15px;}
 .mobiled{height:100%; overflow:hidden; padding:10px 0}
-.mobiled .inpt{border:1px solid #ccc;border-radius:2px;box-shadow:1px 1px 1px 0 #eaeaea inset;color:#ccc;height:30px;padding:9px 3px 3px 12px;display:block;width:228px;float:left;outline:none;background:#fff;}
-.mobiled .inpt input{border:0 none;width:220px;height:24px;color:#808080;font:12px verdana,lucida,arial,helvetica,"宋体",sans-serif;vertical-align:-3px;outline:none;background:#fff;font-size:16px;}
+.mobiled .inpt{border:1px solid #ccc;border-radius:2px;box-shadow:1px 1px 1px 0 #eaeaea inset;color:#ccc;height:30px;/* padding:9px 3px 3px 12px; */display:block;width:228px;float:left;outline:none;background:#fff;}
+.mobiled .inpt input{border:0 none;/* width:220px; */height:24px;color:#808080;font:12px verdana,lucida,arial,helvetica,"宋体",sans-serif;vertical-align:-3px;outline:none;background:#fff;font-size:16px;}
 .input-t{color:#999; height:32px; line-height:32px; padding-top:10px;}
 .T_btn_g{display:block;background: #2fd0b5;width:180px;color:#FFF;line-height:42px;border-radius:5px;margin:0 auto;text-align:center;font-size:16px;}
 .T_btn_g:hover{background:#fc924c; color:#FFF; text-decoration:none;}

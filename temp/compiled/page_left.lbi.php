@@ -71,6 +71,16 @@ if ($this->_foreach['foo']['total'] > 0):
                 <p>订单</p>
             </div>
             <div class="order_1">
+            	<ul>
+            		<li><div>实物订单</div></li>
+            		<li><div>影院选座</div></li>
+            		<li><div>电子券</div></li>
+            		<li><div>演出订单</div></li>
+            		<li><div>运动健身</div></li>
+            		<li><div>提货券</div></li>
+            		<li><div>景点门票</div></li>
+            		<li><div>旅游产品</div></li>
+            	</ul>
             </div>
         </li>
     </ul>
@@ -83,6 +93,9 @@ if ($this->_foreach['foo']['total'] > 0):
 			$('.switch').removeClass('off');
 	}
 	$('.list_1 li').hover(function(){
+		$(this).addClass('active').siblings().removeClass('active');
+		})
+	$('.order_1 li').hover(function(){
 		$(this).addClass('active').siblings().removeClass('active');
 		})
 //	公共左侧部分展示或者隐藏

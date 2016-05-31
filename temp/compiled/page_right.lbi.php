@@ -18,7 +18,7 @@
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
 							<div>共1000点</div>
-							<div>
+							<div class="pop_right_jindutiao">
 		                        <span class="jindu"><span class="jindu1"></span></span>
 		                        <span style="float: left;">30%</span>
 		                	</div>
@@ -40,7 +40,7 @@
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
 							<div>共1000点</div>
-							<div>
+							<div class="pop_right_jindutiao">
 		                        <span class="jindu"><span class="jindu1"></span></span>
 		                        <span style="float: left">30%</span>
 		                	</div>
@@ -64,7 +64,7 @@
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
 							<div>共1000点</div>
-							<div>
+							<div class="pop_right_jindutiao">
 		                        <span class="jindu"><span class="jindu1"></span></span>
 		                        <span style="float: left;">30%</span>
 		                	</div>
@@ -86,7 +86,7 @@
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
 							<div>共1000点</div>
-							<div>
+							<div class="pop_right_jindutiao">
 		                        <span class="jindu"><span class="jindu1"></span></span>
 		                        <span style="float: left;">30%</span>
 		                	</div>
@@ -108,7 +108,7 @@
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
 							<div>共1000点</div>
-							<div>
+							<div class="pop_right_jindutiao">
 		                        <span class="jindu"><span class="jindu1"></span></span>
 		                        <span style="float: left;">30%</span>
 		                	</div>

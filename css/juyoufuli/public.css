@@ -343,6 +343,7 @@ html.login .pop_right{transform: translateX(0);}
 	padding: 20px 0px;
 	margin-left: 15px;
 }
+.pop_right_jindutiao{line-height: 28px;overflow: hidden;}
 .pop_right_bottom{position:fixed;bottom:0}
 .pop_right_bottom{background: rgba(17, 17, 17,0.6);position: fixed;bottom: 0;width: 345px;padding-left: 25px;border: 1px solid #c53b3b;}
 .pop_right_bottombtn{width: 23%;height: 90px;background: url(/images/juyoufuli/img_login/pop_right_bottom.png) no-repeat -7px -327px;margin: 0px 10px;text-align: center;line-height: 90px;}
@@ -435,6 +436,42 @@ html.login .pop_right{transform: translateX(0);}
 	.jinbi{width: 70px;height: 70px;}
 	.pop_right{width: 320px;}
 }
+
+	@media only screen and (max-height: 600px) {
+		.pop_right .border_radio{
+		margin: 52px auto 5px;
+		width: 70px;
+		height: 70px;
+	}
+	.pop_right .message{
+		margin: 0px auto;
+		width: 250px;
+	}
+	.pop_right .scroll_msg{top: 145px;}
+	.message_1{padding: 5px 0;}
+	.pop_right_bottombtn{width: 16%;height: 60px;background: url(/images/juyoufuli/img_login/pop_right_bottombtn.png) no-repeat -6px -363px;margin: 0px 20px;text-align: center;line-height: 60px;}
+	.pop_right .scroll_msg{margin-bottom: 60px;}
+	.pop_right_bottombtn a {
+	    font-size: 12px;
+	    width: 30px;
+	    color: white;
+	    display: block;
+	    line-height: 17px;
+	    height: 45px;
+	    margin-top: 13px;
+	    margin-left: 12px;
+	}
+	.act_item1{width: 55px;height: 65px;}
+	.act_item2{font-size: 14px;margin-top: 0;line-height: 1.3;}
+	.jinbi{width: 60px;height: 60px;}
+	.pop_right{width: 320px;}
+	.act_title{background: url(/images/juyoufuli/img_login/pop_right_title.png) no-repeat -8px 0px;background-size:cover;height: 40px;}
+	.act_title1 {
+    background: url(/images/juyoufuli/img_login/pop_right_title.png) no-repeat -7px -46px;
+    background-size:cover;
+    height: 40px;
+    }
+	}
 
 /*左侧边栏*/
 .pop_left ul li .li_img:hover {

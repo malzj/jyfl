@@ -292,7 +292,6 @@ elseif ($_REQUEST['step'] == 'checkout')
     /* 取得购物类型 */
     $flow_type = isset($_SESSION['flow_type']) ? intval($_SESSION['flow_type']) : CART_GENERAL_GOODS;
 
-    echo $flow_type;
     /* 团购标志 */
     if ($flow_type == CART_GROUP_BUY_GOODS)
     {

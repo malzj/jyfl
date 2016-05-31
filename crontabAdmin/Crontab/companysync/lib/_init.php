@@ -13,7 +13,7 @@ if (__FILE__ == '')
 error_reporting(-1);
 
 /* 取得当前ecshop所在的根目录 */
-define('ROOT_PATH', str_replace('crontabAdmin/Crontab/komovie/lib/_init.php', '', str_replace('\\', '/', __FILE__)));
+define('ROOT_PATH', str_replace('crontabAdmin/Crontab/companysync/lib/_init.php', '', str_replace('\\', '/', __FILE__)));
 
 /* 初始化设置 */
 @ini_set('memory_limit',          '64M');

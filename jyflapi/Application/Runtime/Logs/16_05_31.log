@@ -1,0 +1,1233 @@
+[ 2016-05-31T08:36:49+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.003587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005224s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.007987s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.007297s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008899s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.004781s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005542s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001383s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001430s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.001223s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001497s ]
+NOTIC: [8] Undefined index: grade_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 33 行.
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = null ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.002156s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 13 ) LIMIT 1   [ RunTime:0.001283s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 48 行.
+
+[ 2016-05-31T08:37:05+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameWinner
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000615s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001071s ]
+SQL: SHOW COLUMNS FROM `ecs_winners_list` [ RunTime:0.010334s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.009779s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.010936s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005579s ]
+SQL: SELECT * FROM `ecs_winners_list` WHERE ( `game_id` = 13 ) LIMIT 1   [ RunTime:0.001083s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 13 ) LIMIT 1   [ RunTime:0.001197s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = '7110010995430713' ) LIMIT 1   [ RunTime:0.002285s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 13 ) GROUP BY user_id  [ RunTime:0.001163s ]
+
+[ 2016-05-31T08:49:17+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000534s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000956s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.011409s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009834s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008077s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.006332s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.009445s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001586s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1 ) LIMIT 1   [ RunTime:0.001171s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000991s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001262s ]
+NOTIC: [8] Undefined index: grade_id E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 33 行.
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = null ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001077s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 13 ) LIMIT 1   [ RunTime:0.001105s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 48 行.
+
+[ 2016-05-31T08:49:19+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameWinner
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000529s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000947s ]
+SQL: SHOW COLUMNS FROM `ecs_winners_list` [ RunTime:0.010442s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010404s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.014182s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.010187s ]
+SQL: SELECT * FROM `ecs_winners_list` WHERE ( `game_id` = 13 ) LIMIT 1   [ RunTime:0.001499s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 13 ) LIMIT 1   [ RunTime:0.001640s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = '7110010995430713' ) LIMIT 1   [ RunTime:0.001873s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 13 ) GROUP BY user_id  [ RunTime:0.007272s ]
+
+[ 2016-05-31T08:49:25+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/getWinners
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000536s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000987s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.010393s ]
+SQL: SHOW COLUMNS FROM `ecs_winners_list` [ RunTime:0.009556s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.008157s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.004819s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.006514s ]
+SQL: SELECT * FROM `ecs_users` LIMIT 1   [ RunTime:0.002426s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001151s ]
+SQL: SELECT * FROM `ecs_winners_list` WHERE ( `company_id` = 1 ) AND ( `grade_id` = 1 )  [ RunTime:0.001176s ]
+SQL: SELECT * FROM `ecs_winners_list` WHERE ( `company_id` = 1 ) AND ( `grade_id` = null )  [ RunTime:0.001126s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 13 ) LIMIT 1   [ RunTime:0.001154s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 13 ) GROUP BY user_id  [ RunTime:0.001168s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = '7110010995430713' ) LIMIT 1   [ RunTime:0.002189s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 270 行.
+
+[ 2016-05-31T08:49:27+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/getWinners
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000765s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001453s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.009937s ]
+SQL: SHOW COLUMNS FROM `ecs_winners_list` [ RunTime:0.009725s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.013142s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.005758s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.005420s ]
+SQL: SELECT * FROM `ecs_users` LIMIT 1   [ RunTime:0.002354s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001285s ]
+SQL: SELECT * FROM `ecs_winners_list` WHERE ( `company_id` = 1 ) AND ( `grade_id` = 1 )  [ RunTime:0.001148s ]
+SQL: SELECT * FROM `ecs_winners_list` WHERE ( `company_id` = 1 ) AND ( `grade_id` = null )  [ RunTime:0.001099s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 13 ) LIMIT 1   [ RunTime:0.001122s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 13 ) GROUP BY user_id  [ RunTime:0.001132s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = '7110010995430713' ) LIMIT 1   [ RunTime:0.002229s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php 第 270 行.
+
+[ 2016-05-31T08:49:50+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameWinner
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000627s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001013s ]
+SQL: SHOW COLUMNS FROM `ecs_winners_list` [ RunTime:0.010936s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.009939s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.010201s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006104s ]
+SQL: SELECT * FROM `ecs_winners_list` WHERE ( `game_id` = 13 ) LIMIT 1   [ RunTime:0.001134s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 13 ) LIMIT 1   [ RunTime:0.001188s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = '7110010995430713' ) LIMIT 1   [ RunTime:0.002218s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 13 ) GROUP BY user_id  [ RunTime:0.001189s ]
+
+[ 2016-05-31T09:40:52+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameWinner
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000681s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001521s ]
+SQL: SHOW COLUMNS FROM `ecs_winners_list` [ RunTime:0.012477s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.013882s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.009351s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005383s ]
+SQL: SELECT * FROM `ecs_winners_list` WHERE ( `game_id` = 13 ) LIMIT 1   [ RunTime:0.001137s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 13 ) LIMIT 1   [ RunTime:0.001016s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = '7110010995430713' ) LIMIT 1   [ RunTime:0.002138s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 13 ) GROUP BY user_id  [ RunTime:0.001077s ]
+
+[ 2016-05-31T09:40:55+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/getGame
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000798s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001353s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010149s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.009754s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 13 ) LIMIT 1   [ RunTime:0.001332s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 13 ) AND ( `user_id` = 1 )  [ RunTime:0.001580s ]
+
+[ 2016-05-31T10:31:59+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000508s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000897s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.005864s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001036s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 36 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002028s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002495s ]
+
+[ 2016-05-31T10:32:44+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000658s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001157s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009797s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001051s ]
+SQL: INSERT INTO `ecs_company` (`card_company_id`,`company_name`,`grade_id`,`create_time`) VALUES (1604070027,'中国移动',2,'2016-04-07 14:23:40'),(1604050026,'中国化工',2,'2016-04-07 14:23:40'),(1601110025,'刘博文测试',2,'2016-04-07 14:23:40'),(1601070024,'asd',2,'2016-04-07 14:23:40'),(1512160023,'asd',2,'2016-04-07 14:23:40'),(1512160022,'asddddd',2,'2016-04-07 14:23:40'),(1510100021,'交通银行总行',2,'2016-04-07 14:23:40'),(1510100020,'工商银行',2,'2016-04-07 14:23:40'),(1510100019,'北京中信股份有限公司',2,'2016-04-07 14:23:40'),(1510100018,'华西证券有限责任公司',2,'2016-04-07 14:23:40'),(1510100017,'交通银行',2,'2016-04-07 14:23:40'),(1510100016,'张磊有限公司',2,'2016-04-07 14:23:40'),(1509100015,'康泰',2,'2016-04-07 14:23:40'),(1509100014,'厦门国际银行北京分行',2,'2016-04-07 14:23:40'),(1509100013,'11',2,'2016-04-07 14:23:40'),(1509100012,'中石油',2,'2016-04-07 14:23:40'),(1509100011,'中石化集团',2,'2016-04-07 14:23:40'),(1509100010,'新时代新能源投资有限公司',2,'2016-04-07 14:23:40'),(1509100009,'中国水电工程总公司',2,'2016-04-07 14:23:40'),(1509100008,'中诚信托有限责任公司',2,'2016-04-07 14:23:40'),(1509070007,'华影文化',2,'2016-04-07 14:23:40'),(1509070006,'北京银行',2,'2016-04-07 14:23:40'),(1509060005,'人民教育出版社',2,'2016-04-07 14:23:40'),(1509060003,'北京影化科技有限公司',2,'2016-04-07 14:23:40'),(1509010002,'中粮集团有限公司',2,'2016-04-07 14:23:40') [ RunTime:0.034859s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001589s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001957s ]
+
+[ 2016-05-31T10:34:42+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000419s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000784s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010787s ]
+SQL: SELECT `create_time` FROM `ecs_company` ORDER BY create_time DESC LIMIT 1   [ RunTime:0.001026s ]
+NOTIC: [8] Undefined variable: companyList E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 34 行.
+
+[ 2016-05-31T10:34:42+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000444s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000818s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010315s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009901s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_company` LIMIT 1   [ RunTime:0.001113s ]
+SQL: SELECT * FROM `ecs_company` ORDER BY id desc LIMIT 0,10   [ RunTime:0.001268s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001154s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001104s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001021s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001035s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001081s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001080s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001063s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001050s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000985s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001029s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000235s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000563s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\9afdd57afedb2bfb7fb7727e85dd1522.php 第 185 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.069852s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.070083s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.011274s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011438s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000598s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000737s ]
+
+[ 2016-05-31T10:34:58+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyshow/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000943s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001861s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] file_get_contents(./Application/Games/View/./Login/loginheader.html) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Games/View/./Login/loginside.html) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000088s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000344s ]
+NOTIC: [8] Undefined variable: business E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 48 行.
+NOTIC: [8] Undefined variable: business E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 51 行.
+NOTIC: [8] Undefined variable: business E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 57 行.
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 96 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031740s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031900s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000348s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000561s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000673s ]
+
+[ 2016-05-31T10:35:17+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000523s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000970s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009972s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009399s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_company` LIMIT 1   [ RunTime:0.000965s ]
+SQL: SELECT * FROM `ecs_company` ORDER BY id desc LIMIT 0,10   [ RunTime:0.001051s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001024s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001351s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001380s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001411s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001422s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001366s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001491s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001133s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001337s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001356s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000230s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\9afdd57afedb2bfb7fb7727e85dd1522.php 第 185 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.016855s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000531s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000673s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000635s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000763s ]
+
+[ 2016-05-31T10:35:19+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Games/gameList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000775s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010553s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009322s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_games` LIMIT 1   [ RunTime:0.001019s ]
+SQL: SELECT * FROM `ecs_games` LIMIT 0,10   [ RunTime:0.000978s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001205s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001399s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000110s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000282s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\43aab50a8f3b17ce4b8f4bd431d6dbd4.php 第 193 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.024788s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024957s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000328s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000445s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000573s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000689s ]
+
+[ 2016-05-31T10:35:32+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Grade/gradeList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001040s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009962s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_grade` LIMIT 1   [ RunTime:0.001160s ]
+SQL: SELECT * FROM `ecs_grade` LIMIT 0,10   [ RunTime:0.000920s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000244s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\259b2a3d5976faeaad949abf9238cea4.php 第 183 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.020419s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020563s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000374s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000489s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000624s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000746s ]
+
+[ 2016-05-31T10:35:36+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000923s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001626s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009959s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009236s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_company` LIMIT 1   [ RunTime:0.001005s ]
+SQL: SELECT * FROM `ecs_company` ORDER BY id desc LIMIT 0,10   [ RunTime:0.001091s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000906s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001255s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001659s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001119s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001089s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001348s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001339s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001284s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001305s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001368s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000107s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000262s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\9afdd57afedb2bfb7fb7727e85dd1522.php 第 185 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.016369s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016504s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000385s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000505s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000674s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000822s ]
+
+[ 2016-05-31T10:35:37+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyshow/id/93.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001195s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001931s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] file_get_contents(./Application/Games/View/./Login/loginheader.html) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Games/View/./Login/loginside.html) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000104s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000270s ]
+NOTIC: [8] Undefined variable: business E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 48 行.
+NOTIC: [8] Undefined variable: business E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 51 行.
+NOTIC: [8] Undefined variable: business E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 57 行.
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 96 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.009565s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009779s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000406s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000549s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000754s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000910s ]
+
+[ 2016-05-31T10:35:47+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Grade/gradeList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000541s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000983s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009613s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_grade` LIMIT 1   [ RunTime:0.001186s ]
+SQL: SELECT * FROM `ecs_grade` LIMIT 0,10   [ RunTime:0.000977s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000236s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\259b2a3d5976faeaad949abf9238cea4.php 第 183 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.012484s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012631s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000437s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000594s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000612s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000737s ]
+
+[ 2016-05-31T10:35:48+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Grade/gradeEdit/id/1.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000729s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001349s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009449s ]
+SQL: SELECT * FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000196s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000470s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\ba7a5bb1435c361fe1b11b7fb7a8b955.php 第 177 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.021040s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021341s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000718s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000955s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001233s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001490s ]
+
+[ 2016-05-31T10:36:04+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Games/gameList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000541s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001034s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010722s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009433s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_games` LIMIT 1   [ RunTime:0.001063s ]
+SQL: SELECT * FROM `ecs_games` LIMIT 0,10   [ RunTime:0.001033s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001104s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001290s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000106s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000248s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\43aab50a8f3b17ce4b8f4bd431d6dbd4.php 第 193 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.032088s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032222s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000368s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000483s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000585s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000701s ]
+
+[ 2016-05-31T10:36:06+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000699s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001330s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011098s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009229s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_company` LIMIT 1   [ RunTime:0.001030s ]
+SQL: SELECT * FROM `ecs_company` ORDER BY id desc LIMIT 0,10   [ RunTime:0.002457s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000943s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001171s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001307s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001356s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001368s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001149s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001237s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001216s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001157s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001291s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000094s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000232s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\9afdd57afedb2bfb7fb7727e85dd1522.php 第 185 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.016761s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016896s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000483s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000691s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000755s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000928s ]
+
+[ 2016-05-31T11:00:00+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyshow/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000689s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001226s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] file_get_contents(./Application/Games/View/./Login/loginheader.html) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Games/View/./Login/loginside.html) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000176s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000445s ]
+NOTIC: [8] Undefined variable: business E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 48 行.
+NOTIC: [8] Undefined variable: business E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 51 行.
+NOTIC: [8] Undefined variable: business E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 57 行.
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 96 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.012170s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012310s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000371s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000571s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000685s ]
+
+[ 2016-05-31T11:00:37+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyshow/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000945s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001600s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] file_get_contents(./Application/Games/View/./Login/loginheader.html) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Games/View/./Login/loginside.html) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000087s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000220s ]
+NOTIC: [8] Undefined variable: business E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 48 行.
+NOTIC: [8] Undefined variable: business E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 51 行.
+NOTIC: [8] Undefined variable: business E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 57 行.
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\599d8aaab2f225a97ae3f3016dc63693.php 第 96 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.008727s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008869s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000485s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000641s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000644s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000771s ]
+
+[ 2016-05-31T11:00:41+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000856s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001515s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.011086s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009306s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_company` LIMIT 1   [ RunTime:0.001151s ]
+SQL: SELECT * FROM `ecs_company` ORDER BY id desc LIMIT 0,10   [ RunTime:0.001194s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000963s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001042s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001293s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001383s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001310s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001146s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001174s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001314s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001218s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001348s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000094s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000229s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\9afdd57afedb2bfb7fb7727e85dd1522.php 第 185 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.017325s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017540s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000622s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000763s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000713s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000850s ]
+
+[ 2016-05-31T11:00:43+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyEdit/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000655s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001278s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009322s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009315s ]
+SQL: SELECT `id`,`grade_name` FROM `ecs_grade`  [ RunTime:0.001169s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 94 ) LIMIT 1   [ RunTime:0.001116s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000177s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000366s ]
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 147 行.
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 154 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 215 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 216 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 225 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 226 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 235 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 239 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 240 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 243 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 252 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 253 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.029207s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029470s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000459s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000615s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001131s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001367s ]
+
+[ 2016-05-31T11:01:54+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyEdit/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000541s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001008s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010486s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009041s ]
+SQL: SELECT `id`,`grade_name` FROM `ecs_grade`  [ RunTime:0.001114s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 94 ) LIMIT 1   [ RunTime:0.001103s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000135s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000277s ]
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 147 行.
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 154 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 215 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 216 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 225 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 226 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 235 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 239 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 240 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 243 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 252 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 253 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.025119s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025402s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000519s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000648s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000634s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000756s ]
+
+[ 2016-05-31T11:02:47+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyEdit/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000516s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000932s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009747s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.008877s ]
+SQL: SELECT `id`,`grade_name` FROM `ecs_grade`  [ RunTime:0.001037s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 94 ) LIMIT 1   [ RunTime:0.001133s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000242s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000391s ]
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 147 行.
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 154 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 215 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 216 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 225 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 226 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 235 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 239 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 240 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 243 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 252 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 253 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.014643s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014776s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000345s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000568s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000688s ]
+
+[ 2016-05-31T11:04:14+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000963s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001876s ]
+
+[ 2016-05-31T11:04:35+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000694s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001311s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.030002s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009362s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_company` LIMIT 1   [ RunTime:0.001140s ]
+SQL: SELECT * FROM `ecs_company` ORDER BY id desc LIMIT 0,10   [ RunTime:0.001111s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001110s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001224s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000979s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000981s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001069s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001043s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001025s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001050s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000959s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001053s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000104s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000249s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\9afdd57afedb2bfb7fb7727e85dd1522.php 第 185 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.024323s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024530s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000461s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000592s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000672s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000799s ]
+
+[ 2016-05-31T11:04:40+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyEdit/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000939s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001618s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010685s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009204s ]
+SQL: SELECT `id`,`grade_name` FROM `ecs_grade`  [ RunTime:0.001185s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 94 ) LIMIT 1   [ RunTime:0.001319s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000124s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000252s ]
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 147 行.
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 154 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 215 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 216 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 225 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 226 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 235 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 239 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 240 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 243 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 252 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 253 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.012041s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012227s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000519s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000655s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000584s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000703s ]
+
+[ 2016-05-31T11:04:42+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000452s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000881s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009959s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009498s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_company` LIMIT 1   [ RunTime:0.000991s ]
+SQL: SELECT * FROM `ecs_company` ORDER BY id desc LIMIT 0,10   [ RunTime:0.001084s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001070s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001306s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001269s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001449s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001307s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001331s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001359s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001378s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001373s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001365s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000093s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000216s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\9afdd57afedb2bfb7fb7727e85dd1522.php 第 185 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.016011s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016162s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000353s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000579s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000696s ]
+
+[ 2016-05-31T11:04:44+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyEdit/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000931s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002716s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010519s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009276s ]
+SQL: SELECT `id`,`grade_name` FROM `ecs_grade`  [ RunTime:0.001201s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 94 ) LIMIT 1   [ RunTime:0.001139s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000258s ]
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 147 行.
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 154 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 215 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 216 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 225 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 226 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 235 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 239 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 240 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 243 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 252 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 253 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.012006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012145s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000326s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000436s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000567s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000713s ]
+
+[ 2016-05-31T11:05:13+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyEdit/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001083s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010415s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009489s ]
+SQL: SELECT `id`,`grade_name` FROM `ecs_grade`  [ RunTime:0.000998s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 94 ) LIMIT 1   [ RunTime:0.000985s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000264s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000535s ]
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 147 行.
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 154 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 215 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 216 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 225 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 226 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 235 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 239 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 240 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 243 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 252 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 253 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.024373s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024650s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000500s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000644s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000750s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000899s ]
+
+[ 2016-05-31T11:05:15+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyEdit.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000549s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001039s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009788s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000794s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000925s ]
+
+[ 2016-05-31T11:08:30+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyEdit.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000511s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000915s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010169s ]
+
+[ 2016-05-31T11:08:57+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyEdit.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000790s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009751s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+
+[ 2016-05-31T11:10:05+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyEdit.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000790s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001260s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010437s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+
+[ 2016-05-31T11:17:20+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyEdit.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000862s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001295s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010651s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+NOTIC: [8] Undefined index: logo_img E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 88 行.
+SQL: UPDATE `ecs_company` SET `grade_id`=2,`back_img`='574d0240578b2.jpg' WHERE ( `id` = 94 ) [ RunTime:0.046482s ]
+
+[ 2016-05-31T11:17:20+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Games/gameList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000918s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001521s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.010253s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009301s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_games` LIMIT 1   [ RunTime:0.000963s ]
+SQL: SELECT * FROM `ecs_games` LIMIT 0,10   [ RunTime:0.001007s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001093s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001110s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000101s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000229s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\43aab50a8f3b17ce4b8f4bd431d6dbd4.php 第 193 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.013514s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013652s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000624s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000754s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000681s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000809s ]
+
+[ 2016-05-31T11:17:41+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000726s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001270s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010232s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009465s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_company` LIMIT 1   [ RunTime:0.000964s ]
+SQL: SELECT * FROM `ecs_company` ORDER BY id desc LIMIT 0,10   [ RunTime:0.000912s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001015s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001172s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001157s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001104s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001854s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000908s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001185s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000991s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001073s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001169s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000101s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000260s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\9afdd57afedb2bfb7fb7727e85dd1522.php 第 185 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.019158s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019343s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000505s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000634s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000622s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000746s ]
+
+[ 2016-05-31T11:17:43+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyEdit/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001339s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002439s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009656s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009380s ]
+SQL: SELECT `id`,`grade_name` FROM `ecs_grade`  [ RunTime:0.001080s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 94 ) LIMIT 1   [ RunTime:0.001258s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000121s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000258s ]
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 147 行.
+NOTIC: [8] Undefined index: thumbnail E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 154 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 215 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 216 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 225 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 226 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 235 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 239 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 240 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 243 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 252 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 253 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.029461s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029663s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000332s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000441s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000620s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000736s ]
+
+[ 2016-05-31T11:19:02+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyEdit/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000620s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001395s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010370s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.008296s ]
+SQL: SELECT `id`,`grade_name` FROM `ecs_grade`  [ RunTime:0.000998s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 94 ) LIMIT 1   [ RunTime:0.001732s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000125s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000259s ]
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 215 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 216 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 225 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 226 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 235 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 239 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 240 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 243 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 252 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 253 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.012971s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013106s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000327s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000436s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000584s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000703s ]
+
+[ 2016-05-31T11:19:10+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyEdit.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000504s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000897s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010062s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+NOTIC: [8] Undefined index: logo_img E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 88 行.
+NOTIC: [8] Undefined index: background E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 91 行.
+SQL: UPDATE `ecs_company` SET `grade_id`=2 WHERE ( `id` = 94 ) [ RunTime:0.041888s ]
+
+[ 2016-05-31T11:19:10+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000929s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001407s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009747s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009699s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_company` LIMIT 1   [ RunTime:0.001006s ]
+SQL: SELECT * FROM `ecs_company` ORDER BY id desc LIMIT 0,10   [ RunTime:0.001377s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000983s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000951s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000997s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000953s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000948s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000923s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000928s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000961s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000982s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001462s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000717s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001124s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\9afdd57afedb2bfb7fb7727e85dd1522.php 第 185 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039361s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039643s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001113s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001306s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001265s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001448s ]
+
+[ 2016-05-31T11:19:12+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyEdit/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002378s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010174s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009437s ]
+SQL: SELECT `id`,`grade_name` FROM `ecs_grade`  [ RunTime:0.001262s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 94 ) LIMIT 1   [ RunTime:0.001856s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000124s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000262s ]
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 215 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 216 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 225 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 226 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 235 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 239 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 240 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 243 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 252 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 253 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.014913s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015156s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001083s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001279s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001262s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001408s ]
+
+[ 2016-05-31T11:19:53+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyEdit/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000988s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010289s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.007415s ]
+SQL: SELECT `id`,`grade_name` FROM `ecs_grade`  [ RunTime:0.001036s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 94 ) LIMIT 1   [ RunTime:0.001126s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000136s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000321s ]
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 215 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 216 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 225 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 226 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 235 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 239 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 240 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 243 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 252 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 253 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.014018s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014171s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000379s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000490s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000581s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000697s ]
+
+[ 2016-05-31T11:20:00+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyEdit.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000784s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001253s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010244s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+NOTIC: [8] Undefined index: background E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 91 行.
+SQL: UPDATE `ecs_company` SET `grade_id`=2,`logo_img`='574d02e04427d.jpg' WHERE ( `id` = 94 ) [ RunTime:0.056277s ]
+
+[ 2016-05-31T11:20:00+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001670s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003006s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010365s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009377s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_company` LIMIT 1   [ RunTime:0.001020s ]
+SQL: SELECT * FROM `ecs_company` ORDER BY id desc LIMIT 0,10   [ RunTime:0.002298s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001148s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001090s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001161s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001665s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001068s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001254s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001084s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001280s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001156s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001239s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000254s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\9afdd57afedb2bfb7fb7727e85dd1522.php 第 185 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.038643s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038884s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000800s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000919s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000877s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000995s ]
+
+[ 2016-05-31T11:20:03+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyEdit/id/94.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000853s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001340s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009799s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009250s ]
+SQL: SELECT `id`,`grade_name` FROM `ecs_grade`  [ RunTime:0.001281s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 94 ) LIMIT 1   [ RunTime:0.001042s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000138s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000303s ]
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 215 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 216 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 225 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 226 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 235 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 239 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 240 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 243 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 252 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 253 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031514s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031826s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001416s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001595s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000955s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001085s ]
+
+[ 2016-05-31T11:21:32+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyEdit.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000975s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010890s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given E:\wamp\www\hy\jyfl\jyflapi\ThinkPHP\Library\Think\Upload.class.php 第 167 行.
+NOTIC: [8] Undefined index: background E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\CompanyController.class.php 第 91 行.
+SQL: UPDATE `ecs_company` SET `grade_id`=2,`logo_img`='574d033c44715.png' WHERE ( `id` = 94 ) [ RunTime:0.059391s ]
+
+[ 2016-05-31T11:21:32+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/companyList.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000780s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001278s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.010224s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009513s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_company` LIMIT 1   [ RunTime:0.001140s ]
+SQL: SELECT * FROM `ecs_company` ORDER BY id desc LIMIT 0,10   [ RunTime:0.001296s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001012s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001058s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001342s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001112s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001100s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001041s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001047s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001100s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001087s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001037s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000157s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000367s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\9afdd57afedb2bfb7fb7727e85dd1522.php 第 185 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.028517s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028855s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000868s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001063s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001110s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001302s ]
+
+[ 2016-05-31T11:21:40+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/company/companyEdit/id/93.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000806s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001611s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009879s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009508s ]
+SQL: SELECT `id`,`grade_name` FROM `ecs_grade`  [ RunTime:0.001050s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `id` = 93 ) LIMIT 1   [ RunTime:0.001282s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000259s ]
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 215 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 216 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 225 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 226 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 235 行.
+NOTIC: [8] Undefined variable: nowpage E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 239 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 240 行.
+NOTIC: [8] Undefined variable: count E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 243 行.
+NOTIC: [8] Undefined variable: btime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 252 行.
+NOTIC: [8] Undefined variable: otime E:\wamp\www\hy\jyfl\jyflapi\Application\Runtime\Cache\Games\68954e90fa2d31b1fa98505baff97267.php 第 253 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.012149s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012287s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000352s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000673s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000822s ]
+
+[ 2016-05-31T11:44:25+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/test
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000685s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001216s ]
+ERR: 服务器无法处理请求。 ---> 未将对象引用设置到对象的实例。
+
+[ 2016-05-31T11:44:55+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/test
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000544s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001043s ]
+ERR: 服务器无法处理请求。 ---> 未将对象引用设置到对象的实例。
+
+[ 2016-05-31T11:50:26+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/test
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001078s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001644s ]
+
+[ 2016-05-31T11:53:40+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/test
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000635s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001724s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002078s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002721s ]
+
+[ 2016-05-31T11:59:50+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/Company/test
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000700s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001260s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001896s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002381s ]
+

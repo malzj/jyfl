@@ -16,6 +16,22 @@ $data = array (
     'id' => '4',
     'name' => '蛋糕',
   ),
+  7 => 
+  array (
+    'cat_id' => '7',
+    'cat_name' => '好利来',
+    'measure_unit' => '',
+    'parent_id' => '4',
+    'is_show' => '1',
+    'show_in_nav' => '1',
+    'grade' => '0',
+    'sort_order' => '50',
+    'has_children' => '0',
+    'goods_num' => 0,
+    'level' => 1,
+    'id' => '7',
+    'name' => '好利来',
+  ),
   8 => 
   array (
     'cat_id' => '8',
@@ -79,22 +95,6 @@ $data = array (
     'level' => 1,
     'id' => '6',
     'name' => '味多美',
-  ),
-  7 => 
-  array (
-    'cat_id' => '7',
-    'cat_name' => '好利来',
-    'measure_unit' => '',
-    'parent_id' => '4',
-    'is_show' => '1',
-    'show_in_nav' => '1',
-    'grade' => '0',
-    'sort_order' => '50',
-    'has_children' => '0',
-    'goods_num' => 0,
-    'level' => 1,
-    'id' => '7',
-    'name' => '好利来',
   ),
 );
 ?>

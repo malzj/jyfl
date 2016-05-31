@@ -10,31 +10,37 @@ namespace Games\Controller;
 
 use Think\Controller;
 use Think\Page;
+use Think\Upload;
 class CompanyController extends Controller
 {
-    public function index(){
-//        $dataInfo['Info']['Time'] = date('Y-m-d H:i:s',time());
-//        $dataInfo['Info']['Time'] = '2015-9-10 12:00';
+    public function test(){
+        $Card = new \Ext\card\huayingcard();
+        $arr_param = array(	'CardInfo'=>array('CardNo'  => '7110010995430713', 'CardPwd' => '123456') );
+        $no = $Card -> action($arr_param,8);
+        $result = $Card -> getResult();
+        var_dump($result);
+    }
+    public function companySync(){
         $CompanyModel = M('Company');
-        $createTime = $CompanyModel->order('create_time DESC')->getField('create_time');
-        $dataInfo['Info']['Time'] = $createTime;
-        if(!strtotime($createTime)){
+        $lastTime = $CompanyModel->order('create_time DESC')->getField('create_time');
+        $dataInfo['Info']['Time'] = $lastTime;
+        if(!strtotime($lastTime)){
             $dataInfo['Info']['Time'] = '2012-1-1 00:00';
         }
         $Card = new \Ext\card\huayingcard();
-        $Card -> action($dataInfo,11);
+        $no = $Card -> action($dataInfo,11);
         $result = $Card -> getResult();
         $dataList = $Card -> getDataList();
         $time = strtotime($result['Time']);
         $time = date('Y-m-d H:i:s',$time);
-        if(!empty($dataList)){
+        if($no == 0){
             $companyList = array();
-            foreach($dataList['CustomerID'] as $key=>$val){
-                $companyList[] = array('card_company_id'=>$val,'company_name'=>$dataList['CompanyName'][$key],'grade_id'=>2,'create_time'=>$time);
+            foreach($dataList['Info'] as $key=>$val){
+                $companyList[] = array('card_company_id'=>$val['CustomerID'],'company_name'=>$val['CompanyName'],'grade_id'=>2,'create_time'=>$time);
             }
         }
         $CompanyModel -> addAll($companyList);
-        var_dump($result,$dataList);
+        $this->redirect('Company/companyList');
     }
 
     /**
@@ -61,5 +67,55 @@ class CompanyController extends Controller
         $this -> assign('company_list',$companyList);
         $this -> assign('pages',$pages);
         $this -> display();
+    }
+    /**
+     * 公司编辑
+     */
+    public function companyEdit(){
+        $CompanyModel = M('Company');
+        if(IS_POST){
+            $cid = I('request.id');
+            $data = array();
+            $data['grade_id'] = I('post.grade_id');
+            if($_FILES['logo']['name']||$_FILES['background']['name']){
+                //图片上传设置
+
+                $config = array(
+                    'maxSize' => 5145728,
+                    'savePath' => 'Public/company/upload/',
+                    'rootPath' => './',
+                    'exts' => array('jpg','gif','png','jpeg'),
+                    'autoSub' => false,
+                );
+
+                $Upload = new Upload($config);
+                $images = $Upload -> upload($_FILES);
+                //判断是否有图
+                if($images){
+                    if($images['logo']['savename']){
+                        $data['logo_img'] = $images['logo']['savename'];
+                    }
+                    if($images['background']['savename']){
+                        $data['back_img'] = $images['background']['savename'];
+                    }
+                }else{
+                    $this -> error($Upload->getError());//获取失败信息
+                }
+            }
+            $result = $CompanyModel -> where(array('id'=>$cid))->data($data)->save();
+            if($result !== false){
+                $this -> redirect('Company/companyList');
+            }else{
+                $this->error('编辑失败！');
+            }
+        }else{
+            $cid = I('request.id');
+            $GradeModel = M('Grade');
+            $gradeList = $GradeModel -> field('id,grade_name') -> select();
+            $companyInfo = $CompanyModel->where(array('id'=>$cid))->find();
+            $this -> assign('company_info',$companyInfo);
+            $this -> assign('grade_list',$gradeList);
+            $this -> display();
+        }
     }
 }

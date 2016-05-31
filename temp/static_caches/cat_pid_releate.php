@@ -15,6 +15,19 @@ $data = array (
   ),
   1 => 
   array (
+    'cat_id' => '7',
+    'cat_name' => '好利来',
+    'measure_unit' => '',
+    'parent_id' => '4',
+    'is_show' => '1',
+    'show_in_nav' => '1',
+    'grade' => '0',
+    'sort_order' => '50',
+    'has_children' => '0',
+    'goods_num' => 0,
+  ),
+  2 => 
+  array (
     'cat_id' => '8',
     'cat_name' => '米卡米卡',
     'measure_unit' => '',
@@ -26,7 +39,7 @@ $data = array (
     'has_children' => '0',
     'goods_num' => 0,
   ),
-  2 => 
+  3 => 
   array (
     'cat_id' => '5',
     'cat_name' => '诺心 • 蛋糕',
@@ -39,7 +52,7 @@ $data = array (
     'has_children' => '0',
     'goods_num' => '61',
   ),
-  3 => 
+  4 => 
   array (
     'cat_id' => '9',
     'cat_name' => '贝思客',
@@ -52,7 +65,7 @@ $data = array (
     'has_children' => '0',
     'goods_num' => 0,
   ),
-  4 => 
+  5 => 
   array (
     'cat_id' => '6',
     'cat_name' => '味多美',
@@ -64,19 +77,6 @@ $data = array (
     'sort_order' => '50',
     'has_children' => '0',
     'goods_num' => '1',
-  ),
-  5 => 
-  array (
-    'cat_id' => '7',
-    'cat_name' => '好利来',
-    'measure_unit' => '',
-    'parent_id' => '4',
-    'is_show' => '1',
-    'show_in_nav' => '1',
-    'grade' => '0',
-    'sort_order' => '50',
-    'has_children' => '0',
-    'goods_num' => 0,
   ),
 );
 ?>

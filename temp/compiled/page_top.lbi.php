@@ -40,7 +40,7 @@ if ($this->_foreach['city']['total'] > 0):
                     <?php $_from = $this->_var['city']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'c');if (count($_from)):
     foreach ($_from AS $this->_var['c']):
 ?>
-                    <li><a href="<?php echo $this->_var['app_path']; ?>index.php?cityid=<?php echo $this->_var['c']['region_id']; ?>"<?php if ($this->_var['c']['region_id'] == $this->_var['cityid']): ?> class="select"<?php endif; ?> hidefocus="true"><?php echo $this->_var['c']['region_name']; ?></a></li>
+                    <li><a href="<?php echo $this->_var['app_path']; ?>user.php?cityid=<?php echo $this->_var['c']['region_id']; ?>"<?php if ($this->_var['c']['region_id'] == $this->_var['cityid']): ?> class="select"<?php endif; ?> hidefocus="true"><?php echo $this->_var['c']['region_name']; ?></a></li>
                     <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
                 </ul>
             </div>

@@ -1,0 +1,61 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">        
+<div class="order_grshang_bottom_adress f_l">配送地址：<span>{$consignee.consignee|escape}&nbsp;&nbsp;{$consignee.country_cn|escape}&nbsp;&nbsp;{$consignee.province_cn|escape}&nbsp;&nbsp;{$consignee.city_cn|escape}&nbsp;&nbsp;{$consignee.district_cn|escape}&nbsp;&nbsp;{$consignee.address|escape}</span></div>
+<div class="f_r order_gyshang_operate">
+    {if $detail.open_time eq 1}
+    <div class="f_l"><input class="peisong_date laydate-icon" onclick="laydate({choose:function(dates){ selectdate(dates,{$detail.supplier_id},'{$consignee.country_cn|escape}{$consignee.province_cn|escape}{$consignee.city_cn|escape}{$consignee.district_cn|escape}{$consignee.address|escape}');}})"  name="riqi[{$detail.supplier_id}]" value="配送日期"></div>
+    <div class="f_l peisong_time" id="time{$detail.supplier_id}">
+        <select name="time[{$detail.supplier_id}]">
+            <option>配送时间</option>            
+        </select>
+    </div>
+    {/if}
+    
+    <!-- 是否支持配送 -->
+    <div class="peisong f_l" id="zhichi{$detail.supplier_id}"> ... </div>
+    
+    <div class="bottom_operate f_l">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            操作<span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="javascript:if (confirm('您确实要把 《{$detail.supplier_name}》 的所有商品移出吗?')) location.href='flow.php?step=drop_supplier_goods&amp;id={$detail.supplier_id}'">删除</a></li>
+            <li><a href="javascript:void(0);" class="editAddress" data-id="{$detail.supplier_id}">修改</a></li>   
+          </ul>
+        </div>
+    </div>
+    
+    <div class="goods_freight f_l">运费：<span><font id="yunfei{$detail.supplier_id}"> - </font>点</span></div>
+    <input type="hidden" name="sup[{$detail.supplier_id}]" id="sup_{$detail.supplier_id}" class="supplier-one" value="">
+    <div style="float:left;width:600px;height:0px;border:1px solid gray; display:none; " id="map{$detail.supplier_id}"></div>
+
+</div>
+
+<script>
+
+_initYunfei();
+
+// 运费计算
+function _initYunfei(){
+	baidumap.setOptions({
+		isYunfei:true,
+		isSetYunfei:true,
+		isTime:1,
+		showMapId:'map{$detail.supplier_id}',
+		afterFunction:function(d){
+			var yunfeiTotal = 0;
+			$('.supplier-one').each(function(index,dom){
+				var yunfei = $(dom).val();
+				if(yunfei != -1){
+					yunfeiTotal = parseInt(yunfeiTotal)+parseInt(yunfei);
+				}
+				
+			});
+			$('.yunfeiTotal').html(yunfeiTotal);
+			orderTotal = (parseFloat(yunfeiTotal)+parseFloat($('.goodsTotal').text())).toFixed(2);
+			$('.orderTotal').html(orderTotal);
+		}	
+	});
+	baidumap.showMap({$detail.supplier_id},"{$consignee.country_cn|escape}{$consignee.province_cn|escape}{$consignee.city_cn|escape}{$consignee.district_cn|escape}{$consignee.address|escape}");
+}
+</script>

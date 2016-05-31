@@ -8,6 +8,21 @@ function setDefaultConsignee(id){
 		}		
 	}, 'json');
 }
+//设置选中的收货地址
+function setConsigneeSelect(that,id,sid){
+	if($(that).hasClass('select')){
+		return true;
+	}
+	$.get('address.php', {act:'AjaxAddressSelect', address_id:id,sid:sid, t:Math.random()}, function(result){
+		if(result.error>0){
+			alert(result.content);
+		}else{
+			$(that).closest('ul').find('.checkedall').removeClass('select').html('选择');
+			$(that).addClass('select').html('<font color=green>已选择</font>');
+		}		
+	}, 'json');
+}
+
 //选择收货人信息
 function selectConsignee(id){
 	$.get('address.php', {act:'AjaxAddressEdit', address_id:id, t:Math.random()}, function(result){

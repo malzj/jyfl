@@ -17,6 +17,7 @@ define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
 require(ROOT_PATH . 'includes/lib_order.php');
+include_once(ROOT_PATH . 'includes/lib_basic.php');
 
 /* 载入语言文件 */
 require_once(ROOT_PATH . 'languages/' .$_CFG['lang']. '/user.php');
@@ -131,9 +132,12 @@ if ($_REQUEST['step'] == 'add_to_cart')
     }
 
     /* 更新：如果是一步购物，先清空购物车 */
-    if ($_CFG['one_step_buy'] == '1')
+    if ($goods->carttype == '5')
     {
-        clear_cart();
+        clear_cart(5);
+        $_SESSION['flow_type'] = 5;
+    }else{
+        unset($_SESSION['flow_type']);
     }
 
     /* error_log(var_export($goods,true),"3",'error.log');
@@ -181,271 +185,114 @@ if ($_REQUEST['step'] == 'add_to_cart')
     $result['confirm_type'] = !empty($_CFG['cart_confirm']) ? $_CFG['cart_confirm'] : 2;
     die($json->encode($result));
 }
-elseif ($_REQUEST['step'] == 'link_buy')
+// 查看配送范围
+elseif ($_REQUEST['step'] == 'showYunfei')
 {
-    $goods_id = intval($_GET['goods_id']);
-
-    if (!cart_goods_exists($goods_id,array()))
-    {
-        addto_cart($goods_id);
-    }
-    ecs_header("Location:./flow.php\n");
-    exit;
-}
-elseif ($_REQUEST['step'] == 'login')
-{
-    include_once('languages/'. $_CFG['lang']. '/user.php');
-
-    /*
-     * 用户登录注册
-     */
-    if ($_SERVER['REQUEST_METHOD'] == 'GET')
-    {
-        $smarty->assign('anonymous_buy', $_CFG['anonymous_buy']);
-
-        /* 检查是否有赠品，如果有提示登录后重新选择赠品 */
-        $sql = "SELECT COUNT(*) FROM " . $ecs->table('cart') .
-                " WHERE session_id = '" . SESS_ID . "' AND is_gift > 0";
-        if ($db->getOne($sql) > 0)
-        {
-            $smarty->assign('need_rechoose_gift', 1);
-        }
-
-        /* 检查是否需要注册码 */
-        $captcha = intval($_CFG['captcha']);
-        if (($captcha & CAPTCHA_LOGIN) && (!($captcha & CAPTCHA_LOGIN_FAIL) || (($captcha & CAPTCHA_LOGIN_FAIL) && $_SESSION['login_fail'] > 2)) && gd_version() > 0)
-        {
-            $smarty->assign('enabled_login_captcha', 1);
-            $smarty->assign('rand', mt_rand());
-        }
-        if ($captcha & CAPTCHA_REGISTER)
-        {
-            $smarty->assign('enabled_register_captcha', 1);
-            $smarty->assign('rand', mt_rand());
-        }
-    }
-    else
-    {
-        include_once('includes/lib_passport.php');
-        if (!empty($_POST['act']) && $_POST['act'] == 'signin')
-        {
-            $captcha = intval($_CFG['captcha']);
-            if (($captcha & CAPTCHA_LOGIN) && (!($captcha & CAPTCHA_LOGIN_FAIL) || (($captcha & CAPTCHA_LOGIN_FAIL) && $_SESSION['login_fail'] > 2)) && gd_version() > 0)
-            {
-                if (empty($_POST['captcha']))
-                {
-                    show_message($_LANG['invalid_captcha']);
-                }
-
-                /* 检查验证码 */
-                include_once('includes/cls_captcha.php');
-
-                $validator = new captcha();
-                $validator->session_word = 'captcha_login';
-                if (!$validator->check_word($_POST['captcha']))
-                {
-                    show_message($_LANG['invalid_captcha']);
-                }
-            }
-
-            if ($user->login($_POST['username'], $_POST['password'],isset($_POST['remember'])))
-            {
-                update_user_info();  //更新用户信息
-                recalculate_price(); // 重新计算购物车中的商品价格
-
-                /* 检查购物车中是否有商品 没有商品则跳转到首页 */
-                $sql = "SELECT COUNT(*) FROM " . $ecs->table('cart') . " WHERE session_id = '" . SESS_ID . "' ";
-                if ($db->getOne($sql) > 0)
-                {
-                    ecs_header("Location: flow.php?step=checkout\n");
-                }
-                else
-                {
-                    ecs_header("Location:index.php\n");
-                }
-
-                exit;
-            }
-            else
-            {
-                $_SESSION['login_fail']++;
-                show_message($_LANG['signin_failed'], '', 'flow.php?step=login');
-            }
-        }
-        elseif (!empty($_POST['act']) && $_POST['act'] == 'signup')
-        {
-            if ((intval($_CFG['captcha']) & CAPTCHA_REGISTER) && gd_version() > 0)
-            {
-                if (empty($_POST['captcha']))
-                {
-                    show_message($_LANG['invalid_captcha']);
-                }
-
-                /* 检查验证码 */
-                include_once('includes/cls_captcha.php');
-
-                $validator = new captcha();
-                if (!$validator->check_word($_POST['captcha']))
-                {
-                    show_message($_LANG['invalid_captcha']);
-                }
-            }
-
-            if (register(trim($_POST['username']), trim($_POST['password']), trim($_POST['email'])))
-            {
-                /* 用户注册成功 */
-                ecs_header("Location: flow.php?step=consignee\n");
-                exit;
-            }
-            else
-            {
-                $err->show();
-            }
-        }
-        else
-        {
-            // TODO: 非法访问的处理
-        }
-    }
-}
-elseif ($_REQUEST['step'] == 'consignee')
-{
-    /*------------------------------------------------------ */
-    //-- 收货人信息
-    /*------------------------------------------------------ */
-    include_once('includes/lib_transaction.php');
-
-    if ($_SERVER['REQUEST_METHOD'] == 'GET')
-    {
-        /* 取得购物类型 */
-        $flow_type = isset($_SESSION['flow_type']) ? intval($_SESSION['flow_type']) : CART_GENERAL_GOODS;
-
-        /*
-         * 收货人信息填写界面
-         */
-
-        if (isset($_REQUEST['direct_shopping']))
-        {
-            $_SESSION['direct_shopping'] = 1;
-        }
-
-        /* 取得国家列表、商店所在国家、商店所在国家的省列表 */
-        $smarty->assign('country_list',       get_regions());
-        $smarty->assign('shop_country',       $_CFG['shop_country']);
-        $smarty->assign('shop_province_list', get_regions(1, $_CFG['shop_country']));
-
-        /* 获得用户所有的收货人信息 */
-        if ($_SESSION['user_id'] > 0)
-        {
-            $consignee_list = get_consignee_list($_SESSION['user_id']);
-
-            if (count($consignee_list) < 5)
-            {
-                /* 如果用户收货人信息的总数小于 5 则增加一个新的收货人信息 */
-                $consignee_list[] = array('country' => $_CFG['shop_country'], 'email' => isset($_SESSION['email']) ? $_SESSION['email'] : '');
-            }
-        }
-        else
-        {
-            if (isset($_SESSION['flow_consignee'])){
-                $consignee_list = array($_SESSION['flow_consignee']);
-            }
-            else
-            {
-                $consignee_list[] = array('country' => $_CFG['shop_country']);
-            }
-        }
-        $smarty->assign('name_of_region',   array($_CFG['name_of_region_1'], $_CFG['name_of_region_2'], $_CFG['name_of_region_3'], $_CFG['name_of_region_4']));
-        $smarty->assign('consignee_list', $consignee_list);
-
-        /* 取得每个收货地址的省市区列表 */
-        $province_list = array();
-        $city_list = array();
-        $district_list = array();
-        foreach ($consignee_list as $region_id => $consignee)
-        {
-            $consignee['country']  = isset($consignee['country'])  ? intval($consignee['country'])  : 0;
-            $consignee['province'] = isset($consignee['province']) ? intval($consignee['province']) : 0;
-            $consignee['city']     = isset($consignee['city'])     ? intval($consignee['city'])     : 0;
-
-            $province_list[$region_id] = get_regions(1, $consignee['country']);
-            $city_list[$region_id]     = get_regions(2, $consignee['province']);
-            $district_list[$region_id] = get_regions(3, $consignee['city']);
-        }
-        $smarty->assign('province_list', $province_list);
-        $smarty->assign('city_list',     $city_list);
-        $smarty->assign('district_list', $district_list);
-
-        /* 返回收货人页面代码 */
-        $smarty->assign('real_goods_count', exist_real_goods(0, $flow_type) ? 1 : 0);
-    }
-    else
-    {
-        /*
-         * 保存收货人信息
-         */
-        $consignee = array(
-            'address_id'    => empty($_POST['address_id']) ? 0  :   intval($_POST['address_id']),
-            'consignee'     => empty($_POST['consignee'])  ? '' :   compile_str(trim($_POST['consignee'])),
-            'country'       => empty($_POST['country'])    ? '' :   intval($_POST['country']),
-            'province'      => empty($_POST['province'])   ? '' :   intval($_POST['province']),
-            'city'          => empty($_POST['city'])       ? '' :   intval($_POST['city']),
-            'district'      => empty($_POST['district'])   ? '' :   intval($_POST['district']),
-            'email'         => empty($_POST['email'])      ? '' :   compile_str($_POST['email']),
-            'address'       => empty($_POST['address'])    ? '' :   compile_str($_POST['address']),
-            'zipcode'       => empty($_POST['zipcode'])    ? '' :   compile_str(make_semiangle(trim($_POST['zipcode']))),
-            'tel'           => empty($_POST['tel'])        ? '' :   compile_str(make_semiangle(trim($_POST['tel']))),
-            'mobile'        => empty($_POST['mobile'])     ? '' :   compile_str(make_semiangle(trim($_POST['mobile']))),
-            'sign_building' => empty($_POST['sign_building']) ? '' :compile_str($_POST['sign_building']),
-            'best_time'     => empty($_POST['best_time'])  ? '' :   compile_str($_POST['best_time']),
+    $id = intval($_GET['id']);
+    $yunfei = array();
+    $map = findData('peisongmap',"gongyingshang_id=$id AND isTime = 1 AND cityid=".$_SESSION['cityid']);
+    foreach ((array)$map as $key=>$val){
+        $yunfei[$key] = array(
+            'yunfei'=>$val['jiage'],
+            'color' =>$val['yanse']
         );
-
-        if ($_SESSION['user_id'] > 0)
-        {
-            include_once(ROOT_PATH . 'includes/lib_transaction.php');
-
-            /* 如果用户已经登录，则保存收货人信息 */
-            $consignee['user_id'] = $_SESSION['user_id'];
-
-            save_consignee($consignee, true);
-        }
-
-        /* 保存到session */
-        $_SESSION['flow_consignee'] = stripslashes_deep($consignee);
-
-        ecs_header("Location: flow.php?step=checkout\n");
-        exit;
     }
+    $smarty->assign('yunfei', $yunfei);
+    $smarty->assign('id', $id);
+    exit($smarty->fetch('flow/row/yunfeiMap.dwt'));
 }
-elseif ($_REQUEST['step'] == 'drop_consignee')
+
+// 供应商运费计算
+elseif ($_REQUEST['step'] == 'yunfei')
 {
-    /*------------------------------------------------------ */
-    //-- 删除收货人信息
-    /*------------------------------------------------------ */
-    include_once('includes/lib_transaction.php');
-
-    $consignee_id = intval($_GET['id']);
-
-    if (drop_consignee($consignee_id))
+    $returnAjax = array( 'error'=>0, 'message'=>'', 'html'=>'');  
+    $id = isset($_REQUEST['id']) ? intval($_REQUEST['id']) : null;
+    
+    // 供应商id为空，返回错误消息
+    if ($id == null) 
     {
-        ecs_header("Location: flow.php?step=consignee\n");
-        exit;
+        $returnAjax = array(
+            'error'=>1,
+            'message'=>'供应商不存在！'
+        );
+        
+        exit(json_encode($returnAjax));
+    }
+    
+    include_once('includes/lib_transaction.php');   
+    
+    
+    // 如果当前供应商单独设置了配送地址，就以单独设置的为准
+    if ( isset($_SESSION['supplier']) && !empty($_SESSION['supplier'][$id]))
+    {
+        $consignee = $_SESSION['supplier'][$id];
+        $consignee['country_cn']  = get_add_cn($consignee['country']);
+        $consignee['province_cn'] = get_add_cn($consignee['province']);
+        $consignee['city_cn']     = get_add_cn($consignee['city']);
+        $consignee['district_cn'] = get_add_cn($consignee['district']);
     }
     else
     {
-        show_message($_LANG['not_fount_consignee']);
+        $consignee = get_consignee($_SESSION['user_id']);
+        if (!empty($consignee)){
+            $consignee['country_cn']  = get_add_cn($consignee['country']);
+            $consignee['province_cn'] = get_add_cn($consignee['province']);
+            $consignee['city_cn']     = get_add_cn($consignee['city']);
+            $consignee['district_cn'] = get_add_cn($consignee['district']);
+        }
     }
+    
+    // 供应商信息
+    $supplierDetail = findData('supplier', "supplier_id = $id");
+    $detail = current($supplierDetail);
+    
+    $smarty->assign('detail',          $detail);
+    $smarty->assign('consignee',       $consignee);
+    $returnAjax['html'] = $smarty->fetch('flow/row/yunfeiAddress.dwt');
+    exit(json_encode($returnAjax));    
+}
+
+// 提交订单之前，删除某个供应商的所有商品
+elseif ($_REQUEST['step'] == 'drop_supplier_goods')
+{    
+    $supplier_id = intval($_GET['id']);
+
+    $sql =  "SELECT c.rec_id, g.goods_id,g.supplier_id FROM ".$GLOBALS['ecs']->table('cart')." AS c ".
+            "LEFT JOIN ".$GLOBALS['ecs']->table('goods')." AS g ON g.goods_id = c.goods_id "." ".
+            "WHERE c.session_id='" . SESS_ID . "'";
+    $result = $GLOBALS['db']->query($sql);
+    while ($row = $GLOBALS['db']->fetchRow($result))
+    {
+        if ($row['supplier_id'] == $supplier_id)
+        {
+            flow_drop_cart_goods($row['rec_id']);
+        }
+    }
+    
+    ecs_header("Location:flow.php?step=checkout");
+    
+}
+// 添加新的收货地址（供应商单独指定）
+elseif ($_REQUEST['step'] == 'newAddress')
+{
+    $smarty->assign('suppier_id',$_REQUEST['id']);
+    $smarty->display('flow/row/newAddress.dwt');
 }
 elseif ($_REQUEST['step'] == 'checkout')
 {
-	
     /*------------------------------------------------------ */
     //-- 订单确认
     /*------------------------------------------------------ */
-
+    unset($_SESSION['flow_type']);
+    if ( isset($_REQUEST['flowtype']))
+    {
+        $_SESSION['flow_type'] = $_REQUEST['flowtype'];
+    }
+    
     /* 取得购物类型 */
     $flow_type = isset($_SESSION['flow_type']) ? intval($_SESSION['flow_type']) : CART_GENERAL_GOODS;
 
+    echo $flow_type;
     /* 团购标志 */
     if ($flow_type == CART_GROUP_BUY_GOODS)
     {
@@ -525,34 +372,7 @@ elseif ($_REQUEST['step'] == 'checkout')
     		$cart_goods_new[$val['supplier_id']][] = $val;
     	}
     }
-    /**
-     * TODO 分销商开启了配送时间，显示配送时间选项
-     *  ==================================================================================
-     */ 
-    $supplierInfo = array();
-    $suppliers = suppliers_list();
-    foreach($suppliers as $supp){
-    	if ($supp['status'] == '1' && $supp['open_time']=='1'){
-    		$supplierInfo[$supp['supplier_id']]['supplier_id'] = $supp['supplier_id']; 
-    		$supplierInfo[$supp['supplier_id']]['user_name'] = $supp['user_name'];
-    	}
-    }
-    
-    // 购物车中所有商品的供应商id 
-    $sIds = array();
-    foreach($cart_goods as $key => $val){  $sIds[] = $val['supplier_id']; }
-    
-    // 清除不存在购物流程中的供应商id
-    foreach($supplierInfo as $sinfo){
-    	if( !in_array($sinfo['supplier_id'], $sIds)) {
-    		unset($supplierInfo[$sinfo['supplier_id']]);
-    	}
-    }
-    // 输出前台模板
-    $smarty->assign( 'supplierTimes', $supplierInfo);
-    
-    /** ================================================================================== */
-        
+            
     $smarty->assign('goods_list', $cart_goods_new);
 	$smarty->assign('is_21cake', $is_21cake);
 	$smarty->assign('arr_supplier', $arr_supplier);
@@ -876,6 +696,9 @@ elseif ($_REQUEST['step'] == 'checkout')
 
     /* 保存 session */
     $_SESSION['flow_order'] = $order;
+    
+    $smarty->display('flow/checkout.dwt');
+    
 }
 elseif ($_REQUEST['step'] == 'select_shipping')
 {
@@ -1526,7 +1349,28 @@ elseif ($_REQUEST['step'] == 'check_integral')
 /*------------------------------------------------------ */
 elseif ($_REQUEST['step'] == 'done')
 {
-	
+    /* Array
+    (
+        [riqi] => Array
+        (
+            [3] => 2016-05-31
+            [2] => 2016-05-31
+        )
+    
+        [time] => Array
+        (
+            [3] => 配送时间
+            [2] => 19:00-19:30
+        )
+    
+        [sup_3] => 10
+        [sup_2] => 0
+        [shipping] => 1
+        [payment] => 2
+        [payshipping_check] => 1
+        [step] => done
+    )
+     */
 	
     include_once('includes/lib_clips.php');
     include_once('includes/lib_payment.php');
@@ -1566,19 +1410,11 @@ elseif ($_REQUEST['step'] == 'done')
     if (empty($_SESSION['direct_shopping']) && $_SESSION['user_id'] == 0)
     {
         /* 用户没有登录且没有选定匿名购物，转向到登录页面 */
-        ecs_header("Location: flow.php?step=login\n");
+        ecs_header("Location: user.php\n");
         exit;
     }
 
     $consignee = get_consignee($_SESSION['user_id']);
-
-    /* 检查收货人信息是否完整 */
-    if (!check_consignee_info($consignee, $flow_type))
-    {
-        /* 如果不完整则转向到收货人信息填写界面 */
-        ecs_header("Location: flow.php?step=consignee\n");
-        exit;
-    }
 
     $_POST['how_oos'] = isset($_POST['how_oos']) ? intval($_POST['how_oos']) : 0;
     $_POST['card_message'] = isset($_POST['card_message']) ? compile_str($_POST['card_message']) : '';
@@ -1723,52 +1559,15 @@ elseif ($_REQUEST['step'] == 'done')
 	
     /* 处理配货时间*/
     $rctArray = array();
-	foreach( array('riqi','city','time') as $rct){
-		foreach($_POST[$rct] as $sid=>$stime){
-			if($rct == 'city' && $stime == '-2')
-			{
-				continue;
-			}
+	foreach( array('riqi','time') as $rct){
+		foreach($_POST[$rct] as $sid=>$stime){			
 			$rctArray[$sid][$rct] = $stime; 
 		}
 	}
 	
 	$order['best_time'] = serialize($rctArray);
 
-	//var_dump($_POST['riqi']);exit;
-/* 	foreach( array('riqi', ''))
-	var_dump($_POST);
-    exit;
- */
-/*$ order['best_time'][0] = $_POST['riqi'];
-$order['best_time'][1] = $_POST['time'];
 
-$int_hours   = local_date('G');//当前是几点
-
-if ($int_hours > 21){
-	if($_POST['time'][12] < 17){
-	$msg="请选择17点以后时间段";
-	//echo '请选择17点以后时间段';
-	//exit;
-	show_message($msg);
-	exit;	
-	}
-	if($_POST['time'][12] == ''){
-	$msg="请选择时间段";
-	//echo '请选择时间段';
-		//exit;
-		show_message($msg);
-		exit;
-	}
-}
-
-
-$order['best_time'] = serialize($order['best_time']); */
-//print_r($_POST['time']);
-//exit;
-	
-	
-	
 
    /* 判断是不是实体商品 */
     foreach ($cart_goods AS $val)
@@ -1789,12 +1588,22 @@ $order['best_time'] = serialize($order['best_time']); */
     }
     /* 订单中的总额 */
     $total = order_fee($order, $cart_goods, $consignee);
-
-    $order['bonus']        = $total['bonus'];
-    $order['goods_amount'] = $total['goods_price'];
-    $order['discount']     = $total['discount'];
-    $order['surplus']      = $total['surplus'];
-    $order['tax']          = $total['tax'];
+    
+    // 计算运费
+    $shipping_total_fee = 0;
+    if (!empty($_POST['sup']))
+    {
+        $shipping_total_fee = array_sum($_POST['sup']);
+    }    
+    $total['shipping_fee'] = $shipping_total_fee;
+    // 总价 = 商品总价 + 运费总价
+    $total['amount'] = $total['amount'] + $shipping_total_fee;
+ 
+    $order['bonus']        = 0;
+    $order['goods_amount'] = 0;
+    $order['discount']     = 0;
+    $order['surplus']      = 0;
+    $order['tax']          = 0;
 
     // 购物车中的商品能享受红包支付的总额
     $discount_amout = compute_discount_amount();
@@ -1813,7 +1622,7 @@ $order['best_time'] = serialize($order['best_time']); */
         $order['shipping_name'] = addslashes($shipping['shipping_name']);
     }
     $order['shipping_fee'] = $total['shipping_fee'];
-    $order['insure_fee']   = $total['shipping_insure'];
+    $order['insure_fee']   = 0;
 
     /* 支付方式 */
     if ($order['pay_id'] > 0)
@@ -1821,8 +1630,8 @@ $order['best_time'] = serialize($order['best_time']); */
         $payment = payment_info($order['pay_id']);
         $order['pay_name'] = addslashes($payment['pay_name']);
     }
-    $order['pay_fee'] = $total['pay_fee'];
-    $order['cod_fee'] = $total['cod_fee'];
+    $order['pay_fee'] = 0;
+    $order['cod_fee'] = 0;
 
     /* 商品包装 */
     if ($order['pack_id'] > 0)
@@ -1830,7 +1639,7 @@ $order['best_time'] = serialize($order['best_time']); */
         $pack               = pack_info($order['pack_id']);
         $order['pack_name'] = addslashes($pack['pack_name']);
     }
-    $order['pack_fee'] = $total['pack_fee'];
+    $order['pack_fee'] = 0;
 
     /* 祝福贺卡 */
     if ($order['card_id'] > 0)
@@ -1838,7 +1647,7 @@ $order['best_time'] = serialize($order['best_time']); */
         $card               = card_info($order['card_id']);
         $order['card_name'] = addslashes($card['card_name']);
     }
-    $order['card_fee']      = $total['card_fee'];
+    $order['card_fee']      = 0;
 
     $order['order_amount']  = number_format($total['amount'], 2, '.', '');
 
@@ -1871,13 +1680,13 @@ $order['best_time'] = serialize($order['best_time']); */
         $order['order_amount'] = 0;
     }
 
-    $order['integral_money']   = $total['integral_money'];
-    $order['integral']         = $total['integral'];
+    $order['integral_money']   = 0;
+    $order['integral']         = 0;
 
     if ($order['extension_code'] == 'exchange_goods')
     {
         $order['integral_money']   = 0;
-        $order['integral']         = $total['exchange_integral'];
+        $order['integral']         = 0;
     }
 
     $order['from_ad']          = !empty($_SESSION['from_ad']) ? $_SESSION['from_ad'] : '0';
@@ -1911,6 +1720,24 @@ $order['best_time'] = serialize($order['best_time']); */
         $parent_id = 0;
     }
     $order['parent_id'] = $parent_id;
+    
+    // 设置供应商单独的配送地址
+    $supplierIds = array();
+    $supplierAddress = $_SESSION['supplier'];
+    foreach ((array) $supplierAddress as $supk=>$supv) { $supplierIds[] = $supk;}    
+    if (count($_POST['sup']) != count($_SESSION['supplier']))
+    {
+        foreach ($_POST['sup'] as $supid=>$supyun)
+        {
+            if (!in_array($supid, $supplierIds))
+            {
+                $supplierAddress[$supid] = $consignee;
+            }
+        }
+    }
+    $order['supplier_address'] = serialize($supplierAddress);
+    // 运费    
+    $order['supplier_shipping'] = serialize($_POST['sup']);
     
     /* 插入订单表 */
     $error_no = 0;
@@ -2058,7 +1885,7 @@ $order['best_time'] = serialize($order['best_time']); */
     clear_all_files();
 
     /* 插入支付日志 */
-    $order['log_id'] = insert_pay_log($new_order_id, $order['order_amount'], PAY_ORDER);
+    //$order['log_id'] = insert_pay_log($new_order_id, $order['order_amount'], PAY_ORDER);
 
     /* 取得支付信息，生成支付代码 */
     if ($order['order_amount'] > 0)
@@ -2083,166 +1910,150 @@ $order['best_time'] = serialize($order['best_time']); */
 	//分单处理
 	$split_order = split_order($new_order_id);
 	
-	if(count($split_order['suborder_list']) > 0){
+	// 分单后插入支付日志，并记录支付日志id
+    if(count($split_order['suborder_list']) > 0){
 		foreach($split_order['suborder_list'] as $key => $val){
-			$supplier_ids[$key] = $val['order_sn'];
-		}
-
-		if (count($split_order['suborder_list']) == 1){
-			foreach($split_order['suborder_list'] as $key => $val){
-				$split_order['suborder_list'][$key]['order_sn'] = $order['order_sn'];
-			}
+			/* 插入支付日志 */
+			insert_pay_log($val['order_id'], $val['order_amount'], PAY_ORDER);
 		}
 	}
-		
-	$smarty->assign('split_order',      $split_order);
-
-	/*if ($split_order['sub_order_count'] >1){
-		$order['order_sn'] = $new_order_id;//暂时使用这个，或者考虑改成使用其中一个子订单的order_sn 
-	}*/
-
     /* 订单信息 */
     $smarty->assign('order',      $order);
     $smarty->assign('total',      $total);
     $smarty->assign('goods_list', $cart_goods);
     $smarty->assign('order_submit_back', sprintf($_LANG['order_submit_back'], $_LANG['back_home'], $_LANG['goto_user_center'])); // 返回提示
 
-    user_uc_call('add_feed', array($order['order_id'], BUY_GOODS)); //推送feed到uc
     unset($_SESSION['flow_consignee']); // 清除session中保存的收货人信息
     unset($_SESSION['flow_order']);
     unset($_SESSION['direct_shopping']);
+    unset($_SESSION['supplier']);
+    ecs_header("Location: flow.php?step=pay&order_id=".$new_order_id);
 }
-
-//支付页面
+// 支付页面
+elseif ($_REQUEST['step'] == 'pay')
+{
+    $orderid = intval($_GET['order_id']);
+    if ($orderid < 1)
+    {
+        ecs_header("Location: user.php\n");
+    }    
+    $orderInfo = findData('order_info',"order_id=$orderid");
+    
+    $smarty->assign('orders',current($orderInfo));
+    $smarty->display('flow/pay.dwt');
+}
+//支付成功页面
 else if ($_REQUEST['step'] == 'respond'){
 	$order_id = intval($_REQUEST['id']);
+	$smarty->display('flow/respond.dwt');
 }
 
 //操作支付页面
-else if ($_REQUEST['step'] == 'act_pay'){
-	$str_password = !empty($_POST['password']) ? $_POST['password'] : '';
-	$order_sn     = $_POST['order_sn'];
-	$order_id     = $_POST['order_id'];
-	$log_id       = intval($_POST['log_id']);
-	$order_amount = floatval($_POST['order_amount']);
+else if ($_REQUEST['step'] == 'act_pay')
+{    
+    include_once(ROOT_PATH . 'includes/lib_payment.php');
+    
+	$str_password = !empty($_POST['password']) ? $_POST['password'] : '';	
+	$order_id     = intval($_POST['order_id']);
 
 	$arr_result = array('error' => 0, 'message' => '', 'content' => '');
-
+	
+	if (empty($order_id)){
+    	$arr_result['error'] = 1;
+    	$arr_result['message'] = '非法操作！';
+    	die(json_encode($arr_result));
+	}
+	
+	// 主订单信息 
+	$orderInfo = findData('order_info',"order_id=$order_id");
+	$order = current($orderInfo);
+	
 	if (empty($str_password)){
 		$arr_result['error'] = 1;
 		$arr_result['message'] = '卡密码不能为空';
 		die(json_encode($arr_result));
 	}
-	if (empty($order_sn)){
-		$arr_result['error'] = 2;
-		$arr_result['message'] = '订单信息不正确';
-		die(json_encode($arr_result));
-	}
-	if ($order_amount > $_SESSION['BalanceCash']){
-		$arr_result['error'] = 3;
+	
+	if ($order['order_amount'] > $_SESSION['BalanceCash']){
+		$arr_result['error'] = 1;
 		$arr_result['message'] = '卡余额不足';
 		die(json_encode($arr_result));
 	} 
 
-	$str_pwd = $db->getOne('SELECT password FROM '.$ecs->table('users')." WHERE user_id = '".$_SESSION['user_id']."'");
-	if (md5($str_password) != $str_pwd){
-		$arr_result['error'] = 5;
-		$arr_result['message'] = '密码错误';
-		die(json_encode($arr_result));
+	// 得到订单的所有支付日志
+	$orderList = findData('order_info',"parent_order_id = '".$order['order_id']."'");	
+	// 如果没有子订单，就把主订单加入到 $orderList 中
+	if ( empty($orderList))
+	{
+	    $orderList = $orderInfo;
 	}
-
-	$arr_payLog = $db->getRow('SELECT * FROM '.$ecs->table('pay_log')." WHERE log_id = '$log_id'");
-	if (!empty($arr_payLog['is_paid'])){
-		$arr_result['error'] = 4;
-		$arr_result['message'] = '请不要重复支付';
-		die(json_encode($arr_result));
-	}else{
-		$order_amount = $arr_payLog['order_amount'];
-	}
-
 	
-	/** TODO 订单支付，双卡版 */
-	$arr_param = array( 
-			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$order_amount)
-	);
-	$state = $cardPay->action($arr_param, 1, $order_sn);
-	if ($state == 0)
+	
+	// 支付状态，如果有三个子订单的话，需要单独去支付，但在支付的时候，有个别订单已经支付过了，就不在支付，
+	// 将支付过的订单号，放入is_pay 中，
+	// 当 is_pay 数量等于订单数量的时候，说明次订单已经全都付完款了，返回提示给用户。
+	$is_pay = array();
+	
+	foreach ($orderList as $key=>$value)
 	{
-		$cardResult = $cardPay->getResult();
-		if ($cardPay->getCardType() == 1)
-		{
-			$api_order_id = $cardResult;
-		} 
-		else {
-			$api_order_id = 0;
-		}
-		
-		//支付成功修改订单状态
-		include_once(ROOT_PATH . 'includes/lib_payment.php');
-		order_paid($log_id, 2, '','', $api_order_id);
-		$arr_childOrder = $db->getAll('SELECT order_id, user_id, order_sn, consignee, address, tel, shipping_id, extension_code, extension_id, goods_amount FROM '.$ecs->table('order_info')." WHERE parent_order_id = '{$arr_payLog['order_id']}'");
-		
-		if (!empty($arr_childOrder)){
-			foreach ($arr_childOrder as $key=>$var){
-				/* 修改订单状态为已付款 */
-				$sql = 'UPDATE ' . $GLOBALS['ecs']->table('order_info') .
-				" SET order_status = '" . OS_CONFIRMED . "', " .
-				" confirm_time = '" . gmtime() . "', " .
-				" pay_status = '2', " .
-				" pay_time = '".gmtime()."', " .
-				" money_paid = order_amount," .
-				" order_amount = 0, ".
-				" api_order_id = '".$api_order_id."' ".
-				"WHERE order_id = '{$var['order_id']}'";
-				$GLOBALS['db']->query($sql);
-		
-				/* 记录订单操作记录 */
-				order_action($var['order_sn'], OS_CONFIRMED, SS_UNSHIPPED, 2, '', $GLOBALS['_LANG']['buyer']);
-		
-				/* 对虚拟商品的支持 */
-				$virtual_goods = get_virtual_goods($var['order_id']);
-				if (!empty($virtual_goods)){
-					$msg = '';
-					if (!virtual_goods_ship($virtual_goods, $msg, $var['order_sn'], true)){
-						$GLOBALS['_LANG']['pay_success'] .= '<div style="color:red;">'.$msg.'</div>'.$GLOBALS['_LANG']['virtual_goods_ship_fail'];
-					}
-		
-					/* 如果需要，发短信 */
-					if ($GLOBALS['_CFG']['sms_order_payed'] == '1' && $GLOBALS['_CFG']['sms_shop_mobile'] != ''){
-						include_once(ROOT_PATH.'includes/cls_sms.php');
-						$sms = new sms();
-						$sms->send($GLOBALS['_CFG']['sms_shop_mobile'],
-								sprintf($GLOBALS['_LANG']['order_payed_sms'], $var['order_sn'], $var['consignee'], $var['tel']),'', 13,1);
-					}
-		
-					/* 如果订单没有配送方式，自动完成发货操作 */
-					if ($var['shipping_id'] == -1){
-						/* 将订单标识为已发货状态，并记录发货记录 */
-						$sql = 'UPDATE ' . $GLOBALS['ecs']->table('order_info') .
-						" SET shipping_status = '" . SS_SHIPPED . "', shipping_time = '" . gmtime() . "'" .
-						" WHERE order_id = '{$var['order_id']}'";
-						$GLOBALS['db']->query($sql);
-		
-						/* 记录订单操作记录 */
-						order_action($var['order_sn'], OS_CONFIRMED, SS_SHIPPED, 2, '', $GLOBALS['_LANG']['buyer']);
-						$integral = integral_to_give($var);
-						log_account_change($var['user_id'], 0, 0, intval($integral['rank_points']), intval($integral['custom_points']), sprintf($GLOBALS['_LANG']['order_gift_integral'], $var['order_sn']));
-					}
-				}
-			}
-		}
-		$_SESSION['BalanceCash'] -= $order_amount; //重新计算用户卡余额
-		//更新卡金额
-		$db->query('UPDATE '.$ecs->table('users')." SET card_money = card_money - ('$order_amount') WHERE user_id = '".intval($_SESSION['user_id'])."'");
-		$arr_result['content'] = $order_id;
+	    $arr_payLog = $db->getRow('SELECT * FROM '.$ecs->table('pay_log')." WHERE order_id = '".$value['order_id']."'");
+	    // 如果支付过了，就跳过这笔支付
+	    if (!empty($arr_payLog['is_paid'])){
+	        $is_pay[] = $arr_payLog['order_id'];
+	        continue;
+	    }
+	    // 如果订单状态是无效，终止付款操作
+	    if ($arr_payLog['order_status'] == 2)
+	    {
+	        $arr_result['error']   = 1;
+	        $arr_result['message'] = '订单无效，不可支付！';
+	        die(json_encode($arr_result));
+	    }
+	    
+	    // 支付总金额
+	    $order_amount = $arr_payLog['order_amount'];
+	    
+	    // 供应商名称
+	    $supplierName = $db->getOne('SELECT supplier_name FROM '.$ecs->table('supplier')." WHERE supplier_id = '".$value['supplier_id']."'");
+	    /** TODO 订单支付，双卡版 */
+	    $arr_param = array(
+	        'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
+	        'TransationInfo' => array( 'TransRequestPoints'=>1, 'TransSupplier'=>setCharset($supplierName))
+	    );
+	    
+	    //if (true)
+	    if ($cardPay->action($arr_param, 1, $value['order_sn']) == 0)
+	    {
+	        //支付成功修改订单状态
+	        $cardResult = $cardPay->getResult();
+	        if ($cardPay->getCardType() == 1)
+	            $api_order_id = $cardResult;
+	        else 
+	            $api_order_id = 0;
+	        
+	        order_paid($arr_payLog['log_id'], 2, '','', $api_order_id);
+	    }
+	    
+	    // 卡系统消费失败，返回错误消息，一般是密码错误
+	    else {
+	        $arr_result['error']   = 1;
+	        $arr_result['message'] = $cardPay->getMessage();
+	        die(json_encode($arr_result));
+	    }
 	}
-	else 
+	
+	// 如果已经支付订单数量 = 订单总数量，返回提示信息
+	if (count($is_pay) == count($orderList))
 	{
-		$arr_result['error']   = 5;
-		$arr_result['message'] = $cardPay->getMessage();
+	    $arr_result['error'] = 1;
+	    $arr_result['message'] = '订单已经支付，请不要重复支付';
+	    die(json_encode($arr_result));
 	}
-
+	
+	//重新计算用户卡余额
+	$_SESSION['BalanceCash'] -= $order['order_amount']; 	
+	$db->query('UPDATE '.$ecs->table('users')." SET card_money = card_money - ('$order[order_amount]') WHERE user_id = '".intval($_SESSION['user_id'])."'");
+		
 	die(json_encode($arr_result));
 }
 
@@ -3067,6 +2878,7 @@ else if ($_REQUEST['step'] == 'getTime'){
 	$arr_result['content'] = $arr_times;
 	die(json_encode($arr_result));
 }
+
 /**
  * TODO 供应商配送时间
  *
@@ -3080,208 +2892,91 @@ else if ($_REQUEST['step'] == 'getTime'){
  *
  * 		当前时间 + 6 小时，这个6小时是后台给供应商配送城市的下单到配送时间。
  */
-else if($_REQUEST['step'] == 'shippingTime'){
-	
-	$str_date = $_REQUEST['date'];
-	$supplier_id = isset($_REQUEST['sid']) ? intval($_REQUEST['sid']) : 0 ;
-	$city_id = $_REQUEST['cid'] ;
-	
-	$arr_result = array('error'=>0,'supplier'=>array(), 'message'=>'', 'content'=>'');
-	
-	// 用户配送的地址
-	$consignee = get_consignee($_SESSION['user_id']);
-	
-	// 没选择配送地区
-	if ($city_id == 0)
-	{
-		$arr_result['error'] = 1;
-		$arr_result['message'] = '请选择配送地区！';
-		die(json_encode($arr_result));
-		exit;
-	}
-	
-	// 没有选择供应商
-	if($supplier_id == 0)
-	{
-		$arr_result['error'] = 1;
-		$arr_result['message'] = '非常规操作！';
-		die(json_encode($arr_result));
-		exit;
-	}
-	
-	/**  
-	 * 根据供应商找到他的三级地区
-	 */
-	if($city_id == '-1')
-	{		
-		// 三级地区
-		$cityIds = array();
-		$cityIdsArr = get_regions(2, $consignee['province']);
-		foreach ($cityIdsArr as $city){  $cityIds[] = $city['region_id'];  }		
-		
-		//error_log(var_export($cityIds,true),'3','error.log');
-		
-		//没有三级地区，显示一个全部城区
-		if( empty($cityIds))
-		{
-			$arr_result['content'] = array('-2' => '所有地区');
-			die(json_encode($arr_result));
-			exit;
-		}
-		
-		// 属于该供应商的三级地区
-		$sql = "SELECT a.region_id, r.region_name" .
-				" FROM " . $GLOBALS['ecs']->table('supplier_area_region'). " AS a" .
-				" LEFT JOIN " . $GLOBALS['ecs']->table('region'). " AS r" .
-				" ON r.region_id = a.region_id" .
-				" LEFT JOIN " . $GLOBALS['ecs']->table('supplier_shipping_area'). " AS s" .
-				" ON a.shipping_area_id = s.shipping_area_id" .
-				" WHERE s.supplier_id = ".$supplier_id." AND a.region_id IN (".implode(',',$cityIds).")" .
-				" ORDER by a.region_id DESC";
-		$regionInfo = $GLOBALS['db']->getAll($sql);
-		
-		
-		// 地区给到前台
-		if( $regionInfo != false) 
-		{
-			$content = array();
-			foreach($regionInfo as $info)
-			{
-				$content[$info['region_id']] = $info['region_name'];
-			}
-			$arr_result['content'] = $content;
-		}
-		else{
-			$arr_result['content'] = array('-2' => '所有地区');
-		}
-		
-		die(json_encode($arr_result));
-		exit;
-	}
-	
-	/**
-	 *  设置每个供应商的配送费用。
-	 *  只有开启配送时间后的供应商才从这里设置配送费用，前台选择配送区域后。
-	 *  才计算配送费用。
-	 */	
-	if (!empty($consignee))
-	{
-		$region['city']        	= $city_id == '-2' ? 0 : $city_id ;
-		$region['country']  	= $consignee['country'];
-		$region['province'] 	= $consignee['province'];
-	}
-	// 订单信息
-	$order = flow_order_info();
-	// 配送信息
-	$shipping_info = supplier_shipping_area_info($supplier_id,$order['shipping_id'], $region);
-	
-	//供应商订单价格统计（订单总价，商品重量，商品数量）
-	if ($order['extension_code'] == 'group_buy')
-	{
-		$weight_price2 = cart_weight_price2(CART_GROUP_BUY_GOODS, $supplier_id);
-	}
-	else
-	{
-		$weight_price2 = cart_weight_price2(CART_GENERAL_GOODS, $supplier_id);
-	}
-	
-	// 查看购物车中是否全为免运费商品，若是则把运费赋为零
-	$sql = 'SELECT count(*) FROM ' . $GLOBALS['ecs']->table('cart') . " AS c left join ". $GLOBALS['ecs']->table('goods') ." AS g on c.goods_id=g.goods_id WHERE g.supplier_id = '". $supplier_id ."' AND c.session_id = '" . SESS_ID. "' AND c.extension_code != 'package_buy' AND c.is_shipping = 0";
-	$shipping_count_supp = $GLOBALS['db']->getOne($sql);
-	
-	// 购物车总数量
-	$cartCount = "SELECT count(*) FROM " . $GLOBALS['ecs']->table('cart') . " WHERE session_id = '" . SESS_ID. "' AND extension_code != 'package_buy'";
-	
-	// 供应商配送费用
-	$supplier_fee = 0;
-	
-	// 如果全是免运费商品，运费为0
-	if ( $shipping_count_supp == 0 AND $weight_price2['free_shipping'] == 1 AND $GLOBALS['db']->getOne($cartCount)>0)
-	{
-		$supplier_fee = 0;
-	}
-	else	
-	{
-		$supplier_fee = shipping_fee($shipping_info['shipping_code'], $shipping_info['configure'], $weight_price2['weight'], $weight_price2['amount'], $weight_price2['number']);
-	}
-	//$a = $shipping_info['shipping_code'].'=='. $shipping_info['configure'].'=='. $weight_price2['weight'].'=='. $weight_price2['amount'].'=='. $weight_price2['number'];
-	//error_log(var_export($shipping_count_supp.'=='.$weight_price2['free_shipping'].'=='.$GLOBALS['db']->getOne($cartCount),true),'3','error.log');
-	
-	// 更新SESSION中的配送信息
-	$_SESSION['flow_shipping'][$supplier_id] = price_format($supplier_fee,true);
-	
-	/**
-	 *   处理 配送时间 
-	 */
-	// 配送时间配置信息
-	$shipping_times = $shipping_info['shipping_times'];
-	// 
-	if(empty($shipping_times))
-	{
-		$arr_result['error'] 	= 1;
-		$arr_result['message'] 	= '您所在的地区不支持配送！';
-		die(json_encode($arr_result));
-		exit;
-	}
-	
-	$shipping_times = unserialize($shipping_times);
-	
-	// 
-	$currentTime = strtotime(local_date('Y-m-d'));
-	$currentPostTime = strtotime($str_date);
-	
-	//日期是今天
-	if($currentTime == $currentPostTime)
-	{
-		$timesArray = getShippingTimes($shipping_times,'today',$supplier_id);
-				
-	// 明天以后的日期
-	}
-	else
-	{
-		$timesArray = getShippingTimes($shipping_times,'tomorrow',$supplier_id);
-	}
-	
-	
-	//配送时间为空，联系华影客服
-	if(empty($timesArray))
-	{
-		$arr_result['error'] 	= 1;
-		$arr_result['message'] 	= '此时间不能配送，请选择其他时间段！';
-		die(json_encode($arr_result));
-		exit;
-	}
-	
-	// 处理错误消息
-	if($timesArray['error'] == 1)
-	{
-		$arr_result['error'] 	= 1;
-		$arr_result['message'] 	= $timesArray['message'];
-		die(json_encode($arr_result));
-		exit;
-	}
-	
-	
-	//供应商名称
-	$supplier_name = get_supplier_name($supplier_id);
-	$arr_result['supplier'] = array('fee'=>price_format($supplier_fee,true), 'name'=>$supplier_name, 'sid'=>$supplier_id);
-	$arr_result['content']  = $timesArray;
-	//error_log(var_export($arr_result,true),'3','error.log');
-	die(json_encode($arr_result));
-	exit;
+else if($_REQUEST['step'] == 'shippingTime')
+{
+    // 时间
+    $str_date = $_REQUEST['date'];
+    // 供应商id
+    $supplier_id = isset($_REQUEST['sid']) ? intval($_REQUEST['sid']) : 0 ;
+    // 最早配送时间
+    $shipping_start = isset($_REQUEST['shipping_start']) ? trim($_REQUEST['shipping_start']) : 0 ;
+    // 最晚配送时间
+    $shipping_end = isset($_REQUEST['shipping_end']) ? trim($_REQUEST['shipping_end']) : 0 ;
+    // 提前预订时间
+    $shipping_waiting = isset($_REQUEST['shipping_waiting']) ? trim($_REQUEST['shipping_waiting']) : 0 ;
+    // 间隔时间段
+    $shipping_booking = isset($_REQUEST['shipping_booking']) ? trim($_REQUEST['shipping_booking']) : 0 ;
+    // 返回数据格式
+    $arr_result = array('error'=>0,'supplier'=>array(), 'message'=>'', 'content'=>'');
+    
+    // 配送时间信息、供应商id 不能我空
+    if( empty($supplier_id) || empty($shipping_start) || empty($shipping_end) || empty($shipping_waiting) || empty($shipping_booking))
+    {
+        $arr_result['error'] = 1;
+        $arr_result['message'] = '非常规操作！';
+        die(json_encode($arr_result));
+        exit;
+    }
+    
+    
+    $currentTime = strtotime(local_date('Y-m-d'));
+    $currentPostTime = strtotime($str_date);
+    
+    $shipping_times = array(
+                            'shipping_start'    =>$shipping_start, 
+                            'shipping_end'      =>$shipping_end,
+                            'shipping_waiting'  =>$shipping_waiting,
+                            'shipping_booking'  =>$shipping_booking
+                        );
+    
+    //日期是今天
+    if($currentTime == $currentPostTime)
+    {
+        $timesArray = getShippingTimes($shipping_times,'today',$supplier_id);
+    
+    // 明天以后的日期
+    }
+    else if ($currentPostTime > $currentTime){
+        $timesArray = getShippingTimes($shipping_times,'tomorrow',$supplier_id);
+    }
+    else{
+        $arr_result['error'] 	= 1;
+        $arr_result['message'] 	= '此时间不能配送，请选择其他时间！';
+        die(json_encode($arr_result));
+        exit;
+    }
+    
+    
+    //是否有可选的配送时间，如果没有，请选择明天
+    if(empty($timesArray))
+    {
+        $arr_result['error'] 	= 1;
+        $arr_result['message'] 	= '此时间不能配送，请选择其他时间段！';
+        die(json_encode($arr_result));
+        exit;
+    }
+    
+    // 处理错误消息
+    if($timesArray['error'] == 1)
+    {
+        $arr_result['error'] 	= 1;
+        $arr_result['message'] 	= $timesArray['message'];
+        die(json_encode($arr_result));
+        exit;
+    }
+    
+    
+    //供应商名称   
+    $arr_result['content']  = $timesArray;
+    die(json_encode($arr_result));
+    exit;
 }
+
 else
 {	
     /* 标记购物流程为普通商品 */
     $_SESSION['flow_type'] = CART_GENERAL_GOODS;
-
-    /* 如果是一步购物，跳到结算中心 */
-    if ($_CFG['one_step_buy'] == '1')
-    {
-        ecs_header("Location: flow.php?step=checkout\n");
-        exit;
-    }
-
+    
     /* 取得商品列表，计算合计 */
     $cart_goods = get_cart_goods();
     $smarty->assign('goods_list', $cart_goods['goods_list']);
@@ -3333,14 +3028,14 @@ else
     $fittings_list = get_goods_fittings($parent_list);
 
     $smarty->assign('fittings_list', $fittings_list);
+    $smarty->assign('currency_format', $_CFG['currency_format']);
+    $smarty->assign('integral_scale',  $_CFG['integral_scale']);
+    assign_dynamic('shopping_flow');
+    
+    $smarty->display('flow/cart.dwt');
 }
 
-$smarty->assign('currency_format', $_CFG['currency_format']);
-$smarty->assign('integral_scale',  $_CFG['integral_scale']);
-$smarty->assign('step',            $_REQUEST['step']);
-assign_dynamic('shopping_flow');
 
-$smarty->display('flow.dwt');
 
 /*------------------------------------------------------ */
 //-- PRIVATE FUNCTION
@@ -4175,9 +3870,8 @@ function generate_shipping_times($start, $end, $config, $shipping_start){
 function get_supplier_file_name($sid=0){
 	$fileName = array(
 		// 诺心
-		'24'=>'nuoxin',
-		// 味多美
-		'28'=>'weiduomei'
+		'2'=>'nuoxin'
+		
 	);
 	
 	if(isset($fileName[$sid]))

@@ -101,7 +101,7 @@ if ($action == 'saveOrder')
 else if($action == 'pay')
 {
     $ajaxMessge = array('error'=>0, 'message'=>'');
-    $password = isset($_REQUEST['password']) ? intval($_REQUEST['password']) : 0 ;
+    $password = isset($_REQUEST['password']) ? trim($_REQUEST['password']) : 0 ;
     $orderId = isset($_REQUEST['orderid']) ? intval($_REQUEST['orderid']) : 0;
     
     if ( empty($password) || empty($orderId))
@@ -110,14 +110,6 @@ else if($action == 'pay')
         $ajaxMessge['message'] = '参数不全！';
         exit(json_encode($ajaxMessge));
     }
-    
-    $arr_param = array(	'CardInfo'=>array('CardNo'  => $_SESSION['username'], 'CardPwd' => $password) );
-	if ($cardPay->action($arr_param, 8) == 1)
-	{
-	    $ajaxMessge['error'] = 1;
-	    $ajaxMessge['message'] = '密码错误！';
-	    exit(json_encode($ajaxMessge));
-	}
     
 	$order = venueOrder($orderId);
 	

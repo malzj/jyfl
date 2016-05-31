@@ -1,0 +1,16 @@
+<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+<script src="{$app_path}js/juyoufuli/jquery.shoppingflow.js"></script>
+<link rel="stylesheet" href="{$app_path}css/juyoufuli/bootstrap.min.css">
+<link rel="stylesheet" href="{$app_path}css/juyoufuli/reset.css">
+<link rel="stylesheet" href="{$app_path}css/juyoufuli/public.css">
+        
+<style>
+	.show_baidumap .layui-layer-content, .show_baidumap { background-color:#FFF;}
+</style>
+<script> var supplier_id = '{$suppier_id}'; </script>
+
+{insert_scripts files='jquery.region.js,utils.js'}
+{insert_scripts files='jquery.common.js'}
+
+<div class="shouhuoren" id="order_consignee"> LOADING ...</div>
+<script> updateConsignee(); </script>

@@ -58,7 +58,7 @@ function checkCardType( $username, $type)
   * @param 	$find	string	查询条件
   * @param	$field	string	返回字段
   */
- function findData( $table='users', $find=null, $field="*")
+ function findData( $table='users', $find=null, $field="*", $order='')
  {
      $where = ' WHERE 1 ';
      if ( !is_null($find) )
@@ -66,7 +66,7 @@ function checkCardType( $username, $type)
          $where .= " AND ".$find;
      }
  
-     return $GLOBALS['db']->getAll( 'SELECT '.$field.' FROM '.$GLOBALS['ecs']->table($table). $where);
+     return $GLOBALS['db']->getAll( 'SELECT '.$field.' FROM '.$GLOBALS['ecs']->table($table). $where. $order);
  }
  
  /**
@@ -101,7 +101,7 @@ function checkCardType( $username, $type)
  function getNavadvs($posid)
  {
      $image = array();
-     $advs = findData('ad', "enabled = 1 AND position_id = $posid");
+     $advs = findData('ad', "enabled = 1 AND position_id = $posid", '*',' order by listorder ASC,ad_id DESC');
      if (empty($advs)) {
          return $image;
      }
@@ -126,6 +126,75 @@ function checkCardType( $username, $type)
      }
      
      return $image;
+ }
+ 
+ // 处理指定属性字段信息，为数组, 传入的是属性id
+ function get_cake_attr($attr_id=null)
+ {
+     // 蛋糕属性 （attr_id = 2 是口味）
+     $cakeAttr = $GLOBALS['db']->getAll('SELECT * FROM '.$GLOBALS['ecs']->table('attribute'). ' WHERE cat_id = 1');
+ 
+     foreach ($cakeAttr as $key=>$val)
+     {
+         if ($val['attr_id'] == $attr_id)
+         {
+             return explode("\r\n", $val['attr_values']);
+         }
+     }
+ }
+ 
+ // 得到楼层广告 $name 唯一名字（分类名等）， $no 第几个广告图片
+ 
+ function attrAd( $name, $no=0)
+ {
+ 
+     global $adList;
+     $returnArray = $currentArray = $default = array();
+ 
+     if ( empty($adList) ){
+         $adList = getNavadvs(17);
+     }
+ 
+     foreach ($adList as $list)
+     {
+         // 默认的广告图片
+         if (strpos($list['ad_name'], 'default') !== false)
+         {
+             $default = $list;
+         }
+         // 得到指定的广告
+         if (strpos($list['ad_name'], $name) !== false)
+         {
+             $currentArray[] = $list;
+         }
+     }
+ 
+     // 找到指定顺序的广告，如果没有就用默认的广告代替
+     $current = current(array_slice($currentArray, $no, 1));
+     if (empty($current))
+         $returnArray = $default;
+     else
+         $returnArray = $current;
+ 
+     $returnArray['is_ad'] = 'true';
+     return $returnArray;
+ }
+ 
+ /**
+  * 分类id对应的广告为id
+  * 用于分类列表显示对应的广告位
+  */
+ function getAdid($catid)
+ {
+     $advs = array(
+         // 蛋糕广告【banner广告，text广播】
+         '4' => array( 
+             'banner' => 15,
+             'text'   => 16
+         ),
+     );
+     
+     return $advs[$catid];
  }
  
 /**

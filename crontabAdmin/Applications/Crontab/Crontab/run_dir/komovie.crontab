@@ -1,2 +1,0 @@
-﻿# 抠电影影院数据抓取
-1 1 * * * F:\wamp\bin\php\php5.3.10\php Crontab/komovie/index.php

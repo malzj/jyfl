@@ -11,5 +11,5 @@
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 define('WEB_ROOT', realpath(__DIR__.'/../'));
-require_once WEB_ROOT .'/Ext/functions.php';
+require_once WEB_ROOT .'/Lib/functions.php';
 require_once WEB_ROOT .'/Config/Config.php';

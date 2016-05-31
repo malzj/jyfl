@@ -1165,7 +1165,11 @@ elseif ($action == 'act_account')
     $amount = isset($_POST['amount']) ? floatval($_POST['amount']) : 0;
     if ($amount <= 0)
     {
-        show_message($_LANG['amount_gt_zero']);
+//        show_message($_LANG['amount_gt_zero']);
+        $redata['result'] = 'false';
+        $redata['msg'] = $_LANG['amount_gt_zero'];
+        $jsondData = json_encode($redata);
+        exit($jsondData);
     }
 
     /* 变量初始化 */
@@ -1186,7 +1190,12 @@ elseif ($action == 'act_account')
         if ($amount > $sur_amount)
         {
             $content = $_LANG['surplus_amount_error'];
-            show_message($content, $_LANG['back_page_up'], '', 'info');
+            $redata['result'] = 'false';
+            $redata['msg'] = $content;
+            $jsondData = json_encode($redata);
+            exit($jsondData);
+
+//            show_message($content, $_LANG['back_page_up'], '', 'info');
         }
 
         //插入会员账目明细
@@ -1198,12 +1207,22 @@ elseif ($action == 'act_account')
         if ($surplus['rec_id'] > 0)
         {
             $content = $_LANG['surplus_appl_submit'];
-            show_message($content, $_LANG['back_account_log'], 'user.php?act=account_log', 'info');
+            $redata['result'] = 'true';
+            $redata['msg'] = $content;
+            $jsondData = json_encode($redata);
+            exit($jsondData);
+
+//            show_message($content, $_LANG['back_account_log'], 'user.php?act=account_log', 'info');
         }
         else
         {
             $content = $_LANG['process_false'];
-            show_message($content, $_LANG['back_page_up'], '', 'info');
+            $redata['result'] = 'false';
+            $redata['msg'] = $content;
+            $jsondData = json_encode($redata);
+            exit($jsondData);
+
+//            show_message($content, $_LANG['back_page_up'], '', 'info');
         }
     }
     /* 如果是会员预付款，跳转到下一步，进行线上支付的操作 */
@@ -1211,7 +1230,12 @@ elseif ($action == 'act_account')
     {
         if ($surplus['payment_id'] <= 0)
         {
-            show_message($_LANG['select_payment_pls']);
+//            show_message($_LANG['select_payment_pls']);
+            $redata['result'] = 'false';
+            $redata['msg'] = $_LANG['select_payment_pls'];
+            $jsondData = json_encode($redata);
+            exit($jsondData);
+
         }
 
         include_once(ROOT_PATH .'includes/lib_payment.php');

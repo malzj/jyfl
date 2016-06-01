@@ -300,6 +300,7 @@ class GamesApiController extends Controller
             $glist[$key]['issue'] = date('Ymd',strtotime($val['create_time']));//期号
             $glist[$key]['thumbnail'] = $ggameInfo['thumbnail'];
             $glist[$key]['user_name'] = $guserInfo['nickname'];
+            $glist[$key]['lottery'] = $val['lottery'];
             $glist[$key]['card_num'] = $val['card_num'];
             $glist[$key]['peo_count'] = $peo_count;
             $glist[$key]['user_img'] = $guserInfo['pic'];
@@ -313,6 +314,7 @@ class GamesApiController extends Controller
             $clist[$key]['issue'] = date('Ymd',strtotime($val['create_time']));//期号
             $clist[$key]['thumbnail'] = $gameInfo['thumbnail'];
             $clist[$key]['user_name'] = $userInfo['nickname'];
+            $clist[$key]['lottery'] = $val['lottery'];
             $clist[$key]['card_num'] = $val['card_num'];
             $clist[$key]['peo_count'] = $peo_count;
             $clist[$key]['user_img'] = $userInfo['pic'];
@@ -360,7 +362,4 @@ class GamesApiController extends Controller
         $data['opencode'] = intval($opencode);
         return $data;
     }
-	public function test(){
-		echo $this->_get3DLottery();
-	}
 }

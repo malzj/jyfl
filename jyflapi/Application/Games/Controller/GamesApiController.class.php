@@ -168,9 +168,6 @@ class GamesApiController extends Controller
         if($count_all==$total){
 
             $sdInfo = $this ->_get3DLottery();
-						$this->ajaxReturn($sdInfo);
-							
-
             $winner_num = $this->_getWinner($total,$sdInfo['opencode']);
 
             if($game_info['grade_id']==1) {
@@ -353,7 +350,7 @@ class GamesApiController extends Controller
      */
     private function _get3DLottery(){
         $url = 'http://f.apiplus.cn/fc3d-1.json';
-        $httpRequest = new \Ext\card\httpRequest;
+        $httpRequest = new \Ext\card\HttpRequest;
         $jsoncode = $httpRequest->get($url);
         $openInfo = json_decode($jsoncode);
         $expect = $openInfo->data[0]->expect;
@@ -363,4 +360,7 @@ class GamesApiController extends Controller
         $data['opencode'] = intval($opencode);
         return $data;
     }
+	public function test(){
+		echo $this->_get3DLottery();
+	}
 }

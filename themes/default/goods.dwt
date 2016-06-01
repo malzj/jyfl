@@ -16,7 +16,7 @@
 			<div class="sport4_top o_hidden margin_top_90">
 				<div class="sport4_top_left f_l">
 					<div class="cake2_img">                    	
-						<img src="{$goods.goods_img}" alt="{$goods.goods_name}" />											
+						<img src="{$goods.goods_img}" alt="{$goods.goods_name}" id="box1"/>											
 					</div>
 					<div class="sport4_list">
 						<div class="hd">
@@ -39,7 +39,6 @@
 					<ul>
 						<li class="sport4_title">{$goods.goods_style_name}</li>
 						<li class="sport4_pri">价格：<span class="sport4_dianshu" id="ECS_GOODS_AMOUNT">0</span>点</li>
-                        
                         {if !empty($specs)}
 						<li class="sport4_mar">
 							<div class="f_l cake_top_name">规格：</div>
@@ -78,7 +77,7 @@
 							</div>
 						<li>
                             <input class="sport4_btn input_submit bg_color btn zhuti_a_hover" type="button" onclick="addToCart({$goods.goods_id},'',5)" value="立即购买"> 
-                            <button type="submit" class="sport4_btn input_submit bg_color btn zhuti_a_hover" value="加入购物车">
+                            <button type="submit" class="sport4_btn input_submit bg_color btn zhuti_a_hover" onclick="MoveBox()" value="加入购物车">
                             <span class="glyphicon glyphicon-shopping-cart"></span>加入购物车</button>
                         </li>
 					</ul>

@@ -194,7 +194,6 @@ class GamesApiController extends Controller
         $card_data['TransationInfo']['TransRequestPoints'] = $num*$game_info['point'];
 
         $is_pay = $Card -> action($card_data,1);
-        $this->ajaxReturn($Card->getMessage());
         $Model -> table('__USERS__')->where('user_name')->setDec('card_money',$num*$game_info['point']);
         if($is_pay == 0){
             $Model -> commit();

@@ -210,7 +210,7 @@ $(function(){
         var password = $('input[name="password"]').val();
         $.ajax({
             type:'post',
-            url:api_url+'index.php/Games/GamesApi/test',
+            url:api_url+'index.php/Games/GamesApi/purchase',
             async:false,
             data:{
                 user_id:user_id,

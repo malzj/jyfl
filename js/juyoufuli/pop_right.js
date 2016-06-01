@@ -50,7 +50,7 @@ $(function(){
                         '<img src="'+global_list[i].user_img+'">' +
                         '</div><div class="f_l old_win_msg"><div class="old_win_qihao">期号<span>'+global_list[i].issue+'</span></div>' +
                         '<div class="old_win_name">恭喜&nbsp;<span class="old_win_username">'+global_list[i].user_name+'</span>&nbsp;获得本期商品</div>' +
-                        '<div>昵称：<span>'+global_list[i].user_name+'</span></div>' +
+                        '<div>中奖号码：<span>'+global_list[i].lottery+'</span></div>' +
                         '<div>用户卡号：<span>'+global_list[i].card_num+'</span></div>' +
                         '<div>本期参与：<span class="color_zhuti">'+global_list[i].peo_count+'人次</span></div></div>' +
                         '<div class="old_win_img f_l"><img src="'+api_url+"Public/games/upload/"+global_list[i].thumbnail+'"></div></div>';
@@ -64,7 +64,7 @@ $(function(){
                         '<img src="'+company_list[i].user_img+'">' +
                         '</div><div class="f_l old_win_msg"><div class="old_win_qihao">期号<span>'+company_list[i].issue+'</span></div>' +
                         '<div class="old_win_name">恭喜&nbsp;<span class="old_win_username">'+company_list[i].user_name+'</span>&nbsp;获得本期商品</div>' +
-                        '<div>昵称：<span>'+company_list[i].user_name+'</span></div>' +
+                        '<div>中奖号码：<span>'+company_list[i].lottery+'</span></div>' +
                         '<div>用户卡号：<span>'+company_list[i].card_num+'</span></div>' +
                         '<div>本期参与：<span class="color_zhuti">'+company_list[i].peo_count+'人次</span></div></div>' +
                         '<div class="old_win_img f_l"><img src="'+api_url+"Public/games/upload/"+company_list[i].thumbnail+'"></div></div>';
@@ -121,6 +121,8 @@ $(function(){
                     for(var i=0;i<partinfo.length;i++){
                         html += '<span class="yigouhao">'+partinfo[i].lottery_num+'</span>';
                     }
+                }else{
+                    html+='<span class="yigouhao">您没有抢购！</span>';
                 }
                 html += '</div></div></div>';
                 layer.open({
@@ -187,6 +189,8 @@ $(function(){
                     for(var i=0;i<partinfo.length;i++){
                         html += '<span class="yigouhao">'+partinfo[i].lottery_num+'</span>';
                     }
+                }else{
+                    html += '<span class="yigouhao">您没有抢购！</span>';
                 }
                 html += '</div></div></div>';
                 layer.open({
@@ -256,7 +260,7 @@ $(function(){
                 '</div><div class="f_l old_win_msg">' +
                 '<div class="old_win_qihao">期号<span>'+data.issue+'</span></div>' +
                 '<div class="old_win_name">恭喜&nbsp;<span class="old_win_username">'+data.user_name+'</span>&nbsp;获得本期商品</div>' +
-                '<div>昵称：<span>'+data.user_name+'</span></div>' +
+                '<div>中奖号码：<span>'+data.lottery+'</span></div>' +
                 '<div>用户卡号：<span>'+data.card_num+'</span></div>' +
                 '<div>本期参与：<span class="color_zhuti">'+data.peo_count+'人次</span></div>' +
                 '</div>' +

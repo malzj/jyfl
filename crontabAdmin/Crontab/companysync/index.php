@@ -22,19 +22,21 @@ $result = $Card -> getResult();
 $dataList = $Card -> getDataList();
 $time = strtotime($result['Time']);
 $time = date('Y-m-d H:i:s',$time);
+$company_logo = 'logo.png';
+$company_bg = 'C-_Users_user_Desktop_01.png';
+
 $sqlval = '';
 if($no == 0){
     $companyList = array();
     foreach($dataList['Info'] as $key=>$val){
-        $companyList[] = array('card_company_id'=>$val['CustomerID'],'company_name'=>$val['CompanyName'],'grade_id'=>2,'create_time'=>$time);
         if($key!=0){
             $dot = ',';
         }else{
             $dot = '';
         }
 
-        $sqlval.=$dot."('".$val['CustomerID']."','".$val['CompanyName']."',2,'".$time."')";
+        $sqlval.=$dot."('".$val['CustomerID']."','".$val['CompanyName']."',2,'".$company_logo."','".$company_bg."','".$time."')";
     }
-    $sql = "INSERT INTO ".$GLOBALS['ecs']->table('company')."(card_company_id,company_name,grade_id,create_time) values".$sqlval;
+    $sql = "INSERT INTO ".$GLOBALS['ecs']->table('company')."(`card_company_id`,`company_name`,`grade_id`,`logo_img`,`back_img`,`create_time`) values".$sqlval;
     $res = $GLOBALS['db']->query($sql);
 }

@@ -138,7 +138,7 @@ class GamesApiController extends Controller
                 }
             } else {
                 $rudata['result'] = 'false';
-                $rudata['msg'] = '请刷新重试！';
+                $rudata['msg'] = '抢购失败，请刷新重试！';
             }
             $map = array();
             $map['game_id'] = $data['game_id'];
@@ -196,6 +196,7 @@ class GamesApiController extends Controller
         $card_data['TransationInfo']['TransRequestPoints'] = $num*$game_info['point'];
 
         $is_pay = $Card -> action($card_data,1);
+        $this->ajaxReturn($Card->getMessage());
         $Model -> table('__USERS__')->where('user_name')->setDec('card_money',$num*$game_info['point']);
         if($is_pay == 0){
             $Model -> commit();
@@ -246,11 +247,11 @@ class GamesApiController extends Controller
             $winner = $WinnerModel -> where(array('game_id'=>$game_id,'company_id'=>$company_id)) -> find();
         }
         $userInfo = $UserModel -> where(array('user_name'=>$winner['card_num'])) -> find();
-        if($gameInfo['grade_id']==1){
-			$peo_num = $PartModel ->where(array('game_id'=>$game_id)) -> group('user_id') -> select();
-		}else{
-			$peo_num = $PartModel ->where(array('game_id'=>$game_id,'company_id'=>$company_id)) -> group('user_id') -> select();
-		}
+        if($gameInfo['grade_id']==1) {
+            $peo_num = $PartModel->where(array('game_id' => $game_id))->group('user_id')->select();
+        }else{
+            $peo_num = $PartModel->where(array('game_id' => $game_id, 'company_id' => $company_id))->group('user_id')->select();
+        }
         $partInfo = $PartModel -> where(array('game_id'=>$game_id,'user_id'=>$user_id)) -> select();
         if(empty($partInfo)){
             $partInfo = 'false';
@@ -356,4 +357,5 @@ class GamesApiController extends Controller
         $data['opencode'] = intval($opencode);
         return $data;
     }
+
 }

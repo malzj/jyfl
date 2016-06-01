@@ -94,7 +94,6 @@
 		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
         <!-- 公共右边结束 -->
         
-        <input type="text" name="step" id="sup2" value="update_cart" />
         <script type="text/javascript">
 		<!--
 		

@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d140c78-d344-42ae-b072-33dc06091a40" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/order_info.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/admin/order_list.htm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/page_top.lbi.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/pay.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/compiled/respond.dwt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/query_caches/sqlcache_config_file_4adbe8489bb27571d5a562c339b09215.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/query_caches/sqlcache_config_file_51d939d972134bed16bc0f2d7b5d7dfc.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/juyoufuli/jyflapi.js" afterPath="$PROJECT_DIR$/js/juyoufuli/jyflapi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/juyoufuli/pop_right.js" afterPath="$PROJECT_DIR$/js/juyoufuli/pop_right.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/compiled/page_left.lbi.php" afterPath="$PROJECT_DIR$/temp/compiled/page_left.lbi.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/compiled/page_right.lbi.php" afterPath="$PROJECT_DIR$/temp/compiled/page_right.lbi.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/query_caches/sqlcache_config_file_84ddd25ac9a397560bd2755bb8a62b2d.php" afterPath="$PROJECT_DIR$/temp/query_caches/sqlcache_config_file_84ddd25ac9a397560bd2755bb8a62b2d.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/default/library/page_right.lbi" afterPath="$PROJECT_DIR$/themes/default/library/page_right.lbi" />
-    </list>
+    <list default="true" id="3d140c78-d344-42ae-b072-33dc06091a40" name="Default" comment="" />
     <ignored path="jyfl.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -73,8 +58,8 @@
       <file leaf-file-name="GamesApiController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesApiController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+            <state relative-caret-position="88">
+              <caret line="104" column="39" selection-start-line="104" selection-start-column="39" selection-end-line="104" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -454,12 +439,12 @@
       <workItem from="1464310345552" duration="24924000" />
       <workItem from="1464567624155" duration="28621000" />
       <workItem from="1464654326588" duration="31831000" />
-      <workItem from="1464741885784" duration="3317000" />
+      <workItem from="1464741885784" duration="3684000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223058000" />
+    <option name="totallyTimeSpent" value="223425000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -471,7 +456,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="0" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.218509" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -987,8 +972,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jyflapi/Application/Games/Controller/GamesApiController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        <state relative-caret-position="88">
+          <caret line="104" column="39" selection-start-line="104" selection-start-column="39" selection-end-line="104" selection-end-column="39" />
           <folding />
         </state>
       </provider>

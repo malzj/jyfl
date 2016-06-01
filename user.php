@@ -501,11 +501,10 @@ elseif ($action == 'order_list')
 
     $orders = get_user_orders($user_id, $pager['size'], $pager['start']);
     $merge  = get_user_merge($user_id);
-
     $smarty->assign('merge',  $merge);
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
-    $smarty->display('user_transaction.dwt');
+    $smarty->display('order/orderList.dwt');
 }
 /* 绑定手机 */
 elseif ($action == 'bangding_tel')

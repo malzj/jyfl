@@ -108,6 +108,7 @@ class GamesApiController extends Controller
         $card_pass =I('request.password');
         $num =I('request.number');
         $num = intval($num);
+
         $data = array();
         $data['user_id'] = I('request.user_id');
         $data['game_id'] = I('request.game_id');
@@ -120,6 +121,7 @@ class GamesApiController extends Controller
         }else{
             $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'])) -> count();
         }
+
         $total = $game_info['total'];
         $surplus = intval($total) - intval($count);
         if($surplus<$num){

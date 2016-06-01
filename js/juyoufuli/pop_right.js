@@ -1,5 +1,5 @@
-// var api_url = 'http://jy.com/jyflapi/';
- var api_url = 'http://192.168.1.161/jyflapi/';
+//var api_url = 'http://jy.com/jyflapi/';
+var api_url = 'http://192.168.1.161/jyflapi/';
 $(function(){
 //	游戏规则
 	$('#guize').on('click',function(){
@@ -210,7 +210,7 @@ $(function(){
         var password = $('input[name="password"]').val();
         $.ajax({
             type:'post',
-            url:api_url+'index.php/Games/GamesApi/purchase',
+            url:api_url+'index.php/Games/GamesApi/test',
             async:false,
             data:{
                 user_id:user_id,
@@ -222,7 +222,7 @@ $(function(){
             },
             dataType:'json',
             success:function (data) {
-                //console.log(data);
+                console.log(data);
                 if(data.result == 'true'){
                     layer.alert(data.msg,function () {
                         location.reload();

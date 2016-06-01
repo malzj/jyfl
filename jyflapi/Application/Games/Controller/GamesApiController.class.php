@@ -108,21 +108,18 @@ class GamesApiController extends Controller
         $card_pass =I('request.password');
         $num =I('request.number');
         $num = intval($num);
-
         $data = array();
         $data['user_id'] = I('request.user_id');
         $data['game_id'] = I('request.game_id');
         $data['card_num'] =I('request.card_num');
         $data['company_id'] =I('request.company_id');
         $data['buy_time'] = date('Y-m-d H:i:s',time());
-		$this->ajaxReturn（$data）
         $game_info = $Model ->table('__GAMES__') -> where(array('id' => $data['game_id'])) ->find();
         if($game_info['grade_id']==1){
             $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();
         }else{
             $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'])) -> count();
         }
-
         $total = $game_info['total'];
         $surplus = intval($total) - intval($count);
         if($surplus<$num){
@@ -358,5 +355,8 @@ class GamesApiController extends Controller
         $data['opencode'] = intval($opencode);
         return $data;
     }
-
+	public function test(){
+		$this->ajaxReturn('ok');
+		
+	}
 }

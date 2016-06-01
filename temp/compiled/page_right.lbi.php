@@ -146,7 +146,7 @@
 		
 		$(function(){
             var id = $('#user_id').val();
-            var cnum = <?php echo $this->_var['usernames']['user_name']; ?>
+            var cnum = <?php echo $this->_var['usernames']['user_name']; ?>;
 
             showRight(id,cnum);
 

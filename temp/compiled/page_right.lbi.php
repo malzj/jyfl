@@ -108,7 +108,7 @@
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
 							<div>共1000点</div>
-							<div class="pop_right_jindutiao">
+							<div >
 		                        <span class="jindu"><span class="jindu1"></span></span>
 		                        <span style="float: left;">30%</span>
 		                	</div>
@@ -200,7 +200,7 @@
             						'<div class="act_item2 f_l">'+
             						'<div>'+game_glo[i].game_name+'</div>'+
             						'<div>共'+game_glo[i].total_point+'点</div>'+
-            						'<div>'+
+            						'<div class="pop_right_jindutiao">'+
             						'<span class="jindu"><span class="jindu1" style="width:'+game_glo[i].percent+'px"></span></span>'+
             						'<span style="float: left;">'+game_glo[i].percent+'%</span>'+
             						'</div>'+
@@ -233,7 +233,7 @@
             						'<div class="act_item2 f_l">'+
             						'<div>'+game_com[i].game_name+'</div>'+
             						'<div>共'+game_com[i].total_point+'点</div>'+
-            						'<div>'+
+            						'<div class="pop_right_jindutiao">'+
             						'<span class="jindu"><span class="jindu1" style="width:'+game_com[i].percent+'px"></span></span>'+
             						'<span style="float: left;">'+game_com[i].percent+'%</span>'+
             						'</div>'+
@@ -252,7 +252,7 @@
             				$('.pop_right .message').html(com_html);
             				$('.pop_right .scroll_msg').html(game_list_html);
             				var img_url = "<?php echo $this->_var['app_path']; ?>jyflapi/Public/company/upload/"+data.company_info.back_img;
-            				$('.wrap').css("background-image","url("+img_url+")");
+            				$('#back_img').css("background-image","url("+img_url+")");
             			}
             		});
             	}

@@ -177,9 +177,12 @@ elseif ($action == 'act_login')
 		if (empty($int_uid)){//插入用户信息
 			$reg_date = gmtime();
 			$last_ip  = real_ip();
+//            设置默认值
             $userheader = 'http://192.168.1.161/hy/images/headpic.png';
+            $basic = '保密';
+            $pass_edit = 0;
 //			$GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`company_id`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$company_id."')");
-			$GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`nickname`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$username."')");
+			$GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`nickname`,`basic`,`pass_edit`,`pic`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$username."','".$basic."','".$pass_edit."','".$userheader."')");
 		}else{//更新用户信息
 			$GLOBALS['db']->query('UPDATE ' . $GLOBALS['ecs']->table("users") . " SET password='".md5($password)."', card_money = '$cardMoney', youxiao_time = '".$cardOutTime."' WHERE user_id = '$int_uid'");
 		}
@@ -501,11 +504,10 @@ elseif ($action == 'order_list')
 
     $orders = get_user_orders($user_id, $pager['size'], $pager['start']);
     $merge  = get_user_merge($user_id);
-
     $smarty->assign('merge',  $merge);
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
-    $smarty->display('user_transaction.dwt');
+    $smarty->display('order/orderList.dwt');
 }
 /* 绑定手机 */
 elseif ($action == 'bangding_tel')

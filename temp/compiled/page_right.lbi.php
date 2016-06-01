@@ -146,7 +146,7 @@
 		
 		$(function(){
             var id = $('#user_id').val();
-            var cnum = <?php echo $this->_var['usernames']['user_name']; ?>
+            var cnum = <?php echo $this->_var['usernames']['user_name']; ?>;
 
             showRight(id,cnum);
 
@@ -166,7 +166,8 @@
 
             // 右侧渲染函数
 				function showRight(id,cnum){
-            		var api_url = 'http://jy.com/jyflapi/';
+            		//var api_url = 'http://jy.com/jyflapi/';
+            		var api_url = 'http://192.168.1.161/jyflapi/';
             		$.ajax({
             			type:'post',
             			url:api_url+'index.php/Games/GamesApi/gameList',

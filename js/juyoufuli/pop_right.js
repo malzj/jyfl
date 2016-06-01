@@ -222,7 +222,7 @@ $(function(){
             },
             dataType:'json',
             success:function (data) {
-                //console.log(data);
+                console.log(data);
                 if(data.result == 'true'){
                     layer.alert(data.msg,function () {
                         location.reload();
@@ -232,6 +232,9 @@ $(function(){
                         location.reload();
                     });
                 }
+            },
+            error:function (XHTML,status) {
+                console.log(XHTML);
             }
         });
     });

@@ -26,7 +26,7 @@ function userShow(data){
              sex = data.business.sex;//性别
              birthday=data.business.birthday;//生日
              basic=data.business.basic;//个人情况
-             xingqu=data.business.xingqu //兴趣
+             xingqu=data.business.xingqu?data.business.xingqu:''; //兴趣
              xingqu_1=xingqu.split(',');
              img=data.business.pic;	
 			 rudata=data;

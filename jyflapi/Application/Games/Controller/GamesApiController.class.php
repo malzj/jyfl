@@ -144,6 +144,7 @@ class GamesApiController extends Controller
             $lotteryInfo = $Model ->table('__LOTTERY__') ->where($map)->order('id asc')->find();
             $data['lottery_id'] = $lotteryInfo['id'];
             $data['lottery_num'] = $lotteryInfo['num'];
+
             $result = $Model -> table('__PARTICIPATION__') -> data($data) ->add();
             if ($result) {
                 $rudata['result'] = 'true';
@@ -155,6 +156,7 @@ class GamesApiController extends Controller
                 $this -> ajaxReturn($rudata);
             }
         }
+
         //判断是否已抢完，如抢完更改buy_status=1,且根据算法得出中奖号码存入中奖表
         if($game_info['grade_id']==1){
             $count_all = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();
@@ -162,8 +164,13 @@ class GamesApiController extends Controller
             $count_all = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'])) -> count();
         }
         if($count_all==$total){
+
             $sdInfo = $this ->_get3DLottery();
+						$this->ajaxReturn($sdInfo);
+							
+
             $winner_num = $this->_getWinner($total,$sdInfo['opencode']);
+
             if($game_info['grade_id']==1) {
                 $winnerInfo = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'], 'lottery_num' => $winner_num))->find();
             }else{
@@ -344,7 +351,7 @@ class GamesApiController extends Controller
      */
     private function _get3DLottery(){
         $url = 'http://f.apiplus.cn/fc3d-1.json';
-        $httpRequest = new \Ext\card\HttpRequest;
+        $httpRequest = new \Ext\card\httpRequest;
         $jsoncode = $httpRequest->get($url);
         $openInfo = json_decode($jsoncode);
         $expect = $openInfo->data[0]->expect;
@@ -354,8 +361,4 @@ class GamesApiController extends Controller
         $data['opencode'] = intval($opencode);
         return $data;
     }
-	public function test(){
-		$this->ajaxReturn('ok');
-		
-	}
 }

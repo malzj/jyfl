@@ -39,7 +39,7 @@ $(function(){
                     '<div class="old_win_item">' +
                     '<div class="old_win_title o_hidden">' +
                     '<div class="old_winTitle f_l">' +
-                    '<a href="#" id="all_duobao" class="zhuti_a_hovercolor">全民夺宝</a></div>' +
+                    '<a href="#" id="all_duobao" class="zhuti_a_hovercolor active">全民夺宝</a></div>' +
                     '<div class="old_winTitle1 f_l">' +
                     '<a href="#" id="person_duobao" class="zhuti_a_hovercolor">专属夺宝</a></div>' +
                     '</div><div class="all_duobao">' ;

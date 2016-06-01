@@ -52,7 +52,7 @@ if ($this->_foreach['foo']['total'] > 0):
                 <li id="per"><div><span>个人资料</span></div></li>
                 <li id="saf"><div><span>安全中心</span></div></li>
                 <li id="shouhuo" onclick="showAddress()"><div><span>收货信息</span></div></li>
-                <li id="red_packet" onclick="showPack()"><div><span>我的红包</span></div></li>
+                <!--<li id="red_packet" onclick="showPack()"><div><span>我的红包</span></div></li>-->
                 <li id="reg"><div><span>卡充值</span></div></li>
                 <li id="merge"><div><span>卡合并</span></div></li>
                 </ul>
@@ -62,6 +62,7 @@ if ($this->_foreach['foo']['total'] > 0):
             <div class="li_img">
                 <span class="glyphicon glyphicon-shopping-cart"></span>
                 <p>购物车</p>
+                <i class="ci-count" id="shopping_amount">9</i>
             </div>
             <div class="car_1">	</div>
         </li>
@@ -108,4 +109,6 @@ if ($this->_foreach['foo']['total'] > 0):
 				$('.list_main').animate({left:0},'slow');	
 			}
 		})
+	
+	
 </script>

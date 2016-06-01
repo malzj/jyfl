@@ -18,7 +18,7 @@
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
 							<div>共1000点</div>
-							<div>
+							<div class="pop_right_jindutiao">
 		                        <span class="jindu"><span class="jindu1"></span></span>
 		                        <span style="float: left;">30%</span>
 		                	</div>
@@ -40,7 +40,7 @@
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
 							<div>共1000点</div>
-							<div>
+							<div class="pop_right_jindutiao">
 		                        <span class="jindu"><span class="jindu1"></span></span>
 		                        <span style="float: left">30%</span>
 		                	</div>
@@ -64,7 +64,7 @@
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
 							<div>共1000点</div>
-							<div>
+							<div class="pop_right_jindutiao">
 		                        <span class="jindu"><span class="jindu1"></span></span>
 		                        <span style="float: left;">30%</span>
 		                	</div>
@@ -86,7 +86,7 @@
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
 							<div>共1000点</div>
-							<div>
+							<div class="pop_right_jindutiao">
 		                        <span class="jindu"><span class="jindu1"></span></span>
 		                        <span style="float: left;">30%</span>
 		                	</div>
@@ -108,7 +108,7 @@
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
 							<div>共1000点</div>
-							<div>
+							<div class="pop_right_jindutiao">
 		                        <span class="jindu"><span class="jindu1"></span></span>
 		                        <span style="float: left;">30%</span>
 		                	</div>
@@ -117,28 +117,6 @@
 					<div class="act_item3 f_l">
 						<a href="#" class="jinbi">
 							<img src="/images/juyoufuli/img_login/jieshu.png" class="end">
-						</a>
-					</div>
-				</div>
-			</div>	
-			<div class="message_1">
-				<div class="message_1_content">
-					<a href="#" class="pop_right_goods">
-					<div class="act_item1 f_l">
-						<img src="/images/juyoufuli/img_login/pop_right_bottombtn1.png">
-					</div>
-					<div class="act_item2 f_l">
-							<div>iPhone6</div>
-							<div>共1000点</div>
-							<div>
-		                        <span class="jindu"><span class="jindu1"></span></span>
-		                        <span style="float: left;">30%</span>
-		                	</div>
-					</div>
-					</a>
-					<div class="act_item3 f_l">
-						<a href="#" class="jinbi">
-							<img src="/images/juyoufuli/img_login/duo.png" class="duo">
 						</a>
 					</div>
 				</div>

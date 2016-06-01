@@ -169,3 +169,13 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTrace [ RunTime:0.000771s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000877s ]
 
+[ 2016-06-01T11:46:10+08:00 ] 127.0.0.1 /jyflapi/index.php/games/gamesApi/test
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000978s ]
+NOTIC: [2] Missing argument 2 for Ext\card\HttpRequest::get(), called in E:\wamp\www\hy\jyfl\jyflapi\Application\Games\Controller\GamesApiController.class.php on line 350 and defined E:\wamp\www\hy\jyfl\jyflapi\Application\Ext\card\HttpRequest.class.php 第 76 行.
+NOTIC: [8] Undefined variable: mix_data E:\wamp\www\hy\jyfl\jyflapi\Application\Ext\card\HttpRequest.class.php 第 78 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.018060s ]
+INFO: [ app_end ] --END-- [ RunTime:0.018404s ]
+

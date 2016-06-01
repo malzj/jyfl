@@ -356,5 +356,4 @@ class GamesApiController extends Controller
         $data['opencode'] = intval($opencode);
         return $data;
     }
-
 }

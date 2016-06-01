@@ -115,6 +115,7 @@ class GamesApiController extends Controller
         $data['card_num'] =I('request.card_num');
         $data['company_id'] =I('request.company_id');
         $data['buy_time'] = date('Y-m-d H:i:s',time());
+		$this->ajaxReturn（$data）
         $game_info = $Model ->table('__GAMES__') -> where(array('id' => $data['game_id'])) ->find();
         if($game_info['grade_id']==1){
             $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();

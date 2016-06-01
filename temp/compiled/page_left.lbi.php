@@ -59,7 +59,7 @@ if ($this->_foreach['foo']['total'] > 0):
             </div>
         </li>
         <li class="car">
-            <div class="li_img">
+            <div class="li_img" onClick=" window.location.href='flow.php'">
                 <span class="glyphicon glyphicon-shopping-cart"></span>
                 <p>购物车</p>
                 <i class="ci-count" id="shopping_amount">9</i>

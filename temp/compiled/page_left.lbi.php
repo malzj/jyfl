@@ -110,6 +110,38 @@ if ($this->_foreach['foo']['total'] > 0):
 				$('.list_main').animate({left:0},'slow');	
 			}
 		})
-	
-	
+</script>
+<script type="text/javascript">
+	//			加入购物车
+			function MoveBox() {
+				var img;
+				if(img) img.remove();
+				var divTop = $("#box1").offset().top;
+				var divLeft = $("#box1").offset().left;
+			    img=$("#box1").clone().appendTo($('.cake2_img'));
+				$(img).css({
+					"position": "absolute",
+					"z-index": "500",
+					"left": divLeft + "px",
+					"top": divTop + "px"
+				});
+				$(img).animate({
+					"left": ($(img).offset().left) + "px",
+					"top": ($(document).scrollTop()+30) + "px",
+					"width": "50px",
+					"height": "50px"
+				},
+				500,
+				function() {
+					$(img).animate({
+						"left": $(".car").offset().left + "px",
+						"top": $(".car").offset().top + "px",
+						"width": "25px",
+						"height": "25px"
+					},500 ,function(){
+						$(img).remove();
+					});
+					
+				});
+			}
 </script>

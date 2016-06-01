@@ -12,8 +12,6 @@
         
 </head>
 <body>
-	<input type="hidden" value="1" id="user_id" />
-    <input type="hidden" value="" id="img" />
     <div class="content">
     	<!-- 头部 -->
 		<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->

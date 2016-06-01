@@ -13,8 +13,6 @@
         
 </head>
 <body>
-	<input type="hidden" value="1" id="user_id" />
-    <input type="hidden" value="" id="img" />
     <div class="content">
     	
 		<?php echo $this->fetch('library/page_header.lbi'); ?>

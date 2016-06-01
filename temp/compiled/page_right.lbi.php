@@ -197,7 +197,7 @@
             			},
             			dataType:'json',
             			success:function(data){
-            				//console.log(data);
+            				console.log(data);
             				var game_glo = data.game_global;
             				var game_com = data.game_company;
 
@@ -214,7 +214,7 @@
                                 }
             					game_list_html += '<div class="message_1">'+
             						'<div class="message_1_content">'+
-            						'<a href="#" class="pop_right_goods" data-id="'+game_glo[i].id+'">'+
+            						'<a href="#" class="pop_right_goods" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.card_company_id+'">'+
             						'<div class="act_item1 f_l">'+
             						'<img src="'+api_url+'Public/games/upload/'+game_glo[i].thumbnail+'">'+
             						'</div>'+
@@ -227,7 +227,7 @@
             						'</div>'+
             						'</div></a>'+
             						'<div class="act_item3 f_l">'+
-            						'<a href="#" class="jinbi" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.id+'" data-cnum="'+cnum+'">'+
+            						'<a href="#" class="jinbi" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.card_company_id+'" data-cnum="'+cnum+'">'+
             						'<img src="/images/juyoufuli/img_login/'+img+'" '+iclass+'>'+
             						'</a>'+
             						'</div>'+
@@ -247,7 +247,7 @@
                                 }
             					game_list_html += '<div class="message_1">'+
             						'<div class="message_1_content">'+
-            						'<a href="#" class="pop_right_goods" data-id="'+game_com[i].id+'">'+
+            						'<a href="#" class="pop_right_goods" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.card_company_id+'">'+
             						'<div class="act_item1 f_l">'+
             						'<img src="'+api_url+'Public/games/upload/'+game_com[i].thumbnail+'">'+
             						'</div>'+
@@ -260,7 +260,7 @@
             						'</div>'+
             						'</div></a>'+
             						'<div class="act_item3 f_l">'+
-            						'<a href="#" class="jinbi" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.id+'" data-cnum="'+cnum+'">'+
+            						'<a href="#" class="jinbi" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.card_company_id+'" data-cnum="'+cnum+'">'+
             						'<img src="/images/juyoufuli/img_login/'+img1+'" '+iclass1+'>'+
             						'</a>'+
             						'</div>'+
@@ -268,10 +268,12 @@
             						'</div>';
             				}
             				var com_html = '<div class="border_radio">'+
-            					'<img src="'+api_url+'Public/games/upload/'+data.company_info.logo_img+'" alt="'+data.company_info.company_name+'" width="80%"></div>'+
+            					'<img src="'+api_url+'Public/company/upload/'+data.company_info.logo_img+'" alt="'+data.company_info.company_name+'" width="80%"></div>'+
             					'<div class="text-center">'+data.company_info.company_name+'</div>';
             				$('.pop_right .message').html(com_html);
             				$('.pop_right .scroll_msg').html(game_list_html);
+            				var img_url = "<?php echo $this->_var['app_path']; ?>jyflapi/Public/company/upload/"+data.company_info.back_img;
+            				$('.wrap').css("background-image","url("+img_url+")");
             			}
             		});
             	}

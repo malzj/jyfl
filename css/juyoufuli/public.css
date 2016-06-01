@@ -39,7 +39,7 @@ a:focus{outline: none;}
 }
 .input_submit{border:none;outline: none;font-size: 14px;font-family: "微软雅黑";}
 .bg_color{background: #2fd0b5!important;}
-.zhuti_a_hover:hover{background: #35A794!important;}
+.zhuti_a_hover:hover{background: #35A794!important;transition: background .5s linear;-webkit-transition: background .5s linear;}
 .zhuti_a_hovercolor:hover{color:#2fd0b5!important;}
 .hd .prevStop{display:none!important;}
 .bg_white{background: white;}
@@ -437,7 +437,7 @@ html.login .pop_right{transform: translateX(0);}
 	.pop_right{width: 320px;}
 }
 
-	@media only screen and (max-height: 600px) {
+	@media only screen and (max-height: 680px) {
 		.pop_right .border_radio{
 		margin: 52px auto 5px;
 		width: 70px;
@@ -1571,7 +1571,7 @@ html.movie_4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff
 
 
 /*dianziquan.html*/
-body{min-height: 100%;position: relative;background: white;padding-bottom: 130px;padding-top: 1px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+body{min-height: 100%;position: relative;background: #f2f2f2;padding-bottom: 130px;padding-top: 1px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
 html.dianziquan .w_1200 .select_area{border: 1px solid #ddd;margin-top: 90px;overflow: hidden;padding: 15px 0px 15px 15px;}
 html.dianziquan .w_1200 .select_area ul li{padding: 5px 0px;float: left;width: 120px;/* text-align: center; */}
 html.dianziquan .w_1200 .select_area .title{padding: 5px 0;float: left;}
@@ -2189,58 +2189,58 @@ html.huaju2 .w_1200 .goupiaoxinxi .xinxi_right ul li{
 	margin: 10px 0;
 }
 html.huaju2 .w_1200 .goupiaoxinxi .xinxi_right{margin-right: 200px;margin-top: 20px;}
-html.huaju2 .w_1200 .shouhuo{margin: 30px 0;font-size:16px;color: #2ed2c1;font-weight: bold;}
-html.huaju2 .w_1200 .shouhuoren .shouhuo_title{overflow: hidden;}
-html.huaju2 .w_1200 .shouhuoren .shouhuo_title .shouhuorenxinxi{font-weight: 600;font-size: 16px;}
-html.huaju2 .w_1200 .shouhuoren .shouhuo_title .add_adress{color:#2ed2c1;cursor: pointer;}
-html.huaju2 .w_1200 .shouhuoren{margin: 0 20px;}
-html.huaju2 .w_1200 .shouhuoren .shouhuoren_item ul li{overflow: hidden;margin: 10px 0;}
-html.huaju2 .w_1200 .shouhuoren .shouhuoren_item ul li:hover{background: #f5dccc;}
-html.huaju2 .w_1200 .shouhuoren .shouhuoren_item ul li div.shouhuoren_name{
+.shouhuo{margin: 30px 0;font-size:16px;color: #2ed2c1;font-weight: bold;}
+.shouhuoren .shouhuo_title{overflow: hidden;}
+.shouhuoren .shouhuo_title .shouhuorenxinxi{font-weight: 600;font-size: 16px;}
+.shouhuoren .shouhuo_title .add_adress{color:#2ed2c1;cursor: pointer;}
+ .shouhuoren{margin: 0 20px;}
+ .shouhuoren .shouhuoren_item ul li{overflow: hidden;margin: 10px 0;}
+ .shouhuoren .shouhuoren_item ul li:hover{background: #f5dccc;}
+ .shouhuoren .shouhuoren_item ul li div.shouhuoren_name{
 	width: 120px;
 	padding: 3px 10px;
 	text-align: center;
 	background: #F2F2F2;
 	border: 1px solid #ddd;
 }
-html.huaju2 .w_1200 .shouhuoren .shouhuoren_item ul li div.shouhuoren_xinxi{
+ .shouhuoren .shouhuoren_item ul li div.shouhuoren_xinxi{
 	height: 30px;
 	line-height: 30px;
 }
-html.huaju2 .w_1200 .shouhuoren .shouhuoren_item ul li div.shouhuoren_xinxi span.name{margin-left: 10px;}
-html.huaju2 .w_1200 .shouhuoren .shouhuoren_item ul li div.shouhuoren_hover{
+ .shouhuoren .shouhuoren_item ul li div.shouhuoren_xinxi span.name{margin-left: 10px;}
+ .shouhuoren .shouhuoren_item ul li div.shouhuoren_hover{
 	height: 30px;
 	line-height: 30px;
 	display: none;
 }
-html.huaju2 .w_1200 .shouhuoren .shouhuoren_item ul li div.shouhuoren_hover a{color: #2ed2c1;text-decoration: none;margin-right: 10px;}
-html.huaju2 .w_1200 .shouhuoren .shouhuoren_item ul li div.shouhuoren_hover a:hover{
+ .shouhuoren .shouhuoren_item ul li div.shouhuoren_hover a{color: #2ed2c1;text-decoration: none;margin-right: 10px;}
+ .shouhuoren .shouhuoren_item ul li div.shouhuoren_hover a:hover{
 	color: #3BA79B;
 }
-html.huaju2 .w_1200 .shouhuoren .shouhuoren_item{overflow: hidden;height: 40px;margin: 10px 0;}
-html.huaju2 .w_1200 .shouhuoren .add_item{display: none;border: 1px solid #ddd;padding: 20px 20px;}
-html.huaju2 .w_1200 .shouhuoren .add_item .item{line-height: 28px;/* height: 30px; */margin: 10px 0;overflow: hidden;}
-html.huaju2 .w_1200 .shouhuoren .add_item .item label{height: 40px;width: 75px;line-height: 40px;}
-html.huaju2 .w_1200 .shouhuoren .add_item .item input,
-html.huaju2 .w_1200 .shouhuoren .add_item .item select
+ .shouhuoren .shouhuoren_item{overflow: hidden;height: 40px;margin: 10px 0;}
+ .shouhuoren .add_item{display: none;border: 1px solid #ddd;padding: 20px 20px;}
+ .shouhuoren .add_item .item{line-height: 28px;/* height: 30px; */margin: 10px 0;overflow: hidden;}
+ .shouhuoren .add_item .item label{height: 40px;width: 75px;line-height: 40px;}
+ .shouhuoren .add_item .item input,
+ .shouhuoren .add_item .item select
 {
 	padding: 5px 20px;
 	background: transparent;
 	border: none;
 	outline: none;
 }
-html.huaju2 .w_1200 .shouhuoren .add_item .item select{border: 1px solid #ddd;margin-right: 20px;width: 250px;}
-html.huaju2 .w_1200 .shouhuoren .add_item .item div.input{border: 1px solid #ddd;}
-html.huaju2 .w_1200 .shouhuoren .add_item .item .xiangxi input{width: 400px;}
-html.huaju2 .w_1200 .shouhuoren .add_item .btn_1 span.save{background: #ff9a12;padding: 5px 10px;color: white;margin-right: 50px;border-radius: 10px;cursor: pointer;}
-html.huaju2 .w_1200 .shouhuoren .add_item .btn_1 span.cancel{padding: 5px 10px;color: #43d2b9;cursor: pointer;}
-html.huaju2 .w_1200 .shouhuoren .more{margin: 10px 0 20px 0;}
-html.huaju2 .w_1200 .shouhuoren .more span.jiantou{transform: scale(147deg);margin-left: 10px;transition: all .5s linear;}
-html.huaju2 .w_1200 .shouhuoren .more span#more{cursor: pointer;}
-html.huaju2 .w_1200 .pay_way .pay_way_title{font-size: 16px;color: #43d2b9;font-weight: 600;margin: 20px 0;}
-html.huaju2 .w_1200 .pay_way .pay_way_details{margin:10px 20px;}
-html.huaju2 .w_1200 .pay_way .pay_way_details ul li{margin:10px 0;}
-html.huaju2 .w_1200 .pay_way .pay_way_details ul li span:nth-child(1){display: inline-block;width: 80px;}
+ .shouhuoren .add_item .item select{border: 1px solid #ddd;margin-right: 20px;width: 250px;}
+ .shouhuoren .add_item .item div.input{border: 1px solid #ddd;}
+ .shouhuoren .add_item .item .xiangxi input{width: 400px;}
+ .shouhuoren .add_item .btn_1 span.save{background: #ff9a12;padding: 5px 10px;color: white;margin-right: 50px;border-radius: 10px;cursor: pointer;}
+ .shouhuoren .add_item .btn_1 span.cancel{padding: 5px 10px;color: #43d2b9;cursor: pointer;}
+ .shouhuoren .more{margin: 10px 0 20px 0;}
+ .shouhuoren .more span.jiantou{transform: scale(147deg);margin-left: 10px;transition: all .5s linear;}
+ .shouhuoren .more span#more{cursor: pointer;}
+ .pay_way .pay_way_title{font-size: 16px;color: #43d2b9;font-weight: 600;margin: 20px 0;}
+ .pay_way .pay_way_details{margin:10px 20px;}
+ .pay_way .pay_way_details ul li{margin:10px 0;}
+ .pay_way .pay_way_details ul li span:nth-child(1){display: inline-block;width: 80px;}
 html.huaju2 .w_1200 .tijiao{overflow: hidden;background: #e6e6e6;margin: 30px 0;}
 html.huaju2 .w_1200 .tijiao div{padding: 30px;}
 html.huaju2 .w_1200 .tijiao div span.btn{padding: 7px 40px;color: white;background: #2fd0b5;margin-left: 20px;cursor: pointer;}
@@ -2325,8 +2325,8 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .sport4_list{position: relative;overflow: hidden;width: 460px;}
 .sport4_dianshu{font-size: 30px;color: #ff7900;}
 .sport4_pri{background: white;margin: 10px 0;padding: 25px 20px;}
-.sport4_mar{padding: 15px 20px;}
-.sport4_btn{cursor: pointer;display: inline-block;margin: 20px 285px;padding: 10px 40px;background: #e70012;color: white;}
+.sport4_mar{overflow: hidden;padding: 15px 20px;}
+.sport4_btn{cursor: pointer;display: inline-block;margin: 20px 30px;padding: 10px 40px;background: #e70012;color: white;}
 .sport4_btn:hover{background: #C71120;}
 .sport4_img_item li{margin: 10px 7px;cursor: pointer;}
 .sport4_list .prev{position: absolute;width: 20px;background: url(/images/index/img_login/sport4_jiantou.png) no-repeat;height: 30px;display: inline-block;left: 0px;top: 20px;cursor: pointer;}
@@ -2446,7 +2446,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .wide{width: 379px;}
 
 /*楼层引导*/
-.floor-guide{overflow: visible;display: none;position: fixed;top: 0;bottom: 0;margin: auto;left: 50%;width: 35px;height: 245px;margin-left: -655px;z-index: 100;width: 35px;text-align: center;}
+.floor-guide{overflow: visible;display: none;position: fixed;top: 0;bottom: 0;margin: auto;left: 50%;width: 35px;height: 245px;margin-left: -655px;/* z-index: 100; */width: 35px;text-align: center;}
 .floor-guide a{position: relative;display: block;width: 45px;height: 45px;line-height: 40px;color: #666;text-decoration: none;cursor: pointer;}
 .floor-guide b{d;font-weight: normal;color: #23bca2;font-size: 22px;display:block;width: 45px;height:40px;visibility: visible;}
 .floor-guide em{font-size: 12px;position: absolute;top: 0;left: 0;display: block;visibility: hidden;overflow:hidden;width: 30px;height: 30px;padding: 6px 8px;line-height:14px;font-style: normal;color: #fff;-webkit-transition: background-color .3s ease-out;-moz-transition: background-color .3s ease-out;-o-transition: background-color .3s ease-out;transition: background-color .3s ease-out;}
@@ -2510,9 +2510,10 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 	margin-right: 13px;
 	display: inline-block;
 	}
-.cake2_top_item a.active{    
+.cake2_top_item a.active{
 	border: 1px solid #ff771e;
-    background:url(../images/img_login/hy_hj.png) no-repeat right bottom;}
+	background: url(/images/juyoufuli/img_login/hy_hj.png) no-repeat right bottom;
+	}
 .cake2_top_item{width: 410px;}
 .cake2_img{width: 526px;height: 519px;}
 .cake2_img img{width: 100%;height: 100%;}
@@ -2545,7 +2546,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .buy_car_bottom{background: #f3f3f3;line-height: 50px;height: 50px;margin: 20px 0;}
 .buy_car_remove,.buy_car_price{padding: 0 25px;}
 .buy_car_jiesuan{background: #2fd0b5;padding: 5px 30px;color: white;border:none;border-radius: 5px;}
-.buy_car_tips{width: 1145px;height: 100px;background: url(../images/img_login/dangao1.png) no-repeat;margin: 0 auto;margin-top: 90px;}
+.buy_car_tips{width: 1145px;height: 100px;background: url(/images/juyoufuli/img_login/dangao1.png) no-repeat;margin: 0 auto;margin-top: 90px;}
 /*shenghuo.html*/
 html.shenghuo body{background: white;}
 .shenghuo_top_title{color: #2F2E2E;font-weight: bold;padding: 5px 0;font-size: 16px;width: 180px;position: absolute;text-align: center;left: 5px;bottom: 0;background: white;opacity: .7;}
@@ -2569,7 +2570,7 @@ html.shenghuo1 body{background: white;}
     -webkit-transform: translate3d(0, -2px, 0);
     transform: translate3d(0, -2px, 0);
     }
-.img img{width: 100%;height: 100%;}
+.img img{/* width: 100%; *//* height: 100%; */}
 .product .name{margin-top: 10px;}
 .product .price{margin-top: 10px;}
 .product .price strong{color: #e7380d;font-size: 16px;}
@@ -2587,7 +2588,8 @@ html.shenghuo1 body{background: white;}
 .guize_content,.xieyi_content{padding: 0 10px;}
 
 /*order.html*/
-.order_title{width: 1200px;height: 100px;background: url(../images/img_login/order_title.png) no-repeat;margin-top: 90px;}
+.order_title_tips{width: 1030px;height: 130px;margin: 0 auto;background: url(/images/juyoufuli/img_login/dangao2.png) no-repeat;margin-top: 90px;}
+.order_title{width: 1200px;height: 100px;background: url(/images/juyoufuli/img_login/order_title.png) no-repeat;}
 .order_list{overflow: hidden;background: #d9d9d9;padding: 10px 20px;}
 .order_list_name{width: 780px;}
 .order_list_price,.order_list_num,.order_list_priceAll{
@@ -2620,13 +2622,13 @@ html.shenghuo1 body{background: white;}
 .peisong_time{margin-right: 10px;}
 .bottom_operate .btn{padding: 0 10px;}
 /*提交订单*/
-.order_tijiao{margin: 90px auto 50px;width: 1030px;height: 100px;background: url(../images/img_login/order_submit.png) no-repeat;}
+.order_tijiao{margin: 90px auto 50px;width: 1030px;height: 100px;background: url(/images/juyoufuli/img_login/order_submit.png) no-repeat;}
 .order_tijiao_name{color: black;font-size: 28px;}
 .order_tijiao_name .color_ff7900{font-size: 32px;}
 .order_tijiao_content{padding: 20px 0;line-height: 1.8;text-align: center;border-bottom: 1px solid #ddd;border-top: 1px solid #ddd;}
-.order_tijiao_msg{border: 1px solid #ddd;width: 300px;margin: 10px auto;text-align: initial;color: black;padding: 20px 80px;line-height: 40px;}
-.order_tijiao_msg button{border-radius: 5px;cursor: pointer;border:0;width: 220px;color: white;height: 30px;font-size: 14px;margin-left: 40px;margin-top: 20px;}
-.order_tijiao_msg input{padding: 5px;} 
+.order_tijiao_msg{border: 1px solid #ddd;width: 300px;margin: 10px auto;/* text-align: initial; */color: black;padding: 20px 80px;line-height: 40px;}
+.order_tijiao_msg button{border-radius: 5px;cursor: pointer;border:0;width: 220px;color: white;height: 30px;font-size: 14px;margin-top: 20px;line-height: 30px;}
+.order_tijiao_msg input{line-height: 1;padding: 5px;} 
 .order_tijiao_username span{letter-spacing: 1.5px;}
 /*我的订单*/
 .my_order_tips{width: 1200px;margin: 0 auto;height: 45px;background: url(../images/img_login/my_order.png) no-repeat;margin-top: 90px;}
@@ -2683,6 +2685,14 @@ html.shenghuo1 body{background: white;}
     text-align: center;
 }
 
+/*加入购物车弹层*/
+.hy_tk{width: 305px;/* border: 2px solid #e8e3de; */background:#fff;/* padding:5px; *//* padding-left:13px; */border-radius: 10px;}
+.hy_tk_gb{float:left; width:98%; margin-top:6px;}
+.hy_tk_gb img{float:right;}
+.hy_add_cg{float:left;background: url(/images/minicart_07.png) no-repeat 75px 0px;display: inline-block;font-size: 18px;height: 38px;line-height: 38px;padding-left: 120px;font-family:"Microsoft YaHei";margin: 0 auto;}
+.hy_add_jr_box{float:left;width:100%;padding-bottom: 20px;margin-top:20px;}
+.hy_tk_jr{float:left;width: 100px;height:29px;line-height:25px;border: 1px solid #2fd0b5;background: #2fd0b5;text-align:center;color: white;font-family:"Microsoft YaHei";margin-left: 45px;border-radius: 5px;}
+.hy_tk_js{float:left;background: #FF781E;width: 100px;height:29px;line-height: 28px;/* font-size:15px; */text-align:center;color:#fff;font-family:"Microsoft YaHei";margin-left:5px;display:inline-block;border-radius: 5px;}
 
 
 

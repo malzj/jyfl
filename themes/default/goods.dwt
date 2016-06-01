@@ -77,10 +77,9 @@
 									<a id="increment" class="increment" onclick="add()">+</a>				
 							</div>
 						<li>
-                        	<button type="submit" class="sport4_btn input_submit bg_color btn" value="加入购物车">
+                            <input class="sport4_btn input_submit bg_color btn zhuti_a_hover" type="button" onclick="addToCart({$goods.goods_id},'',5)" value="立即购买"> 
+                            <button type="submit" class="sport4_btn input_submit bg_color btn zhuti_a_hover" value="加入购物车">
                             <span class="glyphicon glyphicon-shopping-cart"></span>加入购物车</button>
-                            
-                            <input type="button" onclick="addToCart({$goods.goods_id},'',5)" value="立即购买"> 
                         </li>
 					</ul>
 				</div>

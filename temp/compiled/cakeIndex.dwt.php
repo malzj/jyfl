@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
 	<head>
+<meta name="Generator" content="ECSHOP v2.7.3" />
 		<meta charset="UTF-8">
 		<title></title>
-		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
-		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+		<script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/jquery.min.js"></script>
+		<script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
 	</head>
 	<body id='body'>
-        <!-- 头部 -->
-        <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
-        <!-- 头部结束 -->
         
-        <!-- banner state-->
+        <?php echo $this->fetch('library/page_top.lbi'); ?>
+        
+        
+        
         <div class="newsimg">
 			<div class="fullSlide">
 				<div class="bd">
 					<ul>
-						{foreach from=$banner item=moviebanner}
-                            <li _src="url(/data/afficheimg/{$moviebanner.ad_code})" style="background:#{$moviebanner.bgcolor} center 0 no-repeat;">
-                                <a target="_blank" href="{$moviebanner.ad_link}"></a>
+						<?php $_from = $this->_var['banner']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'moviebanner');if (count($_from)):
+    foreach ($_from AS $this->_var['moviebanner']):
+?>
+                            <li _src="url(/data/afficheimg/<?php echo $this->_var['moviebanner']['ad_code']; ?>)" style="background:#<?php echo $this->_var['moviebanner']['bgcolor']; ?> center 0 no-repeat;">
+                                <a target="_blank" href="<?php echo $this->_var['moviebanner']['ad_link']; ?>"></a>
                             </li>
-                        {/foreach}							
+                        <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>							
 					</ul>
 				</div>
 				<div class="hd">
@@ -30,9 +33,9 @@
 				<span class="next"></span>
 			</div>
 		</div>
-        <!-- banner end-->
         
-        <!-- search start-->
+        
+        
         <div class="search">
 			<div class="search_1200">
 				<div class="tips f_l">
@@ -41,11 +44,13 @@
 						<div class="bd">
 							<div class="tempWrap">
 							<ul class="infoList">
-								{foreach from=$text item=t}
-								<li><a href="{$t.ad_link}" target="_blank">{$t.ad_name}</a></li>
-                                {foreachelse}
+								<?php $_from = $this->_var['text']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 't');if (count($_from)):
+    foreach ($_from AS $this->_var['t']):
+?>
+								<li><a href="<?php echo $this->_var['t']['ad_link']; ?>" target="_blank"><?php echo $this->_var['t']['ad_name']; ?></a></li>
+                                <?php endforeach; else: ?>
                                     <li> 暂无广播 </li>
-                                {/foreach}
+                                <?php endif; unset($_from); ?><?php $this->pop_vars();; ?>
 							</ul>
 							</div>
 						</div>
@@ -59,69 +64,75 @@
 				</div>
 			</div>
 		</div>
-        <!-- banner end -->
+        
         
         <div class="w_1200">
 			<div class="cake_pinpai o_hidden">
 				<ul class="cake_pinpai_all">
-					<li><img src="{$app_path}images/juyoufuli/img_login/nuoxin.png"></li>
-					<li><img src="{$app_path}images/juyoufuli/img_login/nuoxin.png"></li>
-					<li><img src="{$app_path}images/juyoufuli/img_login/nuoxin.png"></li>
-					<li><img src="{$app_path}images/juyoufuli/img_login/nuoxin.png"></li>
-					<li><img src="{$app_path}images/juyoufuli/img_login/nuoxin.png"></li>
+					<li><img src="<?php echo $this->_var['app_path']; ?>images/juyoufuli/img_login/nuoxin.png"></li>
+					<li><img src="<?php echo $this->_var['app_path']; ?>images/juyoufuli/img_login/nuoxin.png"></li>
+					<li><img src="<?php echo $this->_var['app_path']; ?>images/juyoufuli/img_login/nuoxin.png"></li>
+					<li><img src="<?php echo $this->_var['app_path']; ?>images/juyoufuli/img_login/nuoxin.png"></li>
+					<li><img src="<?php echo $this->_var['app_path']; ?>images/juyoufuli/img_login/nuoxin.png"></li>
 				</ul>
 			</div>
             
-            <!-- 楼层 -->
-            {foreach from=$attrGoods item=attr}
-			<div class="floor" id="floor_{$attr.attrNo}">
+            
+            <?php $_from = $this->_var['attrGoods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr');if (count($_from)):
+    foreach ($_from AS $this->_var['attr']):
+?>
+			<div class="floor" id="floor_<?php echo $this->_var['attr']['attrNo']; ?>">
 				<div class="floor_title">
 					<h4>
-						<a href="#"><i>F{$attr.attrNo}</i>{$attr.attrName}</a>
+						<a href="#"><i>F<?php echo $this->_var['attr']['attrNo']; ?></i><?php echo $this->_var['attr']['attrName']; ?></a>
 					</h4>
 				</div>
 				<div class="floor_item">
-                	{foreach from=$attr.goods item=good}
-                    	{if $good.is_ad eq 'true'}
+                	<?php $_from = $this->_var['attr']['goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'good');if (count($_from)):
+    foreach ($_from AS $this->_var['good']):
+?>
+                    	<?php if ($this->_var['good']['is_ad'] == 'true'): ?>
 						<div class="floor_content_item wide f_l">
-								<a href="{$good.ad_link}" target="_blank">
-									<img src="{$app_path}data/afficheimg/{$good.ad_code}">
+								<a href="<?php echo $this->_var['good']['ad_link']; ?>" target="_blank">
+									<img src="<?php echo $this->_var['app_path']; ?>data/afficheimg/<?php echo $this->_var['good']['ad_code']; ?>">
 								</a>
 						</div>
-                        {else}
+                        <?php else: ?>
                         <div class="floor_content_item f_l">
 							<div class="floor_box">
-								<a href="{$good.url}" target="_blank">
-									<img src="{$good.goods_thumb}">
+								<a href="<?php echo $this->_var['good']['url']; ?>" target="_blank">
+									<img src="<?php echo $this->_var['good']['goods_thumb']; ?>">
 								</a>	
 							</div>
-							<a class="margin_top_10 dis_block" href="{$good.url}" target="_blank">
-							  <span>{$good.name}</span><br>	
-							  <span class="color_CF5926">{$good.shop_price}点</span>
+							<a class="margin_top_10 dis_block" href="<?php echo $this->_var['good']['url']; ?>" target="_blank">
+							  <span><?php echo $this->_var['good']['name']; ?></span><br>	
+							  <span class="color_CF5926"><?php echo $this->_var['good']['shop_price']; ?>点</span>
 							</a>
 						</div>
-                        {/if}
-                    {/foreach}						
+                        <?php endif; ?>
+                    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>						
 			    </div>		
 			</div>
-			{/foreach}
+			<?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
 			
 			<div class="floor-guide" style="display:none;">
 			    <div class="mui-nav">
-                {foreach from=$attrGoods item=attr2}
-                    <a href="#floor_{$attr2.attrNo}">
-                        <b class="icon_01_channelhome">F{$attr2.attrNo}</b>
-                        <em>{$attr2.attrName}</em>
+                <?php $_from = $this->_var['attrGoods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr2');if (count($_from)):
+    foreach ($_from AS $this->_var['attr2']):
+?>
+                    <a href="#floor_<?php echo $this->_var['attr2']['attrNo']; ?>">
+                        <b class="icon_01_channelhome">F<?php echo $this->_var['attr2']['attrNo']; ?></b>
+                        <em><?php echo $this->_var['attr2']['attrName']; ?></em>
                         <i>&nbsp;</i>
                     </a>
-			    {/foreach}     
+			    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>     
 			    </div>
 			</div>
 			
 		</div>
         
         
-        <!--侧边悬浮-->
+        
         <div class="sidebar" id="sidebar">
         <a href="#body" class="s-btn goTop"></a>
         </div>
@@ -233,14 +244,14 @@
 			});
 		</script>
         
-        <!-- 底部 -->
-	 	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
-	    <!-- 底部结束 -->
-        <!-- 公共左边 -->
-		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
-        <!-- 公共左边结束 -->        
-        <!-- 公共右边 -->
-		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
-        <!-- 公共右边结束 -->
+        
+	 	<?php echo $this->fetch('library/page_footer.lbi'); ?>
+	    
+        
+		<?php echo $this->fetch('library/page_left.lbi'); ?>
+                
+        
+		<?php echo $this->fetch('library/page_right.lbi'); ?>
+        
     </body>
 </html>

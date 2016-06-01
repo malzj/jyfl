@@ -5,10 +5,6 @@
 <link rel="stylesheet" href="<?php echo $this->_var['app_path']; ?>css/juyoufuli/public.css">
 <link rel="stylesheet" href="<?php echo $this->_var['app_path']; ?>css/juyoufuli/login_layer.css">
 <script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/jquery.nicescroll.js"></script>
-<<<<<<< HEAD
-=======
-
->>>>>>> 3915f43278243782cf3650fe794069b77ef60b8e
 <div class="header">
     <ul class="header_nav">
         <li class="m_left"><img src="<?php echo $this->_var['app_path']; ?>images/juyoufuli/img_login/logo.png" alt="聚优福利"></li>
@@ -43,11 +39,7 @@ if ($this->_foreach['city']['total'] > 0):
                     <?php $_from = $this->_var['city']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'c');if (count($_from)):
     foreach ($_from AS $this->_var['c']):
 ?>
-<<<<<<< HEAD
-                    <li><a href="<?php echo $this->_var['app_path']; ?>index.php?cityid=<?php echo $this->_var['c']['region_id']; ?>"<?php if ($this->_var['c']['region_id'] == $this->_var['cityid']): ?> class="select"<?php endif; ?> hidefocus="true"><?php echo $this->_var['c']['region_name']; ?></a></li>
-=======
                     <li><a href="<?php echo $this->_var['app_path']; ?>user.php?cityid=<?php echo $this->_var['c']['region_id']; ?>"<?php if ($this->_var['c']['region_id'] == $this->_var['cityid']): ?> class="select"<?php endif; ?> hidefocus="true"><?php echo $this->_var['c']['region_name']; ?></a></li>
->>>>>>> 3915f43278243782cf3650fe794069b77ef60b8e
                     <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
                 </ul>
             </div>

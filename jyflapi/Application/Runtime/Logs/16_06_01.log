@@ -1,40 +1,171 @@
-[ 2016-06-01T09:02:32+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+[ 2016-06-01T08:30:51+08:00 ] 192.168.1.127 /jyflapi/index.php/Games/GamesApi/getWinners
 INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000567s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.001039s ]
-SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.012356s ]
-SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.009913s ]
-SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.028166s ]
-SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.013074s ]
-SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.008338s ]
-SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001668s ]
-SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1509010002 ) LIMIT 1   [ RunTime:0.002728s ]
-SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.004398s ]
-SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.002883s ]
-SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001305s ]
-SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 20 ) LIMIT 1   [ RunTime:0.001667s ]
-SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 13 ) LIMIT 1   [ RunTime:0.001497s ]
-SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 17 ) LIMIT 1   [ RunTime:0.001021s ]
-SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 15 ) LIMIT 1   [ RunTime:0.001220s ]
-SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 14 ) LIMIT 1   [ RunTime:0.001162s ]
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000767s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001422s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004171s ]
+SQL: SHOW COLUMNS FROM `ecs_winners_list` [ RunTime:0.004092s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004506s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.003574s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.003699s ]
+SQL: SELECT * FROM `ecs_users` LIMIT 1   [ RunTime:0.000483s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1509010002 ) LIMIT 1   [ RunTime:0.000318s ]
+SQL: SELECT * FROM `ecs_winners_list` WHERE ( `company_id` = 1509010002 ) AND ( `grade_id` = 1 )  [ RunTime:0.000279s ]
+SQL: SELECT * FROM `ecs_winners_list` WHERE ( `company_id` = 1509010002 ) AND ( `grade_id` = 2 )  [ RunTime:0.000241s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 16 ) LIMIT 1   [ RunTime:0.000267s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 16 ) GROUP BY user_id  [ RunTime:0.000503s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = '7110011491905776' ) LIMIT 1   [ RunTime:0.000346s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 20 ) LIMIT 1   [ RunTime:0.000248s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 20 ) GROUP BY user_id  [ RunTime:0.000475s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = '7110011034559036' ) LIMIT 1   [ RunTime:0.000338s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 15 ) LIMIT 1   [ RunTime:0.000263s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 15 ) GROUP BY user_id  [ RunTime:0.000451s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = '7110010995430713' ) LIMIT 1   [ RunTime:0.000329s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 14 ) LIMIT 1   [ RunTime:0.000250s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 14 ) GROUP BY user_id  [ RunTime:0.000436s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = '7110010995430713' ) LIMIT 1   [ RunTime:0.000327s ]
 
-[ 2016-06-01T09:02:41+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+[ 2016-06-01T08:31:07+08:00 ] 192.168.1.127 /jyflapi/index.php/Games/GamesApi/getGame
 INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000515s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.000912s ]
-SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.006047s ]
-SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.005504s ]
-SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.007929s ]
-SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.005330s ]
-SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006114s ]
-SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001151s ]
-SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1509010002 ) LIMIT 1   [ RunTime:0.001235s ]
-SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.001127s ]
-SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.001119s ]
-SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.001095s ]
-SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 20 ) LIMIT 1   [ RunTime:0.001199s ]
-SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 13 ) LIMIT 1   [ RunTime:0.001234s ]
-SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 17 ) LIMIT 1   [ RunTime:0.001201s ]
-SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 15 ) LIMIT 1   [ RunTime:0.001131s ]
-SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 14 ) LIMIT 1   [ RunTime:0.001075s ]
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001010s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001789s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.003765s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003519s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.000328s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 0 ) AND ( `user_id` = 1 ) AND ( `company_id` = 0 )  [ RunTime:0.000332s ]
+
+[ 2016-06-01T08:31:08+08:00 ] 192.168.1.127 /jyflapi/index.php/Games/GamesApi/getGame
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000773s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001471s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.004659s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004453s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.000418s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 0 ) AND ( `user_id` = 1 ) AND ( `company_id` = 0 )  [ RunTime:0.000474s ]
+
+[ 2016-06-01T08:31:08+08:00 ] 192.168.1.127 /jyflapi/index.php/Games/GamesApi/getGame
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000844s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001544s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.005077s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004802s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.000446s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 0 ) AND ( `user_id` = 1 ) AND ( `company_id` = 0 )  [ RunTime:0.000507s ]
+
+[ 2016-06-01T08:31:08+08:00 ] 192.168.1.127 /jyflapi/index.php/Games/GamesApi/getGame
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000880s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001613s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.003589s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003462s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.000321s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 0 ) AND ( `user_id` = 1 ) AND ( `company_id` = 0 )  [ RunTime:0.000342s ]
+
+[ 2016-06-01T08:31:08+08:00 ] 192.168.1.127 /jyflapi/index.php/Games/GamesApi/getGame
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002345s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.003631s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003301s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.000322s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 0 ) AND ( `user_id` = 1 ) AND ( `company_id` = 0 )  [ RunTime:0.000341s ]
+
+[ 2016-06-01T08:31:09+08:00 ] 192.168.1.127 /jyflapi/index.php/Games/GamesApi/getGame
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000843s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001537s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.005193s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.004821s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.000444s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 0 ) AND ( `user_id` = 1 ) AND ( `company_id` = 0 )  [ RunTime:0.000475s ]
+
+[ 2016-06-01T08:31:09+08:00 ] 192.168.1.127 /jyflapi/index.php/Games/GamesApi/getGame
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000846s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001541s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.003540s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003257s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.000299s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 0 ) AND ( `user_id` = 1 ) AND ( `company_id` = 0 )  [ RunTime:0.000314s ]
+
+[ 2016-06-01T08:39:20+08:00 ] 192.168.1.188 /jyflapi/index.php/Games/GamesApi/gameWinner
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000733s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001251s ]
+SQL: SHOW COLUMNS FROM `ecs_winners_list` [ RunTime:0.003828s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.003520s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004128s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003589s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.000353s ]
+SQL: SELECT * FROM `ecs_winners_list` WHERE ( `game_id` = 0 ) AND ( `company_id` = 0 ) LIMIT 1   [ RunTime:0.000261s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = null ) LIMIT 1   [ RunTime:0.000317s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 0 ) AND ( `company_id` = 0 ) GROUP BY user_id  [ RunTime:0.000476s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 0 ) AND ( `user_id` = 1 )  [ RunTime:0.000333s ]
+
+[ 2016-06-01T08:44:52+08:00 ] 192.168.1.134 /jyflapi/index.php/Games/GamesApi/gameWinner
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000963s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001719s ]
+SQL: SHOW COLUMNS FROM `ecs_winners_list` [ RunTime:0.005087s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.005027s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005854s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.005030s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.000486s ]
+SQL: SELECT * FROM `ecs_winners_list` WHERE ( `game_id` = 0 ) AND ( `company_id` = 0 ) LIMIT 1   [ RunTime:0.000381s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( `user_name` = null ) LIMIT 1   [ RunTime:0.000467s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 0 ) AND ( `company_id` = 0 ) GROUP BY user_id  [ RunTime:0.000705s ]
+SQL: SELECT * FROM `ecs_participation` WHERE ( `game_id` = 0 ) AND ( `user_id` = 1 )  [ RunTime:0.000497s ]
+
+[ 2016-06-01T08:45:37+08:00 ] 192.168.1.134 /jyflapi/index.php?s=Users/User/showAddress
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000849s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001556s ]
+SQL: SHOW COLUMNS FROM `ecs_user_address` [ RunTime:0.006624s ]
+NOTIC: [8] Undefined index: p C:\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 350 行.
+SQL: SELECT * FROM `ecs_user_address` WHERE ( user_id=1 )  [ RunTime:0.000595s ]
+SQL: SHOW COLUMNS FROM `ecs_region` [ RunTime:0.005106s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=-2 ) LIMIT 1   [ RunTime:0.000340s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=105 ) LIMIT 1   [ RunTime:0.000234s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.000216s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1460 ) LIMIT 1   [ RunTime:0.000219s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=123 ) LIMIT 1   [ RunTime:0.000208s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=2 ) LIMIT 1   [ RunTime:0.000211s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1901 ) LIMIT 1   [ RunTime:0.000220s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=109 ) LIMIT 1   [ RunTime:0.000196s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.000208s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1549 ) LIMIT 1   [ RunTime:0.032191s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=118 ) LIMIT 1   [ RunTime:0.000509s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.000473s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1189 ) LIMIT 1   [ RunTime:0.000496s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=110 ) LIMIT 1   [ RunTime:0.000468s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.000474s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1196 ) LIMIT 1   [ RunTime:0.000476s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=111 ) LIMIT 1   [ RunTime:0.000471s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.000476s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1549 ) LIMIT 1   [ RunTime:0.000464s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=118 ) LIMIT 1   [ RunTime:0.000502s ]
+SQL: SELECT * FROM `ecs_region` WHERE ( region_id=1 ) LIMIT 1   [ RunTime:0.000496s ]
+NOTIC: [8] Undefined variable: show C:\wamp\www\jyflapi\Application\Users\Controller\UserController.class.php 第 370 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001722s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001951s ]
+
+[ 2016-06-01T08:45:42+08:00 ] 192.168.1.134 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000859s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001644s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006198s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000704s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001221s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001376s ]
+
+[ 2016-06-01T08:45:58+08:00 ] 192.168.1.134 /jyflapi/index.php?s=Users/User/userShow
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000911s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001604s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.004292s ]
+SQL: SELECT * FROM `ecs_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000443s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000771s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000877s ]
 

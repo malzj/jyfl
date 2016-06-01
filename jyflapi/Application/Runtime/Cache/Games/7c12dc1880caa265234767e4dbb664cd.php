@@ -124,7 +124,7 @@
                 <!-- page start-->
                 <div class="panel-body">
                     <!--<form class="form-horizontal tasi-form" id="sv" enctype="multipart/form-data"  method="post" action="/jyflapi/index.php/Games/Games/gradeAdd">-->
-                    <form class="form-horizontal tasi-form" id="sv" enctype="multipart/form-data"  method="post" action="<?php echo U('Games/gameAdd');?>">
+                    <form class="form-horizontal tasi-form" id="sv" enctype="multipart/form-data"  method="post" action="/jyflapi/index.php/Games/Games/gameAdd">
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">名称</label>
                             <div class="col-sm-10">
@@ -238,9 +238,9 @@
 <!--common script for all pages-->
 <script src="/jyflapi/Public/games/js/common-scripts.js"></script>
 <script type="text/javascript">
-    $('#s').click(function () {
-        $(this).attr('disabled',true);
-    })
+    //$('#s').click(function () {
+    //    $(this).attr('disabled',true);
+    //})
 </script>
 
 </body>

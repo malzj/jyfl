@@ -146,7 +146,7 @@
 		
 		$(function(){
             var id = $('#user_id').val();
-            var cnum = {$usernames.user_name}
+            var cnum = {$usernames.user_name};
 
             showRight(id,cnum);
 

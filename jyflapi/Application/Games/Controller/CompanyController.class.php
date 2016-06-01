@@ -33,10 +33,12 @@ class CompanyController extends Controller
         $dataList = $Card -> getDataList();
         $time = strtotime($result['Time']);
         $time = date('Y-m-d H:i:s',$time);
+        $company_logo = 'logo.png';
+        $company_bg = 'C-_Users_user_Desktop_01.png';
         if($no == 0){
             $companyList = array();
             foreach($dataList['Info'] as $key=>$val){
-                $companyList[] = array('card_company_id'=>$val['CustomerID'],'company_name'=>$val['CompanyName'],'grade_id'=>2,'create_time'=>$time);
+                $companyList[] = array('card_company_id'=>$val['CustomerID'],'company_name'=>$val['CompanyName'],'grade_id'=>2,'create_time'=>$time,'logo_img'=>$company_logo,'back_img'=>$company_bg);
             }
         }
         $CompanyModel -> addAll($companyList);

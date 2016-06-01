@@ -7,7 +7,7 @@
 <script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/ajaxfileupload.js"></script>
 <script src="<?php echo $this->_var['app_path']; ?>js/utils.js"></script>
 <script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/pop_right.js"></script>
-<input type="hidden" value="1" id="user_id" />
+<input type="hidden" value="<?php echo $this->_var['usernames']['user_id']; ?>" id="user_id" />
 <input type="hidden" value="" id="img" />
 <div class="pop_left">
     <ul class="list_main">

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="movie_4">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+    </head>
+  	<body>
+    	 <!-- 公用头部 -->
+		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 --> 
+        <div class="w_1200">
+			<div class="pay_del">
+			</div>
+			<div class="pay_success">
+				<h3><img src="/images/index/img_login/yes_icon.png">订单支付成功</h3>
+				<div class="btn1" style="display:block;"><a href="{$app_path}" style="margin-right: 20px;">返回首页</a><a href="javascript:;" style="color: #2fd0b5;">我的订单</a></div>
+				<div class="tips">
+						<ul>
+							<li>温馨提示：</li>	
+							<li>订单支付成功，我们会在24小时内为您安全发货。</li>							
+						</ul>
+				</div>
+			</div>
+		</div>
+      
+        
+        <!-- 公用底部 -->
+		<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    	<!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+    </body>
+</html>

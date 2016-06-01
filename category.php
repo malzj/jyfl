@@ -16,6 +16,7 @@
 define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
+include_once(ROOT_PATH . 'includes/lib_basic.php');
 
 if ((DEBUG_MODE & 2) != 2)
 {
@@ -396,6 +397,14 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
             $goodslist[] = array();
         }
     }
+    
+    // banner图 和 text广播    
+    $adving = getAdid($cat_id);  
+    if ($adving === null)
+        show_message('无法处理您的请求！');
+    
+    $smarty->assign('banner',       getNavadvs($adving['banner']));
+    $smarty->assign('text',         getNavadvs($adving['text']));
     
     $smarty->assign('goods_list',       $goodslist);
     $smarty->assign('category',         $cat_id);

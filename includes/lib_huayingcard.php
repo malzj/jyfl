@@ -10,8 +10,8 @@
 class huayingcard {
 	
 	// wsdl 地址
-//	public $wsdl = 'http://1.93.129.186:8089/InterFaceService.asmx?wsdl';
-	public $wsdl = 'http://210.75.200.74:17020/services/InterFaceService.asmx?wsdl';
+	public $wsdl = 'http://1.93.129.186:8089/InterFaceService.asmx?wsdl';
+	//public $wsdl = 'http://210.75.200.74:17020/services/InterFaceService.asmx?wsdl';
 
 
 	// 编码
@@ -41,7 +41,7 @@ class huayingcard {
 	protected $message = NULL;
 
 	// des 加密/解密
-	protected $open3Des = false;
+	protected $open3Des = true;
 	protected $desIV = 'ZS@zzOrc';
 	protected $desKey = 'XAdsAxxs';
 

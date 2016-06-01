@@ -21,7 +21,9 @@ class PeisongController extends \Think\Controller
         $data["jiage"] =  $_POST["jiage"];
         $data["yanse"] = $_POST["yanse"];
         $data["dianshu"] = $_POST["dianshu"];
-
+        $data["cityid"] = $_POST["cityid"];
+        $data["isTime"] = $_POST["isTime"];
+        
 
         $data["addDate"] =date( 'Y-m-d',time());
         $id=$Dao->add($data);
@@ -54,9 +56,11 @@ class PeisongController extends \Think\Controller
     }
     public  function showmap(){
         $id = $_POST['gongyingshang_id'];
+        $istime = isset($_POST['isTime'])? $_POST['isTime'] : 1 ;
         $result=array();
         $data=array();
         $data['gongyingshang_id']=$id;
+        $data['isTime'] = $istime;
         $Dao = M('peisongmap');
         $Dao1 = M('peisongmapzuobiao');
         $list=$Dao->where($data)->select();

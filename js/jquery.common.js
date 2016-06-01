@@ -75,7 +75,7 @@ function addToCartResponse(result){
 	}
 	else{
 		var cartInfo = document.getElementById('ECS_CARTINFO');
-		var cart_url = 'flow.php?step=cart';
+		var cart_url = 'flow.php?step=checkout&flowtype=5';
 		if (cartInfo){
 			cartInfo.innerHTML = result.content;
 		}
@@ -85,7 +85,7 @@ function addToCartResponse(result){
 			return ;
 		}
 
-		if (result.one_step_buy == '1'){
+		if (result.carttype == '5'){
 			location.href = cart_url;
 		}
 		else{

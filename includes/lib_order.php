@@ -824,11 +824,11 @@ function order_fee($order, $goods, $consignee)
 	
     // 配送方式存在 并且购物车里的商品数量大于0，统计供应商的配送费用
 	if ($order['shipping_id'] > 0 && $total['real_goods_count'] > 0){
-		$region['country']  = $consignee['country'];     	// 城市
+		/* $region['country']  = $consignee['country'];     	// 城市
 		$region['province'] = $consignee['province'];		// 区域
 		$region['city']     = $consignee['city'];			// 城镇（北京的话，通常是，五环以外，六环内内，。。。）
 		$region['district'] = $consignee['district'];		// 没用到
-		
+		 */
 		/**
 		 * 需要选择配送时间的供应商。
 		 * 思路：
@@ -837,7 +837,7 @@ function order_fee($order, $goods, $consignee)
 		 *
 		 * @author  guoyunpeng
 		 */
-		$supplierInfo = array();
+		/* $supplierInfo = array();
 		$suppliers = suppliers_list();
 		foreach($suppliers as $supp){
 			if ($supp['status'] == '1' && $supp['open_time']=='1'){
@@ -860,11 +860,11 @@ function order_fee($order, $goods, $consignee)
 			}else{
 				$shipping_info = shipping_area_info($order['shipping_id'], $region);
 			}
-			
+			 */
 			/** 没有配送信息，没有配送信息发生的节点存在于，选择的该地区没有在供应商的配送地区范围内。
 			 * 	如果供应商的配送地区选择了该地区，就能查到并返回该地区的配送信息，没有就返回 false
 			 */
-			if (!empty($shipping_info)){
+			/* if (!empty($shipping_info)){
 				$total['supplier_shipping'][$row_supp['supplier_id']]['supplier_name'] = $row_supp['supplier_name2'];
 				$total['supplier_shipping'][$row_supp['supplier_id']]['goods_number'] += $val['goods_number'];
 				$total['supplier_goodsnumber'][$row_supp['supplier_id']] += $val['goods_number'];
@@ -878,8 +878,7 @@ function order_fee($order, $goods, $consignee)
 				// 查看购物车中是否全为免运费商品，若是则把运费赋为零
 				$sql = 'SELECT count(*) FROM ' . $GLOBALS['ecs']->table('cart') . " AS c left join ". $GLOBALS['ecs']->table('goods') ." AS g on c.goods_id=g.goods_id WHERE g.supplier_id = '". $row_supp['supplier_id'] ."' AND c.session_id = '" . SESS_ID. "' AND c.extension_code != 'package_buy' AND c.is_shipping = 0";
 				$shipping_count_supp = $GLOBALS['db']->getOne($sql);
-				/* var_dump($supplierInfo); 
-				var_dump($row_supp); */
+				
 				// 如果供应商开启了配送时间
 				if(in_array($row_supp['supplier_id'], $supplierInfo)){					
 					$total['supplier_shipping'][$row_supp['supplier_id']]['shipping_fee'] = shipping_fee_open_time($row_supp['supplier_id']);
@@ -894,15 +893,15 @@ function order_fee($order, $goods, $consignee)
 				$total['supplier_shipping'][$row_supp['supplier_id']]['shipping_fee'] = shipping_fee_open_time($row_supp['supplier_id']);
 				$total['supplier_shipping'][$row_supp['supplier_id']]['supplier_name'] = $row_supp['supplier_name2'];
 				$total['supplier_shipping'][$row_supp['supplier_id']]['formated_shipping_fee'] = price_format($total['supplier_shipping'][$row_supp['supplier_id']]['shipping_fee'], true);
-			}
+			} 
 		}
-		
-		ksort($total['supplier_shipping']);
+		*/
+		/* ksort($total['supplier_shipping']);
 		$total['shipping_fee']    = 0;
 		foreach($total['supplier_shipping'] AS $supp_shipping){
 			$total['shipping_fee'] += $supp_shipping['shipping_fee'];
 		}
-		$total['shipping_fee_formated'] = price_format($total['shipping_fee'], false);
+		$total['shipping_fee_formated'] = price_format($total['shipping_fee'], false); */
 	}
 
     // 购物车中的商品能享受红包支付的总额
@@ -1231,6 +1230,9 @@ function cart_weight_price($type = CART_GENERAL_GOODS)
  */
 function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0)
 {
+    // 购物车类型
+    $flowtype = isset($_SESSION['flow_type']) ? intval($_SESSION['flow_type']) : CART_GENERAL_GOODS;
+    
     $GLOBALS['err']->clean();
     $_parent_id = $parent;
 
@@ -1375,9 +1377,10 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0)
         'extension_code'=> $goods['extension_code'],
         'is_gift'       => 0,
         'is_shipping'   => $goods['is_shipping'],
-        'rec_type'      => CART_GENERAL_GOODS
+        'rec_type'      => $flowtype
     );
 
+    
     /* 如果该配件在添加为基本件的配件时，所设置的“配件价格”比原价低，即此配件在价格上提供了优惠， */
     /* 则按照该配件的优惠价格卖，但是每一个基本件只能购买一个优惠价格的“该配件”，多买的“该配件”不享 */
     /* 受此优惠 */
@@ -1471,7 +1474,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0)
                 " WHERE session_id = '" .SESS_ID. "' AND goods_id = '$goods_id' ".
                 " AND parent_id = 0 AND goods_attr_id = '" .$goods_attr_id. "' " .
                 " AND extension_code <> 'package_buy' " .
-                " AND rec_type = 'CART_GENERAL_GOODS'";
+                " AND rec_type = '".$flowtype."'";
 
         $row = $GLOBALS['db']->getRow($sql);
 
@@ -1494,7 +1497,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0)
                        " WHERE session_id = '" .SESS_ID. "' AND goods_id = '$goods_id' ".
                        " AND parent_id = 0 AND goods_attr_id = '" .$goods_attr_id. "' " .
                        " AND extension_code <> 'package_buy' " .
-                       "AND rec_type = 'CART_GENERAL_GOODS'";
+                       "AND rec_type = '".$flowtype."'";
                 $GLOBALS['db']->query($sql);
             }
             else
@@ -1548,7 +1551,7 @@ function get_goods_spec_info($nember,$price)
 	{
 		$fmt = "%s:%s \n";
 		$row = $GLOBALS['db']->getRow("SELECT * FROM ".$GLOBALS['ecs']->table('goods_spec')." WHERE spec_nember =".$nember);
-		$spec = sprintf($fmt, '规格：', $row['spec_name']);
+		$spec = sprintf($fmt, '规格', $row['spec_name']);
 	}
 	return $spec;
 	
@@ -1918,13 +1921,7 @@ function get_cart_goods($id_ext='')
         /* 查询规格 */
         if (trim($row['goods_attr']) != '')
         {
-            $sql = "SELECT attr_value FROM " . $GLOBALS['ecs']->table('goods_attr') . " WHERE goods_attr_id " .
-            db_create_in($row['goods_attr']);
-            $attr_list = $GLOBALS['db']->getCol($sql);
-            foreach ($attr_list AS $attr)
-            {
-                $row['goods_name'] .= ' [' . $attr . '] ';
-            }
+           $row['goods_attr'] = str_replace("\n", '&nbsp;&nbsp;', $row['goods_attr']);
         }
         /* 增加是否在购物车里显示商品图 */
         if (($GLOBALS['_CFG']['show_goods_in_cart'] == "2" || $GLOBALS['_CFG']['show_goods_in_cart'] == "3") && $row['extension_code'] != 'package_buy')
@@ -3582,6 +3579,15 @@ function split_order($new_order_id){
 	$split_orders = array();
 	$all_amount = 0;
 	
+	// 得到配送时间，配送地址
+	$sql = "SELECT best_time,supplier_address,supplier_shipping  FROM " . $GLOBALS['ecs']->table('order_info') . "
+			WHERE order_id = '" . $new_order_id . "'";
+	$row = $GLOBALS['db']->getRow($sql);
+	
+	$best_time = unserialize($row['best_time']);
+	$supplier_address = unserialize($row['supplier_address']);
+	$supplier_shipping = unserialize($row['supplier_shipping']);
+	
 	//供货商红包信息
 	while ($row=$GLOBALS['db']->fetchRow($res))
 	{
@@ -3589,7 +3595,7 @@ function split_order($new_order_id){
 		$split_orders[$row['supplier_id']]['goods_number'] += $row['goods_number'];
 		$split_orders[$row['supplier_id']]['goods_reclist'][] = $row['rec_id'];
 		$split_orders[$row['supplier_id']]['order_sn'] =  $split_orders[$row['supplier_id']]['order_sn'] ? $split_orders[$row['supplier_id']]['order_sn'] : get_order_sn();
-		$split_orders[$row['supplier_id']]['shipping_fee']   = $GLOBALS['total']['supplier_shipping'][$row['supplier_id']]['shipping_fee'];
+		$split_orders[$row['supplier_id']]['shipping_fee']   = $supplier_shipping[$row['supplier_id']];
 		
 		//供货商红包
 		$split_orders[$row['supplier_id']]['bonus']    = $GLOBALS['total']['supplier_bonus_info'][$row['supplier_id']]['money'];
@@ -3618,45 +3624,10 @@ function split_order($new_order_id){
 	}
 	
 
-	$count_split_orders = count($split_orders);
-	
-	//把本网站红包分配到不同供货商
-	/*$float_tempBonus = 0;//临时红包金额变量
-	if ($GLOBALS['total']['bonus'] && $count_split_orders > 1){
-		$sxiaos = 0;
-		if (strrpos($GLOBALS['total']['bonus'], '.') !== false){
-			$sxiaos = (float)substr($GLOBALS['total']['bonus'], strpos($GLOBALS['total']['bonus'], '.'));
-		}
-		$i=1;
-		foreach ($split_orders as $key=>$var){
-			$float_tempBonus = $GLOBALS['total']['bonus'];
-			if ($var['order_amount'] < $float_tempBonus){
-				$GLOBALS['total']['bonus'] -= $var['order_amount'];
-			}
-
-			if ($GLOBALS['total']['bonus'] % $count_split_orders == 0 && empty($sxiaos)){
-				$var['bonus'] = $GLOBALS['total']['bonus'] / $count_split_orders;
-			}else{
-				if ($i < $count_split_orders){
-					$var['bonus'] = (int)($GLOBALS['total']['bonus'] / $count_split_orders);
-				}else{
-					$var['bonus'] = (int)($GLOBALS['total']['bonus'] / $count_split_orders) + $GLOBALS['total']['bonus'] % $count_split_orders + $sxiaos;
-				}
-			}
-			$i++;
-			$split_orders[$key] = $var;
-		}
-	}*/
-
-	// 得到配送时间
-	$sql = "SELECT best_time  FROM " . $GLOBALS['ecs']->table('order_info') . "
-			WHERE order_id = '" . $new_order_id . "'";
-	$row = $GLOBALS['db']->getRow($sql);
-	$best_time = unserialize($row['best_time']);
+	$count_split_orders = count($split_orders);	
 	
 	
-	
-	foreach ($split_orders AS $spkey => $split){
+	foreach ($split_orders AS $spkey => &$split){
 		// 设置指定供应商的配送时间
 		$split['best_time'] = $best_time[$spkey]['riqi'].' '.$best_time[$spkey]['time'] ;
 		// 指定供应商的配送区域
@@ -3665,25 +3636,46 @@ function split_order($new_order_id){
 			//如果使用的是供货商红包修改红包信息
 			$str_set = $split['bonus'] && $split['bonus_id'] ? ", bonus = '".$split['bonus']."', bonus_id = '".$split['bonus_id']."'" : '';
 			$sql = "update ". $GLOBALS['ecs']->table('order_info') .
-					" set shop_ratio='".$split['shop_ratio']."', card_ratio='".$split['card_ratio']."', unit_ratio='".$split['unit_ratio']."',  supplier_id='$spkey', city='".$split['city']."', parent_order_id='0', best_time='". $split['best_time']. "', rebate_id='$rebate_id' $str_set where order_id='$new_order_id' ";
+					" set shop_ratio='".$split['shop_ratio']."', ".
+					" card_ratio='".$split['card_ratio']."', ".
+					" unit_ratio='".$split['unit_ratio']."',  ".
+					" supplier_id='$spkey', ".
+					" parent_order_id='0', ".
+					" best_time='". $split['best_time']. "', ".
+					" rebate_id='".$rebate_id."', ".
+					" consignee='".$supplier_address[$spkey]['consignee']."', ".
+					" email='".$supplier_address[$spkey]['email']."', ".
+					" country='".$supplier_address[$spkey]['country']."', ".
+					" city='".$supplier_address[$spkey]['city']."', ".
+					" district='".$supplier_address[$spkey]['district']."', ".
+					" address='".$supplier_address[$spkey]['address']."', ".
+					" zipcode='".$supplier_address[$spkey]['zipcode']."', ".
+					" tel='".$supplier_address[$spkey]['tel']."', ".
+					" mobile='".$supplier_address[$spkey]['mobile']."', ".
+					" shipping_fee = '".$supplier_shipping[$spkey]."' ".
+					" $str_set where order_id='$new_order_id' ";
 			$GLOBALS['db']->query($sql);
+			// 记录订单id
+			$split['order_id'] = $new_order_id;
 		}else{
 			$order_sn = $split['order_sn'];
 			$sql = 'insert into '.$GLOBALS['ecs']->table('order_info') . '( '.
 					"order_sn, user_id, order_status, shipping_status, pay_status, consignee, country, province, city, district, address, zipcode, tel, mobile, email, best_time , sign_building, postscript, shipping_id, shipping_name, pay_id, pay_name, how_oos, how_surplus, pack_name, card_name, card_message, inv_payee, inv_content, goods_amount, shipping_fee, insure_fee, pay_fee, pack_fee, card_fee, money_paid, surplus, integral, integral_money, bonus, order_amount, from_ad, referer, add_time, confirm_time, pay_time, shipping_time, pack_id, card_id, bonus_id, invoice_no, extension_code, extension_id, to_buyer, pay_note, agency_id, inv_type, tax, is_separate, parent_id, discount, supplier_id, parent_order_id, rebate_id,source,shop_ratio,card_ratio,unit_ratio) ".
-					"select '$order_sn', user_id, order_status, shipping_status, pay_status, consignee, country, province, '".$split['city']."', district, address, zipcode, tel, mobile, email, '". $split['best_time']. "', sign_building, postscript, shipping_id, shipping_name, pay_id, pay_name, how_oos, how_surplus, pack_name, card_name, card_message, inv_payee, inv_content, '". $split['goods_amount']. "', '" . $split['shipping_fee'] ."', insure_fee, pay_fee, pack_fee, card_fee, money_paid, surplus, integral, integral_money, '".$split['bonus']."', '". $split['order_amount'] ."', from_ad, referer, add_time, confirm_time, pay_time, shipping_time, pack_id, card_id, '".$split['bonus_id']."', invoice_no, extension_code, extension_id, to_buyer, pay_note, agency_id, inv_type, tax, is_separate, parent_id, discount, '$spkey', '$new_order_id', '$rebate_id',source, '".$split['shop_ratio']."', '".$split['card_ratio']."', '".$split['unit_ratio']."' from ".$GLOBALS['ecs']->table('order_info')." where order_id= '$new_order_id' ";
+					"select '$order_sn', user_id, order_status, shipping_status, pay_status, '".$supplier_address[$spkey]['consignee']."', '".$supplier_address[$spkey]['country']."', '".$supplier_address[$spkey]['province']."', '".$supplier_address[$spkey]['city']."','".$supplier_address[$spkey]['district']."' , '".$supplier_address[$spkey]['address']."' , '".$supplier_address[$spkey]['zipcode']."','".$supplier_address[$spkey]['tel']."', '".$supplier_address[$spkey]['mobile']."', '".$supplier_address[$spkey]['email']."', '". $split['best_time']. "', sign_building, postscript, shipping_id, shipping_name, pay_id, pay_name, how_oos, how_surplus, pack_name, card_name, card_message, inv_payee, inv_content, '". $split['goods_amount']. "', '".$split['shipping_fee']."', insure_fee, pay_fee, pack_fee, card_fee, money_paid, surplus, integral, integral_money, '".$split['bonus']."', '". $split['order_amount'] ."', from_ad, referer, add_time, confirm_time, pay_time, shipping_time, pack_id, card_id, '".$split['bonus_id']."', invoice_no, extension_code, extension_id, to_buyer, pay_note, agency_id, inv_type, tax, is_separate, parent_id, discount, '$spkey', '$new_order_id', '$rebate_id',source, '".$split['shop_ratio']."', '".$split['card_ratio']."', '".$split['unit_ratio']."' from ".$GLOBALS['ecs']->table('order_info')." where order_id= '$new_order_id' ";
 			$GLOBALS['db']->query($sql);
 			$order_id_new = $GLOBALS['db']->insert_id();
 			foreach ($split['goods_reclist'] AS $rec){
 				$sql= "update ". $GLOBALS['ecs']->table('order_goods') ." set order_id='$order_id_new' where rec_id='$rec' ";
 				$GLOBALS['db']->query($sql);
 			}
+			// 记录订单id
+			$split['order_id'] = $order_id_new;
 		}
 	}
-	if ($count_split_orders>1){
+	/* if ($count_split_orders>1){
 		$sql="delete from ".$GLOBALS['ecs']->table('order_info')." where order_id='$new_order_id' ";
 		$GLOBALS['db']->query($sql);
-	}
+	} */
 	$arr=array();
 	$arr['suborder_list'] = $split_orders;
 	$arr['all_amount'] = $all_amount;

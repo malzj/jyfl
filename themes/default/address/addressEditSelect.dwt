@@ -1,0 +1,49 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="item form-group">
+    <label class="f_l">收货人</label>
+    <div class="f_l input">
+        <input type="text" name="consignee" id="consignee" value="{$consignees.consignee|escape}" placeholder="请输入收货人信息">
+    </div>
+</div>
+<div class="item form-group">
+    <label class="f_l">所在地区</label>    
+        <select name="country" id="country">
+            <option value="{$cityid}" selected> {$cityinfo.region_name}</option>                    
+        </select>    
+        <select name="province" id="province" onchange="region.changed(this, 2, 'city')">
+            {foreach from=$province_list item=province}
+            <option value="{$province.region_id}" {if $consignees.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
+            {/foreach}               
+        </select>
+        <select name="city" id="city" >
+            <option value="0"> == 请选择 == </option>
+            {foreach from=$city_list item=city}
+            <option value="{$city.region_id}" {if $consignees.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+            {/foreach}
+        </select>
+        
+   
+</div>
+<div class="item form-group">
+    <label class="f_l">详细地址</label>
+    <div class="f_l input xiangxi">
+        <input  type="text" name="address" id="address" value="{$consignees.address|escape}" placeholder="街道详细信息">
+    </div>
+</div>
+<div class="item form-group">
+    <label class="f_l">手机号码</label>
+    <div class="f_l input">
+        <input type="text" name="mobile" id="mobile" value="{if $consignees.mobile}{$consignees.mobile|escape}{/if}" placeholder="手机号">
+    </div>
+</div>
+<div class="item form-group">
+    <label class="f_l">电子邮箱</label>
+    <div class="f_l input">
+        <input type="text"  name="email" id="email"  value="{if $consignees}{$consignees.email|escape}{/if}" placeholder="电子邮箱">
+    </div>
+</div>
+<div class="btn_1">
+    <span class="save" onClick="saveConsignee({$address_id})">保存</span>
+    <span class="cancel">取消</span>
+</div>

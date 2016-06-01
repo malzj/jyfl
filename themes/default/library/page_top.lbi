@@ -33,7 +33,7 @@
             <div class="inner clear">
                 <ul class="clear">
                     {foreach from=$city item=c}
-                    <li><a href="{$app_path}index.php?cityid={$c.region_id}"{if $c.region_id eq $cityid} class="select"{/if} hidefocus="true">{$c.region_name}</a></li>
+                    <li><a href="{$app_path}user.php?cityid={$c.region_id}"{if $c.region_id eq $cityid} class="select"{/if} hidefocus="true">{$c.region_name}</a></li>
                     {/foreach}
                 </ul>
             </div>

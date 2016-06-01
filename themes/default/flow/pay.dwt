@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+        
+        {insert_scripts files='jquery.common.js'}
+       
+	</head>
+	<body class='bg_white'>
+        <!-- 头部 -->
+        <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 -->
+        
+         <style>
+        	.order_tijiao_msg .clickEve{background:#ccc!important;}
+        </style>
+        <div class="w_1200">
+            <div class="order_tijiao"></div>
+            <div class="order_tijiao_content">
+                <div class="order_tijiao_name">订单已提交成功，共计<span class="color_ff7900">{$orders.order_amount}点</span></div>
+                <img src="{$app_path}images/juyoufuli/img_login/order_submit_img.png">
+                <div class="order_tijiao_msg">
+                    <div class="order_tijiao_username">聚优卡号：<span>{$usernames.user_name}</span></div>
+                    <div class="order_tijiao_password">聚优卡密码：<input type="password" name="password" id="password" placeholder="请输入密码"></div>
+                    <button type="button" class="bg_color zhuti_a_hover" onclick="checkPayForm()">结算</button>
+                </div>
+            </div>
+        </div>
+            
+		<script type="text/javascript">
+		<!--
+			var lock = false;
+			function checkPayForm(){
+				if(lock){					
+					return false;
+				}
+				
+				var amount       = {$orders.order_amount};
+				var money        = {$usernames.card_money};		
+				var order_id     = '{$orders.order_id}';		
+
+				var pwd = document.getElementById('password').value;
+				if (pwd.length == 0){
+					alert('卡密码不能为空');
+					return false;
+				}
+				
+				if (amount > money){
+					alert('抱歉，卡余额不足，请充值或换一张');
+					return false;
+				}				
+				lock = true;
+				// 支付状态
+				$('.zhuti_a_hover').addClass('clickEve').html('支付中...');				
+				$.post('flow.php', {step: 'act_pay', password:pwd, 'order_id':order_id}, function (result){
+					if (result.error > 0){
+						alert(result.message);
+						lock = false;
+						$('.zhuti_a_hover').removeClass('clickEve').html('提交');	
+					}else{
+						location.href="flow.php?step=respond";
+					}
+				}, 'json');
+			}
+		//-->
+		</script>
+        
+        <!-- 底部 -->
+	 	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+	    <!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+    </body>
+</html>

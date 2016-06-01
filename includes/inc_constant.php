@@ -62,6 +62,7 @@ define('CART_GROUP_BUY_GOODS',      1); // 团购商品
 define('CART_AUCTION_GOODS',        2); // 拍卖商品
 define('CART_SNATCH_GOODS',         3); // 夺宝奇兵
 define('CART_EXCHANGE_GOODS',       4); // 积分商城
+define('CART_ONE_GOODS',            5); // 一部购物商品
 
 /* 订单状态 */
 define('OS_UNCONFIRMED',            0); // 未确认

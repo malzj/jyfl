@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+        
+        {insert_scripts files='jquery.common.js'}
+	</head>
+	<body class='bg_white'>
+        <!-- 头部 -->
+        <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 -->
+        
+        <script type="text/javascript">
+			{foreach from=$lang.password_js item=item key=key}
+			var {$key} = "{$item}";
+			{/foreach}
+		</script>
+        <form id="formCart" name="formCart" method="post" action="flow.php">
+        <div class="w_1200">
+			<div class="buy_car_tips"></div>
+			<div class="cake_tips"><a href="user.php" class="color_zhuti next_buy">继续购物>></a></div>
+			<div class="buy_car_list">
+                <div class="burcar_all">                
+                    <div class="f_l burcar_all1" style="width:710px;">商品信息</div>
+                    <div class="f_l burcar_all2">单价(点)</div>
+                    <div class="f_l burcar_all3">购买数量</div>         
+                    <div class="f_l burcar_all5">合计(点)</div>
+                    <div class="f_l burcar_all6">操作</div>
+                </div>
+			</div>
+			<!--供应商订单显示-->
+			<div class="gyshang_all">
+            	{foreach from=$goods_list item=supplier name=supplier}
+				<div class="gyshang_item">
+					<!--供货商名称-->
+					<div class="gyshang_title">
+						<span>{$supplier.supplier_name}</span>
+					</div>
+					<!--单个订单-->
+                    {foreach from=$supplier.goods_list item=goods}
+					<div class="gyshang_form">
+						<div class="f_l check_item">
+							<!--<input type="checkbox" name="checkbox_1">-->
+                            <input type="hidden" name="sel_cartgoods[]" value="{$goods.rec_id}" class="yi_checkbox" />
+						</div>
+						<div class="f_l burcar_all1">
+							<a href="goods.php?id={$goods.goods_id}" class="p_img">
+								<img src="{$goods.goods_thumb}" alt="{$goods.goods_name|escape:html}" >
+							</a>		
+							<a href="goods.php?id={$goods.goods_id}" class="p_details f_l">{$goods.goods_name}</a><br/>
+							<span>{$goods.goods_attr} </span>
+						</div>
+						<div class="f_l burcar_all2"><span class="line_h">{$goods.goods_price}</span></div>
+						<div class="f_l burcar_all3">
+							<div class="quantity">
+								<a id="decrement" class="decrement" onclick="changeNumber('{$goods.rec_id}')">-</a>
+								<input name="goods_number[{$goods.rec_id}]" id="goods_number_{$goods.rec_id}" value="{$goods.goods_number}" class="itxt" value="1" type="text">
+								<a id="increment" class="increment" onclick="changeNumber('{$goods.rec_id}', 1)">+</a>				
+							</div>
+						</div>						
+						<div class="f_l burcar_all5"><span class="line_h">{$goods.subtotal}</span></div>
+						<div class="f_l burcar_all6"><span class="line_h"><a href="javascript:if (confirm('{$lang.drop_goods_confirm}')) location.href='flow.php?step=drop_to_collect&amp;id={$goods.rec_id}'">删除</a></span></div>
+					</div>
+                    {/foreach}				
+				</div>	
+                {/foreach}
+                
+                
+			</div>
+			<div class="buy_car_bottom o_hidden">
+				<div class="buy_car_remove f_l"><a href="javascript:;" class="color_zhuti" onclick="location.href='flow.php?step=clear'">全部删除</a></div>
+				<div class="f_r buy_car_price">
+					<span>商品总金额（不含运费）：</span>
+					<span class="color_zhuti font-16">{$shopping_money}</span>点
+				</div>	
+			</div>
+			<input type="button" value="立即结算" class="buy_car_jiesuan f_r zhuti_a_hover" onclick="location.href='flow.php?step=checkout'">
+            <input type="hidden" name="step" value="update_cart" />
+            <input type="submit" name="updateCartSub" id="updateCartSub" value="{$lang.update_cart}" style="display:none;" />
+            
+		</div>
+        </form>
+
+        <!-- 底部 -->
+	 	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+	    <!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+        
+        <script type="text/javascript">
+		<!--
+		
+			
+			function drop_allgoods() {
+				if(window.confirm('确定删除选中商品吗？')){
+					document.formCart.action='flow.php?step=drop_allgoods';
+					document.formCart.submit();
+					return true;
+				}else{
+					return false;
+				}
+				return false;
+			}
+			function changeNumber(id, state){
+				var number = document.getElementById('goods_number_'+id);
+				if(isNaN(number.value)){
+					alert('请输入数字');
+					return false;
+				}
+				if(state == 1){
+					numbers = parseInt(number.value) + 1;
+				}else if(state == 2){
+					numbers = parseInt(number.value);
+				}else{
+					numbers = parseInt(number.value) - 1;
+				}
+				if(numbers < 1 || number.value == ''){
+					numbers = 1;
+				}
+				number.value = numbers;
+				document.getElementById('updateCartSub').click();
+			}
+		//-->
+		</script>
+    </body>
+</html>

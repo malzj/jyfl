@@ -40,11 +40,18 @@ if ($_REQUEST['act'] == 'AjaxAddressList')
         // 排序，把默认地址放到第一个
         array_multisort($sortKey,SORT_DESC,$consignee_list);
     }
-    
-   
-
+            
     $smarty->assign('consignee_list',      $consignee_list);  
-    $ajaxArray['content'] = $smarty->fetch('address/addressList.dwt');
+    
+    // 下单页面的列表
+    if(strpos($_SERVER['HTTP_REFERER'], 'newAddress') !== false)
+    {
+        $ajaxArray['content'] = $smarty->fetch('address/addressListSelect.dwt');        
+    }
+    else
+    { 
+        $ajaxArray['content'] = $smarty->fetch('address/addressList.dwt');
+    }
     exit(json_encode($ajaxArray));
 }
 
@@ -71,8 +78,13 @@ elseif ($_REQUEST['act'] == 'AjaxAddressEdit')
     $smarty->assign('address_id', $address_id);
     
     $smarty->assign('shop_country',       $int_cityId);
+ 
+    // 下单页面的列表
+    if(strpos($_SERVER['HTTP_REFERER'], 'newAddress') !== false)
+        $ajaxArray['content'] = $smarty->fetch('address/addressEditSelect.dwt');
+    else
+        $ajaxArray['content'] = $smarty->fetch('address/addressEdit.dwt');
     
-    $ajaxArray['content'] = $smarty->fetch('address/addressEdit.dwt');
     exit(json_encode($ajaxArray));
     
 }
@@ -101,9 +113,13 @@ elseif ($_REQUEST['act'] == 'ajaxAddressSave')
     );
     if (!empty($_SESSION['user_id'])){
         $address_id = update_address($consignee);
-        $db->query("UPDATE " . $GLOBALS['ecs']->table('users') ." SET address_id = '$address_id' WHERE user_id = '$_SESSION[user_id]'");
-        // 删除 session 中保存的默认收货地址，下单页面从新获取
-        $_SESSION['flow_consignee'] = array();
+        // 如果不是 newAddress 过来的操作，就设置当前地址为默认地址。
+        if(strpos($_SERVER['HTTP_REFERER'], 'newAddress') === false) 
+        {
+            $db->query("UPDATE " . $GLOBALS['ecs']->table('users') ." SET address_id = '$address_id' WHERE user_id = '$_SESSION[user_id]'");
+            // 删除 session 中保存的默认收货地址，下单页面从新获取
+            $_SESSION['flow_consignee'] = array();
+        }
     }else{
         $ajaxArray['error'] = 1;
         $ajaxArray['content'] = '您未登录，或登录超时，请从新登录后操作！';
@@ -129,6 +145,35 @@ elseif ( $_REQUEST['act'] == 'AjaxAddressDefault')
     }
     exit(json_encode($ajaxArray));
 }
+
+// 设置选中的收货地址，并保存到session中
+elseif ( $_REQUEST['act'] == 'AjaxAddressSelect')
+{
+    $ajaxArray = array( 'error'=>0, 'content'=>'' );
+    $address_id = $_REQUEST['address_id'] ? $_REQUEST['address_id'] : 0;
+    $supplier_id = $_REQUEST['sid'] ? $_REQUEST['sid'] : 0;
+    
+    // 用户是登录状态，更新用户的默认收货地址
+    if (!empty($_SESSION['user_id']) && !empty($address_id)){        
+        $consignee_list = get_consignee_list($_SESSION['user_id']);
+        if($consignee_list){
+            $consignee = $consignee_list[$address_id];
+            $consignee['country_cn']  = get_add_cn($consignee['country']);
+            $consignee['province_cn'] = get_add_cn($consignee['province']);
+            $consignee['city_cn']     = get_add_cn($consignee['city']);
+            $consignee['district_cn'] = get_add_cn($consignee['district']);
+        }        
+        if (!empty($consignee))
+        {
+            $_SESSION['supplier'][$supplier_id] = $consignee;
+        }        
+    }else{
+        $ajaxArray['error'] = 1;
+        $ajaxArray['content'] = '您未登录，或登录超时，请从新登录后操作！';
+    }
+    exit(json_encode($ajaxArray));
+}
+
 // 删除一条收货地址
 elseif($_REQUEST['act'] == 'AjaxAddressDorp')
 {

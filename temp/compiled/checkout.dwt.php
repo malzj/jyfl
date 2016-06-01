@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
 	<head>
+<meta name="Generator" content="ECSHOP v2.7.3" />
 		<meta charset="UTF-8">
 		<title></title>
-        <link rel="stylesheet" href="{$app_path}js/juyoufuli/layer/skin/layer.css">
-        <link rel="stylesheet" href="{$app_path}css/juyoufuli/bootstrap.min.css">
-		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
-		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>   
+        <link rel="stylesheet" href="<?php echo $this->_var['app_path']; ?>js/juyoufuli/layer/skin/layer.css">
+        <link rel="stylesheet" href="<?php echo $this->_var['app_path']; ?>css/juyoufuli/bootstrap.min.css">
+		<script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/jquery.min.js"></script>
+		<script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>   
         <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
 		<script type="text/javascript" src="http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js"></script>
-		<script src="{$app_path}js/baidumap.js"></script>
-		<script src="{$app_path}js/juyoufuli/bootstrap.min.js"></script>
-        <script src="{$app_path}js/juyoufuli/laydate/laydate.js"></script>
-        <script src="{$app_path}js/juyoufuli/jquery.shoppingflow.js"></script>
-        {insert_scripts files='jquery.region.js,utils.js'}
-        {insert_scripts files='jquery.common.js'}
+		<script src="<?php echo $this->_var['app_path']; ?>js/baidumap.js"></script>
+		<script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/bootstrap.min.js"></script>
+        <script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/laydate/laydate.js"></script>
+        <script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/jquery.shoppingflow.js"></script>
+        <?php echo $this->smarty_insert_scripts(array('files'=>'jquery.region.js,utils.js')); ?>
+        <?php echo $this->smarty_insert_scripts(array('files'=>'jquery.common.js')); ?>
         <style>
-        	.show_baidumap .layui-layer-content, .show_baidumap { background-color:#FFF;}
+        	.show_baidumap .layui-layer-content, .show_baidumap {background-color:#FFF;}
         </style>
     </head>
 	<body class='bg_white'>
-        <!-- 头部 -->
-        <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
-        <!-- 头部结束 -->
+        
+        <?php echo $this->fetch('library/page_top.lbi'); ?>
+        
         <form action="flow.php" method="post" name="theForm" id="theForm" onsubmit="return checkOrderForm(this)">
         <div class="w_1200">
         	<div class="order_title_tips"></div>
@@ -33,43 +34,51 @@
 				<div class="f_l order_list_num">数量</div>
 				<div class="f_l order_list_priceAll">合计（点）</div>
 			</div>
-			<!--单个供应商所有商品-->  
-            <!-- {foreach from=$goods_list item=supplier name=supplier} -->          
+			  
+            <?php $_from = $this->_var['goods_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'supplier');$this->_foreach['supplier'] = array('total' => count($_from), 'iteration' => 0);
+if ($this->_foreach['supplier']['total'] > 0):
+    foreach ($_from AS $this->_var['supplier']):
+        $this->_foreach['supplier']['iteration']++;
+?>          
 			<div class="order_grshang">
 				<div class="order_gyshang_name">
-					<div class="order_gyshang_title f_l">{$supplier[0].seller}</div>
+					<div class="order_gyshang_title f_l"><?php echo $this->_var['supplier']['0']['seller']; ?></div>
 					<div class="order_item_more color_zhuti f_l"><span class="more_text">收起</span><span class="glyphicon glyphicon-chevron-up margin_left_5"></span></div>
-					<div class="adress_look f_r"><a href="javascript:void(0);" class="color_zhuti show_yunfei" data-id="{$supplier[0].supplier_id}">查看配送范围</a></div>
+					<div class="adress_look f_r"><a href="javascript:void(0);" class="color_zhuti show_yunfei" data-id="<?php echo $this->_var['supplier']['0']['supplier_id']; ?>">查看配送范围</a></div>
 				</div>
 				<div class="order_gyshang_itemAll o_hidden">
-					<!-- {foreach from=$supplier item=goods name=goods} -->
-					<!--单个商品列表-->
+					<?php $_from = $this->_var['supplier']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods');$this->_foreach['goods'] = array('total' => count($_from), 'iteration' => 0);
+if ($this->_foreach['goods']['total'] > 0):
+    foreach ($_from AS $this->_var['goods']):
+        $this->_foreach['goods']['iteration']++;
+?>
+					
 					<div class="order_gyshang_item o_hidden">
 						<div class="order_gyshang_details1 f_l">
 							<div class="order_gyshang_item_img f_l">
-								<img src="{$goods.goods_thumb}">
+								<img src="<?php echo $this->_var['goods']['goods_thumb']; ?>">
 							</div>
 							<div class="order_gyshang_details f_l">
-								<div class="order_item_name">{$goods.goods_name}</div>
-								<div class="order_item_guige">{$goods.goods_attr}</div>
+								<div class="order_item_name"><?php echo $this->_var['goods']['goods_name']; ?></div>
+								<div class="order_item_guige"><?php echo $this->_var['goods']['goods_attr']; ?></div>
 							</div>
 						</div>
-						<div class="order_gyshang_details2 f_l">{$goods.formated_goods_price}</div>
-						<div class="order_gyshang_details3 f_l">{$goods.goods_number}</div>
-						<div class="order_gyshang_details4 f_l">{$goods.formated_subtotal}</div>
+						<div class="order_gyshang_details2 f_l"><?php echo $this->_var['goods']['formated_goods_price']; ?></div>
+						<div class="order_gyshang_details3 f_l"><?php echo $this->_var['goods']['goods_number']; ?></div>
+						<div class="order_gyshang_details4 f_l"><?php echo $this->_var['goods']['formated_subtotal']; ?></div>
 					</div>
-                    <!-- {/foreach} -->
+                    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
 				</div>
-				<!--供应商底部操作-->
+				
 				<div class="order_grshang_bottom">
 					LOADING ...
 				</div>                 
 			</div>            
-            <!-- {/foreach} -->
-			<!--收货信息-->
+            <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+			
 			<div class="shouhuo">收货信息</div>
 			<div class="shouhuoren" id="order_consignee"> LOADING ...</div>
-			<!--支付及配送方式-->
+			
 			<div class="pay_way">
 				<div class="pay_way_title">支付及配送方式</div>
 				<div class="pay_way_details">
@@ -80,12 +89,12 @@
 					</ul>
 				</div>
 			</div>
-			<!--提交订单-->
+			
 			<div class="order_submit o_hidden">
 				<div class="order_submit_box f_r">
-					<div class="order_submit f_r">商品总金额：<span class="color_ff7900"><font class="goodsTotal">{$total.goods_price_formated}</font>点 </span> + 运费：<span class="color_ff7900 yunfeiTotal"> - </span>点</div>
+					<div class="order_submit f_r">商品总金额：<span class="color_ff7900"><font class="goodsTotal"><?php echo $this->_var['total']['goods_price_formated']; ?></font>点 </span> + 运费：<span class="color_ff7900 yunfeiTotal"> - </span>点</div>
 					<div class="order_submit1">
-						<div class="f_l shiji_price">实际付款金额：<span class="color_zhuti"><font class="orderTotal">{$total.goods_price_formated}</font>点</span></div>
+						<div class="f_l shiji_price">实际付款金额：<span class="color_zhuti"><font class="orderTotal"><?php echo $this->_var['total']['goods_price_formated']; ?></font>点</span></div>
 						<button type="submit" class="zhuti_a_hover">提交订单</button>
 					</div>
 				</div>
@@ -97,18 +106,18 @@
         <input type="hidden" name="step" value="done">
         </form>
         <div style="float:left;width:600px;height:500px;border:1px solid gray; display:none; " id="baidumap"></div>
-        <!-- 底部 -->
-	 	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
-	    <!-- 底部结束 -->
-        <!-- 公共左边 -->
-		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
-        <!-- 公共左边结束 -->        
-        <!-- 公共右边 -->
-		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
-        <!-- 公共右边结束 -->
+        
+	 	<?php echo $this->fetch('library/page_footer.lbi'); ?>
+	    
+        
+		<?php echo $this->fetch('library/page_left.lbi'); ?>
+                
+        
+		<?php echo $this->fetch('library/page_right.lbi'); ?>
+        
         <script>
 			// 加载收货地址
-			var checkconsignee = '{$checkconsignee}';		
+			var checkconsignee = '<?php echo $this->_var['checkconsignee']; ?>';		
 			updateConsignee(); 
 			// 查看运费
 			$('.show_yunfei').click(function(){
@@ -119,7 +128,7 @@
 				  skin: 'show_baidumap',
 				  area:['800px','600px'],
 				  shadeClose: true,
-				  content: "{$app_path}flow.php?step=showYunfei&id="+id
+				  content: "<?php echo $this->_var['app_path']; ?>flow.php?step=showYunfei&id="+id
 				});
 			});
 			// 运费验证
@@ -135,7 +144,7 @@
 					skin: 'show_baidumap',
 					area:['850px','600px'],
 					shadeClose: true,
-					content: "{$app_path}flow.php?step=newAddress&id="+id,
+					content: "<?php echo $this->_var['app_path']; ?>flow.php?step=newAddress&id="+id,
 					btn:['确认'],
 					yes:function(index, layero){
 						layer.close(layerIndex);
@@ -229,7 +238,7 @@
 				var bottomhtml = dom.closest('.order_grshang').find('.order_grshang_bottom');
 				$.ajax({
 					type:'POST',
-					url:'{$app_path}flow.php',
+					url:'<?php echo $this->_var['app_path']; ?>flow.php',
 					data:{step:'yunfei',id:id},
 					async: false,
 					beforeSend:function(){

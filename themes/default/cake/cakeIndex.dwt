@@ -52,7 +52,9 @@
 					</div>
 				</div>
 				<div class="search_input f_r">
+					<form>
 					<input type="text" placeholder="输入蛋糕名称">
+					</form>
 					<i></i>	
 				</div>
 			</div>
@@ -107,7 +109,7 @@
 			<div class="floor-guide" style="display:none;">
 			    <div class="mui-nav">
                 {foreach from=$attrGoods item=attr2}
-                    <a href="#floor_{$attr2.attrNo}" class="current">
+                    <a href="#floor_{$attr2.attrNo}">
                         <b class="icon_01_channelhome">F{$attr2.attrNo}</b>
                         <em>{$attr2.attrName}</em>
                         <i>&nbsp;</i>

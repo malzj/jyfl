@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:36:"C:/wamp/www/themes/default/goods.dwt";i:1;s:47:"C:/wamp/www/themes/default/library/page_top.lbi";i:2;s:50:"C:/wamp/www/themes/default/library/page_footer.lbi";i:3;s:48:"C:/wamp/www/themes/default/library/page_left.lbi";i:4;s:49:"C:/wamp/www/themes/default/library/page_right.lbi";}s:7:"expires";i:1464742130;s:8:"maketime";i:1464742130;}<!DOCTYPE html>
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:36:"D:/www/jyfl/themes/default/goods.dwt";i:1;s:47:"D:/www/jyfl/themes/default/library/page_top.lbi";i:2;s:50:"D:/www/jyfl/themes/default/library/page_footer.lbi";i:3;s:48:"D:/www/jyfl/themes/default/library/page_left.lbi";i:4;s:49:"D:/www/jyfl/themes/default/library/page_right.lbi";}s:7:"expires";i:1464759308;s:8:"maketime";i:1464759308;}<!DOCTYPE html>
 <html>
 	<head>
 <meta name="Generator" content="ECSHOP v2.7.3" />
@@ -22,7 +22,7 @@
         <li><span class="adress"><span class="glyphicon glyphicon-map-marker"></span><a href="javascript:;">北京</a></span></li>
         <ul>
             <li class="username">
-                <img  src="http://192.168.1.161/jyflapi/Uploads/2016-05-16/573990bc3ecd3.jpg" alt="用户头像">
+                <img  src="blob:http%3A//127.0.0.1%3A8025/fae802ad-ea5b-43cf-9081-85082c37c31b" alt="用户头像">
                 <span>7110010995430713</span>
             </li>
             <li class="balance">余额：<span>21486.70</span>点</li>
@@ -573,7 +573,7 @@ $('.adress').click(function(event){
 			<div class="sport4_top o_hidden margin_top_90">
 				<div class="sport4_top_left f_l">
 					<div class="cake2_img">                    	
-						<img src="images/no_picture.gif" alt="突然" />											
+						<img src="images/201605/goods_img/21_G_1464138786799.jpg" alt="巧克力三部曲蛋糕" />											
 					</div>
 					<div class="sport4_list">
 						<div class="hd">
@@ -583,43 +583,49 @@ $('.adress').click(function(event){
 						<div class="bd">
 							<ul class="sport4_img_item">
                                                         <li class="f_l">
-                            	<img src="images/201605/goods_img/24_P_1464080906346.jpg" alt="突然" width="90" />
+                            	<img src="images/201605/goods_img/21_P_1464138786068.jpg" alt="巧克力三部曲蛋糕" width="90" />
+                            </li>
+                                                        <li class="f_l">
+                            	<img src="images/201605/goods_img/21_P_1464138786313.jpg" alt="巧克力三部曲蛋糕" width="90" />
+                            </li>
+                                                        <li class="f_l">
+                            	<img src="images/201605/goods_img/21_P_1464138786808.jpg" alt="巧克力三部曲蛋糕" width="90" />
                             </li>
                             							</ul>
 						</div>
 					</div>
 				</div>
-                <form action="javascript:addToCart(24)" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
+                <form action="javascript:addToCart(21)" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
 				<div class="cake2_top_right f_l">
 					<ul>
-						<li class="sport4_title">突然</li>
+						<li class="sport4_title">巧克力三部曲蛋糕</li>
 						<li class="sport4_pri">价格：<span class="sport4_dianshu" id="ECS_GOODS_AMOUNT">0</span>点</li>
                         
                         						<li class="sport4_mar">
 							<div class="f_l cake_top_name">规格：</div>
 							<div class="cake2_top_item f_l">
                             									
-                                <a href="javascript:;" class="active" onclick="changeAttr(this, 'S_24106');">2磅</a>
-                                <input type="radio" name="spec_100}" value="S_24106" id="spec_value_S_24106" checked onclick="changePrice()" style="display:none;" />
+                                <a href="javascript:;" class="active" onclick="changeAttr(this, 'S_21377');">8磅</a>
+                                <input type="radio" name="spec_100}" value="S_21377" id="spec_value_S_21377" checked onclick="changePrice()" style="display:none;" />
                                 								
-                                <a href="javascript:;" onclick="changeAttr(this, 'S_24470');">8磅</a>
-                                <input type="radio" name="spec_100}" value="S_24470" id="spec_value_S_24470"  onclick="changePrice()" style="display:none;" />
+                                <a href="javascript:;" onclick="changeAttr(this, 'S_21448');">1磅</a>
+                                <input type="radio" name="spec_100}" value="S_21448" id="spec_value_S_21448"  onclick="changePrice()" style="display:none;" />
                                 							</div>	
 						</li>
                                                 
                         						<li class="sport4_mar">
 							<div class="f_l cake_top_name">蛋糕品牌：</div>
                             							<div class="cake2_top_item f_l">
-                            	                                								<a href="javascript:;" class="active" onclick="changeAttr(this, '45');">诺心</a>
-								<input type="radio" name="spec_1" value="45" id="spec_value_45" checked onclick="changePrice()" style="display:none;" />
+                            	                                								<a href="javascript:;" class="active" onclick="changeAttr(this, '39');">诺心</a>
+								<input type="radio" name="spec_1" value="39" id="spec_value_39" checked onclick="changePrice()" style="display:none;" />
                                                                 <input type="hidden" name="spec_list" value="0" />
                                 							</div>	
                             						</li>
                         						<li class="sport4_mar">
 							<div class="f_l cake_top_name">蛋糕口味：</div>
                             							<div class="cake2_top_item f_l">
-                            	                                								<a href="javascript:;" class="active" onclick="changeAttr(this, '46');">慕斯口味</a>
-								<input type="radio" name="spec_2" value="46" id="spec_value_46" checked onclick="changePrice()" style="display:none;" />
+                            	                                								<a href="javascript:;" class="active" onclick="changeAttr(this, '40');">芝士口味</a>
+								<input type="radio" name="spec_2" value="40" id="spec_value_40" checked onclick="changePrice()" style="display:none;" />
                                                                 <input type="hidden" name="spec_list" value="0" />
                                 							</div>	
                             						</li>
@@ -632,16 +638,15 @@ $('.adress').click(function(event){
 									<a id="increment" class="increment" onclick="add()">+</a>				
 							</div>
 						<li>
-                        	<button type="submit" class="sport4_btn input_submit bg_color btn" value="加入购物车">
+                            <input class="sport4_btn input_submit bg_color btn zhuti_a_hover" type="button" onclick="addToCart(21,'',5)" value="立即购买"> 
+                            <button type="submit" class="sport4_btn input_submit bg_color btn zhuti_a_hover" value="加入购物车">
                             <span class="glyphicon glyphicon-shopping-cart"></span>加入购物车</button>
-                            
-                            <input type="button" onclick="addToCart(24,'',5)" value="立即购买"> 
                         </li>
 					</ul>
 				</div>
                 </form>
 			</div>
-			<div class="cake2_top_tips color_zhuti"></div>
+			<div class="cake2_top_tips color_zhuti">跟着音乐灵动摇曳的裙摆，踏着节奏足尖轻快的步伐，每一个节拍都在欢呼着假日的喜悦。有人说，倘若快乐一但如阳光般照进心房，即便笑声是短暂的，幸福却可以是永恒的。</div>
 			<div class="cake2_shangpin_details"><span class="color_zhuti">商品详情</span></div>
                 <ul class="cake_jieshao">
                 	                    
@@ -770,7 +775,7 @@ $('.adress').click(function(event){
             </div>
         </li>
         <li class="car">
-            <div class="li_img">
+            <div class="li_img" onClick=" window.location.href='flow.php'">
                 <span class="glyphicon glyphicon-shopping-cart"></span>
                 <p>购物车</p>
                 <i class="ci-count" id="shopping_amount">9</i>
@@ -988,7 +993,8 @@ $('.adress').click(function(event){
 			})
             // 右侧渲染函数
 				function showRight(id,cnum){
-            		var api_url = 'http://jy.com/jyflapi/';
+            		//var api_url = 'http://jy.com/jyflapi/';
+            		var api_url = 'http://192.168.1.161/jyflapi/';
             		$.ajax({
             			type:'post',
             			url:api_url+'index.php/Games/GamesApi/gameList',
@@ -997,7 +1003,7 @@ $('.adress').click(function(event){
             			},
             			dataType:'json',
             			success:function(data){
-            				//console.log(data);
+            				console.log(data);
             				var game_glo = data.game_global;
             				var game_com = data.game_company;
             				var game_list_html = '<div class="act_title"></div>';
@@ -1013,7 +1019,7 @@ $('.adress').click(function(event){
                                 }
             					game_list_html += '<div class="message_1">'+
             						'<div class="message_1_content">'+
-            						'<a href="#" class="pop_right_goods" data-id="'+game_glo[i].id+'">'+
+            						'<a href="#" class="pop_right_goods" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.card_company_id+'">'+
             						'<div class="act_item1 f_l">'+
             						'<img src="'+api_url+'Public/games/upload/'+game_glo[i].thumbnail+'">'+
             						'</div>'+
@@ -1026,7 +1032,7 @@ $('.adress').click(function(event){
             						'</div>'+
             						'</div></a>'+
             						'<div class="act_item3 f_l">'+
-            						'<a href="#" class="jinbi" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.id+'" data-cnum="'+cnum+'">'+
+            						'<a href="#" class="jinbi" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.card_company_id+'" data-cnum="'+cnum+'">'+
             						'<img src="/images/juyoufuli/img_login/'+img+'" '+iclass+'>'+
             						'</a>'+
             						'</div>'+
@@ -1046,7 +1052,7 @@ $('.adress').click(function(event){
                                 }
             					game_list_html += '<div class="message_1">'+
             						'<div class="message_1_content">'+
-            						'<a href="#" class="pop_right_goods" data-id="'+game_com[i].id+'">'+
+            						'<a href="#" class="pop_right_goods" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.card_company_id+'">'+
             						'<div class="act_item1 f_l">'+
             						'<img src="'+api_url+'Public/games/upload/'+game_com[i].thumbnail+'">'+
             						'</div>'+
@@ -1059,7 +1065,7 @@ $('.adress').click(function(event){
             						'</div>'+
             						'</div></a>'+
             						'<div class="act_item3 f_l">'+
-            						'<a href="#" class="jinbi" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.id+'" data-cnum="'+cnum+'">'+
+            						'<a href="#" class="jinbi" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.card_company_id+'" data-cnum="'+cnum+'">'+
             						'<img src="/images/juyoufuli/img_login/'+img1+'" '+iclass1+'>'+
             						'</a>'+
             						'</div>'+
@@ -1067,10 +1073,12 @@ $('.adress').click(function(event){
             						'</div>';
             				}
             				var com_html = '<div class="border_radio">'+
-            					'<img src="'+api_url+'Public/games/upload/'+data.company_info.logo_img+'" alt="'+data.company_info.company_name+'" width="80%"></div>'+
+            					'<img src="'+api_url+'Public/company/upload/'+data.company_info.logo_img+'" alt="'+data.company_info.company_name+'" width="80%"></div>'+
             					'<div class="text-center">'+data.company_info.company_name+'</div>';
             				$('.pop_right .message').html(com_html);
             				$('.pop_right .scroll_msg').html(game_list_html);
+            				var img_url = "/jyflapi/Public/company/upload/"+data.company_info.back_img;
+            				$('.wrap').css("background-image","url("+img_url+")");
             			}
             		});
             	}
@@ -1136,7 +1144,7 @@ $('.adress').click(function(event){
 				$(this).addClass('active').siblings().removeClass('active');
 			})*/
 			
-			var goods_id = 24;
+			var goods_id = 21;
 			var goodsattr_style = 1;
 			var gmt_end_time = 0;
 						var day = "天";
@@ -1144,8 +1152,8 @@ $('.adress').click(function(event){
 						var minute = "分钟";
 						var second = "秒";
 						var end = "结束";
-						var goodsId = 24;
-			var now_time = 1464742130;
+						var goodsId = 21;
+			var now_time = 1464759308;
 	
 			onload = function(){
 				changePrice();	

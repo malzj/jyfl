@@ -103,7 +103,6 @@ if ($this->_foreach['supplier']['total'] > 0):
 		<?php echo $this->fetch('library/page_right.lbi'); ?>
         
         
-        <input type="text" name="step" id="sup2" value="update_cart" />
         <script type="text/javascript">
 		<!--
 		

@@ -64,7 +64,7 @@
                     <div class="price_1">
                         <span><em>{$row.venue.salePrice}</em>点起</span>
                     </div>
-                    <div class="price_2">
+                    <div class="price_2 zhuti_a_hover">
                         <span><a href="venues_detail.php?venueId={$row.venue.venueId}">查看场馆</a></span>
                     </div>
                 </div>

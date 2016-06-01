@@ -57,7 +57,9 @@
 					</div>
 				</div>
 				<div class="search_input f_r">
+					<form>
 					<input type="text" placeholder="输入蛋糕名称">
+					</form>
 					<i></i>	
 				</div>
 			</div>
@@ -118,7 +120,7 @@
                 <?php $_from = $this->_var['attrGoods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr2');if (count($_from)):
     foreach ($_from AS $this->_var['attr2']):
 ?>
-                    <a href="#floor_<?php echo $this->_var['attr2']['attrNo']; ?>" class="current">
+                    <a href="#floor_<?php echo $this->_var['attr2']['attrNo']; ?>">
                         <b class="icon_01_channelhome">F<?php echo $this->_var['attr2']['attrNo']; ?></b>
                         <em><?php echo $this->_var['attr2']['attrName']; ?></em>
                         <i>&nbsp;</i>

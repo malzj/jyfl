@@ -437,7 +437,7 @@ html.login .pop_right{transform: translateX(0);}
 	.pop_right{width: 320px;}
 }
 
-	@media only screen and (max-height: 600px) {
+	@media only screen and (max-height: 680px) {
 		.pop_right .border_radio{
 		margin: 52px auto 5px;
 		width: 70px;

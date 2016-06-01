@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="<?php echo $this->_var['app_path']; ?>css/juyoufuli/public.css">
 <link rel="stylesheet" href="<?php echo $this->_var['app_path']; ?>css/juyoufuli/login_layer.css">
 <script src="<?php echo $this->_var['app_path']; ?>js/juyoufuli/jquery.nicescroll.js"></script>
-
 <div class="header">
     <ul class="header_nav">
         <li class="m_left"><img src="<?php echo $this->_var['app_path']; ?>images/juyoufuli/img_login/logo.png" alt="聚优福利"></li>

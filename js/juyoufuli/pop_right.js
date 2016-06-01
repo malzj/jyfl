@@ -1,4 +1,5 @@
-var api_url = 'http://jy.com/jyflapi/';
+//var api_url = 'http://jy.com/jyflapi/';
+var api_url = 'http://192.168.1.161/jyflapi/';
 $(function(){
 //	游戏规则
 	$('#guize').on('click',function(){
@@ -94,10 +95,12 @@ $(function(){
 	$('.scroll_msg').on('click','.pop_right_goods',function(){
         var id = $(this).attr('data-id');
         var uid = $('#user_id').val();
+        var cid = $(this).attr('data-cid');
         $.ajax({
             type: 'post',
             url: api_url + 'index.php/Games/GamesApi/getGame',
-            data: {game_id: id, user_id: uid},
+            async:false,
+            data: {game_id: id, user_id: uid,company_id:cid},
             dataType: 'json',
             success: function (data) {
                 //console.log(data);
@@ -149,7 +152,7 @@ $(function(){
         $.ajax({
             type:'post',
             url:api_url+'index.php/Games/GamesApi/getGame',
-            data:{game_id:id,user_id:uid},
+            data:{game_id:id,user_id:uid,company_id:cid},
             dataType:'json',
             success:function (data) {
                 var html = '<div class="qianggou_box">' +
@@ -208,6 +211,7 @@ $(function(){
         $.ajax({
             type:'post',
             url:api_url+'index.php/Games/GamesApi/purchase',
+            async:false,
             data:{
                 user_id:user_id,
                 game_id:game_id,
@@ -234,13 +238,15 @@ $(function(){
 //	已结束
 	$('.scroll_msg').on('click','.end',function(){
         var id = $(this).parent('a').attr('data-id');
+        var cid = $(this).parent('a').attr('data-cid');
+        var uid = $('#user_id').val();
         $.ajax({
             type: 'post',
             url: api_url + 'index.php/Games/GamesApi/gameWinner',
-            data: {game_id: id},
+            data: {game_id: id,user_id:uid,company_id:cid},
             dataType: 'json',
             success: function (data) {
-                //.log(data);
+                console.log(data);
                 var html = '<div class="old_winBox"><h3>已结束</h3>' +
                 '<div class="old_win_item">' +
                 '<div class="all_duobao">' +
@@ -255,7 +261,17 @@ $(function(){
                 '<div>本期参与：<span class="color_zhuti">'+data.peo_count+'人次</span></div>' +
                 '</div>' +
                 '<div class="old_win_img f_l"><img src="'+api_url+"Public/games/upload/"+data.thumbnail+'"></div></div></div>' +
-                '</div></div>';
+                '</div></div>'+
+                '<div class="yigou_name">' +
+                '<div class="f_l">已购号：</div>' +
+                '<div class="f_l yigouhao_all">';
+                var partinfo = data.part_info;
+                if(partinfo != "false"){
+                    for(var i=0;i<partinfo.length;i++){
+                        html += '<span class="yigouhao">'+partinfo[i].lottery_num+'</span>';
+                    }
+                }
+                html+='</div></div>';
                 layer.open({
                     type: 1,
                     title:false,
@@ -263,6 +279,15 @@ $(function(){
                     shadeClose: false, //点击遮罩关闭
                     content:html,
                 })
+                //		弹窗滚动条美化
+                $(".layui-layer-content").niceScroll({
+                    cursorcolor:"#BFB1B1",
+                    cursoropacitymax:1,
+                    touchbehavior:false,
+                    cursorwidth:"5px",
+                    cursorborder:"0",
+                    cursorborderradius:"5px"
+                });
 
             },
         });
@@ -289,9 +314,10 @@ function numadd(){
     var pricespan = $("#price");
     var point = $('#point').val();
     var game_id = $('input[name="game_id"]').val();
-    var surplus = checkSurplus(game_id);
-    var n = parseInt(num);
+    var company_id = $('input[name="company_id"]').val();
 
+    var surplus = checkSurplus(game_id,company_id);
+    var n = parseInt(num);
     if(n>=surplus){
         num = n;
         layer.msg('储量不够了，亲！！！');
@@ -305,13 +331,13 @@ function numadd(){
 /**
  * 点选可选属性或改变数量时修改商品价格的函数
  */
-function checkSurplus(game_id){
+function checkSurplus(game_id,company_id){
     var surplus;
     $.ajax({
         type:'post',
         url:api_url + 'index.php/Games/GamesApi/getSurplus',
         async:false,
-        data:{game_id:game_id},
+        data:{game_id:game_id,company_id:company_id},
         dataType:'json',
         success:function(data){
             surplus = data;

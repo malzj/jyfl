@@ -2522,7 +2522,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .cake_jieshao li{width: 33.3%;color: #bebebe;margin: 10px 0;font-family: arial;}
 
 /*cake3.html*/
-.cake_tips{background: url(../images/img_login/buy_car.png) no-repeat;width: 1200px;height: 45px;margin: 0 auto;margin-top: 60px;}
+.cake_tips{background: url(/images/juyoufuli/img_login/buy_car.png) no-repeat;width: 1200px;height: 45px;margin: 0 auto;margin-top: 60px;}
 .next_buy{font-size: 16px;float: right;line-height: 45px;}
 .burcar_all{overflow: hidden;margin: 20px 0;background: #F3F3F3;padding: 10px;}
 .all_check{width: 120px;}
@@ -2541,7 +2541,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .p_img img{width: 100%;height: 100%;}
 .p_details{display: inline-block;float: none;overflow: hidden;/* height: 45px; */width: 380px;margin-top: 5px;}
 .line_h{line-height: 82px;}
-.burcar_all3 .quantity{margin-top: 30px;}
+.burcar_all3 .quantity{margin-top: 28px;}
 .buy_car_bottom{background: #f3f3f3;line-height: 50px;height: 50px;margin: 20px 0;}
 .buy_car_remove,.buy_car_price{padding: 0 25px;}
 .buy_car_jiesuan{background: #2fd0b5;padding: 5px 30px;color: white;border:none;border-radius: 5px;}

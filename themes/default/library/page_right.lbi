@@ -252,7 +252,7 @@
             				$('.pop_right .message').html(com_html);
             				$('.pop_right .scroll_msg').html(game_list_html);
             				var img_url = "{$app_path}jyflapi/Public/company/upload/"+data.company_info.back_img;
-            				$('.wrap').css("background-image","url("+img_url+")");
+            				$('#back_img').css("background-image","url("+img_url+")");
             			}
             		});
             	}

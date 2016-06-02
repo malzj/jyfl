@@ -380,6 +380,7 @@ function get_user_orders($user_id, $num = 10, $start = 0)
                        'total_fee'      => price_format($row['total_fee'], false),
                        'return_status'        => $row['return_status'],
 						'handler'        => $row['handler'],
+                        'shipping_status' => $row['shipping_status'],
                        'goods'          =>$arr_orderGoods);
     }
 

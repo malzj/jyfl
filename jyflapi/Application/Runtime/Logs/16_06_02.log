@@ -2785,3 +2785,2243 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTrace [ RunTime:0.001112s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001274s ]
 
+[ 2016-06-02T15:19:37+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001939s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003044s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.012737s ]
+SQL: INSERT INTO `ecs_peisongmap` (`gongyingshang_id`,`jiage`,`yanse`,`dianshu`,`cityid`,`isTime`,`shipping_start`,`shipping_end`,`shipping_waiting`,`shipping_booking`) VALUES ('2','0','#FFB6C1','27',1,1,'0','0','0','0') [ RunTime:0.053299s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004955s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005477s ]
+
+[ 2016-06-02T15:19:37+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000554s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001043s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010977s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.277874','39.936245','14') [ RunTime:0.054109s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000896s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001023s ]
+
+[ 2016-06-02T15:19:40+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002039s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010780s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.281323','39.975182','14') [ RunTime:0.065075s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003715s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004296s ]
+
+[ 2016-06-02T15:19:42+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000518s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001107s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011452s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.286498','39.979605','14') [ RunTime:0.064190s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002706s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003140s ]
+
+[ 2016-06-02T15:19:44+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001118s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011309s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.294547','39.983365','14') [ RunTime:0.061843s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000777s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000872s ]
+
+[ 2016-06-02T15:19:45+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001841s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003328s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011080s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.300296','39.989335','14') [ RunTime:0.056576s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002946s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003358s ]
+
+[ 2016-06-02T15:19:46+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.002027s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003381s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010692s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.304895','39.990662','14') [ RunTime:0.046119s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002703s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003083s ]
+
+[ 2016-06-02T15:19:46+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000936s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001547s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011027s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.315243','39.991767','14') [ RunTime:0.088815s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002909s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003343s ]
+
+[ 2016-06-02T15:19:47+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000544s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001043s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010877s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.329616','39.991104','14') [ RunTime:0.052984s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000798s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000885s ]
+
+[ 2016-06-02T15:19:48+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000608s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001278s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010673s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.402056','39.994421','14') [ RunTime:0.069408s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003412s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003936s ]
+
+[ 2016-06-02T15:19:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000616s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001119s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010757s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.441437','39.994863','14') [ RunTime:0.059361s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000872s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000985s ]
+
+[ 2016-06-02T15:19:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001999s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003019s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010961s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.450061','39.992873','14') [ RunTime:0.065996s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000879s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001005s ]
+
+[ 2016-06-02T15:19:50+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000651s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001382s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.009114s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.473345','39.978942','14') [ RunTime:0.048388s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000730s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000816s ]
+
+[ 2016-06-02T15:19:51+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001986s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005170s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011513s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.494042','39.964344','14') [ RunTime:0.057033s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002688s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003068s ]
+
+[ 2016-06-02T15:19:51+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000555s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001123s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010948s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.496917','39.94045','14') [ RunTime:0.048705s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000740s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000834s ]
+
+[ 2016-06-02T15:19:52+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001768s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003367s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010985s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.497204','39.916769','14') [ RunTime:0.215680s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000732s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000818s ]
+
+[ 2016-06-02T15:19:53+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000609s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001126s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011014s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.496054','39.879349','14') [ RunTime:0.067933s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002969s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003411s ]
+
+[ 2016-06-02T15:19:53+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000528s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001102s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011680s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.492605','39.856311','14') [ RunTime:0.057313s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000823s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000913s ]
+
+[ 2016-06-02T15:19:54+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000603s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001170s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010972s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.487431','39.849221','14') [ RunTime:0.023122s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000762s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000850s ]
+
+[ 2016-06-02T15:19:54+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000556s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001092s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011582s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.472483','39.840801','14') [ RunTime:0.193975s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000966s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001072s ]
+
+[ 2016-06-02T15:19:55+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000810s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001712s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011292s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.42074','39.838141','14') [ RunTime:0.052151s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000759s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000847s ]
+
+[ 2016-06-02T15:19:56+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000788s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002854s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011080s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.304608','39.835925','14') [ RunTime:0.106791s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000739s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000826s ]
+
+[ 2016-06-02T15:19:56+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000557s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001271s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011086s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.293684','39.839028','14') [ RunTime:0.047054s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000809s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000897s ]
+
+[ 2016-06-02T15:19:57+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001610s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002239s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011065s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.290235','39.854539','14') [ RunTime:0.123597s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002558s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002766s ]
+
+[ 2016-06-02T15:19:58+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001641s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002687s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.022074s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.28621','39.873147','14') [ RunTime:0.033737s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002853s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003360s ]
+
+[ 2016-06-02T15:19:58+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001055s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001787s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.009948s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.281611','39.88555','14') [ RunTime:0.054206s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000758s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000851s ]
+
+[ 2016-06-02T15:19:59+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001052s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011259s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.279886','39.906364','14') [ RunTime:0.075566s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000740s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000834s ]
+
+[ 2016-06-02T15:19:59+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000532s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001033s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.012294s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.280461','39.906807','14') [ RunTime:0.054179s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002767s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003151s ]
+
+[ 2016-06-02T15:21:03+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001119s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.012202s ]
+SQL: INSERT INTO `ecs_peisongmap` (`gongyingshang_id`,`jiage`,`yanse`,`dianshu`,`cityid`,`isTime`,`shipping_start`,`shipping_end`,`shipping_waiting`,`shipping_booking`) VALUES ('2','0','#00BFFF','19',1,1,'0','0','0','0') [ RunTime:0.062765s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003323s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003946s ]
+
+[ 2016-06-02T15:21:03+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001227s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011258s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.385096','39.995305','15') [ RunTime:0.055152s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002772s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003156s ]
+
+[ 2016-06-02T15:21:06+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001119s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011367s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.360374','40.029788','15') [ RunTime:0.053286s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000736s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000823s ]
+
+[ 2016-06-02T15:21:06+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000501s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000945s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011216s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.28966','40.019622','15') [ RunTime:0.047888s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000743s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000831s ]
+
+[ 2016-06-02T15:21:06+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001123s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011366s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.250565','40.005475','15') [ RunTime:0.047926s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000776s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000866s ]
+
+[ 2016-06-02T15:21:06+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001106s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003232s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011622s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.231018','39.997958','15') [ RunTime:0.057931s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000754s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000849s ]
+
+[ 2016-06-02T15:21:06+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001120s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011182s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.221245','39.95284','15') [ RunTime:0.059206s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002868s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003270s ]
+
+[ 2016-06-02T15:21:06+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001119s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011336s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.21722','39.941335','15') [ RunTime:0.040265s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000736s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000823s ]
+
+[ 2016-06-02T15:21:06+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001113s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011449s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.217795','39.895736','15') [ RunTime:0.043431s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002707s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003095s ]
+
+[ 2016-06-02T15:21:06+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000729s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001405s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010808s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.214921','39.883778','15') [ RunTime:0.043221s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002741s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003120s ]
+
+[ 2016-06-02T15:21:07+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000650s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001298s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011664s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.228144','39.858084','15') [ RunTime:0.047877s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000735s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000832s ]
+
+[ 2016-06-02T15:21:07+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000559s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001103s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010949s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.235043','39.847005','15') [ RunTime:0.052432s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003119s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003635s ]
+
+[ 2016-06-02T15:21:07+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000538s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001058s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010962s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.249991','39.864287','15') [ RunTime:0.052686s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000793s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000895s ]
+
+[ 2016-06-02T15:21:07+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001095s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011139s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.282186','39.879792','15') [ RunTime:0.045009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000793s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000880s ]
+
+[ 2016-06-02T15:21:07+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000624s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001177s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011418s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.279886','39.891751','15') [ RunTime:0.043140s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002709s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003094s ]
+
+[ 2016-06-02T15:21:07+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001097s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010876s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.278161','39.936024','15') [ RunTime:0.043270s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002931s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003397s ]
+
+[ 2016-06-02T15:21:07+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001117s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010980s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.281036','39.975403','15') [ RunTime:0.041586s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000813s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000901s ]
+
+[ 2016-06-02T15:21:07+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000640s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001163s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011822s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.282761','39.978942','15') [ RunTime:0.041764s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000802s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000898s ]
+
+[ 2016-06-02T15:21:07+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000608s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001256s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010929s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.305757','39.991767','15') [ RunTime:0.043901s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001028s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001177s ]
+
+[ 2016-06-02T15:21:07+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000507s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000994s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011307s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.385096','39.995305','15') [ RunTime:0.047425s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003265s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003748s ]
+
+[ 2016-06-02T15:22:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000806s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001500s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.013016s ]
+SQL: INSERT INTO `ecs_peisongmap` (`gongyingshang_id`,`jiage`,`yanse`,`dianshu`,`cityid`,`isTime`,`shipping_start`,`shipping_end`,`shipping_waiting`,`shipping_booking`) VALUES ('2','0','#7FFFAA','22',1,1,'0','0','0','0') [ RunTime:0.057691s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000842s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000931s ]
+
+[ 2016-06-02T15:22:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001106s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011458s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.488006','39.848335','16') [ RunTime:0.059879s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003260s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003695s ]
+
+[ 2016-06-02T15:22:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000508s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000975s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011549s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.512152','39.82706','16') [ RunTime:0.055511s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002823s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003237s ]
+
+[ 2016-06-02T15:22:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001037s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011609s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.55757','39.856754','16') [ RunTime:0.053117s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000872s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000981s ]
+
+[ 2016-06-02T15:22:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001127s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010648s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.556421','39.883778','16') [ RunTime:0.044055s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000922s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001038s ]
+
+[ 2016-06-02T15:22:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001071s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011653s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.552396','39.917875','16') [ RunTime:0.043742s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003162s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003569s ]
+
+[ 2016-06-02T15:22:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001064s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011407s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.547797','39.95107','16') [ RunTime:0.051827s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003346s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004036s ]
+
+[ 2016-06-02T15:22:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000518s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000970s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011417s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.594365','39.948415','16') [ RunTime:0.048907s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000738s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000828s ]
+
+[ 2016-06-02T15:22:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000508s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000967s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.007081s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.588616','39.986903','16') [ RunTime:0.048026s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004071s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004689s ]
+
+[ 2016-06-02T15:22:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000523s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001036s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010782s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.612762','40.029346','16') [ RunTime:0.054755s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002853s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003291s ]
+
+[ 2016-06-02T15:22:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001098s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010954s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.618511','40.042604','16') [ RunTime:0.056634s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003876s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004490s ]
+
+[ 2016-06-02T15:22:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000482s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000917s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010843s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.555271','40.036417','16') [ RunTime:0.041699s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003819s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004181s ]
+
+[ 2016-06-02T15:22:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000492s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000943s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011022s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.525375','40.051','16') [ RunTime:0.047305s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000813s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000901s ]
+
+[ 2016-06-02T15:22:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001104s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011046s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.514452','40.064695','16') [ RunTime:0.043672s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002769s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003148s ]
+
+[ 2016-06-02T15:22:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001110s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011378s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.490305','40.065137','16') [ RunTime:0.041271s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000742s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000830s ]
+
+[ 2016-06-02T15:22:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000599s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001170s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011398s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.485706','40.044814','16') [ RunTime:0.054215s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003918s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004529s ]
+
+[ 2016-06-02T15:22:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000764s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001563s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011173s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.45926','40.027578','16') [ RunTime:0.051406s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000810s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000900s ]
+
+[ 2016-06-02T15:22:12+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001117s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011285s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.451211','39.997958','16') [ RunTime:0.054541s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003500s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003978s ]
+
+[ 2016-06-02T15:22:12+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000484s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000923s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011392s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.496054','39.965671','16') [ RunTime:0.051642s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000770s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000862s ]
+
+[ 2016-06-02T15:22:12+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001110s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011003s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.498929','39.924073','16') [ RunTime:0.069246s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001129s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001246s ]
+
+[ 2016-06-02T15:22:12+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000524s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000999s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011491s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.497204','39.880678','16') [ RunTime:0.058197s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000745s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000838s ]
+
+[ 2016-06-02T15:22:12+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001114s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011182s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.488006','39.847448','16') [ RunTime:0.054500s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000761s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000853s ]
+
+[ 2016-06-02T15:22:12+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001108s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011065s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.488006','39.847448','16') [ RunTime:0.071186s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003625s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004122s ]
+
+[ 2016-06-02T15:49:48+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000658s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001188s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.011916s ]
+SQL: INSERT INTO `ecs_peisongmap` (`gongyingshang_id`,`jiage`,`yanse`,`dianshu`,`cityid`,`isTime`,`shipping_start`,`shipping_end`,`shipping_waiting`,`shipping_booking`) VALUES ('2','0','#FFB6C1','14',1,2,'8:00','20:00','1','5') [ RunTime:0.060523s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001243s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001377s ]
+
+[ 2016-06-02T15:49:48+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001119s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011315s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.494042','39.860521','17') [ RunTime:0.055625s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000994s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001092s ]
+
+[ 2016-06-02T15:49:48+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000686s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001332s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011149s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.497492','39.951734','17') [ RunTime:0.058381s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003607s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004025s ]
+
+[ 2016-06-02T15:49:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001121s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011432s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.473345','39.978278','17') [ RunTime:0.059277s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003743s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004383s ]
+
+[ 2016-06-02T15:49:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000491s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000963s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.012889s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.446899','39.995968','17') [ RunTime:0.036774s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001103s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001239s ]
+
+[ 2016-06-02T15:49:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000490s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000953s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010702s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.30317','39.991546','17') [ RunTime:0.043939s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003483s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003902s ]
+
+[ 2016-06-02T15:49:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001125s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011020s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.282473','39.968547','17') [ RunTime:0.045572s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001791s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002089s ]
+
+[ 2016-06-02T15:49:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001131s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010958s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.279024','39.892415','17') [ RunTime:0.038991s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003635s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004082s ]
+
+[ 2016-06-02T15:49:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000622s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001365s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010834s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.288222','39.872926','17') [ RunTime:0.037864s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003667s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004121s ]
+
+[ 2016-06-02T15:49:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001133s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010865s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.295121','39.844568','17') [ RunTime:0.039984s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004059s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004654s ]
+
+[ 2016-06-02T15:49:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001118s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010833s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.298571','39.839249','17') [ RunTime:0.051190s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004032s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004588s ]
+
+[ 2016-06-02T15:49:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000496s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000966s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.013116s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.299721','39.835704','17') [ RunTime:0.035623s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004226s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004811s ]
+
+[ 2016-06-02T15:49:50+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000507s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001138s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011892s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.472195','39.838363','17') [ RunTime:0.044196s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003796s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004264s ]
+
+[ 2016-06-02T15:49:50+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000597s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001107s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010899s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.490593','39.847227','17') [ RunTime:0.042710s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000929s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001026s ]
+
+[ 2016-06-02T15:49:50+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001310s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011315s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.490593','39.855203','17') [ RunTime:0.041068s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000943s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001042s ]
+
+[ 2016-06-02T15:51:33+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000657s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001211s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.012054s ]
+SQL: INSERT INTO `ecs_peisongmap` (`gongyingshang_id`,`jiage`,`yanse`,`dianshu`,`cityid`,`isTime`,`shipping_start`,`shipping_end`,`shipping_waiting`,`shipping_booking`) VALUES ('2','0','#00BFFF','22',1,2,'9:00','21:00','1','5') [ RunTime:0.049752s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004572s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005183s ]
+
+[ 2016-06-02T15:51:33+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001129s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011137s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.284198','39.881342','18') [ RunTime:0.049012s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004283s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004810s ]
+
+[ 2016-06-02T15:51:33+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000514s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000969s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011094s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.242804','39.860964','18') [ RunTime:0.065277s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003527s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003958s ]
+
+[ 2016-06-02T15:51:33+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001120s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011061s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.233031','39.850329','18') [ RunTime:0.063830s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003534s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003956s ]
+
+[ 2016-06-02T15:51:33+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000546s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001121s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010877s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.227281','39.858305','18') [ RunTime:0.045489s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003984s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004474s ]
+
+[ 2016-06-02T15:51:34+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001135s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011240s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.222107','39.868939','18') [ RunTime:0.062483s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003880s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004359s ]
+
+[ 2016-06-02T15:51:34+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001139s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011875s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.214058','39.882228','18') [ RunTime:0.040882s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004902s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005518s ]
+
+[ 2016-06-02T15:51:34+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000601s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001148s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011716s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.215208','39.891086','18') [ RunTime:0.045183s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003614s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004046s ]
+
+[ 2016-06-02T15:51:34+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001301s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010891s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.219233','39.914112','18') [ RunTime:0.046892s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004327s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004879s ]
+
+[ 2016-06-02T15:51:34+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000513s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000985s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011533s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.219233','39.945539','18') [ RunTime:0.048469s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004607s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005267s ]
+
+[ 2016-06-02T15:51:34+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000611s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001212s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.012319s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.229006','39.999064','18') [ RunTime:0.051532s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004344s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004829s ]
+
+[ 2016-06-02T15:51:34+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000495s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000950s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011302s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.254877','40.007907','18') [ RunTime:0.049866s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003742s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004298s ]
+
+[ 2016-06-02T15:51:34+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000509s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000976s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011492s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.276149','40.011444','18') [ RunTime:0.050984s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003589s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004007s ]
+
+[ 2016-06-02T15:51:35+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001135s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011257s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.287073','40.019401','18') [ RunTime:0.046404s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004337s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004882s ]
+
+[ 2016-06-02T15:51:35+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001135s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011012s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.308919','40.021169','18') [ RunTime:0.044334s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003942s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004453s ]
+
+[ 2016-06-02T15:51:35+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000700s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001253s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.012029s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.33594','40.027357','18') [ RunTime:0.040741s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003605s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004120s ]
+
+[ 2016-06-02T15:51:35+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001131s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011589s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.345139','40.030009','18') [ RunTime:0.045492s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.006515s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007197s ]
+
+[ 2016-06-02T15:51:35+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000902s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001465s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011166s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.362387','40.028683','18') [ RunTime:0.041421s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000961s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001058s ]
+
+[ 2016-06-02T15:51:35+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000519s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001078s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011794s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.384808','39.995526','18') [ RunTime:0.050664s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003980s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004686s ]
+
+[ 2016-06-02T15:51:35+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001130s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010968s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.30202','39.991546','18') [ RunTime:0.044685s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002536s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002832s ]
+
+[ 2016-06-02T15:51:35+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001126s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011261s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.281898','39.968989','18') [ RunTime:0.046615s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003913s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004377s ]
+
+[ 2016-06-02T15:51:35+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000684s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001237s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011660s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.279599','39.932705','18') [ RunTime:0.040850s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004110s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004735s ]
+
+[ 2016-06-02T15:51:36+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000498s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000989s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011756s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.279599','39.893301','18') [ RunTime:0.054777s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004228s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005003s ]
+
+[ 2016-06-02T15:56:37+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000733s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001327s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.028669s ]
+SQL: INSERT INTO `ecs_peisongmap` (`gongyingshang_id`,`jiage`,`yanse`,`dianshu`,`cityid`,`isTime`,`shipping_start`,`shipping_end`,`shipping_waiting`,`shipping_booking`) VALUES ('2','0','#FFFF00','23',1,2,'8:00','22:00','1','7') [ RunTime:0.059913s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004370s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004826s ]
+
+[ 2016-06-02T15:56:37+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001098s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.006905s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.488293','39.845454','19') [ RunTime:0.029617s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004247s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004694s ]
+
+[ 2016-06-02T15:56:37+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000809s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001637s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.041368s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.51129','39.825951','19') [ RunTime:0.065730s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000982s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001081s ]
+
+[ 2016-06-02T15:56:37+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001104s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010858s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.554983','39.853874','19') [ RunTime:0.059888s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.005485s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006181s ]
+
+[ 2016-06-02T15:56:37+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000507s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000978s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011661s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.554408','39.87647','19') [ RunTime:0.057995s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004511s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005065s ]
+
+[ 2016-06-02T15:56:37+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000597s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001079s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.012715s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.552684','39.911013','19') [ RunTime:0.050369s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001047s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001160s ]
+
+[ 2016-06-02T15:56:37+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000618s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001265s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.024563s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.548659','39.947752','19') [ RunTime:0.032192s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004609s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005115s ]
+
+[ 2016-06-02T15:56:38+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000542s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001083s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.007799s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.595227','39.945982','19') [ RunTime:0.065193s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003755s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004242s ]
+
+[ 2016-06-02T15:56:38+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001165s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011130s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.588903','39.989777','19') [ RunTime:0.042716s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000952s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001239s ]
+
+[ 2016-06-02T15:56:38+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000607s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001181s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.030762s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.589478','39.999948','19') [ RunTime:0.053557s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001007s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001105s ]
+
+[ 2016-06-02T15:56:38+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001144s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.006581s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.607301','40.021169','19') [ RunTime:0.084553s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003952s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004490s ]
+
+[ 2016-06-02T15:56:38+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000506s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000982s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.016494s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.622248','40.045476','19') [ RunTime:0.056369s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003630s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004063s ]
+
+[ 2016-06-02T15:56:38+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000507s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000973s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.006719s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.57568','40.041058','19') [ RunTime:0.038733s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003727s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004190s ]
+
+[ 2016-06-02T15:56:38+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001092s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.038071s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.54176','40.048128','19') [ RunTime:0.035814s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.005016s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006162s ]
+
+[ 2016-06-02T15:56:38+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000502s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000964s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.015602s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.519338','40.054313','19') [ RunTime:0.038123s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004482s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004960s ]
+
+[ 2016-06-02T15:56:39+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001096s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.013671s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.50899','40.066241','19') [ RunTime:0.048787s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004480s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004936s ]
+
+[ 2016-06-02T15:56:39+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001089s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011387s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.488293','40.064033','19') [ RunTime:0.061311s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004494s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005131s ]
+
+[ 2016-06-02T15:56:39+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000554s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001264s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.015114s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.487718','40.050337','19') [ RunTime:0.045612s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004081s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004542s ]
+
+[ 2016-06-02T15:56:39+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001133s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010829s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.473345','40.036196','19') [ RunTime:0.051630s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003949s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004499s ]
+
+[ 2016-06-02T15:56:39+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000609s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001124s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.012102s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.461272','40.021169','19') [ RunTime:0.056147s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003602s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004200s ]
+
+[ 2016-06-02T15:56:39+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000731s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001309s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011543s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.450349','39.995526','19') [ RunTime:0.037857s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000967s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001071s ]
+
+[ 2016-06-02T15:56:39+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001143s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011964s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.492892','39.967662','19') [ RunTime:0.085315s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003939s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004446s ]
+
+[ 2016-06-02T15:56:39+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000599s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001142s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.016254s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.498642','39.949964','19') [ RunTime:0.048070s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001023s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001133s ]
+
+[ 2016-06-02T15:56:40+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000690s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001332s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.015982s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.498067','39.881785','19') [ RunTime:0.053187s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003633s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004062s ]
+
+[ 2016-06-02T16:07:09+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000881s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001469s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.011922s ]
+SQL: INSERT INTO `ecs_peisongmap` (`gongyingshang_id`,`jiage`,`yanse`,`dianshu`,`cityid`,`isTime`,`shipping_start`,`shipping_end`,`shipping_waiting`,`shipping_booking`) VALUES ('3','0','#BC8F8F','23',1,1,'0','0','0','0') [ RunTime:0.054404s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004776s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005278s ]
+
+[ 2016-06-02T16:07:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000793s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001278s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011327s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.431376','39.838363','20') [ RunTime:0.037836s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.006808s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007414s ]
+
+[ 2016-06-02T16:07:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000847s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001410s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011735s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.437126','39.809104','20') [ RunTime:0.056412s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001012s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001100s ]
+
+[ 2016-06-02T16:07:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000850s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001403s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010818s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.438275','39.786042','20') [ RunTime:0.063975s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001077s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001166s ]
+
+[ 2016-06-02T16:07:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000860s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001486s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011547s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.426777','39.776283','20') [ RunTime:0.040503s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004350s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004764s ]
+
+[ 2016-06-02T16:07:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000757s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001241s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010847s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.40493','39.769185','20') [ RunTime:0.061694s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.006052s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006577s ]
+
+[ 2016-06-02T16:07:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000863s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001446s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011259s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.380784','39.774509','20') [ RunTime:0.068837s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004346s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004813s ]
+
+[ 2016-06-02T16:07:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000772s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001276s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010895s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.377334','39.781606','20') [ RunTime:0.061026s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004298s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004805s ]
+
+[ 2016-06-02T16:07:10+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000775s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001279s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011237s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.318693','39.786042','20') [ RunTime:0.058759s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004508s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004892s ]
+
+[ 2016-06-02T16:07:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000852s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001423s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010952s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.287648','39.778945','20') [ RunTime:0.044167s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002103s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002411s ]
+
+[ 2016-06-02T16:07:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000833s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001405s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011314s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.27155','39.808217','20') [ RunTime:0.047151s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004171s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004569s ]
+
+[ 2016-06-02T16:07:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000769s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001269s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011396s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.257752','39.834817','20') [ RunTime:0.043495s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004454s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004889s ]
+
+[ 2016-06-02T16:07:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000854s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001423s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011284s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.239355','39.842795','20') [ RunTime:0.047479s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004397s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004839s ]
+
+[ 2016-06-02T16:07:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000945s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001688s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010867s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.243954','39.860521','20') [ RunTime:0.044148s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004387s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004900s ]
+
+[ 2016-06-02T16:07:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000764s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001259s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011419s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.283048','39.880013','20') [ RunTime:0.042877s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004903s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005297s ]
+
+[ 2016-06-02T16:07:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000802s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001406s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011278s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.281898','39.973855','20') [ RunTime:0.040925s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003988s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004372s ]
+
+[ 2016-06-02T16:07:11+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001103s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001706s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011131s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.312944','39.9942','20') [ RunTime:0.043327s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003947s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004374s ]
+
+[ 2016-06-02T16:07:12+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000866s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001447s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011050s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.447474','39.995084','20') [ RunTime:0.061267s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004320s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004852s ]
+
+[ 2016-06-02T16:07:12+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000855s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001493s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011472s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.47737','39.978278','20') [ RunTime:0.042413s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004982s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005458s ]
+
+[ 2016-06-02T16:07:12+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000852s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001414s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011793s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.496917','39.956159','20') [ RunTime:0.048606s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001081s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001185s ]
+
+[ 2016-06-02T16:07:12+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000833s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001480s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011413s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.499216','39.911899','20') [ RunTime:0.047941s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003914s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004306s ]
+
+[ 2016-06-02T16:07:12+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000755s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001237s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011206s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.496917','39.87647','20') [ RunTime:0.043956s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.005918s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006570s ]
+
+[ 2016-06-02T16:07:12+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000765s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001251s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010876s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.487718','39.849886','20') [ RunTime:0.049041s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003947s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004334s ]
+
+[ 2016-06-02T16:07:12+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001091s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001735s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011622s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.47277','39.839249','20') [ RunTime:0.043633s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004682s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005215s ]
+
+[ 2016-06-02T16:08:26+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000853s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001431s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.012490s ]
+SQL: INSERT INTO `ecs_peisongmap` (`gongyingshang_id`,`jiage`,`yanse`,`dianshu`,`cityid`,`isTime`,`shipping_start`,`shipping_end`,`shipping_waiting`,`shipping_booking`) VALUES ('3','20','#FFA500','22',1,1,'0','0','0','0') [ RunTime:0.059373s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004060s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004441s ]
+
+[ 2016-06-02T16:08:26+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000868s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001499s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011749s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.47162','39.733681','21') [ RunTime:0.049357s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004106s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004497s ]
+
+[ 2016-06-02T16:08:26+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000851s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001421s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.012802s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.457823','39.758536','21') [ RunTime:0.044128s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004901s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005388s ]
+
+[ 2016-06-02T16:08:26+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000853s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001425s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011280s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.458972','39.775396','21') [ RunTime:0.049945s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004509s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004952s ]
+
+[ 2016-06-02T16:08:27+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000853s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001405s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011883s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.440575','39.786929','21') [ RunTime:0.051489s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004766s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005217s ]
+
+[ 2016-06-02T16:08:27+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000856s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001390s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010961s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.442875','39.798461','21') [ RunTime:0.049464s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004904s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005352s ]
+
+[ 2016-06-02T16:08:27+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000879s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001451s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011415s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.432526','39.83659','21') [ RunTime:0.063831s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.006202s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006683s ]
+
+[ 2016-06-02T16:08:27+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000757s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001252s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011190s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.47737','39.841909','21') [ RunTime:0.071126s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001170s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001311s ]
+
+[ 2016-06-02T16:08:27+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000855s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001415s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011503s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.493467','39.856976','21') [ RunTime:0.053233s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.005328s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005814s ]
+
+[ 2016-06-02T16:08:27+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000857s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001447s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011142s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.499216','39.882671','21') [ RunTime:0.052393s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004270s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004800s ]
+
+[ 2016-06-02T16:08:27+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000844s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001417s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011552s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.499216','39.956159','21') [ RunTime:0.041196s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004125s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004517s ]
+
+[ 2016-06-02T16:08:27+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000883s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001615s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010905s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.47622','39.979163','21') [ RunTime:0.049592s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004402s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004884s ]
+
+[ 2016-06-02T16:08:28+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000843s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001405s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011097s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.450924','39.997737','21') [ RunTime:0.063470s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.005663s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006194s ]
+
+[ 2016-06-02T16:08:28+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000856s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001449s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010802s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.384233','39.995084','21') [ RunTime:0.046037s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003947s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004343s ]
+
+[ 2016-06-02T16:08:28+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000844s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001402s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.008950s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.360087','40.030451','21') [ RunTime:0.023908s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004010s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004428s ]
+
+[ 2016-06-02T16:08:28+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000802s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001370s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010006s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.465871','40.022495','21') [ RunTime:0.024319s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003929s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004316s ]
+
+[ 2016-06-02T16:08:28+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001099s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001954s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010932s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.494617','40.063149','21') [ RunTime:0.049996s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004934s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005328s ]
+
+[ 2016-06-02T16:08:28+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000860s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001423s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011678s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.519913','40.056081','21') [ RunTime:0.037115s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004116s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004542s ]
+
+[ 2016-06-02T16:08:28+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000809s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001375s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011776s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.673991','40.041941','21') [ RunTime:0.042632s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004324s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004758s ]
+
+[ 2016-06-02T16:08:28+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000811s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001372s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011374s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.719984','39.98447','21') [ RunTime:0.049522s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.005847s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006396s ]
+
+[ 2016-06-02T16:08:28+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001136s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001918s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011172s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.715385','39.863179','21') [ RunTime:0.042914s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001016s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001104s ]
+
+[ 2016-06-02T16:08:29+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000864s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001446s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011362s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.617649','39.766523','21') [ RunTime:0.042294s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004264s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004676s ]
+
+[ 2016-06-02T16:08:29+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000866s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001542s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011465s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.47737','39.729242','21') [ RunTime:0.040440s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001559s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001750s ]
+
+[ 2016-06-02T16:10:00+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000960s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001587s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.007004s ]
+SQL: INSERT INTO `ecs_peisongmap` (`gongyingshang_id`,`jiage`,`yanse`,`dianshu`,`cityid`,`isTime`,`shipping_start`,`shipping_end`,`shipping_waiting`,`shipping_booking`) VALUES ('3','0','#FFB6C1','19',1,2,'10:00','22:00','0.5','5') [ RunTime:0.045017s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.005040s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005562s ]
+
+[ 2016-06-02T16:10:00+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000763s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001255s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010974s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.433676','39.779832','22') [ RunTime:0.048347s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004079s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004465s ]
+
+[ 2016-06-02T16:10:00+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000754s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001243s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010971s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.438275','39.794026','22') [ RunTime:0.058814s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004916s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005459s ]
+
+[ 2016-06-02T16:10:00+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000850s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001420s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011474s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.431376','39.839249','22') [ RunTime:0.048526s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004227s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004623s ]
+
+[ 2016-06-02T16:10:01+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000857s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001403s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010985s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.480819','39.842795','22') [ RunTime:0.047660s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004682s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005113s ]
+
+[ 2016-06-02T16:10:01+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000854s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001464s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011128s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.700437','39.846341','22') [ RunTime:0.047850s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004444s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004862s ]
+
+[ 2016-06-02T16:10:01+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000846s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001413s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011264s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.717684','39.870268','22') [ RunTime:0.053749s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001064s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001152s ]
+
+[ 2016-06-02T16:10:01+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000855s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001415s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010935s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.713085','39.958814','22') [ RunTime:0.049310s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004436s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004833s ]
+
+[ 2016-06-02T16:10:01+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000754s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001246s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011834s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.705036','40.010117','22') [ RunTime:0.055810s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004096s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004564s ]
+
+[ 2016-06-02T16:10:01+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000780s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001309s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011180s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.672841','40.045476','22') [ RunTime:0.042289s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001064s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001160s ]
+
+[ 2016-06-02T16:10:01+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000849s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001417s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011119s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.522213','40.058731','22') [ RunTime:0.049860s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004256s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004653s ]
+
+[ 2016-06-02T16:10:01+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000773s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001273s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010973s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.492317','40.062266','22') [ RunTime:0.041221s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003837s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004212s ]
+
+[ 2016-06-02T16:10:01+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000768s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001286s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010970s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.460122','40.023379','22') [ RunTime:0.054838s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004066s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004483s ]
+
+[ 2016-06-02T16:10:02+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000864s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001370s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010725s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.438275','39.977393','22') [ RunTime:0.040505s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004569s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004972s ]
+
+[ 2016-06-02T16:10:02+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000769s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001259s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011515s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.388833','39.955274','22') [ RunTime:0.039783s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004523s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004949s ]
+
+[ 2016-06-02T16:10:02+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000851s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001427s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011400s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.362387','39.945539','22') [ RunTime:0.049458s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001083s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001171s ]
+
+[ 2016-06-02T16:10:02+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.003630s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005889s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011379s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.352038','39.783381','22') [ RunTime:0.042994s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004075s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004485s ]
+
+[ 2016-06-02T16:10:02+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000823s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001408s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.012139s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.379634','39.778058','22') [ RunTime:0.043407s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.005637s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006122s ]
+
+[ 2016-06-02T16:10:02+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000767s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001267s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011186s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.396881','39.766523','22') [ RunTime:0.043902s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001072s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001174s ]
+
+[ 2016-06-02T16:10:02+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000845s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001411s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011613s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.424477','39.770959','22') [ RunTime:0.040456s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004452s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005040s ]
+
+[ 2016-06-02T16:10:47+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000868s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001451s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.012177s ]
+SQL: INSERT INTO `ecs_peisongmap` (`gongyingshang_id`,`jiage`,`yanse`,`dianshu`,`cityid`,`isTime`,`shipping_start`,`shipping_end`,`shipping_waiting`,`shipping_booking`) VALUES ('3','0','#00BFFF','14',1,2,'800','23:00','0.5','6') [ RunTime:0.045764s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004761s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005173s ]
+
+[ 2016-06-02T16:10:47+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000803s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001362s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010855s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.350888','39.781606','23') [ RunTime:0.041068s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003991s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004390s ]
+
+[ 2016-06-02T16:10:47+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000887s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001562s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011514s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.310644','39.785155','23') [ RunTime:0.084763s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004206s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004655s ]
+
+[ 2016-06-02T16:10:47+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000826s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001438s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.012111s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.287648','39.778058','23') [ RunTime:0.053312s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004749s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005361s ]
+
+[ 2016-06-02T16:10:47+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000780s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001306s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010918s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.256602','39.840136','23') [ RunTime:0.048673s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.005614s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006274s ]
+
+[ 2016-06-02T16:10:47+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000876s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001474s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010857s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.238205','39.848113','23') [ RunTime:0.039868s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001045s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001150s ]
+
+[ 2016-06-02T16:10:48+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000786s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001278s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011499s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.284198','39.885329','23') [ RunTime:0.044757s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004243s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004764s ]
+
+[ 2016-06-02T16:10:48+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000781s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001312s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011362s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.283048','39.978278','23') [ RunTime:0.039465s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004123s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004529s ]
+
+[ 2016-06-02T16:10:48+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001194s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001756s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011447s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.315243','39.995084','23') [ RunTime:0.051681s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004605s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005617s ]
+
+[ 2016-06-02T16:10:48+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001104s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001693s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011307s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.388833','39.995968','23') [ RunTime:0.049738s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004215s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004656s ]
+
+[ 2016-06-02T16:10:48+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000867s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001483s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010991s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.358937','40.029567','23') [ RunTime:0.050748s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004960s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005399s ]
+
+[ 2016-06-02T16:10:48+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001004s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001597s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011197s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.463572','40.026031','23') [ RunTime:0.047092s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004728s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005119s ]
+
+[ 2016-06-02T16:10:48+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000901s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001468s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011098s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.439425','39.982701','23') [ RunTime:0.044915s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001056s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001145s ]
+
+[ 2016-06-02T16:10:48+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000874s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001455s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011168s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.361237','39.949079','23') [ RunTime:0.059758s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001091s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001179s ]
+
+[ 2016-06-02T16:10:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.004167s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006864s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010884s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.350888','39.784268','23') [ RunTime:0.058553s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001094s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001181s ]
+
+[ 2016-06-02T16:11:19+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000863s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001419s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.011909s ]
+SQL: INSERT INTO `ecs_peisongmap` (`gongyingshang_id`,`jiage`,`yanse`,`dianshu`,`cityid`,`isTime`,`shipping_start`,`shipping_end`,`shipping_waiting`,`shipping_booking`) VALUES ('3','0','#7FFFAA','8',1,2,'9:00','23:00','0.5','6') [ RunTime:0.055234s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001111s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001197s ]
+
+[ 2016-06-02T16:11:19+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.004057s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006492s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.008217s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.437126','39.787816','24') [ RunTime:0.045757s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004365s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004852s ]
+
+[ 2016-06-02T16:11:19+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000767s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001251s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010956s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.460122','39.773621','24') [ RunTime:0.051720s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004408s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004798s ]
+
+[ 2016-06-02T16:11:19+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000865s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001439s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011700s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.458972','39.753211','24') [ RunTime:0.045552s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001105s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001193s ]
+
+[ 2016-06-02T16:11:19+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001113s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001763s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011187s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.47277','39.731906','24') [ RunTime:0.049257s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.005215s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005864s ]
+
+[ 2016-06-02T16:11:19+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000780s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001272s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010926s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.625698','39.772734','24') [ RunTime:0.050242s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004055s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004451s ]
+
+[ 2016-06-02T16:11:19+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000784s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001305s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011441s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.695838','39.841909','24') [ RunTime:0.054607s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004900s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005403s ]
+
+[ 2016-06-02T16:11:20+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001228s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001890s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011534s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.431376','39.83659','24') [ RunTime:0.043088s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004537s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004959s ]
+
+[ 2016-06-02T16:11:20+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000888s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001575s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010930s ]
+SQL: INSERT INTO `ecs_peisongmapzuobiao` (`lng`,`lat`,`peisongmap_id`) VALUES ('116.437126','39.820632','24') [ RunTime:0.057055s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.006404s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007017s ]
+

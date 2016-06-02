@@ -6024,3 +6024,43 @@ SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` =
 SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 29 ) LIMIT 1   [ RunTime:0.000219s ]
 SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 28 ) LIMIT 1   [ RunTime:0.000223s ]
 
+[ 2016-06-02T10:12:25+08:00 ] 192.168.1.148 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002707s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.013963s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.006460s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.006067s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.004966s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.006686s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000437s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1509010002 ) LIMIT 1   [ RunTime:0.000466s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000358s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.000441s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.000428s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 27 ) LIMIT 1   [ RunTime:0.000392s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 26 ) LIMIT 1   [ RunTime:0.000329s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 30 ) LIMIT 1   [ RunTime:0.000328s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 29 ) LIMIT 1   [ RunTime:0.000330s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 28 ) LIMIT 1   [ RunTime:0.000342s ]
+
+[ 2016-06-02T10:12:27+08:00 ] 192.168.1.148 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000885s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001490s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.003808s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.003532s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.005818s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.021153s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.003412s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000253s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1509010002 ) LIMIT 1   [ RunTime:0.000229s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000159s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.000226s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.000228s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 27 ) LIMIT 1   [ RunTime:0.000154s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 26 ) LIMIT 1   [ RunTime:0.000149s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 30 ) LIMIT 1   [ RunTime:0.000202s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 29 ) LIMIT 1   [ RunTime:0.001122s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 28 ) LIMIT 1   [ RunTime:0.000206s ]
+

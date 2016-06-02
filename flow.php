@@ -1348,28 +1348,6 @@ elseif ($_REQUEST['step'] == 'check_integral')
 /*------------------------------------------------------ */
 elseif ($_REQUEST['step'] == 'done')
 {
-    /* Array
-    (
-        [riqi] => Array
-        (
-            [3] => 2016-05-31
-            [2] => 2016-05-31
-        )
-    
-        [time] => Array
-        (
-            [3] => 配送时间
-            [2] => 19:00-19:30
-        )
-    
-        [sup_3] => 10
-        [sup_2] => 0
-        [shipping] => 1
-        [payment] => 2
-        [payshipping_check] => 1
-        [step] => done
-    )
-     */
 	
     include_once('includes/lib_clips.php');
     include_once('includes/lib_payment.php');
@@ -1391,7 +1369,7 @@ elseif ($_REQUEST['step'] == 'done')
     /* 如果使用库存，且下订单时减库存，则减少库存 */
     if ($_CFG['use_storage'] == '1' && $_CFG['stock_dec_time'] == SDT_PLACE)
     {
-        $cart_goods_stock = get_cart_goods();
+        $cart_goods_stock = get_cart_goods($flow_type);
         $_cart_goods_stock = array();
         foreach ($cart_goods_stock['goods_list'] as $value)
         {
@@ -1586,7 +1564,7 @@ elseif ($_REQUEST['step'] == 'done')
         }
     }
     /* 订单中的总额 */
-    $total = order_fee($order, $cart_goods, $consignee);
+    $total = order_fee($order, $cart_goods, $consignee);    
     
     // 计算运费
     $shipping_total_fee = 0;
@@ -1599,7 +1577,7 @@ elseif ($_REQUEST['step'] == 'done')
     $total['amount'] = $total['amount'] + $shipping_total_fee;
  
     $order['bonus']        = 0;
-    $order['goods_amount'] = 0;
+    $order['goods_amount'] = $total['goods_price'];
     $order['discount']     = 0;
     $order['surplus']      = 0;
     $order['tax']          = 0;
@@ -2002,7 +1980,7 @@ else if ($_REQUEST['step'] == 'act_pay')
 	        continue;
 	    }
 	    // 如果订单状态是无效，终止付款操作
-	    if ($arr_payLog['order_status'] == 2)
+	    if ($value['order_status'] == 2)
 	    {
 	        $arr_result['error']   = 1;
 	        $arr_result['message'] = '订单无效，不可支付！';

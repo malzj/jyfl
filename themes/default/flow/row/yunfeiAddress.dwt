@@ -2,10 +2,10 @@
 <div class="order_grshang_bottom_adress f_l">配送地址：<span>{$consignee.consignee|escape}&nbsp;&nbsp;{$consignee.country_cn|escape}&nbsp;&nbsp;{$consignee.province_cn|escape}&nbsp;&nbsp;{$consignee.city_cn|escape}&nbsp;&nbsp;{$consignee.district_cn|escape}&nbsp;&nbsp;{$consignee.address|escape}</span></div>
 <div class="f_r order_gyshang_operate">
     {if $detail.open_time eq 1}
-    <div class="f_l"><input class="peisong_date laydate-icon" onclick="laydate({choose:function(dates){ selectdate(dates,{$detail.supplier_id},'{$consignee.country_cn|escape}{$consignee.province_cn|escape}{$consignee.city_cn|escape}{$consignee.district_cn|escape}{$consignee.address|escape}');}})"  name="riqi[{$detail.supplier_id}]" value="配送日期"></div>
+    <div class="f_l"><input class="peisong_date laydate-icon peisong_check" onclick="laydate({choose:function(dates){ selectdate(dates,{$detail.supplier_id},'{$consignee.country_cn|escape}{$consignee.province_cn|escape}{$consignee.city_cn|escape}{$consignee.district_cn|escape}{$consignee.address|escape}');}})"  name="riqi[{$detail.supplier_id}]" value="配送日期"></div>
     <div class="f_l peisong_time" id="time{$detail.supplier_id}">
-        <select name="time[{$detail.supplier_id}]">
-            <option>配送时间</option>            
+        <select name="time[{$detail.supplier_id}]" class="peisong_check">
+            <option value="0">配送时间</option>         
         </select>
     </div>
     {/if}

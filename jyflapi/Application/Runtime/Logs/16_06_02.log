@@ -1,0 +1,266 @@
+[ 2016-06-02T08:34:02+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.004845s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008684s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010334s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010365s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.001562s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001124s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.019428s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.002018s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001318s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001429s ]
+
+[ 2016-06-02T08:34:09+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000934s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001807s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010651s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.009716s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.001563s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001129s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.002260s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001851s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000995s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001095s ]
+
+[ 2016-06-02T08:34:16+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000849s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001429s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.005091s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.004817s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.001162s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001137s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.002328s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001361s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001087s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001228s ]
+
+[ 2016-06-02T08:37:53+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001690s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002943s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010698s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.009647s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.001574s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001178s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.003464s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.002043s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001058s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001161s ]
+
+[ 2016-06-02T08:38:48+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000817s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001342s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010745s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.009481s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.002010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001017s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.002761s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001725s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000938s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001038s ]
+
+[ 2016-06-02T08:39:07+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000723s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001200s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010324s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.009506s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.001615s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001193s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.001599s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001656s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000951s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001050s ]
+
+[ 2016-06-02T08:40:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000839s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001376s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010963s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011243s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.001635s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001166s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.002125s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001959s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001125s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001230s ]
+
+[ 2016-06-02T08:40:50+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000942s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001590s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010240s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.009368s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.001459s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001201s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.002765s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001715s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003916s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004347s ]
+
+[ 2016-06-02T08:40:53+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000809s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001335s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010308s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.009316s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.001550s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001184s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.003065s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001943s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001033s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001133s ]
+
+[ 2016-06-02T08:42:00+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002266s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010288s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010457s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.001586s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.002450s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.002590s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001963s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001069s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001172s ]
+
+[ 2016-06-02T08:45:41+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000899s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001492s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.011233s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.011574s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.003303s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001420s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.002415s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001799s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002899s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003324s ]
+
+[ 2016-06-02T08:45:43+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001019s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001649s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010367s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.010880s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.002457s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.002099s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.003460s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.002195s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004085s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004524s ]
+
+[ 2016-06-02T08:46:49+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000796s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001311s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010782s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.009710s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.001471s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001257s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.002861s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001410s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002442s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002853s ]
+
+[ 2016-06-02T08:46:57+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000772s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001287s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.011711s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.008686s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 2 )  [ RunTime:0.002306s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 2 ) LIMIT 1   [ RunTime:0.001505s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '12' )  [ RunTime:0.001657s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '13' )  [ RunTime:0.001646s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004009s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004446s ]
+
+[ 2016-06-02T08:47:40+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000850s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001439s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010271s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.009152s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.001444s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001157s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.002841s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001916s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000987s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001088s ]
+
+[ 2016-06-02T08:49:31+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000927s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001456s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.004383s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.003505s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.001085s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.002746s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.003218s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001456s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001074s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001178s ]
+
+[ 2016-06-02T08:49:33+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000803s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001387s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010954s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.008372s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.001751s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001086s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.002500s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001347s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001053s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001156s ]
+
+[ 2016-06-02T08:51:20+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000853s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001438s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.011248s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.009823s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 2 )  [ RunTime:0.001783s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 2 ) LIMIT 1   [ RunTime:0.001440s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '12' )  [ RunTime:0.001590s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '13' )  [ RunTime:0.001561s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.005081s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005665s ]
+
+[ 2016-06-02T08:51:33+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001237s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001893s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.005234s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.007893s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.002233s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.000969s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.002413s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001154s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001012s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001116s ]
+

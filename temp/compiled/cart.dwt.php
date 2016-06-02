@@ -34,6 +34,7 @@
                     <div class="f_l burcar_all6">操作</div>
                 </div>
 			</div>
+            <?php if ($this->_var['goods_list']): ?>
 			
 			<div class="gyshang_all">
             	<?php $_from = $this->_var['goods_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'supplier');$this->_foreach['supplier'] = array('total' => count($_from), 'iteration' => 0);
@@ -89,7 +90,11 @@ if ($this->_foreach['supplier']['total'] > 0):
 			<input type="button" value="立即结算" class="buy_car_jiesuan f_r zhuti_a_hover" onclick="location.href='flow.php?step=checkout'">
             <input type="hidden" name="step" value="update_cart" />
             <input type="submit" name="updateCartSub" id="updateCartSub" value="<?php echo $this->_var['lang']['update_cart']; ?>" style="display:none;" />
+            <?php else: ?>
             
+            <center>购物车为空</center>
+            
+            <?php endif; ?>
 		</div>
         </form>
 

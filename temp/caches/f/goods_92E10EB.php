@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:36:"D:/www/jyfl/themes/default/goods.dwt";i:1;s:47:"D:/www/jyfl/themes/default/library/page_top.lbi";i:2;s:50:"D:/www/jyfl/themes/default/library/page_footer.lbi";i:3;s:48:"D:/www/jyfl/themes/default/library/page_left.lbi";i:4;s:49:"D:/www/jyfl/themes/default/library/page_right.lbi";}s:7:"expires";i:1464829976;s:8:"maketime";i:1464829976;}<!DOCTYPE html>
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:53:"F:/wamp-php5.5/www/juyoufuli/themes/default/goods.dwt";i:1;s:64:"F:/wamp-php5.5/www/juyoufuli/themes/default/library/page_top.lbi";i:2;s:67:"F:/wamp-php5.5/www/juyoufuli/themes/default/library/page_footer.lbi";i:3;s:65:"F:/wamp-php5.5/www/juyoufuli/themes/default/library/page_left.lbi";i:4;s:66:"F:/wamp-php5.5/www/juyoufuli/themes/default/library/page_right.lbi";}s:7:"expires";i:1464833159;s:8:"maketime";i:1464833159;}<!DOCTYPE html>
 <html>
 	<head>
 <meta name="Generator" content="ECSHOP v2.7.3" />
@@ -25,7 +25,7 @@
                 <img  src="http://192.168.1.161/jyflapi/Uploads/2016-06-01/574e744f05ac1.jpg" alt="用户头像">
                 <span>7110010995430713</span>
             </li>
-            <li class="balance">余额：<span>21444.70</span>点</li>
+            <li class="balance">余额：<span>21064.70</span>点</li>
             <li class="exit">【<a href="user.php?act=logout">退出</a>】</li>
         </ul>
     </ul>
@@ -1192,7 +1192,7 @@ $('.adress').click(function(event){
 						var second = "秒";
 						var end = "结束";
 						var goodsId = 21;
-			var now_time = 1464829976;
+			var now_time = 1464833160;
 	
 			onload = function(){
 				changePrice();	

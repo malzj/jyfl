@@ -264,3 +264,33 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTrace [ RunTime:0.001012s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001116s ]
 
+[ 2016-06-02T09:28:52+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.004517s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008283s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.037186s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.029216s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 )  [ RunTime:0.002979s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '2' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001059s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '5' )  [ RunTime:0.002590s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '6' )  [ RunTime:0.001912s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001596s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001766s ]
+
+[ 2016-06-02T09:37:34+08:00 ] 127.0.0.1 /jyflapi/index.php?s=Peisong/Peisong/showmap
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000871s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001720s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmap` [ RunTime:0.010038s ]
+SQL: SHOW COLUMNS FROM `ecs_peisongmapzuobiao` [ RunTime:0.008906s ]
+SQL: SELECT * FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '3' ) AND ( `isTime` = 1 )  [ RunTime:0.001489s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_peisongmap` WHERE ( `gongyingshang_id` = '3' ) AND ( `isTime` = 1 ) LIMIT 1   [ RunTime:0.001172s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '8' )  [ RunTime:0.001356s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '9' )  [ RunTime:0.001410s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '10' )  [ RunTime:0.001236s ]
+SQL: SELECT * FROM `ecs_peisongmapzuobiao` WHERE ( `peisongmap_id` = '11' )  [ RunTime:0.001245s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001112s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001274s ]
+

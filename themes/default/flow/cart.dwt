@@ -31,6 +31,7 @@
                     <div class="f_l burcar_all6">操作</div>
                 </div>
 			</div>
+            {if $goods_list}
 			<!--供应商订单显示-->
 			<div class="gyshang_all">
             	{foreach from=$goods_list item=supplier name=supplier}
@@ -80,7 +81,11 @@
 			<input type="button" value="立即结算" class="buy_car_jiesuan f_r zhuti_a_hover" onclick="location.href='flow.php?step=checkout'">
             <input type="hidden" name="step" value="update_cart" />
             <input type="submit" name="updateCartSub" id="updateCartSub" value="{$lang.update_cart}" style="display:none;" />
+            {else}
             
+            <center>购物车为空</center>
+            
+            {/if}
 		</div>
         </form>
 

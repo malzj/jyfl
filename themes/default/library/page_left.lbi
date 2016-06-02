@@ -9,8 +9,8 @@
 <script src="{$app_path}js/utils.js"></script>
 <script src="{$app_path}js/juyoufuli/pop_right.js"></script>
 <input type="hidden" value="{$usernames.user_id}" id="user_id" />
-<input type="hidden" value="" id="img" />
-<input type="hidden" value="" id="xingqu"/>
+<input type="hidden" value="{$usernames.pic}" id="img" />
+<input type="hidden" value="{$usernames.xingqu}" id="xingqu"/>
 <div class="pop_left">
     <ul class="list_main">
     	<li class="shouye">
@@ -109,8 +109,11 @@
 		})
 </script>
 <script type="text/javascript">
-	//			加入购物车
+		var shopping_amount=0;
+		
+	  //加入购物车动画效果
 			function MoveBox() {
+				$('.list_main').animate({left:0},'slow');
 				var img;
 				if(img) img.remove();
 				var divTop = $("#box1").offset().top;
@@ -131,14 +134,18 @@
 				500,
 				function() {
 					$(img).animate({
-						"left": $(".car").offset().left + "px",
+						"left": $(".car").offset().left+20 + "px",
 						"top": $(".car").offset().top + "px",
 						"width": "25px",
 						"height": "25px"
 					},500 ,function(){
 						$(img).remove();
+						addToCart({$goods.goods_id});
+						shopping_amount=Number($('#number').val())+Number(shopping_amount);
+						$('#shopping_amount').text(shopping_amount);
 					});
 					
 				});
 			}
+			$('#shopping_amount').text(shopping_amount);
 </script>

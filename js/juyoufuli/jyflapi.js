@@ -103,27 +103,27 @@ layer.open({
 						switch(ck_val[i]){
 					     case '美食':
 				         $('#meishi').addClass('on_check');
-						 $('#meishi>input').attr('checked','checked');
+						 $('#meishi>input').prop('checked',true);
 				         break;
 				         case '电影':
 				         $('#dianying').addClass('on_check');
-						 $('#dianying>input').attr('checked', 'checked');
+						 $('#dianying>input').prop('checked', true);
 				         break;	
 				         case '酒店':
 				         $('#jiudian').addClass('on_check');
-						 $('#jiudian>input').attr('checked', 'checked');
+						 $('#jiudian>input').prop('checked', true);
 				         break;	
 				         case '休闲娱乐':
 				         $('#xiuxian').addClass('on_check');
-						 $('#xiuxian>input').attr('checked', 'checked');
+						 $('#xiuxian>input').prop('checked', true);
 				         break;	
 				         case '丽人':
 				         $('#liren').addClass('on_check');
-						 $('#liren>input').attr('checked', 'checked');
+						 $('#liren>input').prop('checked', true);
 				         break;	
 				         case '旅游':
 				         $('#lvyou').addClass('on_check');
-						 $('#lvyou>input').attr('checked', 'checked');
+						 $('#lvyou>input').prop('checked', true);
 				         break;	
 						}
 					}
@@ -163,7 +163,7 @@ function userSave(){
     var xingqu;
     var xingqu_1=$('#xingqu').val();
     if (xingqu_1==""||xingqu_1==null){
-    	xingqu=$('input[type="checkbox"]:checked').val().split(",");
+    	xingqu=$('input[type="checkbox"]:checked').val();
     }else{
     	xingqu =$('#xingqu').val();
     }
@@ -212,6 +212,7 @@ function showSafe(user_id){
 		data:{user_id:user_id},
 		dataType:"json",
 		success:function(data){
+			//console.log(data);
 			result = data;
 		}
 	});
@@ -259,6 +260,7 @@ function userLoginPass(user_id,old_password,new_password,con_password){
  */
 function getverification(user_id,tel){
 	var url = api_url+'index.php/Users/User/smsvrerifyJs';
+	//alert(user_id+'='+tel);
 	var result = new Array();
 	$.ajax({
 		type:"post",
@@ -269,6 +271,7 @@ function getverification(user_id,tel){
 		},
 		dataType:"json",
 		success:function (data) {
+			console.log(data);
 			result = data;
 		}
 	});
@@ -295,6 +298,7 @@ function boundPhone(user_id,tel,captcha){
 		},
 		dataType:"json",
 		success:function(data){
+			console.log(data);
 			if(data.result == "true"){
 				layer.closeAll();
 				// showSafeCenter();

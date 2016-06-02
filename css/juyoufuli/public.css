@@ -2325,7 +2325,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .sport4_dianshu{font-size: 30px;color: #ff7900;}
 .sport4_pri{background: white;margin: 10px 0;padding: 25px 20px;}
 .sport4_mar{overflow: hidden;padding: 15px 20px;}
-.sport4_btn{cursor: pointer;display: inline-block;margin: 20px 30px;padding: 10px 40px;background: #e70012;color: white;}
+.sport4_btn{cursor: pointer;display: inline-block;margin: 20px 30px;/* padding: 10px 40px; */background: #e70012;color: white;width: 140px;}
 .sport4_btn:hover{background: #C71120;}
 .sport4_img_item li{margin: 10px 7px;cursor: pointer;}
 .sport4_list .prev{position: absolute;width: 20px;background: url(/images/index/img_login/sport4_jiantou.png) no-repeat;height: 30px;display: inline-block;left: 0px;top: 20px;cursor: pointer;}
@@ -2696,9 +2696,10 @@ html.shenghuo1 body{background: white;}
 /*订单支付成功*/
 .order_success{background:url(/images/juyoufuli/img_login/order_success.png) no-repeat;width: 1030px;margin: 0 auto;margin-top: 90px;height: 100px;margin-bottom: 50px;}
 
-
-
-
-
-
+/*空购物车*/
+.buy_car_font{margin-top: 80px;font-size: 18px;color: #000;}
+.buy_car_none{height: 200px;/* line-height: 3; */width: 500px;margin: 50px auto;}
+.buy_car_content{width: 180px;}
+.buy_car_btn a{color: white;display: inline-block;width: 130px;text-align: center;height: 30px;line-height: 30px;border-radius: 5px;}
+.buy_car_btn{margin-top: 25px;text-align: center;}
 

@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:36:"C:/wamp/www/themes/default/goods.dwt";i:1;s:47:"C:/wamp/www/themes/default/library/page_top.lbi";i:2;s:50:"C:/wamp/www/themes/default/library/page_footer.lbi";i:3;s:48:"C:/wamp/www/themes/default/library/page_left.lbi";i:4;s:49:"C:/wamp/www/themes/default/library/page_right.lbi";}s:7:"expires";i:1464830707;s:8:"maketime";i:1464830707;}<!DOCTYPE html>
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:36:"D:/www/jyfl/themes/default/goods.dwt";i:1;s:47:"D:/www/jyfl/themes/default/library/page_top.lbi";i:2;s:50:"D:/www/jyfl/themes/default/library/page_footer.lbi";i:3;s:48:"D:/www/jyfl/themes/default/library/page_left.lbi";i:4;s:49:"D:/www/jyfl/themes/default/library/page_right.lbi";}s:7:"expires";i:1464836699;s:8:"maketime";i:1464836699;}<!DOCTYPE html>
 <html>
 	<head>
 <meta name="Generator" content="ECSHOP v2.7.3" />
@@ -25,7 +25,7 @@
                 <img  src="http://192.168.1.161/jyflapi/Uploads/2016-06-01/574e744f05ac1.jpg" alt="用户头像">
                 <span>7110010995430713</span>
             </li>
-            <li class="balance">余额：<span>21444.70</span>点</li>
+            <li class="balance">余额：<span>21442.70</span>点</li>
             <li class="exit">【<a href="user.php?act=logout">退出</a>】</li>
         </ul>
     </ul>
@@ -595,7 +595,7 @@ $('.adress').click(function(event){
 						</div>
 					</div>
 				</div>
-                <form action="javascript:addToCart(21)" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
+                <form action="javascript:addToCart(21)" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" onsubmit="return false">
 				<div class="cake2_top_right f_l">
 					<ul>
 						<li class="sport4_title">巧克力三部曲蛋糕</li>
@@ -638,7 +638,7 @@ $('.adress').click(function(event){
 							</div>
 						<li>
                             <input class="sport4_btn input_submit bg_color btn zhuti_a_hover" type="button" onclick="addToCart(21,'',5)" value="立即购买"> 
-                            <button type="submit" class="sport4_btn input_submit bg_color btn zhuti_a_hover" onclick="MoveBox()" value="加入购物车">
+                            <button type="submit" class="sport4_btn input_submit bg_color btn zhuti_a_hover" onclick="MoveBox()" value="加入购物车" >
                             <span class="glyphicon glyphicon-shopping-cart"></span>加入购物车</button>
                         </li>
 					</ul>
@@ -680,8 +680,8 @@ $('.adress').click(function(event){
 <script src="/js/utils.js"></script>
 <script src="/js/juyoufuli/pop_right.js"></script>
 <input type="hidden" value="1" id="user_id" />
-<input type="hidden" value="" id="img" />
-<input type="hidden" value="" id="xingqu"/>
+<input type="hidden" value="http://192.168.1.161/jyflapi/Uploads/2016-06-01/574e744f05ac1.jpg" id="img" />
+<input type="hidden" value="美食,酒店,休闲娱乐,丽人,旅游," id="xingqu"/>
 <div class="pop_left">
     <ul class="list_main">
     	<li class="shouye">
@@ -826,8 +826,11 @@ $('.adress').click(function(event){
 		})
 </script>
 <script type="text/javascript">
-	//			加入购物车
+		var shopping_amount=0;
+		
+	  //加入购物车动画效果
 			function MoveBox() {
+				$('.list_main').animate({left:0},'slow');
 				var img;
 				if(img) img.remove();
 				var divTop = $("#box1").offset().top;
@@ -848,16 +851,20 @@ $('.adress').click(function(event){
 				500,
 				function() {
 					$(img).animate({
-						"left": $(".car").offset().left + "px",
+						"left": $(".car").offset().left+20 + "px",
 						"top": $(".car").offset().top + "px",
 						"width": "25px",
 						"height": "25px"
 					},500 ,function(){
 						$(img).remove();
+						addToCart(21);
+						shopping_amount=Number($('#number').val())+Number(shopping_amount);
+						$('#shopping_amount').text(shopping_amount);
 					});
 					
 				});
 			}
+			$('#shopping_amount').text(shopping_amount);
 </script>                
         
 		<div class="pop_right">
@@ -1185,7 +1192,7 @@ $('.adress').click(function(event){
 						var second = "秒";
 						var end = "结束";
 						var goodsId = 21;
-			var now_time = 1464830707;
+			var now_time = 1464836699;
 	
 			onload = function(){
 				changePrice();	
@@ -1253,6 +1260,13 @@ $('.adress').click(function(event){
 			function checkNum(num){
 				changePrice();
 			}
+				
+//			function delay(){
+//			    window.setTimeout(function(){
+//			        var form = document.forms['ECS_FORMBUY'];
+//			        form.submit();
+//			    },5000);
+//			return false;}	
 		</script>
         
     </body>

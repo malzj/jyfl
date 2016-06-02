@@ -112,8 +112,11 @@ if ($this->_foreach['foo']['total'] > 0):
 		})
 </script>
 <script type="text/javascript">
-	//			加入购物车
+		var shopping_amount=0;
+		
+	  //加入购物车动画效果
 			function MoveBox() {
+				$('.list_main').animate({left:0},'slow');
 				var img;
 				if(img) img.remove();
 				var divTop = $("#box1").offset().top;
@@ -134,14 +137,18 @@ if ($this->_foreach['foo']['total'] > 0):
 				500,
 				function() {
 					$(img).animate({
-						"left": $(".car").offset().left + "px",
+						"left": $(".car").offset().left+20 + "px",
 						"top": $(".car").offset().top + "px",
 						"width": "25px",
 						"height": "25px"
 					},500 ,function(){
 						$(img).remove();
+						addToCart(<?php echo $this->_var['goods']['goods_id']; ?>);
+						shopping_amount=Number($('#number').val())+Number(shopping_amount);
+						$('#shopping_amount').text(shopping_amount);
 					});
 					
 				});
 			}
+			$('#shopping_amount').text(shopping_amount);
 </script>

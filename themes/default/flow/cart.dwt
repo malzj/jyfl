@@ -81,10 +81,16 @@
 			<input type="button" value="立即结算" class="buy_car_jiesuan f_r zhuti_a_hover" onclick="location.href='flow.php?step=checkout'">
             <input type="hidden" name="step" value="update_cart" />
             <input type="submit" name="updateCartSub" id="updateCartSub" value="{$lang.update_cart}" style="display:none;" />
-            {else}
-            
-            <center>购物车为空</center>
-            
+            {else}    
+            <div class="buy_car_none o_hidden">
+            	<div class="f_l buy_car_img">
+            		<img src="/images/juyoufuli/img_login/buy_car_no.png">
+            	</div>
+            	<div class="f_l buy_car_content">
+            		<div class="buy_car_font">您的购物车还是空的，赶紧行动吧！</div>
+            		<div class="buy_car_btn"><a href="#" class="bg_color zhuti_a_hover">去购物</a></div>
+            	</div>
+            </div>
             {/if}
 		</div>
         </form>

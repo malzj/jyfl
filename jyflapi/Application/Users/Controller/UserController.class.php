@@ -93,8 +93,7 @@ class UserController extends Controller
      * 安全设置的状态
      */
     public function showSafe(){
-//      $id = $_POST['user_id'];
-      $id = 1;
+      $id = $_POST['user_id'];
       $Dao = M("users");
       $result = $Dao->where(array("user_id"=>$id))->find();
       $rudata = array();
@@ -103,15 +102,15 @@ class UserController extends Controller
         $rudata['password']['msg'] = "未修改";
       }else{
         $rudata['password']['result'] = true;
-        $rudata['password']['msg'] = "已设置";
+        $rudata['password']['msg'] = "已修改";
       }
 
-      if(!empty($result['mobile_phone'])){
+      if(empty($result['mobile_phone'])){
         $rudata['phone']['result'] = false;
-        $rudata['phone']['msg'] = "未设置";
+        $rudata['phone']['msg'] = "未绑定";
       }else{
         $rudata['phone']['result'] = true;
-        $rudata['phone']['msg'] = "已设置";
+        $rudata['phone']['msg'] = "已绑定";
       }
 
       if(!empty($result['answerone']) && !empty($result['answertwo']) && !empty($result['answerthree'])){
@@ -154,6 +153,7 @@ class UserController extends Controller
           $arr_param = array( 'CardInfo' =>array('CardNo'=>$result['user_name'], "CardPwd"=>$old_password,'CardNewPwd'=>$password));
           $state = $cardPay->action($arr_param, 2);
           if($state == 0){
+			$Dao->where(array("user_id"=>$id))->data(array("pass_edit"=>1))->save();
             $rudata['result'] = "true";
             $rudata['msg'] = "密码修改成功！";
           }elseif($state == 1){
@@ -181,7 +181,6 @@ class UserController extends Controller
       $verify = mt_rand(123456,999999);
       $smsvrerifyapi = new smsvrerifyApi();
       $data = $smsvrerifyapi->smsvrerify($telphone,$verify,1);
-      // print_r($data);die();
       if($data == 0){
         $rudata['data'] = $data;
         $data = array();
@@ -228,7 +227,7 @@ class UserController extends Controller
         }
       }else{
         $rudata['result'] = "false";
-        $rudata['msg'] = "失败";
+        $rudata['msg'] = "验证码超时！";
       }
       $jsondData = json_encode($rudata);
       echo $jsondData;

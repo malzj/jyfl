@@ -259,6 +259,7 @@ function userLoginPass(user_id,old_password,new_password,con_password){
  */
 function getverification(user_id,tel){
 	var url = api_url+'index.php/Users/User/smsvrerifyJs';
+	//alert(user_id+'='+tel);
 	var result = new Array();
 	$.ajax({
 		type:"post",
@@ -269,6 +270,7 @@ function getverification(user_id,tel){
 		},
 		dataType:"json",
 		success:function (data) {
+			console.log(data);
 			result = data;
 		}
 	});
@@ -295,6 +297,7 @@ function boundPhone(user_id,tel,captcha){
 		},
 		dataType:"json",
 		success:function(data){
+			console.log(data);
 			if(data.result == "true"){
 				layer.closeAll();
 				// showSafeCenter();

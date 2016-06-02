@@ -43,7 +43,7 @@ class GamesApiController extends Controller
             $glo_list[$key]['game_name'] = $val['game_name'];
             $glo_list[$key]['thumbnail'] = $val['thumbnail'];
             $glo_list[$key]['rules'] = $val['rules'];
-            $glo_list[$key]['buy_status'] = $val['buy_status'];
+            $glo_list[$key]['buy_status'] = ($count==$val['total'])?1:0;
         }
         foreach($game_company as $k => $v){
             $com_count = $PartModel -> where(array('company_id'=>$company_info['card_company_id'],'game_id'=>$v['id'])) -> count();
@@ -55,7 +55,7 @@ class GamesApiController extends Controller
             $com_list[$k]['game_name'] = $v['game_name'];
             $com_list[$k]['thumbnail'] = $v['thumbnail'];
             $com_list[$k]['rules'] = $v['rules'];
-            $com_list[$k]['buy_status'] = $v['buy_status'];
+            $com_list[$k]['buy_status'] = ($com_count==$v['total'])?1:0;
         }
 
         $rudata['company_info'] = $company_info;
@@ -75,10 +75,11 @@ class GamesApiController extends Controller
     public function getGame(){
         $id = I('request.game_id');
         $user_id = I('request.user_id');
+        $company_id = I('request.company_id');
         $GamesModel = M('Games');
         $PartModel = M('Participation');
         $gameInfo = $GamesModel -> where(array('id'=>$id)) -> find();
-        $partInfo = $PartModel -> where(array('game_id'=>$id,'user_id'=>$user_id)) -> select();
+        $partInfo = $PartModel -> where(array('game_id'=>$id,'user_id'=>$user_id,'company_id'=>$company_id)) -> select();
         if(empty($partInfo)){
            $partInfo = 'false';
         }
@@ -114,8 +115,13 @@ class GamesApiController extends Controller
         $data['card_num'] =I('request.card_num');
         $data['company_id'] =I('request.company_id');
         $data['buy_time'] = date('Y-m-d H:i:s',time());
-        $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();
         $game_info = $Model ->table('__GAMES__') -> where(array('id' => $data['game_id'])) ->find();
+        if($game_info['grade_id']==1){
+            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();
+        }else{
+            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'])) -> count();
+        }
+
         $total = $game_info['total'];
         $surplus = intval($total) - intval($count);
         if($surplus<$num){
@@ -125,7 +131,7 @@ class GamesApiController extends Controller
         }
         $Model -> startTrans();
         for($i=1;$i<=$num;$i++) {
-            $lastLottery = $Model->table('__PARTICIPATION__') ->where(array('game_id' => $data['game_id']))->order('lottery_id desc')->getField('lottery_id');
+            $lastLottery = $Model->table('__PARTICIPATION__') ->where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id']))->order('lottery_id desc')->getField('lottery_id');
             if ($lastLottery !== false) {
                 if (!$lastLottery) {
                     $lastLottery = 0;
@@ -140,6 +146,7 @@ class GamesApiController extends Controller
             $lotteryInfo = $Model ->table('__LOTTERY__') ->where($map)->order('id asc')->find();
             $data['lottery_id'] = $lotteryInfo['id'];
             $data['lottery_num'] = $lotteryInfo['num'];
+
             $result = $Model -> table('__PARTICIPATION__') -> data($data) ->add();
             if ($result) {
                 $rudata['result'] = 'true';
@@ -151,12 +158,23 @@ class GamesApiController extends Controller
                 $this -> ajaxReturn($rudata);
             }
         }
+
         //判断是否已抢完，如抢完更改buy_status=1,且根据算法得出中奖号码存入中奖表
-        $count_all = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();
+        if($game_info['grade_id']==1){
+            $count_all = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();
+        }else{
+            $count_all = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'])) -> count();
+        }
         if($count_all==$total){
+
             $sdInfo = $this ->_get3DLottery();
             $winner_num = $this->_getWinner($total,$sdInfo['opencode']);
-            $winnerInfo = $Model -> table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'lottery_num'=>$winner_num)) -> find();
+
+            if($game_info['grade_id']==1) {
+                $winnerInfo = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'], 'lottery_num' => $winner_num))->find();
+            }else{
+                $winnerInfo = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'], 'lottery_num' => $winner_num))->find();
+            }
             $wdata['company_id'] = $data['company_id'];
             $wdata['game_id'] = $data['game_id'];
             $wdata['card_num'] = $winnerInfo['card_num'];
@@ -164,8 +182,7 @@ class GamesApiController extends Controller
             $wdata['lottery'] = $winner_num;
             $wdata['create_time'] = date('Y-m-d H:i:s',time());
             $wre = $Model ->table('__WINNERS_LIST__') -> data($wdata) -> add();
-            $update_game = $Model ->table('__GAMES__')->where(array('id' => $data['game_id']))->data(array('buy_status'=>1))->save();
-            if(($wre !== false)&&($update_game !== false)){
+            if($wre !== false){
                 $rudata['result'] = 'true';
                 $rudata['msg'] = '抢购成功！';
             }else{
@@ -202,9 +219,14 @@ class GamesApiController extends Controller
      */
     public function getSurplus(){
         $game_id = I('request.game_id');
+        $company_id = I('request.company_id');
         $Model = new Model();
-        $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $game_id)) -> count();
         $game_info = $Model ->table('__GAMES__') -> where(array('id' => $game_id)) ->find();
+        if($game_info['grade_id']==1){
+            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $game_id)) -> count();
+        }else{
+            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $game_id,'company_id'=>$company_id)) -> count();
+        }
         $total = $game_info['total'];
         $surplus = intval($total) - intval($count);
         $this ->ajaxReturn($surplus);
@@ -214,22 +236,37 @@ class GamesApiController extends Controller
      */
     public function gameWinner(){
         $game_id = I('request.game_id');
+        $user_id = I('request.user_id');
+        $company_id = I('request.company_id');
         $WinnerModel = M('WinnersList');
         $GamesModel = M('Games');
         $UserModel = M('Users');
         $PartModel = M('Participation');
-        $winner = $WinnerModel -> where(array('game_id'=>$game_id)) -> find();
 
         $gameInfo = $GamesModel->where(array('id'=>$game_id))->find();
-
+        if($gameInfo['grade_id']==1){
+            $winner = $WinnerModel -> where(array('game_id'=>$game_id)) -> find();
+        }else{
+            $winner = $WinnerModel -> where(array('game_id'=>$game_id,'company_id'=>$company_id)) -> find();
+        }
         $userInfo = $UserModel -> where(array('user_name'=>$winner['card_num'])) -> find();
-        $peo_num = $PartModel ->where(array('game_id'=>$game_id)) -> group('user_id') -> select();
+        if($gameInfo['grade_id']==1) {
+            $peo_num = $PartModel->where(array('game_id' => $game_id))->group('user_id')->select();
+        }else{
+            $peo_num = $PartModel->where(array('game_id' => $game_id, 'company_id' => $company_id))->group('user_id')->select();
+        }
+        $partInfo = $PartModel -> where(array('game_id'=>$game_id,'user_id'=>$user_id)) -> select();
+        if(empty($partInfo)){
+            $partInfo = 'false';
+        }
+
         $peo_count = count($peo_num);
         $winner['issue'] = date('Ymd',strtotime($winner['create_time']));//期号
         $winner['thumbnail'] = $gameInfo['thumbnail'];
         $winner['user_name'] = $userInfo['nickname'];
         $winner['peo_count'] = $peo_count;
         $winner['user_img'] = $userInfo['pic'];
+        $winner['part_info'] = $partInfo;
 
         $this->ajaxReturn($winner);
     }
@@ -248,7 +285,8 @@ class GamesApiController extends Controller
         $CompanyModel = M('Company');
         $GamesModel = M('Games');
         $selfInfo = $UserModel -> where(array('id'=>$uid))->find();
-        $selfCompany = $CompanyModel -> where(array('id'=>$selfInfo['company_id'])) -> find();
+        $selfCompany = $CompanyModel -> where(array('card_company_id'=>$selfInfo['company_id'])) -> find();
+
         //全民夺宝
         $gwinnerList = $WinnerModel ->where(array('company_id'=>$selfInfo['company_id'],'grade_id'=>1)) -> select();
         //专属夺宝
@@ -262,6 +300,7 @@ class GamesApiController extends Controller
             $glist[$key]['issue'] = date('Ymd',strtotime($val['create_time']));//期号
             $glist[$key]['thumbnail'] = $ggameInfo['thumbnail'];
             $glist[$key]['user_name'] = $guserInfo['nickname'];
+            $glist[$key]['lottery'] = $val['lottery'];
             $glist[$key]['card_num'] = $val['card_num'];
             $glist[$key]['peo_count'] = $peo_count;
             $glist[$key]['user_img'] = $guserInfo['pic'];
@@ -275,6 +314,7 @@ class GamesApiController extends Controller
             $clist[$key]['issue'] = date('Ymd',strtotime($val['create_time']));//期号
             $clist[$key]['thumbnail'] = $gameInfo['thumbnail'];
             $clist[$key]['user_name'] = $userInfo['nickname'];
+            $clist[$key]['lottery'] = $val['lottery'];
             $clist[$key]['card_num'] = $val['card_num'];
             $clist[$key]['peo_count'] = $peo_count;
             $clist[$key]['user_img'] = $userInfo['pic'];

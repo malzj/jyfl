@@ -12,14 +12,12 @@
         
 </head>
 <body>
-	<input type="hidden" value="1" id="user_id" />
-    <input type="hidden" value="" id="img" />
     <div class="content">
     	<!-- 头部 -->
 		<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->        
    
-        <div class="wrap" style="background: url(./hy/images/C-_Users_user_Desktop_01.png) no-repeat;background-size: 100% 100%;">
+        <div class="wrap" id="back_img" style="background: url(./hy/images/C-_Users_user_Desktop_01.png) no-repeat;background-size: 100% 100%;">
 		</div>	
         
         <!-- 公共左边 -->

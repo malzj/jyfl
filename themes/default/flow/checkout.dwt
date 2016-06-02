@@ -3,25 +3,18 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-        
         <link rel="stylesheet" href="{$app_path}js/juyoufuli/layer/skin/layer.css">
         <link rel="stylesheet" href="{$app_path}css/juyoufuli/bootstrap.min.css">
-        
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>   
         <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
 		<script type="text/javascript" src="http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js"></script>
 		<script src="{$app_path}js/baidumap.js"></script>
-     
-        
 		<script src="{$app_path}js/juyoufuli/bootstrap.min.js"></script>
         <script src="{$app_path}js/juyoufuli/laydate/laydate.js"></script>
         <script src="{$app_path}js/juyoufuli/jquery.shoppingflow.js"></script>
-        
-        
         {insert_scripts files='jquery.region.js,utils.js'}
         {insert_scripts files='jquery.common.js'}
-        
         <style>
         	.show_baidumap .layui-layer-content, .show_baidumap { background-color:#FFF;}
         </style>
@@ -32,6 +25,7 @@
         <!-- 头部结束 -->
         <form action="flow.php" method="post" name="theForm" id="theForm" onsubmit="return checkOrderForm(this)">
         <div class="w_1200">
+        	<div class="order_title_tips"></div>
 			<div class="order_title"></div>
 			<div class="order_list">
 				<div class="f_l order_list_name">商品信息</div>
@@ -48,7 +42,6 @@
 					<div class="adress_look f_r"><a href="javascript:void(0);" class="color_zhuti show_yunfei" data-id="{$supplier[0].supplier_id}">查看配送范围</a></div>
 				</div>
 				<div class="order_gyshang_itemAll o_hidden">
-					
 					<!-- {foreach from=$supplier item=goods name=goods} -->
 					<!--单个商品列表-->
 					<div class="order_gyshang_item o_hidden">
@@ -66,7 +59,6 @@
 						<div class="order_gyshang_details4 f_l">{$goods.formated_subtotal}</div>
 					</div>
                     <!-- {/foreach} -->
-                    
 				</div>
 				<!--供应商底部操作-->
 				<div class="order_grshang_bottom">
@@ -74,7 +66,6 @@
 				</div>                 
 			</div>            
             <!-- {/foreach} -->
-            
 			<!--收货信息-->
 			<div class="shouhuo">收货信息</div>
 			<div class="shouhuoren" id="order_consignee"> LOADING ...</div>
@@ -115,14 +106,10 @@
         <!-- 公共右边 -->
 		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
         <!-- 公共右边结束 -->
-        
         <script>
-
-		
 			// 加载收货地址
 			var checkconsignee = '{$checkconsignee}';		
 			updateConsignee(); 
-			
 			// 查看运费
 			$('.show_yunfei').click(function(){
 				var id = $(this).attr('data-id');		
@@ -135,12 +122,10 @@
 				  content: "{$app_path}flow.php?step=showYunfei&id="+id
 				});
 			});
-			
 			// 运费验证
 			$('.show_yunfei').each(function(index,dom){			
 				supplierYunfei($(dom));			
 			})
-			
 			// 修改单个供应商的配送地址
 			$(document).delegate('.editAddress','click',function(){
 				var id = $(this).attr('data-id');
@@ -169,7 +154,6 @@
 				  	}
 				});
 			});
-			
 			// 选择时间
 			function selectdate(date, sid, address){
 				baidumap.setOptions({
@@ -206,13 +190,8 @@
 						});
 					}	
 				});
-				
 				baidumap.showMap(sid,address);
-
-				
 			}
-
-						
 			$('.shouhuoren_item li').hover(function() {
 				$(this).children('.shouhuoren_hover').toggle();
 			});
@@ -226,7 +205,6 @@
 					$('.shouhuoren_item').css('height', '40px');
 				}
 			})
-			
 			//点击更多按钮
 			var num=$('.order_gyshang_item ').length;
 			// 判断订单数量
@@ -246,11 +224,9 @@
 				}else{
 				$('.order_item_more').hide();
 			}
-			
 			function supplierYunfei(dom){
 				var id = dom.attr('data-id');
 				var bottomhtml = dom.closest('.order_grshang').find('.order_grshang_bottom');
-				
 				$.ajax({
 					type:'POST',
 					url:'{$app_path}flow.php',
@@ -271,6 +247,5 @@
 			}
 		
 		</script>
-        
     </body>
 </html>

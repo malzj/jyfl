@@ -98,15 +98,15 @@ class UserController extends Controller
       $Dao = M("users");
       $result = $Dao->where(array("user_id"=>$id))->find();
       $rudata = array();
-      if($result['password'] == ""){
+      if($result['pass_edit'] == 0){
         $rudata['password']['result'] = false;
-        $rudata['password']['msg'] = "未设置";
+        $rudata['password']['msg'] = "未修改";
       }else{
         $rudata['password']['result'] = true;
         $rudata['password']['msg'] = "已设置";
       }
 
-      if($result['mobile_phone'] == ""){
+      if(!empty($result['mobile_phone'])){
         $rudata['phone']['result'] = false;
         $rudata['phone']['msg'] = "未设置";
       }else{
@@ -114,7 +114,7 @@ class UserController extends Controller
         $rudata['phone']['msg'] = "已设置";
       }
 
-      if($result['answerone'] != "" && $result['answertwo'] != "" && $result['answerthree'] != ""){
+      if(!empty($result['answerone']) && !empty($result['answertwo']) && !empty($result['answerthree'])){
         $rudata['answer']['result'] = true;
         $rudata['answer']['msg'] = "已设置";
       }else{

@@ -1,4 +1,5 @@
-var api_url = 'http://jy.com/jyflapi/';
+//var api_url = 'http://jy.com/jyflapi/';
+var api_url = 'http://192.168.1.161/jyflapi/';
 $(function(){
 //	游戏规则
 	$('#guize').on('click',function(){
@@ -38,7 +39,7 @@ $(function(){
                     '<div class="old_win_item">' +
                     '<div class="old_win_title o_hidden">' +
                     '<div class="old_winTitle f_l">' +
-                    '<a href="#" id="all_duobao" class="zhuti_a_hovercolor">全民夺宝</a></div>' +
+                    '<a href="#" id="all_duobao" class="zhuti_a_hovercolor active">全民夺宝</a></div>' +
                     '<div class="old_winTitle1 f_l">' +
                     '<a href="#" id="person_duobao" class="zhuti_a_hovercolor">专属夺宝</a></div>' +
                     '</div><div class="all_duobao">' ;
@@ -49,7 +50,7 @@ $(function(){
                         '<img src="'+global_list[i].user_img+'">' +
                         '</div><div class="f_l old_win_msg"><div class="old_win_qihao">期号<span>'+global_list[i].issue+'</span></div>' +
                         '<div class="old_win_name">恭喜&nbsp;<span class="old_win_username">'+global_list[i].user_name+'</span>&nbsp;获得本期商品</div>' +
-                        '<div>昵称：<span>'+global_list[i].user_name+'</span></div>' +
+                        '<div>中奖号码：<span>'+global_list[i].lottery+'</span></div>' +
                         '<div>用户卡号：<span>'+global_list[i].card_num+'</span></div>' +
                         '<div>本期参与：<span class="color_zhuti">'+global_list[i].peo_count+'人次</span></div></div>' +
                         '<div class="old_win_img f_l"><img src="'+api_url+"Public/games/upload/"+global_list[i].thumbnail+'"></div></div>';
@@ -63,7 +64,7 @@ $(function(){
                         '<img src="'+company_list[i].user_img+'">' +
                         '</div><div class="f_l old_win_msg"><div class="old_win_qihao">期号<span>'+company_list[i].issue+'</span></div>' +
                         '<div class="old_win_name">恭喜&nbsp;<span class="old_win_username">'+company_list[i].user_name+'</span>&nbsp;获得本期商品</div>' +
-                        '<div>昵称：<span>'+company_list[i].user_name+'</span></div>' +
+                        '<div>中奖号码：<span>'+company_list[i].lottery+'</span></div>' +
                         '<div>用户卡号：<span>'+company_list[i].card_num+'</span></div>' +
                         '<div>本期参与：<span class="color_zhuti">'+company_list[i].peo_count+'人次</span></div></div>' +
                         '<div class="old_win_img f_l"><img src="'+api_url+"Public/games/upload/"+company_list[i].thumbnail+'"></div></div>';
@@ -94,10 +95,12 @@ $(function(){
 	$('.scroll_msg').on('click','.pop_right_goods',function(){
         var id = $(this).attr('data-id');
         var uid = $('#user_id').val();
+        var cid = $(this).attr('data-cid');
         $.ajax({
             type: 'post',
             url: api_url + 'index.php/Games/GamesApi/getGame',
-            data: {game_id: id, user_id: uid},
+            async:false,
+            data: {game_id: id, user_id: uid,company_id:cid},
             dataType: 'json',
             success: function (data) {
                 //console.log(data);
@@ -118,6 +121,8 @@ $(function(){
                     for(var i=0;i<partinfo.length;i++){
                         html += '<span class="yigouhao">'+partinfo[i].lottery_num+'</span>';
                     }
+                }else{
+                    html+='<span class="yigouhao">您没有抢购！</span>';
                 }
                 html += '</div></div></div>';
                 layer.open({
@@ -149,7 +154,7 @@ $(function(){
         $.ajax({
             type:'post',
             url:api_url+'index.php/Games/GamesApi/getGame',
-            data:{game_id:id,user_id:uid},
+            data:{game_id:id,user_id:uid,company_id:cid},
             dataType:'json',
             success:function (data) {
                 var html = '<div class="qianggou_box">' +
@@ -184,6 +189,8 @@ $(function(){
                     for(var i=0;i<partinfo.length;i++){
                         html += '<span class="yigouhao">'+partinfo[i].lottery_num+'</span>';
                     }
+                }else{
+                    html += '<span class="yigouhao">您没有抢购！</span>';
                 }
                 html += '</div></div></div>';
                 layer.open({
@@ -208,6 +215,7 @@ $(function(){
         $.ajax({
             type:'post',
             url:api_url+'index.php/Games/GamesApi/purchase',
+            async:false,
             data:{
                 user_id:user_id,
                 game_id:game_id,
@@ -218,7 +226,7 @@ $(function(){
             },
             dataType:'json',
             success:function (data) {
-                //console.log(data);
+                console.log(data);
                 if(data.result == 'true'){
                     layer.alert(data.msg,function () {
                         location.reload();
@@ -234,13 +242,15 @@ $(function(){
 //	已结束
 	$('.scroll_msg').on('click','.end',function(){
         var id = $(this).parent('a').attr('data-id');
+        var cid = $(this).parent('a').attr('data-cid');
+        var uid = $('#user_id').val();
         $.ajax({
             type: 'post',
             url: api_url + 'index.php/Games/GamesApi/gameWinner',
-            data: {game_id: id},
+            data: {game_id: id,user_id:uid,company_id:cid},
             dataType: 'json',
             success: function (data) {
-                //.log(data);
+                console.log(data);
                 var html = '<div class="old_winBox"><h3>已结束</h3>' +
                 '<div class="old_win_item">' +
                 '<div class="all_duobao">' +
@@ -250,12 +260,22 @@ $(function(){
                 '</div><div class="f_l old_win_msg">' +
                 '<div class="old_win_qihao">期号<span>'+data.issue+'</span></div>' +
                 '<div class="old_win_name">恭喜&nbsp;<span class="old_win_username">'+data.user_name+'</span>&nbsp;获得本期商品</div>' +
-                '<div>昵称：<span>'+data.user_name+'</span></div>' +
+                '<div>中奖号码：<span>'+data.lottery+'</span></div>' +
                 '<div>用户卡号：<span>'+data.card_num+'</span></div>' +
                 '<div>本期参与：<span class="color_zhuti">'+data.peo_count+'人次</span></div>' +
                 '</div>' +
                 '<div class="old_win_img f_l"><img src="'+api_url+"Public/games/upload/"+data.thumbnail+'"></div></div></div>' +
-                '</div></div>';
+                '</div></div>'+
+                '<div class="yigou_name">' +
+                '<div class="f_l">已购号：</div>' +
+                '<div class="f_l yigouhao_all">';
+                var partinfo = data.part_info;
+                if(partinfo != "false"){
+                    for(var i=0;i<partinfo.length;i++){
+                        html += '<span class="yigouhao">'+partinfo[i].lottery_num+'</span>';
+                    }
+                }
+                html+='</div></div>';
                 layer.open({
                     type: 1,
                     title:false,
@@ -263,6 +283,15 @@ $(function(){
                     shadeClose: false, //点击遮罩关闭
                     content:html,
                 })
+                //		弹窗滚动条美化
+                $(".layui-layer-content").niceScroll({
+                    cursorcolor:"#BFB1B1",
+                    cursoropacitymax:1,
+                    touchbehavior:false,
+                    cursorwidth:"5px",
+                    cursorborder:"0",
+                    cursorborderradius:"5px"
+                });
 
             },
         });
@@ -289,9 +318,10 @@ function numadd(){
     var pricespan = $("#price");
     var point = $('#point').val();
     var game_id = $('input[name="game_id"]').val();
-    var surplus = checkSurplus(game_id);
-    var n = parseInt(num);
+    var company_id = $('input[name="company_id"]').val();
 
+    var surplus = checkSurplus(game_id,company_id);
+    var n = parseInt(num);
     if(n>=surplus){
         num = n;
         layer.msg('储量不够了，亲！！！');
@@ -305,13 +335,13 @@ function numadd(){
 /**
  * 点选可选属性或改变数量时修改商品价格的函数
  */
-function checkSurplus(game_id){
+function checkSurplus(game_id,company_id){
     var surplus;
     $.ajax({
         type:'post',
         url:api_url + 'index.php/Games/GamesApi/getSurplus',
         async:false,
-        data:{game_id:game_id},
+        data:{game_id:game_id,company_id:company_id},
         dataType:'json',
         success:function(data){
             surplus = data;

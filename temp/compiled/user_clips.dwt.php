@@ -13,14 +13,12 @@
         
 </head>
 <body>
-	<input type="hidden" value="1" id="user_id" />
-    <input type="hidden" value="" id="img" />
     <div class="content">
     	
 		<?php echo $this->fetch('library/page_header.lbi'); ?>
                 
    
-        <div class="wrap" style="background: url(./hy/images/C-_Users_user_Desktop_01.png) no-repeat;background-size: 100% 100%;">
+        <div class="wrap" id="back_img" style="background: url(./hy/images/C-_Users_user_Desktop_01.png) no-repeat;background-size: 100% 100%;">
 		</div>	
         
         

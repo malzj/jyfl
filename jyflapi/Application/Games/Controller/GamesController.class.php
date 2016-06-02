@@ -92,6 +92,7 @@ class GamesController extends Controller
                     $this -> error($Upload->getError());//获取失败信息
                 }
             }
+			var_dump($_FILES);
             $Model = new Model();
             $Model -> startTrans();
             $result = $Model ->table('__GAMES__') -> add($data);

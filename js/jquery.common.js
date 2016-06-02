@@ -305,11 +305,11 @@ function openCartDiv(message) {
 	// 新激活图层
 	var newDiv = document.createElement("div");
 	newDiv.id = _id;
-	newDiv.className = 'hy_tk'
+	newDiv.className = 'hy_tk';
 	newDiv.style.position = "absolute";
 	newDiv.style.zIndex = "10000";
 	newDiv.style.top = (parseInt(scrollPos + 200)) + "px";
-	newDiv.style.left = (parseInt(document.body.offsetWidth) - 200) / 2 + "px"; // 屏幕居中
+	newDiv.style.left = (parseInt(document.body.offsetWidth)-250) / 2 + "px"; // 屏幕居中
 	newDiv.style.overflow = "auto"; 
 
 
@@ -330,7 +330,7 @@ function openCartDiv(message) {
 	newMask.style.height = document.body.scrollHeight + "px";
 	newMask.style.top = "0px";
 	newMask.style.left = "0px";
-	newMask.style.background = "#ddd";
+	newMask.style.background = "#111";
 	newMask.style.filter = "alpha(opacity=30)";
 	newMask.style.opacity = "0.40";
 	document.body.appendChild(newMask);

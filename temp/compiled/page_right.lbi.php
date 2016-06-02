@@ -108,7 +108,7 @@
 					<div class="act_item2 f_l">
 							<div>iPhone6</div>
 							<div>共1000点</div>
-							<div class="pop_right_jindutiao">
+							<div >
 		                        <span class="jindu"><span class="jindu1"></span></span>
 		                        <span style="float: left;">30%</span>
 		                	</div>
@@ -146,7 +146,7 @@
 		
 		$(function(){
             var id = $('#user_id').val();
-            var cnum = <?php echo $this->_var['usernames']['user_name']; ?>
+            var cnum = <?php echo $this->_var['usernames']['user_name']; ?>;
 
             showRight(id,cnum);
 
@@ -166,7 +166,8 @@
 
             // 右侧渲染函数
 				function showRight(id,cnum){
-            		var api_url = 'http://jy.com/jyflapi/';
+            		//var api_url = 'http://jy.com/jyflapi/';
+            		var api_url = 'http://192.168.1.161/jyflapi/';
             		$.ajax({
             			type:'post',
             			url:api_url+'index.php/Games/GamesApi/gameList',
@@ -175,7 +176,7 @@
             			},
             			dataType:'json',
             			success:function(data){
-            				//console.log(data);
+            				console.log(data);
             				var game_glo = data.game_global;
             				var game_com = data.game_company;
 
@@ -192,20 +193,20 @@
                                 }
             					game_list_html += '<div class="message_1">'+
             						'<div class="message_1_content">'+
-            						'<a href="#" class="pop_right_goods" data-id="'+game_glo[i].id+'">'+
+            						'<a href="#" class="pop_right_goods" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.card_company_id+'">'+
             						'<div class="act_item1 f_l">'+
             						'<img src="'+api_url+'Public/games/upload/'+game_glo[i].thumbnail+'">'+
             						'</div>'+
             						'<div class="act_item2 f_l">'+
             						'<div>'+game_glo[i].game_name+'</div>'+
             						'<div>共'+game_glo[i].total_point+'点</div>'+
-            						'<div>'+
+            						'<div class="pop_right_jindutiao">'+
             						'<span class="jindu"><span class="jindu1" style="width:'+game_glo[i].percent+'px"></span></span>'+
             						'<span style="float: left;">'+game_glo[i].percent+'%</span>'+
             						'</div>'+
             						'</div></a>'+
             						'<div class="act_item3 f_l">'+
-            						'<a href="#" class="jinbi" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.id+'" data-cnum="'+cnum+'">'+
+            						'<a href="#" class="jinbi" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.card_company_id+'" data-cnum="'+cnum+'">'+
             						'<img src="/images/juyoufuli/img_login/'+img+'" '+iclass+'>'+
             						'</a>'+
             						'</div>'+
@@ -225,20 +226,20 @@
                                 }
             					game_list_html += '<div class="message_1">'+
             						'<div class="message_1_content">'+
-            						'<a href="#" class="pop_right_goods" data-id="'+game_com[i].id+'">'+
+            						'<a href="#" class="pop_right_goods" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.card_company_id+'">'+
             						'<div class="act_item1 f_l">'+
             						'<img src="'+api_url+'Public/games/upload/'+game_com[i].thumbnail+'">'+
             						'</div>'+
             						'<div class="act_item2 f_l">'+
             						'<div>'+game_com[i].game_name+'</div>'+
             						'<div>共'+game_com[i].total_point+'点</div>'+
-            						'<div>'+
+            						'<div class="pop_right_jindutiao">'+
             						'<span class="jindu"><span class="jindu1" style="width:'+game_com[i].percent+'px"></span></span>'+
             						'<span style="float: left;">'+game_com[i].percent+'%</span>'+
             						'</div>'+
             						'</div></a>'+
             						'<div class="act_item3 f_l">'+
-            						'<a href="#" class="jinbi" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.id+'" data-cnum="'+cnum+'">'+
+            						'<a href="#" class="jinbi" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.card_company_id+'" data-cnum="'+cnum+'">'+
             						'<img src="/images/juyoufuli/img_login/'+img1+'" '+iclass1+'>'+
             						'</a>'+
             						'</div>'+
@@ -246,10 +247,12 @@
             						'</div>';
             				}
             				var com_html = '<div class="border_radio">'+
-            					'<img src="'+api_url+'Public/games/upload/'+data.company_info.logo_img+'" alt="'+data.company_info.company_name+'" width="80%"></div>'+
+            					'<img src="'+api_url+'Public/company/upload/'+data.company_info.logo_img+'" alt="'+data.company_info.company_name+'" width="80%"></div>'+
             					'<div class="text-center">'+data.company_info.company_name+'</div>';
             				$('.pop_right .message').html(com_html);
             				$('.pop_right .scroll_msg').html(game_list_html);
+            				var img_url = "<?php echo $this->_var['app_path']; ?>jyflapi/Public/company/upload/"+data.company_info.back_img;
+            				$('#back_img').css("background-image","url("+img_url+")");
             			}
             		});
             	}

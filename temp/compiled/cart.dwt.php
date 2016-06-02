@@ -24,7 +24,7 @@
         <form id="formCart" name="formCart" method="post" action="flow.php">
         <div class="w_1200">
 			<div class="buy_car_tips"></div>
-			<div class="cake_tips"><a href="user.php" class="color_zhuti next_buy">继续购物>></a></div>
+			<div class="cake_tips"><a href="#" class="color_zhuti next_buy continue_buy">继续购物>></a></div>
 			<div class="buy_car_list">
                 <div class="burcar_all">                
                     <div class="f_l burcar_all1" style="width:710px;">商品信息</div>
@@ -97,7 +97,7 @@ if ($this->_foreach['supplier']['total'] > 0):
             	</div>
             	<div class="f_l buy_car_content">
             		<div class="buy_car_font">您的购物车还是空的，赶紧行动吧！</div>
-            		<div class="buy_car_btn"><a href="#" class="bg_color zhuti_a_hover">去购物</a></div>
+            		<div class="buy_car_btn"><a href="#" class="bg_color zhuti_a_hover continue_buy">去购物</a></div>
             	</div>
             </div>
             <?php endif; ?>
@@ -148,6 +148,21 @@ if ($this->_foreach['supplier']['total'] > 0):
 				document.getElementById('updateCartSub').click();
 			}
 		//-->
+//		继续购物
+		$('.continue_buy').on('click',function(){
+			layer.open({
+				skin:'continue_buy',
+		        type: 1,
+		        title:false,
+		        //area:['570px','415px'],
+		        shadeClose: false, //点击遮罩关闭
+		        content:'<ul class="list_1"><?php $_from = $this->_var['navigator_list']['middle']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'nav');$this->_foreach['foo'] = array('total' => count($_from), 'iteration' => 0);
+if ($this->_foreach['foo']['total'] > 0):
+    foreach ($_from AS $this->_var['nav']):
+        $this->_foreach['foo']['iteration']++;
+?><li class="movie" onClick=window.location="<?php echo $this->_var['nav']['url']; ?>"><div><span class="movie_1"><img src="<?php echo $this->_var['app_path']; ?>images/juyoufuli/icon/nav-<?php echo $this->_var['nav']['id']; ?>.png"></span><i><?php echo $this->_var['nav']['name']; ?></i></div></li><?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?></ul>'
+		      })
+		})
 		</script>
     </body>
 </html>

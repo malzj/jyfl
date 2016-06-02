@@ -2703,3 +2703,9 @@ html.shenghuo1 body{background: white;}
 .buy_car_btn a{color: white;display: inline-block;width: 130px;text-align: center;height: 30px;line-height: 30px;border-radius: 5px;}
 .buy_car_btn{margin-top: 25px;text-align: center;}
 
+/*继续购物弹层样式*/
+.continue_buy .layui-layer-content{background-color:rgba(1,1,1,0.5) ;}
+.continue_buy .layui-layer-content .movie{float:left;width: 100px;text-align: center;padding: 10px;margin: 25px 0;}
+.continue_buy .layui-layer-content .movie div{cursor: pointer;}
+
+

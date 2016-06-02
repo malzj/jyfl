@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:36:"D:/www/jyfl/themes/default/goods.dwt";i:1;s:47:"D:/www/jyfl/themes/default/library/page_top.lbi";i:2;s:50:"D:/www/jyfl/themes/default/library/page_footer.lbi";i:3;s:48:"D:/www/jyfl/themes/default/library/page_left.lbi";i:4;s:49:"D:/www/jyfl/themes/default/library/page_right.lbi";}s:7:"expires";i:1464836699;s:8:"maketime";i:1464836699;}<!DOCTYPE html>
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:36:"D:/www/jyfl/themes/default/goods.dwt";i:1;s:47:"D:/www/jyfl/themes/default/library/page_top.lbi";i:2;s:50:"D:/www/jyfl/themes/default/library/page_footer.lbi";i:3;s:48:"D:/www/jyfl/themes/default/library/page_left.lbi";i:4;s:49:"D:/www/jyfl/themes/default/library/page_right.lbi";}s:7:"expires";i:1464839077;s:8:"maketime";i:1464839077;}<!DOCTYPE html>
 <html>
 	<head>
 <meta name="Generator" content="ECSHOP v2.7.3" />
@@ -1192,7 +1192,7 @@ $('.adress').click(function(event){
 						var second = "秒";
 						var end = "结束";
 						var goodsId = 21;
-			var now_time = 1464836699;
+			var now_time = 1464839077;
 	
 			onload = function(){
 				changePrice();	

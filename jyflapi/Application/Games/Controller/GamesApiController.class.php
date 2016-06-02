@@ -131,7 +131,11 @@ class GamesApiController extends Controller
         }
         $Model -> startTrans();
         for($i=1;$i<=$num;$i++) {
-            $lastLottery = $Model->table('__PARTICIPATION__') ->where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id']))->order('lottery_id desc')->getField('lottery_id');
+            if($game_info['grade_id']==1) {
+                $lastLottery = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id']))->order('lottery_id desc')->getField('lottery_id');
+            }else{
+                $lastLottery = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'], 'company_id' => $data['company_id']))->order('lottery_id desc')->getField('lottery_id');
+            }
             if ($lastLottery !== false) {
                 if (!$lastLottery) {
                     $lastLottery = 0;

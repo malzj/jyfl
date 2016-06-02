@@ -1868,7 +1868,7 @@ function order_refund($order, $refund_type, $refund_note, $refund_amount = 0)
  * @access  public
  * @return  array
  */
-function get_cart_goods($id_ext='')
+function get_cart_goods($flow_type=CART_GENERAL_GOODS, $id_ext='')
 {
     /* 初始化 */
     $goods_list = array();
@@ -1890,7 +1890,7 @@ function get_cart_goods($id_ext='')
             " FROM " . $GLOBALS['ecs']->table('cart') . " AS c left join " .$GLOBALS['ecs']->table('goods')." AS g ".
 			" on c.goods_id=g.goods_id ".
             //" WHERE c.session_id = '" . SESS_ID . "' AND c.rec_type = '" . CART_GENERAL_GOODS . "'" .
-			" WHERE c.session_id = '" . SESS_ID . "' AND c.rec_type = '" . CART_GENERAL_GOODS . "' $id_ext " .  //代码修改   By   www.68ecshop.com，  增加 $id_ext
+			" WHERE c.session_id = '" . SESS_ID . "' AND c.rec_type = '" . $flow_type . "' $id_ext " .  //代码修改   By   www.68ecshop.com，  增加 $id_ext
             " ORDER BY pid, c.parent_id";
 
 	$res = $GLOBALS['db']->query($sql);

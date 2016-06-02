@@ -16,7 +16,7 @@ $('#saf').on('click',function(){
 				title:false,
 				area:'570px',
 				shadeClose: false, //点击遮罩关闭
-				content:'<div class="saf"><h3>安全中心</h3><table class="table"><tr class="tr_1"><td><span></span>登录密码</td><td class="td_2">'+data.password.msg+'</td><td class="td_3">设置登陆密码，降低盗号风险；</td><td class="td_4">立即设置</td></tr><tr class="tr_2"><td><span></span>手机号</td><td class="td_2">'+data.phone.msg+'</td><td class="td_3">绑定手机，可直接使用手机号登陆；</td><td class="td_4">立即设置</td></tr><tr class="tr_3"><td><span></span>安全问题</td><td class="td_2">'+data.answer.msg+'</td><td class="td_3">保护账户安全，验证您身份的工具之一；</td><td class="td_4">立即设置</td></tr></table></div>'
+				content:'<div class="saf"><h3>安全中心</h3><table class="table"><tr class="tr_1"><td><span></span>登录密码</td><td class="td_2">'+data.password.msg+'</td><td class="td_3">设置登陆密码，降低盗号风险；</td><td class="td_4">立即修改</td></tr><tr class="tr_2"><td><span></span>手机号</td><td class="td_2">'+data.phone.msg+'</td><td class="td_3">绑定手机，可直接使用手机号登陆；</td><td class="td_4">立即绑定</td></tr><tr class="tr_3"><td><span></span>安全问题</td><td class="td_2">'+data.answer.msg+'</td><td class="td_3">保护账户安全，验证您身份的工具之一；</td><td class="td_4">立即设置</td></tr></table></div>'
 			});
 		}else{
 			layer.msg("获取数据失败，请重试！");
@@ -135,7 +135,6 @@ $(document).delegate('.tr_1 .td_4','click',function(){
 	$(document).delegate('#getverification','click',function(){
 		var user_id = $('#user_id').val();
 		var tel = $('#tel').val();
-		alert(user_id+'-'+tel);
 		settime(this);
 		var data = getverification(user_id,tel);
 	});
@@ -147,6 +146,7 @@ $(document).delegate('.tr_1 .td_4','click',function(){
 		var user_id = $('#user_id').val();
 		var tel = $('#tel').val();
 		var captcha = $('#captcha').val();
+		//alert(user_id+'='+tel+'='+captcha);
 		boundPhone(user_id,tel,captcha);
 	});
 	/**

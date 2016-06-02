@@ -39,7 +39,7 @@ if ($this->_foreach['picture']['total'] > 0):
 						</div>
 					</div>
 				</div>
-                <form action="javascript:addToCart(<?php echo $this->_var['goods']['goods_id']; ?>)" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" onsubmit="return false">
+                <form action="javascript:addToCart(<?php echo $this->_var['goods']['goods_id']; ?>)" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
 				<div class="cake2_top_right f_l">
 					<ul>
 						<li class="sport4_title"><?php echo $this->_var['goods']['goods_style_name']; ?></li>
@@ -92,7 +92,7 @@ if ($this->_foreach['spec']['total'] > 0):
 							</div>
 						<li>
                             <input class="sport4_btn input_submit bg_color btn zhuti_a_hover" type="button" onclick="addToCart(<?php echo $this->_var['goods']['goods_id']; ?>,'',5)" value="立即购买"> 
-                            <button type="submit" class="sport4_btn input_submit bg_color btn zhuti_a_hover" onclick="MoveBox()" value="加入购物车" >
+                            <button type="submit" class="sport4_btn input_submit bg_color btn zhuti_a_hover" onclick="MoveBox()" value="加入购物车">
                             <span class="glyphicon glyphicon-shopping-cart"></span>加入购物车</button>
                         </li>
 					</ul>
@@ -227,13 +227,7 @@ if ($this->_foreach['spec']['total'] > 0):
 			function checkNum(num){
 				changePrice();
 			}
-				
-//			function delay(){
-//			    window.setTimeout(function(){
-//			        var form = document.forms['ECS_FORMBUY'];
-//			        form.submit();
-//			    },5000);
-//			return false;}	
+
 		</script>
         
     </body>

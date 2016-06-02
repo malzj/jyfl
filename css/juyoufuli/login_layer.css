@@ -7,7 +7,7 @@
 .layui-layer-content .per .wrap_1 .left{overflow: hidden;float: left;}
 .layui-layer-content .per .wrap_1 .right{float: right;width: 170px;}
 .layui-layer-content .per .wrap_1 .right .right_img{width: 120px;text-align: center;margin: 0 auto;margin-top: 29px;}
-.layui-layer-content .per .left .form-group .username{padding: 2px;border-radius: 5px;}
+.layui-layer-content .per .left .form-group .username{padding: 2px;border-radius: 5px;border: 1px solid white;}
 .layui-layer-content .per .left .form-group .xiugai{cursor: pointer;color: #37e2c3;margin-left: 20px;}
 .layui-layer-content .per .left .card_num{padding-left: 13px;}
 .layui-layer-content .per button{background: #ffa116;border: 0;padding: 2px 15px;border-radius: 5px;}

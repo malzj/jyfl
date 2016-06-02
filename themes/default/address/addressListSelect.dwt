@@ -17,10 +17,12 @@
                 <span class="addr">{$consignee.country_cn|escape}&nbsp;&nbsp;&nbsp;{$consignee.province_cn|escape}&nbsp;&nbsp;{$consignee.city_cn|escape}&nbsp;&nbsp;{$consignee.district_cn|escape}&nbsp;&nbsp;{$consignee.address|escape}</span>
                 <span class="addr_tel">{if $consignee.mobile && $consignee.tel}{$consignee.tel|escape}({$consignee.mobile|escape}){elseif $consignee.tel}{$consignee.tel|escape}{else $consignee.mobile}{$consignee.mobile|escape}{/if}</span>
             </div>
-            <div class="f_r shouhuoren_hover" style="display:block;">  
-            	{if $consignee.selected eq 0} 
-            	<a href="javascript:void(0)" onClick="setConsigneeSelect(this,'{$consignee.address_id}',supplier_id);" class="checkedall">选择</a>             
-                <a href="javascript:selectConsignee('{$consignee.address_id}');">编辑</a>    
+            <div class="f_r shouhuoren_hover" style="display:block;">              	
+            	<a href="javascript:void(0)" onClick="setConsigneeSelect(this,'{$consignee.address_id}',supplier_id);" class="checkedall">选择</a>    
+                {if $consignee.selected eq 0}          
+                <a href="javascript:selectConsignee('{$consignee.address_id}');">编辑</a>  
+                {else}  
+                <a href="javascript:voit(0)');"><font style=" visibility: hidden;">编辑</font></a>  
                 {/if}            
             </div>
         </li>

@@ -495,18 +495,27 @@ function orderSelectedResponse(result){
 
 //检查提交的订单表单
 function checkOrderForm(frm, from){
-	if(jQuery.isEmptyObject( $('#consignee_check').val() )){
-		loadMsg('请添加一个收货地址！');
-		return false;
-	}
+	$('.supplier-one').each(function(){
+		if($(this).val() == ''){
+			alert('每个供应商需要设置一个收货地址，请设置！');
+			return false;
+		}
+		
+		if($(this).val() == '-1'){
+			alert('收货地址不支持配送，请返回修改！');
+			return false;
+		}
+		
+	});
+	
 	var st = 0;
-	$('.st0').each(function(){		
-		if($(this).val() == '' || $(this).val() == 0){
+	$('.peisong_check').each(function(){		
+		if($(this).val() == '配送日期' || $(this).val() == 0 || $(this).val() == ''){
 			st = 1;
 		}
 	});
 	if(st==1){
-		loadMsg('配送时间填写不完整！');
+		alert('配送时间填写不完整！');
 		return false;
 	}
 }

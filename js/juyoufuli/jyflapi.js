@@ -401,7 +401,7 @@ function showAddress(){
         title:false,
         area: '570px',
         shadeClose: false, //点击遮罩关闭
-        content:'<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+htmlshouhuolist+'</tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>'
+        content:'<div class="shouhuo_left"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+htmlshouhuolist+'</tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>'
     });
 	return index;
 	}

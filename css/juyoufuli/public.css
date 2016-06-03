@@ -2508,7 +2508,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
     margin-top: 60px;
     width: 150px;
 }
-.cake_btn a{margin-bottom: 10px;display: inline-block;background: #2fd0b5;padding: 10px 15px;color: white;width: 120px;text-align: center;border-radius: 5px;}
+.cake_btn a{margin-bottom: 10px;display: inline-block;background: #2fd0b5;padding: 10px 15px;color: white;width: 120px;text-align: center;border-radius: 5px;transition: background .5s linear;-webkit-transition: background .5s linear;}
 .cake_btn a:hover{background: #3EC3AD;}
 .cake_xinxi{
     line-height: 210px;
@@ -2730,5 +2730,5 @@ html.shenghuo1 body{background: white;}
 .continue_buy .layui-layer-content{background-color:rgba(1,1,1,0.9) ;}
 .continue_buy .layui-layer-content .movie{float:left;/* width: 500px; */text-align: center;padding: 10px;margin: 25px 0;}
 .continue_buy .layui-layer-content .movie div{cursor: pointer;}
-.continue_buy .layui-layer-content .movie div span{display:block;}
+.continue_buy .layui-layer-content .movie div span{height: 30px;display:block;}
 

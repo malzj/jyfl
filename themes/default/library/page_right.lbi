@@ -208,7 +208,7 @@
             						'<div>'+game_glo[i].game_name+'</div>'+
             						'<div>共'+game_glo[i].total_point+'点</div>'+
             						'<div style="line-height: 15px;">'+
-            						'<span class="jindu"><span class="jindu1" style="width:'+game_glo[i].percent+'px"></span></span>'+
+            						'<span class="jindu"><span class="jindu1" style="width:'+game_glo[i].percent+'%"></span></span>'+
             						'<span style="float: left;">'+game_glo[i].percent+'%</span>'+
             						'</div>'+
             						'</div></a>'+

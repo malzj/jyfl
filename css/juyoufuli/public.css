@@ -713,6 +713,8 @@ html.movie .reying .reying_title {
 	overflow: hidden;
 	width: 1200px;
 	margin: 0 auto;
+	/* background: white; */
+	/* padding: 0 10px 20px 10px; */
 }
 
 html.movie .reying .reying_news {
@@ -2462,7 +2464,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .floor_item {overflow: hidden;background: white;}
 .floor_content_item{text-align: center;padding: 10px;width: 179px;height: 230px;border-right: 1px solid #F2F2F2;border-bottom: 1px solid #f2f2f2;}
 .wide{width: 379px;}
-
+#floor_6{margin-bottom:120px;}
 /*楼层引导*/
 .floor-guide{overflow: visible;display: none;position: fixed;top: 0;bottom: 0;margin: auto;left: 50%;width: 35px;height: 245px;margin-left: -655px;/* z-index: 100; */width: 35px;text-align: center;}
 .floor-guide a{position: relative;display: block;width: 45px;height: 45px;line-height: 40px;color: #666;text-decoration: none;cursor: pointer;}
@@ -2474,7 +2476,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .floor-guide .current b{ display:none;}
 
 /*侧边悬浮*/
-.sidebar { display:block; z-index: 100;/* position:absolute;跟随定位*/ position:fixed; bottom: 20px; right: 47%; margin-right: -625px; /*IE屏幕定位*/ _position: absolute; _bottom: auto; _top:expression(eval(document.documentElement.scrollTop)); _margin-top: 630px; /*IE屏幕定位END*/ width:56px; }
+.sidebar {display:block;z-index: 100;/* position:absolute;跟随定位*/position:fixed;bottom: 20px;right: 47%;margin-right: -625px; /*IE屏幕定位*/_position: absolute;_bottom: auto;_top:expression(eval(document.documentElement.scrollTop));_margin-top: 630px; /*IE屏幕定位END*/width:56px;}
 .w1280 .sidebar{ position: fixed; right:7px; margin-right:0;}
 .sidebar .s-btn { overflow: hidden; display: block; width:50px; height: 42px; margin-bottom:10px; background:url(/images/index/img_login/sidebar.png) no-repeat left top }
 .sidebar .goTop{ display:none; _display:nblock; background-position:0 0}

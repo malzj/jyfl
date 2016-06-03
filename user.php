@@ -2930,7 +2930,7 @@ else if ($action == 'film_order'){
     movie_orders_status('',$user_id);
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
-    $smarty->display('user_transaction.dwt');
+    $smarty->display('order/filmOrderList.dwt');
 }
 
 else if ($action == 'reyanzheng'){
@@ -2976,7 +2976,7 @@ else if ($action == 'dzq_order'){
 
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
-    $smarty->display('user_transaction.dwt');
+    $smarty->display('order/dzqOrder.dwt');
 }
 
 
@@ -3009,6 +3009,10 @@ else if ($action == 'coupons_order'){
             $orders[$key]['coupons_id']="";
         }
     }
+    echo '<pre>';
+    print_r($orders);
+    echo '</pre>';
+    exit;
 
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
@@ -3044,7 +3048,7 @@ else if ($action == 'venues_order')
     //update_piao_order_status($_SESSION['user_id']);
     update_venues_state($_SESSION['user_id']);
     $orders = array();
-    
+
     $sql = "SELECT * ".
         " FROM " .$GLOBALS['ecs']->table('venues_order') .
         " WHERE user_id = '$user_id' ORDER BY add_time DESC";
@@ -3059,10 +3063,10 @@ else if ($action == 'venues_order')
             $orders[$row['id']]['times_mt'][] =urldecode($time);
         }
     }
-    
+
     $smarty->assign('pager',  $pager);
     $smarty->assign('order_list', $orders);
-    $smarty->display('user_transaction.dwt');
+    $smarty->display('order/venuesOrder.dwt');
     
 }
 //演出订单
@@ -3079,7 +3083,7 @@ else if ($action == 'yanchu_order'){
 
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
-    $smarty->display('user_transaction.dwt');
+    $smarty->display('order/yanchuOrder.dwt');
 }
 elseif ($action == 'dzq_order_del')
 {

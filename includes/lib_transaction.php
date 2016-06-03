@@ -1263,27 +1263,33 @@ function get_user_film_orders_cdy($user_id, $num = 10, $start = 0)
 		switch($row['order_status']){
 			// 下单未付款的
 			case '1':
-				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="red">未付款</font>','<font color="red">未出票</font>');
+				$row['order_status_cn'] = array('已下单','未付款','未出票');
+//				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="red">未付款</font>','<font color="red">未出票</font>');
 				break;
 			// 取消订单
 			case '2':
-				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="red">未付款</font>','<font color="blue">已取消</font>');
+				$row['order_status_cn'] = array('已下单','未付款','已取消');
+//				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="red">未付款</font>','<font color="blue">已取消</font>');
 				break;
 			// 已付款
 			case '3':
-				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="green">已付款</font>','<font color="red">出票中</font>'	);
+				$row['order_status_cn'] = array('已下单','已付款','出票中'	);
+//				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="green">已付款</font>','<font color="red">出票中</font>'	);
 				break;
 			// 购票成功
 			case '4':
-				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="green">已付款</font>','<font color="green">购票成功</font>');
+				$row['order_status_cn'] = array('已下单','已付款','购票成功');
+//				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="green">已付款</font>','<font color="green">购票成功</font>');
 				break;
 			// 购票失败
 			case '5':
-				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="green">已付款</font>','<font color="red">购票失败</font>','<font color="red">退款中</font>');
+				$row['order_status_cn'] = array('已下单','已付款','购票失败','退款中');
+//				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="green">已付款</font>','<font color="red">购票失败</font>','<font color="red">退款中</font>');
 				break;
 			// 退款
 			case '6':
-				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="green">已付款</font>','<font color="red";>购票失败</font>','<font color="blue";>已退款</font>');
+				$row['order_status_cn'] = array('已下单','已付款','购票失败','已退款');
+//				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="green">已付款</font>','<font color="red";>购票失败</font>','<font color="blue";>已退款</font>');
 				break;
 		}
 		// 如果卡支付了，电影取没有支付，显示请联系华影客户
@@ -1377,7 +1383,8 @@ function get_user_dzq_orders($user_id, $num = 10, $start = 0)
 		}
 
 		if ($row['pay_status'] == 0){
-			$row['pay_status_cn'] = '<a href="shiting_order.php?act=dzqdh_payinfo&id='.$row['order_id'].'" title="去付款" target="_blank">未付款</a>';
+			$row['pay_status_cn'] = '未付款';
+//			$row['pay_status_cn'] = '<a href="shiting_order.php?act=dzqdh_payinfo&id='.$row['order_id'].'" title="去付款" target="_blank">未付款</a>';
 		}else if ($row['pay_status'] == 2){
 			$row['pay_status_cn'] = '已付款';
 		}
@@ -1423,7 +1430,8 @@ function get_user_yanchu_orders($user_id, $num = 10, $start = 0)
 		}
 
 		if ($row['pay_status'] == 0){
-			$row['pay_status_cn'] = '<a href="yanchu_order.php?act=pay&id='.$row['itemid'].'&orderid='.$row['order_id'].'" title="去付款" target="_blank">未付款</a>';
+			$row['pay_status_cn'] = '未付款';
+//			$row['pay_status_cn'] = '<a href="yanchu_order.php?act=pay&id='.$row['itemid'].'&orderid='.$row['order_id'].'" title="去付款" target="_blank">未付款</a>';
 		}else if ($row['pay_status'] == 2){
 			$row['pay_status_cn'] = '已付款';
 		}

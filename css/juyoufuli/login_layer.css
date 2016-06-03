@@ -138,16 +138,16 @@
 .layui-layer-content .log table thead{background: #828385;opacity: .5;}
 
 /*收货信息*/
-.layui-layer-content .shouhuo .add_new{margin-left: 10px;color: #37e2c3;}
-.layui-layer-content .shouhuo table thead{background: #828385;opacity: .5;}
-.layui-layer-content .shouhuo table td{text-align: center;}
-.layui-layer-content .shouhuo .gn_btn span{
+.layui-layer-content .shouhuo_left .add_new{margin-left: 10px;color: #37e2c3;}
+.layui-layer-content .shouhuo_left table thead{background: #828385;opacity: .5;}
+.layui-layer-content .shouhuo_left table td{text-align: center;}
+.layui-layer-content .shouhuo_left .gn_btn span{
     color: #37e2c3;
     margin: 0 5px;
 }
-.layui-layer-content .shouhuo{padding-bottom: 20px;}
-.layui-layer-content .shouhuo table td.td_1{width: 60px;}
-.layui-layer-content .shouhuo table td.gn_btn{width: 85px;}
+.layui-layer-content .shouhuo_left{padding-bottom: 20px;}
+.layui-layer-content .shouhuo_left table td.td_1{width: 60px;}
+.layui-layer-content .shouhuo_left table td.gn_btn{width: 85px;}
 
 
 /*绑定手机号*/

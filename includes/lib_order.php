@@ -542,11 +542,11 @@ function order_finished($order)
  */
 function order_goods($order_id)
 {
-    $sql = "SELECT rec_id, goods_id, goods_name, goods_sn, market_price, goods_number, " .
-            "goods_price, goods_attr, is_real, parent_id, is_gift, " .
-            "goods_price * goods_number AS subtotal, extension_code " .
-            "FROM " . $GLOBALS['ecs']->table('order_goods') .
-            " WHERE order_id = '$order_id'";
+    $sql = "SELECT og.rec_id, og.goods_id, og.goods_name, og.goods_sn, og.market_price, og.goods_number, " .
+            "og.goods_price, og.goods_attr, og.is_real, og.parent_id, og.is_gift, " .
+            "og.goods_price * og.goods_number AS subtotal, og.extension_code, g.goods_thumb " .
+            "FROM " . $GLOBALS['ecs']->table('order_goods') .' AS og LEFT JOIN '.$GLOBALS['ecs']->table('goods').' AS g '.
+            "ON og.goods_id = g.goods_id WHERE og.order_id = '$order_id'";
 
     $res = $GLOBALS['db']->query($sql);
 

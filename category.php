@@ -43,9 +43,7 @@ else
 
     exit;
 }
-if(in_array($cat_id, array(91))){
-    ecs_header("Location:/coupons.php?id=$cat_id");die;
-}
+
 /* 初始化分页信息 */
 $page = isset($_REQUEST['page'])   && intval($_REQUEST['page'])  > 0 ? intval($_REQUEST['page'])  : 1;
 $size = isset($_CFG['page_size'])  && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 20;
@@ -409,13 +407,17 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
     $smarty->assign('goods_list',       $goodslist);
     $smarty->assign('category',         $cat_id);
     $smarty->assign('script_name', 'category');
-
-
+    $smarty->assign('childrenNavigator',     get_navigator());    
+    
+/*     echo '<pre>';
+    print_r(get_navigator());
+    echo '</pre>'; */
+    
     assign_pager('category',            $cat_id, $count, $size, $sort, $order, $page, '', $brand, $price_min, $price_max, $display, $filter_attr_str); // 分页
     assign_dynamic('category'); // 动态内容
 }
 
-$smarty->display('category.dwt', $cache_id);
+$smarty->display(categoryTemplate($cat_id), $cache_id);
 
 /*------------------------------------------------------ */
 //-- PRIVATE FUNCTION

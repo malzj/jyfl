@@ -1,0 +1,43 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js"></script>
+<script src="{$app_path}js/baidumap.js"></script>
+{if $yunfei}
+<div style="float:left;width:640px;height:580px;border:1px solid gray; " id="showmap"></div>
+<div style="float:left;width:120px;">
+	{if $isTime eq 1}
+	{foreach from=$yunfei item=yf}
+	<div style="width:100%; margin:5px; font-size:12px;">
+    	<span style="display:inline-block; width:50px; height:20px; vertical-align: bottom;margin:3px 0; background:{$yf.color}"></span>
+        <span style="display:inline-block; width:60px; height:25px; line-height:25px;">运费<font color="red">{$yf.yunfei}</font>元</span>
+    </div>
+    {/foreach}
+    
+    {else}
+    {foreach from=$yunfei item=yf}
+    <div style="width:100%; margin:5px; font-size:12px; border:1px solid #ccc; padding:5px;">
+    	<span style="display:block; height:20px; vertical-align: bottom;margin:3px 0; background:{$yf.color}"></span>
+        <span style="display:block; height:20px; vertical-align: bottom;margin:3px 0; line-height:20px;">最早配送时间：{$yf.shipping_start}</span>
+        <span style="display:block; height:20px; vertical-align: bottom;margin:3px 0; line-height:20px;">最晚配送时间：{$yf.shipping_end}</span>
+        <span style="display:block; height:20px; vertical-align: bottom;margin:3px 0; line-height:20px;">间隔时间段：{$yf.shipping_waiting}</span>
+        <span style="display:block; height:20px; vertical-align: bottom;margin:3px 0; line-height:20px;">提前预订时间：{$yf.shipping_booking}</span>
+    </div>
+    {/foreach}
+    {/if}
+</div>
+{else}
+<center style="font-size:16px; height:100px; line-height:100px;"> 暂不支持配送 </center>
+{/if}
+
+<script>
+baidumap.setOptions({
+	isYunfei:true,
+	isSetYunfei:false,
+	isTime:{$isTime},
+	showMapId:'showmap',
+	currentCity:'{$cityinfo.region_name}'
+});
+
+baidumap.showMap({$id});
+</script>

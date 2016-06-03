@@ -134,24 +134,26 @@
 					title: false,
 					skin: 'show_baidumap',
 					area:['850px','600px'],
-					shadeClose: true,
+					shadeClose: false,
+					closeBtn:false,
 					content: "{$app_path}flow.php?step=newAddress&id="+id,
-					btn:['确认'],
+					btn:['提交'],
 					yes:function(index, layero){
-						layer.close(layerIndex);
-						$('.show_yunfei').each(function(index,dom){		
-							if( $(dom).attr('data-id') == id){
-								supplierYunfei($(dom));
-							}										
-						})
-				    },
-				  	cancel:function(){
-						$('.show_yunfei').each(function(index,dom){		
-							if( $(dom).attr('data-id') == id){
-								supplierYunfei($(dom));
-							}										
-						})
-				  	}
+						var body = layer.getChildFrame('body', index);
+						var iframeWin = window[layero.find('iframe')[0]['name']];
+						console.log(body.html()) //得到iframe页的body内容
+    					var isAdd = body.find('#isAdd').val();
+						if(isAdd ==1){
+							alert('请先保存收货地址，在提交！');
+						}else{
+							layer.close(layerIndex);
+							$('.show_yunfei').each(function(index,dom){		
+								if( $(dom).attr('data-id') == id){
+									supplierYunfei($(dom));
+								}										
+							})
+						}						
+				    }
 				});
 			});
 			// 选择时间

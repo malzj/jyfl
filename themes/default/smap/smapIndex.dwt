@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<style type="text/css">
+			body,html {width: 100%;height: 100%;margin: 0;font-family: "微软雅黑";}			
+			#allmap {width: 100%;height: 500px;overflow: hidden;}			
+			#result {width: 100%;font-size: 12px;}			
+			dl,dt,dd,ul,li {margin: 0;padding: 0;list-style: none;}			
+			p {font-size: 12px;}			
+			dt {font-size: 14px;font-family: "微软雅黑";font-weight: bold;border-bottom: 1px dotted #000;padding: 5px 0 5px 5px;margin: 5px 0;}			
+			dd {padding: 5px 0 0 5px;}			
+			li {line-height: 28px;}
+			input ,select{ padding:7px; margin:0 5px; border-radius:4px;}
+        	.show_baidumap .layui-layer-content, .show_baidumap { background-color:#FFF;}
+
+		</style>
+       <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script type="text/javascript" src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+        <script type="text/javascript" src="{$app_path}js/juyoufuli/bootstrap.min.js"></script>
+        
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=MEsz25sFyYaqP2a6LMggyphG7GmNYSOq"></script>
+		<!--加载鼠标绘制工具-->
+		<script type="text/javascript" src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+		<link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
+		<!--加载检索信息窗口-->
+		<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.js"></script>
+			
+        <script src="{$app_path}js/baidumap.js"></script>
+        <script src="{$app_path}js/juyoufuli/layer/layer.js"></script>
+        
+        
+        <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.css" />
+        <link rel="stylesheet" href="{$app_path}js/juyoufuli/layer/skin/layer.css">
+        
+               
+		<title></title>
+	</head>
+
+	<body>
+    <div id="allmap" style="overflow:hidden;zoom:1;position:relative;">
+			<div id="map" style="height:100%;-webkit-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;"></div>
+			</div>
+			<div id="result">
+       			<div>
+
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">运费</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">配送时间</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    
+                    <!-- 配送费用-->
+                    <div role="tabpanel" class="tab-pane active" id="home">   
+                    <br> 配送费 <input type="text" class="sfje" value="" size="5"  placeholder=""/>&nbsp;&nbsp;
+                         颜色  
+                              <select class="corler" >
+                                <option value="#FFB6C1">浅粉红</option>
+                                <option value="#00BFFF">深天蓝</option>
+                                <option value="#7FFFAA">碧绿色</option>
+                                <option value="#FFFF00">纯黄</option>
+                                <option value="#FFA500">橙色</option>
+                                <option value="#BC8F8F">棕色</option>
+                              </select>&nbsp;&nbsp;
+                          供应商
+                              <select class=" gongyingshang_id">
+                               <option>请选择</option>
+                                {foreach from=$supplier item=supp}
+                                <option value="{$supp.supplier_id}">{$supp.supplier_name}</option>
+                                {/foreach}                       
+                              </select>&nbsp;&nbsp;
+                        
+                          配送城市                              
+                              <select class=" cityid" onChange="changeCity(this)">
+                              {foreach from=$citys item=city}
+                                <option value="{$city.region_id}" {if $city.active eq 1} selected{/if}>{$city.region_name}</option>
+                              {/foreach}                               
+                              </select>&nbsp;&nbsp;
+                           <div class="btn-group" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" onclick="genghuanyanse(this)">更改颜色</button>
+                              <button type="button" class="btn btn-default" onclick="shuchu(this)">保存绘制结果</button>
+                              <button type="button" class="btn btn-default" onclick="showYunfei(this,1)">查看运费（当前城市，当前供应商）</button>
+                            </div>
+                                                      
+                        <input type="hidden" name="isTime" value="1" class="isTime">  
+                                                                   
+						<br>
+                        
+        			</div>     
+                    
+                    <!-- 配送时间 -->   
+        			<div role="tabpanel" class="tab-pane" id="profile">
+        				<br>
+                        
+                         颜色  
+                              <select class="corler" >
+                                <option value="#FFB6C1">浅粉红</option>
+                                <option value="#00BFFF">深天蓝</option>
+                                <option value="#7FFFAA">碧绿色</option>
+                                <option value="#FFFF00">纯黄</option>
+                                <option value="#FFA500">橙色</option>
+                                <option value="#BC8F8F">棕色</option>
+                              </select>&nbsp;&nbsp;
+                          供应商
+                              <select class=" gongyingshang_id">
+                              <option>请选择</option>
+                              {foreach from=$supplier item=supp}
+                                <option value="{$supp.supplier_id}">{$supp.supplier_name}</option>
+                              {/foreach}                   
+                              </select>&nbsp;&nbsp;
+                        
+                          配送城市                              
+                              <select class=" cityid" onChange="changeCity(this)">
+                                {foreach from=$citys item=city}
+                                <option value="{$city.region_id}" {if $city.active eq 1} selected{/if}>{$city.region_name}</option>
+                              	{/foreach}             
+                              </select>&nbsp;&nbsp;
+                          最早配送时间
+                          	  <input type="text" class="shipping_start" value="" size="5" placeholder="10:00"/> &nbsp;&nbsp;
+                          最晚配送时间    
+                              <input type="text" class="shipping_end" value=""  size="5" placeholder="10:00"/>    &nbsp;&nbsp;                         
+                          间隔时间
+                          	  <input type="text" class="shipping_waiting" value="" size="5" placeholder="1"/> &nbsp;&nbsp;
+                          提前预订时间            
+                              <input type="text" class="shipping_booking" value="" size="5" placeholder="7"/>&nbsp;&nbsp;
+                              
+                              
+                           <div class="btn-group" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" onclick="genghuanyanse(this)">更改颜色</button>
+                              <button type="button" class="btn btn-default" onclick="shuchu(this)">保存绘制结果</button>
+                              <button type="button" class="btn btn-default" onclick="showYunfei(this,2)">查看配送时间（当前城市，当前供应商）</button>
+                            </div>
+                          
+                        <input type="hidden" name="isTime" value="2" class="isTime">
+                   
+                        <br>                        
+        			</div>
+                    
+     		 	</div>    
+    		</div>
+		</div>
+		<script type="text/javascript">
+			// 百度地图API功能
+			var map = new BMap.Map('map');			
+			map.centerAndZoom('{$cityname}', 11);
+			map.enableScrollWheelZoom();
+			var overlays = [];
+			var overlaycomplete = function(e) {
+				overlays.push(e.overlay);
+			};
+
+			function genghuanyanse(that) {
+				var coler = $(that).closest('.tab-pane').find('.corler').val();				
+				var styleOptions = {
+					strokeColor: coler, //边线颜色。
+					fillColor: coler, //填充颜色。当参数为空时，圆形将没有填充效果。
+					strokeWeight: 3, //边线的宽度，以像素为单位。
+					strokeOpacity: 0.8, //边线透明度，取值范围0 - 1。
+					fillOpacity: 0.6, //填充的透明度，取值范围0 - 1。
+					strokeStyle: 'solid' //边线的样式，solid或dashed。
+				};
+				var drawingManager = new BMapLib.DrawingManager(map, {
+					isOpen: true, //是否开启绘制模式
+					enableDrawingTool: true, //是否显示工具栏
+					drawingToolOptions: {
+						anchor: BMAP_ANCHOR_TOP_RIGHT, //位置
+						offset: new BMap.Size(5, 5), //偏离值
+						drawingModes: [BMAP_DRAWING_POLYGON],
+					},
+					circleOptions: styleOptions, //圆的样式
+					polylineOptions: styleOptions, //线的样式
+					polygonOptions: styleOptions, //多边形的样式
+					rectangleOptions: styleOptions //矩形的样式
+				});
+				drawingManager.addEventListener('overlaycomplete', overlaycomplete);
+			};
+
+			function changeCity(that) {
+				var cityid = $(that).val();
+				window.location.href="supplierMap.php?act=index&cityid="+cityid;
+			};
+
+			function shuchu(that) {
+				var dom = $(that).closest('.tab-pane');
+				var isTime = $(dom).find('.isTime').val();
+				var gongyingshang_id = $(dom).find('.gongyingshang_id').val();
+				var coler1 = $(dom).find('.corler').val();
+				var cityid = $(dom).find('.cityid').val();
+				
+				var shipping_start = shipping_end = shipping_waiting = shipping_booking =  sfje = 0;
+				if(isTime == 2){
+					shipping_start = $(dom).find('.shipping_start').val();
+					shipping_end = $(dom).find('.shipping_end').val();
+					shipping_waiting = $(dom).find('.shipping_waiting').val();
+					shipping_booking = $(dom).find('.shipping_booking').val();					
+				}else{
+					var sfje = $(dom).find('.sfje').val();
+				}
+				
+				var num = overlays.length - 1;
+				var tuceng = overlays[num];
+				var dianshu = tuceng.ro.length;
+				var url = "http://jy.com/jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap";
+				var urll = "http://jy.com/jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao";
+				$.ajax({
+					type: "post",
+					url: url,
+					async: false,
+					data: {
+						gongyingshang_id: gongyingshang_id,
+						jiage: sfje,
+						yanse: coler1,
+						dianshu: dianshu,
+						cityid:cityid,
+						shipping_start:shipping_start,
+						shipping_end:shipping_end,
+						shipping_waiting:shipping_waiting,
+						shipping_booking:shipping_booking,
+						isTime:isTime						
+					},
+					dataType: "json",
+					success: function(data) {
+						if (data.result == 'true') {
+							console.log(data);
+							var id = data.id;
+							for (var n = 0; n < tuceng.ro.length; n++) {
+								$.ajax({
+									type: "post",
+									url: urll,
+									async: false,
+									data: {peisongmap_id:id,lng:tuceng.ro[n].lng,lat:tuceng.ro[n].lat},
+									dataType: "json",
+									success: function(data) {
+										
+									},
+								});								
+							}
+							return;
+						}
+					},
+				});
+			}
+			
+			// 查看运费
+			function showYunfei(that,isTime){
+				var dom = $(that).closest('.tab-pane');
+				var id = $(dom).find('.gongyingshang_id').val();
+				layer.open({
+				  type: 2,
+				  title: false,
+				  skin: 'show_baidumap',
+				  area:['800px','600px'],
+				  shadeClose: true,
+				  content: "{$app_path}supplierMap.php?act=showYunfei&id="+id+"&isTime="+isTime
+				});				
+			}
+			
+			$('.show_yunfei').click(function(){
+				var id = $(this).attr('data-id');		
+				layer.open({
+				  type: 2,
+				  title: false,
+				  skin: 'show_baidumap',
+				  area:['800px','600px'],
+				  shadeClose: true,
+				  content: "{$app_path}flow.php?step=showYunfei&id="+id
+				});
+			});
+		</script>
+        
+        
+    </body>
+</html>

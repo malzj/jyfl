@@ -23,7 +23,10 @@ class PeisongController extends \Think\Controller
         $data["dianshu"] = $_POST["dianshu"];
         $data["cityid"] = $_POST["cityid"];
         $data["isTime"] = $_POST["isTime"];
-        
+        $data["shipping_start"] = $_POST["shipping_start"];
+        $data["shipping_end"] = $_POST["shipping_end"];
+        $data["shipping_waiting"] = $_POST["shipping_waiting"];
+        $data["shipping_booking"] = $_POST["shipping_booking"];
 
         $data["addDate"] =date( 'Y-m-d',time());
         $id=$Dao->add($data);

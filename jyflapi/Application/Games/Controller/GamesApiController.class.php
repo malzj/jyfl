@@ -292,7 +292,7 @@ class GamesApiController extends Controller
         $selfCompany = $CompanyModel -> where(array('card_company_id'=>$selfInfo['company_id'])) -> find();
 
         //全民夺宝
-        $gwinnerList = $WinnerModel ->where(array('company_id'=>$selfInfo['company_id'],'grade_id'=>1)) -> select();
+        $gwinnerList = $WinnerModel ->where(array('grade_id'=>1)) -> select();
         //专属夺宝
         $cwinnerList = $WinnerModel ->where(array('company_id'=>$selfInfo['company_id'],'grade_id'=>$selfCompany['grade_id'])) -> select();
         $glist = array();

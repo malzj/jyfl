@@ -498,13 +498,12 @@ elseif ($action == 'order_list')
 
     $page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
 
-    $record_count = $db->getOne("SELECT COUNT(*) FROM " .$ecs->table('order_info'). " WHERE user_id = '$user_id'");
+    $record_count = $db->getOne("SELECT COUNT(*) FROM " .$ecs->table('order_info'). " WHERE user_id = '$user_id' AND parent_order_id = 0");
 
     $pager  = get_pager('user.php', array('act' => $action), $record_count, $page);
 
     $orders = get_user_orders($user_id, $pager['size'], $pager['start']);
-    var_dump($orders);
-    exit;
+
     $merge  = get_user_merge($user_id);
     $smarty->assign('merge',  $merge);
     $smarty->assign('pager',  $pager);
@@ -564,6 +563,7 @@ elseif ($action == 'order_detail')
         $goods_list[$key]['market_price'] = price_format($value['market_price'], false);
         $goods_list[$key]['goods_price']  = price_format($value['goods_price'], false);
         $goods_list[$key]['subtotal']     = price_format($value['subtotal'], false);
+        $goods_list[$key]['goods_thumb']        = get_image_path($value['goods_id'], $value['goods_thumb'], true);
     }
 
      /* 设置能否修改使用余额数 */
@@ -605,9 +605,14 @@ elseif ($action == 'order_detail')
     $order['pay_status'] = $_LANG['ps'][$order['pay_status']];
     $order['shipping_status'] = $_LANG['ss'][$order['shipping_status']];
 
+//    echo '<pre>';
+//    print_r($goods_list);
+//    echo '</pre>';
+//    exit;
+
     $smarty->assign('order',      $order);
     $smarty->assign('goods_list', $goods_list);
-    $smarty->display('user_transaction.dwt');
+    $smarty->display('order/orderDetails.dwt');
 }
 
 /* 取消订单 */

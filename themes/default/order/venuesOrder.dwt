@@ -13,39 +13,34 @@
 				<div class="my_order_tips"></div>
 				<div class="my_order_title o_hidden">
 					<div class="my_order_details f_l">订单详情</div>
-					<div class="my_order_price f_l">单价（点）</div>
-					<div class="my_order_num f_l">数量</div>
+					<div class="my_order_num f_l">场次</div>
 					<div class="my_order_price_all f_l">总金额（点）</div>
 					<div class="my_order_zhuangtai f_l">状态</div>
 				</div>
 
 				<!--单个整体订单-->
-				{foreach from=$orders item=order}
+				{foreach from=$order_list item=order}
 				<div class="my_order_item o_hidden">
 					<div class="my_order_item_title o_hidden">
 						<div class="f_l my_order_dingdanhao">{$order.order_sn}</div>
 						<div class="f_l">
-							<span>{$order.add_time}</span>
+							<span>{$order.add_time|time}</span>
 						</div>
 					</div>
 					<div class="my_order_detailsAll o_hidden">
 						<div class="my_order_details f_l">
 							<div class="my_order_details_content f_l">
-								<!--<div class="my_order_details_name">{$good.goods_name}</div>-->
-								<div class="my_order_details_box">影片名称：{$order.movie_name}</div>
-								<div class="my_order_details_box">影院名称：{$order.cinema_name}</div>
-								<div class="my_order_details_box">观看时间：{$order.featuretime}</div>
-								<div class="my_order_details_box">座位信息：{$order.hall_name}{$order.seat_info}</div>
-								<div class="my_order_details_box">手机号：{$order.mobile}</div>
+								<div class="my_order_details_box">场馆：{$order.venueName}</div>
+								<div class="my_order_details_box">地址：{$order.place}</div>
+								<div class="my_order_details_box">购买人：{$order.link_man} （{$order.link_phone}）</div>
+								<div class="my_order_details_box">游玩时间：{$order.date}</div>
+								<div class="my_order_details_box">时间段：{foreach from=$order.times_mt item=time}<span style="display:inline-block; color:green;">{$time}</span> {/foreach}</div>
 							</div>
 						</div>
-						<div class="my_order_price f_l line_h_90">{$order.unit_price}点</div>
-						<div class="my_order_num f_l line_h_90">x<span>{$order.count}</span></div>
+						<div class="my_order_num f_l line_h_90">x<span>{$order.total}</span></div>
 						<div class="my_order_price_all f_l line_h_90">{$order.money}点</div>
 						<div class="my_order_zhuangtai f_l zhuangtai_margin_top">
-							{foreach from=$order.order_status_cn item=status}
-							<div>{$status}</div>
-							{/foreach}
+							<div>{$order.order_state_sn}</div>
                             <!--<div class="active">未付款</div>-->
                             <!--<div>已取消</div>-->
 						</div>

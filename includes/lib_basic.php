@@ -240,7 +240,9 @@ function checkCardType( $username, $type)
          // 蛋糕
          '4'    =>'category.dwt',
          // 生活
-         '10'   =>'life/lifeCategory.dwt'
+         '10'   =>'life/lifeCategory.dwt',
+         // 优品生活
+         '21'   =>'ylife/ylifeCategory.dwt'
      );
      
      if (isset($templates[$category['cat_id']])) 

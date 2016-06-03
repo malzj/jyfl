@@ -1,43 +1,44 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="Keywords" content="{$keywords}" />
-<meta name="Description" content="{$description}" />
-<meta name="Description" content="{$description}" />
-{if $auto_redirect}
-<meta http-equiv="refresh" content="3;URL={$message.back_url}" />
-{/if}
-<title>{$page_title}</title>
-<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
-<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript"  src="/js/nav.js"></script>
-</head>
-<body>
-<!-- 头部 -->
-<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
-<!-- 头部结束 -->
-<!-- 主体 -->
-<div class="main_tiaozhuan">
-	<div class="tiaozhuan">
-		<!--<p class="tiao_img"><img src="/images/hy_tz_ren.jpg" width="334" height="148" alt="" /></p>-->
-		<p class="tiao_t1" style="padding-top:20px;">{$message.content}</p>
-		<p class="tiao_t1" style="margin-top:15px;">
-			<!-- {if $message.url_info} -->
-			<!--{foreach from=$message.url_info key=info item=url}-->
-			<a href="{$url}">{$info}</a>&nbsp;&nbsp;&nbsp;
-			<!--{/foreach}-->
-			<!--{/if}-->
-		</p>
-	</div>
-	<div class="clear"></div>
-</div>
-<!-- 主体结束 -->
-
-<!-- 底部 -->
-<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
-<!-- 底部结束 -->
-
-</body>
+<!DOCTYPE html>
+<html class="movie_4">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+    </head>
+  	<body>
+    	 <!-- 公用头部 -->
+		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 --> 
+ 
+        <div class="w_1200">
+			<div class="pay_del" style="background:none;">
+			</div>
+			<div class="pay_success">
+				<h3 style="margin:20px 0;">{$message.content}</h3>
+				<div class="btn1" style="display:block; padding:20px;">
+                 <!-- {if $message.url_info} -->
+                    <!--{foreach from=$message.url_info key=info item=url}-->
+                    <a href="{$url}">{$info}</a>&nbsp;&nbsp;&nbsp;
+                    <!--{/foreach}-->
+                    <!--{/if}-->
+                
+                </div>
+				
+			</div>
+		</div>    
+    
+   
+        
+        <!-- 公用底部 -->
+		<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    	<!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+    </body>
 </html>
+

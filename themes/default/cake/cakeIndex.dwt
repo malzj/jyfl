@@ -77,7 +77,7 @@
 			<div class="floor" id="floor_{$attr.attrNo}">
 				<div class="floor_title">
 					<h4>
-						<a href="#"><i>F{$attr.attrNo}</i>{$attr.attrName}</a>
+						<a href="{$attr.url}"><i>F{$attr.attrNo}</i>{$attr.attrName}</a>
 					</h4>
 				</div>
 				<div class="floor_item">

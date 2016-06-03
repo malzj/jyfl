@@ -31,6 +31,7 @@ if($_REQUEST['act'] == "index")
     foreach ($attrName as $key=>$val)
     {
         $goodsIds = array();
+        $attrGoods[$key]['url'] = getCakeAttrUrl($val);
         $attrGoods[$key]['attrName'] = $val; 
         $attrGoods[$key]['attrNo'] = $key+1;
         $goodsAttr = $GLOBALS['db']->getAll('SELECT goods_id FROM '.$GLOBALS['ecs']->table('goods_attr')." WHERE attr_value = '".$val."' ORDER BY goods_attr_id DESC LIMIT 10");
@@ -79,16 +80,24 @@ if($_REQUEST['act'] == "index")
            $attrGoods[$key]['goods'] = $arr;            
         }        
     }
-    
-    
-   /*  echo '<pre>';
-    print_r($attrGoods);
-    echo '</pre>'; */
     $smarty->assign('attrGoods', $attrGoods);
     // 当前城市支持的蛋糕品牌（导航信息）
     $smarty->assign('cakeNav', $cakeNav);
     $smarty->assign('banner', getNavadvs(15));
     $smarty->assign('text', getNavadvs(16));
-    $smarty->display('cake/cakeIndex.dwt');
+    $smarty->display('cake/cakeIndex.dwt');    
+}
+
+function getCakeAttrUrl($val)
+{
+    $value = array(
+        '奶油口味'=>'category.php?id=4&filter_attr=0.12',
+        '巧克力味'=>'category.php?id=4&filter_attr=0.6',
+        '慕斯口味'=>'category.php?id=4&filter_attr=0.4',
+        '拿破仑味'=>'category.php?id=4&filter_attr=0.8',
+        '芝士口味'=>'category.php?id=4&filter_attr=0.2',
+        '鲜果口味'=>'category.php?id=4&filter_attr=0.10',
+    );
     
+    return $value[$val];
 }

@@ -79,6 +79,7 @@ function checkCardType( $username, $type)
  {
      $returnArray = array();
      $navigator = get_navigator();
+     
      if ($is_wap == true)
          init_wap_middle($navigator['middle']);
  
@@ -145,17 +146,17 @@ function checkCardType( $username, $type)
  
  // 得到楼层广告 $name 唯一名字（分类名等）， $no 第几个广告图片
  
- function attrAd( $name, $no=0)
+ function attrAd( $name, $no=0, $posid=17)
  {
  
      global $adList;
      $returnArray = $currentArray = $default = array();
  
      if ( empty($adList) ){
-         $adList = getNavadvs(17);
+         $adList = getNavadvs($posid);
      }
  
-     foreach ($adList as $list)
+     foreach ($adList as $fixed=>$list)
      {
          // 默认的广告图片
          if (strpos($list['ad_name'], 'default') !== false)
@@ -165,16 +166,16 @@ function checkCardType( $username, $type)
          // 得到指定的广告
          if (strpos($list['ad_name'], $name) !== false)
          {
-             $currentArray[] = $list;
+             $currentArray[$fixed] = $list;
          }
      }
  
      // 找到指定顺序的广告，如果没有就用默认的广告代替
-     $current = current(array_slice($currentArray, $no, 1));
-     if (empty($current))
+     //$current = current(array_slice($currentArray, $no, 1));
+     if (empty($currentArray[$no]))
          $returnArray = $default;
      else
-         $returnArray = $current;
+         $returnArray = $currentArray[$no];
  
      $returnArray['is_ad'] = 'true';
      return $returnArray;
@@ -192,9 +193,61 @@ function checkCardType( $username, $type)
              'banner' => 15,
              'text'   => 16
          ),
+         // 生活广告【banner广告，text广播】
+         '11' => array('banner' => 20,'text'   => 19),
+         '12' => array('banner' => 20,'text'   => 19),
+         '13' => array('banner' => 20,'text'   => 19),
+         '14' => array('banner' => 20,'text'   => 19),
+         '15' => array('banner' => 20,'text'   => 19),
+         '16' => array('banner' => 20,'text'   => 19),
+         
+         // 运动装备
+         '17' => array(
+             'banner' => 21,
+             'text'   => 22
+         ),
+         //鲜花
+         '18' => array(
+             'banner' => 24,
+             'text'   => 23
+         ),
+         //洗衣
+         '20' => array(
+             'banner' => 26,
+             'text'   => 25
+         ),
+         //体检
+         '19' => array(
+             'banner' => 28,
+             'text'   => 27
+         ),
      );
      
      return $advs[$catid];
+ }
+ 
+/** 
+ *  分类列表页面，模板渲染， 不同的分类显示不同的模板文件 
+ */
+ function categoryTemplate($cat_id)
+ {
+     $category = current(findData('category',"cat_id=$cat_id"));
+     if ( !empty($category['parent_id'])){
+         $category = current(findData('category', "cat_id=$category[parent_id]"));
+     }  
+
+     $templates = array(
+         // 蛋糕
+         '4'    =>'category.dwt',
+         // 生活
+         '10'   =>'life/lifeCategory.dwt'
+     );
+     
+     if (isset($templates[$category['cat_id']])) 
+         return $templates[$category['cat_id']];
+     else
+        return 'category.dwt';
+     
  }
  
 /**

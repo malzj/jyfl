@@ -713,6 +713,8 @@ html.movie .reying .reying_title {
 	overflow: hidden;
 	width: 1200px;
 	margin: 0 auto;
+	/* background: white; */
+	/* padding: 0 10px 20px 10px; */
 }
 
 html.movie .reying .reying_news {
@@ -2462,7 +2464,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .floor_item {overflow: hidden;background: white;}
 .floor_content_item{text-align: center;padding: 10px;width: 179px;height: 230px;border-right: 1px solid #F2F2F2;border-bottom: 1px solid #f2f2f2;}
 .wide{width: 379px;}
-
+#floor_6{margin-bottom:120px;}
 /*楼层引导*/
 .floor-guide{overflow: visible;display: none;position: fixed;top: 0;bottom: 0;margin: auto;left: 50%;width: 35px;height: 245px;margin-left: -655px;/* z-index: 100; */width: 35px;text-align: center;}
 .floor-guide a{position: relative;display: block;width: 45px;height: 45px;line-height: 40px;color: #666;text-decoration: none;cursor: pointer;}
@@ -2474,7 +2476,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .floor-guide .current b{ display:none;}
 
 /*侧边悬浮*/
-.sidebar { display:block; z-index: 100;/* position:absolute;跟随定位*/ position:fixed; bottom: 20px; right: 47%; margin-right: -625px; /*IE屏幕定位*/ _position: absolute; _bottom: auto; _top:expression(eval(document.documentElement.scrollTop)); _margin-top: 630px; /*IE屏幕定位END*/ width:56px; }
+.sidebar {display:block;z-index: 100;/* position:absolute;跟随定位*/position:fixed;bottom: 20px;right: 47%;margin-right: -625px; /*IE屏幕定位*/_position: absolute;_bottom: auto;_top:expression(eval(document.documentElement.scrollTop));_margin-top: 630px; /*IE屏幕定位END*/width:56px;}
 .w1280 .sidebar{ position: fixed; right:7px; margin-right:0;}
 .sidebar .s-btn { overflow: hidden; display: block; width:50px; height: 42px; margin-bottom:10px; background:url(/images/index/img_login/sidebar.png) no-repeat left top }
 .sidebar .goTop{ display:none; _display:nblock; background-position:0 0}
@@ -2660,15 +2662,17 @@ html.shenghuo1 body{background: white;}
 .my_order_item_title{background: #eafaf7;padding: 5px 0;}
 .my_order_details_img{width: 90px;height: 90px;}
 .my_order_details_img img{width: 100%;height: 100%;}
-.my_order_detailsAll {height: 90px;padding: 20px;border-bottom: 1px solid #ddd;}
+.my_order_detailsAll {height: 90px;padding: 20px 0 20px 20px;border-bottom: 1px solid #ddd;/* width: 1015px; */float: left;border-right: 1px solid #ddd;}
 .my_order_item{margin: 20px 0;border: 1px solid #ddd;}
 .my_order_details_content {width: 350px;text-align: left;margin-left: 20px;}
 .line_h_90{line-height: 90px;}
-.zhuangtai_margin_top{margin-top: 12px;}
+.zhuangtai_margin_top{padding: 20px 20px 20px 0;position: absolute;top: 0;height: 90px;bottom: 0;margin: auto;right: 0;}
 .my_order_zhuangtai div.active{color:#ff7900}
 .my_order_caozuo{padding: 20px;background: #fff1e5;}
 .my_order_btn{padding: 8px 20px;border-radius: 5px;color:white;margin-left: 15px;}
 .my_order_details_name{color: black;}
+.my_order_list{width: 1036px;}
+.my_order_listAll{position: relative;}
 
 /*订单详情*/
 .order_zhuangtai{width: 1200px;height: 45px;margin: 90px auto 0;background: url(/images/juyoufuli/img_login/order_zhuangtai.png) no-repeat;}
@@ -2717,14 +2721,14 @@ html.shenghuo1 body{background: white;}
 .order_success_img{text-align: center;margin: 30px 0;}
 /*空购物车*/
 .buy_car_font{margin-top: 80px;font-size: 18px;color: #000;}
-.buy_car_none{height: 200px;/* line-height: 3; */width: 500px;margin: 50px auto;}
+.buy_car_none{height: 200px;width: 500px;margin: 50px auto;}
 .buy_car_content{width: 180px;}
 .buy_car_btn a{color: white;display: inline-block;width: 130px;text-align: center;height: 30px;line-height: 30px;border-radius: 5px;}
 .buy_car_btn{margin-top: 25px;text-align: center;}
 
 /*继续购物弹层样式*/
 .continue_buy .layui-layer-content{background-color:rgba(1,1,1,0.9) ;}
-.continue_buy .layui-layer-content .movie{float:left;width: 100px;text-align: center;padding: 10px;margin: 25px 0;}
+.continue_buy .layui-layer-content .movie{float:left;/* width: 500px; */text-align: center;padding: 10px;margin: 25px 0;}
 .continue_buy .layui-layer-content .movie div{cursor: pointer;}
-
+.continue_buy .layui-layer-content .movie div span{display:block;}
 

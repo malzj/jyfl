@@ -21,7 +21,7 @@
         <form id="formCart" name="formCart" method="post" action="flow.php">
         <div class="w_1200">
 			<div class="buy_car_tips"></div>
-			<div class="cake_tips"><a href="user.php" class="color_zhuti next_buy">继续购物>></a></div>
+			<div class="cake_tips"><a href="#" class="color_zhuti next_buy continue_buy">继续购物>></a></div>
 			<div class="buy_car_list">
                 <div class="burcar_all">                
                     <div class="f_l burcar_all1" style="width:710px;">商品信息</div>
@@ -88,7 +88,7 @@
             	</div>
             	<div class="f_l buy_car_content">
             		<div class="buy_car_font">您的购物车还是空的，赶紧行动吧！</div>
-            		<div class="buy_car_btn"><a href="#" class="bg_color zhuti_a_hover">去购物</a></div>
+            		<div class="buy_car_btn"><a href="#" class="bg_color zhuti_a_hover continue_buy">去购物</a></div>
             	</div>
             </div>
             {/if}
@@ -139,6 +139,17 @@
 				document.getElementById('updateCartSub').click();
 			}
 		//-->
+//		继续购物
+		$('.continue_buy').on('click',function(){
+			layer.open({
+				skin:'continue_buy',
+		        type: 1,
+		        title:false,
+		        //area:['570px','415px'],
+		        shadeClose: false, //点击遮罩关闭
+		        content:'<ul class="list_1">{foreach from=$navigator_list.middle item=nav name=foo}<li class="movie" onClick=window.location="{$nav.url}"><div><span class="movie_1"><img src="{$app_path}images/juyoufuli/icon/nav-{$nav.id}.png"></span><i>{$nav.name}</i></div></li>{/foreach}</ul>'
+		      })
+		})
 		</script>
     </body>
 </html>

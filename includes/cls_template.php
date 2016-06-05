@@ -15,6 +15,7 @@
 
 class cls_template
 {
+    var $imageHosturl   = 'http://huayingcul.com/';   // 图片服务器地址
     var $template_dir   = '';
     var $cache_dir      = '';
     var $compile_dir    = '';
@@ -636,7 +637,11 @@ class cls_template
                   	case 'time':
                         $p = 'local_date("Y-m-d H:i:s",' . $p . ')';
                         break;
-                        	
+                    // 图片显示地址
+                  	case 'pathimages':
+                  	    $p = '$this->imageHosturl.'.$p;
+                  	    break;
+                  	    
                     default:
                         # code...
                         break;

@@ -49,7 +49,7 @@
 						</div>
 						<div class="f_l burcar_all1">
 							<a href="goods.php?id={$goods.goods_id}" class="p_img">
-								<img src="{$goods.goods_thumb}" alt="{$goods.goods_name|escape:html}" >
+								<img src="{$goods.goods_thumb|pathimages}" alt="{$goods.goods_name|escape:html}" >
 							</a>		
 							<a href="goods.php?id={$goods.goods_id}" class="p_details f_l">{$goods.goods_name}</a><br/>
 							<span>{$goods.goods_attr} </span>

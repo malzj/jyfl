@@ -33,7 +33,7 @@
 							<li><span>{$order.cinema_name}</span><span style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;{$order.hall_name}</span></li>
 							<li><span>{$order.featuretime} </span><span>14:00</span></li>
 							<li class="num_tick"><span>{$order.count}张票</span><span class="zuowei">({$order.seat_info})</span></li>
-							<li>总价：<span>{$order.money}</span>点</li>
+							<li>总价：<span class="order_yes_Allprice color_ff781e">{$order.money}</span>点</li>
 						</ul>
 					</div>
 				</div>
@@ -54,10 +54,9 @@
 						<span>聚优卡密码：<input name="password" id="password" type="password"><span class="jiesuan">结算</span> &nbsp;&nbsp;&nbsp;<span class="pay-loading" style="color:red;"></span></span>
 					</div>
 					<div class="tips">
-						<ul>
-							<li>温馨提示：</li>	
-							<li>1、支付成功后您将收到取票短信，建议您提前10分钟至影票终端机取票，以免排队耽误您的入场。</li>
-							<li>2、电影票一经售出概不退换，请在付款前确定无误，敬请谅解！祝您观影愉快！</li>
+						<ul>	
+							<li>温馨提示：1、支付成功后您将收到取票短信，建议您提前10分钟至影票终端机取票，以免排队耽误您的入场。</li>
+							<li style="text-indent: 70px;">2、电影票一经售出概不退换，请在付款前确定无误，敬请谅解！祝您观影愉快！</li>
 						</ul>
 					</div>
 				</div>	

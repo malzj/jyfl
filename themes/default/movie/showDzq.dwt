@@ -108,7 +108,7 @@
 			for (var i = 0; i<child.length;i++) {
 				if (child[i]){
 					if (child[i].className == 'border_1 checked'){
-						child[i].className = '';
+						child[i].className = 'border_1';
 						break;
 					}
 				}

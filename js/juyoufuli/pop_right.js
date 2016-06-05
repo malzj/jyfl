@@ -309,7 +309,6 @@ function numadd(){
     var point = $('#point').val();
     var game_id = $('input[name="game_id"]').val();
     var company_id = $('input[name="company_id"]').val();
-
     var surplus = checkSurplus(game_id,company_id);
     var n = parseInt(num);
     if(n>=surplus){
@@ -376,13 +375,13 @@ function tijiao(){
             
         });
     });
-		return false;   
+		return false;  
 }
 //确认购买        
 			function globelQuery(e) { 
 					if (!e) 
 					e = window.event; 
 					if ((e.keyCode || e.which) == 13) { 
-					$(".qianggou_box button").click(); 
+					$('.qianggou_box button').click();
 					} 
 				} 

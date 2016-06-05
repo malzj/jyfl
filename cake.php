@@ -27,7 +27,7 @@ if($_REQUEST['act'] == "index")
 
     // 口味数组
     $attrGoods = array();
-    $attrName = get_cake_attr(2);
+    $attrName = get_cake_attr(347);
     foreach ($attrName as $key=>$val)
     {
         $goodsIds = array();
@@ -91,12 +91,13 @@ if($_REQUEST['act'] == "index")
 function getCakeAttrUrl($val)
 {
     $value = array(
-        '奶油口味'=>'category.php?id=4&filter_attr=0.12',
-        '巧克力味'=>'category.php?id=4&filter_attr=0.6',
-        '慕斯口味'=>'category.php?id=4&filter_attr=0.4',
-        '拿破仑味'=>'category.php?id=4&filter_attr=0.8',
-        '芝士口味'=>'category.php?id=4&filter_attr=0.2',
-        '鲜果口味'=>'category.php?id=4&filter_attr=0.10',
+        '奶油口味'=>'category.php?id=4&filter_attr=29393.0',
+        '巧克力味'=>'category.php?id=4&filter_attr=15636.0',
+        '慕斯口味'=>'category.php?id=4&filter_attr=17328.0',
+        '拿破仑味'=>'category.php?id=4&filter_attr=16622.0',
+        '芝士口味'=>'category.php?id=4&filter_attr=15679.0',
+        '鲜果口味'=>'category.php?id=4&filter_attr=25556.0',
+        '冰淇淋味'=>'category.php?id=4&filter_attr=30471.0.0',
     );
     
     return $value[$val];

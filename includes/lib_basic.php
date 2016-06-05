@@ -133,7 +133,7 @@ function checkCardType( $username, $type)
  function get_cake_attr($attr_id=null)
  {
      // 蛋糕属性 （attr_id = 2 是口味）
-     $cakeAttr = $GLOBALS['db']->getAll('SELECT * FROM '.$GLOBALS['ecs']->table('attribute'). ' WHERE cat_id = 1');
+     $cakeAttr = $GLOBALS['db']->getAll('SELECT * FROM '.$GLOBALS['ecs']->table('attribute'). ' WHERE cat_id = 28');
  
      foreach ($cakeAttr as $key=>$val)
      {
@@ -193,6 +193,11 @@ function checkCardType( $username, $type)
              'banner' => 15,
              'text'   => 16
          ),
+         '5' => array(
+             'banner' => 15,
+             'text'   => 16
+         ),
+         
          // 生活广告【banner广告，text广播】
          '11' => array('banner' => 20,'text'   => 19),
          '12' => array('banner' => 20,'text'   => 19),
@@ -238,9 +243,11 @@ function checkCardType( $username, $type)
 
      $templates = array(
          // 蛋糕
-         '4'    =>'category.dwt',
+         '4'    =>'cake/cakeCategory.dwt',
          // 生活
-         '10'   =>'life/lifeCategory.dwt'
+         '10'   =>'life/lifeCategory.dwt',
+         // 优品生活
+         '21'   =>'ylife/ylifeCategory.dwt'
      );
      
      if (isset($templates[$category['cat_id']])) 

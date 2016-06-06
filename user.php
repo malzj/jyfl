@@ -1196,7 +1196,6 @@ elseif ($action == 'act_account')
         $jsondData = json_encode($redata);
         exit($jsondData);
     }
-
     /* 变量初始化 */
     $surplus = array(
             'user_id'      => $user_id,
@@ -1331,8 +1330,13 @@ elseif ($action == 'act_account')
 				if ($arr_cardInfo['ReturnCode'] == '0'){
 					$surplus['order_sn'] = $arr_cardInfo['OrderId'];					
 				}else{
-					show_message($arr_cardInfo['ReturnMessage']);
-				}
+//					show_message($arr_cardInfo['ReturnMessage']);
+                    $redata['result'] = 'false';
+                    $redata['msg'] = $arr_cardInfo['ReturnMessage'];
+                    $jsondData = json_encode($redata);
+                    exit($jsondData);
+
+                }
 			}
  
 			//插入会员账目明细
@@ -1368,11 +1372,21 @@ elseif ($action == 'act_account')
         $payment_info['pay_button'] = $pay_obj->get_code($order, $payment);
 
         /* 模板赋值 */
-        $smarty->assign('payment', $payment_info);
-        $smarty->assign('pay_fee', price_format($payment_info['pay_fee'], false));
-        $smarty->assign('amount',  price_format($amount, false));
-        $smarty->assign('order',   $order);
-        $smarty->display('user_transaction.dwt');
+//        $smarty->assign('payment', $payment_info);
+//        $smarty->assign('pay_fee', price_format($payment_info['pay_fee'], false));
+//        $smarty->assign('amount',  price_format($amount, false));
+//        $smarty->assign('order',   $order);
+//        $smarty->display('user_transaction.dwt');
+        $redata['result'] = 'true';
+        $redata['info'] = array(
+            'payment'=> $payment_info,
+            'pay_fee'=>price_format($payment_info['pay_fee'], false),
+            'amount'=>price_format($amount, false),
+            'order'=>$order,
+        );
+        $jsondData = json_encode($redata);
+        exit($jsondData);
+
     }
 }
 

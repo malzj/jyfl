@@ -253,7 +253,12 @@ function checkCardType( $username, $type)
          // 生活
          '10'   =>'life/lifeCategory.dwt',
          // 优品生活
-         '21'   =>'ylife/ylifeCategory.dwt'
+         '21'   =>'ylife/ylifeCategory.dwt',
+         // 运动装备
+         '17'   =>'simple/sportsCategory.dwt',
+         '18'   =>'simple/sportsCategory.dwt',
+         '20'   =>'simple/sportsCategory.dwt',
+         '19'   =>'simple/sportsCategory.dwt',
      );
      
      if (isset($templates[$category['cat_id']])) 

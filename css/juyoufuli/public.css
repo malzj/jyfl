@@ -342,9 +342,11 @@ html.login .pop_right{transform: translateX(0);}
 }
 
 .pop_right .right span {
-	margin-top: 15px;
+	padding-top: 15px;
 	font-size: 24px;
-	margin-left: 5px;
+	padding-left: 5px;
+	width: 30px;
+	height: 44px;
 }
 
 .message_1_content div:nth-child(2) {
@@ -837,7 +839,7 @@ a {
 }
 
 .fullSlide .bd li {
-	background-size: 100% 100%!important;
+	/* background-size: 100% 100%!important; */
 	width: 100% !important;
 	height: 410px;
 	/* overflow:hidden; */
@@ -2743,7 +2745,7 @@ html.shenghuo1 body{background: white;}
 .order_details_content_right{width: 400px;}
 .order_details_box{border-bottom: 1px solid #D8D7D7;padding: 10px 0;}
 .order_zhuangtai1_details .my_order_title{margin: 0;border-bottom: 1px solid #D2CFCF;}
-.order_zhuangtai1_details{margin: 30px 0;background: #e6e6e6;}
+.order_zhuangtai1_details{margin: 30px 0;background: #e6e6e6;overflow: hidden;}
 .order_zhuangtai1_details .my_order_price {width: 200px;}
 .order_zhuangtai1_details .my_order_num {width: 200px;}
 .order_zhuangtai1_details .my_order_price_all {width: 200px;}

@@ -88,7 +88,10 @@
 
 <script>
 //	首页左侧公共部分默认展开
-	if(window.location.pathname == '/user.php'){
+    var url = window.location.href;
+    var arr = url.split('?');
+
+	if(arr[1] == ''||arr[1] == null){
 			$('.switch').removeClass('off');
 	}
 	$('.list_1 li').hover(function(){

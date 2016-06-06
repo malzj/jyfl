@@ -1,5 +1,5 @@
 var data_url ="http://192.168.1.161/jyflapi/";
-var ecs_url ="http://jy.com/";
+var ecs_url ="http://192.168.1.161/";
 $(function(){
 $('#saf').on('click',function(){
 	showSafeCenter();

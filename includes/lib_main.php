@@ -1687,6 +1687,11 @@ function assign_template($ctype = '', $catlist = array())
 		ecs_header("Location:home.php\n");
 		exit;
 	}
+	
+	
+	$sql = "SELECT count(*) " ."FROM " . $GLOBALS['ecs']->table('cart') ." WHERE session_id = '" . SESS_ID . "' " . "AND rec_type = '".CART_GENERAL_GOODS."' ";
+	$cartTotal = $GLOBALS['db']->getOne($sql);	
+	$smarty->assign('cartTotal',       $cartTotal);  //自定义导航栏
 
 	//$smarty->assign('shiting',    get_navigator_top(1)); //视听盛宴
 	//$smarty->assign('meishi',     get_navigator_top(2)); //舌尖美食

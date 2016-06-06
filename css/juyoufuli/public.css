@@ -2503,7 +2503,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
     }
 .infoList a{margin-left: 10px;}
 
-.floor_item img{width: 100%; height: 100%;}
+.floor_item img{width: 100%;height: 100%;}
 .floor_box{margin: 0 auto;width: 175px;height: 175px;}
 .color_CF5926{font-weight: 600;color: #CF5926;}
 #floor_2 .floor_title h4 i{background-position: -46px 0;}
@@ -2722,9 +2722,9 @@ html.shenghuo1 body{background: white;}
 .my_order_details_img img{width: 100%;height: 100%;}
 .my_order_detailsAll {height: 90px;padding: 20px 0 20px 20px;border-bottom: 1px solid #ddd;/* width: 1015px; */float: left;border-right: 1px solid #ddd;}
 .my_order_item{position: relative;margin: 20px 0;border: 1px solid #ddd;}
-.my_order_details_content {width: 350px;text-align: left;margin-left: 20px;}
+.my_order_details_content {width: 430px;text-align: left;margin-left: 20px;}
 .line_h_90{line-height: 90px;}
-.zhuangtai_margin_top{padding: 20px 20px 20px 0;position: absolute;top: 0;height: 65px;bottom: 0;margin: auto;right: 0;}
+.zhuangtai_margin_top{padding: 20px 20px 20px 0;position: absolute;top: 0px;height: 65px;bottom: 0;margin: auto;right: 0;}
 .my_order_zhuangtai div.active{color:#ff7900}
 .my_order_caozuo{margin-top: -1px;border-top: 1px solid #ddd;padding: 20px;background: #fff1e5;}
 .my_order_btn{padding: 8px 20px;border-radius: 5px;color:white;margin-left: 15px;}
@@ -2747,8 +2747,10 @@ html.shenghuo1 body{background: white;}
 .order_zhuangtai1_details .my_order_price {width: 200px;}
 .order_zhuangtai1_details .my_order_num {width: 200px;}
 .order_zhuangtai1_details .my_order_price_all {width: 200px;}
-
-
+.film .zhuangtai_margin_top,.dzq .zhuangtai_margin_top{top: 25px;}
+.venues .my_order_detailsAll,.film .my_order_detailsAll{height: 120px;border-bottom: none;}
+.venues .my_order_zhuangtai {width: 300px;}
+.dzq .my_order_detailsAll{border-bottom: none;}
 /*购物车*/
 .ci-count {
     position: absolute;

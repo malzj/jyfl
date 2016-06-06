@@ -8,12 +8,12 @@
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
         <link rel="stylesheet" href="{$app_path}css/juyoufuli/sport1.css">
 	</head>
-	<body>
+	<body class="bg_white">
         <!-- 头部 -->
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->        
         
-        <div class="tg_sx" style="border-top:none;margin-top: 90px;">
+        <div class="tg_sx" style="margin-top: 90px;">
             <div class="tg_area">
                 <div class="tg_areaheadline"><strong>项目</strong></div>
                 <ul>
@@ -34,10 +34,22 @@
                   
                 </ul>
             </div>
+            <!--搜索栏-->
+            <div class="venues_search">
+            	 <div class="f_l" style="margin-right: 30px;padding: 10px 0;">
+            	 	<strong style="color: black;">关键字</strong>
+            	 </div>
+            	 <div class="venues_search_form">
+            	 <form class="f_l">
+            	 	<input placeholder="请输入搜索关键字">
+            	 </form>	
+            	 <i></i>
+            	 </div>
+            </div>
         </div>
         
         {foreach from=$list item=row}
-        <div class="bg" style="background: rgb(242, 242, 242);">
+        <div>
             <div class="list">
                 <div class="list-img">
                     <a href="venues_detail.php?venueId=1602" target="_blank"><img src="{$row.venue.signImg}" width="210" height="210"></a>
@@ -138,12 +150,12 @@
 					}	
 				})
 				
-				$('.bg').mouseover(function(){
-					$(this).css('background','#f2f2f2');
-				})
-				$('.bg').mouseout(function(){
-					$(this).css('background','transparent');
-				})
+//				$('.bg').mouseover(function(){
+//					$(this).css('background','#f2f2f2');
+//				})
+//				$('.bg').mouseout(function(){
+//					$(this).css('background','transparent');
+//				})
 				$('.tg_area ul li a').click(function(){
 					$(this).addClass('active').parents('li').siblings().children().removeClass('active');
 				})

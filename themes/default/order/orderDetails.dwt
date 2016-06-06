@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+        <script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+        <script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
 	</head>
 	<body class="bg_white">
     <!-- 头部 -->
@@ -75,5 +77,16 @@
 				</div>
 			</div>
 		</div>
+            <!-- 公用底部 -->
+            <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+            <!-- 底部结束 -->
+
+             <!-- 公共左边 -->
+            <!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+            <!-- 公共左边结束 -->
+
+            <!-- 公共右边 -->
+            <!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+            <!-- 公共右边结束 -->
 	</body>
 </html>

@@ -55,7 +55,10 @@
 					</div>
 					
 					<div class="moviestip __r_c_" style="display: none;" id="ajaxMovieList"> <center> LOADING ... </center> </div>
-                    <div class="cinematip __r_c_" style="display: none;" id="ajaxCinemaList"> 请选择影片 </div>
+                    <div class="cinematip __r_c_" style="display: none;" id="ajaxCinemaList">
+                    	<center>请选择影片</br>
+                    		<img src="/images/juyoufuli/img_login/wuya.png">
+                    	</center></div>
 					<div class="i_date __r_c_" style="display: none;" id="ajaxPlanList"> <center> 请选择影院</center> </div>
 				</div>
 			</div>

@@ -32,7 +32,7 @@
 		<div class="search" id="search_yanchu">
 			<div class="search_1200">
 				<div class="tips f_l">
-					<span class="glyphicon glyphicon-volume-down tip"></span>
+					<span class="tip"></span>
 					<div class="txtMarquee-top">
 						<div class="bd">
 							<div class="tempWrap">
@@ -53,6 +53,7 @@
 						<input type="text" name="yckeyword" placeholder="搜索“{$title}”">
 						<input type="submit" value="" style="display:none;" />
 					</form>
+					<i></i>
 				</div>
 				
 			</div>
@@ -88,7 +89,7 @@
 								<li>"<span>{$listinfo.item_name}</span>"</li>
 								<li><span>{$listinfo.data_ext}</span></li>
 								<li><span>[{$listinfo.site_name}]</span></li>
-								<li><span class="shoupiao f_l">售票中</span><a href="yanchu.php?act=show&id={$cateid}&itemid={$listinfo.item_id}"><span class="f_r xuanzuo zhuti_a_hover">选座购票</span></a></li>
+								<li><!--<span class="shoupiao f_l">售票中</span>--><a href="yanchu.php?act=show&id={$cateid}&itemid={$listinfo.item_id}"><span class="f_r xuanzuo zhuti_a_hover">选座购票</span></a></li>
 							</ul>
 						</div>
 					</div>

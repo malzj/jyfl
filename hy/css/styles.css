@@ -42,7 +42,7 @@
           background-size:100% 100%;
 }
 .aboutus.active .strips__strip:nth-child(2) .strip__content {
-  /*background:url(../images/juyoushengri-01.png) no-repeat;*/
+  background:url(../images/juyoushengri-01.png) no-repeat;
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
   -webkit-animation-name: strip2;

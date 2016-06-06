@@ -6,15 +6,11 @@
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
         <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
-
 	</head>
-
 	<body>
-		
         <!-- 公用头部 -->
 		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 --> 
-
 		<div class="newsimg">
 			<div class="fullSlide">
 				<div class="bd">
@@ -315,6 +311,9 @@
 					}
 				})
 			}
+			
+//			默认电影选中
+			$('.header_left li:nth-child(1) a').css('color','#27c7ac');
 		</script>
 	</body>
 

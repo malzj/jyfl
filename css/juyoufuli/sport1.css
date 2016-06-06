@@ -43,13 +43,16 @@ a:link,a:visited{text-decoration:none;}
 .tg_area ul{width:1043px;}
 .tg_sx  ul li{float:left; margin:0 18px 5px 0;_width:120px;}
 .tg_sx  ul li .active{background: #ff7900;color:#fff;text-decoration:none;border-radius: 5px;}
-.tg_area{border-top: 1px solid #ddd;padding: 8px 80px 8px 75px;position:relative;height:100%;overflow:hidden;clear:both;font-size:14px;}
-.tg_areaheadline{width:80px;position:absolute; left: 0; top:8px;padding-left:10px;}
+.tg_area{border-bottom: 1px solid #ddd;padding: 8px 80px 8px 75px;position:relative;height:100%;overflow:hidden;clear:both;font-size:14px;margin: 5px 20px;}
+.tg_areaheadline{width:80px;position:absolute;left: 0;top: 8px;padding-left:10px;}
 .tg_areamore{width:50px; padding-top: 8px; position: absolute; right: 0; top: 0; cursor:pointer}
 .tg_arr_u{background-position:30px 14px;}
 .tg_arr_d{background-position:30px -28px;}
-
-
+.venues_search{margin: 5px 20px;overflow: hidden;}
+.venues_search input{width: 140px;padding: 5px 10px;border:none;background: #f5f5f5;border-radius: 5px;float: left;outline: none;}
+.venues_search form{}
+.venues_search i{background: url(/images/juyoufuli/img_login/tu.png) no-repeat -53px -233px;width: 35px;height: 32px;display: inline-block;float: left;cursor: pointer;}
+.venues_search_form{float: left;background:#f5f5f5;border-radius:5px;margin-top: 5px;}
 /*列表*/
 a:link{
 text-decoration:none;
@@ -66,8 +69,9 @@ text-decoration:none;
 .list-img{float: left;display: inline-block;}
 .list{overflow: hidden;}
 .content-list{width: 1200px; margin: 0 auto;}
-.list{border: 1px solid #ddd;padding: 5px;margin-bottom: 10px;width: 1200px;margin: 0 auto;margin-top: 20px;margin-bottom: 10px;}
-.list-title h1{border-bottom: 1px solid #e9e9e9;}
+.list{border: 1px solid #ddd;padding: 5px 30px;width: 1138px;margin: 0 auto;margin-top: 20px;margin-bottom: 10px;}
+.list-title h1{margin-top:5px;}
+.list-title h1 a{color:#2fd0b5;font-size:20px;}
 .list-title{margin-left:40px;float: left;width: 700px;}
 .list-title ul{line-height: 2.5;}
 .list-title ul li{font-size: 14px;}
@@ -82,20 +86,21 @@ text-decoration:none;
     width: 120px;
     height: 36px;
     background: #2fd0b5;
-    border-radius: 5px;
+    border-radius: 20px;
     margin-left: 25px;
     }
 .price_2 span a{font-size: 18px;color: white;}   
-.price_1 span em{color: #ff610b;font-size: 36px;}
+.price_1 span em{color: #ff610b;font-size: 36px;font-style: italic;margin-right: 10px;}
 .price_1 span{color: #ff610b;}
 .price_1{text-align: center;}
 .list-tab span {
-	background: #ECEAEA;
-    border: 1px solid #f57936;
+	/* background: #ECEAEA; */
+	border: 1px solid #f57936;
 	padding: 5px 10px;
-    color: #f57936;
-    border-radius: 5px;
-    cursor: pointer;}
+	color: #f57936;
+	border-radius: 5px;
+	cursor: pointer;
+	}
 .cur{padding: 5px 10px;
     background: #f57936!important;
     color: white!important;
@@ -123,19 +128,19 @@ text-decoration:none;
 /*门票*/
 /*.tickets{display: none;}*/
 .ticket_span1{display: inline-block;width: 510px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
-.ticket_span2{display: inline-block;width: 548px;text-align: center;}
+.ticket_span2{display: inline-block;width: 520px;text-align: center;}
 .ticket_span3 a{background: #ff7900;font-size: 14px;border-radius: 5px;padding: 3px 15px;color: white;display: inline-block;cursor: pointer;transition: background .25s ease;}
 .ticket_span3{display: inline-block;}
 .ticket_span3 a:hover{background: #E27B1E;}
 .table_1{font-size: 14px;display: block;padding: 10px 0;border-top: 1px solid #E6E5E5;}
-.font-18{color: #ff7900;font-size: 22px;}  
+.font-18{color: #ff7900;font-size: 24px;font-style: italic;margin-right: 10px;}  
 .font-12{font-size: 12px;}  
 table{margin-top: 10px;}
 .week a:hover{
     background: #ff7900;
     color: white;
     }
-
+.tickets{margin-top:5px;}
 /*第二页面*/
 .title span{margin-bottom: 10px;color: #2fd0b5;font-size: 30px;display: inline-block;}
 .title .facico{margin-left: 10px;width: 994px;}
@@ -180,7 +185,7 @@ table{margin-top: 10px;}
 .help p{padding: 10px;
     line-height: 2;
     text-indent: 32px;}    
-.help{margin-top: 50px;}
+.help{margin-top: 15px;}
 .border_down{border-bottom: 1px solid #E6E5E5;border-top: none;}
 
 

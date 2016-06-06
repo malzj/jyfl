@@ -112,7 +112,7 @@
 		})
 </script>
 <script type="text/javascript">
-		var shopping_amount={$cartTotal};
+		var shopping_amount="{$cartTotal}";
 		
 	  //加入购物车动画效果
 			function MoveBox() {

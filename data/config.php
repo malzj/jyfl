@@ -13,7 +13,7 @@ $db_pass   = "huaying507";
 
 // table prefix
 $prefix    = "ecs_";
-
+ 
 $timezone    = "UTC";
 
 $cookie_path    = "/";

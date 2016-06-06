@@ -199,10 +199,10 @@ class GamesApiController extends Controller
 
         //链接付款接口进行付款，付款成功commit
         $Card = new \Ext\card\huayingcard();
-        $card_data['CardInfo']['CardNo'] = $data['card_num'];
-        $card_data['CardInfo']['CardPwd'] = $card_pass;
-        $card_data['TransationInfo']['TransRequestPoints'] = $num*$game_info['point'];
-
+        $card_data = array(
+            'CardInfo' => array( 'CardNo'=> $data['card_num'], 'CardPwd' => $card_pass),
+            'TransationInfo' => array( 'TransRequestPoints'=>$num*$game_info['point'], 'TransSupplier'=>iconv('聚优夺宝','UTF-8','GB2312'))
+        );
         $is_pay = $Card -> action($card_data,1);
         $Model -> table('__USERS__')->where('user_name')->setDec('card_money',$num*$game_info['point']);
         if($is_pay == 0){

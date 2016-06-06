@@ -85,26 +85,14 @@ $(function () {
     });
     $(document).delegate('.btn_reg', 'click', function () {
         var index;
-        // var rec_id = $('input[name="rec_id"]').val();
-        // var surplus_type = $('input[name="surplus_type"]').val();
-        // var amount = $('input[name="amount"]').val();
-        // var payment_id = $('input[name="payment_id"]').val();
-        // var user_note = $('input[name="user_note"]').val();
         $.ajax({
             type: 'post',
             url: ecs_url + 'user.php',
             async: false,
             data:$('#formSurplus').serialize(),
-            // {
-            //     // rec_id:rec_id,
-            //     // surplus_type:surplus_type,
-            //     // amount:amount,
-            //     // payment_id:payment_id,
-            //     // user_note:user_note,
-            // },
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                //console.log(data);
                 if(data.result == 'true'){
                     var info = data.info;
                     var html = '<div class="reg">' +

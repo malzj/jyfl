@@ -117,7 +117,8 @@ function checkCardType( $username, $type)
              {
                  $names = explode('--', $val['ad_name']);
                  $adPosition = array_pop($names);
-                 $image[$adPosition] = $val;
+                 $image[$key] = $val;
+                 $image[$key]['no'] = $adPosition;
              }
              else {
                  $image[] = $val;
@@ -166,7 +167,7 @@ function checkCardType( $username, $type)
          // 得到指定的广告
          if (strpos($list['ad_name'], $name) !== false)
          {
-             $currentArray[$fixed] = $list;
+             $currentArray[$list['no']] = $list;
          }
      }
  

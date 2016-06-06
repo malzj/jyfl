@@ -91,7 +91,7 @@
     var url = window.location.href;
     var arr = url.split('?');
 
-	if(arr[1] == ''||arr[1] == null){
+	if((window.location.pathname == '/user.php')&&(arr[1] == ''||arr[1] == null)){
 			$('.switch').removeClass('off');
 	}
 	$('.list_1 li').hover(function(){

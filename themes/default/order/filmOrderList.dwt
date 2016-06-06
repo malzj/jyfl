@@ -5,7 +5,7 @@
 		<title></title>
 		<link rel="stylesheet" href="css/public.css">
 	</head>
-	<body class="bg_white">
+	<body class="bg_white film">
     <!-- 头部 -->
     <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
     <!-- 头部结束 -->
@@ -28,7 +28,7 @@
 							<span>{$order.add_time}</span>
 						</div>
 					</div>
-					<div class="my_order_detailsAll o_hidden">
+					<div class="my_order_detailsAll o_hidden" style="height: 120px;">
 						<div class="my_order_details f_l">
 							<div class="my_order_details_content f_l">
 								<!--<div class="my_order_details_name">{$good.goods_name}</div>-->
@@ -39,9 +39,9 @@
 								<div class="my_order_details_box">手机号：{$order.mobile}</div>
 							</div>
 						</div>
-						<div class="my_order_price f_l line_h_90">{$order.unit_price}点</div>
-						<div class="my_order_num f_l line_h_90">x<span>{$order.count}</span></div>
-						<div class="my_order_price_all f_l line_h_90">{$order.money}点</div>
+						<div class="my_order_price f_l line_h_90" style="line-height: 120px;">{$order.unit_price}点</div>
+						<div class="my_order_num f_l line_h_90" style="line-height: 120px;">x<span>{$order.count}</span></div>
+						<div class="my_order_price_all f_l line_h_90" style="line-height: 120px;">{$order.money}点</div>
 						<div class="my_order_zhuangtai f_l zhuangtai_margin_top">
 							{foreach from=$order.order_status_cn item=status}
 							<div>{$status}</div>

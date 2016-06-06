@@ -311,6 +311,9 @@
 					}
 				})
 			}
+			
+//			默认电影选中
+			$('.header_left li:nth-child(1) a').css('color','#27c7ac');
 		</script>
 	</body>
 

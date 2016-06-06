@@ -6,7 +6,7 @@
         <script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
         <script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
 	</head>
-	<body class="bg_white">
+	<body class="bg_white film">
     <!-- 头部 -->
     <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
     <!-- 头部结束 -->

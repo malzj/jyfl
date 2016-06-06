@@ -1,4 +1,5 @@
 var data_url ="http://192.168.1.161/jyflapi/";
+var ecs_url ="http://jy.com/";
 $(function(){
 $('#saf').on('click',function(){
 	showSafeCenter();
@@ -32,13 +33,52 @@ $('#saf').on('click',function(){
 //     });
 // });
 $('#reg').on('click',function(){
-    layer.open({
-        type: 1,
-        title:false,
-        area:'570px',
-        shadeClose: false, //点击遮罩关闭
-        content:'<div class="reg"><h3>卡充值</h3><div style="overflow:hidden"><div class="reg_title">充值金额:</div><div class="reg_num"><span class="radio_img"><input type="radio" name="money"></span>30点<span>人民币39.0元</span><br><span class="radio_img"><input type="radio" name="money"></span>50点<span>人民币65.0元</span><br><span class="radio_img"><input type="radio" name="money"></span>100点<span class="rmb">人民币130.0元</span><br></div></div><div class="pay_title">支付方式</div><table class="table"><thead><tr><td>名称</td><td>描述</td></tr></thead><tbody><tr><td style="width:60px"><span class="radio_img1"><input type="radio" name="choose"></span>支付宝</td><td>国内先进的网上支付平台国内先进的网上支付平台国内先进的网上支付平台国内先进的网上</td></tr><tr><td><span class="radio_img1"><input type="radio" name="choose"></span>支付宝</td><td>国内先进的网上支付平台国内先进的网上支付平台国内先进的网上支付平台国内先进的网上</td></tr></tbody></table><div class="btn_all"><button class="btn_reg">立即充值</button> <button class="btn_1">充值金额</button> <button class="btn_2">充值记录</button></div></div>'
-    });
+    $.ajax({
+		type:'post',
+		url:ecs_url+'user.php',
+		anync:false,
+		data:{act:'account_deposit'},
+		dataType:'json',
+		success:function (data) {
+			// console.log(data);
+			var info = data.info;
+			var html = '<div class="reg">' +
+				'<form name="formSurplus" method="post" onsubmit="return submitOp(false)">' +
+				'<h3>卡充值</h3><div style="overflow:hidden">' +
+				'<div class="reg_title">充值金额:</div>' +
+				'<div class="reg_num">';
+			$.each(info.priceList,function(k,val){
+				html+='<span class="radio_img"><input type="radio" name="amount" value="'+val+'"></span>'+k+'点<span>人民币'+val+'元</span><br>';
+			});
+			html+='</div></div>' +
+				'<div class="pay_title">支付方式</div><table class="table"><thead><tr><td>名称</td><td>描述</td></tr></thead>' +
+				'<tbody>';
+			$.each(info.payment,function(k,val){
+				if(val.pay_id>2)
+				html+='<tr><td style="width:60px"><span class="radio_img1"><input type="radio" name="payment_id" value="'+val.pay_id+'" /></span>'+val.pay_name+'</td>' +
+					'<td>'+val.pay_desc+'</td></tr>' +
+					'<tr>';
+			});
+			html+='<!--<tr><td bgcolor="#ffffff">{$lang.process_notic}:</td><td align="left" bgcolor="#ffffff"><textarea name="user_note" cols="55" rows="6" style="border:1px solid #ccc;">{$order.user_note|escape}充值</textarea></td></tr>-->' +
+				'</tbody></table>' +
+				'<div class="btn_all">' +
+				'<input type="hidden" name="surplus_type" value="0" />'+
+				'<input type="hidden" name="rec_id" value="'+info.order.id+'" />'+
+				'<button class="btn_reg">立即充值</button> ' +
+				'<button class="btn_1" name="reset" type="reset">重置金额</button> ' +
+				'<button class="btn_2">充值记录</button>' +
+				'</div></form>' +
+				'</div>';
+			layer.open({
+				type: 1,
+				title:false,
+				area:'570px',
+				shadeClose: false, //点击遮罩关闭
+				content:html,
+			});
+
+		}
+	});
 });
 $('#red_packet').on('click',function(){
     layer.open({
@@ -50,13 +90,41 @@ $('#red_packet').on('click',function(){
     });
 });
 $('#merge').on('click',function(){
-    layer.open({
+    var uname=$(this).attr('data-uname');
+	var html = '<div class="merge"><h3>卡合并</h3>' +
+		'<form name="mergeForm" onsubmit="return submitOp(false)" >' +
+		'<input type="hidden" name="act" value="act_card_merge" />' +
+		'<div class="form-group" style="margin-top:20px">' +
+		'<label>转出（需清空）的卡号：</label><span class="qk"><input type="text" name="from_card" value="" id="from_card" class="inputBg" /></span>' +
+		'<label>密码：</label><span class="qk"><input type="password" name="from_card_pwd" value="" id="from_card_pwd" /></span>' +
+		'</div>' +
+		'<div class="form-group">' +
+		'<label>转入（合并到）的卡号：</label><span class="qk"><input type="text" name="to_card" value="'+uname+'" id="to_card" readonly/></span>' +
+		'<label>密码：</label><span class="qk"><input type="password" name="to_card_pwd" value="" id="to_card_pwd" /></span>' +
+		'</div>' +
+		'<div class="btn_merge"><button>确认合并</button></div>' +
+		'</form>' +
+		'<div class="tip"><p>温馨提示：</p>' +
+		'<span class="tip_1">1.卡合并后，有效期以转入（合并到）的卡号为准：</span>' +
+		' <span>2.3个月内只能合并一次；</span> ' +
+		'<span class="tip_1">3.不支持多张（2张以上）卡合并；</span> ' +
+		'<span>4.卡合并后，业务以转入卡业务为准；</span>' +
+		'</div></div>';
+	layer.open({
         type: 1,
         title:false,
         area:'570px',
         shadeClose: false, //点击遮罩关闭
-        content:'<div class="merge"><h3>卡合并</h3><div class="form-group" style="margin-top:20px"><label>转出（需清空）的卡号：</label><span class="qk"><input type="text"></span><label>密码：</label><span class="qk"><input type="password"></span></div><div class="form-group"><label>转入（合并到）的卡号：</label><span class="qk"><input type="text"></span><label>密码：</label><span class="qk"><input type="password"></span></div><div class="btn_merge"><button>确认合并</button></div><div class="tip"><p>温馨提示：</p><span class="tip_1">1.卡合并后，有效期以转入（合并到）的卡号为准：</span> <span>2.3个月内只能合并一次；</span> <span class="tip_1">3.不支持多张（2张以上）卡合并；</span> <span>4.卡合并后，业务以转入卡业务为准；</span></div></div>'
+        content:html,
     });
+});
+$(document).delegate('.btn_merge button','click',function(){
+	var from_card     = $('#from_card').val();
+	var from_card_pwd = $('#from_card_pwd').val();
+	var to_card       = $('#to_card').val();
+	var to_card_pwd   = $('#to_card_pwd').val();
+	cardMerge(from_card,from_card_pwd,to_card,to_card_pwd);
+
 });
 // $(document).delegate('.add_new', 'click', function(){
 // 	$('.layui-layer-content').html('<div class="set_add"><h3>添加地址</h3><div class="form-group"><label><span class="xing">*</span>所在地区：</label><select name="country" id="country" onchange="region.changed(this, 1, \'province\')" style="width:100px;background-color:transparent;" ></select><select name="province" id="province" onchange="region.changed(this, 2, \'city\')" style="width:100px;background-color:transparent;" ></select><select name="city" id="city" style="width:100px;background-color:transparent;"  ></select></div><div class="form-group"><label><span class="xing">*</span>街道地址：</label><input type="text"></div><div class="form-group"><label><span class="xing">*</span>邮政编码：</label><input type="text"></div><div class="form-group"><label><span class="xing">*</span>收货人姓名：</label><input type="text"></div><div class="form-group"><label><span class="xing">*</span>电话号码：</label><input type="text"></div><div class="set_add_btn"><button class="yes">保存</button><button class="no">取消</button></div></div>');
@@ -76,7 +144,25 @@ $(document).delegate('.add_new', 'click', function(){
 	);
 });
 $(document).delegate('.btn_all .btn_2','click',function(){
-	$('.layui-layer-content').html('<div class="log"><h3>充值记录</h3><table class="table"><thead><tr><td>操作时间</td><td>类型</td><td>金额</td><td>会员备注</td><td>管理员备注</td><td>状态</td><td>操作</td></tr></thead><tbody><tr></tr></tbody></table></div>');
+	$.ajax({
+		type:'post',
+		url:ecs_url+'user.php',
+		anync:false,
+		data:{act:'account_deposit'},
+		dataType:'json',
+		success:function(data){
+			// console.log(data);
+			var info = data.info;
+			var html = '<div class="log"><h3>充值记录</h3><table class="table">' +
+				'<thead><tr><td>操作时间</td><td>类型</td><td>金额</td><td>会员备注</td><td>管理员备注</td><td>状态</td><td>操作</td></tr></thead>' +
+				'<tbody>';
+			$.each(info.account_log,function(k,val){
+				html+='<tr><td>'+val.add_time+'</td><td>'+val.type+'</td><td>'+val.amount+'</td><td>'+val.short_user_note+'</td><td>'+val.short_admin_note+'</td><td>'+val.pay_status+'</td><td>'+val.handle+'</td></tr>'
+			});
+			html+='</tbody></table></div>';
+			$('.layui-layer-content').html(html);
+		}
+	})
 });
 $(document).delegate('.tr_1 .td_4','click',function(){
 	$('.layui-layer-content').html(
@@ -383,7 +469,56 @@ function showprovince(){
 	
 }
 
+function submitOp(flag){
+	return flag;
+}
 
+function cardMerge (from_card,from_card_pwd,to_card,to_card_pwd){
+	if (from_card == ''){
+		alert('要合并的卡号不能为空！');
+		return false;
+	}
+	if (from_card_pwd == ''){
+		alert('要合并的卡号密码不能为空！');
+		return false;
+	}
+	if (to_card == ''){
+		alert('合并到的卡号不为空！');
+		return false;
+	}
+	if (to_card_pwd == ''){
+		alert('合并到的卡号密码不为空！');
+		return false;
+	}
+	if (from_card == to_card){
+		alert('要合并的卡不能一样！');
+		return false;
+	}
+	if (confirm('确定要将这两张卡合并？')){
+		var index;
+		$.ajax({
+			type:'post',
+			url:ecs_url+'user.php',
+			async:false,
+			data:{act:'act_card_merge', fromcard:from_card, fromcardpwd:from_card_pwd, tocard:to_card, tocardpwd:to_card_pwd},
+			dataType:'json',
+			beforeSend:function(){
+				index = layer.load();
+			},
+			success:function (data) {
+				if (data.msg.substr(0, 7) == 'success') {
+					layer.close(index);
+					alert('合并成功');
+					location.reload();
+				} else {
+					alert(data.msg);
+				}
+			}
+		});
+	}else{
+		return false;
+	}
+}
 
 
 

@@ -183,7 +183,7 @@
             			},
             			dataType:'json',
             			success:function(data){
-            				console.log(data);
+            				//console.log(data);
             				var game_glo = data.game_global;
             				var game_com = data.game_company;
 

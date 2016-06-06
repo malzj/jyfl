@@ -1074,15 +1074,27 @@ elseif ($action == 'account_deposit')
     $account_log = get_account_log($user_id, $pager['size'], $pager['start']);
 	
     //模板赋值
-    $smarty->assign('priceList', $priceList);
-    $smarty->assign('surplus_amount', price_format($surplus_amount, false));
-    $smarty->assign('account_log',    $account_log);
-    $smarty->assign('pager',          $pager);
+//    $smarty->assign('priceList', $priceList);
+//    $smarty->assign('surplus_amount', price_format($surplus_amount, false));
+//    $smarty->assign('account_log',    $account_log);
+//    $smarty->assign('pager',          $pager);
+//
+//
+//    $smarty->assign('payment', get_online_payment_list(false));
+//    $smarty->assign('order',   $account);
+//    $smarty->display('user_transaction.dwt');
+    $rudata['result']='true';
+    $rudata['info']=array(
+        'priceList'=>$priceList,
+        'surplus_amount'=>price_format($surplus_amount, false),
+        'account_log'=>$account_log,
+        'pager'=>$pager,
+        'payment'=>get_online_payment_list(false),
+        'order'=>$account,
+    );
 
-
-    $smarty->assign('payment', get_online_payment_list(false));
-    $smarty->assign('order',   $account);
-    $smarty->display('user_transaction.dwt');
+    $jsondData=json_encode($rudata);
+    echo $jsondData;
 }
 
 /* 会员账目明细界面 */
@@ -2616,13 +2628,19 @@ else if ($action == 'act_card_merge'){
 	$str_toCardPwd = trim($_POST['tocardpwd']);
 
 	if (empty($str_fromCard) || empty($str_fromCardPwd)){
-		echo '要合并的卡号或密码不能为空！';
-		exit;
+//		echo '要合并的卡号或密码不能为空！';
+//		exit;
+        $redata['msg']='要合并的卡号或密码不能为空！';
+        echo json_encode($redata);
+        exit;
 	}
 	if (empty($str_toCard) || empty($_POST['tocardpwd'])){
-		echo '合并到的卡号或密码不能为空！';
-		exit;
-	}
+//		echo '合并到的卡号或密码不能为空！';
+//		exit;
+        $redata['msg']='合并到的卡号或密码不能为空！';
+        echo json_encode($redata);
+        exit;
+    }
 	$a=substr($str_fromCard,0,6);
 	$b=substr($str_toCard,0,6);
 	
@@ -2635,8 +2653,11 @@ else if ($action == 'act_card_merge'){
 	} */
 
 	if ($str_fromCard == $str_toCard){
-		echo '丫的，你玩呢！';
-		exit;
+//		echo '丫的，你玩呢！';
+//		exit;
+        $redata['msg']='两张卡号不能相同！';
+        echo json_encode($redata);
+        exit;
 	}
 
 	//搜索是否已经存在记录
@@ -2650,9 +2671,12 @@ else if ($action == 'act_card_merge'){
       	$pay_time = $row['pay_time'];
 		$times  = gmtime() - $pay_time;
 		if ($times < 90*24*3600){
-			echo '您的这卡在短期内已经转移过！';
-			exit;
-		}
+//			echo '您的这卡在短期内已经转移过！';
+//			exit;
+            $redata['msg']='您的这卡在短期内已经转移过！';
+            echo json_encode($redata);
+            exit;
+        }
    	}
 
 	$sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('card_log') .
@@ -2664,9 +2688,12 @@ else if ($action == 'act_card_merge'){
 		$pay_time = $row['pay_time'];
 		$times  = gmtime() - $pay_time;
 		if ($times < 90*24*3600){
-			echo '您的这卡在短期内已经转移过！';
-			exit; 
-		}
+//			echo '您的这卡在短期内已经转移过！';
+//			exit;
+            $redata['msg']='您的这卡在短期内已经转移过！';
+            echo json_encode($redata);
+            exit;
+        }
 	}
 	
 	// 双卡密码验证==> 转出卡密码验证
@@ -2690,8 +2717,11 @@ else if ($action == 'act_card_merge'){
 		// 有效期验证
 		if (gmtime() > $cardOutTime)
 		{
-			exit('转出的卡已过有效期，合并失败');
-		}
+//			exit('转出的卡已过有效期，合并失败');
+            $redata['msg']='转出的卡已过有效期，合并失败';
+            echo json_encode($redata);
+            exit;
+        }
 		// 转入卡密码验证
 		$param = array( 'CardInfo'=>array( 'CardNo' => $str_toCard, 'CardPwd'=> $str_toCardPwd));
 		$state = $cardPay->action($param, 8);
@@ -2709,24 +2739,38 @@ else if ($action == 'act_card_merge'){
 			// 有效期验证
 			if (gmtime() > $cardOutTime)
 			{
-				exit('转入的卡已过有效期，合并失败');
-			}
+//				exit('转入的卡已过有效期，合并失败');
+                $redata['msg']='转出的卡已过有效期，合并失败';
+                echo json_encode($redata);
+                exit;
+            }
 		}
 		else
 		{
-			exit('转入的卡密码不正确！');
-		}
+//			exit('转入的卡密码不正确！');
+            $redata['msg']='转入的卡密码不正确！';
+            echo json_encode($redata);
+            exit;
+
+        }
 	}
 	else
 	{
-		exit('转出的卡秘密不正确！');
-	}
+//		exit('转出的卡秘密不正确！');
+        $redata['msg']='转出的卡秘密不正确！';
+        echo json_encode($redata);
+        exit;
+
+    }
 	
 	// 转出的卡余额是0，终止执行
 	if (floatval($cardValueMoney) <=0)
 	{
-		exit('转出的卡点数为 0 ，请换张有点数的卡！');
-	}
+//		exit('转出的卡点数为 0 ，请换张有点数的卡！');
+        $redata['msg']='转出的卡点数为 0 ，请换张有点数的卡！';
+        echo json_encode($redata);
+        exit;
+    }
 	
 	$state = 0;
 	// 两个卡系统的卡执行卡合并的时候，一个充值一个是消费
@@ -2790,13 +2834,22 @@ else if ($action == 'act_card_merge'){
 			    $_SESSION['BalanceCash'] += $cardValueMoney;
 				$db->query('UPDATE '.$ecs->table('users')." SET card_money = card_money + ('$cardValueMoney') WHERE user_id = '$user_id'");
 			}
-			echo 'success'.$flo_money;
-			exit;
-		}
+//			echo 'success'.$flo_money;
+//			exit;
+            $msg = 'success'.$flo_money;
+            $redata['msg']=$msg;
+            echo json_encode($redata);
+            exit;
+
+        }
 		else
 		{
-			exit($cardPay->getMessage());
-		}
+//			exit($cardPay->getMessage());
+            $msg = $cardPay->getMessage();
+            $redata['msg']=$msg;
+            echo json_encode($redata);
+            exit;
+        }
 	}
 	// 卡合并失败后的操作，次状态只有中影卡合并时候才有，意思是，来源卡扣款了，充值失败了。
 	elseif($state == 2){
@@ -2804,12 +2857,20 @@ else if ($action == 'act_card_merge'){
 		$sql = "INSERT INTO " . $GLOBALS['ecs']->table('card_log') . " (card_from, card_to, card_money, pay_time, message) " .
 				"VALUES('$str_fromCard', '$str_toCard', '$cardValueMoney', '".gmtime()."', '卡合并失败，来源卡点数已扣')";
 		
-		exit($cardPay->getMessage());
-	}
+//		exit($cardPay->getMessage());
+        $msg = $cardPay->getMessage();
+        $redata['msg']=$msg;
+        echo json_encode($redata);
+        exit;
+    }
 	else
 	{
-		exit($cardPay->getMessage());
-	}
+//		exit($cardPay->getMessage());
+        $msg = $cardPay->getMessage();
+        $redata['msg']=$msg;
+        echo json_encode($redata);
+        exit;
+    }
 	
 }
 

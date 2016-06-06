@@ -52,7 +52,7 @@
                 <li id="shouhuo" onclick="showAddress()"><div><span>收货信息</span></div></li>
                 <!--<li id="red_packet" onclick="showPack()"><div><span>我的红包</span></div></li>-->
                 <li id="reg"><div><span>卡充值</span></div></li>
-                <li id="merge"><div><span>卡合并</span></div></li>
+                <li id="merge" data-uname='{$usernames.user_name}'><div><span>卡合并</span></div></li>
                 </ul>
             </div>
         </li>

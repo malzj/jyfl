@@ -2527,7 +2527,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .wide{width: 379px;}
 #floor_7{margin-bottom:120px;}
 /*楼层引导*/
-.floor-guide{overflow: visible;display: none;position: fixed;top: 0;bottom: 0;margin: auto;left: 50%;width: 35px;height: 245px;margin-left: -655px;/* z-index: 100; */width: 35px;text-align: center;}
+.floor-guide{overflow: visible;display: none;position: fixed;top: 0;bottom: 0;margin: auto;left: 50%;width: 35px;height: 245px;margin-left: -655px;z-index:1;width: 35px;text-align: center;}
 .floor-guide a{position: relative;display: block;width: 45px;height: 45px;line-height: 40px;color: #666;text-decoration: none;cursor: pointer;}
 .floor-guide b{d;font-weight: normal;color: #23bca2;font-size: 22px;display:block;width: 45px;height:40px;visibility: visible;}
 .floor-guide em{font-size: 12px;position: absolute;top: 0;left: 0;display: block;visibility: hidden;overflow:hidden;width: 30px;height: 30px;padding: 6px 8px;line-height:14px;font-style: normal;color: #fff;-webkit-transition: background-color .3s ease-out;-moz-transition: background-color .3s ease-out;-o-transition: background-color .3s ease-out;transition: background-color .3s ease-out;}

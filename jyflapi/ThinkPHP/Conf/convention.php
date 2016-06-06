@@ -52,7 +52,7 @@ return  array(
     'DB_TYPE'               =>  'mysql',     // 数据库类型
 //    'DB_HOST'               =>  '1.93.129.196', // 服务器地址
 //    'DB_HOST'               =>  'localhost:3306', // 服务器地址
-    'DB_HOST'               =>  '1.93.129.86', // 服务器地址
+    'DB_HOST'               =>  '1.93.129.186', // 服务器地址
 //    'DB_NAME'               =>  'sql_huayingtest160114',          // 数据库名
     'DB_NAME'               =>  'juyoufuli',          // 数据库名
     'DB_USER'               =>  'root',      // 用户名

@@ -33,7 +33,7 @@
             showRight(id,cnum);
             var url = window.location.href;
             var arr = url.split('?');
-			if(arr[1] == ''||arr[1] == null){
+			if((window.location.pathname == '/user.php')&&(arr[1] == ''||arr[1] == null)){
 				$('.pop_right .right span').removeClass('glyphicon-chevron-left').addClass('glyphicon-chevron-right');
 			}
 			$('.pop_right .right span').click(function(){						
@@ -139,8 +139,6 @@
             					'<div class="text-center">'+data.company_info.company_name+'</div>';
             				$('.pop_right .message').html(com_html);
             				$('.pop_right .scroll_msg').html(game_list_html);
-            				var img_url = "{$app_path}jyflapi/Public/company/upload/"+data.company_info.back_img;
-            				$('#back_img').css("background-image","url("+img_url+")");
             			}
             		});
             	}

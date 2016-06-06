@@ -55,7 +55,10 @@
 					</div>
 					
 					<div class="moviestip __r_c_" style="display: none;" id="ajaxMovieList"> <center> LOADING ... </center> </div>
-                    <div class="cinematip __r_c_" style="display: none;" id="ajaxCinemaList"> 请选择影片 </div>
+                    <div class="cinematip __r_c_" style="display: none;" id="ajaxCinemaList">
+                    	<center>请选择影片</br>
+                    		<img src="/images/juyoufuli/img_login/wuya.png">
+                    	</center></div>
 					<div class="i_date __r_c_" style="display: none;" id="ajaxPlanList"> <center> 请选择影院</center> </div>
 				</div>
 			</div>
@@ -63,7 +66,7 @@
 		<div class="w_1200">
 			<div class="reying">
 				<div class="reying_title">
-					<div class="reying_bg">正在热映</div>
+					<div class="reying_bg"></div>
 					<div class="reying_news">今天共有<span> {$count} </span>部影片</div>
 				</div>
 				<div class="reying_show">
@@ -111,7 +114,7 @@
 			</div>
 			<div class="will">
 				<div class="will_title">
-					<div class="will_bg">即将上映</div>
+					<div class="will_bg"></div>
 				</div>
 				<div class="will_show">
 					<div class="will_img">
@@ -144,7 +147,7 @@
 							<li style="float: left;">
 								<div class="li_top"></div>
 								<div class="li_date"><span class="date">{$coming.publishTime_cn}</span><span class="will_date">即将上映</span></div>
-								<div class="pic">
+								<div class="pic1">
 									<img src="{$coming.pathVerticalS}" width="150" height="200">
 								</div>
 								<div class="title">

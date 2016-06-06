@@ -1,19 +1,19 @@
 <?php
 // database host
-$db_host   = "192.168.1.161:3306";
+$db_host   = "1.93.129.186:3306";
 
 // database name
 $db_name   = "juyoufuli";
 
 // database username
-$db_user   = "test";
+$db_user   = "root";
 
 // database password
-$db_pass   = "123456";
+$db_pass   = "huaying507";
 
 // table prefix
 $prefix    = "ecs_";
-
+ 
 $timezone    = "UTC";
 
 $cookie_path    = "/";

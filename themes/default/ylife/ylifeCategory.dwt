@@ -62,6 +62,16 @@
         
         <div class="w_1200">			
             
+            <div class="cake1_top o_hidden">
+				<div class="cake1_top_Sort f_l"><span class="glyphicon glyphicon-play"></span>商品分类</div>
+				<ul>
+                	{foreach from=$childrenNavigator.middle.40.child item=child}
+					<li {if $child.cid eq $cat_id} class="active"{/if}><a href="{$child.url}">{$child.name}</a></li>
+					{/foreach}
+				</ul>
+			</div>
+            
+            
             <!--组合搜索 开始-->
 			<!-- #BeginLibraryItem "/library/goods_filters.lbi" --><!-- #EndLibraryItem -->
             <!--组合搜索 结束-->

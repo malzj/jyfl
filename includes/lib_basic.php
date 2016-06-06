@@ -117,7 +117,8 @@ function checkCardType( $username, $type)
              {
                  $names = explode('--', $val['ad_name']);
                  $adPosition = array_pop($names);
-                 $image[$adPosition] = $val;
+                 $image[$key] = $val;
+                 $image[$key]['no'] = $adPosition;
              }
              else {
                  $image[] = $val;
@@ -133,7 +134,7 @@ function checkCardType( $username, $type)
  function get_cake_attr($attr_id=null)
  {
      // 蛋糕属性 （attr_id = 2 是口味）
-     $cakeAttr = $GLOBALS['db']->getAll('SELECT * FROM '.$GLOBALS['ecs']->table('attribute'). ' WHERE cat_id = 1');
+     $cakeAttr = $GLOBALS['db']->getAll('SELECT * FROM '.$GLOBALS['ecs']->table('attribute'). ' WHERE cat_id = 28');
  
      foreach ($cakeAttr as $key=>$val)
      {
@@ -166,7 +167,7 @@ function checkCardType( $username, $type)
          // 得到指定的广告
          if (strpos($list['ad_name'], $name) !== false)
          {
-             $currentArray[$fixed] = $list;
+             $currentArray[$list['no']] = $list;
          }
      }
  
@@ -189,10 +190,13 @@ function checkCardType( $username, $type)
  {
      $advs = array(
          // 蛋糕广告【banner广告，text广播】
-         '4' => array( 
-             'banner' => 15,
-             'text'   => 16
-         ),
+         '4' => array( 'banner' => 15,'text'   => 16),
+         '5' => array( 'banner' => 15,'text'   => 16),
+         '6' => array( 'banner' => 15,'text'   => 16),
+         '7' => array( 'banner' => 15,'text'   => 16),
+         '8' => array( 'banner' => 15,'text'   => 16),
+         '9' => array( 'banner' => 15,'text'   => 16),
+         
          // 生活广告【banner广告，text广播】
          '11' => array('banner' => 20,'text'   => 19),
          '12' => array('banner' => 20,'text'   => 19),
@@ -200,6 +204,13 @@ function checkCardType( $username, $type)
          '14' => array('banner' => 20,'text'   => 19),
          '15' => array('banner' => 20,'text'   => 19),
          '16' => array('banner' => 20,'text'   => 19),
+         
+         // 优品生活广告【banner广告，text广播】
+         '22' => array('banner' => 30,'text'   => 31),
+         '23' => array('banner' => 30,'text'   => 31),
+         '24' => array('banner' => 30,'text'   => 31),
+         '25' => array('banner' => 30,'text'   => 31),
+         '26' => array('banner' => 30,'text'   => 31),
          
          // 运动装备
          '17' => array(
@@ -238,9 +249,11 @@ function checkCardType( $username, $type)
 
      $templates = array(
          // 蛋糕
-         '4'    =>'category.dwt',
+         '4'    =>'cake/cakeCategory.dwt',
          // 生活
-         '10'   =>'life/lifeCategory.dwt'
+         '10'   =>'life/lifeCategory.dwt',
+         // 优品生活
+         '21'   =>'ylife/ylifeCategory.dwt'
      );
      
      if (isset($templates[$category['cat_id']])) 

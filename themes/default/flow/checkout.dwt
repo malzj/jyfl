@@ -47,7 +47,7 @@
 					<div class="order_gyshang_item o_hidden">
 						<div class="order_gyshang_details1 f_l">
 							<div class="order_gyshang_item_img f_l">
-								<img src="{$goods.goods_thumb}">
+								<img src="{$goods.goods_thumb|pathimages}">
 							</div>
 							<div class="order_gyshang_details f_l">
 								<div class="order_item_name">{$goods.goods_name}</div>

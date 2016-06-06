@@ -40,7 +40,7 @@
         </div>	
         <div class="xuanzuo">
             <div class="reying_title">
-                <div class="reying_bg">在线选座</div>
+                <div class="reying_bg"></div>
             </div>
             <div class="movie_list">
                 <div class="hd">
@@ -89,7 +89,7 @@
             </div>
             <!--影城介绍-->
             <div class="reying_title">
-                <div class="reying_bg">影城介绍</div>
+                <div class="reying_bg"></div>
             </div>
             <div class="jieshao_img">
                 <img src="{$app_path}images/dongwang/null.jpg" width="200" height="150" class="cinemaThumb">

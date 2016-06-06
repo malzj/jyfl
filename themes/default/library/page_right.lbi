@@ -29,7 +29,7 @@
 		$(function(){
             var id = $('#user_id').val();
             var cnum = {$usernames.user_name};
-
+			var api_url = 'http://192.168.1.161/'
             showRight(id,cnum);
             var url = window.location.href;
             var arr = url.split('?');
@@ -58,13 +58,14 @@
 				function showRight(id,cnum){
             		$.ajax({
             			type:'post',
-            			url:'{$app_path}jyflapi/index.php/Games/GamesApi/gameList',
+//          			url:'{$app_path}jyflapi/index.php/Games/GamesApi/gameList',
+            			url:api_url+'jyflapi/index.php/Games/GamesApi/gameList',
             			data:{
             				user_id:id,
             			},
             			dataType:'json',
             			success:function(data){
-            				//console.log(data);
+            				console.log(data);
             				var game_glo = data.game_global;
             				var game_com = data.game_company;
 
@@ -141,6 +142,10 @@
             				$('.pop_right .scroll_msg').html(game_list_html);
             				var img_url = "{$app_path}jyflapi/Public/company/upload/"+data.company_info.back_img;
             				$('#back_img').css("background-image","url("+img_url+")");
+            			},
+            			error:function(XHR,R){
+            				console.log(XHR);
+            				console.log(R);
             			}
             		});
             	}

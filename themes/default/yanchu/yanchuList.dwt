@@ -32,7 +32,7 @@
 		<div class="search" id="search_yanchu">
 			<div class="search_1200">
 				<div class="tips f_l">
-					<span class="glyphicon glyphicon-volume-down tip"></span>
+					<span class="tip"></span>
 					<div class="txtMarquee-top">
 						<div class="bd">
 							<div class="tempWrap">

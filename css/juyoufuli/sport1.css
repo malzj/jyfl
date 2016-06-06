@@ -67,7 +67,8 @@ text-decoration:none;
 .list{overflow: hidden;}
 .content-list{width: 1200px; margin: 0 auto;}
 .list{border: 1px solid #ddd;padding: 5px;margin-bottom: 10px;width: 1200px;margin: 0 auto;margin-top: 20px;margin-bottom: 10px;}
-.list-title h1{border-bottom: 1px solid #e9e9e9;}
+.list-title h1{margin-top:5px;}
+.list-title h1 a{color:#2fd0b5;font-size:20px;}
 .list-title{margin-left:40px;float: left;width: 700px;}
 .list-title ul{line-height: 2.5;}
 .list-title ul li{font-size: 14px;}
@@ -82,11 +83,11 @@ text-decoration:none;
     width: 120px;
     height: 36px;
     background: #2fd0b5;
-    border-radius: 5px;
+    border-radius: 20px;
     margin-left: 25px;
     }
 .price_2 span a{font-size: 18px;color: white;}   
-.price_1 span em{color: #ff610b;font-size: 36px;}
+.price_1 span em{color: #ff610b;font-size: 36px;font-style: italic;margin-right: 10px;}
 .price_1 span{color: #ff610b;}
 .price_1{text-align: center;}
 .list-tab span {
@@ -128,14 +129,14 @@ text-decoration:none;
 .ticket_span3{display: inline-block;}
 .ticket_span3 a:hover{background: #E27B1E;}
 .table_1{font-size: 14px;display: block;padding: 10px 0;border-top: 1px solid #E6E5E5;}
-.font-18{color: #ff7900;font-size: 22px;}  
+.font-18{color: #ff7900;font-size: 24px;font-style: italic;margin-right: 10px;}  
 .font-12{font-size: 12px;}  
 table{margin-top: 10px;}
 .week a:hover{
     background: #ff7900;
     color: white;
     }
-
+.tickets{margin-top:5px;}
 /*第二页面*/
 .title span{margin-bottom: 10px;color: #2fd0b5;font-size: 30px;display: inline-block;}
 .title .facico{margin-left: 10px;width: 994px;}
@@ -180,7 +181,7 @@ table{margin-top: 10px;}
 .help p{padding: 10px;
     line-height: 2;
     text-indent: 32px;}    
-.help{margin-top: 50px;}
+.help{margin-top: 15px;}
 .border_down{border-bottom: 1px solid #E6E5E5;border-top: none;}
 
 

@@ -39,6 +39,7 @@
 					<ul>
 						<li class="sport4_title">{$goods.goods_style_name}</li>
 						<li class="sport4_pri">价格：<span class="sport4_dianshu" id="ECS_GOODS_AMOUNT">0</span>点</li>
+						<li class="xuxian"></li>
                         {if !empty($specs)}
 						<li class="sport4_mar">
 							<div class="f_l cake_top_name">规格：</div>
@@ -86,7 +87,7 @@
 			</div>
 			<div class="cake2_top_tips color_zhuti">{$goods.goods_brief}</div>
 			<div class="cake2_shangpin_details"><span class="color_zhuti">商品详情</span></div>
-                <ul class="cake_jieshao">
+                <ul class="cake_jieshao o_hidden">
                 	<!-- {foreach from=$properties item=property_group key=key} -->
 					<!-- {foreach from=$property_group item=property} -->
                     <li class="f_l juqingA">{$property.name|escape:html}：<span>{$property.value}</span></li>

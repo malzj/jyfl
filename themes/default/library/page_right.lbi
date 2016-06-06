@@ -56,11 +56,9 @@
 			}
             // 右侧渲染函数
 				function showRight(id,cnum){
-            		//var api_url = 'http://jy.com/jyflapi/';
-            		var api_url = 'http://192.168.1.161/jyflapi/';
             		$.ajax({
             			type:'post',
-            			url:api_url+'index.php/Games/GamesApi/gameList',
+            			url:'{$app_path}jyflapi/index.php/Games/GamesApi/gameList',
             			data:{
             				user_id:id,
             			},
@@ -70,7 +68,7 @@
             				var game_glo = data.game_global;
             				var game_com = data.game_company;
 
-            				var game_list_html = '<div class="act_title"><img src="/images/juyoufuli/img_login/pop_right_title1_03.png" class="img-responsive"></div>';
+            				var game_list_html = '<div class="act_title"><img src="{$app_path}images/juyoufuli/img_login/pop_right_title1_03.png" class="img-responsive"></div>';
             				for(var i=0;i<game_glo.length;i++){
                                 var img = '';
                                 var iclass = '';
@@ -85,7 +83,7 @@
             						'<div class="message_1_content">'+
             						'<a href="#" class="pop_right_goods" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.card_company_id+'">'+
             						'<div class="act_item1 f_l">'+
-            						'<img src="'+api_url+'Public/games/upload/'+game_glo[i].thumbnail+'" class="img-responsive">'+
+            						'<img src="{$app_path}jyflapi/Public/games/upload/'+game_glo[i].thumbnail+'" class="img-responsive">'+
             						'</div>'+
             						'<div class="act_item2 f_l">'+
             						'<div>'+game_glo[i].game_name+'</div>'+
@@ -97,13 +95,13 @@
             						'</div></a>'+
             						'<div class="act_item3 f_l">'+
             						'<a href="#" class="jinbi" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.card_company_id+'" data-cnum="'+cnum+'">'+
-            						'<img src="/images/juyoufuli/img_login/'+img+'" '+iclass+' class="img-responsive">'+
+            						'<img src="{$app_path}images/juyoufuli/img_login/'+img+'" '+iclass+' class="img-responsive">'+
             						'</a>'+
             						'</div>'+
             						'</div>'+
             						'</div>';
             				}
-            				game_list_html+='<div class="act_title1"><img src="/images/juyoufuli/img_login/pop_right_title1_06.png" class="img-responsive"></div>';
+            				game_list_html+='<div class="act_title1"><img src="{$app_path}images/juyoufuli/img_login/pop_right_title1_06.png" class="img-responsive"></div>';
             				for(var i=0;i<game_com.length;i++){
                                 var img1 = '';
                                 var iclass1 = '';
@@ -118,7 +116,7 @@
             						'<div class="message_1_content">'+
             						'<a href="#" class="pop_right_goods" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.card_company_id+'">'+
             						'<div class="act_item1 f_l">'+
-            						'<img src="'+api_url+'Public/games/upload/'+game_com[i].thumbnail+'" class="img-responsive">'+
+            						'<img src="{$app_path}jyflapi/Public/games/upload/'+game_com[i].thumbnail+'" class="img-responsive">'+
             						'</div>'+
             						'<div class="act_item2 f_l">'+
             						'<div>'+game_com[i].game_name+'</div>'+
@@ -130,14 +128,14 @@
             						'</div></a>'+
             						'<div class="act_item3 f_l">'+
             						'<a href="#" class="jinbi" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.card_company_id+'" data-cnum="'+cnum+'">'+
-            						'<img src="/images/juyoufuli/img_login/'+img1+'" '+iclass1+'>'+
+            						'<img src="{$app_path}images/juyoufuli/img_login/'+img1+'" '+iclass1+'>'+
             						'</a>'+
             						'</div>'+
             						'</div>'+
             						'</div>';
             				}
             				var com_html = '<div class="border_radio">'+
-            					'<img src="'+api_url+'Public/company/upload/'+data.company_info.logo_img+'" alt="'+data.company_info.company_name+'" class="img-responsive"></div>'+
+            					'<img src="{$app_path}jyflapi/Public/company/upload/'+data.company_info.logo_img+'" alt="'+data.company_info.company_name+'" class="img-responsive"></div>'+
             					'<div class="text-center">'+data.company_info.company_name+'</div>';
             				$('.pop_right .message').html(com_html);
             				$('.pop_right .scroll_msg').html(game_list_html);

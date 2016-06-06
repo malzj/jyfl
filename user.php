@@ -97,6 +97,11 @@ if (in_array($action, $ui_arr))
 if ($action == 'default')
 {
     include_once(ROOT_PATH .'includes/lib_clips.php');
+    $sql = 'SELECT company_id FROM '.$GLOBALS['ecs']->table('users').' where user_id='.$user_id;
+    $company_id = $GLOBALS['db']->getOne($sql);
+    $sql1 = 'SELECT * FROM '.$GLOBALS['ecs']->table('company').' WHERE card_company_id = '.$company_id;
+    $company = $GLOBALS['db']->getRow($sql1);
+    $smarty->assign('company',$company);
     $smarty->display('user_clips.dwt');
 }
 

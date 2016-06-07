@@ -85,7 +85,7 @@
 				<div class="order_submit_box f_r">
 					<div class="order_submit f_r">商品总金额：<span class="color_ff7900"><font class="goodsTotal">{$total.goods_price_formated}</font>点 </span> + 运费：<span class="color_ff7900 yunfeiTotal"> - </span>点</div>
 					<div class="order_submit1">
-						<div class="f_l shiji_price">实际付款金额：<span class="color_zhuti"><font class="orderTotal">{$total.goods_price_formated}</font>点</span></div>
+						<div class="f_l shiji_price">实际付款金额：<span><font class="orderTotal">{$total.goods_price_formated}</font>点</span></div>
 						<button type="submit" class="zhuti_a_hover">提交订单</button>
 					</div>
 				</div>

@@ -16,7 +16,7 @@
 			<div class="sport4_top o_hidden margin_top_90">
 				<div class="sport4_top_left f_l">
 					<div class="cake2_img">                    	
-						<img src="{$goods.goods_img|pathimages}" alt="{$goods.goods_name}" id="box1"/>											
+						<img src="{$goods.goods_img|pathimages}" alt="{$goods.goods_name}" id="box1"/ width="520" height="520">											
 					</div>
 					<div class="sport4_list">
 						<div class="hd">
@@ -27,7 +27,15 @@
 							<ul class="sport4_img_item">
                             <!-- {foreach from=$pictures item=picture name=picture}-->
                             <li class="f_l">
+<<<<<<< HEAD
                             	<img src="{$app_path}images/juyoufuli/null.jpg" srcimage="{$picture.img_url|pathimages}" alt="{$goods.goods_name}" width="90" />
+=======
+                            	{if $smarty.foreach.picture.first}
+                            	<img src="{$picture.img_url|pathimages}" class="active" alt="{$goods.goods_name}" width="90" />
+                            	{else}
+                            	<img src="{$picture.img_url|pathimages}" alt="{$goods.goods_name}" width="90" />
+                            	{/if}
+>>>>>>> 5acdec5b9ff125ad96b39d7eac3262a10bb88fd4
                             </li>
                             <!--{/foreach}-->
 							</ul>
@@ -39,6 +47,7 @@
 					<ul>
 						<li class="sport4_title">{$goods.goods_style_name}</li>
 						<li class="sport4_pri">价格：<span class="sport4_dianshu" id="ECS_GOODS_AMOUNT">0</span>点</li>
+						<li class="xuxian"></li>
                         {if !empty($specs)}
 						<li class="sport4_mar">
 							<div class="f_l cake_top_name">规格：</div>
@@ -76,9 +85,12 @@
 									<a id="increment" class="increment" onclick="add()">+</a>				
 							</div>
 						<li>
-                            <input class="sport4_btn input_submit bg_color btn zhuti_a_hover" type="button" onclick="addToCart({$goods.goods_id},'',5)" value="立即购买"> 
+                            <button class="sport4_btn input_submit bg_color btn zhuti_a_hover" type="button" onclick="addToCart({$goods.goods_id},'',5)" value="立即购买">
+                            <span class="lijigoumai"></span>
+                          			  立即购买
+                           </button>
                             <button type="submit" class="sport4_btn input_submit bg_color btn zhuti_a_hover" onclick="MoveBox()" value="加入购物车" >
-                            <span class="glyphicon glyphicon-shopping-cart"></span>加入购物车</button>
+                            <span class="lijigoumai_1"></span>加入购物车</button>
                         </li>
 					</ul>
 				</div>
@@ -86,7 +98,7 @@
 			</div>
 			<div class="cake2_top_tips color_zhuti">{$goods.goods_brief}</div>
 			<div class="cake2_shangpin_details"><span class="color_zhuti">商品详情</span></div>
-                <ul class="cake_jieshao">
+                <ul class="cake_jieshao o_hidden">
                 	<!-- {foreach from=$properties item=property_group key=key} -->
 					<!-- {foreach from=$property_group item=property} -->
                     <li class="f_l juqingA">{$property.name|escape:html}：<span>{$property.value}</span></li>
@@ -125,7 +137,8 @@
 			$('.sport4_img_item li img').click(function() {
 				var img = $(this).attr('src');
 				$('.cake2_img img').attr('src', img);
-			})
+				$(this).addClass('active').parent().siblings().find('img').removeClass('active');
+			})		
 //			选中样式
 			/*$('.cake2_top_item a').click(function(){
 				$(this).addClass('active').siblings().removeClass('active');

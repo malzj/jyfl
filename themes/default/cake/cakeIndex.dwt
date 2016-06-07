@@ -76,6 +76,7 @@
 				<div class="floor_title">
 					<h4>
 						<a href="{$attr.url}"><i>F{$attr.attrNo}</i>{$attr.attrName}</a>
+						<a href="{$attr.url}" class="f_r floor_more">更多 >></a>
 					</h4>
 				</div>
 				<div class="floor_item">

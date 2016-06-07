@@ -18,7 +18,7 @@ if (!isset($_REQUEST['step']))
 
 assign_template();
 // 折扣比例
-$customRatio = 1;//get_card_rule_ratio(10003);
+$customRatio = get_card_rule_ratio(10003);
 // 产品id
 $product = intval($_REQUEST['productno']);
 

@@ -122,7 +122,7 @@
             						'<div>'+game_com[i].game_name+'</div>'+
             						'<div>共'+game_com[i].total_point+'点</div>'+
             						'<div style="line-height: 15px;">'+
-            						'<span class="jindu"><span class="jindu1" style="width:'+game_com[i].percent+'px"></span></span>'+
+            						'<span class="jindu"><span class="jindu1" style="width:'+game_com[i].percent+'%"></span></span>'+
             						'<span style="float: left;">'+game_com[i].percent+'%</span>'+
             						'</div>'+
             						'</div></a>'+

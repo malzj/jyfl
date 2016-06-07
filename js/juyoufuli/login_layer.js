@@ -35,14 +35,18 @@ $(function () {
 //     });
 // });
     $('#reg').on('click', function () {
+        var index;
         $.ajax({
             type: 'post',
             url: ecs_url + 'user.php',
-            async: false,
             data: {act: 'account_deposit'},
             dataType: 'json',
+            beforeSend:function () {
+                index=layer.load();
+            },
             success: function (data) {
                 // console.log(data);
+                layer.close(index);
                 var info = data.info;
                 var html = '<div class="reg">' +
                     '<form name="formSurplus" id="formSurplus" method="post" onsubmit="return submitOp(false)">' +
@@ -197,16 +201,44 @@ $(function () {
                 // console.log(data);
                 var info = data.info;
                 var html = '<div class="log"><h3>充值记录</h3><table class="table">' +
-                    '<thead><tr><td>操作时间</td><td>类型</td><td>金额</td><td>会员备注</td><td>管理员备注</td><td>状态</td><td>操作</td></tr></thead>' +
+                    '<thead><tr><td>操作时间</td><td>类型</td><td>金额</td><td>管理员备注</td><td>状态</td><td>操作</td></tr></thead>' +
                     '<tbody>';
                 $.each(info.account_log, function (k, val) {
-                    html += '<tr><td>' + val.add_time + '</td><td>' + val.type + '</td><td>' + val.amount + '</td><td>' + val.short_user_note + '</td><td>' + val.short_admin_note + '</td><td>' + val.pay_status + '</td><td>' + val.handle + '</td></tr>'
+                    if ((val.is_paid == 0 && val.process_type == 1) || val.handle){
+                        var cancel = '<a class="cancel" href="javascript:void(0);" data-href="user.php?act=cancel&id='+val.id+'">删除</a>';
+                    }else{
+                        var cancel = '';
+                    }
+
+                    html += '<tr><td>' + val.add_time + '</td><td>' + val.type + '</td><td>' + val.amount + '</td><td>' + val.short_admin_note + '</td><td>' + val.pay_status + '</td><td>' + val.handle+' '+cancel+ '</td></tr>';
                 });
                 html += '</tbody></table></div>';
                 $('.layui-layer-content').html(html);
             }
         })
     });
+    //充值列表删除点击
+    $(document).delegate('.cancel','click',function(){
+        var url = $(this).attr('data-href');
+        var $cancelOb=$(this).parents('tr');
+        if (!confirm('确认删除？')) return false;
+        console.log($cancelOb);
+        $.ajax({
+           type:'get',
+            url:url,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                if(data.result=='true'){
+                    $cancelOb.remove();
+                    alert(data.msg);
+                }else{
+                    alert(data.msg);
+                }
+            }
+        });
+    });
+    //充值列表付款点击
     $(document).delegate('.deposit_pay','click',function(){
         var url = $(this).attr('data-href');
         var index;
@@ -284,6 +316,10 @@ $(function () {
                 $('.layui-layer-content').html(html);
             }
         })
+    });
+    $(document).delegate('.btn_all .btn_1','click',function(){
+        if($('.radio_img').hasClass('on')) $('.radio_img').removeClass('on');
+        if($('.radio_img1').hasClass('on')) $('.radio_img1').removeClass('on');
     });
     $(document).delegate('.tr_1 .td_4', 'click', function () {
         $('.layui-layer-content').html(

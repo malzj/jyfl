@@ -1413,14 +1413,20 @@ elseif ($action == 'cancel')
     $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
     if ($id == 0 || $user_id == 0)
     {
-        ecs_header("Location: user.php?act=account_log\n");
+//        ecs_header("Location: user.php?act=account_log\n");
+        $redata['result'] = 'false';
+        $redata['msg']='刷新重试！';
+        echo json_encode($redata);
         exit;
     }
 
     $result = del_user_account($id, $user_id);
     if ($result)
     {
-        ecs_header("Location: user.php?act=account_log\n");
+//        ecs_header("Location: user.php?act=account_log\n");
+        $redata['result'] = 'true';
+        $redata['msg']='删除成功！';
+        echo json_encode($redata);
         exit;
     }
 }

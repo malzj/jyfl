@@ -26,7 +26,7 @@ if ($_REQUEST['act'] == "orderDzq")
 	$returnAjax = array( 'error'=>0, 'message'=>'');
 	$int_areaNo = getAreaNo();
 	// 卡规则折扣
-	$ratio = getMovieRatio();
+	$ratio = getDzqRatio();
 	//电子券兑换订单
 	$int_cAreaNo    = intval($_POST['areaNo']);//区域编号
 	$int_areaName   = $_POST['areaName'];//区域名称
@@ -159,7 +159,7 @@ elseif ($_REQUEST['act'] == 'doneDzq')
 	// 卡消费
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$float_price)
+			'TransationInfo' => array( 'TransRequestPoints'=>$float_price, 'TransSupplier'=>setCharset('中影电子券'))
 	);
 	
 	if ($cardPay->action($arr_param, 1, $arr_orderInfo['order_sn']) == 0)
@@ -218,10 +218,11 @@ else if ($_REQUEST['act'] == 'order'){
 	//下在线选择订单
 	$mobile 			= $_POST['mobile'];				// 手机号
 	$planId 			= intval($_POST['planId']);		// 排期ID
-
+    
 	$vipPrice  			= number_format(round($_POST['vipPrice'],1), 2, '.', '');  // 价格
 	$seatCount 			= intval($_POST['seatsCount']);  // 座位数
 	$totalMoney    		= $vipPrice * $seatCount;	// 总价格
+	$extInfo            = addslashes_deep($_POST['extInfo']);
 
 	$hallName   		= addslashes_deep(trim($_POST['hallName']));
 	$featureTimeStr 	= addslashes_deep(trim($_POST['featureTimeStr']));
@@ -240,6 +241,9 @@ else if ($_REQUEST['act'] == 'order'){
 	$money = number_format(round($seatCount*$unitPrice,1),2);
 
 	$seatsNo = trim($seatsNo);
+	
+	// 卡规则比例
+	$card_ratio = getMovieRatio();
 
 	if (empty($mobile)){
 		show_message('请填写手机号码！');
@@ -278,7 +282,7 @@ else if ($_REQUEST['act'] == 'order'){
 	if ($arr_result['status'] == 0){
 		$arr_orderInfo = $arr_result['order'];		
 		//插入订单信息
-		$str_sql = 'INSERT INTO '. $ecs->table('seats_order') ."(order_sn, user_id, user_name, order_status, mobile, city_id, activity_id, channel_id, count, agio, money, unit_price, seat_info, seat_no, hall_name, hall_id, language, screen_type, featuretime, pay_id,pay_name, add_time, payment_time, movie_name, cinema_name,param_url,source,movie_id) VALUES('".$arr_orderInfo['orderId']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_orderInfo['orderStatus']."', '$mobile','".$int_cityId."', '".$arr_orderInfo['activityId']."', '".$arr_orderInfo['channelId']."', '".$seatCount."', '".$arr_orderInfo['agio']."', '".$money."', '".$unitPrice."', '".$seatsName."', '".$seatsNo."', '".$hallName."', '".$arr_orderInfo['plan']['hallNo']."', '".$arr_orderInfo['plan']['language']."', '".$arr_orderInfo['plan']['screenType']."', '".$featureTimeStr."', '2', '华影支付', '".gmtime()."', '0', '".$movieName."', '".$cinemaName."', '".$seatParamUrl."',0,'".$movieId."')";
+		$str_sql = 'INSERT INTO '. $ecs->table('seats_order') ."(order_sn, user_id, user_name, order_status, mobile, city_id, activity_id, channel_id, count, agio, money, unit_price, seat_info, seat_no, hall_name, hall_id, language, screen_type, featuretime, pay_id,pay_name, add_time, payment_time, movie_name, cinema_name,param_url,source,movie_id,extInfo,card_ratio) VALUES('".$arr_orderInfo['orderId']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_orderInfo['orderStatus']."', '$mobile','".$int_cityId."', '".$arr_orderInfo['activityId']."', '".$arr_orderInfo['channelId']."', '".$seatCount."', '".$arr_orderInfo['agio']."', '".$money."', '".$unitPrice."', '".$seatsName."', '".$seatsNo."', '".$hallName."', '".$arr_orderInfo['plan']['hallNo']."', '".$arr_orderInfo['plan']['language']."', '".$arr_orderInfo['plan']['screenType']."', '".$featureTimeStr."', '2', '华影支付', '".gmtime()."', '0', '".$movieName."', '".$cinemaName."', '".$seatParamUrl."',0,'".$movieId."','".$extInfo."','".$card_ratio."')";
 		$query = $db->query($str_sql);
 		$int_orderid = $db->insert_id();
 		ecs_header('location:movie_order.php?act=payinfoMovie&id='.$int_orderid);//跳到支付页面

@@ -23,7 +23,7 @@ if (!isset($_REQUEST['act']))
 
 assign_template();
 
-$ratio = 1; //get_card_rule_ratio($int_cateId);
+$ratio = get_card_rule_ratio($int_cateId);
 
 // 演出票列表
 if ($_REQUEST['act'] == 'list')

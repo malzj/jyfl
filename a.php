@@ -9,8 +9,10 @@
  *  
  * @var unknown
  */
- echo 123132;
-phpinfo(); exit;
+if (strpos('http://img10.360buyimg.com/imgzone/jfs/t190/187/604251030/183629/bbabe408/5391ca4bN771ff3e8.jpg', 'http') !== false)
+    echo 123;
+else 
+    echo 456;
 define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');

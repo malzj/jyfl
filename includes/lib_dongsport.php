@@ -117,7 +117,9 @@ function createVenues( $data )
         'total'     => $data['order']['num'],
         'place'     => $data['detail']['place'],
         'secret'    => $data['order']['secret'],
-        'source'    => 0
+        'source'    => 0,
+        'market_price'=> $data['order']['market_price'],
+        'sales_ratio' => $data['order']['sales_ratio']
     );
     
     // 预订时间段  / 选场地信息（用于下单） 

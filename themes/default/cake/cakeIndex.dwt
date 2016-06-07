@@ -64,11 +64,9 @@
         <div class="w_1200">
 			<div class="cake_pinpai o_hidden">
 				<ul class="cake_pinpai_all">
-					<li><img src="{$app_path}images/juyoufuli/img_login/nuoxin.png"></li>
-					<li><img src="{$app_path}images/juyoufuli/img_login/nuoxin.png"></li>
-					<li><img src="{$app_path}images/juyoufuli/img_login/nuoxin.png"></li>
-					<li><img src="{$app_path}images/juyoufuli/img_login/nuoxin.png"></li>
-					<li><img src="{$app_path}images/juyoufuli/img_login/nuoxin.png"></li>
+                	{foreach from=$cakeNav item=cake}
+					<li><a href="{$cake.url}"><img src="{$app_path}images/juyoufuli/brand/{$cake.id}.png"></a></li>
+					{/foreach}
 				</ul>
 			</div>
             

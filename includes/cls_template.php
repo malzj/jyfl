@@ -638,7 +638,7 @@ class cls_template
                         $p = 'local_date("Y-m-d H:i:s",' . $p . ')';
                         break;
                     // 图片显示地址
-                  	case 'pathimages':
+                  	case 'pathimages':                  	   
                   	    $p = '$this->imageHosturl.'.$p;
                   	    break;
                   	    

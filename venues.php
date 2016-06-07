@@ -112,7 +112,7 @@ function get_venues_count($where)
 function get_venues($where, $start, $size)
 {
     // 卡规则比例
-    $customRatio = 1;//get_card_rule_ratio(10003);
+    $customRatio = get_card_rule_ratio(10003);
     $return = array();
     $sql = "SELECT * FROM ".$GLOBALS['ecs']->table('venues')."". $where.' ORDER BY id DESC';
     $res = $GLOBALS['db']->selectLimit($sql, $size, $start);

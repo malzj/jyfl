@@ -509,7 +509,8 @@ function get_account_log($user_id, $num, $start)
             /* 如果是预付款而且还没有付款, 允许付款 */
             if (($rows['is_paid'] == 0) && ($rows['process_type'] == 0))
             {
-                $rows['handle'] = '<a href="user.php?act=pay&id='.$rows['id'].'&pid='.$pid.'">'.$GLOBALS['_LANG']['pay'].'</a>';
+//                $rows['handle'] = '<a href="user.php?act=pay&id='.$rows['id'].'&pid='.$pid.'">'.$GLOBALS['_LANG']['pay'].'</a>';
+                $rows['handle'] = '<a class="deposit_pay" href="javascript:void(0);" data-href="user.php?act=pay&id='.$rows['id'].'&pid='.$pid.'">'.$GLOBALS['_LANG']['pay'].'</a>';
             }
 
             $account_log[] = $rows;

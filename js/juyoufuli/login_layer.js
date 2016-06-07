@@ -183,13 +183,17 @@ $(function () {
         );
     });
     $(document).delegate('.btn_all .btn_2', 'click', function () {
+        var index;
         $.ajax({
             type: 'post',
             url: ecs_url + 'user.php',
-            anync: false,
-            data: {act: 'account_deposit'},
+            data: {act: 'account_log'},
             dataType: 'json',
+            beforeSend:function(){
+                index=layer.load();
+            },
             success: function (data) {
+                layer.close(index);
                 // console.log(data);
                 var info = data.info;
                 var html = '<div class="log"><h3>充值记录</h3><table class="table">' +
@@ -199,6 +203,84 @@ $(function () {
                     html += '<tr><td>' + val.add_time + '</td><td>' + val.type + '</td><td>' + val.amount + '</td><td>' + val.short_user_note + '</td><td>' + val.short_admin_note + '</td><td>' + val.pay_status + '</td><td>' + val.handle + '</td></tr>'
                 });
                 html += '</tbody></table></div>';
+                $('.layui-layer-content').html(html);
+            }
+        })
+    });
+    $(document).delegate('.deposit_pay','click',function(){
+        var url = $(this).attr('data-href');
+        var index;
+        $.ajax({
+            type:'get',
+            url:url,
+            dataType:'json',
+            beforeSend:function(){
+                index=layer.load();
+            },
+            success:function(data){
+                //console.log(data);
+                layer.close(index);
+                var info = data.info;
+                if(data.result=='true'){
+                    var html = '<div class="reg">' +
+                        '<h3>卡充值</h3><div style="overflow:hidden">' +
+                        '<table class="table">' +
+                        '<tbody>' +
+                        '<tr>' +
+                        '<td style="width:115px">您的充值金额为:</td>' +
+                        '<td>'+info.amount+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td style="width:115px">您选择的支付方式为:</td>' +
+                        '<td>'+info.payment.pay_name+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td style="width:115px">支付方式描述:</td>' +
+                        '<td>'+info.payment.pay_desc+'</td>' +
+                        '</tr>' +
+                        '</tbody></table></div></div>' +info.payment.pay_button;
+                }else if(data.result=='false'){
+                    if(info.action=='account_log'){
+                        alert(data.msg);
+                    }else if(info.action=='account_deposit'){
+                        alert(data.msg);
+                        var html = '<div class="reg">' +
+                            '<form name="formSurplus" id="formSurplus" method="post" onsubmit="return submitOp(false)">' +
+                            '<h3>卡充值</h3><div style="overflow:hidden">' +
+                            '<div class="reg_title">充值金额:</div>' +
+                            '<div class="reg_num">';
+                        $.each(info.priceList, function (k, val) {
+                             if(parseFloat(info.order.amount)==parseFloat(val)){
+                                 var checked ='checked="checked"';
+                                 var on = 'on';
+                            }else{
+                                 var checked = '';
+                                 var on='';
+                             }
+                            html += '<span class="radio_img '+on+'"><input type="radio" name="amount" value="' + val + '" '+checked+'></span>' + k + '点<span>人民币' + val + '元</span><br>';
+                        });
+                        html += '</div></div>' +
+                            '<div class="pay_title">支付方式</div><table class="table"><thead><tr><td>名称</td><td>描述</td></tr></thead>' +
+                            '<tbody>';
+                        $.each(info.payment, function (k, val) {
+                            if (val.pay_id > 2)
+                                html += '<tr><td style="width:60px"><span class="radio_img1"><input type="radio" name="payment_id" value="' + val.pay_id + '" /></span>' + val.pay_name + '</td>' +
+                                    '<td>' + val.pay_desc + '</td></tr>' +
+                                    '<tr>';
+                        });
+                        html += '<!--<tr><td bgcolor="#ffffff">{$lang.process_notic}:</td><td align="left" bgcolor="#ffffff"><textarea name="user_note" cols="55" rows="6" style="border:1px solid #ccc;">{$order.user_note|escape}充值</textarea></td></tr>-->' +
+                            '</tbody></table>' +
+                            '<div class="btn_all">' +
+                            '<input type="hidden" name="surplus_type" value="0" />' +
+                            '<input type="hidden" name="rec_id" value="' + info.order.id + '" />' +
+                            '<input type="hidden" name="act" value="act_account" />' +
+                            '<button class="btn_reg">立即充值</button> ' +
+                            '<button class="btn_1" name="reset" type="reset">重置金额</button> ' +
+                            '<button class="btn_2">充值记录</button>' +
+                            '</div></form>' +
+                            '</div>';
+                    }
+                }
                 $('.layui-layer-content').html(html);
             }
         })

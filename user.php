@@ -1041,7 +1041,7 @@ elseif ($action == 'account_deposit')
     $surplus_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
     $account    = get_surplus_info($surplus_id);
 	$page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
-
+    $user_id = $user_id?$user_id:intval($_REQUEST['user_id']);
     /* 获取记录条数 */
     $sql = "SELECT COUNT(*) FROM " .$ecs->table('user_account').
            " WHERE user_id = '$user_id'" .
@@ -1181,10 +1181,20 @@ elseif ($action == 'account_log')
     $account_log = get_account_log($user_id, $pager['size'], $pager['start']);
 
     //模板赋值
-    $smarty->assign('surplus_amount', price_format($surplus_amount, false));
-    $smarty->assign('account_log',    $account_log);
-    $smarty->assign('pager',          $pager);
-    $smarty->display('user_transaction.dwt');
+//    $smarty->assign('surplus_amount', price_format($surplus_amount, false));
+//    $smarty->assign('account_log',    $account_log);
+//    $smarty->assign('pager',          $pager);
+//    $smarty->display('user_transaction.dwt');
+    $rudata['result']='true';
+    $rudata['info']=array(
+        'surplus_amount'=>price_format($surplus_amount, false),
+        'account_log'=>$account_log,
+        'pager'=>$pager,
+    );
+
+    $jsondData=json_encode($rudata);
+    echo $jsondData;
+
 }
 
 /* 对会员余额申请的处理 */
@@ -1428,14 +1438,30 @@ elseif ($action == 'pay')
 
     if ($surplus_id == 0)
     {
-        ecs_header("Location: user.php?act=account_log\n");
+//        ecs_header("Location: user.php?act=account_log\n");
+        $redata['result']='false';
+        $redata['info']['action']='account_log';
+        $redata['msg']='该条付款已失效！';
+        echo json_encode($redata);
         exit;
     }
 
     //如果原来的支付方式已禁用或者已删除, 重新选择支付方式
     if ($payment_id == 0)
     {
-        ecs_header("Location: user.php?act=account_deposit&id=".$surplus_id."\n");
+//        ecs_header("Location: user.php?act=account_deposit&id=".$surplus_id."\n");
+
+        include_once(ROOT_PATH.'includes/httpRequest.php');
+        $Http = new HttpRequest();
+        $url = $_SERVER['SERVER_NAME']."/user.php?act=account_deposit&id=".$surplus_id."&user_id=".$user_id;
+        $data = $Http->get($url,'','','curl');
+        $dataArr = json_decode($data,ture);
+
+        $redata['result']='false';
+        $redata['msg']='请重新选择支付方式！';
+        $redata['info'] = $dataArr['info'];
+        $redata['info']['action']='account_deposit';
+        echo json_encode($redata);
         exit;
     }
 
@@ -1484,22 +1510,40 @@ elseif ($action == 'pay')
         $payment_info['pay_button'] = $pay_obj->get_code($order, $payment);
 
         /* 模板赋值 */
-        $smarty->assign('payment', $payment_info);
-        $smarty->assign('order',   $order);
-        $smarty->assign('pay_fee', price_format($payment_info['pay_fee'], false));
-        $smarty->assign('amount',  price_format($order['surplus_amount'], false));
-        $smarty->assign('action',  'act_account');
-        $smarty->display('user_transaction.dwt');
+//        $smarty->assign('payment', $payment_info);
+//        $smarty->assign('order',   $order);
+//        $smarty->assign('pay_fee', price_format($payment_info['pay_fee'], false));
+//        $smarty->assign('amount',  price_format($order['surplus_amount'], false));
+//        $smarty->assign('action',  'act_account');
+//        $smarty->display('user_transaction.dwt');
+        $redata['result'] = 'true';
+        $redata['info'] = array(
+            'payment'=> $payment_info,
+            'pay_fee'=>price_format($payment_info['pay_fee'], false),
+            'amount'=>price_format($order['surplus_amount'], false),
+            'order'=>$order,
+            'action'=>'act_account',
+        );
+        $jsondData = json_encode($redata);
+        exit($jsondData);
+
     }
     /* 重新选择支付方式 */
     else
     {
         include_once(ROOT_PATH . 'includes/lib_clips.php');
 
-        $smarty->assign('payment', get_online_payment_list());
-        $smarty->assign('order',   $order);
-        $smarty->assign('action',  'account_deposit');
-        $smarty->display('user_transaction.dwt');
+//        $smarty->assign('payment', get_online_payment_list());
+//        $smarty->assign('order',   $order);
+//        $smarty->assign('action',  'account_deposit');
+//        $smarty->display('user_transaction.dwt');
+        $redata['result'] = 'false';
+        $redata['msg']='请重新选择支付方式！';
+        $redata['info'] = array(
+            'payment'=> get_online_payment_list(),
+            'order'=>$order,
+            'action'=>'account_deposit',
+        );
     }
 }
 

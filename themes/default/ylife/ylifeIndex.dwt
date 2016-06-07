@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="shenghuo">
+<html class="youpin">
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
@@ -79,6 +79,7 @@
 				<div class="floor_title">
 					<h4>
 						<a href="{$row.url}"><i>F{$row.floor}</i>{$row.name}</a>
+						<a href="{$row.url}" class="f_r floor_more">更多 >></a>
 					</h4>
 				</div>
 				<div class="shenghuo_floor_item o_hidden">

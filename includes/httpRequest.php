@@ -75,7 +75,7 @@ class HttpRequest{
 	public function get($str_url, $mix_data, $str_ext = '', $str_type = '', $str_contentType = '', $httpheader=array()){
 		//var_dump($mix_data);
 		$str_url = $this->buildUrlQuery($mix_data, $str_url);//拼接url
-		//var_dump($str_url);
+//		var_dump($str_url);
 		switch ($str_type){
 			//fopen请求方法
 			case 'fopen':

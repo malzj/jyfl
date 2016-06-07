@@ -248,7 +248,8 @@ else if ($_REQUEST['step'] == 'done')
  	    'api_order_id' =>$orders['order_id'],
  	    'secret'    => $secret,
  	    'source'    => 1,
- 	    'unit_price'=> $detail['salePrice']
+ 	    'unit_price'=> $detail['salePrice'],
+ 	    'sales_ratio'=> get_card_rule_ratio(10003)
  	); 	
  	$cols = array_keys($default);
  	$GLOBALS['db']->query(' INSERT INTO '.$GLOBALS['ecs']->table('venues_order')." ( ".implode(',', $cols)." ) VALUES ('".implode("','", $default)."')");
@@ -374,7 +375,7 @@ else if ($_REQUEST['step'] == 'pay')
 	/** TODO 支付 （双卡版） */
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$orders[0]['money'], 'TransSupplier'=>setCharset('动网'))
+			'TransationInfo' => array( 'TransRequestPoints'=>$orders[0]['money'], 'TransSupplier'=>setCharset('动网门票'))
 	);
 	$state = $cardPay->action($arr_param, 1, $orders[0]['order_sn']);
 	
@@ -430,7 +431,7 @@ function get_detail($product){
 
 // 日期的合法性，根据选择的日期，遍历价格日历，如果不存在返回false ，否则 true
 function check_price($price, $date){
-    $customRatio = 1;//get_card_rule_ratio(10003);
+    $customRatio = get_card_rule_ratio(10003);
 	$salePrice = 0;
 	// 如果只有一个时间
 	if ($price['date'] == $date)

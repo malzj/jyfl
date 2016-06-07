@@ -76,7 +76,7 @@ foreach ( array( 'komovie', 'dzq') as $api)
 			        $newCinema = array_slice($cinema, $startKey, 1000);
 			        saveKomovieData($newCinema);
 			   } */
-			   saveKomovieData($newCinema);
+			   saveKomovieData($cinema);
 			
 			}else
 			{

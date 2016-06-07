@@ -189,7 +189,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
 
     /* 获得商品的信息 */
     $goods = get_goods_info($goods_id);       
-   
+
     if ($goods === false)
     {
         /* 如果没有找到任何记录则跳回到首页 */

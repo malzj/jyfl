@@ -34,7 +34,7 @@ if($_REQUEST['act'] == "index")
         $attrGoods[$key]['url'] = getCakeAttrUrl($val);
         $attrGoods[$key]['attrName'] = $val; 
         $attrGoods[$key]['attrNo'] = $key+1;
-        $goodsAttr = $GLOBALS['db']->getAll('SELECT goods_id FROM '.$GLOBALS['ecs']->table('goods_attr')." WHERE attr_value = '".$val."' ORDER BY goods_attr_id DESC LIMIT 10");
+        $goodsAttr = $GLOBALS['db']->getAll('SELECT goods_id FROM '.$GLOBALS['ecs']->table('goods_attr')." WHERE attr_value = '".$val."' GROUP BY goods_id ORDER BY goods_attr_id DESC LIMIT 10");
         foreach ($goodsAttr as $_K=>$_v){ $goodsIds[] = $_v['goods_id']; }
 
         if ( !empty($goodsIds)) 
@@ -45,8 +45,7 @@ if($_REQUEST['act'] == "index")
                 'FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' .
                 'LEFT JOIN ' . $GLOBALS['ecs']->table('goods_spec') . ' AS gs ' .
                 "ON gs.goods_id = g.goods_id " .
-                "WHERE g.goods_id IN(".implode(',', $goodsIds).") ORDER BY g.goods_id DESC";
-            
+                "WHERE g.goods_id IN(".implode(',', $goodsIds).") GROUP BY g.goods_id ORDER BY g.goods_id DESC";
             $res = $GLOBALS['db']->selectLimit($sql, 10, 0);
             $arr = array();
             $i = 0;
@@ -80,9 +79,11 @@ if($_REQUEST['act'] == "index")
            $attrGoods[$key]['goods'] = $arr;            
         }        
     }
+    
+    //var_dump($cakeNav['child']);
     $smarty->assign('attrGoods', $attrGoods);
     // 当前城市支持的蛋糕品牌（导航信息）
-    $smarty->assign('cakeNav', $cakeNav);
+    $smarty->assign('cakeNav', $cakeNav['child']);
     $smarty->assign('banner', getNavadvs(15));
     $smarty->assign('text', getNavadvs(16));
     $smarty->display('cake/cakeIndex.dwt');    

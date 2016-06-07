@@ -5,7 +5,7 @@ require(dirname(__FILE__) . '/includes/init.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_dongsport.php');
 
-$customRatio = 1; //get_card_rule_ratio(10003);
+$customRatio = get_card_rule_ratio(10003);
 
 if ((DEBUG_MODE & 2) != 2)
 {

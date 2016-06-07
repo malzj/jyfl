@@ -16,7 +16,8 @@ assign_template();
 $action = isset($_REQUEST['action']) ? addslashes_deep($_REQUEST['action']) : '' ;
 if ($action == 'saveOrder')
 {
-    
+    // 卡规则比例
+    $customRatio = get_card_rule_ratio(10003);
     //var_dump($_POST);
     $link_man   = isset($_REQUEST['link_man']) ? addslashes($_REQUEST['link_man']) : null ;
     $link_phone = isset($_REQUEST['link_phone']) ? addslashes($_REQUEST['link_phone']) : null ;
@@ -28,16 +29,20 @@ if ($action == 'saveOrder')
     $venue_id   = isset($_REQUEST['venue_id']) ? intval($_REQUEST['venue_id']) : null ;
     $secret     = isset($_REQUEST['secret']) ? $_REQUEST['secret'].md5($param) : null ;
     
+    $ratioCustom = ($customRatio == false) ? 1 : $customRatio;
+    
     $checkArray = array(
-        'link_man'  => $link_man,
-        'link_phone'=> $link_phone,   
-        'info_id'   => $info_id,
-        'date'      => $date,
-        'num'       => $num,
-        'amount'    => $amount,
-        'param'     => $param,
-        'venue_id'  => $venue_id,
-        'secret'    => $secret
+        'link_man'     => $link_man,
+        'link_phone'   => $link_phone,   
+        'info_id'      => $info_id,
+        'date'         => $date,
+        'num'          => $num,
+        'amount'       => $amount,
+        'market_price' => $amount / $ratioCustom,
+        'param'        => $param,
+        'venue_id'     => $venue_id,
+        'secret'       => $secret,
+        'sales_ratio'  => $ratioCustom
     );
     
     // 数据验证
@@ -125,7 +130,7 @@ else if($action == 'pay')
     /** TODO 支付 （双卡版） */
     $param = array(
         'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $password),
-        'TransationInfo' => array( 'TransRequestPoints'=>$order['money'])
+        'TransationInfo' => array( 'TransRequestPoints'=>$order['money'], 'TransSupplier'=>setCharset('动网场馆'))
     );
     
     if ( $cardPay->action($param, 1, $order['order_sn']) == 0)

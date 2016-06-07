@@ -3,7 +3,12 @@
 // 电影销售比例销售比例
 function getMovieRatio()
 {
-    return 1;
+    return get_card_rule_ratio(10002);
+}
+
+function getDzqRatio()
+{
+    return get_card_rule_ratio(10004);
 }
 
 /** 获得影片详情
@@ -290,7 +295,8 @@ function searchPlan( $moviePlan, $currentTime, $ratio)
 			}else{
 				$plan['is_cut'] = 0;
 			}
-			//error_log(var_export($a.'\n',true),'3','error.log');
+			// 成本价
+			$plan['extInfo'] = $plan['price'];
 			if ($ratio !== false){
 				$plan['price'] = number_format(round($plan['price']*$ratio,1),2);
 			}else{

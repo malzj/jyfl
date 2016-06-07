@@ -267,7 +267,7 @@ if ($str_action == 'respond'){
 	/** TODO 支付 （双卡版） */
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$float_price)
+			'TransationInfo' => array( 'TransRequestPoints'=>$float_price,'TransSupplier'=>setCharset('中影电子券'))
 	);
 	$state = $cardPay->action($arr_param, 1, $str_orderSn);	
 	

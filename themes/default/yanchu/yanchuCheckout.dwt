@@ -6,9 +6,9 @@
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.shoppingflow.js"></script>
         {insert_scripts files='jquery.region.js,utils.js'}
-		<style>
-			html.huaju2 .shouhuoren_item .shouhuoren_name.selected{border:1px red solid!important;background:white url(/images/index/img_login/hy_hj.jpg) no-repeat right bottom!important;}
-        </style>
+		<!--<style>
+		.shouhuoren_item .shouhuoren_name.selected{border:1px red solid!important;background:white url(/images/index/img_login/hy_hj.jpg) no-repeat right bottom!important;}
+        </style>-->
 	</head>
 	<body>
         <!-- 头部 -->

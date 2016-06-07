@@ -1,4 +1,3 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style>
 .shouhuoren .add_item .item select {width:auto;}
 </style>
@@ -54,10 +53,10 @@ $(document).delegate('.add_item .cancel', 'click', function(){
 $('#more').click(function(){
 	var height=$('.shouhuoren_item').height();
 	if(height=='40'){
-		$('html.huaju2 .w_1200 .shouhuoren .more span.jiantou').css('transform','rotate(180deg)');
+		$('.shouhuoren .more span.jiantou').css('transform','rotate(180deg)');
 		$('.shouhuoren_item').css('height','auto');
 	}else{
-		$('html.huaju2 .w_1200 .shouhuoren .more span.jiantou').css('transform','rotate(0deg)');
+		$('.shouhuoren .more span.jiantou').css('transform','rotate(0deg)');
 		$('.shouhuoren_item').css('height','40px');
 	}
 })

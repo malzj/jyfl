@@ -139,6 +139,7 @@
                         <input type="hidden" name="vipPrice" id="vipPrice" value="{$planInfo.price}" />	<!-- 座位价格 -->
                         <input type="hidden" name="seatParam" id="seatParam" value='{$seatParam}' />
                         <input type="hidden" name="movieId" id="mvoieId" value='{$planInfo.movie.movieId}' />
+                        <input type="hidden" name="extInfo" id="extInfo" value='{$planInfo.extInfo}' />
                         <input class="btn btn-danger" type="submit" value=" &nbsp;提交座位 &nbsp; ">
                 		</form>
 					</div>

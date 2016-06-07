@@ -79,6 +79,7 @@
 				<div class="floor_title">
 					<h4>
 						<a href="{$row.url}"><i>F{$row.floor}</i>{$row.name}</a>
+						<a href="{$row.url}" class="f_r floor_more">更多 >></a>
 					</h4>
 				</div>
 				<div class="shenghuo_floor_item o_hidden">
@@ -97,9 +98,9 @@
 			<!--楼层导航-->
 			<div class="floor-guide" style="display:none;">
 			    <div class="mui-nav">
-			        {foreach from=$list item=row}
+			        {foreach from=$list item=row name=row}
                     <a href="#floor_{$row.floor}">
-                        <b class="icon_01_channelhome">F{$row.floor}</b>
+                        <b class="icon_{$smarty.foreach.row.index}_channelhome"></b>
                         <em>{$row.name}</em>
                         <i>&nbsp;</i>
                     </a>

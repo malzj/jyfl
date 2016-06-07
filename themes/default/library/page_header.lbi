@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <div class="header">
     <ul class="header_nav">
-        <li><img src="/images/juyoufuli/img_login/logo.png" alt="聚优福利"></li>
+        <li><img src="{$app_path}images/juyoufuli/img_login/logo.png" alt="聚优福利"></li>
         <ul>
         <li class="username">
             <img id="usertx" src="{$usernames.pic}" alt="用户头像">

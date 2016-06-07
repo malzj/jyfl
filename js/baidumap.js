@@ -5,11 +5,11 @@ var baidumap = {
 	
 	options :{		
 		// 显示多边形的api地址
-		showUrl:'http://192.168.1.161/jyflapi/index.php?s=Peisong/Peisong/showmap',
+		showUrl:'http://juyoufuli.com/jyflapi/index.php?s=Peisong/Peisong/showmap',
 		// 设置配送费用和供应商信息
-		setPeisongUrl:'http://192.168.1.161/jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap',
+		setPeisongUrl:'http://juyoufuli.com/jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap',
 		// 设置坐标信息的
-		setZuobiaoUrl:'http:/192.168.1.161/jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao',
+		setZuobiaoUrl:'http://juyoufuli.com/jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao',
 		//供应商运费保存的input表单ID, 默认是sup
 		idClassFirst:'sup',
 		//是否搜索运费

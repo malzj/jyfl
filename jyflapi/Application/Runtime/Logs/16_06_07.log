@@ -5278,3 +5278,23 @@ SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` =
 SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 29 ) LIMIT 1   [ RunTime:0.003701s ]
 SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 28 ) LIMIT 1   [ RunTime:0.003847s ]
 
+[ 2016-06-07T16:14:58+08:00 ] 127.0.0.1 /jyflapi/index.php/Games/GamesApi/gameList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000534s ]
+SQL: SHOW COLUMNS FROM `ecs_games` [ RunTime:0.009200s ]
+SQL: SHOW COLUMNS FROM `ecs_company` [ RunTime:0.008359s ]
+SQL: SHOW COLUMNS FROM `ecs_users` [ RunTime:0.010648s ]
+SQL: SHOW COLUMNS FROM `ecs_grade` [ RunTime:0.009019s ]
+SQL: SHOW COLUMNS FROM `ecs_participation` [ RunTime:0.011557s ]
+SQL: SELECT `company_id` FROM `ecs_users` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.320620s ]
+SQL: SELECT * FROM `ecs_company` WHERE ( `card_company_id` = 1509010002 ) LIMIT 1   [ RunTime:0.007286s ]
+SQL: SELECT `grade_name` FROM `ecs_grade` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.006718s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 1 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 2   [ RunTime:0.007457s ]
+SQL: SELECT * FROM `ecs_games` WHERE ( `grade_id` = 2 ) AND ( `status` = 1 ) ORDER BY create_time DESC LIMIT 5   [ RunTime:0.007184s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 37 ) LIMIT 1   [ RunTime:0.005420s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `game_id` = 34 ) LIMIT 1   [ RunTime:0.004679s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 30 ) LIMIT 1   [ RunTime:0.004664s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 29 ) LIMIT 1   [ RunTime:0.005985s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ecs_participation` WHERE ( `company_id` = 1509010002 ) AND ( `game_id` = 28 ) LIMIT 1   [ RunTime:0.006193s ]
+

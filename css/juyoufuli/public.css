@@ -49,6 +49,7 @@ a:focus{outline: none;}
 .text_under{text-decoration: underline;}
 .color_ff7900{color: #FF7900;}
 .xuxian{height: 1px;border-bottom: 1px dashed #ddd;margin: 20px 0;}
+u{text-decoration: none;}
 /*footer*/
 .footer_icon{text-align: center;margin: 0 auto;width: 300px;height: 50px;background: #ccc;line-height: 50px;}
 .footer{
@@ -714,7 +715,7 @@ html.movie .reying .reying_title {
 	text-align: center;
 	font-size: 24px;
 	color: #2fd0b5;
-	margin: 30px 0;
+	margin: 20px 0;
 }
 
 .w_1200 {
@@ -785,7 +786,7 @@ html.movie .w_1200 .reying_show .reying_show2 .buy a {
 	color: white;
 	position: absolute;
 	bottom: 15px;
-	right: 0;
+	right: 25px;
 }
 
 html.movie .w_1200 .reying_show {
@@ -1051,7 +1052,7 @@ html.movie .w_1200 .will_show .will_show1 ul li {
 }
 
 html.movie .w_1200 .will_show .will_show1 .title {
-	color: #27c7ac;
+	color: #2fd0b5;
 	font-size: 24px;
 }
 
@@ -1170,7 +1171,7 @@ html.movie .will .will_list {
 
 html.movie .midbox .nav_main ul.header_left li {
 	color: white;
-	margin: 10px 20px;
+	margin: 9px 20px;
 	float: left;
 }
 
@@ -1244,7 +1245,7 @@ html.movie_1 .w_1200 {
 	/* margin-top: 90px; */
 	padding-top: 90px;
 }
-html.movie_1 .town ul li.active{background: white;background: url(/images/index/img_login/xuanzhong.png) no-repeat;background-size: 100% 100%;}
+html.movie_1 .town ul li.active{background: white;background: url(/images/index/img_login/xuanzhong.png) no-repeat;background-size: 100% 100%;border-top: 1px solid #b3b3b3;}
 
 html.movie_1 .w_1200 .reying_show .reying_img,
 .reying_show1 {
@@ -1318,15 +1319,15 @@ html.movie_1 .reying_bg {
 	text-align: center;
 	font-size: 24px;
 	color: #2fd0b5;
-	margin: 20px 0;
+	margin: 20px 0 10px 0;
 	width: 1200px;
 	height: 40px;
 }
 
 html.movie_1 .xuanzuo .movie_list {
 	position: relative;
-	margin: 20px 0;
-	padding: 10px 0;
+	margin: 10px 0 20px 0;
+	/* padding: 10px 0; */
 }
 
 html.movie_1 .xuanzuo .movie_list .bd .title {
@@ -1467,14 +1468,19 @@ html.movie_1 .w_1200 .movie_xiangqing .select_cinema ul {
 	background: #ededed;
 }
 html.movie_1 .w_1200 .select_cinema ul li.active{
+	border-bottom: none!important;
+	margin: 5px 0;
 	background: url(/images/index/img_login/xuanzhong.png) no-repeat;
 	background-size: 100% 100%;
+	box-shadow: 2px 2px 5px #bfbfbf;
+	border-top: 1px solid #b3b3b3;
 }
 html.movie_1 .w_1200 .movie_xiangqing .select_cinema ul li {
 	cursor: pointer;
 	padding: 15px 0;
 	padding-left: 45px;
 	margin-left: 10px;
+	border-bottom: 1px dashed #bfbfbf;
 }
 .movie_xiangqing .cinema_del {
 	float: left;
@@ -1569,14 +1575,14 @@ html.movie_3  .order_zhanshi{
 	overflow: hidden;
 	border: 1px solid #dddddd;
 }
-html.movie_3  .order_left{float: left;}
-html.movie_3  .order_left .box_left{float: left;margin-left: 20px;margin-top: 10px;}
-html.movie_3  .order_left .img_left{float: left;}
+html.movie_3  .order_left{float: left;border-right: 1px solid #ddd;}
+html.movie_3  .order_left .box_left{float: left;/* margin-left: 20px; *//* margin-top: 10px; */}
+html.movie_3  .order_left .img_left{float: left;margin: 10px;}
 html.movie_3  .box_left ul li h3{font-size: 18px;}
 html.movie_3  .box_left ul li{width: 390px;margin: 10px 0;}
 html.movie_3  .box_left ul li.num_tick span.zuowei{color: #9C9898;}
 html.movie_3  .box_left .num_tick{height: 72px;}
-html.movie_3  .order_zhanshi .order_right{border-left: 1px solid #ccc;padding: 64px;margin: 0 auto;float: right;}
+html.movie_3  .order_zhanshi .order_right{/* border-left: 1px solid #ccc; */padding: 64px;margin: 0 auto;float: right;}
 html.movie_3  .order_zhanshi .order_right input{border: 1px solid #ddd;margin-left: 10px;padding: 5px;margin-right: 20px;}
 html.movie_3  .order_title_left span.color_yellow{margin-right: 10px;
     width: 10px;
@@ -1603,7 +1609,7 @@ html.movie_3  .pay_way .pay_way_content .box_1 input{padding: 5px;margin-right: 
 html.movie_3  .pay_way .pay_way_content .box_1 span.user_card{margin-right: 20px;}
 html.movie_3  .pay_way .pay_way_content .box_1 span.jiesuan{padding: 5px 10px;color: white;background: #ff781e;cursor: pointer;}
 html.movie_3  .pay_way .pay_way_content .tips{color: #ff781e;margin: 20px 0px;}
-html.movie_3  .pay_way .pay_title{margin-bottom: 20px;}
+html.movie_3  .pay_way .pay_title{margin-bottom: 20px;margin-top: 30px;}
 html.movie_3  .order_zhanshi .order_right .yes{
 	padding: 3px 5px;
     border: 1px solid;
@@ -2269,7 +2275,7 @@ html.huaju2 .w_1200 .goupiaoxinxi .xinxi_right{margin-right: 200px;margin-top: 2
 .shouhuoren .shouhuo_title .add_adress{color:#2ed2c1;cursor: pointer;}
  .shouhuoren{margin: 0 20px;}
  .shouhuoren .shouhuoren_item ul li{overflow: hidden;margin: 10px 0;}
- .shouhuoren .shouhuoren_item ul li:hover{background: #f5dccc;}
+ .shouhuoren .shouhuoren_item ul li:hover{background: #ffe4cc;}
  .shouhuoren .shouhuoren_item ul li div.shouhuoren_name{
 	width: 120px;
 	padding: 3px 10px;
@@ -2309,8 +2315,9 @@ html.huaju2 .w_1200 .goupiaoxinxi .xinxi_right{margin-right: 200px;margin-top: 2
  .shouhuoren .add_item .btn_1 span.save{background: #ff9a12;padding: 5px 10px;color: white;margin-right: 50px;border-radius: 10px;cursor: pointer;}
  .shouhuoren .add_item .btn_1 span.cancel{padding: 5px 10px;color: #43d2b9;cursor: pointer;}
  .shouhuoren .more{margin: 10px 0 20px 0;}
- .shouhuoren .more span.jiantou{transform: scale(147deg);margin-left: 10px;transition: all .5s linear;}
+ .shouhuoren .more span.jiantou{/* transform: rotate(180deg); */margin-left: 10px;transition: all .5s linear;}
  .shouhuoren .more span#more{cursor: pointer;}
+ .shouhuoren_item .shouhuoren_name.selected{border:1px red solid!important;background:white url(/images/index/img_login/hy_hj.jpg) no-repeat right bottom!important;}
  .pay_way .pay_way_title{font-size: 16px;color: #43d2b9;font-weight: 600;margin: 20px 0;}
  .pay_way .pay_way_details{margin:10px 20px;}
  .pay_way .pay_way_details ul li{margin:10px 0;}
@@ -2822,3 +2829,4 @@ html.shenghuo1 body{background: white;}
 .cake_btn_add{background: url(/images/juyoufuli/img_login/cake_btn.png) no-repeat 0px -6px;display: inline-block;width: 35px;height: 20px;float: left;margin-left: 5px;}
 .lijigoumai_1{background: url(/images/juyoufuli/img_login/lijigoumai.png) no-repeat -33px -3px;display: inline-block;width: 32px;height: 30px;float: left;}
 .lijigoumai{background: url(/images/juyoufuli/img_login/lijigoumai.png) no-repeat -4px -5px;display: inline-block;width: 19px;height: 30px;float: left;margin-left: 10px;}
+

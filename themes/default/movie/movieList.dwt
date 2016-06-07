@@ -55,7 +55,9 @@
                     	<center>请选择影片</br>
                     		<img src="/images/juyoufuli/img_login/wuya.png">
                     	</center></div>
-					<div class="i_date __r_c_" style="display: none;" id="ajaxPlanList"> <center> 请选择影院</center> </div>
+					<div class="i_date __r_c_" style="display: none;" id="ajaxPlanList"> <center> 请选择影院<br/>
+						<img src="/images/juyoufuli/img_login/wuya.png">
+					</center> </div>
 				</div>
 			</div>
 		</div>

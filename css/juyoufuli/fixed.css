@@ -25,7 +25,7 @@
 }
 
 .onlineticket {
-	height: 40px;
+	height: 41px;
 	background: #111111;
 	border-top: 1px solid #515151;
 	position: relative;
@@ -78,7 +78,7 @@
 
 .movieselectbox {
 	height: 36px;
-	margin: 7px 0 3px 210px;
+	margin: 7px 0 0px 240px;
 }
 
 .moviemid {
@@ -303,7 +303,7 @@
 	padding: 15px;
 	font-size: 13px;
 	line-height: 1.8em;
-	height: 368px;
+	height: 380px;
 	right: 0;
 }
 

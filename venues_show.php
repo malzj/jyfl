@@ -12,7 +12,7 @@ if ((DEBUG_MODE & 2) != 2)
 
 assign_template();
 
-$customRatio = 1; //get_card_rule_ratio(10003);
+$customRatio = get_card_rule_ratio(10003);
 
 $venueId = isset($_REQUEST['venueId']) ? intval($_REQUEST['venueId']) : 0 ;
 $infoId = isset($_REQUEST['infoId']) ? intval($_REQUEST['infoId']) : 0 ;

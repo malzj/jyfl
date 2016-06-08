@@ -617,7 +617,7 @@ elseif ($_REQUEST['step'] == "showDzq")
     //根据城市id获取影院区域编号
     $int_areaNo = getAreaNo();
     // 销售比例
-    $ratio = getMovieRatio();
+    $ratio = getDzqRatio();
     // 影院id
     $int_cinemaNo = $_GET['id'];
     

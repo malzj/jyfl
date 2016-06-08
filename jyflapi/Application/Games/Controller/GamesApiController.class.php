@@ -204,8 +204,11 @@ class GamesApiController extends Controller
             'TransationInfo' => array( 'TransRequestPoints'=>$num*$game_info['point'], 'TransSupplier'=>iconv('聚优夺宝','UTF-8','GB2312'))
         );
         $is_pay = $Card -> action($card_data,1);
-        $Model -> table('__USERS__')->where('user_name')->setDec('card_money',$num*$game_info['point']);
+
         if($is_pay == 0){
+            $Card -> action($card_data,8);
+            $jydata = $Card -> getResult();
+            $Model -> table('__USERS__')->where('user_name')->data(array('card_money'=>$jydata['Points']))->save();
             $Model -> commit();
             $rudata['result'] = 'true';
             $rudata['msg'] = '抢购成功！';

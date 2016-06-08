@@ -2189,6 +2189,7 @@ html.huaju1 .w_1200 .huaju_box .box_xinxi li .piaojia .piaojia_item{
 	cursor: pointer;
 	margin-bottom: 10px;
 }
+html.huaju1 .w_1200 .huaju_box .box_xinxi li .piaojia{width:560px;}
 html.huaju1 .w_1200 .huaju_box .box_xinxi li .piaojia .piaojia_item.active{
 	background: #2fd0b5;
 	color: white;
@@ -2278,7 +2279,7 @@ html.huaju2 .w_1200 .goupiaoxinxi .xinxi_right ul li{
 	color: #565656;
 	margin: 10px 0;
 }
-html.huaju2 .w_1200 .goupiaoxinxi .xinxi_right{margin-right: 200px;margin-top: 20px;}
+html.huaju2 .w_1200 .goupiaoxinxi .xinxi_right{margin-right: 200px;margin-top: 10px;}
 .shouhuo{margin: 30px 0;font-size:16px;color: #2ed2c1;font-weight: bold;}
 .shouhuoren .shouhuo_title{overflow: hidden;}
 .shouhuoren .shouhuo_title .shouhuorenxinxi{/* font-weight: 600; */font-size: 14px;color: #333333;}

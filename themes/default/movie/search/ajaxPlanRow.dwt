@@ -2,7 +2,7 @@
     <ul>
     {foreach from=$moviePlan item=plan}
     {if $plan.is_cut eq 1}
-     <li> <a href="javascript:;" target="_blank"><span class="time">{$plan.time}</span> <span class="ting">{$plan.screenType}/{$plan.hallName}/{$plan.language}</span> <span class="mprice">{$plan.price}</span><span class="tbtn" style="background:#f4f4f4; color:#8E8E8E;">已过场</span></a></li>
+     <li> <a href="javascript:;" target="_blank"><span class="time">{$plan.time}</span> <span class="ting juqingA">{$plan.screenType}/{$plan.hallName}/{$plan.language}</span> <span class="mprice">{$plan.price}</span><span class="tbtn" style="background:#f4f4f4; color:#8E8E8E;">已过场</span></a></li>
     {else}
      <li> <a href="movie.php?step=cinemaSeats&hallno={$plan.hallNo}&planid={$plan.planId}&movieid={$plan.movieId}&cinemaid={$plan.cinemaId}" target="_blank"><span class="time">{$plan.time}</span> <span class="ting">{$plan.screenType}/{$plan.hallName}/{$plan.language}</span> <span class="mprice">{$plan.price}</span><span class="tbtn">选座购票</span></a>									</li>
     {/if}

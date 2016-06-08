@@ -240,7 +240,8 @@
 						$('.picList').html(obj.message);
 					}else{
 						$('.picList').html(obj.html);
-						initMovieList();						
+						initMovieList();
+						setMovieActive();						
 					}
 				}
 			});
@@ -302,15 +303,30 @@
 			var currentCinema = $('.select_cinema').find('.active').attr('data-id');
 			window.location.href="movie.php?step=planCinema&movieid="+movie+"&city="+currentCityid+'&cinemaid='+currentCinema;
 		}
-		//		影院滚动条美化
-            $(".cinema_all ul").niceScroll({
-                cursorcolor:"#d1d1d1",
-                cursoropacitymax:1,
-                touchbehavior:false,
-                cursorwidth:"5px",
-                cursorborder:"0",
-                cursorborderradius:"5px"
-            });
+		//影院滚动条美化
+		$(".cinema_all ul").niceScroll({
+			cursorcolor:"#d1d1d1",
+			cursoropacitymax:1,
+			touchbehavior:false,
+			cursorwidth:"5px",
+			cursorborder:"0",
+			cursorborderradius:"5px"
+		});
+		
+		// 处理选中的影片
+		function setMovieActive(){
+			if(!Utils.isEmpty(movieid)){
+				var movieList = $('.movie_list').find('li');			
+				movieList.each(function(index,domLi){				
+					if($(domLi).attr('data-id') == parseInt(movieid)){
+						$(domLi).find('img').addClass('active');
+					}else{
+						$(domLi).find('img').removeClass('active');
+					}
+				});
+			}
+		}
+		
 		
 	</script>
         

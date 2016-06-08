@@ -1,4 +1,4 @@
-//var api_url = 'http://jy.com/jyflapi/';
+// var api_url = 'http://jy.com/jyflapi/';
 var api_url = 'http://192.168.1.161/jyflapi/';
 $(function(){
 //	游戏规则
@@ -179,6 +179,7 @@ $(function(){
                     '</div>' +
                     '<div class="qianggou_details_content f_l">' +
                     '<div class="qianggou_details_name">'+data.game_info.game_name+'</div>' +
+                    '<form name="purchase" id="purchase">' +
                     '<input name="user_id" value="'+uid+'" type="hidden" />' +
                     '<input name="game_id" value="'+id+'" type="hidden" />' +
                     '<input name="card_num" value="'+cnum+'" type="hidden" />' +
@@ -193,8 +194,8 @@ $(function(){
                     '<div class="all_price font-16 color_zhuti">共<span id="price">'+data.game_info.point+'</span>点</div>' +
                     '<div class="qianggou_password_box">' +
                     '<input type="password" name="password" class="qianggou_password" placeholder="请输入聚优密码" onkeydown="return globelQuery(event);">' +
-                    '<button id="" onclick="tijiao();">确定</button></div></div>' +
-                    '</div>' +
+                    '<button id="">确定</button></div></form>' +
+                    '</div></div>' +
                     '<div class="yigou_name">' +
                     '<div class="f_l">已购号：</div>' +
                     '<div class="f_l yigouhao_all">';
@@ -226,8 +227,53 @@ $(function(){
                 });
             }
         })
-	})
+	});
 
+// $(document).on('click','.qianggou_box button',function(){
+$(document).on('submit','#purchase',function(){
+    // var user_id = $('input[name="user_id"]').val();
+    // var game_id = $('input[name="game_id"]').val();
+    // var card_num = $('input[name="card_num"]').val();
+    // var company_id = $('input[name="company_id"]').val();
+    // var number = $('input[name="number"]').val();
+    // var password = $('input[name="password"]').val();
+    $.ajax({
+        type:'post',
+        url:api_url+'index.php/Games/GamesApi/purchase',
+        async:false,
+        data:$('#purchase').serialize(),
+        // {
+        //     user_id:user_id,
+        //     game_id:game_id,
+        //     card_num:card_num,
+        //     company_id:company_id,
+        //     number:number,
+        //     password:password,
+        // },
+        dataType:'json',
+        success:function (data) {
+            console.log(data);
+            if(data.result == 'true'){
+                layer.alert(data.msg,function () {
+                    location.reload();
+                });
+            }else{
+                layer.alert(data.msg,function () {
+                    location.reload();
+                });
+            }
+        }
+    });
+    return false;
+});
+//回车提交
+// $(document).delegate('.qianggou_password','keydown',function(e){
+//     var curKey=e.which;
+//     if(curKey==13){
+//         $('.qianggou_box button').click();
+//         return false;
+//     }
+// });
 
 //	已结束
 	$('.scroll_msg').on('click','.end',function(){
@@ -287,7 +333,7 @@ $(function(){
         });
 
 	});
-})
+});
 function numdel(){
     var num = $("#number").val();
     var pricespan = $("#price");
@@ -338,51 +384,3 @@ function checkSurplus(game_id,company_id){
     });
     return surplus;
 }
-//输入密码点击确认按钮
-function tijiao(){				
-    $(document).on('click','.qianggou_box button',function(){
-        var user_id = $('input[name="user_id"]').val();
-        var game_id = $('input[name="game_id"]').val();
-        var card_num = $('input[name="card_num"]').val();
-        var company_id = $('input[name="company_id"]').val();
-        var number = $('input[name="number"]').val();
-        var password = $('input[name="password"]').val();
-        $.ajax({
-            type:'post',
-            url:api_url+'index.php/Games/GamesApi/purchase',
-            async:false,
-            data:{
-                user_id:user_id,
-                game_id:game_id,
-                card_num:card_num,
-                company_id:company_id,
-                number:number,
-                password:password,
-            },
-            dataType:'json',
-            success:function (data) {
-                //console.log(data);
-                if(data.result == 'true'){
-                    layer.alert(data.msg,function () {
-                        location.reload();
-                    });
-                }else{
-                    layer.alert(data.msg,function () {
-                        location.reload();
-                    });
-                }
-            }
-            
-        });
-    });
-		return false;  
-}
-//确认购买        
-			function globelQuery(e) { 
-					if (!e) 
-					e = window.event; 
-					if ((e.keyCode || e.which) == 13) { 
-					$('.qianggou_box button').click();
-					return false;
-					} 
-				} 

@@ -842,7 +842,7 @@ a {
 
 .fullSlide .bd li {
 	/* background-size: 100% 100%!important; */
-	width: 100% !important;
+	/* width: 100% !important; */
 	height: 410px;
 	/* overflow:hidden; */
 	text-align: center;
@@ -1245,7 +1245,7 @@ html.movie_1 .w_1200 {
 	/* margin-top: 90px; */
 	padding-top: 90px;
 }
-html.movie_1 .town ul li.active{background: white;background: url(/images/index/img_login/xuanzhong.png) no-repeat;background-size: 100% 100%;border-top: 1px solid #b3b3b3;}
+html.movie_1 .town ul li.active{background: white;background: url(/images/juyoufuli/img_login/xuanzhong_1.png) no-repeat!important;background-size: 100% 100%!important;/* border-top: 1px solid #b3b3b3; */color: #333333;font-weight: bold;}
 
 html.movie_1 .w_1200 .reying_show .reying_img,
 .reying_show1 {
@@ -1433,6 +1433,8 @@ html.movie_1 .w_1200 .movie_xiangqing .town h3 {
 	font-size: 16px;
 	text-align: center;
 	background: #cccccc;
+	border-right: 1px solid #b3b3b3;
+	color: #333333;
 }
 
 html.movie_1 .w_1200 .movie_xiangqing .town ul {
@@ -1445,27 +1447,30 @@ html.movie_1 .w_1200 .movie_xiangqing .town ul {
 html.movie_1 .w_1200 .movie_xiangqing .town ul li {
 	cursor: pointer;
 	padding: 16px 0;
+	color: #333333;
 }
-html.movie_1 .w_1200 .movie_xiangqing .town ul li:hover {
-}
+html.movie_1 .w_1200 .movie_xiangqing .town ul li:hover {background: white;color: #2fd0b5;}
 
 html.movie_1 .w_1200 .movie_xiangqing .select_cinema {
 	float: left;
 	width: 350px;
 	height: 530px;
 }
-
+.select_cinema li:hover{background:white;}
 html.movie_1 .w_1200 .movie_xiangqing .select_cinema h3 {
 	padding: 10px 0;
 	font-size: 16px;
 	text-align: center;
 	background: #cccccc;
+	border-right: 1px solid #b3b3b3;
+	color: #333333;
 }
 
 html.movie_1 .w_1200 .movie_xiangqing .select_cinema ul {
 	height: 487px;
 	overflow-y: auto;
 	background: #ededed;
+	border-right: 1px solid #D2CECE;
 }
 html.movie_1 .w_1200 .select_cinema ul li.active{
 	border-bottom: none!important;
@@ -1473,8 +1478,10 @@ html.movie_1 .w_1200 .select_cinema ul li.active{
 	background: url(/images/index/img_login/xuanzhong.png) no-repeat;
 	background-size: 100% 100%;
 	box-shadow: 2px 2px 5px #bfbfbf;
-	border-top: 1px solid #b3b3b3;
+	/* border-top: 1px solid #b3b3b3; */
 }
+html.movie_1 .w_1200 .select_cinema ul li.active p.cinemaName_1{color:#333;font-weight:bold;}
+.select_cinema ul li p.cinemaName_1{font-size:16px;margin-bottom: 10px;color: #333333;}
 html.movie_1 .w_1200 .movie_xiangqing .select_cinema ul li {
 	cursor: pointer;
 	padding: 15px 0;
@@ -1493,19 +1500,22 @@ html.movie_1 .w_1200 .movie_xiangqing .select_cinema ul li {
 	background: #cccccc;
 	font-size: 16px;
 }
-#planList{overflow-y: auto;height: 487px;width: 681px;}
-#planList li{padding: 10px 0;}
+#planList{overflow-y: auto;height: 487px;width: 681px;color: #333333;font-size: 16px;}
+#planList li{border-bottom: 1px dashed #c3c3c3;padding: 18px 0;}
 .cinema_del .cinema_del_title span {
 	display:inline-block;
 	width: 129px;
 	text-align: center;
 	height: 42px;
 	line-height: 42px;
+	font-size: 14px;
+	color: #4c4c4c;
 }
 .movie_xiangqing .cinema_del .span_1 {
 	text-align: center;
 	display: inline-block;
 	width: 129px;
+	vertical-align: bottom;
 }
 .movie_xiangqing .cinema_del span.color_ff781e{
 	color: #ff781e;

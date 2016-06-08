@@ -303,7 +303,7 @@
 	padding: 15px;
 	font-size: 13px;
 	line-height: 1.8em;
-	height: 380px;
+	/* height: 380px; */
 	right: 0;
 }
 
@@ -416,6 +416,9 @@
 	font-size: 13px;
 	line-height: 1.8em;
 	right: 0;
+	/* height: 120px; */
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
 
 .i_date .i_datetab {
@@ -542,7 +545,7 @@
 }
 
 .i_date span.ting {
-	width: 180px
+	width: 170px;
 }
 
 .i_date span.mprice {

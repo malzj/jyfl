@@ -219,7 +219,7 @@
 				
 			// 图片地址替换
 			var details = $('.details').find('img');
-			var imagesthumb = $('.tempWrap').find('img');
+			var imagesthumb = $('.sport4_list').find('img');
 			
 			details.each(function(index,dom){
 				var src = ($(dom).attr('src'));

@@ -60,7 +60,7 @@ if($_REQUEST['act'] == 'order')
 	);
 
 	if ($arr_orderInfo['status'] > 3){
-		show_wap_message('抱歉，该演出不能购买');
+		show_message('抱歉，该演出不能购买');
 	}
 	if (empty($arr_orderInfo['best_time'])){
 		show_message('抱歉，请选择时间');
@@ -105,8 +105,13 @@ if($_REQUEST['act'] == 'order')
 			$var['shEndDateFormat']   = !empty($var['shEndDate']) ? local_date('Y-m-d H:i', $var['shEndDate']).'（周'.$arr_week[local_date('w', $var['shEndDate'])].'）' : '';
 			$var['statusZn']    = $arr_statusZN[$var['status']];
 			if ($var['specs']['spec']){
+			    if (count($var['specs']['spec']) == 1){
+			        $arr_temp[0] = $var['specs']['spec'];
+			    }else {
+			        $arr_temp = $var['specs']['spec'];
+			    }
 				$arr_spec = array();
-				foreach ($var['specs']['spec'] as $k=>$v){
+				foreach ($arr_temp as $k=>$v){
 					$arr_spec[$v['@attributes']['specId']]['specId']   = $v['@attributes']['specId'];
 					$arr_spec[$v['@attributes']['specId']]['specType'] = $v['@attributes']['specType'];
 					$arr_spec[$v['@attributes']['specId']]['price']    = $v['@attributes']['price'];
@@ -131,6 +136,7 @@ if($_REQUEST['act'] == 'order')
 	        if ($showtime['specs'][$_POST['specid']])
 	        {
 	            $is_ok = true;
+	            $arr_orderInfo['cost_price'] = $showtime['specs'][$_POST['specid']]['price'];
 	            $arr_orderInfo['layout'] = $showtime['specs'][$_POST['specid']]['layout'];
 	        }
 	    }
@@ -189,7 +195,7 @@ elseif ($_REQUEST['act'] == 'checkout')
 	}
 	
 	// 如果是自取，运费为0
-	if (ispick() === true)
+	if (ispick($arr_orderInfo) === true)
 	{
 	    $arr_shipping['shipping_fee']        = 0;
 	    $arr_orderInfo['take_way']     = '自取';
@@ -218,6 +224,8 @@ else if ($str_action == 'act_order'){
 	if (empty($arr_order)){
 		show_message('没有任何信息，请从新选择一个产品购买！');
 	}
+	
+	$ratio = get_card_rule_ratio($arr_order['cateId']);
 	
 	$arr_consignee = get_consignee($_SESSION['user_id']);//获取用户默认配送地址
 	if (empty($arr_consignee)){
@@ -299,9 +307,9 @@ else if ($str_action == 'act_order'){
 	$arr_itemInfo = object2array($obj_result);
 	
 	if (!empty($arr_itemInfo['error'])){
-		show_wap_message($arr_itemInfo['error']);
+		show_message($arr_itemInfo['error']);
 	}else{
-		$db->query('INSERT INTO ' .$ecs->table('yanchu_order'). " (order_sn, api_order_sn, user_id, user_name, consignee, address, order_status, itemid, itemname, sitename, storeId, storeName, specid, cateid, catename, mobile, tel, best_time, country, province, city, district, regionname, number, pay_id, pay_name, shipping_id, shipping_name, goods_amount, price, shipping_fee, order_amount, add_time, confirm_time, market_price,source, layout, take_way) VALUES ('".$arr_order['order_sn']."','".$arr_itemInfo['orderSn']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_consignee['consignee']."', '".$arr_consignee['address']."', '1', '".$arr_order['itemId']."', '".$arr_order['itemName']."', '".$arr_order['siteName']."', '".$arr_order['storeId']."', '".$arr_order['storeName']."', '".$arr_order['specid']."', '".$arr_order['cateId']."', '".$arr_order['catename']."', '".$arr_consignee['mobile']."', '".$arr_consignee['tel']."', '".$arr_order['best_time']."', '".$arr_consignee['country']."', '".$arr_consignee['province']."', '".$arr_consignee['city']."', '".$arr_consignee['district']."', '".$str_regionName."', '".$arr_order['number']."', '2', '华影支付', '1', '供货商物流', '".$arr_order['goods_amount']."', '".$arr_order['price']."', '".$arr_order['shipping_fee']."', '".$arr_order['amount']."', '".gmtime()."', '".gmtime()."', '".$arr_order['market_price']."',0, '".$arr_order['layout']."', '".$arr_order['take_way']."')");
+		$db->query('INSERT INTO ' .$ecs->table('yanchu_order'). " (order_sn, api_order_sn, user_id, user_name, consignee, address, order_status, itemid, itemname, sitename, storeId, storeName, specid, cateid, catename, mobile, tel, best_time, country, province, city, district, regionname, number, pay_id, pay_name, shipping_id, shipping_name, goods_amount, price, shipping_fee, order_amount, add_time, confirm_time, market_price,source, layout, take_way,card_ratio,api_price) VALUES ('".$arr_order['order_sn']."','".$arr_itemInfo['orderSn']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_consignee['consignee']."', '".$arr_consignee['address']."', '1', '".$arr_order['itemId']."', '".$arr_order['itemName']."', '".$arr_order['siteName']."', '".$arr_order['storeId']."', '".$arr_order['storeName']."', '".$arr_order['specid']."', '".$arr_order['cateId']."', '".$arr_order['catename']."', '".$arr_consignee['mobile']."', '".$arr_consignee['tel']."', '".$arr_order['best_time']."', '".$arr_consignee['country']."', '".$arr_consignee['province']."', '".$arr_consignee['city']."', '".$arr_consignee['district']."', '".$str_regionName."', '".$arr_order['number']."', '2', '华影支付', '1', '供货商物流', '".$arr_order['goods_amount']."', '".$arr_order['price']."', '".$arr_order['shipping_fee']."', '".$arr_order['amount']."', '".gmtime()."', '".gmtime()."', '".$arr_order['market_price']."',0, '".$arr_order['layout']."', '".$arr_order['take_way']."', '".$ratio."', '".$arr_order['cost_price']."')");
 		$int_orderId = $db->insert_id();
 	}
 
@@ -394,8 +402,8 @@ function ispick( $data=array() )
         $flow = $_SESSION['yc_flow_order']['flow'];
     else
         $flow = $data;
-
-    $oldTime = strtotime(local_date('Y-m-d',local_strtotime('+3 day', local_gettime())));
+    
+    $oldTime = strtotime(date('Y-m-d',strtotime('+3 day', local_gettime())));
     $ticketTime = strtotime($flow['best_time']);
     if ($ticketTime < $oldTime)
         return true;

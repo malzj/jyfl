@@ -33,6 +33,7 @@ if($_REQUEST['act'] == "index")
         $list[$key]['url'] = $value['url'];
         $list[$key]['name'] = $value['name'];
         $list[$key]['floor'] = $floor;
+        $list[$key]['id'] = $value['id'];
         $list[$key]['ad_list'][1] = attrAd($value['name'],1,29);
         $list[$key]['ad_list'][2] = attrAd($value['name'],2,29);
         $list[$key]['ad_list'][3] = attrAd($value['name'],3,29);

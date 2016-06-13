@@ -53,8 +53,11 @@
 					</div>
 				</div>
 				<div class="search_input f_r">
-					<input type="text" placeholder="输入蛋糕名称">
+                 <form action="category.php">                          
+					<input type="text" name="word" placeholder="请输入商品名称" value="{$keyword}">
+                    <input type="hidden" name="category" value="{$category}">
 					<i></i>	
+                </form>
 				</div>
 			</div>
 		</div>
@@ -67,7 +70,7 @@
             <!--组合搜索 结束-->
         
 			<div class="paixu o_hidden" id="goods_list">
-				<a href="{$script_name}.php?category={$category}#goods_list" class="paixu_box {if $pager.search.sort == 'sort_order'}active{/if}" style="border-left: 1px solid #ccc;">默认排序</a>
+				<a href="{$script_name}.php?category={$category}&filter_attr={$filter_attr}#goods_list" class="paixu_box {if $pager.search.sort == 'sort_order'}active{/if}" style="border-left: 1px solid #ccc;">默认排序</a>
 				<a href="{$script_name}.php?category={$category}{if $pager.search.keywords}&keywords={$pager.search.keywords}{/if}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=sales_num&order=DESC#goods_list" class="paixu_box {if $pager.search.sort == 'sales_num'}active{/if}">销量<span class="paixu_jiantou"></span></a>
 				<a href="{$script_name}.php?category={$category}{if $pager.search.keywords}&keywords={$pager.search.keywords}{/if}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=shop_price&order=DESC#goods_list" class="paixu_box {if $pager.search.sort == 'shop_price'}active{/if}">价格<span class="paixu_jiantou"></span></a>
 				<a href="{$script_name}.php?category={$category}{if $pager.search.keywords}&keywords={$pager.search.keywords}{/if}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=last_update&order=DESC#goods_list" class="paixu_box {if $pager.search.sort == 'last_update'}active{/if}">上架时间<span class="paixu_jiantou"></span></a>
@@ -95,6 +98,8 @@
 					</div>
 				</div>
                 {/if}
+                <!--{foreachelse}-->
+                <center style="height:100px; line-height:100px;">没有符合条件的商品！</center>
 				<!--{/foreach}-->
 			</div>
 		</div>

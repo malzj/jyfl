@@ -180,7 +180,7 @@ class UserController extends Controller
       $telphone = $_REQUEST['tel'];
       $verify = mt_rand(123456,999999);
       $smsvrerifyapi = new smsvrerifyApi();
-      $data = $smsvrerifyapi->smsvrerify($telphone,$verify,1);
+      $data = $smsvrerifyapi->smsvrerify($telphone,$verify,1,'聚优福利');
       if($data == 0){
         $rudata['data'] = $data;
         $data = array();
@@ -487,7 +487,6 @@ class UserController extends Controller
       $data['zipcode'] = $zipcode;
       $data['consignee'] = $consignee;
       $data['mobile'] = $tel;
-      print_r($data);die();
       if($user_id != $arr_address['user_id']){
         $rudata['result'] = "false";
         $rudata['msg'] = "失败";

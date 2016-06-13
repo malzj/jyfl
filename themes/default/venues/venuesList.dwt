@@ -40,8 +40,9 @@
             	 	<strong style="color: black;">关键字</strong>
             	 </div>
             	 <div class="venues_search_form">
-            	 <form class="f_l">
-            	 	<input placeholder="请输入搜索关键字">
+            	 <form action="venues.php" class="f_l" method="get">
+            	 	<input placeholder="请输入搜索关键字" name="keywords" value="{if $keyword} {$keyword} {/if}">
+                    <input type="hidden" name="type" value="{$typeId}">
             	 </form>	
             	 <i></i>
             	 </div>

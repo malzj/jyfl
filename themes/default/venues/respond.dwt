@@ -16,7 +16,7 @@
 			</div>
 			<div class="pay_success">
 				<h3><img src="/images/index/img_login/yes_icon.png">订单支付成功</h3>
-				<div class="btn1" style="display:block;"><a href="{$app_path}" style="margin-right: 20px;">返回首页</a><a href="javascript:;" style="color: #2fd0b5;">我的订单</a></div>
+				<div class="btn1" style="display:block;"><a href="{$app_path}" style="margin-right: 20px;">返回首页</a><a href="user.php?act=venues_order" style="color: #2fd0b5;">我的订单</a></div>
 				<div class="tips">
 						<ul>
 							<li>温馨提示：</li>	

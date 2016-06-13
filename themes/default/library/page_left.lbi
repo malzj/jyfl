@@ -151,6 +151,6 @@
 				});
 			}
 			$('#shopping_amount').text(shopping_amount);
-//			禁止a链接跳转
-			$('a').attr('target','_self');
+			
+			$('a').attr('target','_self');//禁止a链接跳转
 </script>

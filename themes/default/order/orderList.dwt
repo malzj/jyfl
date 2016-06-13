@@ -41,7 +41,7 @@
 						<div class="my_order_detailsAll o_hidden">
 							<div class="my_order_details f_l">
 								<div class="my_order_details_img f_l">
-									<img src="{$good.goods_thumb}">
+									<img src="{$good.goods_thumb|pathimages}">
 								</div>
 								<div class="my_order_details_content f_l">
 									<div class="my_order_details_name">{$good.goods_name}</div>

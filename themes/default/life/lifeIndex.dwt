@@ -67,7 +67,7 @@
 			<div class="shenghuo_pinpai o_hidden">
 				<ul class="shenghuo_pinpai_all o_hidden ">
                 {foreach from=$list item=row}
-					<li class="f_l"><a href="{$row.url}"><img src="{$app_path}images/juyoufuli/img_login/shenghuo_top.png"></a>
+					<li class="f_l"><a href="{$row.url}"><img src="{$app_path}images/juyoufuli/brand/file-{$row.id}.jpg"></a>
 						<p class="shenghuo_top_title"><a href="{$row.url}">{$row.name}</a></p>
 					</li>
 				{/foreach}	

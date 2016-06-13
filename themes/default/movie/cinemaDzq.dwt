@@ -18,10 +18,10 @@
 			<div class="select_area">
 				<div class="title">选择城区：</div>
 				<ul>
-					<li><a href="#">热门影院</a></li>
-					<li><a href="#">全部影院</a></li>
+					<li><a href="movie.php?step=cinemaDzq&area=hot" {if $type eq 'hot'}class="active"{/if}>热门影院</a></li>
+					<li><a href="movie.php?step=cinemaDzq&area=all" {if $type eq 'all'}class="active"{/if}>全部影院</a></li>
 					{foreach from=$arealist item=area}
-					<li><a href="movie.php?step=cinemaDzq&area={$area.areaNo}"{if $type eq $area.areaNo} class="acitve"{/if}>{$area.areaName}（{$area.count}）</a></li>
+					<li><a href="movie.php?step=cinemaDzq&area={$area.areaNo}"{if $type eq $area.areaNo} class="active"{/if}>{$area.areaName}（{$area.count}）</a></li>
                     {/foreach}
 				</ul>
 			</div>

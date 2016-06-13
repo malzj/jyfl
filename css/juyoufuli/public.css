@@ -503,7 +503,7 @@ html.login .pop_right{transform: translateX(0);}
 /*左侧边栏*/
 .pop_left ul li .li_img:hover {
 	cursor: pointer;
-	opacity: 0.4;
+	/* opacity: 0.4; */
 }
 
 .pop_left ul li.order {
@@ -513,7 +513,7 @@ html.login .pop_right{transform: translateX(0);}
 	border-top-right-radius:10px;
 }
 .pop_left ul li.active .li_img {
-	opacity: 0.7;
+	/* opacity: 0.7; */
 	color: #2fd0b5!important;
 }
 
@@ -730,7 +730,7 @@ html.movie .reying .reying_news {
 	text-align: center;
 	color: #707070;
 	font-size: 14px;
-	margin: 10px 0;
+	margin: 7px 0;
 }
 
 html.movie .w_1200 .reying_show .reying_img,
@@ -772,7 +772,7 @@ html.movie .w_1200 .reying_show .reying_show2 .mark i {
 html.movie .w_1200 .reying_show .reying_show2 .mark {
 	position: absolute;
 	top: 35px;
-	right: 25px;
+	right: 40px;
 }
 
 html.movie .w_1200 .reying_show .reying_show2 .buy a {
@@ -781,7 +781,7 @@ html.movie .w_1200 .reying_show .reying_show2 .buy a {
 	text-align: center;
 	width: 110px;
 	height: 35px;
-	background: #27c7ac;
+	background: #2fd0b5;
 	border-radius: 20px;
 	color: white;
 	position: absolute;
@@ -842,7 +842,7 @@ a {
 
 .fullSlide .bd li {
 	/* background-size: 100% 100%!important; */
-	width: 100% !important;
+	/* width: 100% !important; */
 	height: 410px;
 	/* overflow:hidden; */
 	text-align: center;
@@ -949,7 +949,7 @@ html.movie .reying .movie_list .bd .title .buy a {
 	text-align: center;
 	width: 95px;
 	height: 30px;
-	background: #27c7ac;
+	background: #2fd0b5;
 	border-radius: 20px;
 	color: white;
 }
@@ -1245,7 +1245,7 @@ html.movie_1 .w_1200 {
 	/* margin-top: 90px; */
 	padding-top: 90px;
 }
-html.movie_1 .town ul li.active{background: white;background: url(/images/index/img_login/xuanzhong.png) no-repeat;background-size: 100% 100%;border-top: 1px solid #b3b3b3;}
+html.movie_1 .town ul li.active{background: white;background: url(/images/juyoufuli/img_login/xuanzhong_1.png) no-repeat!important;background-size: 100% 100%!important;/* border-top: 1px solid #b3b3b3; */color: #333333;font-weight: bold;}
 
 html.movie_1 .w_1200 .reying_show .reying_img,
 .reying_show1 {
@@ -1433,6 +1433,8 @@ html.movie_1 .w_1200 .movie_xiangqing .town h3 {
 	font-size: 16px;
 	text-align: center;
 	background: #cccccc;
+	border-right: 1px solid #b3b3b3;
+	color: #333333;
 }
 
 html.movie_1 .w_1200 .movie_xiangqing .town ul {
@@ -1445,27 +1447,30 @@ html.movie_1 .w_1200 .movie_xiangqing .town ul {
 html.movie_1 .w_1200 .movie_xiangqing .town ul li {
 	cursor: pointer;
 	padding: 16px 0;
+	color: #333333;
 }
-html.movie_1 .w_1200 .movie_xiangqing .town ul li:hover {
-}
+html.movie_1 .w_1200 .movie_xiangqing .town ul li:hover {background: white;color: #2fd0b5;}
 
 html.movie_1 .w_1200 .movie_xiangqing .select_cinema {
 	float: left;
 	width: 350px;
 	height: 530px;
 }
-
+.select_cinema li:hover{background:white;}
 html.movie_1 .w_1200 .movie_xiangqing .select_cinema h3 {
 	padding: 10px 0;
 	font-size: 16px;
 	text-align: center;
 	background: #cccccc;
+	border-right: 1px solid #b3b3b3;
+	color: #333333;
 }
 
 html.movie_1 .w_1200 .movie_xiangqing .select_cinema ul {
 	height: 487px;
 	overflow-y: auto;
 	background: #ededed;
+	border-right: 1px solid #D2CECE;
 }
 html.movie_1 .w_1200 .select_cinema ul li.active{
 	border-bottom: none!important;
@@ -1473,8 +1478,10 @@ html.movie_1 .w_1200 .select_cinema ul li.active{
 	background: url(/images/index/img_login/xuanzhong.png) no-repeat;
 	background-size: 100% 100%;
 	box-shadow: 2px 2px 5px #bfbfbf;
-	border-top: 1px solid #b3b3b3;
+	/* border-top: 1px solid #b3b3b3; */
 }
+html.movie_1 .w_1200 .select_cinema ul li.active p.cinemaName_1{color:#333;font-weight:bold;}
+.select_cinema ul li p.cinemaName_1{font-size:16px;margin-bottom: 10px;color: #333333;}
 html.movie_1 .w_1200 .movie_xiangqing .select_cinema ul li {
 	cursor: pointer;
 	padding: 15px 0;
@@ -1493,19 +1500,22 @@ html.movie_1 .w_1200 .movie_xiangqing .select_cinema ul li {
 	background: #cccccc;
 	font-size: 16px;
 }
-#planList{overflow-y: auto;height: 487px;width: 681px;}
-#planList li{padding: 10px 0;}
+#planList{overflow-y: auto;height: 487px;width: 681px;color: #333333;font-size: 16px;}
+#planList li{border-bottom: 1px dashed #c3c3c3;padding: 18px 0;}
 .cinema_del .cinema_del_title span {
 	display:inline-block;
 	width: 129px;
 	text-align: center;
 	height: 42px;
 	line-height: 42px;
+	font-size: 14px;
+	color: #4c4c4c;
 }
 .movie_xiangqing .cinema_del .span_1 {
 	text-align: center;
 	display: inline-block;
 	width: 129px;
+	vertical-align: bottom;
 }
 .movie_xiangqing .cinema_del span.color_ff781e{
 	color: #ff781e;
@@ -2179,6 +2189,7 @@ html.huaju1 .w_1200 .huaju_box .box_xinxi li .piaojia .piaojia_item{
 	cursor: pointer;
 	margin-bottom: 10px;
 }
+html.huaju1 .w_1200 .huaju_box .box_xinxi li .piaojia{width:560px;}
 html.huaju1 .w_1200 .huaju_box .box_xinxi li .piaojia .piaojia_item.active{
 	background: #2fd0b5;
 	color: white;
@@ -2268,7 +2279,7 @@ html.huaju2 .w_1200 .goupiaoxinxi .xinxi_right ul li{
 	color: #565656;
 	margin: 10px 0;
 }
-html.huaju2 .w_1200 .goupiaoxinxi .xinxi_right{margin-right: 200px;margin-top: 20px;}
+html.huaju2 .w_1200 .goupiaoxinxi .xinxi_right{margin-right: 200px;margin-top: 10px;}
 .shouhuo{margin: 30px 0;font-size:16px;color: #2ed2c1;font-weight: bold;}
 .shouhuoren .shouhuo_title{overflow: hidden;}
 .shouhuoren .shouhuo_title .shouhuorenxinxi{/* font-weight: 600; */font-size: 14px;color: #333333;}
@@ -2819,9 +2830,10 @@ html.shenghuo1 body{background: white;}
 
 /*继续购物弹层样式*/
 .continue_buy .layui-layer-content{background-color:rgba(1,1,1,0.9) ;}
-.continue_buy .layui-layer-content .movie{float:left;/* width: 500px; */text-align: center;padding: 10px;margin: 25px 0;}
-.continue_buy .layui-layer-content .movie div{cursor: pointer;}
-.continue_buy .layui-layer-content .movie div span{height: 30px;display:block;}
+.continue_buy .layui-layer-content .movie{float:left;/* width: 500px; */text-align: center;padding: 10px;margin: 10px 0 0;}
+.continue_buy .layui-layer-content .movie div{cursor: pointer;width: 70px;height: 70px;background: #4d4d4d;border-radius: 50%;}
+.continue_buy .layui-layer-content .movie div:hover{color:#2fd0b5;}
+.continue_buy .layui-layer-content .movie div span{height: 25px;display:block;padding-top: 10px;}
 
 .floor_more{color: #2fd0b5!important;margin-right: 20px;margin-top: 15px;}
 .paixu_jiantou{background: url(/images/juyoufuli/img_login/paixu_jiantou.png) no-repeat 0px 3px;display: inline-block;width: 13px;height: 16px;}

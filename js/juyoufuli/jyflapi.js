@@ -389,7 +389,6 @@ function showAddress(){
 			if(data.result=='true'){
               var list = data.business.result;
 				if(!jQuery.isEmptyObject(data.business.result)){
-				//if(data.business.result!=null||data.business.result!='undefined'){
 					var num = [data.business.result.length];
 
 					  for (var i = 0; i <num; i++) {

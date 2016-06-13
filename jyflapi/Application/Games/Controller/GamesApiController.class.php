@@ -187,6 +187,9 @@ class GamesApiController extends Controller
             $wdata['lottery'] = $winner_num;
             $wdata['create_time'] = date('Y-m-d H:i:s',time());
             $wre = $Model ->table('__WINNERS_LIST__') -> data($wdata) -> add();
+            $userInfo = $Model->table('__USERS__')->where(array('user_name'=>$wdata['card_num']))->find();
+            $content = !empty($userInfo['nickname'])?$userInfo['nickname']:''."先生/女士，您的卡号".$wdata['card_num']."获得".$game_info['game_name']."第".
+                date('Ymd',strtotime($game_info['create_time']))."期奖品，中奖号码为".$winner_num."，请登录网站查看详细信息！";
             if($wre !== false){
                 $rudata['result'] = 'true';
                 $rudata['msg'] = '抢购成功！';
@@ -212,9 +215,6 @@ class GamesApiController extends Controller
             $Model -> table('__USERS__')->where('user_name')->data(array('card_money'=>$jydata['Points']))->save();
             $Model -> commit();
             $Smsvrerify = new smsvrerifyApi();
-            $userInfo = $Model->table('__USERS__')->where(array('user_name'=>$wdata['card_num']))->find();
-            $content = !empty($userInfo['nickname'])?$userInfo['nickname']:''."先生/女士，您的卡号".$wdata['card_num']."获得".$game_info['game_name']."第".
-                date('Ymd',strtotime($game_info['create_time']))."期奖品，中奖号码为".$winner_num."，请登录网站查看详细信息！";
 
             $rudata['result'] = 'true';
             $rudata['msg'] = '抢购成功！';

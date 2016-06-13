@@ -385,16 +385,22 @@ function showAddress(){
 		data:{user_id:user_id},
 		dataType:"json",
 		success:function(data){
+			  console.log(data);
 			if(data.result=='true'){
-              var num = [data.business.result.length];
               var list = data.business.result;
-              for (var i = 0; i <num; i++) {
-              	//list[i]
-              	 var html='<tr><td class="td_1">'+list[i].consignee+'</td><td>'+list[i].country+list[i].province+list[i].city+list[i].address+'</td><td class="td_3">'+list[i].mobile+'</td><td class="gn_btn"><span onclick="delAddress('+list[i].address_id+')">删除</span><span class="xiugai" onclick="saveAddress('+list[i].address_id+')">修改</span></td></tr>';
-            htmlshouhuolist+=html;
-              }
-			return ;
+				if(!jQuery.isEmptyObject(data.business.result)){
+				//if(data.business.result!=null||data.business.result!='undefined'){
+					var num = [data.business.result.length];
+
+					  for (var i = 0; i <num; i++) {
+						//list[i]
+							var html='<tr><td class="td_1">'+list[i].consignee+'</td><td>'+list[i].country+list[i].province+list[i].city+list[i].address+'</td><td class="td_3">'+list[i].mobile+'</td><td class="gn_btn"><span onclick="delAddress('+list[i].address_id+')">删除</span><span class="xiugai" onclick="saveAddress('+list[i].address_id+')">修改</span></td></tr>';
+						htmlshouhuolist+=html;
+
+					  }
 			}
+			return ;
+		  }
 		},
 		});
     var index = layer.open({

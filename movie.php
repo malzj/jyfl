@@ -483,7 +483,7 @@ elseif ($_REQUEST['step'] == "seatAjax")
 	
 	$seatQuery = new seatQueryInfo($setField);
 	$seatInfo = $seatQuery->getSeatInfo($arr_result['seats']);
-	$allWidth = max($seatQuery->getField('colsCount')) * 24 + 20;	
+	$allWidth = max($seatQuery->getField('colsCount')) * 40 + 20;	
 	
 	$smarty->assign('allwidth',		$allWidth);
 	$smarty->assign('seatInfo',     $seatInfo);   //座位信息

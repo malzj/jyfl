@@ -25,7 +25,7 @@
                     {/foreach}
 				</ul>
 			</div>
-			<div class="reying_bg">影院列表</div>
+			<div class="reying_bg"></div>
 			<div class="select_buy">
             
             {foreach from=$dzq item=item}

@@ -145,9 +145,9 @@
 				skin:'continue_buy',
 		        type: 1,
 		        title:false,
-		        //area:['570px','415px'],
+		        area:['570px','350px'],
 		        shadeClose: false, //点击遮罩关闭
-		        content:'<ul class="list_1">{foreach from=$navigator_list.middle item=nav name=foo}<li class="movie" onClick=window.location="{$nav.url}"><div><span class="movie_1"><img src="{$app_path}images/juyoufuli/icon/nav-{$nav.id}.png"></span><i>{$nav.name}</i></div></li>{/foreach}</ul>'
+		        content:'<ul class="list_1" style="width: 450px;margin: 20px auto;">{foreach from=$navigator_list.middle item=nav name=foo}<li class="movie" onClick=window.location="{$nav.url}"><div><span class="movie_1"><img src="{$app_path}images/juyoufuli/icon/nav-{$nav.id}.png"></span><i>{$nav.name}</i></div></li>{/foreach}</ul>'
 		      })
 		})
 		</script>

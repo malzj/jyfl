@@ -220,14 +220,14 @@ class UserController extends Controller
         if($Dao->create($data)){
           $Dao->where("user_id=".$id)->save();
           $rudata['result'] = "true";
-          $rudata['msg'] = "成功";
+          $rudata['msg'] = "绑定手机成功！";
         }else{
           $rudata['result'] = "false";
-          $rudata['msg'] = "失败";
+          $rudata['msg'] = "绑定手机失败！";
         }
       }else{
         $rudata['result'] = "false";
-        $rudata['msg'] = "验证码超时！";
+        $rudata['msg'] = "验证码错误！";
       }
       $jsondData = json_encode($rudata);
       echo $jsondData;

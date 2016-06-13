@@ -487,7 +487,6 @@ class UserController extends Controller
       $data['zipcode'] = $zipcode;
       $data['consignee'] = $consignee;
       $data['mobile'] = $tel;
-      print_r($data);die();
       if($user_id != $arr_address['user_id']){
         $rudata['result'] = "false";
         $rudata['msg'] = "失败";

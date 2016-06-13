@@ -96,6 +96,7 @@ $smarty->assign('area_list', $areaList);
 $smarty->assign('venues_type', $venues);
 $smarty->assign('list', $data);
 $smarty->assign('pager', $pager);
+$smarty->assign('keyword', $keyWord);
 $smarty->display('venues/venuesList.dwt');
 
 // 获得场馆项目

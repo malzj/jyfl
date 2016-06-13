@@ -193,7 +193,7 @@ $(function(){
                     '<a id="increment" class="increment" onclick="numadd()">+</a></div></div>' +
                     '<div class="all_price font-16 color_zhuti">共<span id="price">'+data.game_info.point+'</span>点</div>' +
                     '<div class="qianggou_password_box">' +
-                    '<input type="password" name="password" class="qianggou_password" placeholder="请输入聚优密码" onkeydown="return globelQuery(event);">' +
+                    '<input type="password" name="password" class="qianggou_password" placeholder="请输入聚优密码"">' +
                     '<button id="">确定</button></div></form>' +
                     '</div></div>' +
                     '<div class="yigou_name">' +

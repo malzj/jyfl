@@ -306,7 +306,7 @@ function boundPhone(user_id,tel,captcha){
 			}else{
 				layer.closeAll();
 				// showSafeCenter();
-				layer.msg(data.msg);
+				layer.msg("手机绑定失败！");
 			}
 
 		}

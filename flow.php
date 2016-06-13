@@ -1363,7 +1363,20 @@ elseif ($_REQUEST['step'] == 'done')
         show_message($_LANG['no_goods_in_cart'], '', '', 'warning');
     }
 	
-	
+	/* 检测运费是否正确*/
+    foreach ($_POST['sup'] as $supval)
+    {
+        if ($supval == -1)
+        {
+            show_message('您选择的地址不支持配送，请从新选择','','','warning');
+            exit;
+        }
+        if ($supval == '')
+        {
+            show_message('请设置一个有效的收货地址！','','','warning');
+            exit;
+        }
+    }
 
     /* 检查商品库存 */
     /* 如果使用库存，且下订单时减库存，则减少库存 */

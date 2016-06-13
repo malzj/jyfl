@@ -18,7 +18,7 @@
 				<div class="order_success_img">
 					<img src="/images/juyoufuli/img_login/order_success_img.png">
 				</div>
-				<div class="btn1" style="display:block;"><a href="{$app_path}" style="margin-right: 20px;">返回首页</a><a href="javascript:;" style="color: #2fd0b5;">我的订单</a></div>
+				<div class="btn1" style="display:block;"><a href="{$app_path}" style="margin-right: 20px;">返回首页</a><a href="user.php?act=order_list" style="color: #2fd0b5;">我的订单</a></div>
 				<div class="tips">
 						<ul>
 							<li>温馨提示：</li>	

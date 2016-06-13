@@ -495,18 +495,23 @@ function orderSelectedResponse(result){
 
 //检查提交的订单表单
 function checkOrderForm(frm, from){
+	var shippingMsg = '';
 	$('.supplier-one').each(function(){
 		if($(this).val() == ''){
-			alert('每个供应商需要设置一个收货地址，请设置！');
+			shippingMsg = '每个供应商需要设置一个收货地址，请设置！';
 			return false;
 		}
 		
 		if($(this).val() == '-1'){
-			alert('收货地址不支持配送，请返回修改！');
+			shippingMsg = '收货地址不支持配送，请返回修改！';
 			return false;
-		}
-		
+		}	
 	});
+	
+	if(shippingMsg != ''){
+		alert(shippingMsg);
+		return false;
+	}
 	
 	var st = 0;
 	$('.peisong_check').each(function(){		

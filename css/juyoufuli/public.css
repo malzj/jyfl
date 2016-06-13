@@ -1273,7 +1273,7 @@ html.movie_1 .w_1200 .reying_show .reying_show1 ul li span {
 
 html.movie_1 .w_1200 .reying_show .title {
 	font-size: 24px;
-	color: #27c7ac;
+	color: #2fd0b5;
 }
 
 html.movie_1 .w_1200 .reying_show .reying_show2 .mark i {
@@ -1343,7 +1343,7 @@ html.movie_1 .xuanzuo .movie_list .bd .title .buy {
 	text-align: center;
 	width: 95px;
 	height: 30px;
-	background: #27c7ac;
+	background: #2fd0b5;
 	border-radius: 20px;
 	color: white;
 }
@@ -1474,7 +1474,7 @@ html.movie_1 .w_1200 .movie_xiangqing .select_cinema ul {
 }
 html.movie_1 .w_1200 .select_cinema ul li.active{
 	border-bottom: none!important;
-	margin: 5px 0;
+	/* margin: 5px 0; */
 	background: url(/images/index/img_login/xuanzhong.png) no-repeat;
 	background-size: 100% 100%;
 	box-shadow: 2px 2px 5px #bfbfbf;
@@ -1516,24 +1516,26 @@ html.movie_1 .w_1200 .movie_xiangqing .select_cinema ul li {
 	display: inline-block;
 	width: 129px;
 	vertical-align: bottom;
+	vertical-align: middle;
 }
 .movie_xiangqing .cinema_del span.color_ff781e{
 	color: #ff781e;
 }
 .movie_xiangqing .cinema_del .buy span{
 	display: inline-block;
-	background: #27c7ac;
+	background: #2fd0b5;
 	color: white;
-	padding: 3px 10px;
+	padding: 4px 20px;
 	border-radius: 20px;
 	cursor: pointer;
+	font-size: 14px;
 	}
 .movie_xiangqing .cinema_del table tbody tr{border-bottom: 1px dotted #dbdbdb;}
 html.movie_1 .w_1200 .movie_xiangqing .cinema_all{overflow: hidden;}
 html.movie_1 .w_1200 .movie_xiangqing .reying_bg{color:#fe8238}
 html.movie_1 .w_1200 .movie_xiangqing .jieshao_img{float: left;}
 html.movie_1 .w_1200 .movie_xiangqing .jieshao_details{width: 950px;float: left;margin-left: 20px;}
-html.movie_1 .w_1200 .movie_xiangqing .jieshao_details li h3{font-size: 24px; color: #27c7ac;float: left;}
+html.movie_1 .w_1200 .movie_xiangqing .jieshao_details li h3{font-size: 24px;color: #2fd0b5;float: left;}
 html.movie_1 .w_1200 .movie_xiangqing .jieshao_details li{overflow: hidden;margin: 12px 0;}
 html.movie_1 .w_1200 .movie_xiangqing .jieshao_details li .myxin{background: url(/images/index/img_login/star.png) no-repeat transparent 0px 0px;float: right;height: 25px;width: 118px;}
 html.movie_1 .w_1200 .movie_xiangqing .jieshao_details li .myxin2{background: url(/images/index/img_login/star.png) no-repeat 0px -56px transparent;float: left;height: 25px;width: 70%;}
@@ -1542,12 +1544,11 @@ html.movie_1 .w_1200 .movie_xiangqing .jieshao_details .jieshao{width: 790px;}
 
 
 /*movie_2.html*/
-html.movie_2 body{}
 html.movie_2 .w_1200 .pay_del{margin: 0 auto;margin-top: 100px;background: url(/images/index/img_login/pay_del.png) no-repeat;height: 100px;width: 1025px;margin-bottom: 30px;}
-html.movie_2  .content_left{float: left;width: 900px;}
+html.movie_2  .content_left{float: left;width: 900px;overflow: auto;}
 html.movie_2  .content_right{float: right;width: 290px;background: white;height: 788px;}
-html.movie_2  .content_right .querenxinxi{background: #47ebcf;color: white;text-align: center;height: 35px;line-height: 35px;}
-html.movie_2  .content_left .xuanzuo{border: 1px solid #ff781e;border-bottom: none;}
+html.movie_2  .content_right .querenxinxi{background: #2fd0b5;color: white;text-align: center;height: 35px;line-height: 35px;}
+html.movie_2  .content_left .xuanzuo{border: 1px solid #ff781e;border-bottom: none;overflow: auto;}
 html.movie_2  .content_left .zhuyi{letter-spacing: 2px;border: 1px solid #ff781e;padding: 20px 30px;}
 html.movie_2  .content_right .pay_box{padding: 25px;}
 html.movie_2  .content_right .pay_box .img_left{float: left;}
@@ -1555,10 +1556,10 @@ html.movie_2  .content_right .pay_box .xiangqing{float:right;}
 html.movie_2  .content_right .pay_box .xiangqing li{margin-right: 20px;margin-bottom: 10px;padding: 3px;}
 html.movie_2  .content_right .pay_box ul.yingyuan_del li{padding: 5px 0;}
 html.movie_2  .content_right .pay_box ul.yingyuan_del{margin-top: 20px;}
-html.movie_2  .content_right .pay_box .heji{border-bottom: 1px dashed;}
-html.movie_2  .content_right .pay_box .zongjia{float: right;}
+html.movie_2  .content_right .pay_box .heji{border-bottom: 1px dashed;margin-top: 80px;}
+html.movie_2  .content_right .pay_box .zongjia{float: right;margin-bottom: 40px;}
 html.movie_2  .content_right .pay_box .tel_shuru input{padding: 5px 20px;}
-html.movie_2  .content_right .pay_box .tel_shuru #mobile{margin-top: 5px;padding: 0 5px;}
+html.movie_2  .content_right .pay_box .tel_shuru #mobile{margin-top: 10px;padding: 0 5px;margin-bottom: 5px;}
 html.movie_2  .content_right .pay_box .tel_shuru .tijiao span{margin-top: 20px;background: #fd9d47;display: inline-block;width: 100px;color: white;border-radius: 5px;text-align: center;line-height: 35px;cursor: pointer;}
 html.movie_2  .content_right .pay_box .tel_shuru .tijiao{text-align: center;}
 html.movie_2  .content_right .pay_box ul.yingyuan_del li.zuowei_on{height: 100px;}

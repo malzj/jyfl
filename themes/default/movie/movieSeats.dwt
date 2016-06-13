@@ -9,7 +9,7 @@
         <style type="text/css">			
 
 			.tips .seat-intro {padding-right: .5em;text-align: center;}			
-			.tips {overflow: hidden;min-height: 34px;line-height: 34px;}
+			.tips {min-height: 34px;line-height: 34px;}
 			.tips .seat-intro li {float: left;width: 25%;}			
 			.tips .seat-intro .seat {margin: 0 3px;vertical-align: -2px;}
 			
@@ -27,9 +27,9 @@
 			.c-tips {margin-top:25px;margin-bottom:10px;height: 16px;line-height: 16px;background: #f0f0f0;}
 				
 			.map-row .number-row{ width:20px;   font-weight: 600; font-size:15px;}
-			.map-row .seat-row{ overflow:scroll; width:auto; }
+			.map-row .seat-row{ width:auto; }
 			.act-phone{padding-top:15px; border-bottom:1px #dfdfdf solid;}
-			::-webkit-scrollbar{display: none; }
+			/*::-webkit-scrollbar{display: none; }*/
 			
 			.plan-price{position:absolute; top:0; right:0; height:60px; line-height:60px; margin:0; color:#FC7E2C; font-size:16px;}
 			.disabled-seat{ height: 62px;line-height: 60px;font-size: 16px; text-align:center;}
@@ -37,9 +37,9 @@
 			.wenxin_tips{background:#fffdd3;padding: 0 15px;}
 			.yinmu{width: 610px;height: 40px;text-align: center;margin: 20px auto;background: url(/images/juyoufuli/img_login/yinmu.png) no-repeat;}
  			.cf{margin: 20px 0;}  
- 			.select-seat{padding: 5px;border: 1px solid #ddd;border-radius: 5px;display: inline-block;margin-right: 5px;margin-top: 5px;}
+ 			.select-seat{padding: 5px;border: 1px solid #ddd;border-radius: 5px;display: inline-block;margin-right: 5px;margin-top: 5px;color: black;}
  			.btn-danger{margin-top: 10px;}
- 			     
+ 			/*.map-row{overflow: auto;}    */
         </style>
     
 
@@ -71,7 +71,7 @@
                         </div>
 						
                         <!-- 加载座位图 -->    
-    					<div class='seatmap' style="overflow:scroll;">
+    					<div class='seatmap' style="overflow:auto;">
                             <center style="height:150px; line-height:150px;">加载中...</center>
                         </div>
             
@@ -99,9 +99,9 @@
 						<img src="{$planInfo.movie.pathVerticalS}" width="90">
 					</div>
 					<ul class="xiangqing">
-						<li style="width:110px;">{$planInfo.movie.movieName}</li>
+						<li style="width:110px;color: black;font-size: 16px;">{$planInfo.movie.movieName}</li>
 						<li class="">
-							语言版本：:<span>{$planInfo.language}</span>
+							语言版本：<span>{$planInfo.language}</span>
 						</li>
 						<li>
 						时长：<span>{$planInfo.movie.movieLength} 分钟</span>
@@ -109,20 +109,20 @@
 					</ul>
 					</div>
 					<ul class="yingyuan_del">
-						<li>影院：<span>{$planInfo.cinema.cinemaName}</span></li>
-						<li>影厅：<span>{$planInfo.hallName}</span></li>
-						<li>售价：<span style="color:orange;">{$planInfo.price}</span>点</li>
-						<li>场次：<span style="color:orange;">{$planInfo.featureTimeStr}</span></li>
+						<li>影院：<span style="color: black;">{$planInfo.cinema.cinemaName}</span></li>
+						<li>影厅：<span style="color: black;">{$planInfo.hallName}</span></li>
+						<li>售价：<span style="color:#ff781e;font-size: 16px;">{$planInfo.price}</span><span style="color: black;">点</span></li>
+						<li>场次：<span style="color:#ff781e;font-size: 16px;">{$planInfo.featureTimeStr}</span></li>
 						<li class="zuowei_on2">所选座位：<div class="zuowei_on"></div></li>
 					</ul>
 					<div style="overflow: hidden;">
 					<div class="heji" style="line-height: 30px;">
 						合计：<span>{$planInfo.price}</span>点 * <span class="seatsCount">0</span>
 					</div>
-					<div class="zongjia" style="line-height: 30px;">总价：<span class="init-price" style="color:orange;"> 0 </span>点</div>
+					<div class="zongjia" style="line-height: 30px;">总价：<span class="init-price" style="color:#ff781e;"> 0 </span>点</div>
 					</div>
 					<div class="tel_shuru">
-						<div>请输入取票手机号码</div>
+						<div style="color: black;">请输入取票手机号码</div>
                         <form action="movie_order.php" method="post" name="orderForm" onsubmit="return checkOrderForm(this);">
 						<input type="text" class="form-control" name="mobile" id="mobile" placeholder="请输入手机号，接收取票密码">
                         <input type="hidden" name="act" value="order" />

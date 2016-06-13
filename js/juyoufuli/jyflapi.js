@@ -1,5 +1,5 @@
    // var api_url ="http://192.168.1.161/jyflapi/";
-   var api_url ="http://1.93.129.186/jyflapi/";
+   var api_url ="http://www.juyoufuli.com/jyflapi/";
 //var api_url ="http://127.0.0.1:8025/jyflapi/";
 function userShow(data){
 	var user_id = data;
@@ -385,16 +385,21 @@ function showAddress(){
 		data:{user_id:user_id},
 		dataType:"json",
 		success:function(data){
+			  console.log(data);
 			if(data.result=='true'){
-              var num = [data.business.result.length];
               var list = data.business.result;
-              for (var i = 0; i <num; i++) {
-              	//list[i]
-              	 var html='<tr><td class="td_1">'+list[i].consignee+'</td><td>'+list[i].country+list[i].province+list[i].city+list[i].address+'</td><td class="td_3">'+list[i].mobile+'</td><td class="gn_btn"><span onclick="delAddress('+list[i].address_id+')">删除</span><span class="xiugai" onclick="saveAddress('+list[i].address_id+')">修改</span></td></tr>';
-            htmlshouhuolist+=html;
-              }
-			return ;
+				if(!jQuery.isEmptyObject(data.business.result)){
+					var num = [data.business.result.length];
+
+					  for (var i = 0; i <num; i++) {
+						//list[i]
+							var html='<tr><td class="td_1">'+list[i].consignee+'</td><td>'+list[i].country+list[i].province+list[i].city+list[i].address+'</td><td class="td_3">'+list[i].mobile+'</td><td class="gn_btn"><span onclick="delAddress('+list[i].address_id+')">删除</span><span class="xiugai" onclick="saveAddress('+list[i].address_id+')">修改</span></td></tr>';
+						htmlshouhuolist+=html;
+
+					  }
 			}
+			return ;
+		  }
 		},
 		});
     var index = layer.open({

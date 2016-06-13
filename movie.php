@@ -110,6 +110,16 @@ elseif ($_REQUEST['step'] == "movie")
 		}		
 	}	
 	
+	// 正在上映影片的，上映时间格式化
+	foreach ($arr_data as $key=>$val)
+	{
+	    $arr_data[$key]['publishTime_cn'] = date('m月d日',strtotime($val['publishTime']));
+	    $score = explode('.', $val['score']);
+	    $arr_data[$key]['left_score'] = $score[0];
+	    $arr_data[$key]['right_score'] = $score[1];
+	}
+	
+	
 	// 即将上映
 	$arr_params = array('action'=>'movie_Query','coming'=>100,'city_id'=>$int_areaNo);
 	$str_cacheNames = 'komovie_coming'.'_'.$int_areaNo;//缓存名称为接口名称即将上映与地区ID号结合	
@@ -129,6 +139,9 @@ elseif ($_REQUEST['step'] == "movie")
 	foreach ($arr_datas as $key=>$val)
 	{
 	    $arr_datas[$key]['publishTime_cn'] = date('m月d日',strtotime($val['publishTime']));
+	    $score = explode('.', $val['score']);
+	    $arr_datas[$key]['left_score'] = $score[0];
+	    $arr_datas[$key]['right_score'] = $score[1];
 	}
 	
 	// 电影产品

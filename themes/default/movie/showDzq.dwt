@@ -72,7 +72,7 @@
                         </div>
                     </div>
 				</div>
-				<div style="text-align: center;"><span class="buy_btn">立即购买</span><span class="pay-loading" style="background:#f2f2f2; color:red;"></span></div>
+				<div style="text-align: center;"><span class="buy_btn"><span  class="dzq_lijigoumai"></span>立即购买</span><span class="pay-loading" style="background:#f2f2f2; color:red;"></span></div>
 			</div>
             
             <input type="hidden" name="areaNo" value="{$dzqyy.AreaNo}" />

@@ -16,12 +16,11 @@
 			</div>
 			<div class="pay_success">
 				<h3><img src="/images/index/img_login/yes_icon.png">订单支付成功</h3>
-				<div class="btn1" style="display:block;"><a href="{$app_path}" style="margin-right: 20px;">返回首页</a><a href="user.php?act=film_order" style="color: #2fd0b5;">我的订单</a></div>
+				<div class="btn1" style="display:block;"><a href="{$app_path}" style="margin-right: 20px; color: black;">返回首页</a><a href="user.php?act=film_order" style="color: #2fd0b5;">我的订单</a></div>
 				<div class="tips">
 						<ul>
-							<li>温馨提示：</li>	
-							<li>1、支付成功后您将收到取票短信，建议您提前10分钟至影票终端机取票，以免排队耽误您的入场。</li>
-							<li>2、电影票一经售出概不退换，请在付款前确定无误，敬请谅解！祝您观影愉快！</li>
+							<li>温馨提示：1、支付成功后您将收到取票短信，建议您提前10分钟至影票终端机取票，以免排队耽误您的入场。</li>	
+							<li style="text-indent: 60px;">2、电影票一经售出概不退换，请在付款前确定无误，敬请谅解！祝您观影愉快！</li>
 						</ul>
 				</div>
 			</div>

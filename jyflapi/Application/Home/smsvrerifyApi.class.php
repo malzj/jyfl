@@ -55,7 +55,7 @@ class smsvrerifyApi{
         //0,20130821110353234137876543,0,500,0,提交成功
         //依次为：状态、发送编号、,无效号码数、成功提交数、黑名单数、消息
         $data=$this->curl_file_get_contents($url);
-        echo substr($data, 0, 1 );
+        return substr($data, 0, 1 );
     }
     function curl_file_get_contents($durl){
         $ch = curl_init();

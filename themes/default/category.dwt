@@ -53,8 +53,11 @@
 					</div>
 				</div>
 				<div class="search_input f_r">
-					<input type="text" placeholder="输入蛋糕名称">
+                 <form action="category.php">                          
+					<input type="text" name="word" placeholder="请输入商品名称" value="{$keyword}">
+                    <input type="hidden" name="category" value="{$category}">
 					<i></i>	
+                </form>
 				</div>
 			</div>
 		</div>
@@ -95,6 +98,8 @@
 					</div>
 				</div>
                 {/if}
+                <!--{foreachelse}-->
+                <center style="height:100px; line-height:100px;">没有符合条件的商品！</center>
 				<!--{/foreach}-->
 			</div>
 		</div>

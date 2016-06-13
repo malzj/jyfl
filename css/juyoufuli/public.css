@@ -772,7 +772,7 @@ html.movie .w_1200 .reying_show .reying_show2 .mark i {
 html.movie .w_1200 .reying_show .reying_show2 .mark {
 	position: absolute;
 	top: 35px;
-	right: 40px;
+	right: 45px;
 }
 
 html.movie .w_1200 .reying_show .reying_show2 .buy a {
@@ -1074,7 +1074,7 @@ html.movie .w_1200 .will_show .will_show2 .will_date {
 html.movie .w_1200 .will .will_title {
 	font-size: 24px;
 	color: #27c7ac;
-	margin: 20px 0;
+	margin: 30px 0;
 }
 
 html.movie .will_list ul li {
@@ -1102,7 +1102,7 @@ html.movie .will_list ul.picList li .title {
 }
 
 html.movie .will_list ul.picList li .li_date {
-	margin: 10px 0;
+	margin: 20px 0;
 }
 
 html.movie .will_list ul.picList li .title .title_1 {
@@ -1130,7 +1130,7 @@ html.movie .will_list ul.picList li .li_date .date {
 
 html.movie .will_list ul.picList li .li_date .will_date {
 	color: #707070;
-	font-size: 16px;
+	font-size: 14px;
 	margin-left: 10px;
 }
 
@@ -1274,6 +1274,7 @@ html.movie_1 .w_1200 .reying_show .reying_show1 ul li span {
 html.movie_1 .w_1200 .reying_show .title {
 	font-size: 24px;
 	color: #2fd0b5;
+	margin-top: 3px!important;
 }
 
 html.movie_1 .w_1200 .reying_show .reying_show2 .mark i {
@@ -1319,7 +1320,7 @@ html.movie_1 .reying_bg {
 	text-align: center;
 	font-size: 24px;
 	color: #2fd0b5;
-	margin: 20px 0 10px 0;
+	margin: 20px 0 20px 0;
 	width: 1200px;
 	height: 40px;
 }
@@ -1952,7 +1953,7 @@ html.yingyuan2  .movie_xiangqing {
 }
 
 html.yingyuan2  .movie_xiangqing .town {
-	overflow-y: auto;
+	/* overflow-y: auto; */
 	float: left;
 	width: 170px;
 	height: 530px;
@@ -1988,11 +1989,6 @@ html.yingyuan2  .movie_xiangqing .select_cinema h3 {
 }
 
 html.yingyuan2  .movie_xiangqing .select_cinema ul {
-	height: 487px;
-	overflow-y: auto;
-	background: #ededed;
-}
-html.yingyuan2  .movie_xiangqing .town ul {
 	height: 487px;
 	overflow-y: auto;
 	background: #ededed;
@@ -2071,11 +2067,13 @@ html.huaju .w_1200 .big_img{
 }
 html.huaju .big_img .item{overflow: hidden;position: relative;margin:0 10px;width: 215px;height: 215px;}
 html.huaju .reying_bg {
+	font-weight: bold;
 	margin: 30px 0;
 	font-size: 24px;
 	color: #2fd0b5;
 	text-align: center;
-	background: url(/images/index/img_login/reying_1.png) no-repeat 0px;
+	background: url(/images/juyoufuli/img_login/reying_1.png) no-repeat 0px;
+	font-family: sans-serif;
 }
 html.huaju .big_img_xin{background: #111;position:absolute;top: -100%;left: -100%;width: 215px;height: 215px;opacity: .7;}
 html.huaju .big_img_xinxi{margin-top: 30px;color:white;position:absolute;width: 100%;top: -100%;left: -100%;height: 100%;}
@@ -2858,3 +2856,5 @@ html.shenghuo1 body{background: white;}
 .lijigoumai_1{background: url(/images/juyoufuli/img_login/lijigoumai.png) no-repeat -33px -3px;display: inline-block;width: 32px;height: 30px;float: left;}
 .lijigoumai{background: url(/images/juyoufuli/img_login/lijigoumai.png) no-repeat -4px -5px;display: inline-block;width: 19px;height: 30px;float: left;margin-left: 10px;}
 
+/*广播样式*/
+.guangbo{font-size: 12px;}

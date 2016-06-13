@@ -10,7 +10,7 @@ namespace Home;
  * 短信的第三方调用接口
  */
 class smsvrerifyApi{
-    function smsvrerify($mobile,$verify,$start){
+    function smsvrerify($mobile,$verify,$start,$sign='华影文化'){
         // var_dump($mobile,$verify);
         $params='';//要post的数据
         //$start=1,发送随机数，$start=0,发送制定内容
@@ -29,7 +29,7 @@ class smsvrerifyApi{
             'content'=>$content,   //必填参数。发送内容（1-500 个汉字）UTF-8编码
             'mobile'=>$mobile,   //必填参数。手机号码。多个以英文逗号隔开
             'stime'=>'',   //可选参数。发送时间，填写时已填写的时间发送，不填时为当前时间发送
-            'sign'=>'华影文化',    //必填参数。用户签名。
+            'sign'=>$sign,    //必填参数。用户签名。
             'type'=>'pt',  //必填参数。固定值 pt
             'extno'=>''    //可选参数，扩展码，用户定义扩展码，只能为数字
         ); 

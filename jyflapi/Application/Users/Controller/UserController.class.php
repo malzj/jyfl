@@ -356,11 +356,11 @@ class UserController extends Controller
         $province = $result[$key]['province'];
         $country = $result[$key]['country'];
         $region_arr = $regoin->where("region_id=".$city)->find();
-        $result[$key]["city"] = $region_arr['region_name']?$region_arr['region_name']:'';
+        $result[$key]["city"] = empty($region_arr['region_name'])?$region_arr['region_name']:'';
         $region_arr = $regoin->where("region_id=".$province)->find();
-        $result[$key]["province"] = $region_arr['region_name']?$region_arr['region_name']:'';
+        $result[$key]["province"] = empty($region_arr['region_name'])?$region_arr['region_name']:'';
         $region_arr = $regoin->where("region_id=".$country)->find();
-        $result[$key]["country"] = $region_arr['region_name']?$region_arr['region_name']:'';
+        $result[$key]["country"] = empty($region_arr['region_name'])?$region_arr['region_name']:'';
       }
 
       if($result !== ""){

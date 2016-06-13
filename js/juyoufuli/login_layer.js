@@ -1,7 +1,7 @@
 // var data_url = "http://192.168.1.161/jyflapi/";
-var data_url = "http://1.93.129.186/jyflapi/";
+var data_url = "http://www.juyoufuli.com/jyflapi/";
 // var ecs_url ="http://192.168.1.161/";
-var ecs_url = "http://1.93.129.186/";
+var ecs_url = "http://www.juyoufuli.com/";
 
 var timeOut;
 

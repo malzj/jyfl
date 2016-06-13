@@ -1,5 +1,6 @@
 // var api_url = 'http://jy.com/jyflapi/';
-var api_url = 'http://192.168.1.161/jyflapi/';
+// var api_url = 'http://192.168.1.161/jyflapi/';
+var api_url = 'http://1.93.129.186/jyflapi/';
 $(function(){
 //	游戏规则
 	$('#guize').on('click',function(){
@@ -39,7 +40,7 @@ $(function(){
             data:{user_id:user_id},
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                //console.log(data);
                 var global_list = data.glist;
                 var company_list = data.clist;
                 var html = '<div class="old_winBox"><h3 style="margin-bottom:0">往期中奖</h3>' +
@@ -237,10 +238,10 @@ $(document).on('submit','#purchase',function(){
     // var company_id = $('input[name="company_id"]').val();
     // var number = $('input[name="number"]').val();
     // var password = $('input[name="password"]').val();
+    var index;
     $.ajax({
         type:'post',
         url:api_url+'index.php/Games/GamesApi/purchase',
-        async:false,
         data:$('#purchase').serialize(),
         // {
         //     user_id:user_id,
@@ -251,8 +252,12 @@ $(document).on('submit','#purchase',function(){
         //     password:password,
         // },
         dataType:'json',
+        beforeSend:function(){
+            index = layer.load();
+        },
         success:function (data) {
-            console.log(data);
+            // console.log(data);
+            layer.close(index);
             if(data.result == 'true'){
                 layer.alert(data.msg,function () {
                     location.reload();
@@ -286,7 +291,7 @@ $(document).on('submit','#purchase',function(){
             data: {game_id: id,user_id:uid,company_id:cid},
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                //console.log(data);
                 var html = '<div class="old_winBox"><h3>已结束</h3>' +
                 '<div class="old_win_item">' +
                 '<div class="all_duobao">' +

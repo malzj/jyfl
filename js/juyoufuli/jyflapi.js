@@ -1,4 +1,5 @@
-   var api_url ="http://192.168.1.161/jyflapi/";
+   // var api_url ="http://192.168.1.161/jyflapi/";
+   var api_url ="http://1.93.129.186/jyflapi/";
 //var api_url ="http://127.0.0.1:8025/jyflapi/";
 function userShow(data){
 	var user_id = data;
@@ -12,7 +13,7 @@ function userShow(data){
             var xingqu; //兴趣
             var xingqu_1;
             var img;
-	var url="http://192.168.1.161/jyflapi/index.php?s=Users/User/userShow"
+	var url=api_url+"index.php?s=Users/User/userShow"
     $.ajax({
 		type:"post",
 		url:url,
@@ -134,7 +135,7 @@ function upload(data){
 	 var formData = new FormData($( "#uploadForm" )[0]);  
 	 var rudata ='';
      $.ajax({  
-          url: 'http://192.168.1.161/jyflapi/index.php?s=Upload/Upload/upload' ,  
+          url: api_url+'index.php?s=Upload/Upload/upload' ,
           type: 'POST',  
           data: formData,  
           async: false,  
@@ -147,7 +148,7 @@ function upload(data){
 			  layer.msg('上传成功！');
           },  
           error: function (returndata) {  
-        		console.log(returndata)
+        		//console.log(returndata)
               
           }  
      });  
@@ -175,7 +176,7 @@ function userSave(){
     }else{
     	pic=$('#img').val();
     	    }
-	var url="http://192.168.1.161/jyflapi/index.php?s=Users/User/userUpdate"
+	var url=api_url+"index.php?s=Users/User/userUpdate"
     $.ajax({
 		type:"post",
 		url:url,
@@ -271,7 +272,7 @@ function getverification(user_id,tel){
 		},
 		dataType:"json",
 		success:function (data) {
-			console.log(data);
+			//console.log(data);
 			result = data;
 		}
 	});
@@ -298,7 +299,7 @@ function boundPhone(user_id,tel,captcha){
 		},
 		dataType:"json",
 		success:function(data){
-			console.log(data);
+			//console.log(data);
 			if(data.result == "true"){
 				layer.closeAll();
 				// showSafeCenter();
@@ -374,7 +375,7 @@ function editLoginQues(user_id,answerone,answertwo,answerthree){
 }
 
 function showAddress(){
-		var url ="http://192.168.1.161/jyflapi/index.php?s=Users/User/showAddress";
+		var url =api_url+"index.php?s=Users/User/showAddress";
 		var user_id = $('#user_id').val();
 		var htmlshouhuolist="";
 		$.ajax({
@@ -413,7 +414,7 @@ function showAddress(){
  time:2016/5/13
  */
 function getAddressHtml(){
-	var url ="http://192.168.1.161/jyflapi/index.php?s=Users/User/showAddress";
+	var url =api_url+"index.php?s=Users/User/showAddress";
 	var user_id = $('#user_id').val();
 	var htmlshouhuolist="";
 	$.ajax({
@@ -713,7 +714,7 @@ function updateAddress(){
 function delAddress(data){
 	var user_id = $('#user_id').val();
 	var address_id = data;
-	var url ="http://192.168.1.161/jyflapi/index.php?s=Users/User/delAddress";
+	var url =api_url+"index.php?s=Users/User/delAddress";
 	$.ajax({
 		type:"post",
 		url:url,

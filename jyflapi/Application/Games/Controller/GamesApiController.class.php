@@ -219,7 +219,7 @@ class GamesApiController extends Controller
 
                 $rudata['user']=$userInfo;
                 $rudata['content']=$content;
-                if(empty($userInfo['mobile_phone']))
+                if(!empty($userInfo['mobile_phone']))
                 $Smsvrerify->smsvrerify($userInfo['mobile_phone'],$content,0);
             }
             $rudata['result'] = 'true';

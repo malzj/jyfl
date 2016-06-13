@@ -6,6 +6,10 @@
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
         <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
+        <style>
+        	.yinghao_left{background:url(/images/juyoufuli/img_login/tu.png) no-repeat 0px 0px;display: inline-block;width: 20px;height: 20px;}
+        	.yinghao_right{background:url(/images/juyoufuli/img_login/tu.png) no-repeat 0px 0px;display: inline-block;width: 20px;height: 20px;}
+        </style>
 	</head>
 	<body>
         <!-- 头部 -->
@@ -86,7 +90,7 @@
 								<li>
 									<h3><a href="yanchu.php?act=show&id={$cateid}&itemid={$listinfo.item_id}">{$listinfo.item_name}</a></h3>
 								</li>
-								<li>"<span>{$listinfo.item_name}</span>"</li>
+								<li><span class="yinghao_left"></span><span>{$listinfo.item_name}</span><span class="yinghao_right"></span></li>
 								<li><span>{$listinfo.data_ext}</span></li>
 								<li><span>[{$listinfo.site_name}]</span></li>
 								<li><!--<span class="shoupiao f_l">售票中</span>--><a href="yanchu.php?act=show&id={$cateid}&itemid={$listinfo.item_id}"><span class="f_r xuanzuo zhuti_a_hover">选座购票</span></a></li>

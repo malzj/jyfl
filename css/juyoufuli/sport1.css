@@ -69,7 +69,7 @@ text-decoration:none;
 .list-img{float: left;display: inline-block;}
 .list{overflow: hidden;}
 .content-list{width: 1200px; margin: 0 auto;}
-.list{border: 1px solid #ddd;padding: 5px 30px;width: 1138px;margin: 0 auto;margin-top: 20px;margin-bottom: 10px;}
+.list{border: 1px solid #ddd;padding: 10px 30px;width: 1138px;margin: 0 auto;margin-top: 20px;margin-bottom: 10px;}
 .list-title h1{margin-top:5px;}
 .list-title h1 a{color:#2fd0b5;font-size:20px;}
 .list-title{margin-left:40px;float: left;width: 700px;}
@@ -80,32 +80,34 @@ text-decoration:none;
     text-overflow: ellipsis;}
 .price{float:right;margin-top: 40px;line-height: 60px;width: 180px;}
 .price_2{
-    line-height: 36px;
+    line-height: 30px;
     text-align: center;
     display: inline-block;
-    width: 120px;
-    height: 36px;
+    width: 110px;
+    height: 30px;
     background: #2fd0b5;
     border-radius: 20px;
-    margin-left: 25px;
+    margin-left: 60px;
     }
-.price_2 span a{font-size: 18px;color: white;}   
-.price_1 span em{color: #ff610b;font-size: 36px;font-style: italic;margin-right: 10px;}
+.price_2 span a{font-size: 14px;color: white;}   
+.price_1 span em{color: #ff781e;font-size: 36px;font-style: italic;margin-right: 10px;}
 .price_1 span{color: #ff610b;}
-.price_1{text-align: center;}
+.price_1{text-align: right;}
 .list-tab span {
 	/* background: #ECEAEA; */
-	border: 1px solid #f57936;
+	border: 1px solid #ff781e;
 	padding: 5px 10px;
-	color: #f57936;
+	color: #ff781e;
 	border-radius: 5px;
 	cursor: pointer;
 	}
-.cur{padding: 5px 10px;
-    background: #f57936!important;
+.cur{
+    padding: 5px 10px;
+    background: #ff781e!important;
     color: white!important;
-    border-radius: 5px;}
-.week{margin-top: 10px;margin-bottom: 5px;overflow: hidden;}    
+    border-radius: 5px;
+    }
+.week{margin-top: 20px;margin-bottom: 5px;overflow: hidden;}    
 .week .active{
     background: #ff7900;
     color: white!important;
@@ -113,11 +115,11 @@ text-decoration:none;
 .week>a{
     display: block;
     width: 130px;
-    color: #ff7900;
+    color: #ff781e;
     float: left;
     border-radius: 5px;
     padding: 5px 0;
-    border: 2px solid #ff7900;
+    border: 2px solid #ff781e;
     margin-right: 15px;
     transition: color .25s ease;
     }
@@ -129,24 +131,24 @@ text-decoration:none;
 /*.tickets{display: none;}*/
 .ticket_span1{display: inline-block;width: 510px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
 .ticket_span2{display: inline-block;width: 520px;text-align: center;}
-.ticket_span3 a{background: #ff7900;font-size: 14px;border-radius: 5px;padding: 3px 15px;color: white;display: inline-block;cursor: pointer;transition: background .25s ease;}
+.ticket_span3 a{background: #ff781e;font-size: 14px;border-radius: 5px;padding: 3px 15px;color: white;display: inline-block;cursor: pointer;transition: background .25s ease;}
 .ticket_span3{display: inline-block;}
 .ticket_span3 a:hover{background: #E27B1E;}
-.table_1{font-size: 14px;display: block;padding: 10px 0;border-top: 1px solid #E6E5E5;}
+.table_1{font-size: 14px;display: block;padding: 10px 0;border-top: 1px solid #d8d8d8;}
 .font-18{color: #ff7900;font-size: 24px;font-style: italic;margin-right: 10px;}  
 .font-12{font-size: 12px;}  
 table{margin-top: 10px;}
 .week a:hover{
-    background: #ff7900;
+    background: #ff781e;
     color: white;
     }
-.tickets{margin-top:5px;}
+.tickets{margin-top: 20px;}
 /*第二页面*/
 .title span{margin-bottom: 10px;color: #2fd0b5;font-size: 30px;display: inline-block;}
 .title .facico{margin-left: 10px;width: 994px;}
 .yuding a{float: right;padding: 3px 20px;color: white;font-size: 18px;background: #f8ae06;border-radius: 5px;}
 .yuding a:hover{background:#FB9524;}
-.title .adress{float: left;}
+.title .adress{color: #333333;float: left;}
 .yuding{float: right;}
 .img .img_left,.img .img_left img{float: left;}
 .img .img_right li,.img .img_right li img{float:right; margin-bottom: 5px;margin-left: 5px;}

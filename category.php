@@ -67,6 +67,9 @@ $order = (isset($_REQUEST['order']) && in_array(trim(strtoupper($_REQUEST['order
 $display  = (isset($_REQUEST['display']) && in_array(trim(strtolower($_REQUEST['display'])), array('list', 'grid', 'text'))) ? trim($_REQUEST['display'])  : (isset($_COOKIE['ECS']['display']) ? $_COOKIE['ECS']['display'] : $default_display_type);
 $display  = in_array($display, array('list', 'grid', 'text')) ? $display : 'text';
 setcookie('ECS[display]', $display, gmtime() + 86400 * 7);
+
+// 搜索关键字
+$keyword = isset($_REQUEST['word']) ? htmlspecialchars($_REQUEST['word']) : '';
 /*------------------------------------------------------ */
 //-- PROCESSOR
 /*------------------------------------------------------ */
@@ -386,7 +389,8 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
     {
         $page = $max_page;
     }
-    $goodslist = category_get_goods($children, $brand, $price_min, $price_max, $ext, $size, $page, $sort, $order);
+    
+    $goodslist = category_get_goods($children, $brand, $price_min, $price_max, $ext, $size, $page, $sort, $order,$keyword);
 	
     if($display == 'grid')
     {
@@ -412,7 +416,7 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
 /*     echo '<pre>';
     print_r(get_navigator());
     echo '</pre>'; */
-    
+    $smarty->assign('keyword', $keyword);
     assign_pager('category',            $cat_id, $count, $size, $sort, $order, $page, '', $brand, $price_min, $price_max, $display, $filter_attr_str); // 分页
     assign_dynamic('category'); // 动态内容
 }
@@ -443,11 +447,9 @@ function get_cat_info($cat_id)
  * @param   string  $children
  * @return  array
  */
-function category_get_goods($children, $brand, $min, $max, $ext, $size, $page, $sort, $order)
+function category_get_goods($children, $brand, $min, $max, $ext, $size, $page, $sort, $order, $keyword)
 {
-	/* echo '<pre>';
-	print_r($_SESSION);
-	echo '</pre>'; exit; */
+	
     $display = $GLOBALS['display'];
     $where = "g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.supplier_status = 1 AND ".
             "g.is_delete = 0 AND ($children OR " . get_extension_goods($children) . ')';
@@ -465,6 +467,11 @@ function category_get_goods($children, $brand, $min, $max, $ext, $size, $page, $
     if ($max > 0)
     {
         $where .= " AND g.shop_price <= $max ";
+    }
+    
+    if ( !empty($keyword))
+    {
+        $where .= " AND g.goods_name like '%".$keyword."%'";
     }
 	
 	$where .= ' AND FIND_IN_SET('.intval($GLOBALS['int_cityId']).', g.region_ids) AND gs.default_show = 1 ';

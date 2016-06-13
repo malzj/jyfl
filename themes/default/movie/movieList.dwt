@@ -83,7 +83,7 @@
 						</ul>
 					</div>
 					<div class="reying_show2">
-						<div class="mark"><i>{$movies.shifuMovie.score}</i></div>
+						<div class="mark"><i>{$movies.shifuMovie.left_score}.{$movies.shifuMovie.right_score}</i></div>
 						<div class="buy"><a href="{$app_path}movie.php?step=planCinema&movieid={$movies.shifuMovie.movieId}" target="_blank" class="zhuti_a_hover">选座购票</a></div>
 					</div>
 				</div>
@@ -123,8 +123,7 @@
 							<li class="title">{$movies.shifuComing.movieName}</li>
 							<li>类型：<span>{$movies.shifuComing.movieType}</span></li>
 							<li>导演：<span>{$movies.shifuComing.director}</span></li>
-							<li>主演：<span>{$movies.shifuComing.actor}</span></li>
-							<li class="juqingA">剧情：<span class="juqing_left">{$movies.shifuComing.intro}</span></li>
+							<li>主演：<span>{$movies.shifuComing.actor}</span></li>							
 							<li>片长：<span>{$movies.shifuComing.movieLength}分钟</span></li>
 							<li>上映时间：<span>{$movies.shifuComing.publishTime}</span></li>
 						</ul>
@@ -150,7 +149,7 @@
 								</div>
 								<div class="title">
 									<div class="title_1">{$coming.movieName}</div>
-									<div class="title_2">类型：<span>{$coming.movieName}</span></div>
+									<div class="title_2">类型：<span>{$coming.movieType}</span></div>
 									<div class="title_3">导演：<span>{$coming.director}</span></div>
 									<div class="title_4">主演：<span>{$coming.actor}</span></div>
 									<div class="title_5">片长：<span>{$coming.movieLength}分钟</span></div>

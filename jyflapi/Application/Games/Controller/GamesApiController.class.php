@@ -11,6 +11,7 @@ namespace Games\Controller;
 
 use Think\Controller;
 use Think\Model;
+use Home\smsvrerifyApi;
 class GamesApiController extends Controller
 {
     /**
@@ -210,8 +211,12 @@ class GamesApiController extends Controller
             $jydata = $Card -> getResult();
             $Model -> table('__USERS__')->where('user_name')->data(array('card_money'=>$jydata['Points']))->save();
             $Model -> commit();
+            $Smsvrerify = new smsvrerifyApi();
+            $userInfo = $Model->table('__USERS__')->getField('mobile_phone,nickname')->where(array('user_name'=>$wdata['card_num']))->find();
+
             $rudata['result'] = 'true';
             $rudata['msg'] = '抢购成功！';
+            $rudata['user']=$userInfo;
             $this -> ajaxReturn($rudata);
         }else{
             $Model -> rollback();

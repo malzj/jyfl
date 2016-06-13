@@ -302,7 +302,7 @@ function boundPhone(user_id,tel,captcha){
 			if(data.result == "true"){
 				layer.closeAll();
 				// showSafeCenter();
-				layer.msg("手机绑定成功！");
+				layer.msg(data.msg);
 			}else{
 				layer.closeAll();
 				// showSafeCenter();

@@ -1,6 +1,9 @@
 var data_url = "http://192.168.1.161/jyflapi/";
 // var ecs_url ="http://192.168.1.161/";
 var ecs_url = "http://jy.com/";
+
+var timeOut;
+
 $(function () {
     $('#saf').on('click', function () {
         showSafeCenter();
@@ -378,7 +381,12 @@ $(function () {
     $(document).delegate('#getverification', 'click', function () {
         var user_id = $('#user_id').val();
         var tel = $('#tel').val();
-        settime(this);
+        if(tel == ''||tel==null||tel=='undefined'){
+            layer.alert('请输入手机号！');
+            return false;
+        }
+        clearTime(timeOut);
+        timeOut = settime(this);
         var data = getverification(user_id, tel);
     });
     /**
@@ -390,6 +398,15 @@ $(function () {
         var tel = $('#tel').val();
         var captcha = $('#captcha').val();
         //alert(user_id+'='+tel+'='+captcha);
+        if(tel == ''||tel==null||tel=='undefined'){
+            layer.alert('请输入手机号！');
+            return false;
+        }
+        if(captcha == ''||captcha==null||captcha=='undefined'){
+            layer.alert('请输入验证码！');
+            return false;
+        }
+
         boundPhone(user_id, tel, captcha);
     });
     /**
@@ -397,6 +414,7 @@ $(function () {
      * @author zhaoyingchao
      */
     $(document).delegate('.btn_tel .btn_cancel', 'click', function () {
+        clearTime(timeOut);
         layer.closeAll();
         showSafeCenter();
     });
@@ -606,10 +624,15 @@ function settime(obj) {
         $(obj).css({'background': '#8C8686', 'color': '#3C3838'});
         countdown--;
     }
-    setTimeout(function () {
+    return setTimeout(function () {
             settime(obj)
         }
         , 1000)
+}
+
+function clearTime(set) {
+    countdown = 120;
+    clearTimeout(set);
 }
 
 function showprovince() {

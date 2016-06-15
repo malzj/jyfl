@@ -2693,7 +2693,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .buy_car_tips{width: 1145px;height: 100px;background: url(/images/juyoufuli/img_login/dangao1.png) no-repeat;margin: 0 auto;margin-top: 90px;}
 /*shenghuo.html*/
 html.shenghuo body{background: white;}
-.shenghuo_top_title{color: #2F2E2E;font-weight: bold;padding: 5px 0;font-size: 16px;width: 180px;position: absolute;text-align: center;left: 5px;bottom: 0;background: white;opacity: .7;}
+.shenghuo_top_title{color: #1b1919;font-weight: bold;padding: 5px 0;font-size: 16px;width: 180px;position: absolute;text-align: center;left: 5px;bottom: 10px;background: white;opacity: .7;font-family: arial;}
 .shenghuo_floor_side{float: left;height: 461px;width: 268px;/* border-right: 1px solid #ddd; */border: 1px solid #ddd;}
 .shenhuo_box{width: 230px;height: 230px;border-top: 1px solid #ddd;border-right: 1px solid #ddd;}
 .shenghuo_floor_side img{width:100%;max-height: auto;}

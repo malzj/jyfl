@@ -8,12 +8,12 @@
         <link rel="stylesheet" href="{$app_path}css/juyoufuli/sport1.css">
         <link rel="stylesheet" href="{$app_path}css/juyoufuli/venues.css">
 	</head>
-	<body>
+	<body class="bg_white">
         <!-- 头部 -->
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->
         
-        <div class="w_1200" style="margin-top: 90px;">
+        <div class="w_1200" style="padding-top: 90px;">
 			<div class="sport5_tips o_hidden">
 				<div class="f_l sport5_title">场馆订购</div>
 				<div class="sport5_tip f_l"></div>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="pay_password o_hidden">
                 	<form action="komovie_seat.php" name="myDoneForm" method="post" onsubmit="return checkPayForm();">		
-                    <div class="f_l jy_kahao">聚优卡号：<span>{$usernames.user_name}</span></div>
+                    <div class="f_l jy_kahao">聚优卡号：<span style="font-weight: 600;">{$usernames.user_name}</span></div>
                     <div class="f_l jy_pass">聚优卡密码：<span><input type="password" name="password" id="password" placeholder="请输入密码"></span></div>
                     <div class="f_l jy_jiesuan">结算</div>
                     <input type="hidden" name="act" value="done" />

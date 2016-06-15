@@ -56,8 +56,9 @@
                  <form action="category.php">                          
 					<input type="text" name="word" placeholder="输入蛋糕名称" value="{$keyword}">
                     <input type="hidden" name="category" value="{$category}">
+                 </form>  
 					<i></i>	
-                </form>     
+                  
 				</div> 
 			</div> 
 		</div> 
@@ -103,8 +104,8 @@
 						<span>{$goods.shop_price}点 / {$goods.goods_num}</span>
 					</div>
 					<div class="cake_btn f_r">
-						<a href="{$goods.url}">查看详情</a>
-						<a href="javascript:addToCart({$goods.goods_id})">加入购物车</a>
+						<a href="{$goods.url}"><span class="cake_btn_look"></span>查看详情</a>
+						<a href="javascript:addToCart({$goods.goods_id})"><span class="cake_btn_add"></span>加入购物车</a>
 					</div>
 				</div>
                 {/if}
@@ -113,11 +114,12 @@
 				<!--{/foreach}-->
 			
 			</div>
+			<div class="clear"></div>
+				<div class="flickr" style="text-align: center;"><!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --></div>
+			<div class="clear"></div>
 		</div>
         
-        <div class="clear"></div>
-		<div class="flickr" style="text-align: center;"><!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --></div>
-		<div class="clear"></div>
+        
         
 		<script>
 			jQuery(".fullSlide").hover(function() {

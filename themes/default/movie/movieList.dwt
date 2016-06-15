@@ -83,7 +83,7 @@
 						</ul>
 					</div>
 					<div class="reying_show2">
-						<div class="mark"><i>{$movies.shifuMovie.left_score}.{$movies.shifuMovie.right_score}</i></div>
+						<div class="mark"><i>{$movies.shifuMovie.left_score}<span class="point">.{$movies.shifuMovie.right_score}</span></i></div>
 						<div class="buy"><a href="{$app_path}movie.php?step=planCinema&movieid={$movies.shifuMovie.movieId}" target="_blank" class="zhuti_a_hover">选座购票</a></div>
 					</div>
 				</div>
@@ -216,13 +216,7 @@
 				vis: 3,
 				pnLoop: false
 										});						
-		      $("body").bind("click",function(evt){
-                if($(evt.target).parents("#ticketSearchDiv").length==0) {
-                    $('.moviestip').hide();
-					$('.cinematip').hide();
-					$('.i_date').hide();
-                	}	
-           		 });
+		     
 				
 			  
 

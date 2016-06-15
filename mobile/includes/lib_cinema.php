@@ -35,6 +35,12 @@ function getMovieDetail( $movieid )
 			F($str_cacheName, $movieDetail, 0, $int_cityId.'/');//写入缓存
 		}
 	}
+	
+	// 评分处理
+	$score = explode('.', $movieDetail['score']);
+	$movieDetail['left_score'] = $score[0];
+	$movieDetail['right_score'] = $score[1];
+	
 	$moviesImages = moviesImages(array($movieDetail));
 	return $moviesImages[0];
 }
@@ -138,6 +144,7 @@ function getCinemaMovies($cinemaid)
 		$cinemaMovies = $arr_result['movies'];
 		F( $cacheName, $cinemaMovies, 1800, $int_cityId.'/');
 	}
+		
 	return moviesImages($cinemaMovies);
 }
 
@@ -254,7 +261,7 @@ function getCinemaArea($type = 'komovie')
  }
 
 /**
- * 整理并获得排期日期（年-月-日）  
+ * 整理并获得排期日期（月-日 星期）  
  */
 function featureTime( $moviePlan )
 {
@@ -262,13 +269,32 @@ function featureTime( $moviePlan )
 	foreach ($moviePlan as $plan)
 	{
 		 $strtotime = date('Y-m-d', strtotime($plan['featureTime']));
-		 if (!in_array($strtotime, $returnArray))
+		 $totime = strtotime($strtotime);
+		 if (!array_key_exists($totime, $returnArray))
 		 {
-			$returnArray[strtotime($strtotime)] = $strtotime;	 	
+			$returnArray[$totime]['strtotime'] = $strtotime;
+			$returnArray[$totime]['strtotime_sn'] = date('m月d日',$totime).' '.timeWeek($totime);
 		 }
 	}
 	ksort($returnArray);
 	return $returnArray;
+}
+
+/**  
+ *  星期
+ */
+function timeWeek($time)
+{
+    $strWeek = '';
+    $week = array('周日','周一','周二','周三','周四','周五','周六');
+    $w = date('w',$time);
+    if ($w == date('w', local_gettime()))
+        $strWeek = '今天';
+    else 
+        $strWeek = $week[$w];
+       
+    
+    return $strWeek;
 }
 
 /**

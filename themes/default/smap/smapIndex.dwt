@@ -205,8 +205,8 @@
 				var num = overlays.length - 1;
 				var tuceng = overlays[num];
 				var dianshu = tuceng.ro.length;
-				var url = "http://jy.com/jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap";
-				var urll = "http://jy.com/jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao";
+				var url = "http://juyoufuli.com/jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap";
+				var urll = "http://juyoufuli.com/jyflapi/index.php?s=Peisong/Peisong/savePeiSongMapZuoBiao";
 				$.ajax({
 					type: "post",
 					url: url,

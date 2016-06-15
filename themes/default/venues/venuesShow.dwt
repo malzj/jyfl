@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="{$app_path}css/juyoufuli/sport1.css">
         <link rel="stylesheet" href="{$app_path}css/juyoufuli/venues.css">
 	</head>
-	<body>
+	<body class="bg_white">
         <!-- 头部 -->
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->
@@ -95,8 +95,8 @@
                                     <div class="selsected" id="_id_contianer">
                                     </div>
                                     <span id="dhpos"></span>
-                                    <div style="line-height:24px; height:24px; margin-top:10px;">已选择<em style="color:#f60; margin:0 3px; font-size:18px;" id="_id_total">0</em>个场地
-                                        <span style="color:#51B5E7">，再次单击取消</span></div>
+                                    <div style="line-height:24px; height:24px; margin-top:10px;">已选择<em style=" font-style: italic;color:#f60; margin:0 3px; font-size:18px;" id="_id_total">0</em>个场地,
+                                        <span style="color:#2FD0B5">再次单击取消</span></div>
                                     <div class="tj_main" style="padding:5px 0">共计<b id="_id_amount" style="color:#F60; margin:0 5px; font-size:22px;">0</b>点</div>
                                 </div>
                             </div>

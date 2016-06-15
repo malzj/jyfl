@@ -74,7 +74,7 @@
                             <input type="hidden" name="storeId" value="{$iteminfo[store][@attributes][storeId]}" />
                             <input type="hidden" name="storeName" value="{$iteminfo[store][@attributes][storeName]}" />
                 			<input type="button" value="立即购买" class="act-submit input_submit zhuti_a_hover" onclick="submitYcForm();" />
-							<span class="tips">演出前三天仅支持上门自取</span>
+							<span class="tips">演出前<span style="font-size: 24px;">3</span>天仅支持上门自取</span>
 						</li>
 					</ul>
 				</div>
@@ -91,7 +91,7 @@
 						<li>
 							<div class="time f_l">
 								<span class="tip">时间</span>
-								<span class="tips" style="border-right: 1px solid #ddd;">{if $iteminfo.startDate}{$iteminfo.startDate} ~ {/if} {$iteminfo.endDate}</span>
+								<span class="tips" style="border-right: 1px solid #cbcbcb;">{if $iteminfo.startDate}{$iteminfo.startDate} ~ {/if} {$iteminfo.endDate}</span>
 							</div>
 							<div class="piaojia f_l">
 								<span class="tip">票价</span>
@@ -101,7 +101,7 @@
 						<li>
 							<div class="zhuangtai f_l">
 								<span class="tip">售票状态</span>
-								<span class="tips" style="border-right: 1px solid #ddd;">正在热售</span>
+								<span class="tips" style="border-right: 1px solid #cbcbcb;">正在热售</span>
 							</div>
 							<div class="leixing f_l">
 								<span class="tip" >类型</span>

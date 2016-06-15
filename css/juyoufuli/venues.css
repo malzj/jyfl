@@ -2,20 +2,20 @@
 .left{float:left;}
 .wrap{width:1200px;margin:0px auto;position:relative;margin-top: 90px;}
 .buy-warp{padding: 10px 0;width:1200px;height:100%;overflow:hidden;font-family:"Microsoft Yahei";}
-.buy-warp-left{ padding-top:20px;}
+.buy-warp-left{padding-top: 0px;}
 .ros-list{border-bottom:1px solid #d8d8d8; margin-top:15px; width:918px;}
 .ros-list dl{border-top:1px solid #d8d8d8;overflow:hidden; width:918px;}
-.ros-list dl dt{float:left;border-left:1px solid #d8d8d8;border-right:1px solid #d8d8d8; width:100px; height:49px; text-align:center; line-height:49px;}
+.ros-list dl dt{float:left;border-left:1px solid #d8d8d8;border-right:1px solid #d8d8d8;width:100px;height:49px;text-align:center;line-height:49px;color: #1a1a1a;}
 .ros-list dl dd{float:left}
 .ros-list dl dd .ros{float:left;}
 .ros-list dl dd .ros span{display:block;width:50px;height:50px;border-right:1px solid #d8d8d8;background:#fff;cursor:pointer;}
 .ros-list dl dd .ros span.cursor{background:#ecebeb;}
 .ros-list dl dd .ros span.cursor2{background: #ff7900;}
 .subtimes ul li{float:left; width:51px;}
-.subtimes{ border-top:2px solid #d8d8d8; border-bottom:2px solid #d8d8d8; height:100%; overflow:hidden; padding:10px 0 10px 100px; margin-top:15px;}
+.subtimes{border-top:2px solid #d8d8d8;border-bottom:2px solid #d8d8d8;height:100%;overflow:hidden;padding:10px 0 10px 100px;margin-top:15px;color: #1a1a1a;}
 .subtitleic{background: #2fd0b5;width:8px;height:32px;font-size:0;float:left;}
 .subtitletxt{font-size:16px;width:100px;text-align:center;float:left;}
-.buy-warp-right{float:right; border:1px solid #d8d8d8; width:246px; padding:15px; margin-top:15px;}
+.buy-warp-right{float:right;border:1px solid #d8d8d8;width:246px;padding:15px;margin-top:15px;color: #1a1a1a;}
 .selsected{border:1px solid #d8d8d8; background:#FFF; line-height:30px; text-indent:10px;}
 .once{padding:10px 0; font-size:16px;}
 .selectvenues{height:100%;overflow:hidden;border-bottom:1px solid #d9d9d9;padding-bottom:15px;}
@@ -25,7 +25,7 @@
 .input-t{color:#999; height:32px; line-height:32px; padding-top:10px;}
 .T_btn_g{display:block;background: #2fd0b5;width:180px;color:#FFF;line-height:42px;border-radius:5px;margin:0 auto;text-align:center;font-size:16px;}
 .T_btn_g:hover{background:#fc924c; color:#FFF; text-decoration:none;}
-.StatusBar span em{display:inline-block; width:40px; height:20px; background:#666; margin-right:5px; border:1px solid #e9e9e9;}
+.StatusBar span em{display:inline-block;width:40px;height:20px;background:#666;margin-right:5px;border: 1px solid #BFBCBC;}
 .StatusBar span em.k1{background:#fff}
 .StatusBar span em.k2{background: #d2d2d2;}
 .StatusBar span em.k3{background: #ff7900;}
@@ -81,7 +81,7 @@ transition: all 0.3s linear 0s;
 	border-radius: 3px;
 	margin-top: 10px;
 	width: 80px;
-	background-color: #ff7900;
+	background-color: #ff781e;
 	display: inline-block;
 	height: 30px;
 	line-height: 30px;

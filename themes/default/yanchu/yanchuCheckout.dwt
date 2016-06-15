@@ -34,10 +34,10 @@
 				</div>
 				<div class="xinxi_right f_r">
 					<ul>
-						<li>单价：<span>{$order.price}</span> 点</li>
-						<li>小计：<span>{$order.goods_amount}</span> 点</li>
-                        <li>运费：<span>{$shipping_info.shipping_fee}</span> 点</li>
-						<li>需支付：<span>{$order.amount}</span> 点</li>
+						<li>单 价：<span>{$order.price}</span> 点</li>
+						<li>小 计：<span>{$order.goods_amount}</span> 点</li>
+                        <li>运 费：<span>{$shipping_info.shipping_fee}</span> 点</li>
+						<li>需支付：<span class="xupay">{$order.amount}</span> 点</li>
 					</ul>
 				</div>
 			</div>
@@ -58,7 +58,7 @@
 					<span>实际付款金额：</span>
 					<span class="num">{$order.amount}</span> 点
                     <input type="hidden" name="act" value="act_order" />		
-					<input type="submit" value="提交订单" class="act-submit btn zhuti_a_hover"/>				
+					<input type="submit" value="提交订单" class="act-submit btn zhuti_a_hover" style="padding: 5px 50px;margin-left: 20px;"/>				
 				</div>
 			</div>
             </form>

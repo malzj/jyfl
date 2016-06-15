@@ -39,7 +39,7 @@
 				</div>
 				<div class="order_right">
 					<div style="color: #919191;margin-bottom: 20px;">请再次确认接收短信验证码的手机号</div>
-					<img src="{$app_path}images/index/img_login/tel_img.png"><input type="text" name="mobile" id="mobile" placeholder="手机号">
+					<img src="{$app_path}images/index/img_login/tel_img.png"><input type="text" name="mobile" id="mobile" placeholder="手机号" autocomplete="off">
 					<span class="yes">确定</span>	
 					<div style="color: #64d8c0;margin-top: 20px;font-size: 12px;">开场前至影院大厅的自助验票机使用验票码获取纸质电影票，入场看电影。</div>
 				</div>
@@ -51,7 +51,7 @@
 				<div class="pay_way_content">
 					<div class="box_1">
 						<span class="user_card">聚优卡号：<span style="font-weight: 600;">{$usernames.user_name}</span></span>
-						<span>聚优卡密码：<input name="password" id="password" type="password"><span class="jiesuan">结算</span> &nbsp;&nbsp;&nbsp;<span class="pay-loading" style="color:red;"></span></span>
+						<span>聚优卡密码：<input name="password" id="password" type="password" autocomplete="off"><span class="jiesuan">结算</span> &nbsp;&nbsp;&nbsp;<span class="pay-loading" style="color:red;"></span></span>
 					</div>
 					<div class="tips">
 						<ul>	

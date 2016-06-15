@@ -192,7 +192,10 @@ elseif ($_REQUEST['step'] == "planCinema")
 	$cityid = !empty($_REQUEST['city']) ? intval($_REQUEST['city']) : 0 ;
 	
 	$movieDeatil = getMovieDetail($movieid);	
-	
+	//评分分割
+	$scoreSplit = explode('.',$movieDeatil['score']);
+	$movieDeatil['left_score'] = $scoreSplit[0];
+	$movieDeatil['right_score'] = $scoreSplit[1];
 	// 整理区
 	$districts = array();
 	$cinemaList = getMovieCinema( $movieid );
@@ -383,12 +386,12 @@ elseif ($_REQUEST['step'] == "planList")
 	if (empty($currentTime))
 	{
 		reset($featureTimes);
-		$currentTime = current($featureTimes);
+		$currentTimes = current($featureTimes);
+		$currentTime = $currentTimes['strtotime'];
 	}	
 	
 	$planList = searchPlan($moviePlan, $currentTime, $ratio);
-	
-	
+
 	$smarty->assign('cinemaid', 	$cinemaid);
 	$smarty->assign('planlist', 	$moviePlan);
 	$smarty->assign('movieid',      $movieid);

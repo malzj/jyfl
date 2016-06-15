@@ -34,7 +34,7 @@
                     </ul>
                 </div>
                 <div class="reying_show2">
-                    <div class="mark"><i>{$movieDetail.score}</i></div>
+                    <div class="mark"><i>{$movieDetail.left_score}<span class="point">.{$movieDetail.right_score}</span></i></div>
                 </div>
                 
         </div>	

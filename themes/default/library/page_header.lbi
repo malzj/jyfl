@@ -2,6 +2,7 @@
 <div class="header">
     <ul class="header_nav">
         <li><img src="{$app_path}images/juyoufuli/img_login/logo.png" alt="聚优福利"></li>
+        <li><span class="adress"><span class="glyphicon glyphicon-map-marker"></span><a href="javascript:;">{$cityinfo.region_name}</a></span></li>
         <ul>
         <li class="username">
             <img id="usertx" src="{$usernames.pic}" alt="用户头像">
@@ -13,3 +14,69 @@
     </ul>
     <div class="bg_top"></div>			
 </div>
+<div id="ui_city_plugs" class="ui_city_plugs none clear" style="position: absolute; left: 180px; top:50px; z-index:120;">
+	<div style="position:relative;" class="inner"> <span title="关闭" class="ui_close"></span>
+		<div class="ui_city_cType clear">
+			<ul>
+				<li style="color:#27C7AC;">全国热门城市</li>
+			</ul>
+		</div>
+		{foreach from=$citys item=city key=key name=city} {if $key eq 'hot'}
+		<div id="city_{$key}_content" class="ui_city_List clear">
+			<div class="inner clear">
+				<ul class="clear">
+					{foreach from=$city item=c}
+					<li><a href="{$app_path}user.php?cityid={$c.region_id}" {if $c.region_id eq $cityid} class="select" {/if} hidefocus="true">{$c.region_name}</a></li>
+					{/foreach}
+				</ul>
+			</div>
+		</div>
+		{else}
+		<div id="city_{$key}_content" class="ui_city_List clear">
+			<div class="inner clear">
+				{foreach from=$city item=c key=k name=c}
+				<dl class="{if $smarty.foreach.c.first}mt0{/if}">
+					<dt><span>{$k}</span></dt>
+					<dd>
+						<ul>
+							{foreach from=$c item=item}
+							<li>
+								<a{if $item.region_id eq $cityid} class="select" {/if} href="user.php?cityid={$item.region_id}" hidefocus="true">{$item.region_name}</a>
+							</li>
+							{/foreach}
+						</ul>
+					</dd>
+				</dl>
+				{/foreach}
+			</div>
+		</div>
+		{/if} {/foreach}
+	</div>
+</div>
+<script>
+	$("#ui_city_plugs").niceScroll({
+		cursorcolor: "#BFB1B1",
+		cursoropacitymax: 1,
+		touchbehavior: false,
+		cursorwidth: "5px",
+		cursorborder: "0",
+		cursorborderradius: "5px"
+	});
+	$('.adress').click(function(event) {
+		event.stopPropagation();
+		$('#ui_city_plugs').toggleClass('none');
+		if ($('#ui_city_plugs').hasClass('none')) {
+			$('.adress a').css('background', 'url({$app_path}images/juyoufuli/img_login/area-01.png) no-repeat 45px');
+		} else {
+			$('.adress a').css('background', 'url({$app_path}images/juyoufuli/img_login/area-02.png) no-repeat 45px');
+		}
+	})
+	$(document).click(function() {
+			$('#ui_city_plugs').addClass('none');
+			if ($('#ui_city_plugs').hasClass('none')) {
+				$('.adress a').css('background', 'url({$app_path}images/juyoufuli/img_login/area-01.png) no-repeat 45px');
+			} else {
+				$('.adress a').css('background', 'url({$app_path}images/juyoufuli/img_login/area-02.png) no-repeat 45px');
+			}
+		})
+</script>

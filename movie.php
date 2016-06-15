@@ -383,12 +383,12 @@ elseif ($_REQUEST['step'] == "planList")
 	if (empty($currentTime))
 	{
 		reset($featureTimes);
-		$currentTime = current($featureTimes);
+		$currentTimes = current($featureTimes);
+		$currentTime = $currentTimes['strtotime'];
 	}	
 	
 	$planList = searchPlan($moviePlan, $currentTime, $ratio);
-	
-	
+
 	$smarty->assign('cinemaid', 	$cinemaid);
 	$smarty->assign('planlist', 	$moviePlan);
 	$smarty->assign('movieid',      $movieid);

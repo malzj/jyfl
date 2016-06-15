@@ -19,7 +19,7 @@
 					<div class="my_order_price_all f_l">总金额（点）</div>
 					<div class="my_order_zhuangtai f_l">状态</div>
 				</div>
-
+                <!-- {if !empty($orders)} -->
 				<!--单个整体订单-->
 				{foreach from=$orders item=order}
 				<div class="my_order_item o_hidden">
@@ -53,6 +53,11 @@
 					</div>
 				</div>
 				{/foreach}
+                <!-- {else} -->
+                <div class="my_order_item o_hidden">
+                没有订单
+                </div>
+                <!--{/if}-->
                 <div class="flickr" style="text-align:center;"><!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --></div>
 			</div>
             <!-- 公用底部 -->

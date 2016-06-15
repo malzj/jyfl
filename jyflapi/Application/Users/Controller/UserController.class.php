@@ -43,6 +43,7 @@ class UserController extends Controller
         $rudata=array();
         $id=$_POST['user_id'];
         $data['nickname']=$_POST['nickname'];
+        $data['mobile_phone']=$_POST['mobile_phone'];
         $data['sex']=$_POST['sex'];
         $data['birthday']=$_POST['birthday'];
         $data['basic']=$_POST['basic'];
@@ -105,12 +106,13 @@ class UserController extends Controller
         $rudata['password']['msg'] = "已修改";
       }
 
-      if(empty($result['mobile_phone'])){
+      if($result['bound_status']==0){
         $rudata['phone']['result'] = false;
         $rudata['phone']['msg'] = "未绑定";
       }else{
         $rudata['phone']['result'] = true;
         $rudata['phone']['msg'] = "已绑定";
+        $rudata['phone']['num'] = $result['mobile_phone'];
       }
 
       if(!empty($result['answerone']) && !empty($result['answertwo']) && !empty($result['answerthree'])){
@@ -356,17 +358,16 @@ class UserController extends Controller
         $province = $result[$key]['province'];
         $country = $result[$key]['country'];
         $region_arr = $regoin->where("region_id=".$city)->find();
-        $result[$key]["city"] = $region_arr['region_name'];
+        $result[$key]["city"] = !empty($region_arr['region_name'])?$region_arr['region_name']:'';
         $region_arr = $regoin->where("region_id=".$province)->find();
-        $result[$key]["province"] = $region_arr['region_name'];
+        $result[$key]["province"] = !empty($region_arr['region_name'])?$region_arr['region_name']:'';
         $region_arr = $regoin->where("region_id=".$country)->find();
-        $result[$key]["country"] = $region_arr['region_name'];
+        $result[$key]["country"] = !empty($region_arr['region_name'])?$region_arr['region_name']:'';
       }
 
       if($result !== ""){
         $rudata['result'] = "true";
         $rudata['business']['result'] = $result;
-        $rudata['business']['show'] = $show;
         $rudata['msg'] = "成功";
       }else{
         $rudata['result'] = "false";

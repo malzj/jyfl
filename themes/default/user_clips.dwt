@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{$app_path}css/juyoufuli/login_layer.css">
     <link rel="stylesheet" href="{$app_path}css/juyoufuli/hy_master.css">
     <script src="{$app_path}js/juyoufuli/jquery.min.js"></script>	
+    <script src="{$app_path}js/juyoufuli/jquery.nicescroll.js"></script>
    {insert_scripts files='utils.js,jquery.region.js,jquery.shoppingflow.js'}
         
 </head>

@@ -48,7 +48,7 @@
 						<ul>
 							{foreach from=$c item=item}
 							<li>
-								<a{if $item.region_id eq $cityid} class="select" {/if} href="index.php?cityid={$item.region_id}" hidefocus="true">{$item.region_name}</a>
+								<a{if $item.region_id eq $cityid} class="select" {/if} href="user.php?cityid={$item.region_id}" hidefocus="true">{$item.region_name}</a>
 							</li>
 							{/foreach}
 						</ul>

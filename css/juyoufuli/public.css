@@ -1210,8 +1210,8 @@ html.movie .midbox .nav_main ul.header_left li a:hover {
     }
 .pic img.active{
 	opacity: 1;
-	animation: movie_active 1s linear infinite alternate;
-	-webkit-animation: movie_active 1s linear infinite alternate;
+	animation: movie_active 1.5s linear infinite alternate;
+	-webkit-animation: movie_active 1.5s linear infinite alternate;
 	}
     @keyframes movie_active{
     	0%{
@@ -1338,7 +1338,7 @@ html.movie_1 .xuanzuo .movie_list .bd .title {
 	margin-top: 10px;
 	text-align: center;
 }
-html.movie_1 .xuanzuo .movie_list .bd .title span{display:inline-block;margin-bottom:5px}
+html.movie_1 .xuanzuo .movie_list .bd .title span{width: 140px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;display:inline-block;/* margin-bottom:5px; */}
 
 html.movie_1 .xuanzuo .movie_list .bd .title .buy {
 	margin: 0 auto;
@@ -1388,6 +1388,7 @@ html.movie_1 .xuanzuo .movie_list .bd {
 
 html.movie_1 .xuanzuo .movie_list .bd ul li {
 	margin: 5px 45px;
+	/* padding-top: 15px; */
 }
 
 html.movie_1 .xuanzuo {
@@ -1405,6 +1406,7 @@ html.movie_1 .w_1200 .movie_xiangqing .date_select div {
 	border: 1px solid #E3E3E3;
 	font-weight: 600;
 	text-align: center;
+	cursor: pointer;
 }
 
 html.movie_1 .w_1200 .movie_xiangqing .date_select div.active {
@@ -1934,6 +1936,7 @@ html.yingyuan2  .movie_xiangqing .date_select div {
 	border: 1px solid #E3E3E3;
 	font-weight: 600;
 	text-align: center;
+	cursor: pointer;
 }
 
 html.yingyuan2  .movie_xiangqing .date_select div.active {

@@ -41,7 +41,7 @@
 						<ul>
 							{foreach from=$c item=item}
 							<li>
-								<a{if $item.region_id eq $cityid} class="select" {/if} href="index.php?cityid={$item.region_id}" hidefocus="true">{$item.region_name}</a>
+								<a{if $item.region_id eq $cityid} class="select" {/if} href="user.php?cityid={$item.region_id}" hidefocus="true">{$item.region_name}</a>
 							</li>
 							{/foreach}
 						</ul>
@@ -54,29 +54,29 @@
 	</div>
 </div>
 <script>
-//	$("#ui_city_plugs").niceScroll({
-//		cursorcolor: "#BFB1B1",
-//		cursoropacitymax: 1,
-//		touchbehavior: false,
-//		cursorwidth: "5px",
-//		cursorborder: "0",
-//		cursorborderradius: "5px"
-//	});
-//	$('.adress').click(function(event) {
-//		event.stopPropagation();
-//		$('#ui_city_plugs').toggleClass('none');
-//		if ($('#ui_city_plugs').hasClass('none')) {
-//			$('.adress a').css('background', 'url({$app_path}images/juyoufuli/img_login/area-01.png) no-repeat 45px');
-//		} else {
-//			$('.adress a').css('background', 'url({$app_path}images/juyoufuli/img_login/area-02.png) no-repeat 45px');
-//		}
-//	})
-//	$(document).click(function() {
-//			$('#ui_city_plugs').addClass('none');
-//			if ($('#ui_city_plugs').hasClass('none')) {
-//				$('.adress a').css('background', 'url({$app_path}images/juyoufuli/img_login/area-01.png) no-repeat 45px');
-//			} else {
-//				$('.adress a').css('background', 'url({$app_path}images/juyoufuli/img_login/area-02.png) no-repeat 45px');
-//			}
-//		})
+	$("#ui_city_plugs").niceScroll({
+		cursorcolor: "#BFB1B1",
+		cursoropacitymax: 1,
+		touchbehavior: false,
+		cursorwidth: "5px",
+		cursorborder: "0",
+		cursorborderradius: "5px"
+	});
+	$('.adress').click(function(event) {
+		event.stopPropagation();
+		$('#ui_city_plugs').toggleClass('none');
+		if ($('#ui_city_plugs').hasClass('none')) {
+			$('.adress a').css('background', 'url({$app_path}images/juyoufuli/img_login/area-01.png) no-repeat 45px');
+		} else {
+			$('.adress a').css('background', 'url({$app_path}images/juyoufuli/img_login/area-02.png) no-repeat 45px');
+		}
+	})
+	$(document).click(function() {
+			$('#ui_city_plugs').addClass('none');
+			if ($('#ui_city_plugs').hasClass('none')) {
+				$('.adress a').css('background', 'url({$app_path}images/juyoufuli/img_login/area-01.png) no-repeat 45px');
+			} else {
+				$('.adress a').css('background', 'url({$app_path}images/juyoufuli/img_login/area-02.png) no-repeat 45px');
+			}
+		})
 </script>

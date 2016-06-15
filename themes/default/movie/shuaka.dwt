@@ -25,7 +25,8 @@
                     <option value="{$city.region_id}" {if $int_city eq $city.region_id}selected{/if}>{$city.region_name}</option>
                     {/foreach}
                 </select>			
-                <input type="image" src="/images/hy_sure.jpg" width="45" height="21" onclick="return dosubmit();" style="margin-top: -4px;vertical-align: middle;">  
+                <input value="确定" type="image"  onclick="return dosubmit();" style="margin-top: -4px;vertical-align: middle;width: 50px;height: 23px;outline: none;line-height: 20px;text-align: center;
+                	cursor: pointer;background: #2fd0b5;color: white;border: none;">  
                 </form>
 			</div>
 			<div class="select_tips">

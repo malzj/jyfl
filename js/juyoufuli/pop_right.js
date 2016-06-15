@@ -31,7 +31,7 @@ $(function(){
 	})
 //	往期中奖
 	$('#old_win').on('click',function(){
-        var user_id = $(this).val();
+        var user_id = $(this).attr('data-uid');
         $.ajax({
             type: 'post',
             url: api_url + 'index.php/Games/GamesApi/getWinners',

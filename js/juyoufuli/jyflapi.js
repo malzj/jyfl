@@ -1,12 +1,11 @@
-   // var api_url ="http://192.168.1.161/jyflapi/";
-   var api_url ="http://www.juyoufuli.com/jyflapi/";
-//var api_url ="http://127.0.0.1:8025/jyflapi/";
+var api_url ="/jyflapi/";
 function userShow(data){
 	var user_id = data;
 	var rudata ="";
 	var user_id = $('#user_id').val();
             var username ;
             var nickname ;//用户名
+            var mobile_phone ;//手机号
             var sex ;//性别
             var birthday;//生日
             var basic;//个人情况
@@ -24,6 +23,7 @@ function userShow(data){
 			if(data.result=='true'){
 			 username = data.business.user_name;
              nickname = data.business.nickname;//用户名
+			 mobile_phone = data.business.mobile_phone?data.business.mobile_phone:'';
              sex = data.business.sex;//性别
              birthday=data.business.birthday;//生日
              basic=data.business.basic;//个人情况
@@ -40,12 +40,13 @@ layer.open({
         title:false,
         area:'570px',
         shadeClose:false, //点击遮罩关闭
-        content:'<div class="per"><h3>个人信息</h3><div class="wrap_1"><div class="left"><div class="form-group">卡号：<span class="card_num" id="card_id"></span></div><div class="form-group"><label>用户名：</label><span class="username"><input type="text" id="username"></span></div><div class="form-group"><label>性别：</label><span id="male" class="radio_img radio_left"><input type="radio" name="Sex" value="1"></span>男 <span id="female" class="radio_img"><input type="radio" name="Sex" value="2"></span>女</div><div class="form-group" style="position:relative">生日： <input onclick="laydate()" class="birth" id="birth"><label class="date_ico laydate-icon" for="birth"></label></div><div class="form-group" id="geren">个人情况： <span class="radio_img" id="danshen"><input type="radio" name="per" value="单身"></span>单身 <span class="radio_img" id="love"><input type="radio" name="per" value="恋爱中"></span>恋爱中 <span class="radio_img" id="yihun"><input type="radio" name="per" value="已婚"></span>已婚 <span class="radio_img" id="baomi"><input type="radio" name="per" value="保密"></span>保密</div><form action="" method="get">兴趣： <span id="meishi" class="checkbox_img radio_left"><input name="favorite" type="checkbox" value="美食"></span>美食 <span id="dianying" class="checkbox_img"><input name="favorite" type="checkbox" value="电影"></span>电影 <span id="jiudian" class="checkbox_img"><input name="favorite" type="checkbox" value="酒店"></span>酒店 <span id="xiuxian" class="checkbox_img"><input name="favorite" type="checkbox" value="休闲娱乐"></span>休闲娱乐 <span id="liren" class="checkbox_img"><input name="favorite" type="checkbox" value="丽人"></span>丽人 <span id="lvyou" class="checkbox_img"><input name="favorite" type="checkbox" value="旅游"></span>旅游</form></div><div class="right"><form id="uploadForm"><div class="right_img" id="localImag"><img id="preview" src="images/img_login/touxiang_shang.png" width="120" height="120"></div><span class="file"><input type="file" name="file" id="doc" onchange="setImagePreview(this)"></span><span class="file_yes"><input type="button" value="确认" onclick="upload()" /></span></form></div></div><div style="text-align:center"><button id="save">保存</button></div></div>'
+        content:'<div class="per"><h3>个人信息</h3><div class="wrap_1"><div class="left"><div class="form-group">卡号：<span class="card_num" id="card_id"></span></div><div class="form-group"><label>用户名：</label><span class="username"><input type="text" id="username"></span></div><div class="form-group"><label>手机号：</label><span class="username"><input type="text" id="mobile_phone"></span></div><div class="form-group"><label>性别：</label><span id="male" class="radio_img radio_left"><input type="radio" name="Sex" value="1"></span>男 <span id="female" class="radio_img"><input type="radio" name="Sex" value="2"></span>女</div><div class="form-group" style="position:relative">生日： <input onclick="laydate()" class="birth" id="birth"><label class="date_ico laydate-icon" for="birth"></label></div><div class="form-group" id="geren">个人情况： <span class="radio_img" id="danshen"><input type="radio" name="per" value="单身"></span>单身 <span class="radio_img" id="love"><input type="radio" name="per" value="恋爱中"></span>恋爱中 <span class="radio_img" id="yihun"><input type="radio" name="per" value="已婚"></span>已婚 <span class="radio_img" id="baomi"><input type="radio" name="per" value="保密"></span>保密</div><form action="" method="get">兴趣： <span id="meishi" class="checkbox_img radio_left"><input name="favorite" type="checkbox" value="美食"></span>美食 <span id="dianying" class="checkbox_img"><input name="favorite" type="checkbox" value="电影"></span>电影 <span id="jiudian" class="checkbox_img"><input name="favorite" type="checkbox" value="酒店"></span>酒店 <span id="xiuxian" class="checkbox_img"><input name="favorite" type="checkbox" value="休闲娱乐"></span>休闲娱乐 <span id="liren" class="checkbox_img"><input name="favorite" type="checkbox" value="丽人"></span>丽人 <span id="lvyou" class="checkbox_img"><input name="favorite" type="checkbox" value="旅游"></span>旅游</form></div><div class="right"><form id="uploadForm"><div class="right_img" id="localImag"><img id="preview" src="images/img_login/touxiang_shang.png" width="120" height="120"></div><span class="file"><input type="file" name="file" id="doc" onchange="setImagePreview(this)"></span><span class="file_yes"><input type="button" value="确认" onclick="upload()" /></span></form></div></div><div style="text-align:center"><button id="save">保存</button></div></div>'
     });
                $('#preview').attr('src',img);
             
             $('#card_id').text(username);
             $('#username').val(nickname);
+            $('#mobile_phone').val(mobile_phone);
 //			性别
 			if(sex==1){
 		      $('#male').addClass('on');
@@ -158,11 +159,17 @@ function userSave(){
 //	var rudata='';
     var user_id=$('#user_id').val();
     var nickname=$('#username').val();
+    var mobile_phone=$('#mobile_phone').val();
     var sex=$('input[name="Sex"]:checked').val();
     var birthday=$('#birth').val();
     var basic=$('input[name="per"]:checked').val();
+	var partten    = /^1[3,5,8]\d{9}$/;
     var xingqu;
     var xingqu_1=$('#xingqu').val();
+	if(mobile_phone&&!partten.test(mobile_phone)){
+		layer.alert('请输入正确的手机号！');
+		return false;
+	}
     if (xingqu_1==""||xingqu_1==null){
     	xingqu=$('input[type="checkbox"]:checked').val();
     }else{
@@ -181,7 +188,7 @@ function userSave(){
 		type:"post",
 		url:url,
 		async:false,
-		data:{user_id:user_id,nickname:nickname,sex:sex,birthday:birthday,xingqu:xingqu,basic:basic,pic:pic},
+		data:{user_id:user_id,nickname:nickname,mobile_phone:mobile_phone,sex:sex,birthday:birthday,xingqu:xingqu,basic:basic,pic:pic},
 		dataType:"json",
 		success:function(data){
 			 var usertx=$('#img').val();
@@ -477,12 +484,12 @@ function addAddress()
 		// msg.push('请正确填写收货人所在地区!');
 		layer.msg('请正确填写收货人所在地区!');
 	}
-	if (hcityid == 0){
-		err = true;
-		//msg.push(city_not_null);
-		// msg.push('请正确填写收货人所在地区');
-		layer.msg('请正确填写收货人所在地区!');
-	}
+	// if (hcityid == 0){
+	// 	err = true;
+	// 	//msg.push(city_not_null);
+	// 	// msg.push('请正确填写收货人所在地区');
+	// 	layer.msg('请正确填写收货人所在地区!');
+	// }
 
 
 	//收货人不能为空
@@ -546,11 +553,11 @@ function addAddress()
 			success: function (data) {
 				if(data.result=='true'){
 					var html = getAddressHtml();
-					$('.layui-layer-content').html('<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
+					$('.layui-layer-content').html('<div class="shouhuo_left"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
 					layer.msg('添加地址成功！');
 				}else if(data.result=='false'){
 					var html = getAddressHtml();
-					$('.layui-layer-content').html('<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
+					$('.layui-layer-content').html('<div class="shouhuo_left"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
 					layer.msg('添加地址失败!');
 				}
 			},
@@ -719,19 +726,23 @@ function updateAddress(){
 function delAddress(data){
 	var user_id = $('#user_id').val();
 	var address_id = data;
-	var url =api_url+"index.php?s=Users/User/delAddress";
-	$.ajax({
-		type:"post",
-		url:url,
-		async:false,
-		data:{user_id:user_id,address_id:address_id},
-		dataType:"json",
-		success:function(data){
-			if(data.result=='true'){
-				var html = getAddressHtml();
-				$('.layui-layer-content').html('<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
-			return ;
-			}
-	},
-	});
+	if(confirm('确定删除该条收货地址？')) {
+		var url = api_url + "index.php?s=Users/User/delAddress";
+		$.ajax({
+			type: "post",
+			url: url,
+			async: false,
+			data: {user_id: user_id, address_id: address_id},
+			dataType: "json",
+			success: function (data) {
+				if (data.result == 'true') {
+					var html = getAddressHtml();
+					$('.layui-layer-content').html('<div class="shouhuo_left"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>' + html + '</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
+					return;
+				}
+			},
+		});
+	}else{
+		return false;
+	}
 };

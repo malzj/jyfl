@@ -1,7 +1,5 @@
-// var data_url = "http://192.168.1.161/jyflapi/";
-var data_url = "http://www.juyoufuli.com/jyflapi/";
-// var ecs_url ="http://192.168.1.161/";
-var ecs_url = "http://www.juyoufuli.com/";
+var data_url = "/jyflapi/";
+var ecs_url ="/";
 
 var timeOut;
 
@@ -373,7 +371,28 @@ $(function () {
         userLoginPass(user_id, old_password, new_password, con_password);
     });
     $(document).delegate('.tr_2 .td_4', 'click', function () {
-        $('.layui-layer-content').html('<div class="tel"><h3>绑定手机号</h3><div class="form-group"><label>手机号：</label><input id="tel" type="text"><div class="ach"><input type="button" id="getverification" value="获取验证码"></div></div><div class="form-group"><label>动态码：</label><input id="captcha" type="text"></div><div class="btn_tel"><button class="btn_bound">绑定</button> <button class="btn_cancel">取消</button></div></div>');
+        var uid = $('#user_id').val();
+        var index;
+        $.ajax({
+            type:'post',
+            url:api_url+'index.php/Users/User/showSafe',
+            data:{
+                user_id:uid,
+            },
+            dataType:'json',
+            beforeSend:function () {
+                index = layer.load();
+            },
+            success:function (data) {
+                layer.close(index);
+                if(data.phone.result == 'true'){
+                    var tel = data.phone.num;
+                }else{
+                    var tel = '';
+                }
+                $('.layui-layer-content').html('<div class="tel"><h3>绑定手机号</h3><div class="form-group"><label>手机号：</label><input id="tel" type="text" value="'+tel+'"><div class="ach"><input type="button" id="getverification" value="获取验证码"></div></div><div class="form-group"><label>动态码：</label><input id="captcha" type="text"></div><div class="btn_tel"><button class="btn_bound">绑定</button> <button class="btn_cancel">取消</button></div></div>');
+            }
+        })
     });
     /**
      * 获取验证码

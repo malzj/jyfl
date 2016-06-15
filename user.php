@@ -3103,7 +3103,6 @@ else if ($action == 'dzq_order'){
     $pager  = get_pager('user.php', array('act' => $action), $record_count, $page);
 
     $orders = get_user_dzq_orders($user_id, $pager['size'], $pager['start']);
-
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
     $smarty->display('order/dzqOrder.dwt');

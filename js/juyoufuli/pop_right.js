@@ -1,6 +1,4 @@
-// var api_url = 'http://jy.com/jyflapi/';
-// var api_url = 'http://192.168.1.161/jyflapi/';
-var api_url = 'http://www.juyoufuli.com/jyflapi/';
+var api_url = '/jyflapi/';
 $(function(){
 //	游戏规则
 	$('#guize').on('click',function(){

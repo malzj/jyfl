@@ -338,7 +338,11 @@ function get_user_orders($user_id, $num = 10, $start = 0)
             'c_orders'=>array()
         );
     }
-    $idin = '('.implode(',',$idarr).')';
+    if(!empty($idarr)){
+        $idin = '('.implode(',',$idarr).')';
+    }else{
+        return ;
+    }
     $sql = "SELECT order_id, order_sn, order_status,return_status, shipping_status, pay_status, add_time, parent_order_id,shipping_fee, " .
         "(goods_amount + insure_fee + pay_fee + pack_fee + card_fee + tax - discount) AS total_fee ".
         " FROM " .$GLOBALS['ecs']->table('order_info') .

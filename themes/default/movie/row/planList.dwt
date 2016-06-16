@@ -13,4 +13,6 @@
     {/if}
     </span>
 </li>
+{foreachelse}
+<center>没有场次！</center>
 {/foreach}

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{$app_path}css/juyoufuli/public.css">
     <script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
     <script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+    <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
     {insert_scripts files='utils.js'}
 </head>
 <body>
@@ -15,22 +16,23 @@
     <!-- 头部结束 --> 
 	
     <!-- 电影内容 -->
-    <div class="w_1200">
-        <div class="reying_show">
+    <!--影片详情背景-->
+    <div class="movieTop_bg" style="width: 100%;height: 350px;background: url(/images/juyoufuli/img_login/14642286938663.jpg) no-repeat center top #333;margin-top: 49px;">
+     <div class="reying_show">
                 <div class="reying_img">
-                    <img src="{$movieDetail.thumb}" style="width: 100%;height: 100%;">
+                    <img src="{$movieDetail.thumb}" width="145">
                 </div>
                 <div class="reying_show1">
                     <ul>
                         <li class="title">{$movieDetail.movieName}</li>
-                        <li class="border_bottom"></li>
+                        <li>片长：<span>{$movieDetail.movieLength}分钟</span></li>
+                        <li>上映时间：<span>{$movieDetail.publishTime}</span></li>
+                        <!--<li class="border_bottom"></li>-->
                         <li>类型：<span>{$movieDetail.movieType}</span></li>
                         <li>导演：<span>{$movieDetail.director}</span></li>
                         <li>主演：<span>{$movieDetail.actor}</span></li>
-                        <li class="juqingA">剧情：<span class="juqing_left">{$movieDetail.intro}</span></li>
-                        <li>片长：<span>{$movieDetail.movieLength}分钟</span></li>
-                        <li>上映时间：<span>{$movieDetail.publishTime}</span></li>
-                        <li class="reying_icon"></li>
+                        <li>剧情：<span class="juqing_left juqingA">{$movieDetail.intro}</span></li>
+                        <!--<li class="reying_icon"></li>-->
                     </ul>
                 </div>
                 <div class="reying_show2">
@@ -38,6 +40,40 @@
                 </div>
                 
         </div>	
+       </div>
+       <!--搜索栏-->
+		<div id="ticketSearchFixDiv" class="onlineticket" style="width: 100%;">
+			<div class="midbox">
+				<div class="nav_main">
+					<ul class="header_left">
+                    	{foreach from=$category item=cate}
+						<li><a href="{$cate.url}">{$cate.name}</a></li>
+                        {/foreach}
+					</ul>
+				</div>
+				<div id="ticketSearchDiv" class="movieselectbox clearfix">
+					<div class="moviemid m_movie __r_c_"><span>选影片</span>
+						<a href="javaScript:;" class="ico_select"></a>
+					</div>
+					<div class="moviemid m_film __r_c_"><span>选影院</span>
+						<a href="javaScript:;" class="ico_select"></a>
+					</div>
+					<div class="moviemid m_time nottime __r_c_"><span>选时间</span>
+						<a href="javaScript:;" class="ico_select"></a>
+					</div>
+					
+					<div class="moviestip __r_c_" style="display: none;" id="ajaxMovieList"> <center> LOADING ... </center> </div>
+                    <div class="cinematip __r_c_" style="display: none;" id="ajaxCinemaList">
+                    	<center>请选择影片</br>
+                    		<img src="/images/juyoufuli/img_login/wuya.png">
+                    	</center></div>
+					<div class="i_date __r_c_" style="display: none;" id="ajaxPlanList"> <center> 请选择影院<br/>
+						<img src="/images/juyoufuli/img_login/wuya.png">
+					</center> </div>
+				</div>
+			</div>
+		</div>
+    <div class="w_1200">
         <div class="xuanzuo">
             <div class="reying_title">
                 <div class="reying_bg"></div>
@@ -48,14 +84,14 @@
                     <span class="next"></span>
                 </div>
                 <div class="bd">
-                    <ul class="picList" style="height:270px;">
-                        <center style="line-height:220px;">LOADING ...</center>
+                    <ul class="picList">
+                        <center style="line-height:220px;">gif图待定</center>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="movie_xiangqing">
-            <div class="date_select" style="height:47px; line-height:47px;"> LOADING ... </div>
+            <div class="date_select" style="height:47px; line-height:47px;"></div>
             <div class="cinema_all">
                 <!--选择城区-->
                 <div class="town">
@@ -70,7 +106,7 @@
                 <div class="select_cinema">
                     <h3>选择影院</h3>
                     <ul>
-                        <li>LOADING ...</li>
+                        <li>gif图待定</li>
                     </ul>
                 </div>
                 <!--影院详情-->
@@ -83,7 +119,7 @@
                         <span>选座购票</span>
                     </div>
                     <ul id="planList">
-                        <center>LOADING ... </center>
+                        <center>gif图待定</center>
                     </ul>
                 </div>
             </div>
@@ -198,7 +234,7 @@
 				type:'POST',
 				data:'step=cinemaList&movieid='+movieid+'&dis='+dis+'&cinemaid='+cinemaid,
 				beforeSend:function(){
-					$('.select_cinema ul').html("<li>LOADING ... </li>");
+					$('.select_cinema ul').html("<center>gif图待选</center>");
 				},
 				success:function( data ){
 					var obj = jQuery.parseJSON(data);
@@ -232,16 +268,20 @@
 				type:'POST',
 				data:'step=movieList&cinemaid='+cinemaId,
 				beforeSend:function(){
-					$('.picList').html("<center style='line-height:220px; width:1150px;'>LOADING ...</center>");
+					//$('.picList').html("<center style='line-height:220px; width:1150px;'>LOADING ...</center>");
+					$('.movie_list').append("<div class='movie_ceng' style='background: #333;opacity: .2;width:100%;height: 400px;position: absolute;top:0;left: 0;z-index: 99;border-radius: 10px;'></div>");
 				},
 				success:function( data ){
 					var obj = jQuery.parseJSON(data);
 					if(obj.error > 0){
 						$('.picList').html(obj.message);
+						$('.movie_ceng').remove();//去掉蒙层
 					}else{
 						$('.picList').html(obj.html);
 						initMovieList();
-						setMovieActive();						
+						setMovieActive();
+						$('.movie_ceng').remove();//去掉蒙层
+						
 					}
 				}
 			});
@@ -260,9 +300,11 @@
 				type:'POST',
 				data:'step=planList&cinemaid='+cinemaid+'&movieid='+movieid+'&currentTime='+currentTime,
 				beforeSend:function(){
-					$(idClass).html("<tr><td colspan='5'> LOADING ... </td></tr>");
+					$(idClass).html("<center>gif图待定</center>");
 					if(currentTime == 0){
-						$('.date_select').html('LOADING ...');
+						//$('.date_select').html('LOADING ...');
+						//$('.date_select').append("<div style='background: #333;opacity:.3;width: 100%;position: absolute;top: 0;left: 0;height: 100px;'></div>");
+						
 					}
 				},
 				success:function( data ){
@@ -327,6 +369,91 @@
 			}
 		}
 		
+		
+		jQuery(function($) {
+				$(document).ready(function() {
+					$('#ticketSearchFixDiv').stickUp();
+				});
+			});
+			//点击选影片
+			$('.m_movie').click(function() {
+				$('.moviestip').toggle();
+				$('.cinematip').css('display', 'none');
+				$('.i_date').css('display', 'none');
+				loacList("step=ajaxMovieList",'#ajaxMovieList');
+				
+			})
+			// 选择的时候
+			$(document).delegate('.movieselectbox a','click',function(){
+				var type = $(this).attr('data-type');
+				var id = $(this).attr('data-id');
+				var cid = $(this).attr('data-cid');
+	
+				if(type == 'movie'){
+					loacList("step=ajaxCinemaList&movieid="+id,'#ajaxCinemaList');
+					$('.cinematip').toggle();
+					$('.moviestip').css('display', 'none');
+					$('.i_date').css('display', 'none');
+					$('.m_movie > span').html($(this).find('span').html());
+				}
+				
+				if(type == 'cinema'){
+					loacList("step=ajaxPlanList&movieid="+id+"&cinemaid="+cid,'#ajaxPlanList');
+					$('.i_date').toggle();
+					$('.cinematip').css('display', 'none');
+					$('.moviestip').css('display', 'none');
+					$('.m_film  > span').html($(this).html());
+				}
+			});
+			// 选择排期时间
+			$(document).delegate('.i_dates .transition4 dd','click', function(){				
+				$(this).addClass('active');
+				var featuretime = $(this).html();
+				var cinemaid = $(this).attr('data-cinemaid');
+				var movieid = $(this).attr('data-movieid');		
+				loacList("step=ajaxPlanList&movieid="+movieid+"&cinemaid="+cinemaid+"&currentTime="+featuretime,'.showdate');
+				$(this).addClass('on').siblings().removeClass('on');
+				
+			})
+			
+			
+			$('.m_film').click(function() {
+				$('.cinematip').toggle();
+				$('.moviestip').css('display', 'none');
+				$('.i_date').css('display', 'none');
+			})
+			$('.m_time').click(function() {
+				$('.i_date').toggle();
+				$('.cinematip').css('display', 'none');
+				$('.moviestip').css('display', 'none');
+			})
+			
+			
+			// 加载列表
+			function loacList(param, idClass){			
+				$.ajax({
+					url:'movie.php',
+					type:'POST',
+					data: param,
+					beforeSend:function(){
+						$(idClass).html(" LOADING ... ");
+					},
+					success:function( data ){
+						$(idClass).html(data);
+						if(idClass == '#ajaxPlanList'){
+							jQuery(".i_datetab").slide({
+							mainCell: ".bd dl",
+							autoPage: true,
+							effect: "left",
+							autoPlay: false,
+							vis: 3,
+							pnLoop: false
+													});		
+						}
+						
+					}
+				})
+			}	
 		
 	</script>
         

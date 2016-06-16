@@ -115,6 +115,7 @@ class UserController extends Controller
         $rudata['phone']['num'] = $result['mobile_phone'];
       }
 
+
       if(!empty($result['answerone']) && !empty($result['answertwo']) && !empty($result['answerthree'])){
         $rudata['answer']['result'] = true;
         $rudata['answer']['msg'] = "已设置";
@@ -124,6 +125,7 @@ class UserController extends Controller
       }
       $rudata['result']="true";
       $rudata['msg'] = "成功";
+      $rudata['phone']['num']=!empty($result['mobile_phone'])?$result['mobile_phone']:'';
       $jsondData = json_encode($rudata);
       echo $jsondData;
     }
@@ -324,13 +326,13 @@ class UserController extends Controller
       $countryList = $Regoin -> field("region_id,region_name") -> where(array('parent_id'=>0)) -> select(); //获取省或直辖市列表
       if(!empty($addressInfo)){
         $provinceList = $Regoin -> field("region_id,region_name") -> where(array('parent_id'=>$addressInfo['country'])) -> select(); //获取地址同属市列表
-        $cityList = $Regoin -> field("region_id,region_name") -> where(array('parent_id'=>$addressInfo['province'])) -> select(); //获取地址同属区列表
+//        $cityList = $Regoin -> field("region_id,region_name") -> where(array('parent_id'=>$addressInfo['province'])) -> select(); //获取地址同属区列表
       }
-      if(!empty($countryList)&&!empty($provinceList)&&!empty($cityList)){
+      if(!empty($countryList)&&!empty($provinceList)){
         $rudata['result']="true";
         $rudata['countryList']=$countryList;
         $rudata['provinceList']=$provinceList;
-        $rudata['cityList']=$cityList;
+//        $rudata['cityList']=$cityList;
         $rudata['addressInfo']=$addressInfo;
         $rudata['msg'] = "成功！";
       }else{
@@ -348,10 +350,13 @@ class UserController extends Controller
     public function showAddress(){
       $id = $_REQUEST['user_id'];
       $Dao = M("user_address");
+      $UserModel = M('users');
       $page = $_REQUEST['p']?$_REQUEST['p']:1;
       
       $result = $Dao->where("user_id=".$id)->select();
+      $userInfo = $UserModel->where("user_id=".$id)->find();
       $regoin = M("region");
+      $sortKey = array();
       //处理收货的三级地址
       foreach($result as $key=>$value){
         $city = $result[$key]['city'];
@@ -363,9 +368,17 @@ class UserController extends Controller
         $result[$key]["province"] = !empty($region_arr['region_name'])?$region_arr['region_name']:'';
         $region_arr = $regoin->where("region_id=".$country)->find();
         $result[$key]["country"] = !empty($region_arr['region_name'])?$region_arr['region_name']:'';
+        if($value['address_id']==$userInfo['address_id']){
+          $sortKey[$key]['selected']=$result[$key]['selected']=1;
+        }else{
+          $sortKey[$key]['selected']=$result[$key]['selected']=0;
+        }
       }
 
-      if($result !== ""){
+      //数组排序，默认地址排最前
+      array_multisort($sortKey,SORT_DESC,$result);
+
+      if(!empty($result)){
         $rudata['result'] = "true";
         $rudata['business']['result'] = $result;
         $rudata['msg'] = "成功";
@@ -387,7 +400,7 @@ class UserController extends Controller
       $id = $_REQUEST['user_id'];
       $hcountryid = $_REQUEST['hcountryid'];    //省
       $hprovinceid = $_REQUEST['hprovinceid'];      //市
-      $hcityid = $_REQUEST['hcityid'];          //区
+//      $hcityid = $_REQUEST['hcityid'];          //区
       $hstreet = $_REQUEST['hstreet'];      //街道
       $zipcode = $_REQUEST['zipcode'];      //邮编
       $consignee = $_REQUEST['consignee'];  //联系人
@@ -400,7 +413,7 @@ class UserController extends Controller
 
       $data['country'] = $hcountryid;
       $data['province'] = $hprovinceid;
-      $data['city'] = $hcityid;
+//      $data['city'] = $hcityid;
       $data['address'] = $hstreet;
       $data['zipcode'] = $zipcode;
       $data['consignee'] = $consignee;
@@ -519,7 +532,7 @@ class UserController extends Controller
       $address_id = $_REQUEST['address_id'];
       $hcountryid = $_REQUEST['hcountryid'];    //省
       $hprovinceid = $_REQUEST['hprovinceid'];      //市
-      $hcityid = $_REQUEST['hcityid'];          //区
+//      $hcityid = $_REQUEST['hcityid'];          //区
       $hstreet = $_REQUEST['hstreet'];      //街道
       $zipcode = $_REQUEST['zipcode'];      //邮编
       $consignee = $_REQUEST['consignee'];  //联系人
@@ -527,7 +540,7 @@ class UserController extends Controller
 
       $data['country'] = $hcountryid;
       $data['province'] = $hprovinceid;
-      $data['city'] = $hcityid;
+//      $data['city'] = 0;
       $data['address'] = $hstreet;
       $data['zipcode'] = $zipcode;
       $data['consignee'] = $consignee;
@@ -564,7 +577,7 @@ class UserController extends Controller
         }
       }else{
         $rudata['result'] = "false";
-        $rudata['msg'] = "失败";
+        $rudata['msg'] = "删除失败，请刷新重试！";
       }
       $jsondData = json_encode($rudata);
       echo $jsondData;  

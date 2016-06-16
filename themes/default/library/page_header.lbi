@@ -2,7 +2,7 @@
 <div class="header">
     <ul class="header_nav">
         <li><img src="{$app_path}images/juyoufuli/img_login/logo.png" alt="聚优福利"></li>
-        <li><span class="adress"><span class="glyphicon glyphicon-map-marker"></span><a href="javascript:;">{$cityinfo.region_name}</a></span></li>
+        <li style="margin-left: 5px;"><span class="adress"><span class="glyphicon glyphicon-map-marker"></span><a href="javascript:;">{$cityinfo.region_name}</a></span></li>
         <ul>
         <li class="username">
             <img id="usertx" src="{$usernames.pic}" alt="用户头像">

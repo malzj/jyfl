@@ -46,7 +46,7 @@
                     <span class="next"></span>
                 </div>
                 <div class="bd">
-                    <ul class="picList" style="height:270px;">
+                    <ul class="picList">
                         <center style="line-height:220px;">LOADING ...</center>
                     </ul>
                 </div>
@@ -220,11 +220,13 @@
 				data:'step=movieList&cinemaid='+cinemaId,
 				beforeSend:function(){
 					$('.picList').html("<center style='line-height:220px; width:1150px;'>LOADING ...</center>");
+					//$('.movie_list').append("<div class='movie_ceng' style='background: #333;opacity: .3;width:100%;height: 600px;position: absolute;top:0;left: 0;z-index: 99;'></div>");
 				},
 				success:function( data ){
 					var obj = jQuery.parseJSON(data);
 					if(obj.error > 0){
 						$('.picList').html(obj.message);
+						$('.movie_ceng').remove();//去掉蒙层
 					}else{
 						$('.picList').html(obj.html);
 						// 初始滚动插件
@@ -234,7 +236,8 @@
 							setMovieInfo();
 						}
 						// 加载影院列表
-						loadCinema( getMovieId(), thisCityid, thisCinemaid );					
+						loadCinema( getMovieId(), thisCityid, thisCinemaid );	
+						$('.movie_ceng').remove();//去掉蒙层
 					}
 				}
 			});

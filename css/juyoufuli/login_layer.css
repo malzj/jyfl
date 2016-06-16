@@ -14,9 +14,9 @@
 .layui-layer-content .per{padding-bottom: 20px;}
 .layui-layer-content .per .radio_img{width: 20px;background: url(/images/index/img_login/radio_1.png) -30px 2px no-repeat;margin-right: 5px;}
 .layui-layer-content .per .radio_img input{opacity: 0;}
-.layui-layer-content .per .checkbox_img.on_check{width: 20px;background: url(/images/index/img_login/radio_1.png) -60px 2px no-repeat;margin-right: 5px;}
+.layui-layer-content .per .checkbox_img.on_check,.layui-layer-content .set_address .checkbox_img.on_check{width: 20px;background: url(/images/index/img_login/radio_1.png) -60px 2px no-repeat;margin-right: 5px;}
 .layui-layer-content .per .checkbox_img input{opacity: 0;}
-.layui-layer-content .per .checkbox_img{margin-right: 5px;background: url(/images/index/img_login/radio_1.png) no-repeat -30px;}
+.layui-layer-content .per .checkbox_img,.layui-layer-content .set_address .checkbox_img{margin-right: 5px;background: url(/images/index/img_login/radio_1.png) no-repeat -30px;}
 .layui-layer-content .per .on{background-position: 0px 2px;}
 .layui-layer-content .per .radio_left{margin-left: 13px;}
 .layui-layer-content .per .file{background: url(/images/index/img_login/file.png) no-repeat -81px 0px;margin-top: 23px;display: inline-block;height: 25px;margin-left: 30px;/* width: 54px; */cursor: pointer;}
@@ -141,13 +141,16 @@
 .layui-layer-content .shouhuo_left .add_new{margin-left: 10px;color: #37e2c3;}
 .layui-layer-content .shouhuo_left table thead{background: #828385;opacity: .5;}
 .layui-layer-content .shouhuo_left table td{text-align: center;}
-.layui-layer-content .shouhuo_left .gn_btn span{
+.layui-layer-content .shouhuo_left .gn_btn span,.layui-layer-content .shouhuo_left .gn_btn a{
     color: #37e2c3;
     margin: 0 5px;
+    height: 15px;
+    display: inline-block;
 }
+.layui-layer-content .shouhuo_left .gn_btn span{width:20px;}
 .layui-layer-content .shouhuo_left{padding-bottom: 20px;}
 .layui-layer-content .shouhuo_left table td.td_1{width: 60px;}
-.layui-layer-content .shouhuo_left table td.gn_btn{width: 85px;}
+.layui-layer-content .shouhuo_left table td.gn_btn{/* width: 85px; */}
 
 
 /*绑定手机号*/

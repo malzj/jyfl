@@ -62,12 +62,12 @@
 			</div>
 		</div>
 		<div class="w_1200">
-			<div class="reying">
+			<div class="reying o_hidden">
 				<div class="reying_title">
 					<div class="reying_bg"></div>
 					<div class="reying_news">今天共有<span> {$count} </span>部影片</div>
 				</div>
-				<div class="reying_show">
+				<!--<div class="reying_show">
 					<div class="reying_img">
 						<img src="{$movies.shifuMovie.pathVerticalS}" style="width: 100%;height: 100%;">
 					</div>
@@ -86,17 +86,18 @@
 						<div class="mark"><i>{$movies.shifuMovie.left_score}<span class="point">.{$movies.shifuMovie.right_score}</span></i></div>
 						<div class="buy"><a href="{$app_path}movie.php?step=planCinema&movieid={$movies.shifuMovie.movieId}" target="_blank" class="zhuti_a_hover">选座购票</a></div>
 					</div>
-				</div>
+				</div>-->
 				<div class="movie_list">
 					<div class="hd">
-						<span class="prev"></span>
-						<span class="next"></span>
+						<span class="prev"><</span>
+						<span class="next">></span>
+						<span class="pageState"><span></span>/</span>
 					</div>
 					<div class="bd">
 						<ul class="picList">
                         {foreach from=$movies.hot item=hot}
 							<li style="float: left;">
-								<div class="li_top"></div>
+								<!--<div class="li_top"></div>-->
 								<div class="pic">
 									<a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_blank"><img src="{$hot.pathVerticalS}" width="140" height="196"></a>
 								</div>
@@ -198,13 +199,15 @@
 				}
 				}
 				});
+//			jQuery(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,scroll:3,vis:3});				
 			jQuery(".movie_list").slide({
 				titCell: ".hd ul",
 				mainCell: ".bd ul",
 				autoPage: true,
 				effect: "left",
 				autoPlay: false,
-				vis: 6,
+				scroll:4,
+				vis:4,
 				pnLoop: false
 										});
 			jQuery(".will_list").slide({

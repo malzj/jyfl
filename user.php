@@ -3192,10 +3192,9 @@ else if ($action == 'venues_order')
             $orders[$row['id']]['times_mt'][] =urldecode($time);
         }
     }
-
     $smarty->assign('pager',  $pager);
     $smarty->assign('order_list', $orders);
-    $smarty->display('order/venuesOrder.dwt');
+    $smarty->display('order/venuesOrderList.dwt');
     
 }
 //演出订单

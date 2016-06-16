@@ -218,7 +218,7 @@
 			}
 				
 			// 图片地址替换
-			var details = $('.details').find('img');
+			/*var details = $('.details').find('img');
 			var imagesthumb = $('.sport4_list').find('img');
 			
 			details.each(function(index,dom){
@@ -239,7 +239,7 @@
 				}
 				$(dom).attr('src', newsrc);
 				
-			});
+			});*/
 			
 		</script>
         

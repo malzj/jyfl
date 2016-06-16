@@ -1066,16 +1066,9 @@ function cart_goods($type = CART_GENERAL_GOODS)
 {
 	$id_ext = !empty($_SESSION['sel_cartgoods']) ? 'AND c.rec_id in ('. $_SESSION['sel_cartgoods'] .')' : '';
 
-    $sql = "SELECT rec_id, user_id, goods_id, goods_name, goods_sn, goods_number, " .
-            "market_price, goods_price, goods_attr, is_real, extension_code, parent_id, is_gift, is_shipping, " .
-            "goods_price * goods_number AS subtotal " .
-            "FROM " . $GLOBALS['ecs']->table('cart') .
-            " WHERE session_id = '" . SESS_ID . "' " .
-            "AND rec_type = '$type'";
-
     $sql = "SELECT c.rec_id, c.user_id, c.goods_id, c.goods_name, c.goods_sn, c.goods_number, " .
             "c.market_price, c.goods_price, c.goods_attr, c.is_real, c.extension_code, c.parent_id, c.is_gift, c.is_shipping, " .
-            "c.goods_price * c.goods_number AS subtotal, g.supplier_id, IFNULL(s.supplier_name,'网站自营') as seller " .
+            "c.goods_price * c.goods_number AS subtotal, g.supplier_id, IFNULL(s.supplier_name,'网站自营') as seller, s.is_map " .
             "FROM " . $GLOBALS['ecs']->table('cart') .
             " as c LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " as g ON c.goods_id = g.goods_id ".
             "LEFT JOIN ". $GLOBALS['ecs']->table('supplier') .

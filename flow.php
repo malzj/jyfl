@@ -245,7 +245,21 @@ elseif ($_REQUEST['step'] == 'yunfei')
     // 供应商信息
     $supplierDetail = findData('supplier', "supplier_id = $id");
     $detail = current($supplierDetail);
+  
+    $shipping_fee = '';
+    // 如果当前供应商运费计算类型，1 地图， 2 商城
+    if ($detail['is_map'] == 2)
+    {
+        $arr_shipping = supplier_shipping_area_info($id,1,$consignee);
+        if (!empty($arr_shipping)){
+            $arr_shipping['shipping_id'] = 1;
+            $shipping_cfg = unserialize_config($arr_shipping['configure']);
+            $shipping_fee = shipping_fee($arr_shipping['shipping_code'], unserialize($arr_shipping['configure']), 1, $arr_order['goods_amount'], $arr_order['number']);
+            $arr_shipping['shipping_fee']        = $shipping_fee;    
+        }     
+    }
     
+    $smarty->assign('shipping_fee',    $shipping_fee);
     $smarty->assign('detail',          $detail);
     $smarty->assign('consignee',       $consignee);
     $returnAjax['html'] = $smarty->fetch('flow/row/yunfeiAddress.dwt');
@@ -363,17 +377,13 @@ elseif ($_REQUEST['step'] == 'checkout')
 	$is_21cake = 0;
 	$arr_supplier = array();//购物车商品都有哪些供货商
     if(count($cart_goods)>0){
-    	foreach($cart_goods as $key => $val){
-			if ($val['supplier_id'] == 12){
-				$is_21cake = 1;
-			}
+    	foreach($cart_goods as $key => $val){			
 			$arr_supplier[$val['supplier_id']] = $val['supplier_id'];
     		$cart_goods_new[$val['supplier_id']][] = $val;
     	}
     }
             
     $smarty->assign('goods_list', $cart_goods_new);
-	$smarty->assign('is_21cake', $is_21cake);
 	$smarty->assign('arr_supplier', $arr_supplier);
 
     /* 对是否允许修改购物车赋值 */

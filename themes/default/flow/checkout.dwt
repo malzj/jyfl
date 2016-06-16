@@ -39,8 +39,12 @@
 				<div class="order_gyshang_name">
 					<div class="order_gyshang_title f_l">{$supplier[0].seller}</div>
 					<div class="order_item_more color_zhuti f_l"><span class="more_text">收起</span><span class="glyphicon glyphicon-chevron-up margin_left_5"></span></div>
-					<div class="adress_look f_r"><a href="javascript:void(0);" class="color_zhuti show_yunfei" data-id="{$supplier[0].supplier_id}">查看配送范围</a></div>
-				</div>
+					<!-- {if $supplier[0].is_map eq 1} -->
+                    <div class="adress_look f_r"><a href="javascript:void(0);" class="color_zhuti show_yunfei" data-id="{$supplier[0].supplier_id}">查看配送范围</a></div>
+                    <!-- {else} -->
+                    <div class="adress_look f_r" style="display:none;"><a href="javascript:void(0);" class="color_zhuti show_yunfei" data-id="{$supplier[0].supplier_id}"></a></div>
+					<!-- {/if} -->
+                </div>
 				<div class="order_gyshang_itemAll o_hidden">
 					<!-- {foreach from=$supplier item=goods name=goods} -->
 					<!--单个商品列表-->
@@ -244,7 +248,11 @@
 							bottomhtml.html(data.html);
 						}
 					},
-					dataType: "json"					
+					error:function(XHT,DA){
+						console.log(XHT,DA);	
+						
+					},
+					dataType: "json",					
 				});	
 			}
 		

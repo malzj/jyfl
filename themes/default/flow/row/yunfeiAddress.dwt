@@ -26,14 +26,17 @@
     </div>
     
     <div class="goods_freight f_l">运费：<span><font id="yunfei{$detail.supplier_id}"> - </font>点</span></div>
-    <input type="hidden" name="sup[{$detail.supplier_id}]" id="sup_{$detail.supplier_id}" class="supplier-one" value="">
+    <input type="hidden" name="sup[{$detail.supplier_id}]" id="sup_{$detail.supplier_id}" class="supplier-one" value="-1">
     <div style="float:left;width:600px;height:0px;border:1px solid gray; display:none; " id="map{$detail.supplier_id}"></div>
 
 </div>
 
 <script>
-
-_initYunfei();
+{if $detail.is_map eq 2}
+	_shopYunfei();
+{else}
+	_initYunfei();
+{/if}
 
 // 运费计算
 function _initYunfei(){
@@ -43,19 +46,40 @@ function _initYunfei(){
 		isTime:1,
 		showMapId:'map{$detail.supplier_id}',
 		afterFunction:function(d){
-			var yunfeiTotal = 0;
-			$('.supplier-one').each(function(index,dom){
-				var yunfei = $(dom).val();
-				if(yunfei != -1){
-					yunfeiTotal = parseInt(yunfeiTotal)+parseInt(yunfei);
-				}
-				
-			});
-			$('.yunfeiTotal').html(yunfeiTotal);
-			orderTotal = (parseFloat(yunfeiTotal)+parseFloat($('.goodsTotal').text())).toFixed(2);
-			$('.orderTotal').html(orderTotal);
+			totalYunfei();
 		}	
 	});
 	baidumap.showMap({$detail.supplier_id},"{$consignee.country_cn|escape}{$consignee.province_cn|escape}{$consignee.city_cn|escape}{$consignee.district_cn|escape}{$consignee.address|escape}");
+}
+
+function _shopYunfei(){
+	var supplierid = '{$detail.supplier_id}';
+	var yunfeiFee = '{$shipping_fee}';
+	if(yunfeiFee == ''){
+		$('#zhichi'+supplierid).html('<font color="red">不支持配送</font>');
+		$('#yunfei'+supplierid).html(0);
+		$('#sup_'+supplierid).val(-1);
+	}else{
+		$('#zhichi'+supplierid).html('<font color="green">支持配送</font>');
+		$('#yunfei'+supplierid).html(yunfeiFee);
+		$('#sup_'+supplierid).val(yunfeiFee);
+	}
+	totalYunfei();
+}
+
+// 统计运费
+function totalYunfei(){
+	var yunfeiTotal = 0;
+	$('.supplier-one').each(function(index,dom){
+		
+		var yunfei = $(dom).val();
+		if(yunfei != -1){
+			yunfeiTotal = parseInt(yunfeiTotal)+parseInt(yunfei);
+		}	
+	});
+
+	$('.yunfeiTotal').html(yunfeiTotal);
+	orderTotal = (parseFloat(yunfeiTotal)+parseFloat($('.goodsTotal').text())).toFixed(2);
+	$('.orderTotal').html(orderTotal);
 }
 </script>

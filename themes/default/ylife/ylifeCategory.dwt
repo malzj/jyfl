@@ -112,11 +112,12 @@
                 <center style="height:100px; line-height:100px;">没有符合条件的商品！</center>
 				<!--{/foreach}-->
 			</div>
+			 <div class="clear"></div>
+				<div class="flickr" style="text-align: center;"><!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --></div>
+			 <div class="clear"></div>
 		</div>
         
-        <div class="clear"></div>
-		<div class="flickr" style="text-align: center;"><!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --></div>
-		<div class="clear"></div>
+       
         
 		<script>
 			jQuery(".fullSlide").hover(function() {

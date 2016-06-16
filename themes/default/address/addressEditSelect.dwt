@@ -37,12 +37,12 @@
         <input type="text" name="mobile" id="mobile" value="{if $consignees.mobile}{$consignees.mobile|escape}{/if}" placeholder="手机号">
     </div>
 </div>
-<div class="item form-group">
+<!--<div class="item form-group">
     <label class="f_l">电子邮箱</label>
     <div class="f_l input">
         <input type="text"  name="email" id="email"  value="{if $consignees}{$consignees.email|escape}{/if}" placeholder="电子邮箱">
     </div>
-</div>
+</div>-->
 <div class="btn_1">
     <span class="save" onClick="saveConsignee({$address_id})">保存</span>
     <span class="cancel">取消</span>

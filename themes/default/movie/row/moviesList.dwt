@@ -3,7 +3,7 @@
     <div class="pic">
         <a href="javascript:goMovie({$mo.movieId});" target="_blank"><img src="{$mo.thumb}" width="140" height="196"></a>
     </div>
-    <div class="title juqingA">
+    <div class="title">
     	<a href="javascript:goMovie({$mo.movieId});" target="_blank"><span>{$mo.movieName}</span>  </a>  	
     	<a href="javascript:goMovie({$mo.movieId});" target="_blank"><div class="buy zhuti_a_hover">选座购票</div></a>
     </div>

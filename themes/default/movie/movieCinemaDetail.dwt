@@ -34,7 +34,7 @@
                     </ul>
                 </div>
                 <div class="reying_show2">
-                    <div class="mark"><i>{$movieDetail.left_score}.{$movieDetail.right_score}</i></div>
+                    <div class="mark"><i>{$movieDetail.left_score}<span class="point">.{$movieDetail.right_score}</span></i></div>
                 </div>
                 
         </div>	
@@ -185,7 +185,7 @@
 		$(document).delegate('.date_select div', 'click', function(){
 			$('.date_select').find('div').removeClass('active');
 			$(this).addClass('active');
-			var featuretime = $(this).find('span').attr('data-strtotime');
+			var featuretime = $(this).find('span').html();
 			var cinemaid = $(this).find('span').attr('data-cinemaid');
 			loadPlan( cinemaid, movieid, featuretime, '#planList');
 			

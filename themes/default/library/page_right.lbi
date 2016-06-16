@@ -7,7 +7,7 @@
     <div class="pop_right_bottom" style="display: none;">
         <div class="pop_right_bottombtn"><a href="#" id="guize">游戏规则</a></div>
         <div class="pop_right_bottombtn"><a href="#" id="xieyi">服务协议</a></div>
-        <div class="pop_right_bottombtn"><a href="#" id="old_win" data_uid='{$usernames.user_id}'>往期中奖</a></div>
+        <div class="pop_right_bottombtn"><a href="#" id="old_win" data-uid='{$usernames.user_id}'>往期中奖</a></div>
     </div>
 </div>
 <script>

@@ -31,9 +31,10 @@ class GamesApiController extends Controller
         $grade_name = $GradeModel -> where(array('id'=>$company_info['grade_id'])) -> getField('grade_name');
         $company_info['grade_name'] = $grade_name;
         $game_global = $GamesModel ->where(array('grade_id'=>1,'status'=>1)) -> order('create_time DESC') -> limit(2) -> select();
-        $game_company = $GamesModel ->where(array('grade_id'=>$company_info['grade_id'],'status'=>1)) -> order('create_time DESC') -> limit(5) -> select();
+        $game_company = $GamesModel ->where(array('grade_id'=>$company_info['grade_id'],'status'=>1)) -> order('create_time DESC') -> select();
         $glo_list = array();
-        $com_list = array();
+        $com_nf = array();//未完成游戏
+        $com_f = array();//完成游戏
         foreach($game_global as $key => $val){
             $count = $PartModel -> where(array('game_id'=>$val['id'])) -> count();
             $percent = ($count/$val['total'])*100;
@@ -49,21 +50,42 @@ class GamesApiController extends Controller
         foreach($game_company as $k => $v){
             $com_count = $PartModel -> where(array('company_id'=>$company_info['card_company_id'],'game_id'=>$v['id'])) -> count();
             $com_percent = ($com_count/$v['total'])*100;
-            $com_list[$k]['percent'] = round($com_percent,1);
-            $com_list[$k]['total_point'] = $v['total']*$v['point'];
-            $com_list[$k]['id'] = $v['id'];
-            $com_list[$k]['grade_id'] = $v['grade_id'];
-            $com_list[$k]['game_name'] = $v['game_name'];
-            $com_list[$k]['thumbnail'] = $v['thumbnail'];
-            $com_list[$k]['rules'] = $v['rules'];
-            $com_list[$k]['buy_status'] = ($com_count==$v['total'])?1:0;
+            if($com_count==$v['total']){
+                $com_f[$k]['percent'] = round($com_percent,1);
+                $com_f[$k]['total_point'] = $v['total']*$v['point'];
+                $com_f[$k]['id'] = $v['id'];
+                $com_f[$k]['grade_id'] = $v['grade_id'];
+                $com_f[$k]['game_name'] = $v['game_name'];
+                $com_f[$k]['thumbnail'] = $v['thumbnail'];
+                $com_f[$k]['rules'] = $v['rules'];
+                $com_f[$k]['buy_status'] = 1;
+            }else {
+                $com_nf[$k]['percent'] = round($com_percent, 1);
+                $com_nf[$k]['total_point'] = $v['total'] * $v['point'];
+                $com_nf[$k]['id'] = $v['id'];
+                $com_nf[$k]['grade_id'] = $v['grade_id'];
+                $com_nf[$k]['game_name'] = $v['game_name'];
+                $com_nf[$k]['thumbnail'] = $v['thumbnail'];
+                $com_nf[$k]['rules'] = $v['rules'];
+                $com_nf[$k]['buy_status'] = 0;
+            }
+        }
+        $count_nf = count($com_nf);
+        if($count_nf>5){
+            $com_list=array_slice($com_nf,-5);
+        }else{
+            $com_list=array_merge($com_nf,$com_f);
+            $com_list=array_slice($com_list,0,5);
         }
 
         $rudata['company_info'] = $company_info;
         $rudata['game_global'] = $glo_list;
         $rudata['game_company'] = $com_list;
         $rudata['result'] = 'true';
-
+//        echo '<pre>';
+//        print_r($rudata);
+//        echo '</pre>';
+//        exit;
         $this -> ajaxReturn($rudata);
 
     }
@@ -296,18 +318,21 @@ class GamesApiController extends Controller
      */
     public function getWinners(){
         $uid = I('request.user_id');
+        $Model = new Model();
         $PartModel = M('Participation');
         $WinnerModel = M('WinnersList');
         $UserModel = M('Users');
-        $CompanyModel = M('Company');
+//        $CompanyModel = M('Company');
         $GamesModel = M('Games');
-        $selfInfo = $UserModel -> where(array('id'=>$uid))->find();
-        $selfCompany = $CompanyModel -> where(array('card_company_id'=>$selfInfo['company_id'])) -> find();
+//        $selfInfo = $UserModel -> where(array('id'=>$uid))->find();
+//        $selfCompany = $CompanyModel -> where(array('card_company_id'=>$selfInfo['company_id'])) -> find();
+        $sql = "SELECT u.company_id,c.grade_id FROM __PREFIX__users u LEFT JOIN __PREFIX__company c ON u.company_id = c.card_company_id where u.user_id = ".$uid." LIMIT 1";
+        $selfInfo = $Model->query($sql);
 
         //全民夺宝
         $gwinnerList = $WinnerModel ->where(array('grade_id'=>1)) -> select();
         //专属夺宝
-        $cwinnerList = $WinnerModel ->where(array('company_id'=>$selfInfo['company_id'],'grade_id'=>$selfCompany['grade_id'])) -> select();
+        $cwinnerList = $WinnerModel ->where(array('company_id'=>$selfInfo[0]['company_id'],'grade_id'=>$selfInfo[0]['grade_id'])) -> select();
         $glist = array();
         foreach($gwinnerList as $key => $val){
             $ggameInfo = $GamesModel->where(array('id'=>$val['game_id']))->find();
@@ -378,5 +403,13 @@ class GamesApiController extends Controller
         $data['expect'] = $expect;
         $data['opencode'] = intval($opencode);
         return $data;
+    }
+
+    public function test(){
+        $Model = new Model();
+        $uid = 24852;
+        $sql = "SELECT u.company_id,c.grade_id FROM __PREFIX__users u LEFT JOIN __PREFIX__company c ON u.company_id = c.card_company_id where u.user_id = ".$uid;
+        $selfInfo = $Model->query($sql);
+        var_dump($selfInfo);
     }
 }

@@ -38,7 +38,7 @@
 					</div>
 				</div>
 				<div class="order_right">
-					<div style="color: #919191;margin-bottom: 20px;">请再次确认接收短信验证码的手机号</div>
+					<div style="color: #919191;margin-bottom: 20px;">请再次确认接收电子影票的手机号</div>
 					<img src="{$app_path}images/index/img_login/tel_img.png"><input type="text" name="mobile" id="mobile" placeholder="手机号" autocomplete="off">
 					<span class="yes">确定</span>	
 					<div style="color: #64d8c0;margin-top: 20px;font-size: 12px;">开场前至影院大厅的自助验票机使用验票码获取纸质电影票，入场看电影。</div>

@@ -16,17 +16,17 @@
         
         <div class="w_1200">
 			<div class="select">				
-				<form name="yyForm" id="yyForm" action="movie.php?step=shuaka" method="POST" style="height: 30px;line-height: 30px;">
+				<form name="yyForm" id="yyForm" action="movie.php?step=shuaka" method="POST" style="height: 30px;line-height: 30px;font-size: 16px;">
                 <span class="hy_yy_name" style="float:left;">按区域选择：</span>
                 <span style="float:left; line-height:30px; margin-right:10px;">{$cityinfo.region_name}</span>			
-                <select name="district" id="district" class="Select16">
+                <select name="district" id="district" class="Select16" style="width: 130px;height: 25px;">
                     <option value="0">请选择城区</option>
                     {foreach from=$province_list item=city}
                     <option value="{$city.region_id}" {if $int_city eq $city.region_id}selected{/if}>{$city.region_name}</option>
                     {/foreach}
                 </select>			
-                <input value="确定" type="image"  onclick="return dosubmit();" style="margin-top: -4px;vertical-align: middle;width: 50px;height: 23px;outline: none;line-height: 20px;text-align: center;
-                	cursor: pointer;background: #2fd0b5;color: white;border: none;">  
+                <input value="确定" type="image"  onclick="return dosubmit();" style="margin-top: -4px;vertical-align: middle;width: 75px;height: 25px;outline: none;line-height: 20px;text-align: center;
+                	cursor: pointer;background: #2fd0b5;color: white;border: none; border-radius: 5px;">  
                 </form>
 			</div>
 			<div class="select_tips">

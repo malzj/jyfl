@@ -179,14 +179,17 @@ $(function () {
             '<div class="set_add"><h3>添加地址</h3><div class="form-group"><label>' +
             '<span class="xing">*</span>所在地区：</label>' +
             '<select name="country" id="country" onchange="region.changed(this, 1, \'province\')" style="width:100px;background-color:transparent;" ></select>' +
-            '<select name="province" id="province" onchange="region.changed(this, 2, \'city\')" style="width:100px;background-color:transparent;" ></select>' +
-            '<select name="city" id="city" style="width:100px;background-color:transparent;"  ></select></div>' +
+            '<select name="province" id="province" style="width:100px;background-color:transparent;" ></select>' +
+            // '<select name="province" id="province" onchange="region.changed(this, 2, \'city\')" style="width:100px;background-color:transparent;" ></select>' +
+            // '<select name="city" id="city" style="width:100px;background-color:transparent;"  ></select>
+            '</div>' +
             '<div class="form-group"><label><span class="xing">*</span>街道地址：</label><input type="text" id="address"></div>' +
-            '<div class="form-group"><label><span class="xing">*</span>邮政编码：</label><input type="text" id="zipcode"></div>' +
+            '<div class="form-group"><label>邮政编码：</label><input type="text" id="zipcode"></div>' +
             '<div class="form-group"><label><span class="xing">*</span>收货人姓名：</label><input type="text" id="consignee"></div>' +
             '<div class="form-group"><label><span class="xing">*</span>电话号码：</label><input type="text" id="mobile"></div>' +
             '<div class="set_add_btn"><button class="yes">保存</button><button class="no">取消</button></div></div>'
         );
+        showprovince();
     });
     $(document).delegate('.btn_all .btn_2', 'click', function () {
         var index;
@@ -385,12 +388,8 @@ $(function () {
             },
             success:function (data) {
                 layer.close(index);
-                if(data.phone.result == 'true'){
-                    var tel = data.phone.num;
-                }else{
-                    var tel = '';
-                }
-                $('.layui-layer-content').html('<div class="tel"><h3>绑定手机号</h3><div class="form-group"><label>手机号：</label><input id="tel" type="text" value="'+tel+'"><div class="ach"><input type="button" id="getverification" value="获取验证码"></div></div><div class="form-group"><label>动态码：</label><input id="captcha" type="text"></div><div class="btn_tel"><button class="btn_bound">绑定</button> <button class="btn_cancel">取消</button></div></div>');
+
+                $('.layui-layer-content').html('<div class="tel"><h3>绑定手机号</h3><div class="form-group"><label>手机号：</label><input id="tel" type="text" value="'+data.phone.num+'"><div class="ach"><input type="button" id="getverification" value="获取验证码"></div></div><div class="form-group"><label>动态码：</label><input id="captcha" type="text"></div><div class="btn_tel"><button class="btn_bound">绑定</button> <button class="btn_cancel">取消</button></div></div>');
             }
         })
     });
@@ -492,9 +491,36 @@ $(function () {
     $(document).on('click', '.set_add_btn .edit', function () {
         updateAddress();
     });
-
+//设置默认地址
+    $(document).delegate('.set_address','click',function(){
+        var address_id = $(this).attr('data-address-id');
+        var index;
+        $.ajax({
+           type:'post',
+           url:'/address.php',
+           data:{act:'AjaxAddressDefault',address_id:address_id},
+            dataType:'json',
+            beforeSend:function(){
+                index=layer.load();
+            },
+            success:function(data){
+                layer.close(index);
+                if(data.error==0){
+                    alert('设置默认成功！');
+                    layer.closeAll();
+                    showAddress();
+                }else{
+                    alert(data.content);
+                    layer.closeAll();
+                    showAddress();
+                }
+            }
+       })
+    });
     $(document).delegate('.gn_btn .xiugai', 'click', function () {
-        $('.layui-layer-content').html('<div class="set_add"><h3>修改地址</h3><div class="form-group"><input type="hidden" name="address_id" id="address_id" value=""><label><span class="xing">*</span>所在地区：</label><select name="country" id="country" onchange="region.changed(this, 1, \'province\')" style="width:100px;background-color:transparent;" ></select><select name="province" id="province" onchange="region.changed(this, 2, \'city\')" style="width:100px;background-color:transparent;" ></select><select name="city" id="city" style="width:100px;background-color:transparent;"  ></select></div><div class="form-group"><label><span class="xing">*</span>街道地址：</label><input type="text" id="address"></div><div class="form-group"><label><span class="xing">*</span>邮政编码：</label><input type="text" id="zipcode"></div><div class="form-group"><label><span class="xing">*</span>收货人姓名：</label><input type="text" id="consignee"></div><div class="form-group"><label><span class="xing">*</span>电话号码：</label><input type="text" id="mobile"></div><div class="set_add_btn"><button class="edit">保存</button><button class="no">取消</button></div></div>')
+        var address_id=$(this).attr('data-addressid');
+        $('.layui-layer-content').html('<div class="set_add"><h3>修改地址</h3><div class="form-group"><input type="hidden" name="address_id" id="address_id" value=""><label><span class="xing">*</span>所在地区：</label><select name="country" id="country" onchange="region.changed(this, 1, \'province\')" style="width:100px;background-color:transparent;" ></select><select name="province" id="province" style="width:100px;background-color:transparent;" ></select></div><div class="form-group"><label><span class="xing">*</span>街道地址：</label><input type="text" id="address"></div><div class="form-group"><label>邮政编码：</label><input type="text" id="zipcode"></div><div class="form-group"><label><span class="xing">*</span>收货人姓名：</label><input type="text" id="consignee"></div><div class="form-group"><label><span class="xing">*</span>电话号码：</label><input type="text" id="mobile"></div><div class="set_add_btn"><button class="edit">保存</button><button class="no">取消</button></div></div>')
+        saveAddress(address_id)
     })
     $(document).on('focus', '#tbPassword', function () {
 //密码安全强度显示
@@ -656,23 +682,27 @@ function clearTime(set) {
 }
 
 function showprovince() {
-    var option = "<option style='width:100px;background-color:black;' display='inline' value='0' >请选择省</option>";
-    var province_op = "<option style='width:100px;background-color:black;' display='inline' value='0' >请选择市</option>";
-    var city_op = "<option style='width:100px;background-color:black;' display='inline' value='0' >请选择区</option>";
-
+    var option = "<option style='width:100px;background-color:black;' display='inline' value='0' >请选择市</option>";
+    var province_op = "<option style='width:100px;background-color:black;' display='inline' value='0' >请选择区</option>";
+    // var city_op = "<option style='width:100px;background-color:black;' display='inline' value='0' >请选择区</option>";
+    var index;
     $.ajax({
         type: "post",
         url: data_url + "index.php/Users/User/showCity",
         data: "",
         dataType: "json",
+        beforeSend:function(){
+            index=layer.load();
+        },
         success: function (data) {
+            layer.close(index);
             var address_list = data.business;
             for (var i = 0; i < address_list.length; i++) {
                 option += "<option style='width:100px;background-color:black;' display='inline'   value=" + address_list[i].region_id + ">" + address_list[i].region_name + "</option>";
             }
             $("#country").html(option);
             $('#province').html(province_op);
-            $('#city').html(city_op);
+            // $('#city').html(city_op);
         }
     });
 

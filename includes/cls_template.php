@@ -15,7 +15,7 @@
 
 class cls_template
 {
-    var $imageHosturl   = 'http://huayingcul.com/';   // 图片服务器地址
+    var $imageHosturl   = '/';   // 图片服务器地址
     var $template_dir   = '';
     var $cache_dir      = '';
     var $compile_dir    = '';

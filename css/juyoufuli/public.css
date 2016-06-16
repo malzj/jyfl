@@ -396,10 +396,10 @@ html.login .pop_right{transform: translateX(0);}
     width: 240px;
 }
 .old_win_username{color:#ff781e;}
-.old_win_title {width: 302px;margin: 0 auto;text-align: center;margin-bottom: 10px;}
-.old_winTitle,.old_winTitle1{width: 150px;padding: 5px 0;border-bottom: 1px solid white;}
-.old_winTitle{border-right: 1px solid white;}
-#all_duobao,#person_duobao{color: white;} 
+.old_win_title {width: 453px;margin: 0 auto;text-align: center;margin-bottom: 10px;}
+.old_winTitle,.old_winTitle1,.old_winTitle2{width: 150px;padding: 5px 0;border-bottom: 1px solid white;}
+.old_winTitle,.old_winTitle1{border-right: 1px solid white;}
+#all_duobao,#person_duobao,#self_duobao{color: white;}
 .all_duobao{overflow: hidden;}
 .old_win_content{overflow: hidden;padding: 5px 0;border-bottom: 1px solid white;}
 .old_win_title a.active{color:#2fd0b5!important;}

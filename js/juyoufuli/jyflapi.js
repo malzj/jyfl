@@ -400,7 +400,12 @@ function showAddress(){
 
 					  for (var i = 0; i <num; i++) {
 						//list[i]
-							var html='<tr><td class="td_1">'+list[i].consignee+'</td><td>'+list[i].country+list[i].province+list[i].city+list[i].address+'</td><td class="td_3">'+list[i].mobile+'</td><td class="gn_btn"><span onclick="delAddress('+list[i].address_id+')">删除</span><span class="xiugai" onclick="saveAddress('+list[i].address_id+')">修改</span></td></tr>';
+						  if(list[i].selected==1){
+							  var selected = '<span class="checkbox_img on_check"></span>默认地址';
+						  }else{
+							  var selected = '<span class="checkbox_img"></span>设为默认'
+						  }
+							var html='<tr><td class="td_1">'+list[i].consignee+'</td><td>'+list[i].country+list[i].province+list[i].address+'</td><td class="td_3">'+list[i].mobile+'</td><td class="gn_btn"><a class="set_address" data-address-id="'+list[i].address_id+'" href="javascript:void(0);">'+selected+'</a><a href="javascript:void(0);" onclick="delAddress('+list[i].address_id+')">删除</a><a href="javascript:void(0);" class="xiugai" data-addressid="'+list[i].address_id+'">修改</a></td></tr>';
 						htmlshouhuolist+=html;
 
 					  }
@@ -441,8 +446,14 @@ function getAddressHtml(){
 				var list = data.business.result;
 				for (var i = 0; i <num; i++) {
 					//list[i]
-					var html='<tr><td class="td_1">'+list[i].consignee+'</td><td>'+list[i].country+list[i].province+list[i].city+list[i].address+'</td><td class="td_3">'+list[i].mobile+'</td><td class="gn_btn"><span onclick="delAddress('+list[i].address_id+')">删除</span><span class="xiugai" onclick="saveAddress('+list[i].address_id+')">修改</span></td></tr>';
+					if(list[i].selected==1){
+						var selected = '<span class="checkbox_img on_check"></span>默认地址';
+					}else{
+						var selected = '<span class="checkbox_img"></span>设为默认'
+					}
+					var html='<tr><td class="td_1">'+list[i].consignee+'</td><td>'+list[i].country+list[i].province+list[i].address+'</td><td class="td_3">'+list[i].mobile+'</td><td class="gn_btn"><a class="set_address" data-address-id="'+list[i].address_id+'" href="javascript:void(0);">'+selected+'</a><a href="javascript:void(0);" onclick="delAddress('+list[i].address_id+')">删除</a><a href="javascript:void(0);" class="xiugai" data-addressid="'+list[i].address_id+'">修改</a></td></tr>';
 					htmlshouhuolist+=html;
+
 				}
 				return ;
 			}
@@ -508,11 +519,11 @@ function addAddress()
 	 }
 	 }*/
 	//邮政编码不能为空
-	if (Utils.isEmpty(zipcode)){
-		err = true;
-		// msg.push('邮政编码不能为空!');
-		layer.msg('邮政编码不能为空!');
-	}
+	// if (Utils.isEmpty(zipcode)){
+	// 	err = true;
+	// 	// msg.push('邮政编码不能为空!');
+	// 	layer.msg('邮政编码不能为空!');
+	// }
 
 	//收货人详细地址不能为空
 	if (Utils.isEmpty(hstreet)){
@@ -576,36 +587,42 @@ function addAddress()
 
 function saveAddress(address_id){
 	var user_id = $("#user_id").val();
-	var option="<option style='width:100px;background-color:black;' display='inline' value=0>请选择省</option>";
+	var option="<option style='width:100px;background-color:black;' display='inline' value=0>请选择市</option>";
+	var index;
 	$.ajax({
 		type:"post",
 		url:api_url+"index.php/Users/User/getEditAddress",
 		data:{user_id:user_id,address_id:address_id},
 		dataType:"json",
+		beforeSend:function(){
+			index = layer.load();
+		},
 		success:function(data){
+			console.log(data);
+			layer.close(index);
 			//渲染省市县select数据
 			var country_list = data.countryList;
 			for(var i=0;i<country_list.length;i++){
 				option += "<option style='width:100px;background-color:black;' display='inline' value="+country_list[i].region_id+">"+country_list[i].region_name+"</option>";
 			}
 			$("#country").html(option);
-			option="<option style='width:100px;background-color:black;' display='inline' value=0>请选择市</option>";
+			option="<option style='width:100px;background-color:black;' display='inline' value=0>请选择区</option>";
 			var province_list = data.provinceList;
 			for(var i=0;i<province_list.length;i++){
 				option += "<option style='width:100px;background-color:black;' display='inline' value="+province_list[i].region_id+">"+province_list[i].region_name+"</option>";
 			}
 			$('#province').html(option);
-			option="<option style='width:100px;background-color:black;' display='inline' value=0>请选择区</option>";
-			var city_list = data.cityList;
-			for(var i=0;i<city_list.length;i++){
-				option += "<option style='width:100px;background-color:black;' display='inline' value="+city_list[i].region_id+">"+city_list[i].region_name+"</option>";
-			}
-			$('#city').html(option);
+			// option="<option style='width:100px;background-color:black;' display='inline' value=0>请选择区</option>";
+			// var city_list = data.cityList;
+			// for(var i=0;i<city_list.length;i++){
+			// 	option += "<option style='width:100px;background-color:black;' display='inline' value="+city_list[i].region_id+">"+city_list[i].region_name+"</option>";
+			// }
+			// $('#city').html(option);
 
 			//渲染地址数据
 			$("option[value="+data.addressInfo.country+"]").attr("selected",true);
 			$("option[value="+data.addressInfo.province+"]").attr("selected",true);
-			$("option[value="+data.addressInfo.city+"]").attr("selected",true);
+			// $("option[value="+data.addressInfo.city+"]").attr("selected",true);
 			$("#address").val(data.addressInfo.address);
 			$("#zipcode").val(data.addressInfo.zipcode);
 			$("#consignee").val(data.addressInfo.consignee);
@@ -665,11 +682,11 @@ function updateAddress(){
 	}
 
 	//邮政编码不能为空
-	if (Utils.isEmpty(zipcode)){
-		err = true;
-		// msg.push('邮政编码不能为空!');
-		layer.msg('邮政编码不能为空!');
-	}
+	// if (Utils.isEmpty(zipcode)){
+	// 	err = true;
+	// 	// msg.push('邮政编码不能为空!');
+	// 	layer.msg('邮政编码不能为空!');
+	// }
 
 	//收货人详细地址不能为空
 	if (Utils.isEmpty(hstreet)){
@@ -709,13 +726,14 @@ function updateAddress(){
 			},
 			datatype: "json",
 			success: function (data) {
+				console.log(data);
 				if(data.result=='true'){
 					var html = getAddressHtml();
-					$('.layui-layer-content').html('<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
+					$('.layui-layer-content').html('<div class="shouhuo_left"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
 					layer.msg('修改地址成功！');
 				}else if(data.result=='false'){
 					var html = getAddressHtml();
-					$('.layui-layer-content').html('<div class="shouhuo"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
+					$('.layui-layer-content').html('<div class="shouhuo_left"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+html+'</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
 					layer.msg('修改地址失败!');
 				}
 			},
@@ -739,6 +757,8 @@ function delAddress(data){
 					var html = getAddressHtml();
 					$('.layui-layer-content').html('<div class="shouhuo_left"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>' + html + '</tr></tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>');
 					return;
+				}else{
+					layer.msg(data.msg);
 				}
 			},
 		});

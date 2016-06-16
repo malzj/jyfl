@@ -82,10 +82,6 @@ class GamesApiController extends Controller
         $rudata['game_global'] = $glo_list;
         $rudata['game_company'] = $com_list;
         $rudata['result'] = 'true';
-//        echo '<pre>';
-//        print_r($rudata);
-//        echo '</pre>';
-//        exit;
         $this -> ajaxReturn($rudata);
 
     }
@@ -237,7 +233,7 @@ class GamesApiController extends Controller
                 $Smsvrerify = new smsvrerifyApi();
                 $userInfo = $Model->table('__USERS__')->where(array('user_name'=>$wdata['card_num']))->find();
                 $content = (!empty($userInfo['nickname'])?$userInfo['nickname']:'')."先生（女士），您的卡号".$wdata['card_num']."获得".$game_info['game_name']."第".
-                    date('Ymd',strtotime($wdata['create_time']))."期奖品，中奖号码为".$winner_num."，请登录网站查看详细信息！";
+                    date('Ymd',strtotime($wdata['create_time'])).$game_info['id']."期奖品，中奖号码为".$winner_num."，请登录网站查看详细信息！";
 
                 if(!empty($userInfo['mobile_phone']))
                     $Smsvrerify->smsvrerify($userInfo['mobile_phone'],$content,0,'聚优福利');
@@ -326,20 +322,22 @@ class GamesApiController extends Controller
         $GamesModel = M('Games');
 //        $selfInfo = $UserModel -> where(array('id'=>$uid))->find();
 //        $selfCompany = $CompanyModel -> where(array('card_company_id'=>$selfInfo['company_id'])) -> find();
-        $sql = "SELECT u.company_id,c.grade_id FROM __PREFIX__users u LEFT JOIN __PREFIX__company c ON u.company_id = c.card_company_id where u.user_id = ".$uid." LIMIT 1";
+        $sql = "SELECT u.user_name,u.company_id,c.grade_id FROM __PREFIX__users u LEFT JOIN __PREFIX__company c ON u.company_id = c.card_company_id where u.user_id = ".$uid." LIMIT 1";
         $selfInfo = $Model->query($sql);
 
         //全民夺宝
         $gwinnerList = $WinnerModel ->where(array('grade_id'=>1)) -> select();
         //专属夺宝
         $cwinnerList = $WinnerModel ->where(array('company_id'=>$selfInfo[0]['company_id'],'grade_id'=>$selfInfo[0]['grade_id'])) -> select();
+        //个人夺宝
+        $selfList = $WinnerModel->where(array('card_num'=>$selfInfo[0]['user_name']))->select();
         $glist = array();
         foreach($gwinnerList as $key => $val){
             $ggameInfo = $GamesModel->where(array('id'=>$val['game_id']))->find();
             $gpeo_num = $PartModel ->where(array('game_id'=>$val['game_id'])) -> group('user_id') -> select();
             $guserInfo = $UserModel -> where(array('user_name'=>$val['card_num'])) -> find();
             $peo_count = count($gpeo_num);
-            $glist[$key]['issue'] = date('Ymd',strtotime($val['create_time']));//期号
+            $glist[$key]['issue'] = date('Ymd',strtotime($val['create_time'])).$ggameInfo['id'];//期号
             $glist[$key]['thumbnail'] = $ggameInfo['thumbnail'];
             $glist[$key]['user_name'] = $guserInfo['nickname'];
             $glist[$key]['lottery'] = $val['lottery'];
@@ -353,7 +351,7 @@ class GamesApiController extends Controller
             $peo_num = $PartModel ->where(array('game_id'=>$val['game_id'])) -> group('user_id') -> select();
             $userInfo = $UserModel -> where(array('user_name'=>$val['card_num'])) -> find();
             $peo_count = count($peo_num);
-            $clist[$key]['issue'] = date('Ymd',strtotime($val['create_time']));//期号
+            $clist[$key]['issue'] = date('Ymd',strtotime($val['create_time'])).$gameInfo['id'];//期号
             $clist[$key]['thumbnail'] = $gameInfo['thumbnail'];
             $clist[$key]['user_name'] = $userInfo['nickname'];
             $clist[$key]['lottery'] = $val['lottery'];
@@ -361,8 +359,23 @@ class GamesApiController extends Controller
             $clist[$key]['peo_count'] = $peo_count;
             $clist[$key]['user_img'] = $userInfo['pic'];
         }
+        $slist=array();
+        foreach($selfList as $key => $val){
+            $sgameInfo = $GamesModel->where(array('id'=>$val['game_id']))->find();
+            $speo_num = $PartModel ->where(array('game_id'=>$val['game_id'])) -> group('user_id') -> select();
+            $suserInfo = $UserModel -> where(array('user_name'=>$val['card_num'])) -> find();
+            $peo_count = count($speo_num);
+            $slist[$key]['issue'] = date('Ymd',strtotime($val['create_time'])).$sgameInfo['id'];//期号
+            $slist[$key]['thumbnail'] = $sgameInfo['thumbnail'];
+            $slist[$key]['user_name'] = $suserInfo['nickname'];
+            $slist[$key]['lottery'] = $val['lottery'];
+            $slist[$key]['card_num'] = $val['card_num'];
+            $slist[$key]['peo_count'] = $peo_count;
+            $slist[$key]['user_img'] = $suserInfo['pic'];
+        }
         $rudata['glist'] = $glist;
         $rudata['clist'] = $clist;
+        $rudata['slist'] = $slist;
         $this->ajaxReturn($rudata);
     }
     /**

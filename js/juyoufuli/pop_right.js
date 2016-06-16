@@ -41,6 +41,7 @@ $(function(){
                 //console.log(data);
                 var global_list = data.glist;
                 var company_list = data.clist;
+                var self_list = data.slist;
                 var html = '<div class="old_winBox"><h3 style="margin-bottom:0">往期中奖</h3>' +
                     '<div class="old_win_item">' +
                     '<div class="old_win_title o_hidden">' +
@@ -48,7 +49,9 @@ $(function(){
                     '<a href="#" id="all_duobao" class="zhuti_a_hovercolor active">全民夺宝</a></div>' +
                     '<div class="old_winTitle1 f_l">' +
                     '<a href="#" id="person_duobao" class="zhuti_a_hovercolor">专属夺宝</a></div>' +
-                    '</div><div class="all_duobao">' ;
+                    '<div class="old_winTitle2 f_l">' +
+                    '<a href="#" id="self_duobao" class="zhuti_a_hovercolor">个人夺宝</a></div>' +
+                    '</div><div class="winner_show" style="height: 296px;"><div class="all_duobao">' ;
                 for(var i=0;i<global_list.length;i++){
                     html+='<div class="old_win_content"><div class="old_win_userimg f_l">' +
                         '<img src="'+global_list[i].user_img+'">' +
@@ -73,7 +76,20 @@ $(function(){
                         '<div>本期参与：<span class="color_zhuti">'+company_list[i].peo_count+'人次</span></div></div>' +
                         '<div class="old_win_img f_l"><img src="'+api_url+"Public/games/upload/"+company_list[i].thumbnail+'"></div></div>';
                 }
-                html+='</div></div></div>';
+                html+='</div><div class="self_duobao" style="display:none">';
+                for(var i=0;i<self_list.length;i++){
+
+                    html+='<div class="old_win_content"><div class="old_win_userimg f_l">' +
+                        '<img src="'+self_list[i].user_img+'">' +
+                        '</div><div class="f_l old_win_msg"><div class="old_win_qihao">期号<span>'+self_list[i].issue+'</span></div>' +
+                        '<div class="old_win_name">恭喜&nbsp;<span class="old_win_username">'+self_list[i].user_name+'</span>&nbsp;获得本期商品</div>' +
+                        '<div>中奖号码：<span>'+self_list[i].lottery+'</span></div>' +
+                        '<div>用户卡号：<span>'+self_list[i].card_num+'</span></div>' +
+                        '<div>本期参与：<span class="color_zhuti">'+self_list[i].peo_count+'人次</span></div></div>' +
+                        '<div class="old_win_img f_l"><img src="'+api_url+"Public/games/upload/"+self_list[i].thumbnail+'"></div></div>';
+                }
+
+                html+='</div></div></div></div>';
                 layer.open({
                     type: 1,
                     title:false,
@@ -82,7 +98,7 @@ $(function(){
                     content:html,
                 })
                  //		弹窗滚动条美化
-                $(".layui-layer-content").niceScroll({
+                $(".layui-layer-content .winner_show").niceScroll({
                     cursorcolor:"#BFB1B1",
                     cursoropacitymax:1,
                     touchbehavior:false,
@@ -95,12 +111,17 @@ $(function(){
       })
 //		点击全民夺宝
     $(document).on('click','#all_duobao',function(){
-        $('.all_duobao').css('display','block').siblings('.person_duobao').css('display','none')
+        $('.all_duobao').css('display','block').siblings().css('display','none')
         $(this).addClass('active').parent().siblings().find('a').removeClass('active');
     })
 //		点击专属夺宝
     $(document).on('click','#person_duobao',function(){
-        $('.person_duobao').css('display','block').siblings('.all_duobao').css('display','none')
+        $('.person_duobao').css('display','block').siblings().css('display','none')
+        $(this).addClass('active').parent().siblings().find('a').removeClass('active');
+    })
+//		点击个人夺宝
+    $(document).on('click','#self_duobao',function(){
+        $('.self_duobao').css('display','block').siblings().css('display','none')
         $(this).addClass('active').parent().siblings().find('a').removeClass('active');
     })
 

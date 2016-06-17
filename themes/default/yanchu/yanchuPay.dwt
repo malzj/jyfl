@@ -50,7 +50,7 @@
 						<span class="act-pay">结算</span>&nbsp;<span class="pay-loading" style='background:#f2f2f2; color:red;'></span>
 					</div>
 				</div>
-				<div style="color:#ff781e;">温馨提示：您的订单将在支付后安排发，请尽快支付。</div>
+				<div style="color:#ff781e;">温馨提示：您的订单将在支付后安排发货，72小时内未支付的订单将自动取消，请尽快支付。</div>
 			</div>
 		</div>
         

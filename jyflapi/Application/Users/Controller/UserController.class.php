@@ -221,6 +221,7 @@ class UserController extends Controller
       $result = $Dao->where("user_id=".$id)->find();
       if($captcha == $result['verify'] && time()-$result['verifytime'] < 1800){
         $data['mobile_phone'] = $telphone;
+        $data['bound_status'] = 1;
         if($Dao->create($data)){
           $Dao->where("user_id=".$id)->save();
           $rudata['result'] = "true";

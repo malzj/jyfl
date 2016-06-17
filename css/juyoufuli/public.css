@@ -2821,6 +2821,12 @@ html.shenghuo1 body{background: white;}
 .order_zhuangtai1_details .my_order_price {width: 200px;}
 .order_zhuangtai1_details .my_order_num {width: 200px;}
 .order_zhuangtai1_details .my_order_price_all {width: 200px;}
+.pay_order{background-color: #e6e6e6;padding: 20px 20px;}
+.pay_order .box_1{margin-top:3px;}
+.pay_order .box_1 input{padding: 5px;margin-right: 20px;border: 1px solid #ddd;}
+.pay_order .box_1 span.user_card{margin-right: 20px;}
+.pay_order .box_1 span.jiesuan{padding: 5px 23px;color: white;background: #ff781e;cursor: pointer;border-radius: 5px;}
+
 .film .zhuangtai_margin_top,.dzq .zhuangtai_margin_top{top: 25px;}
 .venues .my_order_detailsAll,.film .my_order_detailsAll{height: 120px;border-bottom: none;}
 .venues .my_order_zhuangtai {width: 300px;}

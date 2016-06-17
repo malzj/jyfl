@@ -223,7 +223,7 @@ $(function () {
         })
     });
     //充值列表删除点击
-    $(document).delegate('.cancel','click',function(){
+    $(document).delegate('.layui-layer-content .log .cancel','click',function(){
         var url = $(this).attr('data-href');
         var $cancelOb=$(this).parents('tr');
         if (!confirm('确认删除？')) return false;
@@ -373,6 +373,20 @@ $(function () {
         var con_password = $('#con_password').val();
         userLoginPass(user_id, old_password, new_password, con_password);
     });
+    //个人信息页手机绑定
+    $(document).delegate('#phone_bound', 'click', function () {
+        var uid = $('#user_id').val();
+        var phone = $(this).siblings('span').find("input").val();
+        var index;
+        $('.layui-layer-content').html('<div class="tel"><h3>绑定手机号</h3><div class="form-group"><label>手机号：</label><input id="tel" type="text" value="'+phone+'"><div class="ach"><input type="button" id="getverification" value="获取验证码"></div></div><div class="form-group"><label>动态码：</label><input id="captcha" type="text"></div><div class="btn_tel"><button class="btn_bound">绑定</button> <button class="btn_phone_cancel">取消</button></div></div>');
+    });
+    //取消绑定
+    $(document).delegate('.layui-layer-content .tel .btn_phone_cancel', 'click', function () {
+        layer.closeAll();
+        userShow();
+    });
+
+//安全中心绑定手机
     $(document).delegate('.tr_2 .td_4', 'click', function () {
         var uid = $('#user_id').val();
         var index;
@@ -652,6 +666,45 @@ $(function () {
         }
     })
 
+    /**
+     * 手机输入框绑定手机号判断
+     * 如未绑定提示是否绑定输入的手机号
+     * 如绑定则不做提示
+     */
+    $(document).delegate('.judgeBound','input propertychange',function(){
+        var uid = $('#user_id').val();
+        var phone = $(this).val();
+        if(phone.length!=11) return false;
+        var partten = /^1[3,5,8]\d{9}$/;
+        if(partten.test(phone)) {
+            $.ajax({
+                type: 'post',
+                url: api_url + 'index.php/Users/User/showSafe',
+                data: {
+                    user_id: uid,
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.phone.result == 'false') {
+                        layer.confirm('是否绑定手机？', function () {
+                            layer.open({
+                                type: 1,
+                                title: false,
+                                area: '570px',
+                                shadeClose: false, //点击遮罩关闭
+                                content: '<div class="tel"><h3>绑定手机号</h3><div class="form-group"><label>手机号：</label><input id="tel" type="text" value="' + phone + '"><div class="ach"><input type="button" id="getverification" value="获取验证码"></div></div><div class="form-group"><label>动态码：</label><input id="captcha" type="text"></div><div class="btn_tel"><button class="btn_bound">绑定</button> <button class="global_bound_cancel">取消</button></div></div>'
+                            });
+                        });
+                    }
+                }
+            })
+        }
+    });
+
+    //全局手机绑定取消
+    $(document).delegate('.global_bound_cancel','click',function () {
+        layer.closeAll();
+    })
 })
 
 

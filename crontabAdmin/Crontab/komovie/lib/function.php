@@ -123,7 +123,7 @@ function saveKomovieData($data)
 function saveUpdateData($data, $ext='dzq')
 {
 	// 数据列
-	$cols = array( 'cinema_name', 'cinema_address', 'cinema_id', 'region_id', 'area_id', 'api_region_id', 'api_area_id', 'cinema_tel', 'latitude', 'longitude', 'source', 'is_update', 'add_time', 'drive_path', 'area_name', 'logo', 'galleries', 'cinema_intro', 'drive_path', 'open_time' );
+	$cols = array( 'cinema_name', 'cinema_address', 'cinema_id', 'region_id', 'area_id', 'api_region_id', 'api_area_id', 'cinema_tel', 'latitude', 'longitude', 'source', 'is_update', 'add_time', 'drive_path', 'area_name', 'logo', 'galleries', 'cinema_intro', 'open_time' );
 	// 整理数据
 	$info = initDataKeys( $ext, $data);
 	// 添加默认数据
@@ -170,10 +170,13 @@ function initDataKeys( $table, $data)
 		$dataKeys['cinema_id'] 			= 'CinemaNo';			// 影院id
 		$dataKeys['api_area_id'] 		= 'AreaNo';				// 城区id
 		$dataKeys['cinema_tel'] 		= 'PhoneNo';
-		$dataKeys['LatLng'] 			= 'LatLng';				// 维度/经度
-		$dataKeys['drive_path'] 		= 'Traffic';			// 公交线路
+		$dataKeys['LatLng'] 			= 'LatLng';				// 维度/经度		
 		$dataKeys['area_name'] 			= 'AreaName';			// 区域名称
 		$dataKeys['logo'] 			    = 'logo';			    // logo
+		$dataKeys['galleries'] 			= '';			        // 图集
+		$dataKeys['cinema_intro'] 		= '';		            // 影院简介
+		$dataKeys['drive_path'] 		= '';			// 公交线路
+		$dataKeys['open_time'] 			= '';			        // 开放时间
 	}
 	// 新增抠电影影院
 	elseif( $table == 'update')
@@ -187,8 +190,11 @@ function initDataKeys( $table, $data)
 		$dataKeys['latitude'] 			= 'latitude';			// 维度
 		$dataKeys['longitude'] 			= 'longitude';			// 经度
 		$dataKeys['area_name'] 			= 'districtName';		// 区域名称
-		$dataKeys['drive_path'] 		= '';
 		$dataKeys['logo'] 			    = 'logo';			    // logo
+		$dataKeys['galleries'] 			= 'galleries';			// 图集
+		$dataKeys['cinema_intro'] 		= 'cinema_intro';		// 影院简介
+		$dataKeys['drive_path'] 		= 'drive_path';			// 交通
+		$dataKeys['open_time'] 			= 'open_time';			// 开放时间
 	}
 	
 	// 替换键名
@@ -402,7 +408,7 @@ function arrayOnlySort( $sortArray, $sortKey)
 		{
 			foreach ($sortKey as $sk=>$sv)
 			{
-				$returnArray[$key][$sv] = @$val[$sv];
+				$returnArray[$key][$sv] = addslashes(@$val[$sv]);
 			}
 		}		
 	}

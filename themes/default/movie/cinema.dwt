@@ -215,8 +215,11 @@
 					}
 				})
 			}	
+		
+		$('.header_left li:nth-child(2) a').css('color','#27c7ac');
+		
     	</script>
-       
+       <script src="{$app_path}js/juyoufuli/movieSearch.js"></script>
 	</body>
 
 </html>

@@ -136,9 +136,9 @@ class GamesApiController extends Controller
         $data['buy_time'] = date('Y-m-d H:i:s',time());
         $game_info = $Model ->table('__GAMES__') -> where(array('id' => $data['game_id'])) ->find();
         if($game_info['grade_id']==1){
-            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();
+            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) ->lock(true) -> count();
         }else{
-            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'])) -> count();
+            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'])) ->lock(true) -> count();
         }
 
         $total = $game_info['total'];

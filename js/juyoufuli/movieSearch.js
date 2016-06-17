@@ -105,16 +105,7 @@ jQuery(".fullSlide").slide({
 	}
 	});
 //jQuery(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,scroll:3,vis:3});				
-jQuery(".movie_list").slide({
-	titCell: ".hd ul",
-	mainCell: ".bd .ulWrap",
-	autoPage: true,
-	effect: "left",
-	autoPlay: false,
-	scroll:4,
-	vis:4,
-	pnLoop: false
-							});
+
 jQuery(".will_list").slide({
 	titCell: ".hd ul",
 	mainCell: ".bd ul",

@@ -6,6 +6,7 @@ function userShow(data){
             var username ;
             var nickname ;//用户名
             var mobile_phone ;//手机号
+			var bound_status;
             var sex ;//性别
             var birthday;//生日
             var basic;//个人情况
@@ -24,6 +25,7 @@ function userShow(data){
 			 username = data.business.user_name;
              nickname = data.business.nickname;//用户名
 			 mobile_phone = data.business.mobile_phone?data.business.mobile_phone:'';
+			 bound_status = data.business.bound_status;
              sex = data.business.sex;//性别
              birthday=data.business.birthday;//生日
              basic=data.business.basic;//个人情况
@@ -40,7 +42,12 @@ layer.open({
         title:false,
         area:'570px',
         shadeClose:false, //点击遮罩关闭
-        content:'<div class="per"><h3>个人信息</h3><div class="wrap_1"><div class="left"><div class="form-group">卡号：<span class="card_num" id="card_id"></span></div><div class="form-group"><label>用户名：</label><span class="username"><input type="text" id="username"></span></div><div class="form-group"><label>手机号：</label><span class="username"><input type="text" id="mobile_phone"></span></div><div class="form-group"><label>性别：</label><span id="male" class="radio_img radio_left"><input type="radio" name="Sex" value="1"></span>男 <span id="female" class="radio_img"><input type="radio" name="Sex" value="2"></span>女</div><div class="form-group" style="position:relative">生日： <input onclick="laydate()" class="birth" id="birth"><label class="date_ico laydate-icon" for="birth"></label></div><div class="form-group" id="geren">个人情况： <span class="radio_img" id="danshen"><input type="radio" name="per" value="单身"></span>单身 <span class="radio_img" id="love"><input type="radio" name="per" value="恋爱中"></span>恋爱中 <span class="radio_img" id="yihun"><input type="radio" name="per" value="已婚"></span>已婚 <span class="radio_img" id="baomi"><input type="radio" name="per" value="保密"></span>保密</div><form action="" method="get">兴趣： <span id="meishi" class="checkbox_img radio_left"><input name="favorite" type="checkbox" value="美食"></span>美食 <span id="dianying" class="checkbox_img"><input name="favorite" type="checkbox" value="电影"></span>电影 <span id="jiudian" class="checkbox_img"><input name="favorite" type="checkbox" value="酒店"></span>酒店 <span id="xiuxian" class="checkbox_img"><input name="favorite" type="checkbox" value="休闲娱乐"></span>休闲娱乐 <span id="liren" class="checkbox_img"><input name="favorite" type="checkbox" value="丽人"></span>丽人 <span id="lvyou" class="checkbox_img"><input name="favorite" type="checkbox" value="旅游"></span>旅游</form></div><div class="right"><form id="uploadForm"><div class="right_img" id="localImag"><img id="preview" src="images/img_login/touxiang_shang.png" width="120" height="120"></div><span class="file"><input type="file" name="file" id="doc" onchange="setImagePreview(this)"></span><span class="file_yes"><input type="button" value="确认" onclick="upload()" /></span></form></div></div><div style="text-align:center"><button id="save">保存</button></div></div>'
+        content:'<div class="per"><h3>个人信息</h3><div class="wrap_1">' +
+		'<div class="left"><div class="form-group">卡号：<span class="card_num" id="card_id"></span></div>' +
+		'<div class="form-group"><label>用户名：</label><span class="username"><input type="text" id="username"></span></div>' +
+		'<div class="form-group"><label>手机号：</label><span class="username"><input type="text" id="mobile_phone"></span>'+(bound_status==0?'<button id="phone_bound" style="margin-left: 10px;">绑定</button>':'')+'</div>' +
+		'<div class="form-group"><label>性别：</label><span id="male" class="radio_img radio_left"><input type="radio" name="Sex" value="1"></span>男 <span id="female" class="radio_img"><input type="radio" name="Sex" value="2"></span>女</div>' +
+		'<div class="form-group" style="position:relative">生日： <input onclick="laydate()" class="birth" id="birth"><label class="date_ico laydate-icon" for="birth"></label></div><div class="form-group" id="geren">个人情况： <span class="radio_img" id="danshen"><input type="radio" name="per" value="单身"></span>单身 <span class="radio_img" id="love"><input type="radio" name="per" value="恋爱中"></span>恋爱中 <span class="radio_img" id="yihun"><input type="radio" name="per" value="已婚"></span>已婚 <span class="radio_img" id="baomi"><input type="radio" name="per" value="保密"></span>保密</div><form action="" method="get">兴趣： <span id="meishi" class="checkbox_img radio_left"><input name="favorite" type="checkbox" value="美食"></span>美食 <span id="dianying" class="checkbox_img"><input name="favorite" type="checkbox" value="电影"></span>电影 <span id="jiudian" class="checkbox_img"><input name="favorite" type="checkbox" value="酒店"></span>酒店 <span id="xiuxian" class="checkbox_img"><input name="favorite" type="checkbox" value="休闲娱乐"></span>休闲娱乐 <span id="liren" class="checkbox_img"><input name="favorite" type="checkbox" value="丽人"></span>丽人 <span id="lvyou" class="checkbox_img"><input name="favorite" type="checkbox" value="旅游"></span>旅游</form></div><div class="right"><form id="uploadForm"><div class="right_img" id="localImag"><img id="preview" src="images/img_login/touxiang_shang.png" width="120" height="120"></div><span class="file"><input type="file" name="file" id="doc" onchange="setImagePreview(this)"></span><span class="file_yes"><input type="button" value="确认" onclick="upload()" /></span></form></div></div><div style="text-align:center"><button id="save">保存</button></div></div>'
     });
                $('#preview').attr('src',img);
             

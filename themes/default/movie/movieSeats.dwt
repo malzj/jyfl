@@ -124,7 +124,7 @@
 					<div class="tel_shuru">
 						<div style="color: black;">请输入取票手机号码</div>
                         <form action="movie_order.php" method="post" name="orderForm" onsubmit="return checkOrderForm(this);">
-						<input type="text" class="form-control" name="mobile" id="mobile" placeholder="请输入手机号，接收取票密码">
+						<input type="text" class="form-control judgeBound" name="mobile" id="mobile" placeholder="请输入手机号，接收取票密码">
                         <input type="hidden" name="act" value="order" />
                         <input type="hidden" name="planId" value="{$planInfo.planId}" />					<!-- 场次ID -->			
                         <input type="hidden" name="hallName"  value="{$planInfo.hallName}" />				<!-- 影厅名-->				

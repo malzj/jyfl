@@ -924,6 +924,7 @@ html.movie .movie_list ul li{
 	width:190px;
 	/* margin: 5px 0 5px 35px; */
 	position: relative;
+	margin-bottom: 20px;
 }
 
 html.movie .reying .movie_list {
@@ -937,7 +938,7 @@ html.movie .reying .movie_list .bd .title{
 }
 html.movie .reying .movie_list .bd .title span{
 	display: inline-block;
-	margin: 10px 0;
+	margin: 10px 0 0 0;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
@@ -1173,22 +1174,22 @@ html.movie .will .will_list {
 	position: relative;
 }
 
-html.movie .midbox .nav_main ul.header_left li {
+.midbox .nav_main ul.header_left li {
 	color: white;
 	margin: 9px 20px;
 	float: left;
 }
 
-html.movie .midbox .nav_main {
+.midbox .nav_main {
 	overflow: hidden;
 	float: left;
 }
 
-html.movie .midbox .nav_main ul.header_left {
+.midbox .nav_main ul.header_left {
 	overflow: hidden;
 }
 
-html.movie .midbox .nav_main ul.header_left li a {
+.midbox .nav_main ul.header_left li a {
 	color: white;
 }
 
@@ -2889,3 +2890,5 @@ html.shenghuo1 body{background: white;}
 
 /*广播样式*/
 .guangbo{font-size: 12px;}
+/*goods页面*/
+.cake_jieshao {margin-bottom: 40px;}

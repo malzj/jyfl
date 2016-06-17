@@ -27,6 +27,11 @@
         <div class="w_1200">
         	<div class="order_title_tips"></div>
 			<div class="order_title"></div>
+            
+            <!--收货信息-->
+			<div class="shouhuo">收货信息</div>
+			<div class="shouhuoren" id="order_consignee"> LOADING ...</div>
+            
 			<div class="order_list">
 				<div class="f_l order_list_name">商品信息</div>
 				<div class="f_l order_list_price">单价（点）</div>
@@ -39,10 +44,10 @@
 				<div class="order_gyshang_name">
 					<div class="order_gyshang_title f_l">{$supplier[0].seller}</div>
 					<div class="order_item_more color_zhuti f_l"><span class="more_text">收起</span><span class="glyphicon glyphicon-chevron-up margin_left_5"></span></div>
-					<!-- {if $supplier[0].is_map eq 1} -->
+					<!-- {if $supplier.0.is_map eq 1} -->
                     <div class="adress_look f_r"><a href="javascript:void(0);" class="color_zhuti show_yunfei" data-id="{$supplier[0].supplier_id}">查看配送范围</a></div>
                     <!-- {else} -->
-                    <div class="adress_look f_r" style="display:none;"><a href="javascript:void(0);" class="color_zhuti show_yunfei" data-id="{$supplier[0].supplier_id}"></a></div>
+                    <div class="adress_look f_r" style="display:none;"><a href="javascript:void(0);" class="color_zhuti show_yunfei" data-id="{$supplier[0].supplier_id}">{ $supplier[0].is_map}</a></div>
 					<!-- {/if} -->
                 </div>
 				<div class="order_gyshang_itemAll o_hidden">
@@ -70,9 +75,7 @@
 				</div>                 
 			</div>            
             <!-- {/foreach} -->
-			<!--收货信息-->
-			<div class="shouhuo">收货信息</div>
-			<div class="shouhuoren" id="order_consignee"> LOADING ...</div>
+			
 			<!--支付及配送方式-->
 			<div class="pay_way">
 				<div class="pay_way_title">支付及配送方式</div>

@@ -94,8 +94,9 @@
 						<span class="pageState"><span></span>/</span>
 					</div>
 					<div class="bd">
-						<ul class="picList">
+						<div class="ulWrap">
                         {foreach from=$movies.hot item=hot}
+                        <ul class="f_l" style="width: 190px;">
 							<li style="float: left;">
 								<!--<div class="li_top"></div>-->
 								<div class="pic">
@@ -105,9 +106,19 @@
 								<div class="buy"> <a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_blank" class="zhuti_a_hover">选座购票</a></div>
 							</a></div>
 							</li>
+							<li style="float: left;">
+								<!--<div class="li_top"></div>-->
+								<div class="pic">
+									<a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_blank"><img src="{$hot.pathVerticalS}" width="140" height="196"></a>
+								</div>
+								<div class="title"><a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_blank"><span>{$hot.movieName}</span></a>
+								<div class="buy"> <a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_blank" class="zhuti_a_hover">选座购票</a></div>
+							</a></div>
+							</li>
+						</ul>
 						{/foreach}
                         
-						</ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -202,7 +213,7 @@
 //			jQuery(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,scroll:3,vis:3});				
 			jQuery(".movie_list").slide({
 				titCell: ".hd ul",
-				mainCell: ".bd ul",
+				mainCell: ".bd .ulWrap",
 				autoPage: true,
 				effect: "left",
 				autoPlay: false,

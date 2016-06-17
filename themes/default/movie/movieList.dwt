@@ -355,15 +355,6 @@
 				$('.movie_flash').hide();
 			})
 			
-			
-			$(document).ready(function(){
-				var a=[0];
-				if ([0]){
-					console.log(a==false)
-				}else{
-					console.log('wut');
-				}
-			})
 		</script>
 		
 	</body>

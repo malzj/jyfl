@@ -25,7 +25,7 @@
 			<div class="order_zhanshi">
 				<div class="order_left">
 					<div class="img_left">
-						<img src="{$detail.thumb}" width="180">
+						<img src="{$detail.thumb}" width="140">
 					</div>
 					<div class="box_left">
 						<ul>

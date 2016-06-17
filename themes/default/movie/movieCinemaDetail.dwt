@@ -85,7 +85,7 @@
                 </div>
                 <div class="bd">
                     <ul class="picList">
-                        <center style="line-height:220px;">gif图待定</center>
+                        <center style="line-height:220px;"></center>
                     </ul>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                 <div class="select_cinema">
                     <h3>选择影院</h3>
                     <ul>
-                        <li>gif图待定</li>
+                        <li></li>
                     </ul>
                 </div>
                 <!--影院详情-->
@@ -234,7 +234,7 @@
 				type:'POST',
 				data:'step=cinemaList&movieid='+movieid+'&dis='+dis+'&cinemaid='+cinemaid,
 				beforeSend:function(){
-					$('.select_cinema ul').html("<center>gif图待选</center>");
+					//$('.select_cinema ul').html("<center></center>");
 				},
 				success:function( data ){
 					var obj = jQuery.parseJSON(data);
@@ -300,7 +300,7 @@
 				type:'POST',
 				data:'step=planList&cinemaid='+cinemaid+'&movieid='+movieid+'&currentTime='+currentTime,
 				beforeSend:function(){
-					$(idClass).html("<center>gif图待定</center>");
+					$(idClass).html("<center  style='line-height: 487px;'><img src='/images/juyoufuli/img_login/loading.gif'></center>");
 					if(currentTime == 0){
 						//$('.date_select').html('LOADING ...');
 						//$('.date_select').append("<div style='background: #333;opacity:.3;width: 100%;position: absolute;top: 0;left: 0;height: 100px;'></div>");

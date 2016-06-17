@@ -2383,11 +2383,13 @@ html.huaju3 .w_1200 .dingdan_tip .jiesuan .kahao{margin-right: 60px;height: 25px
 html.huaju3 .w_1200 .dingdan_tip .jiesuan .password input{height: 20px;width: 200px;}
 html.huaju3 .w_1200 .dingdan_tip .jiesuan .password{margin-right: 60px;}
 html.huaju3 .w_1200 .dingdan_tip .jiesuan .jiesuan_btn span{
-	padding: 2px 5px;
+	padding: 0px 23px;
 	background: #ff781e;
 	color: white;
 	cursor: pointer;
 	line-height: 24px;
+	border-radius: 5px;
+	display:inline-block;
 }
 
 /*huaju4.html*/

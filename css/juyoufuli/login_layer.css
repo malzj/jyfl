@@ -42,7 +42,7 @@
 .layui-layer-content .saf{color: white;margin: 0px 10px;padding-bottom: 10px;}
 .layui-layer-content .saf table tr td.td_2{color: #ff781e;}
 .layui-layer-content .saf table tr td.td_3{color: #777272;}
-.layui-layer-content .saf table tr td.td_4{color: #37e2c3;}
+.layui-layer-content .saf table tr td.td_4{color: #37e2c3;cursor: pointer;}
 
 /*我的红包*/
 .layui-layer-content .red_packet .table thead{background: #828385;opacity: .5;}

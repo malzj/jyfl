@@ -1640,7 +1640,7 @@ html.movie_3  .order_zhanshi .order_right .yes{
 .order_yes_Allprice{font-size: 20px;}
 
 /*movie_4.html*/
-html.movie_4  .pay_del{background: url(/images/juyoufuli/img_login/pay_del3.png) no-repeat;margin: 0 auto;margin-top: 100px;height: 100px;width: 1155px;margin-bottom: 30px;}
+html.movie_4  .pay_del{background: url(/images/juyoufuli/img_login/pay_movie_del3.png) no-repeat;margin: 0 auto;margin-top: 100px;height: 100px;width: 1030px;margin-bottom: 30px;}
 html.movie_4  .pay_success{border: 1px solid #ddd;margin-top: 50px;}
 html.movie_4  .pay_success h3{font-size: 24px;margin: 50px auto;text-align: center;color: black;}
 html.movie_4  .pay_success h3 img{margin-right: 10px;}
@@ -1649,7 +1649,7 @@ html.movie_4  .pay_success .tips{width: 595px;margin: 20px auto;color:#ff781e;fo
 
 
 /*dianziquan.html*/
-body{min-height: 100%;position: relative;background: #f2f2f2;padding-bottom: 190px;padding-top: 1px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+body{min-height: 100%;position: relative;background: #f2f2f2;padding-bottom: 110px;padding-top: 1px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
 html.dianziquan  .select_area{border: 1px solid #ddd;margin-top: 90px;overflow: hidden;padding: 15px 0px 15px 15px;}
 html.dianziquan  .select_area ul li{margin: 10px 0px;float: left;width: 120px;/* text-align: center; */}
 html.dianziquan  .select_area .title{padding: 10px 0;float: left;}

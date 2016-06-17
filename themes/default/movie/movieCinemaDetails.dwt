@@ -196,7 +196,7 @@
 				type:'POST',
 				data:'step=cinemaLists&movieid='+movieid+'&dis='+dis+'&cinemaid='+cinemaid,
 				beforeSend:function(){
-					$('.select_cinema ul').html("<li>LOADING ... </li>");
+					//$('.select_cinema ul').html("<li>LOADING ... </li>");
 				},
 				success:function( data ){
 					var obj = jQuery.parseJSON(data);
@@ -219,7 +219,7 @@
 				type:'POST',
 				data:'step=movieList&cinemaid='+cinemaId,
 				beforeSend:function(){
-					$('.picList').html("<center style='line-height:220px; width:1150px;'>LOADING ...</center>");
+					//$('.picList').html("<center style='line-height:220px; width:1150px;'>LOADING ...</center>");
 				},
 				success:function( data ){
 					var obj = jQuery.parseJSON(data);
@@ -255,9 +255,9 @@
 				type:'POST',
 				data:'step=planList&cinemaid='+cinemaid+'&movieid='+movieid+'&currentTime='+currentTime,
 				beforeSend:function(){
-					$(idClass).html("<tr><td colspan='5'> LOADING ... </td></tr>");
+					$(idClass).html("<tr><td colspan='5'></td></tr>");
 					if(currentTime == 0){
-						$('.date_select').html('LOADING ...');
+						//$('.date_select').html('LOADING ...');
 					}
 				},
 				success:function( data ){
@@ -276,8 +276,8 @@
 		}
 		
 		function initSelectCinema(){
-			$('#planList').html("<tr><td colspan='5'> 请从新选择影院 </td></tr>");
-			$('.date_select').html("请从新选择影院");
+			$('#planList').html("<center style='line-height: 487px;'>请重新选择影院 </center>");
+			$('.date_select').html("<center>请重新选择影院</center>");
 		}
 		
 		function setMovieInfo(){			

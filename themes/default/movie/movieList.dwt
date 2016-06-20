@@ -63,31 +63,17 @@
 			</div>
 		</div>
 		<div class="w_1200">
-			<div class="reying o_hidden">
+			<!--返回首页-->
+			<div class="return_tip">
+				<a href="#" class="return_tip_index"><span class="return_index_img"></span><span>首页</span></a>
+				<a href="#" class="return_tip_return"><span class="return_return_img"></span><span>返回</span></a>
+			</div>
+			<div class="reying clearfix">
 				<div class="reying_title">
 					<div class="reying_bg"></div>
 					<div class="reying_news">今天共有<span> {$count} </span>部影片</div>
 				</div>
-				<!--<div class="reying_show">
-					<div class="reying_img">
-						<img src="{$movies.shifuMovie.pathVerticalS}" style="width: 100%;height: 100%;">
-					</div>
-					<div class="reying_show1">
-						<ul>
-							<li class="title">{$movies.shifuMovie.movieName}</li>
-							<li>类型：<span>{$movies.shifuMovie.movieType}</span></li>
-							<li>导演：<span>{$movies.shifuMovie.director}</span></li>
-							<li>主演：<span>{$movies.shifuMovie.actor}</span></li>
-							<li class="juqingA">剧情：<span class="juqing_left">{$movies.shifuMovie.intro}</span></li>
-							<li>片长：<span>{$movies.shifuMovie.movieLength}分钟</span></li>
-							<li>上映时间：<span>{$movies.shifuMovie.publishTime}</span></li>
-						</ul>
-					</div>
-					<div class="reying_show2">
-						<div class="mark"><i>{$movies.shifuMovie.left_score}<span class="point">.{$movies.shifuMovie.right_score}</span></i></div>
-						<div class="buy"><a href="{$app_path}movie.php?step=planCinema&movieid={$movies.shifuMovie.movieId}" target="_blank" class="zhuti_a_hover">选座购票</a></div>
-					</div>
-				</div>-->
+				
 				<div class="movie_list">
 					<div class="hd o_hidden" style="margin-bottom: 10px;">
 						<span class="next f_r"></span>
@@ -119,29 +105,7 @@
 					</div>
 				</div>
 				<div class="movie_action_left f_l">
-					<div class="movie_action_title">新片预告</div>
-					<div class="movie_action_flash">
-						<div class="flash_img">
-							<img src="/images/juyoufuli/img_login/movie_actiondemo.jpg" width="280">
-							<div class="play_flash">
-								<img src="/images/juyoufuli/img_login/play.png"/>
-							</div>
-						</div>
-						<!--<div id="playDiv" style="position: absolute; top: 500px; left: 100px; z-index: 6;">
-                                <div style="width:410px;height:259px;float:left;">
-                                                                            <div class="video" p="1"><div id="a1"></div>
-                                            <iframe frameborder="0" width="410" height="259" marginheight="0" marginwidth="0" scrolling="no" src="http://player.youku.com/player.php/sid/XMTYwMzQ4NDUzNg==/v.swf"></iframe>
-                                        </div>
-                                                                    </div>
-                                <div style="width:30px;height:30px;float:left;cursor: pointer;background: #F4F4F4;" onclick="closePlay();">
-                                <div style="background:url(/public/images/select_icon.png) no-repeat -360px -628px; width: 16px; height: 16px;margin:7px 0 0 7px"></div>
-                                </div>
-                            </div>-->
-					</div>
-					<div class="movie_action_title">影片介绍</div>
-					<div class="movie_action_content">
-						<p>故事从上一部结尾的六个月后开始，患上思乡病的蓝藻鱼多莉(Dory)决定去寻找自己的父母查理(Charlie)和安妮(Jenny)，在小丑鱼尼莫(Nemo)和他的父亲马林(Marlin)的帮助下，她从澳大利亚大堡礁来到了美国加州海岸，在这里她遇到了很多新朋友，有章鱼、海狮、白鲸等等。澳大利亚大堡礁来到了美国加州海岸，在这里她遇到了很多新朋友，有章鱼、海狮、白鲸等等。事从上一部结尾的六个月后开始，患上思乡病的蓝藻鱼多莉(Dory)决定去寻找自己的父母查理(Charlie)和安妮(Jenny)，在小丑鱼尼莫(Nemo)和他的父亲马林(Marlin)的帮助下，她从澳大利亚大堡礁来到了美国加州海岸，在这里她遇到了很多新朋友，有章鱼、海狮、白鲸等等。</p>
-					</div>
+					{$yugao.content}
 				</div>
 			</div>
 			<div class="will">
@@ -196,10 +160,7 @@
 				</div>
 			</div>
 		</div>
-        <div class="movie_flash" style="display: none;">
-            <embed style="position: fixed;top: 50%;left: 50%;margin-left: -290px;margin-top: -250px;z-index:99" src="http://www.tudou.com/l/XWSQagW5OdU/&bid=05&iid=256912729&resourceId=0_05_05_99/v.swf" allowFullScreen="true" quality="high" width="580" height="500" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
-            <div class="movie_close"></div>
-        </div>	
+        	
         <!-- 公用底部 -->
 		<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
         <!-- 底部结束 -->
@@ -213,6 +174,11 @@
         <!-- 公共右边结束 -->
 
 		<script type="text/javascript">
+			jQuery(function($) {
+				$(document).ready(function() {
+					$('.return_tip').stickUp();
+				});
+			});
 			jQuery(function($) {
 				$(document).ready(function() {
 					$('#ticketSearchFixDiv').stickUp();

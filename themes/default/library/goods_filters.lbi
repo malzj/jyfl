@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!--{foreach from=$filter_attr_list item=filter_attr}-->
 <div class="cake1_top o_hidden">
-    <div class="cake1_top_Sort f_l"><span class="glyphicon glyphicon-play"></span>{$filter_attr.filter_attr_name|escape:html}</div>
+    <div class="cake1_top_Sort f_l">{$filter_attr.filter_attr_name|escape:html}</div>
     <ul>
     	<!--{foreach from=$filter_attr.attr_list item=attr}-->
 		<!-- {if $attr.selected} -->

@@ -158,7 +158,10 @@ elseif ($_REQUEST['step'] == "movie")
 	
 	// 得到电影banner图片
 	$banner = getMovieBanner();
-
+	// 电影预告
+    $movieYugao = $GLOBALS['db']->getRow("SELECT * FROM ".$GLOBALS['ecs']->table('article')." WHERE article_id = 35");
+    
+    $smarty->assign('yugao',$movieYugao);
 	$smarty->assign('banner',$banner);
 	$smarty->assign('category',getCinemaCate(4));
 	$smarty->assign('movies', $movies);

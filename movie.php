@@ -74,8 +74,9 @@ elseif ($_REQUEST['step'] == "ajaxPlanList")
     // 如果没有选择时间，默认选择第一个
     if (empty($currentTime))
     {
-        reset($featureTimes);
-        $currentTime = current($featureTimes);
+        reset($featureTimes);  
+        $currentTimes = current($featureTimes);
+        $currentTime = $currentTimes['strtotime'];
     }
     
     $planList = searchPlan($moviePlan, $currentTime, $ratio);
@@ -175,12 +176,18 @@ elseif ($_REQUEST['step'] == "cinema")
         
     $count = getCinemaCount($area_id);
     //var_dump(getCinemaList('komovie', $page, 10, $area_id));
+    
+    // 得到电影banner图片
+    $banner = getMovieBanner();
+    
+    $smarty->assign('banner',$banner);
     $smarty->assign('page', $page);
     $smarty->assign('areas', $areas);
     $smarty->assign('area_id', $area_id);
 	$smarty->assign('cinemas', getCinemaList('komovie', $page, 10, $area_id));
 	$pager = get_pager('movie.php', array('step'=>'cinema','area_id'=>$area_id), $count, $page, 10);
 	$smarty->assign('pager', $pager);
+	$smarty->assign('category',getCinemaCate(4));
 	$smarty->display('/movie/cinema.dwt');
 }
 
@@ -207,11 +214,16 @@ elseif ($_REQUEST['step'] == "planCinema")
 	    }
 	}	
 	
+	// 得到电影banner图片
+	$banner = getMovieBanner();
+	
+	$smarty->assign('banner',$banner);
 	$smarty->assign('cityid', $cityid);
 	$smarty->assign('cinemaid', $cinemaid);
 	$smarty->assign('movieid', $movieid);
 	$smarty->assign('movieDetail', $movieDeatil);
 	$smarty->assign('districts', $districts);
+	$smarty->assign('category',getCinemaCate(4));
 	$smarty->display('/movie/movieCinemaDetail.dwt');		
 
 }
@@ -238,6 +250,10 @@ elseif ($_REQUEST['step'] == "planCinemas")
 	// 获得影院详细信息
 	$cinemaDetail = getCinemaDetail( $cinemaid, 'komovie_cinema_id');
 
+	// 得到电影banner图片
+	$banner = getMovieBanner();
+	
+	$smarty->assign('banner',$banner);
 	$smarty->assign('cityid', $cityid);
 	$smarty->assign('cinemaDetail', $cinemaDetail);
 	$smarty->assign('cinemaid', $cinemaid);
@@ -541,8 +557,13 @@ else if ( $_REQUEST['step'] == "shuaka" )
     
     $district_list = get_regions(3, $int_city);
     
+    $smarty->assign('category',getCinemaCate(4));
     $smarty->assign('city_list',         $city_list);
     $smarty->assign('district_list',         $district_list);
+    
+    // 得到电影banner图片
+    $banner = getMovieBanner();    
+    $smarty->assign('banner',$banner);
     
     $smarty->display('movie/shuaka.dwt');
 }
@@ -619,6 +640,10 @@ elseif ($_REQUEST['step'] == "cinemaDzq")
     
 //    var_dump($arr_dzqdh);
     
+    // 得到电影banner图片
+    $banner = getMovieBanner();
+    $smarty->assign('banner',$banner);
+    $smarty->assign('category',getCinemaCate(4));
     $smarty->assign('dzq',  $arr_dzqdh);
     $pager  = get_pager('movie.php', array('step' => 'cinemaDzq', 'area'=>$_GET['area'], 'cinemaKey'=>$str_keyword), $int_count, $int_page, $int_pageSize);
     $smarty->assign('pager',  $pager);

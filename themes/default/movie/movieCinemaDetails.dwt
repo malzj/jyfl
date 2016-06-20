@@ -20,7 +20,7 @@
 		<div class="movie_big">
             <div class="box">
                 <div class="img_left">
-                    <img src="{$app_path}{if $cinemaDetail.logo}{$cinemaDetail.logo}{else}images/dongwang/null.jpg{/if}" width="200" height="150" class="cinemaThumb">
+                    <img src="{if $cinemaDetail.logo}{$cinemaDetail.logo}{else}images/dongwang/null.jpg{/if}" width="200" height="150" class="cinemaThumb">
                 </div>
                 <div class="yingyuan_details">
                     <ul>
@@ -183,8 +183,8 @@
 		$(document).delegate('.date_select div', 'click', function(){
 			$('.date_select').find('div').removeClass('active');
 			$(this).addClass('active');
-			var featuretime = $(this).find('span').html();
-			var cinemaid = $(this).find('span').attr('data-cinemaid');
+			var featuretime = $(this).find('span').attr('data-strtotime');
+			var cinemaid = $(this).find('span').attr('data-cinemaid');	
 			loadPlan( cinemaid, getMovieId(), featuretime, '#planList');
 			
 		});		
@@ -243,7 +243,8 @@
 		}
 		
 		// 加载影院指定影片排期
-		function loadPlan(cinemaid, movieid, currentTime, idClass){
+		function loadPlan(cinemaid, movieid, currentTime, idClass){			
+			
 			if(Utils.isEmpty(currentTime)){
 				currentTime = 0;
 			}
@@ -326,6 +327,8 @@
 		});
 		
 	</script>
+    
+    <script src="{$app_path}js/juyoufuli/movieSearch.js"></script>
         
 </body>    
     

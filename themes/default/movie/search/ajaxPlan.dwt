@@ -6,7 +6,7 @@
     <div class="i_dates bd">
         <dl class="transition4" style="left:0px;">
         	{foreach from=$featureTimes item=featureTime}
-            <dd menuindex="0" data-movieid="{$movieid}" data-cinemaid="{$cinemaid}" style="float:left;" >{$featureTime}</dd>
+            <dd menuindex="0" data-movieid="{$movieid}" data-cinemaid="{$cinemaid}" style="float:left;"  data-strtotime="{$featureTime.strtotime}">{$featureTime.strtotime_sn}</dd>
             {/foreach}
         </dl>
     </div>

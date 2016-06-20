@@ -1650,7 +1650,7 @@ html.movie_4  .pay_success .tips{width: 595px;margin: 20px auto;color:#ff781e;fo
 
 /*dianziquan.html*/
 body{min-height: 100%;position: relative;background: #f2f2f2;padding-bottom: 110px;padding-top: 1px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
-html.dianziquan  .select_area{border: 1px solid #ddd;margin-top: 90px;overflow: hidden;padding: 15px 0px 15px 15px;}
+html.dianziquan  .select_area{border: 1px solid #ddd;margin-top: 30px;overflow: hidden;padding: 15px 0px 15px 15px;}
 html.dianziquan  .select_area ul li{margin: 10px 0px;float: left;width: 120px;/* text-align: center; */}
 html.dianziquan  .select_area .title{padding: 10px 0;float: left;}
 html.dianziquan  .select_area ul{float: right;width: 1085px;}
@@ -1742,7 +1742,7 @@ html.shuaka  .select_tips{margin: 15px 0 30px 0;font-size: 12px;color: #333333;}
 .shuaka_tip_title{margin:10px 0;font-size:16px;}
 .shuaka_tip{background: #c0f1e9;font-size: 12px;padding: 10px;}
 /*yingyuan1.html*/
-html.yingyuan1  .select_area{border: 1px solid #ddd;margin-top: 90px;overflow: hidden;padding: 15px 0px 15px 15px;margin-bottom: 20px;}
+html.yingyuan1  .select_area{border: 1px solid #ddd;margin-top: 30px;overflow: hidden;padding: 15px 0px 15px 15px;margin-bottom: 20px;}
 html.yingyuan1  .select_area ul li{margin: 10px 0px;float: left;width: 120px;}
 html.yingyuan1  .select_area .title{padding: 5px 0;float: left;}
 html.yingyuan1  .select_area ul{float: right;width: 1085px;}

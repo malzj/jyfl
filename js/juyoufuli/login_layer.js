@@ -94,11 +94,15 @@ $(function () {
         $.ajax({
             type: 'post',
             url: ecs_url + 'user.php',
-            async: false,
+            // async: false,
             data:$('#formSurplus').serialize(),
             dataType: 'json',
+            beforeSend:function(){
+                index = layer.load();
+            },
             success: function (data) {
                 //console.log(data);
+                layer.close(index);
                 if(data.result == 'true'){
                     var info = data.info;
                     var html = '<div class="reg">' +
@@ -675,7 +679,7 @@ $(function () {
         var uid = $('#user_id').val();
         var phone = $(this).val();
         if(phone.length!=11) return false;
-        var partten = /^1[3,5,8]\d{9}$/;
+        var partten = /^1[3,5,7,8]\d{9}$/;
         if(partten.test(phone)) {
             $.ajax({
                 type: 'post',

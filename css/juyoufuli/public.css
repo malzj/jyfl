@@ -1728,10 +1728,10 @@ html.dianziquan_1  .buy .buy_details .leixing{float: left;padding: 35px 0;}
 html.dianziquan_1  .buy .buy_details ul{float: left;}
 html.dianziquan_1  .buy{border: 1px solid #808080;padding: 70px 200px;}
 html.dianziquan_1  .buy .buy_details li.border_1{border: 1px solid;}
-html.dianziquan_1  .buy .buy_details li.border_1.active{border: 1px solid #ff781e;}
+html.dianziquan_1  .buy .buy_details li.border_1.active{background: #2fd0b5;color: white!important;border: 1px solid #2fd0b5;}
 html.dianziquan_1  .buy .buy_details li.shuliang input{width: 80px;}
 html.dianziquan_1  .buy .buy_details li.shuliang{margin-left: -52px;}
-html.dianziquan_1  .buy .buy_details li.tel input{margin-left: 15px;padding: 5px 0;}
+html.dianziquan_1  .buy .buy_details li.tel input{margin-left: 15px;padding: 5px 5px;}
 html.dianziquan_1  .buy .buy_details li.tel{margin-left: -45px;}
 
 /*shuakayigyua.html*/
@@ -2661,17 +2661,19 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .cake_top_name{color: black;width: 70px;text-align: right;margin-right: 20px;}
 .cake2_top_item a{
 	float: left;
-	border: 1px solid #cbcbcb;
+	border: 1px solid #2fd0b5;
 	padding: 0px 20px;
 	line-height: 24px;
-	color: #aeaeae;
+	color: #2fd0b5;
 	margin-bottom: 10px;
 	margin-right: 13px;
 	display: inline-block;
+	border-radius: 3px;
 	}
 .cake2_top_item a.active{
-	border: 1px solid #ff771e;
-	background: url(/images/juyoufuli/img_login/hy_hj.png) no-repeat right bottom;
+	border: 1px solid #2fd0b5;
+	background: #2fd0b5;
+	color: white;
 	}
 .cake2_top_item{width: 410px;}
 .cake2_img{width: 526px;height: 519px;}

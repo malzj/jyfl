@@ -197,7 +197,7 @@ function checkCardType( $username, $type)
          '8' => array( 'banner' => 15,'text'   => 16),
          '9' => array( 'banner' => 15,'text'   => 16),
          
-         // 生活广告【banner广告，text广播】
+         // 舌尖美食广告【banner广告，text广播】
          '11' => array('banner' => 20,'text'   => 19),
          '12' => array('banner' => 20,'text'   => 19),
          '13' => array('banner' => 20,'text'   => 19),
@@ -235,6 +235,67 @@ function checkCardType( $username, $type)
      );
      
      return $advs[$catid];
+ }
+ 
+ /**
+  *  分类商品，跳转首页对应的连接地址
+  */
+ function get_category_back($id)
+ {
+     $catUrl = array(
+         // 蛋糕广告
+         '4' => 'cake.php',
+         '5' => 'cake.php',
+         '6' => 'cake.php',
+         '7' => 'cake.php',
+         '8' => 'cake.php',
+         '9' => 'cake.php',
+          
+         // 舌尖美食广告
+         '11' => 'life.php',
+         '12' => 'life.php',
+         '13' => 'life.php',
+         '14' => 'life.php',
+         '15' => 'life.php',
+         '16' => 'life.php',
+          
+         // 优品生活广告
+         '22' => 'ylife.php',
+         '23' => 'ylife.php',
+         '24' => 'ylife.php',
+         '25' => 'ylife.php',
+         '26' => 'ylife.php',
+          
+         // 运动装备
+         '17' => 'category.php?id=17',
+         //鲜花
+         '18' => 'category.php?id=18',
+         //洗衣
+         '20' => 'category.php?id=20',
+         //体检
+         '19' => 'category.php?id=19'
+     );
+     
+     return $catUrl[$id];
+ }
+ 
+ /**  
+  * 返回首页和上一页  
+  */
+ function getBackHtml( $back )
+ {
+     $html = '<div class="return_tip">
+				<a href="'.$back.'" class="return_tip_index"><span class="return_index_img"></span><span>首页</span></a>
+				<a href="javascript:history.go(-1);" class="return_tip_return"><span class="return_return_img"></span><span>返回</span></a>
+			</div>';
+     $html .="<script>
+                jQuery(function($) {
+    				$(document).ready(function() {
+    					$('.return_tip').stickUp();
+    				});
+			});</script>";
+     
+     return $html;
  }
  
 /** 

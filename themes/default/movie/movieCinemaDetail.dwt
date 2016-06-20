@@ -74,6 +74,8 @@
 			</div>
 		</div>
     <div class="w_1200">
+    	<!-- 返回首页 -->
+        {$backHtml}
         <div class="xuanzuo">
             <div class="reying_title">
                 <div class="reying_bg"></div>

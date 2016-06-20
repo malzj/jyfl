@@ -114,4 +114,11 @@ jQuery(".will_list").slide({
 	autoPlay: false,
 	vis: 3,
 	pnLoop: false
-							});	
+});	
+
+// 电影页面固定在顶部的头
+jQuery(function($) {
+	$(document).ready(function() {
+		$('#ticketSearchFixDiv').stickUp();
+	});
+});

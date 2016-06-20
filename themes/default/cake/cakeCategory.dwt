@@ -5,6 +5,7 @@
 		<title></title>
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+        <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
         {insert_scripts files='jquery.common.js'}
 	</head>
 	<body id='body'>
@@ -65,7 +66,9 @@
         <!-- search end -->
         
         <div class="w_1200">			
-            
+        	<!-- 返回首页 -->
+        	{$backHtml}
+                
             <div class="cake1_top o_hidden">
 				<div class="cake1_top_Sort f_l">蛋糕品牌</div>
 				<ul>

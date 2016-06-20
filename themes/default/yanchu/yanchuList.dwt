@@ -63,7 +63,7 @@
 			</div>
 		</div>
 		<div class="w_1200">
-			<div class="big_img">
+            <div class="big_img">
             	{foreach from=$topticket item=top}
 				<div class="item f_l iwrap">
 					<a href="yanchu.php?act=show&id={$cateid}&itemid={$top.item_id}"><img src="{$top.thumb}" ></a>

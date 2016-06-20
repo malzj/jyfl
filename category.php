@@ -421,6 +421,9 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
     assign_dynamic('category'); // 动态内容
 }
 
+// 返回对应的首页
+$smarty->assign('backHtml',getBackHtml( get_category_back($cat_id)));
+
 $smarty->display(categoryTemplate($cat_id), $cache_id);
 
 /*------------------------------------------------------ */

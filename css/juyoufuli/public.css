@@ -2324,6 +2324,7 @@ html.huaju2 .xupay{font-size: 22px;color: #2fd0b5;}
  .shouhuoren .shouhuoren_item ul li{overflow: hidden;margin: 10px 20px 10px 0;}
  .shouhuoren .shouhuoren_item ul li:hover{/* background: #ffe4cc; */}
  .shouhuoren .shouhuoren_item ul li div.shouhuoren_name{
+	width: 205px;
 	padding-bottom: 10px;
 	margin-left: 20px;
 	/* width: 120px; */
@@ -2331,6 +2332,7 @@ html.huaju2 .xupay{font-size: 22px;color: #2fd0b5;}
 	/* text-align: center; */
 	/* background: #F2F2F2; */
 	/* border: 1px solid #ddd; */
+	border-bottom: 1px dashed #ddd;
 }
  .shouhuoren .shouhuoren_item ul li div.shouhuoren_xinxi{
 	margin-left: 20px;
@@ -2371,9 +2373,12 @@ html.huaju2 .xupay{font-size: 22px;color: #2fd0b5;}
  /*收货地址样式--new*/
 .shouhuo_list{float: left;width: 245px;height: 140px;background: url(/images/juyoufuli/img_login/shouhuo.png) no-repeat;}
  .bianji{background: url(/images/juyoufuli/img_login/shouhuo.png) no-repeat -93px -137px;width: 25px;height: 30px;display: inline-block;}
+ .bianji:hover{background-position: -34px -137px;}
  .remove{background: url(/images/juyoufuli/img_login/shouhuo.png) no-repeat -124px -137px;width: 25px;height: 30px;display: inline-block;}
+ .remove:hover{background-position: -153px -137px;}
  .xuanzhong{background: url(/images/juyoufuli/img_login/shouhuo.png) no-repeat -69px -137px;width: 25px;height: 30px;display: inline-block;cursor: pointer;}
- 
+ .xuanzhong.selected{background-position: -7px -137px;}
+ .xuanzhong:hover{background-position: -10px -137px;}
  
  .pay_way .pay_way_title{font-size: 16px;color: #43d2b9;font-weight: 600;margin: 20px 0;}
  .pay_way .pay_way_details{margin:10px 20px;}
@@ -2762,7 +2767,7 @@ html.shenghuo1 body{background: white;}
 
 /*order.html*/
 .order_title_tips{width: 1030px;height: 130px;margin: 0 auto;background: url(/images/juyoufuli/img_login/dangao2.png) no-repeat;margin-top: 90px;}
-.order_title{width: 1200px;height: 80px;background: url(/images/juyoufuli/img_login/order_title.png) no-repeat;}
+.order_title{width: 1200px;height: 46px;background: url(/images/juyoufuli/img_login/order_title.png) no-repeat;}
 .order_list{overflow: hidden;background: #d9d9d9;padding: 10px 20px;}
 .order_list_name{width: 780px;}
 .order_list_price,.order_list_num,.order_list_priceAll{

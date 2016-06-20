@@ -196,6 +196,7 @@ elseif ($_REQUEST['act'] == 'show')
 	$smarty->assign('iteminfo',           $arr_itemInfo);
 	$smarty->assign('showtime',       	  $arr_showtime);
 	$smarty->assign('str_showtime',       json_encode($arr_showtime));
+	$smarty->assign('backHtml',           getBackHtml( get_yanchu_back($int_cateId)));
 	
 	$smarty->display('yanchu/yanchuShow.dwt');
 }

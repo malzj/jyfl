@@ -70,10 +70,7 @@
 		</div>
 		<div class="w_1200">
 			<!--返回首页-->
-			<div class="return_tip">
-				<a href="#" class="return_tip_index"><span class="return_index_img"></span><span>首页</span></a>
-				<a href="#" class="return_tip_return"><span class="return_return_img"></span><span>返回</span></a>
-			</div>
+			
 			<div class="reying clearfix">
 				<div class="reying_title">
 					<div class="reying_bg"></div>
@@ -180,11 +177,7 @@
         <!-- 公共右边结束 -->
 
 		<script type="text/javascript">
-			jQuery(function($) {
-				$(document).ready(function() {
-					$('.return_tip').stickUp();
-				});
-			});
+			
 			jQuery(function($) {
 				$(document).ready(function() {
 					$('#ticketSearchFixDiv').stickUp();

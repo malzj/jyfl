@@ -215,6 +215,8 @@ elseif ($_REQUEST['act'] == 'checkout')
 	
 	$smarty->assign('order',  $order);
 	$smarty->assign('yanchu', $item);
+	
+	$smarty->assign('backHtml',    getBackHtml( get_yanchu_back($int_cateId)));
 	$smarty->display('yanchu/yanchuCheckout.dwt');
 }
 

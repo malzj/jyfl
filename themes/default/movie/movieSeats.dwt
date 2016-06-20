@@ -5,6 +5,7 @@
 		<title></title>
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+        <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
         
         <style type="text/css">			
 
@@ -51,8 +52,14 @@
 		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 --> 
 		
-        <div class="w_1200 clearfix">
-			<div class="pay_del"></div>
+        <div class="w_1200">
+        	<!-- 返回首页 -->
+        	{$backHtml}
+        
+			<div class="pay_del">
+            
+            
+            </div>
 			<div class="content_left">
 				<div class="xuanzuo">
 					<div class="tips">

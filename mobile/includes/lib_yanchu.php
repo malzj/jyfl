@@ -66,4 +66,17 @@ function get_title($id){
 	);
 	return $title[$id];
 }
+
+// 演出类型对应的连接地址
+function get_yanchu_back($id)
+{
+    $backUrl = array(
+        '1217' => 'yanchu.php?id=1217',
+        '1220' => 'yanchu.php?id=1220',
+        '1218' => 'yanchu.php?id=1218',
+        '1211' => 'yanchu.php?id=1211',
+        '1227' => 'yanchu.php?id=1227',
+        '1224' => 'yanchu.php?id=1224'
+    );
+}
 ?>

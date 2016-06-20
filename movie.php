@@ -160,7 +160,7 @@ elseif ($_REQUEST['step'] == "movie")
 	$banner = getMovieBanner();
 	// 电影预告
     $movieYugao = $GLOBALS['db']->getRow("SELECT * FROM ".$GLOBALS['ecs']->table('article')." WHERE article_id = 35");
-    
+        
     $smarty->assign('yugao',$movieYugao);
 	$smarty->assign('banner',$banner);
 	$smarty->assign('category',getCinemaCate(4));
@@ -178,7 +178,6 @@ elseif ($_REQUEST['step'] == "cinema")
     $areas = getCinemaArea('komovie');
         
     $count = getCinemaCount($area_id);
-    //var_dump(getCinemaList('komovie', $page, 10, $area_id));
     
     // 得到电影banner图片
     $banner = getMovieBanner();
@@ -191,6 +190,7 @@ elseif ($_REQUEST['step'] == "cinema")
 	$pager = get_pager('movie.php', array('step'=>'cinema','area_id'=>$area_id), $count, $page, 10);
 	$smarty->assign('pager', $pager);
 	$smarty->assign('category',getCinemaCate(4));
+	$smarty->assign('backHtml',getBackHtml('movie.php'));
 	$smarty->display('/movie/cinema.dwt');
 }
 
@@ -220,6 +220,7 @@ elseif ($_REQUEST['step'] == "planCinema")
 	// 得到电影banner图片
 	$banner = getMovieBanner();
 	
+	$smarty->assign('backHtml',getBackHtml('movie.php'));
 	$smarty->assign('banner',$banner);
 	$smarty->assign('cityid', $cityid);
 	$smarty->assign('cinemaid', $cinemaid);
@@ -256,6 +257,7 @@ elseif ($_REQUEST['step'] == "planCinemas")
 	// 得到电影banner图片
 	$banner = getMovieBanner();
 	
+	$smarty->assign('backHtml',getBackHtml('movie.php'));
 	$smarty->assign('banner',$banner);
 	$smarty->assign('cityid', $cityid);
 	$smarty->assign('cinemaDetail', $cinemaDetail);
@@ -473,6 +475,7 @@ elseif ($_REQUEST['step'] == "cinemaSeats")
 		}
 	}
 	
+	$smarty->assign('backHtml',        getBackHtml('movie.php'));
 	$smarty->assign('planInfo',        $planInfo);
 	$smarty->assign('seatParam', 	   json_encode(array('hallno'=>$hallno, 'planid'=>$planid, 'cinemaid'=>$cinemaid, 'movieid'=>$movieid)) );
 
@@ -567,7 +570,7 @@ else if ( $_REQUEST['step'] == "shuaka" )
     // 得到电影banner图片
     $banner = getMovieBanner();    
     $smarty->assign('banner',$banner);
-    
+    $smarty->assign('backHtml',getBackHtml('movie.php'));
     $smarty->display('movie/shuaka.dwt');
 }
 
@@ -653,6 +656,8 @@ elseif ($_REQUEST['step'] == "cinemaDzq")
     $smarty->assign('arealist',  $arr_data['areas']);
     $smarty->assign('type',  $_GET['area']);
     $smarty->assign('cinemaKey',  $_GET['cinemaKey']);
+    
+    $smarty->assign('backHtml',getBackHtml('movie.php'));
     $smarty->display('movie/cinemaDzq.dwt');
 }
 // 兑换券详情
@@ -749,6 +754,7 @@ elseif ($_REQUEST['step'] == "showDzq")
     $smarty->assign('cinemaNo',     $int_cinemaNo);
     $smarty->assign('dzq',          $arr_dzqData);//电子券
     
+    $smarty->assign('backHtml',getBackHtml('movie.php'));
     $smarty->display('movie/showDzq.dwt');    
     
 }

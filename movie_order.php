@@ -124,6 +124,7 @@ elseif ($_REQUEST['act'] == "payinfoDzq")
         $arr_data = $arr_result['body'];	       
     }
 	
+    $smarty->assign('backHtml',getBackHtml('movie.php'));
 	$smarty->assign('cinemaLogo', $arr_data['CinemaLogo']);
 	$smarty->assign('order', $arr_order);	
 	$smarty->display('movie/dzqPayinfo.dwt');
@@ -324,7 +325,7 @@ else if ($_REQUEST['act'] == 'payinfoMovie'){
 	
 	// 影片信息
 	$movieDetail = getMovieDetail($arr_order['movie_id']);
-	//var_dump($movieDetail);
+	$smarty->assign('backHtml',getBackHtml('movie.php'));
 	$smarty->assign('detail', $movieDetail);
 	$smarty->assign('order', $arr_order);
 	$smarty->display('movie/moviePayinfo.dwt');

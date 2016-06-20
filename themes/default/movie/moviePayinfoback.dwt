@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="movie_3">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+    </head>
+  	<body>
+    	 <!-- 公用头部 -->
+		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 --> 
+        
+        <div class="w_1200">
+			<div class="pay_del">
+			</div>
+			<div class="order_xinxi">
+				<div class="order_title_left"><h3><span class="color_yellow"></span><span>确认订单信息</span></h3></div>
+				<div class="order_right">
+					<span>请在限定时间内完成支付，否则系统将自动取消您的订单    剩余时间  </span>
+					<span id="times" style="font-size: 16px;font-weight: 600;">14分59秒</span>
+					<span>您也可以 <a href="movie.php?step=cinemaSeats&delid={$order.id}&{$order.param_url}">重新选座</a> 或<a href="{$app_path}"> 返回首页</a></span>
+				</div>
+			</div>
+			<div class="order_zhanshi">
+				<div class="order_left">
+					<div class="img_left">
+						<img src="{$detail.thumb}" width="180">
+					</div>
+					<div class="box_left">
+						<ul>
+							<li><h3>{$order.movie_name}</h3></li>
+							<li><span>{$order.cinema_name}</span><span style="color:#ff781e;">&nbsp;&nbsp;&nbsp;&nbsp;{$order.hall_name}</span></li>
+							<li><span>{$order.featuretime} </span><span>14:00</span></li>
+							<li class="num_tick"><span>{$order.count}张票</span><span class="zuowei">({$order.seat_info})</span></li>
+							<li>总价：<span class="order_yes_Allprice color_ff781e">{$order.money}</span>点</li>
+						</ul>
+					</div>
+				</div>
+				<div class="order_right">
+					<div style="color: #919191;margin-bottom: 20px;">请再次确认接收电子影票的手机号</div>
+					<img src="{$app_path}images/index/img_login/tel_img.png"><input type="text" name="mobile" id="mobile" placeholder="手机号" autocomplete="off">
+					<span class="yes">确定</span>	
+					<div style="color: #64d8c0;margin-top: 20px;font-size: 12px;">开场前至影院大厅的自助验票机使用验票码获取纸质电影票，入场看电影。</div>
+				</div>
+			</div>
+			<div class="pay_way">
+				<div class="pay_title">
+					<h3><span class="color_blue"></span><span class="pay_way1">支付方式</span></h3>
+				</div>
+				<div class="pay_way_content">
+
+					<div class="box_1">
+						<span class="user_card">聚优卡号：<span style="font-weight: 600;">{$usernames.user_name}</span></span>
+						<span>聚优卡密码：<input name="password" id="password" type="password" autocomplete="off"><span class="jiesuan">结算</span> &nbsp;&nbsp;&nbsp;<span class="pay-loading" style="color:red;"></span></span>
+					</div>
+					<div class="tips">
+						<ul>	
+							<li>温馨提示：1、支付成功后您将收到取票短信，建议您提前10分钟至影票终端机取票，以免排队耽误您的入场。</li>
+							<li style="text-indent: 60px;margin-top: 5px;">2、电影票一经售出概不退换，请在付款前确定无误，敬请谅解！祝您观影愉快！</li>
+						</ul>
+					</div>
+				</div>	
+			</div>
+		</div>
+        <input type="hidden" name="order_id" id="orderid" value="{$order.id}" />
+        <script>
+		$(document).ready(function(){
+			
+			var checkMobileIs = false;
+			var checkSubmitFlg = false;
+			// 支付倒计时
+			countDown('{$endPayTime}', 'times');
+			
+			function countDown(time, htmlId){
+				var end_time   = new Date(time).getTime(),//月份是实际月份-1
+					sys_second = (end_time - new Date().getTime()) / 1000;		
+				var timer = setInterval(function(){
+					if (sys_second > 1) {
+						//sys_second -= 0.1;
+						sys_second -= 1;
+						var day     = Math.floor((sys_second / 3600) / 24);
+						var hour    = Math.floor((sys_second / 3600) % 24);
+						var minute  = Math.floor((sys_second / 60) % 60);
+						var second  = Math.floor(sys_second % 60);
+						//var msecond = Math.floor(sys_second * 10) % 10;
+	
+						hour    = hour < 10 ? "0" + hour : hour;//计算小时
+						minute  = minute < 10 ? "0" + minute : minute;//计算分
+						second  = second < 10 ? "0" + second : second;// 计算秒
+	
+						document.getElementById(htmlId).innerHTML = (minute ? minute + '<span style="color:#666;font-size:14px;font-weight:normal">分</span>' : '') + second + '<span style="color:#666;font-size:14px;font-weight:normal;">秒</span>';
+					} else {
+						clearInterval(timer);
+						//delOrder();//未在规定时间内完成支付删除订单
+						
+					}
+				}, 1000);
+			}
+			
+			$('.order_right .yes').click(function(){
+				var mobile = $('#mobile').val();
+				var oldMobile = '{$order.mobile}';
+				if (mobile != oldMobile){
+					alert('您输入的手机号码和选座时的手机号码不一致');
+					checkMobileIs = false;
+					return false;
+				}else{
+					alert('输入正确，现在可以支付了');
+					checkMobileIs = true;
+					return true;
+				}
+			});
+						
+			function delOrder(){
+				var orderid = '{$order.id}';				
+				$.get('movie_order.php', {act:'delorder', 'order_id':orderid}, function (result){				
+					alert('抱歉，您未在规定时间内完成支付，该订单已删除！');
+					window.location.href="movie.php"
+				});
+			}
+			
+			/* 支付操作 */
+			$('.jiesuan').click(function(){
+				if(checkMobileIs === false){
+					alert('请确认手机号填写是否正确！');
+					return false;
+				}
+				
+				var password = $('#password').val();
+				var orderid = $('#orderid').val();
+	
+				if(checkSubmitFlg == true){ 
+					alert('已提交过，请耐心等待');
+					return false;
+				}
+				
+				if(jQuery.isEmptyObject(password)){
+					alert('密码不能为空');
+				}
+				if(jQuery.isEmptyObject(orderid)){
+					alert('这不是一个有效的订单');
+				}
+				
+				checkSubmitFlg = true;
+				
+				$.ajax({
+					type:'POST',
+					url:'movie_order.php?act=doneMovie',
+					data:{order_id:orderid, password:password},
+					beforeSend:function(){
+						$('.pay-loading').html('支付中...');
+					},
+					success:function(info){
+						var data = jQuery.parseJSON(info);
+						if(data.error > 0){
+							alert(data.message);
+							checkSubmitFlg = false;
+							$('.pay-loading').html(' ');
+						}else{
+							window.location.href="movie_order.php?act=respond";
+						}
+					}
+				});
+				
+			});
+			
+			
+		});
+		
+		</script>
+    
+        
+        <!-- 公用底部 -->
+		<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    	<!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+    </body>
+</html>

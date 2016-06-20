@@ -1588,7 +1588,7 @@ html.movie_2  .content_right .pay_box ul.yingyuan_del li.zuowei_on span{
 /*movie_3.html*/
 html.movie_3 body{background: #f2f2f2;}
 html.movie_3  .pay_del{background:url(/images/index/img_login/pay_del2.png) no-repeat;margin: 0 auto;margin-top: 100px;height: 100px;width: 1025px;margin-bottom: 40px;}
-html.movie_3  .order_xinxi .order_title_left{float: left;}
+html.movie_3  .order_xinxi .order_title_left{float: left; width:545px;}
 html.movie_3  .order_xinxi .order_title_left h3{font-size: 24px;color: #333333;}
 html.movie_3  .order_xinxi .order_right{float: right;}
 html.movie_3  .order_xinxi .order_right span a{color: #ff781e;}

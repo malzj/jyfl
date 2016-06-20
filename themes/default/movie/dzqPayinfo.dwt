@@ -21,7 +21,8 @@
 			<div class="pay_del" style="background:'/images/index/img_login/pay_del4.png'">
 			</div>
 			<div class="order_xinxi">
-				<div class="order_title_left"><h3><span class="color_yellow"></span><span>确认订单信息</span></h3></div>				
+				<div class="order_title_left"><h3><span class="color_yellow"></span><span>确认订单信息</span></h3></div>
+                <div class="pay_title"><h3><span class="color_blue"></span><span class="pay_way1">支付方式</span></h3></div>
 			</div>
 			<div class="order_zhanshi">
 				<div class="order_left">
@@ -39,24 +40,17 @@
 						</ul>
 					</div>
 				</div>
-				<div class="order_right" style="padding:20px 100px;">
-					<div style="color: #919191;margin-bottom: 20px;">请再次确认接收短信验证码的手机号</div>
-					<img src="{$app_path}images/index/img_login/tel_img.png"><input type="text" name="mobile" id="mobile" placeholder="手机号">
-					<span class="yes">确定</span>	
-                    <div style="color: #64d8c0;margin-top: 20px; width:340px;">该号码为接收电子码短信的手机号码，有效期内持短信至该影院售票口兑换对应类型的影票入场观影。</div>                    
-				</div>
-			</div>
-			<div class="pay_way">
-				<div class="pay_title">
-					<h3><span class="color_blue"></span><span class="pay_way1">支付方式</span></h3>
-				</div>
-				<div class="pay_way_content">
-					<div class="box_1">
-						<span class="user_card">聚优卡号：<span style="font-weight: 600;">{$usernames.user_name}</span></span>
-						<span>聚优卡密码：<input name="password" id="password" type="password"><span class="jiesuan">结算</span> &nbsp;&nbsp;&nbsp;<span class="pay-loading" style="color:red;"></span></span>
-					</div>
-					
-				</div>	
+                <div class="pay_way">
+                    <div class="box_1" style="margin-top:35px;">
+                        <span class="user_card">聚优卡号：<span style="font-weight: 600;">{$usernames.user_name}</span></span>
+                    </div>
+                    <div class="box_1">
+                        <span>聚优卡密码：<input name="password" id="password" type="password"></span>
+                    </div>
+                    <div class="box_1 center">
+                        <span class="jiesuan">结算</span> &nbsp;&nbsp;&nbsp;<span class="pay-loading" style="color:red;"></span>
+                    </div>
+                </div>
 			</div>
 		</div>
         <input type="hidden" name="order_id" id="orderid" value="{$order.order_id}" />

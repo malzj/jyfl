@@ -384,12 +384,20 @@ function moviesImages( $movies )
 {
 	foreach ($movies as &$arr)
 	{
+	    // 缩略图
 		$image_path = explode('/', $arr['pathVerticalS']);
 		$filenames = array_pop($image_path);
 		if (!file_exists(ROOT_PATH.'temp/komovie/'.$filenames)){
 			$new_images = getImage($arr['pathVerticalS'], ROOT_PATH. 'temp/komovie', $filenames);
 		}
+		// 宣传图
+		$images_path = explode('/', $arr['pathHorizonH']);
+		$filenames2 = array_pop($images_path);
+		if (!file_exists(ROOT_PATH.'temp/komovie/'.$filenames2)){
+		    $new_images = getImage($arr['pathHorizonH'], ROOT_PATH. 'temp/komovie', $filenames2);
+		}
 		$arr['thumb'] = 'temp/komovie/'.$filenames;
+		$arr['thumbH'] = 'temp/komovie/'.$filenames2;
 	}
 	
 	return $movies;

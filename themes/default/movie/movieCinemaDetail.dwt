@@ -17,7 +17,7 @@
 	
     <!-- 电影内容 -->
     <!--影片详情背景-->
-    <div class="movieTop_bg" style="width: 100%;height: 350px;background: url({$movieDetail.pathHorizonH}) no-repeat center top #333;margin-top: 49px;">
+    <div class="movieTop_bg" style="width: 100%;height: 350px;background: url({$movieDetail.thumbH}) no-repeat center top #333;margin-top: 49px;">
      <div class="reying_show">
                 <div class="reying_img">
                     <img src="{$movieDetail.thumb}" width="145">

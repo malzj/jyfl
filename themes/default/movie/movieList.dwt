@@ -240,8 +240,8 @@
 			$('.movie_flash').on('click','.movie_close',function(){
 				$('.movie_flash').hide();
 			})
-		</script>
-        
+			
+		</script>   
         <script src="{$app_path}js/juyoufuli/movieSearch.js"></script>
 	</body>
 

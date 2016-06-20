@@ -170,7 +170,7 @@ function userSave(){
     var sex=$('input[name="Sex"]:checked').val();
     var birthday=$('#birth').val();
     var basic=$('input[name="per"]:checked').val();
-	var partten    = /^1[3,5,8]\d{9}$/;
+	var partten    = /^1[3,5,7,8]\d{9}$/;
     var xingqu;
     var xingqu_1=$('#xingqu').val();
 	if(mobile_phone&&!partten.test(mobile_phone)){
@@ -319,7 +319,7 @@ function boundPhone(user_id,tel,captcha){
 				// showSafeCenter();
 				layer.msg(data.msg);
 			}else{
-				layer.closeAll();
+				// layer.closeAll();
 				// showSafeCenter();
 				layer.msg("手机绑定失败！");
 			}
@@ -424,7 +424,7 @@ function showAddress(){
     var index = layer.open({
         type: 1,
         title:false,
-        area: '570px',
+        area:'570px',
         shadeClose: false, //点击遮罩关闭
         content:'<div class="shouhuo_left"><h3>收货信息</h3><div class="table-responsive"><table class="table"><thead><tr><td>收件人</td><td>地址/邮编</td><td>电话/手机</td><td>操作</td></tr></thead><tbody>'+htmlshouhuolist+'</tbody></table></div><div class="add_new" onclick="showprovince()">添加新地址</div></div>'
     });
@@ -486,7 +486,7 @@ function addAddress()
 	var zipcode = $("#zipcode").val();
 	var consignee = $("#consignee").val();
 	var mobile = $("#mobile").val();
-	var partten    = /^1[3,5,8]\d{9}$/;
+	var partten    = /^1[3,5,7,8]\d{9}$/;
 	// var msg = new Array();
 	var err = false;
 	//收货人所在地区不能为空
@@ -657,7 +657,7 @@ function updateAddress(){
 	var zipcode = $("#zipcode").val();
 	var consignee = $("#consignee").val();
 	var mobile = $("#mobile").val();
-	var partten    = /^1[3,5,8]\d{9}$/;
+	var partten    = /^1[3,5,7,8]\d{9}$/;
 	// var msg = new Array();
 	var err = false;
 	//收货人所在地区不能为空

@@ -389,7 +389,7 @@ elseif ($_REQUEST['step'] == "planList")
 	if ( empty($cinemaid) || empty($movieid))
 	{
 		$ajaxArray['error'] = 1;
-		$ajaxArray['message'] = '<tr><td colspan="5">暂时没有可用的场次</td></tr>';
+		$ajaxArray['message'] = '<center style="line-height:487px">暂时没有可用的场次</center>';
 		exit(json_encode($ajaxArray));
 	}			
 	// 获得影片的排期

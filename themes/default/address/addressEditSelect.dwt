@@ -11,17 +11,17 @@
         <select name="country" id="country">
             <option value="{$cityid}" selected> {$cityinfo.region_name}</option>                    
         </select>    
-        <select name="province" id="province" onchange="region.changed(this, 2, 'city')">
+        <select name="province" id="province">
             {foreach from=$province_list item=province}
             <option value="{$province.region_id}" {if $consignees.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
             {/foreach}               
         </select>
-        <select name="city" id="city" >
+        <!--<select name="city" id="city" >
             <option value="0"> == 请选择 == </option>
             {foreach from=$city_list item=city}
             <option value="{$city.region_id}" {if $consignees.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
             {/foreach}
-        </select>
+        </select>-->
         
    
 </div>

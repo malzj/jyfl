@@ -16,7 +16,7 @@
                 <span class="addr_tel">{if $consignee.mobile && $consignee.tel}{$consignee.tel|escape}({$consignee.mobile|escape}){elseif $consignee.tel}{$consignee.tel|escape}{else $consignee.mobile}{$consignee.mobile|escape}{/if}</span>
             </div>
             <div class="f_r shouhuoren_hover">
-                <a href="javascript:setDefaultConsignee('{$consignee.address_id}');">设为默认地址</a>
+               <!-- <a href="javascript:setDefaultConsignee('{$consignee.address_id}');">设为默认地址</a>-->
                 <a href="javascript:selectConsignee('{$consignee.address_id}');">编辑</a>
                 <a href="javascript:dropConsignee('{$consignee.address_id}');">删除</a>
             </div>

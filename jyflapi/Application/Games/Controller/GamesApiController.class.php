@@ -135,12 +135,13 @@ class GamesApiController extends Controller
         $data['company_id'] =I('request.company_id');
         $data['buy_time'] = date('Y-m-d H:i:s',time());
         $game_info = $Model ->table('__GAMES__') -> where(array('id' => $data['game_id'])) ->find();
+        $Model ->execute('lock tables __PREFIX__participation read');
         if($game_info['grade_id']==1){
-            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) ->lock(true) -> count();
+            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();
         }else{
-            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'])) ->lock(true) -> count();
+            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'])) -> count();
         }
-
+        $Model->lock();
         $total = $game_info['total'];
         $surplus = intval($total) - intval($count);
         if($surplus<$num){
@@ -227,7 +228,8 @@ class GamesApiController extends Controller
         if($is_pay == 0){
             $Card -> action($card_data,8);
             $jydata = $Card -> getResult();
-            $Model -> table('__USERS__')->where('user_name')->data(array('card_money'=>$jydata['Points']))->save();
+            $Model -> table('__USERS__')->where('user_id='.$data['user_id'])->data(array('card_money'=>$jydata['Points']))->save();
+            $Model -> execute('unlock tables');
             $Model -> commit();
             if($count_all==$total) {
                 $Smsvrerify = new smsvrerifyApi();

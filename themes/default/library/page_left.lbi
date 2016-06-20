@@ -83,9 +83,9 @@
             </div>
         </li>
     </ul>
-    <a class="switch off"></a>
+    
 </div>
-
+		<a class="switch off"></a>
 <script>
 //	首页左侧公共部分默认展开
     var url = window.location.href;
@@ -105,9 +105,9 @@
 		$(this).toggleClass('off');
 		if($(this).hasClass('off')){
 			
-			$('.list_main').animate({left:-100},'slow');	
+			$('.pop_left').animate({left:-100},'slow');	
 			}else{
-				$('.list_main').animate({left:0},'slow');	
+				$('.pop_left').animate({left:0},'slow');	
 			}
 		})
 </script>
@@ -116,7 +116,7 @@
 		
 	  //加入购物车动画效果
 			function MoveBox() {
-				$('.list_main').animate({left:0},'slow');
+				$('.pop_left').animate({left:0},'slow');
 				var img;
 				if(img) img.remove();
 				var divTop = $("#box1").offset().top;

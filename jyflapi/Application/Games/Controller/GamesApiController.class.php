@@ -135,12 +135,12 @@ class GamesApiController extends Controller
         $data['company_id'] =I('request.company_id');
         $data['buy_time'] = date('Y-m-d H:i:s',time());
         $game_info = $Model ->table('__GAMES__') -> where(array('id' => $data['game_id'])) ->find();
+        $Model ->execute('lock tables __PREFIX__participation write');
         if($game_info['grade_id']==1){
-            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) ->lock(true) -> count();
+            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();
         }else{
-            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'])) ->lock(true) -> count();
+            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'])) -> count();
         }
-
         $total = $game_info['total'];
         $surplus = intval($total) - intval($count);
         if($surplus<$num){
@@ -149,37 +149,41 @@ class GamesApiController extends Controller
             $this -> ajaxReturn($rudata);
         }
         $Model -> startTrans();
-        for($i=1;$i<=$num;$i++) {
-            if($game_info['grade_id']==1) {
-                $lastLottery = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id']))->order('lottery_id desc')->getField('lottery_id');
-            }else{
-                $lastLottery = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'], 'company_id' => $data['company_id']))->order('lottery_id desc')->getField('lottery_id');
+        //中奖号购买
+        if ($game_info['grade_id'] == 1) {
+            $lastLottery = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id']))->order('lottery_id desc')->getField('lottery_id');
+        } else {
+            $lastLottery = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'], 'company_id' => $data['company_id']))->order('lottery_id desc')->getField('lottery_id');
+        }
+        if ($lastLottery !== false) {
+            if (!$lastLottery) {
+                $lastLottery = 0;
             }
-            if ($lastLottery !== false) {
-                if (!$lastLottery) {
-                    $lastLottery = 0;
-                }
-            } else {
-                $rudata['result'] = 'false';
-                $rudata['msg'] = '抢购失败，请刷新重试！';
-            }
-            $map = array();
-            $map['game_id'] = $data['game_id'];
-            $map['id'] = array('gt',$lastLottery);
-            $lotteryInfo = $Model ->table('__LOTTERY__') ->where($map)->order('id asc')->find();
-            $data['lottery_id'] = $lotteryInfo['id'];
-            $data['lottery_num'] = $lotteryInfo['num'];
+        } else {
+            $Model->rollback();
+            $rudata['result'] = 'false';
+            $rudata['msg'] = '抢购失败，请刷新重试！';
+            $this->ajaxReturn($rudata);
+        }
+        $map = array();
+        $map['game_id'] = $data['game_id'];
+        $map['id'] = array('gt', $lastLottery);
+        $lotteries = $Model->table('__LOTTERY__')->where($map)->order('id asc')->limit($num)->select();
+        foreach ($lotteries as $lottery){
+            $data['lottery_id'] = $lottery['id'];
+            $data['lottery_num'] = $lottery['num'];
+            $lotteryData[]=$data;
+        }
 
-            $result = $Model -> table('__PARTICIPATION__') -> data($data) ->add();
-            if ($result) {
-                $rudata['result'] = 'true';
-                $rudata['msg'] = '抢购成功！';
-            } else {
-                $Model ->rollback();
-                $rudata['result'] = 'false';
-                $rudata['msg'] = '抢购失败，请刷新重试！';
-                $this -> ajaxReturn($rudata);
-            }
+        $result = $Model->table('__PARTICIPATION__')->addAll($lotteryData);
+        if ($result) {
+            $rudata['result'] = 'true';
+            $rudata['msg'] = '抢购成功！';
+        } else {
+            $Model->rollback();
+            $rudata['result'] = 'false';
+            $rudata['msg'] = '抢购失败，请刷新重试！';
+            $this->ajaxReturn($rudata);
         }
 
         //判断是否已抢完，如抢完更改buy_status=1,且根据算法得出中奖号码存入中奖表
@@ -227,7 +231,8 @@ class GamesApiController extends Controller
         if($is_pay == 0){
             $Card -> action($card_data,8);
             $jydata = $Card -> getResult();
-            $Model -> table('__USERS__')->where('user_name')->data(array('card_money'=>$jydata['Points']))->save();
+            $Model -> table('__USERS__')->where('user_id='.$data['user_id'])->data(array('card_money'=>$jydata['Points']))->save();
+            $Model -> execute('unlock tables');
             $Model -> commit();
             if($count_all==$total) {
                 $Smsvrerify = new smsvrerifyApi();

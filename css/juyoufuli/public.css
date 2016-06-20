@@ -53,6 +53,7 @@ a:focus{outline: none;}
 .xuxian{height: 1px;border-bottom: 1px dashed #ddd;margin: 20px 0;}
 u{text-decoration: none;}
 .bg_ff781e{background: #ff781e!important;}
+.clearfix:after {content: "";display: block;clear: both;visibility: hidden;line-height: 0;height: 0;font-size:0;} 
 /*footer*/
 
 .footer{
@@ -140,18 +141,19 @@ html.login .wrap {
 	width: 80px;
 	height: 350px;
 	position: fixed;
-	left: 0;
+	left: 0px;
 	top: 0;
 	bottom: 0;
 	margin: auto;
 	background: transparent;
 	color: white;
 }
-.pop_left .switch {
-    position: absolute;
+.switch {
+    margin-top: 190px;
+    position: fixed;
     display: block;
-    top: 360px;
-    right: 25px;
+    top: 50%;
+    left: 26px;
     width: 26px;
     height: 26px;
     background: url(/images/juyoufuli/icons.png) no-repeat 0px -640px;
@@ -162,8 +164,8 @@ html.login .wrap {
     -o-transition-delay: .15s;
     transition-delay: .15s;
 }
-.list_main{left: -100px;position: relative;}
-html.login .list_main{left:0;}
+.pop_left{left: -100px;/* position: relative; */}
+html.login .pop_left{left:0;}
 .switch.off {
     background-position: -32px -640px;
 }
@@ -718,15 +720,16 @@ html.movie .reying .reying_title {
 	text-align: center;
 	font-size: 24px;
 	color: #2fd0b5;
-	margin: 20px 0 0px 0;
+	/* padding: 20px 0 0px 0; */
 }
 
 .w_1200 {
-	overflow: hidden;
 	width: 1200px;
 	margin: 0 auto;
 	background: white;
 	padding: 0 10px 20px 10px;
+	position: relative;
+	padding-top: 20px;
 }
 
 html.movie .reying .reying_news {
@@ -1598,9 +1601,9 @@ html.movie_3  .order_left{float: left;border-right: 1px solid #ddd;}
 html.movie_3  .order_left .box_left{float: left;/* margin-left: 20px; *//* margin-top: 10px; */}
 html.movie_3  .order_left .img_left{float: left;margin: 10px;}
 html.movie_3  .box_left ul li h3{font-size: 18px;}
-html.movie_3  .box_left ul li{width: 390px;margin: 10px 0;}
+html.movie_3  .box_left ul li{width: 333px;margin: 10px 0;}
 html.movie_3  .box_left ul li.num_tick span.zuowei{color: #9C9898;}
-html.movie_3  .box_left .num_tick{height: 68px;}
+html.movie_3  .box_left .num_tick{height: 72px;}
 html.movie_3  .order_zhanshi .order_right{/* border-left: 1px solid #ccc; */padding: 70px 100px 70px 70px;margin: 0 auto;float: right;}
 html.movie_3  .order_zhanshi .order_right input{border: 1px solid #ddd;margin-left: 10px;padding: 5px;margin-right: 20px;}
 html.movie_3  .order_title_left span.color_yellow{margin-right: 10px;
@@ -1610,7 +1613,11 @@ html.movie_3  .order_title_left span.color_yellow{margin-right: 10px;
     display: inline-block;
     vertical-align: middle;
     margin-top: -5px;}
-html.movie_3  .pay_way .pay_title span.color_blue{
+html.movie_3  .pay_way{float:left;width: 617px;padding: 15px;}
+html.movie_3  .pay_way .order_time{font-size: 12px;text-align:center;margin-bottom: 20px;}
+html.movie_3  .pay_way .order_time span a{color: #ff781e;}
+html.movie_3  .order_xinxi .pay_title{float:left;}
+html.movie_3  .order_xinxi .pay_title span.color_blue{
     margin-right: 10px;
     width: 10px;
     background: #3ecbae;
@@ -1619,17 +1626,16 @@ html.movie_3  .pay_way .pay_title span.color_blue{
     vertical-align: middle;
     margin-top: -8px;
     }
-html.movie_3  .pay_way .pay_title span.pay_way1{
+html.movie_3  .order_xinxi .pay_title span.pay_way1{
 	color: #333333;
 	font-size: 24px;
 }
-html.movie_3  .pay_way .pay_way_content{border: 1px solid #ddd;
-padding: 30px;}
-html.movie_3  .pay_way .pay_way_content .box_1 input{padding: 5px;margin-right: 20px;border: 1px solid #ddd;}
-html.movie_3  .pay_way .pay_way_content .box_1 span.user_card{margin-right: 20px;}
-html.movie_3  .pay_way .pay_way_content .box_1 span.jiesuan{padding: 5px 23px;color: white;background: #ff781e;cursor: pointer;border-radius: 5px;}
-html.movie_3  .pay_way .pay_way_content .tips{color: #ff781e;margin: 20px 0px;font-size: 12px;}
-html.movie_3  .pay_way .pay_title{margin-bottom: 20px;margin-top: 45px;}
+html.movie_3  .pay_way .box_1{width: 300px;margin: 0 auto 15px;}
+html.movie_3  .pay_way .box_1.center{text-align: center;}
+html.movie_3  .pay_way .box_1 input{padding: 5px;margin-right: 20px;border: 1px solid #ddd;}
+html.movie_3  .pay_way .box_1 span.user_card{margin-right: 20px;}
+html.movie_3  .pay_way .box_1 span.jiesuan{padding: 5px 23px;color: white;background: #ff781e;cursor: pointer;border-radius: 5px;}
+html.movie_3  .pay_way .tips{color: #ff781e;margin: 20px 14px;font-size: 12px;}
 html.movie_3  .order_zhanshi .order_right .yes{
 	padding: 4px 22px;
 	background: #ff781e;
@@ -1650,7 +1656,7 @@ html.movie_4  .pay_success .tips{width: 595px;margin: 20px auto;color:#ff781e;fo
 
 /*dianziquan.html*/
 body{min-height: 100%;position: relative;background: #f2f2f2;padding-bottom: 110px;padding-top: 1px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
-html.dianziquan  .select_area{border: 1px solid #ddd;margin-top: 30px;overflow: hidden;padding: 15px 0px 15px 15px;}
+html.dianziquan  .select_area{border: 1px solid #ddd;/* margin-top: 30px; */overflow: hidden;padding: 15px 0px 15px 15px;}
 html.dianziquan  .select_area ul li{margin: 10px 0px;float: left;width: 120px;/* text-align: center; */}
 html.dianziquan  .select_area .title{padding: 10px 0;float: left;}
 html.dianziquan  .select_area ul{float: right;width: 1085px;}
@@ -1702,11 +1708,11 @@ html.dianziquan_1  .movie_big .box .yingyuan_details li span{color: black;}
 html.dianziquan_1  .movie_big .box .yingyuan_details ul{width: 865px;margin-left: 20px;}
 html.dianziquan_1  .movie_big .box{padding: 10px 0;overflow: hidden;}
 html.dianziquan_1  .movie_big .box .yingyuan_details ul li span.pingfen{float: right;color: #ff781e;font-size: 28px;margin-left: 10px;font-family: sans-serif;font-style: italic;display: inline-block;width: 60px;}
-html.dianziquan_1  .movie_big{margin-top: 90px;margin-bottom: 20px;}
+html.dianziquan_1  .movie_big{margin-top: 52px;margin-bottom: 20px;}
 html.dianziquan_1  .movie_big .box .yingyuan_details li.jieshao i{float: left;}
 .yingyuan_details li.jieshao{line-height:30px}
 html.dianziquan_1  .movie_big .box .yingyuan_details li.jieshao span{width: 790px;float: left;display: inline-block;}
-html.dianziquan_1  .buy .buy_details ul li{margin: 30px 0;padding: 5px 10px;}
+html.dianziquan_1  .buy .buy_details ul li{cursor: pointer;margin: 30px 0;padding: 5px 10px;}
 html.dianziquan_1  .buy .buy_btn{cursor: pointer;color:white;padding: 5px 35px;background: #ff781e;display: inline-block;line-height: 26px;}
 .dzq_lijigoumai{
     background: url(/images/juyoufuli/img_login/lijigoumai.png) no-repeat -4px -5px;
@@ -1730,7 +1736,7 @@ html.dianziquan_1  .buy .buy_details li.tel{margin-left: -45px;}
 
 /*shuakayigyua.html*/
 html.shuaka  .select{margin-top: 20px;}
-html.shuaka  .table tr td{text-align: center;padding: 13px 0;}
+html.shuaka  .table tr td{text-align: center;padding: 10px 0;}
 html.shuaka  .table thead tr td.city{font-size: 18px;border-right: 5px solid white;background:#2fd0b5;}
 html.shuaka  .table thead tr td.chengqu{font-size: 18px;background:#2fd0b5;border-right: 5px solid white;}
 html.shuaka  .table thead tr td.name{font-size: 18px;background:#2fd0b5;border-right: 5px solid white;}
@@ -1742,7 +1748,7 @@ html.shuaka  .select_tips{margin: 15px 0 30px 0;font-size: 12px;color: #333333;}
 .shuaka_tip_title{margin:10px 0;font-size:16px;}
 .shuaka_tip{background: #c0f1e9;font-size: 12px;padding: 10px;}
 /*yingyuan1.html*/
-html.yingyuan1  .select_area{border: 1px solid #ddd;margin-top: 30px;overflow: hidden;padding: 15px 0px 15px 15px;margin-bottom: 20px;}
+html.yingyuan1  .select_area{border: 1px solid #ddd;overflow: hidden;padding: 15px 0px 15px 15px;margin-bottom: 20px;clear: both;/* margin-top: 20px; */}
 html.yingyuan1  .select_area ul li{margin: 10px 0px;float: left;width: 120px;}
 html.yingyuan1  .select_area .title{padding: 5px 0;float: left;}
 html.yingyuan1  .select_area ul{float: right;width: 1085px;}
@@ -2894,6 +2900,7 @@ html.shenghuo1 body{background: white;}
 .movie_flash{position: fixed;top: 0;left: 0;width:100%;height: 100%;background-color:rgba(1,1,1,.5);z-index: 101;}
 .play_flash{position: absolute;top: 50px;left: 110px;cursor: pointer;}
 .movie_close{position: fixed;width: 30px;height: 30px;background: url(/images/juyoufuli/img_login/play_icon.png) no-repeat 0px 0px;z-index: 101;top: 50%;left: 50%;margin-top: -248px;margin-left: 260px;cursor: pointer;}
+.flash_title{margin-top: 5px;color: #333;text-align: center;}
 /*订单按钮*/
 .return_index{background: #2fd0b5;
     margin-right: 20px;
@@ -2904,3 +2911,23 @@ html.shenghuo1 body{background: white;}
     color: white;
     padding: 4px 10px;
     border-radius: 15px;}
+/*公共返回按钮*/
+.return_tip{background: white;float: left;width: 65px;height: 135px;/* border: 1px solid #2fd0b5; *//* border-radius: 10px; */z-index: 1;margin-left: -76px;margin-top: 40px;}
+.return_tip_index{
+    color: #2fd0b5;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    padding-bottom: 5px;
+    /* border-bottom: 1px solid #2fd0b5; */
+}
+.return_index_img{width: 36px;background: url(/images/juyoufuli/img_login/return_icon1.png) no-repeat 4px 8px;display: block;height: 38px;margin: 0 auto;}
+.return_index_img:hover{background-position: 4px -31px;}
+.return_tip_return{
+	color: #2fd0b5;
+	display: block;
+	text-align: center;
+	font-size: 14px;
+}
+.return_return_img{width: 36px;background: url(/images/juyoufuli/img_login/return_icon1.png) no-repeat -29px 13px;display: block;height: 38px;margin: 0 auto;}
+.return_return_img:hover{background-position: -30px -30px;}

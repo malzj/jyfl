@@ -275,7 +275,7 @@ $(document).on('submit','#purchase',function(){
             index = layer.load();
         },
         success:function (data) {
-            // console.log(data);
+            console.log(data);
             layer.close(index);
             if(data.result == 'true'){
                 layer.alert(data.msg,function () {

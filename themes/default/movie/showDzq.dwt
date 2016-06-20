@@ -58,7 +58,7 @@
                        		</li>
                             <li class="tel">
                                 <img src="/images/index/img_login/tel_img.png">
-                                <input type="text" name="mobble" id="mobile" placeholder="请输入手机号码">
+                                <input type="text" name="mobble" id="mobile" class="judgeBound" value="{$usernames.mobile_phone}" placeholder="请输入手机号码">
                             </li>
                         </ul>
                     </div>

@@ -265,14 +265,6 @@ $(document).on('submit','#purchase',function(){
             type: 'post',
             url: api_url + 'index.php/Games/GamesApi/purchase',
             data: $('#purchase').serialize(),
-            // {
-            //     user_id:user_id,
-            //     game_id:game_id,
-            //     card_num:card_num,
-            //     company_id:company_id,
-            //     number:number,
-            //     password:password,
-            // },
             dataType: 'json',
             beforeSend: function () {
                 index = layer.load();

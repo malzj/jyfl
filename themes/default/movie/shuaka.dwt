@@ -14,6 +14,58 @@
 		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 --> 
         
+        <!-- 头部结束 --> 
+        <div class="newsimg">
+			<div class="fullSlide">
+				<div class="bd">
+					<ul>
+                    {foreach from=$banner item=moviebanner}
+						<li _src="url(/data/afficheimg/{$moviebanner.ad_code})" style="background:#{$moviebanner.bgcolor} center 0 no-repeat;">
+							<a target="_blank" href="{$moviebanner.ad_link}"></a>
+						</li>
+					{/foreach}	
+					</ul>
+				</div>
+				<div class="hd">
+					<ul></ul>
+				</div>
+				<span class="prev"></span>
+				<span class="next"></span>
+			</div>
+		</div>
+		<!--搜索栏-->
+		<div id="ticketSearchFixDiv" class="onlineticket" style="width: 100%;">
+			<div class="midbox">
+				<div class="nav_main">
+					<ul class="header_left">
+                    	{foreach from=$category item=cate}
+						<li><a href="{$cate.url}">{$cate.name}</a></li>
+                        {/foreach}
+					</ul>
+				</div>
+				<div id="ticketSearchDiv" class="movieselectbox clearfix">
+					<div class="moviemid m_movie __r_c_"><span>选影片</span>
+						<a href="javaScript:;" class="ico_select"></a>
+					</div>
+					<div class="moviemid m_film __r_c_"><span>选影院</span>
+						<a href="javaScript:;" class="ico_select"></a>
+					</div>
+					<div class="moviemid m_time nottime __r_c_"><span>选时间</span>
+						<a href="javaScript:;" class="ico_select"></a>
+					</div>
+					
+					<div class="moviestip __r_c_" style="display: none;" id="ajaxMovieList"> <center> LOADING ... </center> </div>
+                    <div class="cinematip __r_c_" style="display: none;" id="ajaxCinemaList">
+                    	<center>请选择影片</br>
+                    		<img src="/images/juyoufuli/img_login/wuya.png">
+                    	</center></div>
+					<div class="i_date __r_c_" style="display: none;" id="ajaxPlanList"> <center> 请选择影院<br/>
+						<img src="/images/juyoufuli/img_login/wuya.png">
+					</center> </div>
+				</div>
+			</div>
+		</div>
+        
         <div class="w_1200">
 			<div class="select">				
 				<form name="yyForm" id="yyForm" action="movie.php?step=shuaka" method="POST" style="height: 30px;line-height: 30px;font-size: 16px;">
@@ -31,7 +83,8 @@
 			</div>
 			<div class="select_tips">
 				<div> 注：特殊影片（超长片、特殊限价片、3D影片、IMAX影片）等，请根据影院当日规则消费；
-				<br>如遇特殊场次（电影节、包场、满场、首映、见面会、演出观摩、情人节2.14、平安夜12.24、圣诞节12.25）请兑换其他时间场次电影票或以影院公告为准。</div>
+				<br>如遇特殊场次（电影节、包场、满场、首映、见面会、演出观摩、情人节2.14、平安夜12.24、圣诞节12.25）请兑换其他时间场次电影票或以影院公告为准。
+				<br/>特别提醒：由于票品的特殊性，造成出票后将无法为您退换，请您仔细核对个人的时间及工作安排是否与确定购买票品的项目、时间、价位及张数等有冲突，以免造成不必要的损失。</div>
 			</div>
 			<div class="table-responsive">
 				<table class="table">
@@ -82,6 +135,10 @@
 		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
         <!-- 公共右边结束 -->
         
+        <script>
+        $('.header_left li:nth-child(3) a').css('color','#27c7ac');		
+    	</script>
+        <script src="{$app_path}js/juyoufuli/movieSearch.js"></script>
    </body>
    
 </html>

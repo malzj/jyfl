@@ -6,6 +6,7 @@
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
         <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
+        
 	</head>
 	<body>
         <!-- 公用头部 -->
@@ -88,15 +89,20 @@
 					</div>
 				</div>-->
 				<div class="movie_list">
-					<div class="hd">
-						<span class="prev"><</span>
-						<span class="next">></span>
-						<span class="pageState"><span></span>/</span>
+					<div class="hd o_hidden" style="margin-bottom: 10px;">
+						<span class="next f_r"></span>
+						<span class="prev f_r"></span>
+						<span class="pageState f_r"></span>
 					</div>
-					<div class="bd">
+					<div class="bd" style="width: 880px;overflow: hidden;">
 						<div class="ulWrap">
-                        {foreach from=$movies.hot item=hot}
-                        <ul class="f_l" style="width: 190px;">
+						<ul class="f_l" style="width: 950px;">
+                        {foreach from=$movies.hot item=hot name=hot} 
+                        {if $smarty.foreach.hot.index %10 eq 0 && $smarty.foreach.hot.index gt 0}
+                        	</ul><ul class="f_l" style="width: 950px;">
+                        {/if}
+                        
+                        
 							<li style="float: left;">
 								<!--<div class="li_top"></div>-->
 								<div class="pic">
@@ -106,19 +112,35 @@
 								<div class="buy"> <a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_blank" class="zhuti_a_hover">选座购票</a></div>
 							</a></div>
 							</li>
-							<li style="float: left;">
-								<!--<div class="li_top"></div>-->
-								<div class="pic">
-									<a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_blank"><img src="{$hot.pathVerticalS}" width="140" height="196"></a>
-								</div>
-								<div class="title"><a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_blank"><span>{$hot.movieName}</span></a>
-								<div class="buy"> <a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_blank" class="zhuti_a_hover">选座购票</a></div>
-							</a></div>
-							</li>
-						</ul>
 						{/foreach}
+						</ul>
                         
 						</div>
+					</div>
+				</div>
+				<div class="movie_action_left f_l">
+					<div class="movie_action_title">新片预告</div>
+					<div class="movie_action_flash">
+						<div class="flash_img">
+							<img src="/images/juyoufuli/img_login/movie_actiondemo.jpg" width="280">
+							<div class="play_flash">
+								<img src="/images/juyoufuli/img_login/play.png"/>
+							</div>
+						</div>
+						<!--<div id="playDiv" style="position: absolute; top: 500px; left: 100px; z-index: 6;">
+                                <div style="width:410px;height:259px;float:left;">
+                                                                            <div class="video" p="1"><div id="a1"></div>
+                                            <iframe frameborder="0" width="410" height="259" marginheight="0" marginwidth="0" scrolling="no" src="http://player.youku.com/player.php/sid/XMTYwMzQ4NDUzNg==/v.swf"></iframe>
+                                        </div>
+                                                                    </div>
+                                <div style="width:30px;height:30px;float:left;cursor: pointer;background: #F4F4F4;" onclick="closePlay();">
+                                <div style="background:url(/public/images/select_icon.png) no-repeat -360px -628px; width: 16px; height: 16px;margin:7px 0 0 7px"></div>
+                                </div>
+                            </div>-->
+					</div>
+					<div class="movie_action_title">影片介绍</div>
+					<div class="movie_action_content">
+						<p>故事从上一部结尾的六个月后开始，患上思乡病的蓝藻鱼多莉(Dory)决定去寻找自己的父母查理(Charlie)和安妮(Jenny)，在小丑鱼尼莫(Nemo)和他的父亲马林(Marlin)的帮助下，她从澳大利亚大堡礁来到了美国加州海岸，在这里她遇到了很多新朋友，有章鱼、海狮、白鲸等等。澳大利亚大堡礁来到了美国加州海岸，在这里她遇到了很多新朋友，有章鱼、海狮、白鲸等等。事从上一部结尾的六个月后开始，患上思乡病的蓝藻鱼多莉(Dory)决定去寻找自己的父母查理(Charlie)和安妮(Jenny)，在小丑鱼尼莫(Nemo)和他的父亲马林(Marlin)的帮助下，她从澳大利亚大堡礁来到了美国加州海岸，在这里她遇到了很多新朋友，有章鱼、海狮、白鲸等等。</p>
 					</div>
 				</div>
 			</div>
@@ -174,7 +196,10 @@
 				</div>
 			</div>
 		</div>
-        
+        <div class="movie_flash" style="display: none;">
+            <embed style="position: fixed;top: 50%;left: 50%;margin-left: -290px;margin-top: -250px;z-index:99" src="http://www.tudou.com/l/XWSQagW5OdU/&bid=05&iid=256912729&resourceId=0_05_05_99/v.swf" allowFullScreen="true" quality="high" width="580" height="500" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+            <div class="movie_close"></div>
+        </div>	
         <!-- 公用底部 -->
 		<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
         <!-- 底部结束 -->
@@ -186,144 +211,38 @@
         <!-- 公共右边 -->
 		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
         <!-- 公共右边结束 -->
-        
-        
-		<script type="text/javascript">
-			jQuery(".fullSlide").hover(function() {
-				jQuery(this).find(".prev,.next").stop(true, true).fadeTo("show", 0.5)
-			}, function() {
-				jQuery(this).find(".prev,.next").fadeOut()
-			});
-			jQuery(".fullSlide").slide({
-				titCell: ".hd ul",
-				mainCell: ".bd ul",
-				effect: "fold",
-				autoPlay: true,
-				autoPage: true,
-				trigger: "click",
-				delayTime:1000,
-				interTime:4000,
-				startFun: function(i) {
-					var curLi = jQuery(".fullSlide .bd li").eq(i);
-					if (!!curLi.attr("_src")) {
-						curLi.css("background-image", curLi.attr("_src")).removeAttr("_src")
-				}
-				}
-				});
-//			jQuery(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,scroll:3,vis:3});				
-			jQuery(".movie_list").slide({
-				titCell: ".hd ul",
-				mainCell: ".bd .ulWrap",
-				autoPage: true,
-				effect: "left",
-				autoPlay: false,
-				scroll:4,
-				vis:4,
-				pnLoop: false
-										});
-			jQuery(".will_list").slide({
-				titCell: ".hd ul",
-				mainCell: ".bd ul",
-				autoPage: true,
-				effect: "left",
-				autoPlay: false,
-				vis: 3,
-				pnLoop: false
-										});						
-		     
-				
-			  
 
-		</script>
 		<script type="text/javascript">
 			jQuery(function($) {
 				$(document).ready(function() {
 					$('#ticketSearchFixDiv').stickUp();
 				});
 			});
-			//点击选影片
-			$('.m_movie').click(function() {
-				$('.moviestip').toggle();
-				$('.cinematip').css('display', 'none');
-				$('.i_date').css('display', 'none');
-				loacList("step=ajaxMovieList",'#ajaxMovieList');
-				
-			})
-			// 选择的时候
-			$(document).delegate('.movieselectbox a','click',function(){
-				var type = $(this).attr('data-type');
-				var id = $(this).attr('data-id');
-				var cid = $(this).attr('data-cid');
-	
-				if(type == 'movie'){
-					loacList("step=ajaxCinemaList&movieid="+id,'#ajaxCinemaList');
-					$('.cinematip').toggle();
-					$('.moviestip').css('display', 'none');
-					$('.i_date').css('display', 'none');
-					$('.m_movie > span').html($(this).find('span').html());
-				}
-				
-				if(type == 'cinema'){
-					loacList("step=ajaxPlanList&movieid="+id+"&cinemaid="+cid,'#ajaxPlanList');
-					$('.i_date').toggle();
-					$('.cinematip').css('display', 'none');
-					$('.moviestip').css('display', 'none');
-					$('.m_film  > span').html($(this).html());
-				}
+			
+			jQuery(".movie_list").slide({
+				titCell: ".hd ul",
+				mainCell: ".bd .ulWrap",
+				autoPage: true,
+				effect: "left",
+				autoPlay: false,
+				scroll:1,
+				vis:1,
+				pnLoop: false
 			});
-			// 选择排期时间
-			$(document).delegate('.i_dates .transition4 dd','click', function(){				
-				$(this).addClass('active');
-				var featuretime = $(this).html();
-				var cinemaid = $(this).attr('data-cinemaid');
-				var movieid = $(this).attr('data-movieid');		
-				loacList("step=ajaxPlanList&movieid="+movieid+"&cinemaid="+cinemaid+"&currentTime="+featuretime,'.showdate');
-				$(this).addClass('on').siblings().removeClass('on');
-				
-			})
-			
-			
-			$('.m_film').click(function() {
-				$('.cinematip').toggle();
-				$('.moviestip').css('display', 'none');
-				$('.i_date').css('display', 'none');
-			})
-			$('.m_time').click(function() {
-				$('.i_date').toggle();
-				$('.cinematip').css('display', 'none');
-				$('.moviestip').css('display', 'none');
-			})
-			
-			
-			// 加载列表
-			function loacList(param, idClass){			
-				$.ajax({
-					url:'movie.php',
-					type:'POST',
-					data: param,
-					beforeSend:function(){
-						$(idClass).html(" LOADING ... ");
-					},
-					success:function( data ){
-						$(idClass).html(data);
-						if(idClass == '#ajaxPlanList'){
-							jQuery(".i_datetab").slide({
-							mainCell: ".bd dl",
-							autoPage: true,
-							effect: "left",
-							autoPlay: false,
-							vis: 3,
-							pnLoop: false
-													});		
-						}
-						
-					}
-				})
-			}
+
 			
 //			默认电影选中
 			$('.header_left li:nth-child(1) a').css('color','#27c7ac');
-		</script>
+			//点击播放视屏
+			$('.play_flash').click(function(){
+				$('.movie_flash').toggle();
+			})
+			$('.movie_flash').on('click','.movie_close',function(){
+				$('.movie_flash').hide();
+			})
+			
+		</script>   
+        <script src="{$app_path}js/juyoufuli/movieSearch.js"></script>
 	</body>
 
 </html>

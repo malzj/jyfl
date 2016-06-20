@@ -45,7 +45,7 @@ foreach ( array( 'komovie', 'dzq') as $api)
 			$arr_result = getCDYapi( array('action'=>'cinema_Channel') );
 			$page = 1;
 			$totalPage = ceil( $arr_result['cinemasize'] / 40 );
-			//$cinema = $arr_result['cinemas'];
+			$cinema = $arr_result['cinemas'];
 			for($i=$page; $i<$totalPage; $i++)
 			{
 				$tmp_result = getCDYapi( array('action'=>'cinema_Channel', 'page'=>$page) );
@@ -67,7 +67,7 @@ foreach ( array( 'komovie', 'dzq') as $api)
 			{
 			    // 分批插入，一批1000条
 			    // 总条数
-			   /*  $total = count($cinema);
+			    $total = count($cinema);
 			    // 分多少批导入
 			    $num = ceil($total/1000);
 			    for ($i=0; $i<$num; $i++)
@@ -75,8 +75,8 @@ foreach ( array( 'komovie', 'dzq') as $api)
 			        $startKey = $i*1000;
 			        $newCinema = array_slice($cinema, $startKey, 1000);
 			        saveKomovieData($newCinema);
-			   } */
-			   saveKomovieData($cinema);
+			    }
+			   //saveKomovieData($newCinema);
 			
 			}else
 			{

@@ -41,9 +41,11 @@ a:focus{outline: none;}
 .bg_color{background: #2fd0b5!important;}
 .zhuti_a_hover:hover{background: #35A794!important;transition: background .5s linear;-webkit-transition: background .5s linear;}
 .zhuti_a_hovercolor:hover{color:#2fd0b5!important;}
-.hd .prevStop{display:none!important;}
+.hd .prevStop{visibility: hidden;}
 .bg_white{background: white;}
-.hd .nextStop{display:none!important;}
+.hd .nextStop{
+    visibility: hidden;
+}
 .glyphicon-shopping-cart{/*vertical-align: top; *//* font-size: 18px; *//* margin-right: 10px; */}
 .ckecked_bgcolor{background: #fff4e8;}
 .text_under{text-decoration: underline;}
@@ -716,7 +718,7 @@ html.movie .reying .reying_title {
 	text-align: center;
 	font-size: 24px;
 	color: #2fd0b5;
-	margin: 20px 0;
+	margin: 20px 0 0px 0;
 }
 
 .w_1200 {
@@ -731,7 +733,7 @@ html.movie .reying .reying_news {
 	text-align: center;
 	color: #707070;
 	font-size: 14px;
-	margin: 7px 0;
+	margin: 7px 0 0 0;
 }
 
 html.movie .w_1200 .reying_show .reying_img,
@@ -921,16 +923,17 @@ html.movie .movie_list ul li .li_top {
 	/* width: 187px; */
 }
 html.movie .movie_list ul li{
-	width:190px;
+	/* width:190px; */
 	/* margin: 5px 0 5px 35px; */
 	position: relative;
 	margin-bottom: 20px;
+	margin: 0 45px 20px 0;
 }
 
 html.movie .reying .movie_list {
 	float: left;
 	position: relative;
-	margin: 20px 0;
+	/* margin: 0 0 0px 0; */
 }
 
 html.movie .reying .movie_list .bd .title{
@@ -962,31 +965,20 @@ html.movie .reying .movie_list .bd .title .color_666 {
 }
 
 html.movie .reying .movie_list .hd .prev {
+	margin-left: 10px;
+	height: 22px;
 	float: right;
-	/* width: 25px; */
-	/* position: absolute; */
-	/* left: 0px; */
-	/* height: 60px; */
-	/* bottom: 0; */
-	/* margin: auto; */
-	/* top: -50px; */
-	/* z-index: 1; */
+	width: 22px;
 	cursor: pointer;
-	/* background: url(/images/index/img_login/btn_left.png); */
+	background: url(/images/juyoufuli/img_login/play_icon.png) no-repeat -39px 2px;
 }
 
 html.movie .reying .movie_list .hd .next {
+	height: 22px;
 	float: right;
-	/* width: 25px; */
-	/* position: absolute; */
-	/* right: 0px; */
-	/* height: 60px; */
-	/* bottom: 0; */
-	/* margin: auto; */
-	/* top: -50px; */
-	/* z-index: 1; */
+	width: 22px;
 	cursor: pointer;
-	/* background: url(/images/index/img_login/btn_right.png); */
+	background: url(/images/juyoufuli/img_login/play_icon.png) no-repeat -59px 2px;
 }
 
 html.movie .reying .reying_title .reying_bg {
@@ -1005,11 +997,11 @@ html.movie .w_1200 .will .will_bg {
 }
 
 html.movie .w_1200 .will {
-	margin: 40px 0;
+	margin: 20px 0 40px 0;
 }
 
 html.movie .reying .movie_list .bd {
-	margin: 0 25px;
+	/* margin: 0 25px; */
 	overflow: hidden;
 }
 
@@ -1292,7 +1284,7 @@ html.movie_1 .reying_show .reying_show2 .mark i {
 
 html.movie_1 .reying_show .reying_show2 .mark {
 	position: absolute;
-	top: 50px;
+	top: 70px;
 	right: 25px;
 }
 
@@ -1609,7 +1601,7 @@ html.movie_3  .order_left .img_left{float: left;margin: 10px;}
 html.movie_3  .box_left ul li h3{font-size: 18px;}
 html.movie_3  .box_left ul li{width: 333px;margin: 10px 0;}
 html.movie_3  .box_left ul li.num_tick span.zuowei{color: #9C9898;}
-html.movie_3  .box_left .num_tick{height: 72px;}
+html.movie_3  .box_left .num_tick{height: 68px;}
 html.movie_3  .order_zhanshi .order_right{/* border-left: 1px solid #ccc; */padding: 70px 100px 70px 70px;margin: 0 auto;float: right;}
 html.movie_3  .order_zhanshi .order_right input{border: 1px solid #ddd;margin-left: 10px;padding: 5px;margin-right: 20px;}
 html.movie_3  .order_title_left span.color_yellow{margin-right: 10px;
@@ -1652,12 +1644,12 @@ html.movie_3  .order_zhanshi .order_right .yes{
 .order_yes_Allprice{font-size: 20px;}
 
 /*movie_4.html*/
-html.movie_4  .pay_del{background: url(/images/juyoufuli/img_login/pay_del3.png) no-repeat;margin: 0 auto;margin-top: 100px;height: 100px;width: 1155px;margin-bottom: 30px;}
+html.movie_4  .pay_del{background: url(/images/juyoufuli/img_login/pay_movie_del3.png) no-repeat;margin: 0 auto;margin-top: 100px;height: 100px;width: 1030px;margin-bottom: 30px;}
 html.movie_4  .pay_success{border: 1px solid #ddd;margin-top: 50px;}
 html.movie_4  .pay_success h3{font-size: 24px;margin: 50px auto;text-align: center;color: black;}
 html.movie_4  .pay_success h3 img{margin-right: 10px;}
 html.movie_4  .pay_success .btn1{text-align: center;}
-html.movie_4  .pay_success .tips{width: 380px;margin: 20px auto;color:#ff781e;font-size: 12px;}
+html.movie_4  .pay_success .tips{width: 595px;margin: 20px auto;color:#ff781e;font-size: 12px;}
 
 
 /*dianziquan.html*/
@@ -2395,11 +2387,13 @@ html.huaju3 .w_1200 .dingdan_tip .jiesuan .kahao{margin-right: 60px;height: 25px
 html.huaju3 .w_1200 .dingdan_tip .jiesuan .password input{height: 20px;width: 200px;}
 html.huaju3 .w_1200 .dingdan_tip .jiesuan .password{margin-right: 60px;}
 html.huaju3 .w_1200 .dingdan_tip .jiesuan .jiesuan_btn span{
-	padding: 2px 5px;
+	padding: 0px 23px;
 	background: #ff781e;
 	color: white;
 	cursor: pointer;
 	line-height: 24px;
+	border-radius: 5px;
+	display:inline-block;
 }
 
 /*huaju4.html*/
@@ -2896,3 +2890,21 @@ html.shenghuo1 body{background: white;}
 .guangbo{font-size: 12px;}
 /*goods页面*/
 .cake_jieshao {margin-bottom: 40px;}
+/*首页新片预告*/
+.movie_action_left{width: 275px;margin-left: 40px;}
+.movie_action_title{font-family: arial;font-weight: bold;padding-bottom: 5px;width: 275px;border-bottom: 2px solid #ddd;border-left: 4px solid #2fd0b5;text-indent: 18px;font-size: 18px;color: #333;}
+.flash_img{margin: 15px 0;position: relative;}
+.movie_action_content{background: #f4f4f4;margin-top: 10px;padding: 5px;font-size: 12px;color: #808080;}
+.movie_flash{position: fixed;top: 0;left: 0;width:100%;height: 100%;background-color:rgba(1,1,1,.5);z-index: 101;}
+.play_flash{position: absolute;top: 50px;left: 110px;cursor: pointer;}
+.movie_close{position: fixed;width: 30px;height: 30px;background: url(/images/juyoufuli/img_login/play_icon.png) no-repeat 0px 0px;z-index: 101;top: 50%;left: 50%;margin-top: -248px;margin-left: 260px;cursor: pointer;}
+/*订单按钮*/
+.return_index{background: #2fd0b5;
+    margin-right: 20px;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 15px;}
+.my_order{background: #ff781e;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 15px;}

@@ -20,7 +20,7 @@
 		<div class="movie_big">
             <div class="box">
                 <div class="img_left">
-                    <img src="{$app_path}{if $cinemaDetail.logo}{$cinemaDetail.logo}{else}images/dongwang/null.jpg{/if}" width="200" height="150" class="cinemaThumb">
+                    <img src="{if $cinemaDetail.logo}{$cinemaDetail.logo}{else}images/dongwang/null.jpg{/if}" width="200" height="150" class="cinemaThumb">
                 </div>
                 <div class="yingyuan_details">
                     <ul>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="bd">
                     <ul class="picList">
-                        <center style="line-height:220px;">LOADING ...</center>
+                        <center style="line-height:220px;"></center>
                     </ul>
                 </div>
             </div>
@@ -76,7 +76,7 @@
         <!-- 影片详情结束-->
             
         <div class="movie_xiangqing">
-            <div class="date_select" style="height:47px; line-height:47px;"> LOADING ... </div>
+            <div class="date_select" style="height:47px; line-height:47px;"></div>
             <div class="cinema_all">
                 <!--选择城区-->
                 <div class="town">
@@ -91,7 +91,7 @@
                 <div class="select_cinema">
                     <h3>选择影院</h3>
                     <ul>
-                        <li>LOADING ...</li>
+                        <li></li>
                     </ul>
                 </div>
                 <!--影院详情-->
@@ -104,7 +104,7 @@
                         <span>选座购票</span>
                     </div>
                     <ul id="planList">
-                        <center>LOADING ... </center>
+                        <center></center>
                     </ul>
                 </div>
             </div>
@@ -183,8 +183,8 @@
 		$(document).delegate('.date_select div', 'click', function(){
 			$('.date_select').find('div').removeClass('active');
 			$(this).addClass('active');
-			var featuretime = $(this).find('span').html();
-			var cinemaid = $(this).find('span').attr('data-cinemaid');
+			var featuretime = $(this).find('span').attr('data-strtotime');
+			var cinemaid = $(this).find('span').attr('data-cinemaid');	
 			loadPlan( cinemaid, getMovieId(), featuretime, '#planList');
 			
 		});		
@@ -196,7 +196,7 @@
 				type:'POST',
 				data:'step=cinemaLists&movieid='+movieid+'&dis='+dis+'&cinemaid='+cinemaid,
 				beforeSend:function(){
-					$('.select_cinema ul').html("<li>LOADING ... </li>");
+					//$('.select_cinema ul').html("<li>LOADING ... </li>");
 				},
 				success:function( data ){
 					var obj = jQuery.parseJSON(data);
@@ -219,8 +219,7 @@
 				type:'POST',
 				data:'step=movieList&cinemaid='+cinemaId,
 				beforeSend:function(){
-					$('.picList').html("<center style='line-height:220px; width:1150px;'>LOADING ...</center>");
-					//$('.movie_list').append("<div class='movie_ceng' style='background: #333;opacity: .3;width:100%;height: 600px;position: absolute;top:0;left: 0;z-index: 99;'></div>");
+					//$('.picList').html("<center style='line-height:220px; width:1150px;'>LOADING ...</center>");
 				},
 				success:function( data ){
 					var obj = jQuery.parseJSON(data);
@@ -244,7 +243,8 @@
 		}
 		
 		// 加载影院指定影片排期
-		function loadPlan(cinemaid, movieid, currentTime, idClass){
+		function loadPlan(cinemaid, movieid, currentTime, idClass){			
+			
 			if(Utils.isEmpty(currentTime)){
 				currentTime = 0;
 			}
@@ -256,9 +256,9 @@
 				type:'POST',
 				data:'step=planList&cinemaid='+cinemaid+'&movieid='+movieid+'&currentTime='+currentTime,
 				beforeSend:function(){
-					$(idClass).html("<tr><td colspan='5'> LOADING ... </td></tr>");
+					$(idClass).html("<tr><td colspan='5'></td></tr>");
 					if(currentTime == 0){
-						$('.date_select').html('LOADING ...');
+						//$('.date_select').html('LOADING ...');
 					}
 				},
 				success:function( data ){
@@ -277,8 +277,8 @@
 		}
 		
 		function initSelectCinema(){
-			$('#planList').html("<tr><td colspan='5'> 请从新选择影院 </td></tr>");
-			$('.date_select').html("请从新选择影院");
+			$('#planList').html("<center style='line-height: 487px;'>请重新选择影院 </center>");
+			$('.date_select').html("<center>请重新选择影院</center>");
 		}
 		
 		function setMovieInfo(){			
@@ -327,6 +327,8 @@
 		});
 		
 	</script>
+    
+    <script src="{$app_path}js/juyoufuli/movieSearch.js"></script>
         
 </body>    
     

@@ -6,7 +6,13 @@
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
         <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
-        
+        <style>
+        	embed{  position: fixed;
+				    top: 50%;
+				    left: 50%;
+				    margin-left: -367px!important;
+				    margin-top: -230px!important;}
+        </style>
 	</head>
 	<body>
         <!-- 公用头部 -->

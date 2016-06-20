@@ -51,11 +51,8 @@
 		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 --> 
 		
-        <div class="w_1200">
-			<div class="pay_del">
-            
-            
-            </div>
+        <div class="w_1200 clearfix">
+			<div class="pay_del"></div>
 			<div class="content_left">
 				<div class="xuanzuo">
 					<div class="tips">

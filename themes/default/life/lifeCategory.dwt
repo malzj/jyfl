@@ -56,8 +56,8 @@
 				<form action="category.php">                          
 					<input type="text" name="word" placeholder="请输入商品名称" value="{$keyword}">
                     <input type="hidden" name="category" value="{$category}">
-					<i></i>	
                 </form>
+                <i onClick="$('form:first').submit();"></i>	
 				</div>
 			</div>
 		</div>

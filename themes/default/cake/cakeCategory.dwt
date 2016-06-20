@@ -57,7 +57,7 @@
 					<input type="text" name="word" placeholder="输入蛋糕名称" value="{$keyword}">
                     <input type="hidden" name="category" value="{$category}">
                  </form>  
-					<i></i>	
+				 <i onClick="$('form:first').submit();"></i>		
                   
 				</div> 
 			</div> 

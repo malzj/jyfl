@@ -5,6 +5,7 @@
 		<title></title>
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+        <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
         {insert_scripts files='jquery.common.js'}
 	</head>
 	<body class='bg_white'>
@@ -12,7 +13,11 @@
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->
         
-        <div class="w_1200">
+        <div class="w_1200 clearfix">
+        
+        	<!-- 返回首页 -->
+        	{$backHtml}
+            
 			<div class="sport4_top o_hidden margin_top_90">
 				<div class="sport4_top_left f_l">
 					<div class="cake2_img">                    	

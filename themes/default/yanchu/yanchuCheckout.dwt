@@ -5,6 +5,7 @@
 		<title></title>
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.shoppingflow.js"></script>
+        <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
         {insert_scripts files='jquery.region.js,utils.js'}
 		<!--<style>
 		.shouhuoren_item .shouhuoren_name.selected{border:1px red solid!important;background:white url(/images/index/img_login/hy_hj.jpg) no-repeat right bottom!important;}
@@ -15,6 +16,9 @@
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->
         <div class="w_1200">
+        	<!-- 返回首页 -->
+        	{$backHtml}
+            
 			<div class="yanchu_tip"></div>
 			<div class="goupiao">确认购票信息</div>
             <form action="yanchu_order.php" method="post" name="theForm" id="theForm" onsubmit="return checkYcOrderForm(this)">

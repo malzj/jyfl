@@ -14,52 +14,50 @@
         <div class="w_1200">
 			<div class="pay_del">
 			</div>
-			<div class="order_xinxi">
-				<div class="order_title_left"><h3><span class="color_yellow"></span><span>确认订单信息</span></h3></div>
-				<div class="order_right">
-					<span>请在限定时间内完成支付，否则系统将自动取消您的订单    剩余时间  </span>
-					<span id="times" style="font-size: 16px;font-weight: 600;">14分59秒</span>
-					<span>您也可以 <a href="movie.php?step=cinemaSeats&delid={$order.id}&{$order.param_url}">重新选座</a> 或<a href="{$app_path}"> 返回首页</a></span>
-				</div>
-			</div>
-			<div class="order_zhanshi">
-				<div class="order_left">
-					<div class="img_left">
-						<img src="{$detail.thumb}" width="140">
-					</div>
-					<div class="box_left">
-						<ul>
-							<li><h3>{$order.movie_name}</h3></li>
-							<li><span>{$order.cinema_name}</span><span style="color:#ff781e;">&nbsp;&nbsp;&nbsp;&nbsp;{$order.hall_name}</span></li>
-							<li><span>{$order.featuretime} </span><span>14:00</span></li>
-							<li class="num_tick"><span>{$order.count}张票</span><span class="zuowei">({$order.seat_info})</span></li>
-							<li>总价：<span class="order_yes_Allprice color_ff781e">{$order.money}</span>点</li>
-						</ul>
-					</div>
-				</div>
-				<div class="order_right">
-					<div style="color: #919191;margin-bottom: 20px;">请再次确认接收电子影票的手机号</div>
-					<img src="{$app_path}images/index/img_login/tel_img.png"><input type="text" name="mobile" id="mobile" placeholder="手机号" autocomplete="off">
-					<span class="yes">确定</span>	
-					<div style="color: #64d8c0;margin-top: 20px;font-size: 12px;">开场前至影院大厅的自助验票机使用验票码获取纸质电影票，入场看电影。</div>
-				</div>
-			</div>
-			<div class="pay_way">
-				<div class="pay_title">
-					<h3><span class="color_blue"></span><span class="pay_way1">支付方式</span></h3>
-				</div>
-				<div class="pay_way_content">
-					<div class="box_1">
-						<span class="user_card">聚优卡号：<span style="font-weight: 600;">{$usernames.user_name}</span></span>
-						<span>聚优卡密码：<input name="password" id="password" type="password" autocomplete="off"><span class="jiesuan">结算</span> &nbsp;&nbsp;&nbsp;<span class="pay-loading" style="color:red;"></span></span>
-					</div>
-					<div class="tips">
-						<ul>	
-							<li>温馨提示：1、支付成功后您将收到取票短信，建议您提前10分钟至影票终端机取票，以免排队耽误您的入场。</li>
-							<li style="text-indent: 60px;margin-top: 5px;">2、电影票一经售出概不退换，请在付款前确定无误，敬请谅解！祝您观影愉快！</li>
-						</ul>
-					</div>
-				</div>	
+			<div class="order_info">
+                <div class="order_xinxi">
+                    <div class="order_title_left"><h3><span class="color_yellow"></span><span>确认订单信息</span></h3></div>
+                    <div class="pay_title">
+                        <h3><span class="color_blue"></span><span class="pay_way1">支付方式</span></h3>
+                    </div>
+                </div>
+                <div class="order_zhanshi">
+                    <div class="order_left">
+                        <div class="img_left">
+                            <img src="{$detail.thumb}" width="180">
+                        </div>
+                        <div class="box_left">
+                            <ul>
+                                <li><h3>{$order.movie_name}</h3></li>
+                                <li><span>{$order.cinema_name}</span><span style="color:#ff781e;">&nbsp;&nbsp;&nbsp;&nbsp;{$order.hall_name}</span></li>
+                                <li><span>{$order.featuretime} </span><span>14:00</span></li>
+                                <li class="num_tick"><span>{$order.count}张票</span><span class="zuowei">({$order.seat_info})</span></li>
+                                <li>总价：<span class="order_yes_Allprice color_ff781e">{$order.money}</span>点</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pay_way">
+                        <div class="order_time">
+                            <span>请在限定时间内完成支付，否则系统将自动取消您的订单    剩余时间  </span>
+                            <span id="times" style="font-size: 16px;font-weight: 600;">14分59秒</span>
+                            <span>您也可以 <a href="movie.php?step=cinemaSeats&delid={$order.id}&{$order.param_url}">重新选座</a> 或<a href="{$app_path}"> 返回首页</a></span>
+                        </div>
+                        <div class="box_1">
+                            <span class="user_card">聚优卡号：<span style="font-weight: 600;">{$usernames.user_name}</span></span>
+                        </div>
+                        <div class="box_1">
+                            <span>聚优卡密码：<input name="password" id="password" type="password" autocomplete="off">
+                        </div>
+                        <div class="box_1 center">
+                            <span class="jiesuan">结算</span> &nbsp;&nbsp;&nbsp;<span class="pay-loading" style="color:red;"></span></span>                        </div>
+                        <div class="tips">
+                            <ul>
+                                <li>温馨提示：1、支付成功后您将收到取票短信，建议您提前10分钟至影票终端机取票，以免排队耽误您的入场。</li>
+                                <li style="text-indent: 60px;margin-top: 5px;">2、电影票一经售出概不退换，请在付款前确定无误，敬请谅解！祝您观影愉快！</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 			</div>
 		</div>
         <input type="hidden" name="order_id" id="orderid" value="{$order.id}" />

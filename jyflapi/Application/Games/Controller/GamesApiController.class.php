@@ -134,124 +134,128 @@ class GamesApiController extends Controller
         $data['card_num'] =I('request.card_num');
         $data['company_id'] =I('request.company_id');
         $data['buy_time'] = date('Y-m-d H:i:s',time());
-        $game_info = $Model ->table('__GAMES__') -> where(array('id' => $data['game_id'])) ->find();
-        $Model ->execute('lock tables __PREFIX__participation write');
-        if($game_info['grade_id']==1){
-            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();
-        }else{
-            $count = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'])) -> count();
-        }
-        $total = $game_info['total'];
-        $surplus = intval($total) - intval($count);
-        if($surplus<$num){
-            $rudata['result'] = 'false';
-            $rudata['msg'] = '商品剩余量不足！';
-            $this -> ajaxReturn($rudata);
-        }
-        $Model -> startTrans();
-        //中奖号购买
-        if ($game_info['grade_id'] == 1) {
-            $lastLottery = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id']))->order('lottery_id desc')->getField('lottery_id');
-        } else {
-            $lastLottery = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'], 'company_id' => $data['company_id']))->order('lottery_id desc')->getField('lottery_id');
-        }
-        if ($lastLottery !== false) {
-            if (!$lastLottery) {
-                $lastLottery = 0;
+
+        $fp = fopen("./Public/games/lock.txt","w+");
+        if(flock($fp,LOCK_EX)) {
+            $game_info = $Model->table('__GAMES__')->where(array('id' => $data['game_id']))->find();
+            if ($game_info['grade_id'] == 1) {
+                $count = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id']))->count();
+            } else {
+                $count = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'], 'company_id' => $data['company_id']))->count();
             }
-        } else {
-            $Model->rollback();
-            $rudata['result'] = 'false';
-            $rudata['msg'] = '抢购失败，请刷新重试！';
-            $this->ajaxReturn($rudata);
-        }
-        $map = array();
-        $map['game_id'] = $data['game_id'];
-        $map['id'] = array('gt', $lastLottery);
-        $lotteries = $Model->table('__LOTTERY__')->where($map)->order('id asc')->limit($num)->select();
-        foreach ($lotteries as $lottery){
-            $data['lottery_id'] = $lottery['id'];
-            $data['lottery_num'] = $lottery['num'];
-            $lotteryData[]=$data;
-        }
-
-        $result = $Model->table('__PARTICIPATION__')->addAll($lotteryData);
-        if ($result) {
-            $rudata['result'] = 'true';
-            $rudata['msg'] = '抢购成功！';
-        } else {
-            $Model->rollback();
-            $rudata['result'] = 'false';
-            $rudata['msg'] = '抢购失败，请刷新重试！';
-            $this->ajaxReturn($rudata);
-        }
-
-        //判断是否已抢完，如抢完更改buy_status=1,且根据算法得出中奖号码存入中奖表
-        if($game_info['grade_id']==1){
-            $count_all = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'])) -> count();
-        }else{
-            $count_all = $Model ->table('__PARTICIPATION__') -> where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'])) -> count();
-        }
-        if($count_all==$total){
-
-            $sdInfo = $this ->_get3DLottery();
-            $winner_num = $this->_getWinner($total,$sdInfo['opencode']);
-
-            if($game_info['grade_id']==1) {
-                $winnerInfo = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'], 'lottery_num' => $winner_num))->find();
-            }else{
-                $winnerInfo = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'],'company_id'=>$data['company_id'], 'lottery_num' => $winner_num))->find();
+            $total = $game_info['total'];
+            $surplus = intval($total) - intval($count);
+            if ($surplus < $num) {
+                $rudata['result'] = 'false';
+                $rudata['msg'] = '商品剩余量不足！';
+                $this->ajaxReturn($rudata);
             }
-            $wdata['company_id'] = $data['company_id'];
-            $wdata['game_id'] = $data['game_id'];
-            $wdata['card_num'] = $winnerInfo['card_num'];
-            $wdata['grade_id'] = $game_info['grade_id'];
-            $wdata['lottery'] = $winner_num;
-            $wdata['create_time'] = date('Y-m-d H:i:s',time());
-            $wre = $Model ->table('__WINNERS_LIST__') -> data($wdata) -> add();
-            if($wre !== false){
-                $rudata['result'] = 'true';
-                $rudata['msg'] = '抢购成功！';
-            }else{
-                $Model ->rollback();
+            $Model->startTrans();
+            //中奖号购买
+            if ($game_info['grade_id'] == 1) {
+                $lastLottery = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id']))->order('lottery_id desc')->getField('lottery_id');
+            } else {
+                $lastLottery = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'], 'company_id' => $data['company_id']))->order('lottery_id desc')->getField('lottery_id');
+            }
+            if ($lastLottery !== false) {
+                if (!$lastLottery) {
+                    $lastLottery = 0;
+                }
+            } else {
+                $Model->rollback();
                 $rudata['result'] = 'false';
                 $rudata['msg'] = '抢购失败，请刷新重试！';
-                $this -> ajaxReturn($rudata);
+                $this->ajaxReturn($rudata);
             }
-        }
-
-        //链接付款接口进行付款，付款成功commit
-        $Card = new \Ext\card\huayingcard();
-        $card_data = array(
-            'CardInfo' => array( 'CardNo'=> $data['card_num'], 'CardPwd' => $card_pass),
-            'TransationInfo' => array( 'TransRequestPoints'=>$num*$game_info['point'], 'TransSupplier'=>iconv('聚优夺宝','UTF-8','GB2312'))
-        );
-        $is_pay = $Card -> action($card_data,1);
-
-        if($is_pay == 0){
-            $Card -> action($card_data,8);
-            $jydata = $Card -> getResult();
-            $Model -> table('__USERS__')->where('user_id='.$data['user_id'])->data(array('card_money'=>$jydata['Points']))->save();
-            $Model -> execute('unlock tables');
-            $Model -> commit();
-            if($count_all==$total) {
-                $Smsvrerify = new smsvrerifyApi();
-                $userInfo = $Model->table('__USERS__')->where(array('user_name'=>$wdata['card_num']))->find();
-                $content = (!empty($userInfo['nickname'])?$userInfo['nickname']:'')."先生（女士），您的卡号".$wdata['card_num']."获得".$game_info['game_name']."第".
-                    date('Ymd',strtotime($wdata['create_time'])).$game_info['id']."期奖品，中奖号码为".$winner_num."，请登录网站查看详细信息！";
-
-                if(!empty($userInfo['mobile_phone']))
-                    $Smsvrerify->smsvrerify($userInfo['mobile_phone'],$content,0,'聚优福利');
+            $map = array();
+            $map['game_id'] = $data['game_id'];
+            $map['id'] = array('gt', $lastLottery);
+            $lotteries = $Model->table('__LOTTERY__')->where($map)->order('id asc')->limit($num)->select();
+            foreach ($lotteries as $lottery) {
+                $data['lottery_id'] = $lottery['id'];
+                $data['lottery_num'] = $lottery['num'];
+                $lotteryData[] = $data;
             }
-            $rudata['result'] = 'true';
-            $rudata['msg'] = '抢购成功！';
-            $this -> ajaxReturn($rudata);
-        }else{
-            $Model -> rollback();
-            $rudata['result'] = 'false';
-            $rudata['msg'] = $Card->getMessage();
-            $this -> ajaxReturn($rudata);
+
+            $result = $Model->table('__PARTICIPATION__')->addAll($lotteryData);
+            if ($result) {
+                $rudata['result'] = 'true';
+                $rudata['msg'] = '抢购成功！';
+            } else {
+                $Model->rollback();
+                $rudata['result'] = 'false';
+                $rudata['msg'] = '抢购失败，请刷新重试！';
+                $this->ajaxReturn($rudata);
+            }
+
+            //判断是否已抢完，如抢完更改buy_status=1,且根据算法得出中奖号码存入中奖表
+            if ($game_info['grade_id'] == 1) {
+                $count_all = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id']))->count();
+            } else {
+                $count_all = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'], 'company_id' => $data['company_id']))->count();
+            }
+            if ($count_all == $total) {
+
+                $sdInfo = $this->_get3DLottery();
+                $winner_num = $this->_getWinner($total, $sdInfo['opencode']);
+
+                if ($game_info['grade_id'] == 1) {
+                    $winnerInfo = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'], 'lottery_num' => $winner_num))->find();
+                } else {
+                    $winnerInfo = $Model->table('__PARTICIPATION__')->where(array('game_id' => $data['game_id'], 'company_id' => $data['company_id'], 'lottery_num' => $winner_num))->find();
+                }
+                $wdata['company_id'] = $data['company_id'];
+                $wdata['game_id'] = $data['game_id'];
+                $wdata['card_num'] = $winnerInfo['card_num'];
+                $wdata['grade_id'] = $game_info['grade_id'];
+                $wdata['lottery'] = $winner_num;
+                $wdata['create_time'] = date('Y-m-d H:i:s', time());
+                $wre = $Model->table('__WINNERS_LIST__')->data($wdata)->add();
+                if ($wre !== false) {
+                    $rudata['result'] = 'true';
+                    $rudata['msg'] = '抢购成功！';
+                } else {
+                    $Model->rollback();
+                    $rudata['result'] = 'false';
+                    $rudata['msg'] = '抢购失败，请刷新重试！';
+                    $this->ajaxReturn($rudata);
+                }
+            }
+
+            //链接付款接口进行付款，付款成功commit
+            $Card = new \Ext\card\huayingcard();
+            $card_data = array(
+                'CardInfo' => array('CardNo' => $data['card_num'], 'CardPwd' => $card_pass),
+                'TransationInfo' => array('TransRequestPoints' => $num * $game_info['point'], 'TransSupplier' => iconv('聚优夺宝', 'UTF-8', 'GB2312'))
+            );
+            $is_pay = $Card->action($card_data, 1);
+
+            if ($is_pay == 0) {
+                $Card->action($card_data, 8);
+                $jydata = $Card->getResult();
+                $Model->table('__USERS__')->where('user_id=' . $data['user_id'])->data(array('card_money' => $jydata['Points']))->save();
+                $Model->commit();
+                if ($count_all == $total) {
+                    $Smsvrerify = new smsvrerifyApi();
+                    $userInfo = $Model->table('__USERS__')->where(array('user_name' => $wdata['card_num']))->find();
+                    $content = (!empty($userInfo['nickname']) ? $userInfo['nickname'] : '') . "先生（女士），您的卡号" . $wdata['card_num'] . "获得" . $game_info['game_name'] . "第" .
+                        date('Ymd', strtotime($wdata['create_time'])) . $game_info['id'] . "期奖品，中奖号码为" . $winner_num . "，请登录网站查看详细信息！";
+
+                    if (!empty($userInfo['mobile_phone']))
+                        $Smsvrerify->smsvrerify($userInfo['mobile_phone'], $content, 0, '聚优福利');
+                }
+                $rudata['result'] = 'true';
+                $rudata['msg'] = '抢购成功！';
+                $this->ajaxReturn($rudata);
+            } else {
+                $Model->rollback();
+                $rudata['result'] = 'false';
+                $rudata['msg'] = $Card->getMessage();
+                $this->ajaxReturn($rudata);
+            }
+            flock($fp,LOCK_UN);
         }
+        fclose($fp);
     }
 
     /**
@@ -424,10 +428,8 @@ class GamesApiController extends Controller
     }
 
     public function test(){
-        $Model = new Model();
-        $uid = 24852;
-        $sql = "SELECT u.company_id,c.grade_id FROM __PREFIX__users u LEFT JOIN __PREFIX__company c ON u.company_id = c.card_company_id where u.user_id = ".$uid;
-        $selfInfo = $Model->query($sql);
-        var_dump($selfInfo);
+$url="netstreambasepath=http%3A%2F%2Fwww.chuanke.com%2Fv1899056-166227-753897.html&flashplayer=http%3A%2F%2Fwebkk.chuanke.com%2Fplayer%2Fplayer_enc.swf&anthology=true&uid=6238264&seekheader=true&quickseek=true&icons=true&controlbar=over&bufferlength=3&type=http&streamer=start&autostart=true&id=mediaspace&base=http%3A%2F%2Fwww.chuanke.com%2F&file=%2F%3Fmod%3Dvideo%26act%3Dplay%26do%3Dfile%26sf%3Dbd%26id%3D6238264%26key1%3Df246efc9db58ee542ab2350550f267f8%26pv%3D0%26ts%3D1466407941%26key%3D38b168db995e38f0164cca33aca71dab";
+        $u = urldecode($url);
+        echo $u;
     }
 }

@@ -249,6 +249,7 @@ $(function(){
         })
 	});
 
+    var submitStatus = true;
 // $(document).on('click','.qianggou_box button',function(){
 $(document).on('submit','#purchase',function(){
     // var user_id = $('input[name="user_id"]').val();
@@ -258,36 +259,39 @@ $(document).on('submit','#purchase',function(){
     // var number = $('input[name="number"]').val();
     // var password = $('input[name="password"]').val();
     var index;
-    $.ajax({
-        type:'post',
-        url:api_url+'index.php/Games/GamesApi/purchase',
-        data:$('#purchase').serialize(),
-        // {
-        //     user_id:user_id,
-        //     game_id:game_id,
-        //     card_num:card_num,
-        //     company_id:company_id,
-        //     number:number,
-        //     password:password,
-        // },
-        dataType:'json',
-        beforeSend:function(){
-            index = layer.load();
-        },
-        success:function (data) {
-            console.log(data);
-            layer.close(index);
-            if(data.result == 'true'){
-                layer.alert(data.msg,function () {
-                    location.reload();
-                });
-            }else{
-                layer.alert(data.msg,function () {
-                    location.reload();
-                });
+    if(submitStatus==true) {
+        submitStatus = false;
+        $.ajax({
+            type: 'post',
+            url: api_url + 'index.php/Games/GamesApi/purchase',
+            data: $('#purchase').serialize(),
+            // {
+            //     user_id:user_id,
+            //     game_id:game_id,
+            //     card_num:card_num,
+            //     company_id:company_id,
+            //     number:number,
+            //     password:password,
+            // },
+            dataType: 'json',
+            beforeSend: function () {
+                index = layer.load();
+            },
+            success: function (data) {
+                console.log(data);
+                layer.close(index);
+                if (data.result == 'true') {
+                    layer.alert(data.msg, function () {
+                        location.reload();
+                    });
+                } else {
+                    layer.alert(data.msg, function () {
+                        location.reload();
+                    });
+                }
             }
-        }
-    });
+        });
+    }
     return false;
 });
 //回车提交
@@ -382,7 +386,8 @@ function numadd(){
     var surplus = checkSurplus(game_id,company_id);
     var n = parseInt(num);
     if(n>=surplus){
-        num = n;
+        num = surplus;
+        alert(num);
         layer.msg('储量不够了，亲！！！');
     }else{
         num = n+1

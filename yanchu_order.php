@@ -4,6 +4,7 @@ define('IN_ECS', true);
 require(dirname(__FILE__) . '/includes/init.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_order.php');
+include_once(ROOT_PATH . 'mobile/includes/lib_yanchu.php');
 if ((DEBUG_MODE & 2) != 2)
 {
 	$smarty->caching = true;

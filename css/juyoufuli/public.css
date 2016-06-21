@@ -2339,6 +2339,7 @@ html.huaju2 .xupay{font-size: 22px;color: #2fd0b5;}
 	/* height: 30px; */
 	/* line-height: 30px; */
 	margin-top: 10px;
+	margin-right: 20px;
 }
  .shouhuoren .shouhuoren_item ul li div.shouhuoren_xinxi span.name{margin-left: 10px;}
  .shouhuoren .shouhuoren_item ul li div.shouhuoren_hover{
@@ -2766,6 +2767,7 @@ html.shenghuo1 body{background: white;}
 
 
 /*pop_right*/
+.game_name1{white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 .guize_content,.xieyi_content{padding: 0 10px;}
 
 /*order.html*/

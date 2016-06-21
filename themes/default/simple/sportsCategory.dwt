@@ -39,7 +39,7 @@
         <div class="search">
 			<div class="search_1200">
 				<div class="tips f_l">
-					<span class="glyphicon glyphicon-volume-down tip"></span>
+					<span class="tip"></span>
 					<div class="txtMarquee-top">
 						<div class="bd">
 							<div class="tempWrap">
@@ -65,10 +65,7 @@
 		</div>
         <!-- search end -->
         
-        <div class="w_1200">
-        	<!-- 返回首页 -->
-        	{$backHtml}
-            
+        <div class="w_1200">        	
             
             <!--组合搜索 开始-->
 			<!-- #BeginLibraryItem "/library/goods_filters.lbi" --><!-- #EndLibraryItem -->

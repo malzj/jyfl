@@ -38,7 +38,7 @@ if ($_REQUEST['act'] == 'AjaxAddressList')
         }
         
         // 排序，把默认地址放到第一个
-        array_multisort($sortKey,SORT_DESC,$consignee_list);
+        //array_multisort($sortKey,SORT_DESC,$consignee_list);
     }
             
     $smarty->assign('consignee_list',      $consignee_list);  

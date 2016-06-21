@@ -25,26 +25,37 @@ class GamesController extends Controller
      */
 
     public function gameList(){
+        $gameName=I('request.searchkey');
+        $gradeId = I('request.grade_id');
         $GamesModel = M('Games');
         $GradeModel = M('Grade');
-        $count = $GamesModel -> count();
+        if(!empty($gameName))
+            $sqldata['game_name']=$gameName;
+        if(!empty($gradeId))
+            $sqldata['grade_id']=I('request.grade_id');
+        $count = $GamesModel->where($sqldata) -> count();
         $Page = new Page($count,10);
         $pages = $Page ->show();
 //        $gameList = $GamesModel -> join('LEFT JOIN __GRADE__ ON __GAMES__.grade_id=__GRADE__.id')-> limit($Page -> firstRow.','.$Page -> listRows) -> select();
-        $data = $GamesModel -> limit($Page -> firstRow.','.$Page -> listRows) -> select();
+        $data = $GamesModel ->where($sqldata) -> limit($Page -> firstRow.','.$Page -> listRows) -> select();
+        $grade=$GradeModel->select();
+        $gradeList=array();
+        foreach ($grade as $k=>$val){
+            $gradeList[$k]=$val['grade_name'];
+        }
         $gameList = array();
         foreach($data as $key => $value){
-            $gradeName = $GradeModel -> where(array('id'=>$value['grade_id'])) -> getField('grade_name');
             $gameList[$key]['id'] = $value['id'];
             $gameList[$key]['game_name'] = $value['game_name'];
             $gameList[$key]['total'] = $value['total'];
             $gameList[$key]['point'] = $value['point'];
-            $gameList[$key]['grade_name'] = $gradeName;
+            $gameList[$key]['grade_name'] = $gradeList[$value['grade_id']];
             $gameList[$key]['status'] = $value['status'];
             $gameList[$key]['buy_status'] = $value['buy_status']==0?'可购买':'点数售完';
             $gameList[$key]['create_time'] = $value['create_time'];
         }
         $this -> assign('game_list',$gameList);
+        $this -> assign('grade_list',$gradeList);
         $this -> assign('pages',$pages);
         $this -> display();
     }
@@ -57,7 +68,6 @@ class GamesController extends Controller
      */
     public function gameAdd(){
         if(IS_POST){
-            $GamesModel = M('Games');
             $data = array();
             $data['game_name'] = I('post.game_name');
             $data['total'] = I('post.total');
@@ -92,7 +102,6 @@ class GamesController extends Controller
                     $this -> error($Upload->getError());//获取失败信息
                 }
             }
-			var_dump($_FILES);
             $Model = new Model();
             $Model -> startTrans();
             $result = $Model ->table('__GAMES__') -> add($data);
@@ -143,6 +152,7 @@ class GamesController extends Controller
         $GamesModel = M('Games');
         if(IS_POST){
             $id = I('post.id');
+            $gameTotal=$GamesModel->where(array('id'=>$id))->getField('total');
             $data = array();
             $data['game_name'] = I('post.game_name');
             $data['total'] = I('post.total');
@@ -178,40 +188,49 @@ class GamesController extends Controller
             }
             $Model = new Model();
             $Model -> startTrans();
-            $re = $Model ->table('__LOTTERY__') -> where(array('game_id' => $id))->delete();
-            if($re !== false) {
-                $result = $Model ->table('__GAMES__')->where(array('id' => $id))->data($data)->save();
-                if($result !== false){
-                    $datalist = array();
-                    $count = 0;
-                    $return = array();
-                    $total = intval($data['total']);
-                    while ($count < $total)
-                    {
-                        $return[] = mt_rand(0, $total-1);
-                        $return = array_flip(array_flip($return));
-                        $count = count($return);
+            if(intval($data['total']!=$gameTotal)) {
+                $re = $Model->table('__LOTTERY__')->where(array('game_id' => $id))->delete();
+                if ($re !== false) {
+                    $result = $Model->table('__GAMES__')->where(array('id' => $id))->data($data)->save();
+                    if ($result !== false) {
+                        $datalist = array();
+                        $count = 0;
+                        $return = array();
+                        $total = intval($data['total']);
+                        while ($count < $total) {
+                            $return[] = mt_rand(0, $total - 1);
+                            $return = array_flip(array_flip($return));
+                            $count = count($return);
+                        }
+                        foreach ($return as $value) {
+                            $num = strval(10000000 + $value);
+                            $datalist[] = array('game_id' => $id, 'num' => $num);
+                        }
+                        $res = $Model->table('__LOTTERY__')->addAll($datalist);
+                        if ($res) {
+                            $Model->commit();
+                            $this->redirect('Games/gameList');
+                        } else {
+                            $Model->rollback();
+                            $this->error('编辑失败！');
+                        }
+                    } else {
+                        $Model->rollback();
+                        $this->error('编辑失败！');
                     }
-                    foreach($return as $value)
-                    {
-                        $num = strval(10000000+$value);
-                        $datalist[] = array('game_id'=>$id,'num'=>$num);
-                    }
-                    $res = $Model ->table('__LOTTERY__') ->addAll($datalist);
-                    if($res){
-                        $Model -> commit();
-                        $this -> redirect('Games/gameList');
-                    }else{
-                        $Model -> rollback();
-                        $this -> error('编辑失败！');
-                    }
-                }else{
-                    $Model -> rollback();
-                    $this -> error('编辑失败！');
+                } else {
+                    $Model->rollback();
+                    $this->error('编辑失败！');
                 }
             }else{
-                $Model -> rollback();
-                $this -> error('编辑失败！');
+                $result = $Model->table('__GAMES__')->where(array('id' => $id))->data($data)->save();
+                if ($result !== false) {
+                    $Model->commit();
+                    $this->redirect('Games/gameList');
+                }else{
+                    $Model->rollback();
+                    $this->error('编辑失败！');
+                }
             }
         }else{
             $id = I('request.id');
@@ -269,5 +288,50 @@ class GamesController extends Controller
         }
         $jsondData = json_encode($rudata);
         echo $jsondData;
+    }
+    /**
+     * ajax更新游戏彩票列表
+     * @author zhaoyingchao
+     */
+    public function ajaxUpdateLottery(){
+        $id = I("post.id");
+        $Model = new Model();
+        $Model -> startTrans();
+        $gameInfo = $Model->table('__GAMES__')->where(array('id'=>$id))->find();
+        $re = $Model ->table('__LOTTERY__') -> where(array('game_id' => $id))->delete();
+        if($re !== false) {
+            $datalist = array();
+            $count = 0;
+            $return = array();
+            $total = intval($gameInfo['total']);
+            while ($count < $total)
+            {
+                $return[] = mt_rand(0, $total-1);
+                $return = array_flip(array_flip($return));
+                $count = count($return);
+            }
+            foreach($return as $value)
+            {
+                $num = strval(10000000+$value);
+                $datalist[] = array('game_id'=>$id,'num'=>$num);
+            }
+            $res = $Model ->table('__LOTTERY__') ->addAll($datalist);
+            if($res){
+                $Model -> commit();
+                $redata['result']='true';
+                $redata['msg']='更新成功';
+                $this->ajaxReturn($redata);
+            }else{
+                $Model -> rollback();
+                $redata['result']='false';
+                $redata['msg']='更新失败';
+                $this -> ajaxReturn($redata);
+            }
+        }else{
+            $Model -> rollback();
+            $redata['result']='false';
+            $redata['msg']='更新失败';
+            $this -> ajaxReturn($redata);
+        }
     }
 }

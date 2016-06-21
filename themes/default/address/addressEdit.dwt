@@ -47,3 +47,9 @@
     <span class="save" onClick="saveConsignee({$address_id})">保存</span>
     <span class="cancel">取消</span>
 </div>
+<script>
+	$(document).delegate('.add_item .cancel', 'click', function(){
+	$("input[name='isAdd']").val(0);
+	$("#add_item").hide();
+});
+</script>

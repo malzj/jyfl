@@ -41,7 +41,7 @@ class GamesController extends Controller
         $grade=$GradeModel->select();
         $gradeList=array();
         foreach ($grade as $k=>$val){
-            $gradeList[$k]=$val['grade_name'];
+            $gradeList[$val['id']]=$val['grade_name'];
         }
         $gameList = array();
         foreach($data as $key => $value){

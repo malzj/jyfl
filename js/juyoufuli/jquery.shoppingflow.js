@@ -17,8 +17,9 @@ function setConsigneeSelect(that,id,sid){
 		if(result.error>0){
 			alert(result.content);
 		}else{
-			$(that).closest('ul').find('.checkedall').removeClass('select').html('选择');
-			$(that).addClass('select').html('<font color=green>已选择</font>');
+//			$(that).closest('ul').find('.checkedall').removeClass('select').html('选择');
+//			$(that).addClass('select').html('<font color=green>已选择</font>');  
+			$(that).addClass('selected').parents('li').addClass('selected').siblings().removeClass('selected').find('.checkedall').removeClass('selected');
 		}		
 	}, 'json');
 }

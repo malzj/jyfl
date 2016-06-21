@@ -16,7 +16,7 @@
         {insert_scripts files='jquery.region.js,utils.js'}
         {insert_scripts files='jquery.common.js'}
         <style>
-        	.show_baidumap .layui-layer-content, .show_baidumap { background-color:#FFF;}
+        	.show_baidumap,.show_baidumap.layui-layer-content { background:#FFF!important;}
         </style>
     </head>
 	<body class='bg_white'>
@@ -30,7 +30,7 @@
             
             <!--收货信息-->
 			<div class="shouhuo">收货信息</div>
-			<div class="shouhuoren" id="order_consignee"> LOADING ...</div>
+			<div class="shouhuoren" id="order_consignee"><center style="line-height: 212px;">Loading...</center></div>
             
 			<div class="order_list">
 				<div class="f_l order_list_name">商品信息</div>
@@ -124,7 +124,7 @@
 				  type: 2,
 				  title: false,
 				  skin: 'show_baidumap',
-				  area:['800px','600px'],
+				  area:['800px','570px'],
 				  shadeClose: true,
 				  content: "{$app_path}flow.php?step=showYunfei&id="+id
 				});
@@ -140,7 +140,7 @@
 					type: 2,
 					title: false,
 					skin: 'show_baidumap',
-					area:['850px','600px'],
+					area:['850px','570px'],
 					shadeClose: false,
 					closeBtn:false,
 					content: "{$app_path}flow.php?step=newAddress&id="+id,
@@ -201,38 +201,39 @@
 				});
 				baidumap.showMap(sid,address);
 			}
-			$('.shouhuoren_item li').hover(function() {
-				$(this).children('.shouhuoren_hover').toggle();
-			});
+//			$('.shouhuoren_item li').hover(function() {
+//				$(this).children('.shouhuoren_hover').toggle();
+//			});
 			$('#more').click(function() {
 				var height = $('.shouhuoren_item').height();
-				if (height == '40') {
+				if (height == '150') {
 					$('.shouhuoren .more span.jiantou').css('transform', 'rotate(180deg)');
 					$('.shouhuoren_item').css('height', 'auto');
 				} else {
 					$('.shouhuoren .more span.jiantou').css('transform', 'rotate(0deg)');
-					$('.shouhuoren_item').css('height', '40px');
+					$('.shouhuoren_item').css('height', '150px');
 				}
 			})
 			//点击更多按钮
-			var num=$('.order_gyshang_item ').length;
+			$('.order_grshang').each(function(){
+			var num=$(this).find('.order_gyshang_item').length;
 			// 判断订单数量
-			if(num>2){
-				$('.order_item_more').show();
-				$('.order_item_more').click(function(){
-					$('.order_gyshang_itemAll').toggleClass('order_gyshang_itemAll_height');
-					if($('.order_gyshang_itemAll').hasClass('order_gyshang_itemAll_height')){
-					$('.order_gyshang_itemAll').height('120px');
-					$('.order_item_more span.glyphicon').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
-					$('.more_text').text('更多');}else{
-					$('.order_gyshang_itemAll').height('auto');
-					$('.order_item_more span.glyphicon').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
-					$('.more_text').text('收起');
+			if(num>1){
+				$(this).find('.order_item_more').show().click(function(){
+					$(this).parent().siblings('.order_gyshang_itemAll').toggleClass('order_gyshang_itemAll_height');
+					if($(this).parent().siblings('.order_gyshang_itemAll').hasClass('order_gyshang_itemAll_height')){
+					$(this).parent().siblings('.order_gyshang_itemAll').height('120px');
+					$(this).find('.glyphicon').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+					$(this).find('.more_text').text('更多');}else{
+					$(this).parent().siblings('.order_gyshang_itemAll').height('auto');
+					$(this).find('.glyphicon').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+					$(this).find('.more_text').text('收起');
 						}
 					})
 				}else{
-				$('.order_item_more').hide();
+				$(this).find('.order_item_more').hide();
 			}
+				})
 			function supplierYunfei(dom){
 				var id = dom.attr('data-id');
 				var bottomhtml = dom.closest('.order_grshang').find('.order_grshang_bottom');

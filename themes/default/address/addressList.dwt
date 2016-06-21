@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <div class="shouhuo_title">
     <!--<span class="shouhuorenxinxi f_l">收货人信息</span>-->
-    <!--<span class="add_adress f_r" onclick="selectConsignee(0)">新增收货地址</span>-->
+    <!--<span class="add_adress f_r" onclick="lectConsignee(0)">新增收货地址</span>-->
 </div>
 <div class="shouhuoren_item">
     <ul>
@@ -10,12 +10,12 @@
         	<div class="o_hidden">
         	<div class="f_r">
                <!-- <a href="javascript:setDefaultConsignee('{$consignee.address_id}');">设为默认地址</a>-->
-                <a class="xuanzhong {if $consignee.selected eq 1}selected{/if}"  onClick="javascript:setDefaultConsignee('{$consignee.address_id}');" title="选择"></a>
+                <a class="xuanzhong {if $consignee.selected eq 1}selected{/if}" onClick="javascript:setDefaultConsignee('{$consignee.address_id}');" title="选择"></a>
                 <a class="bianji" href="javascript:selectConsignee('{$consignee.address_id}');" title="修改"></a>
                 <a class="remove" href="javascript:dropConsignee('{$consignee.address_id}');" title="删除"></a>
             </div>
             </div>
-            <div class="f_l shouhuoren_name ">
+            <div class="f_l shouhuoren_name">
                 <span>{$consignee.consignee}</span>
                 <span class="addr_tel">{if $consignee.mobile && $consignee.tel}{$consignee.tel|escape}({$consignee.mobile|escape}){elseif $consignee.tel}{$consignee.tel|escape}{else $consignee.mobile}{$consignee.mobile|escape}{/if}</span>
             </div>
@@ -26,7 +26,9 @@
         </li>
         {foreachelse}
         <li> 没有收货地址，添加一个去吧！</li>
-        {/foreach}            
+        {/foreach}
+        <li class="shouhuo_list_add" onclick="selectConsignee(0)">
+        </li>
     </ul>
 </div> 
 

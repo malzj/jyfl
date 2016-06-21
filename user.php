@@ -156,7 +156,7 @@ elseif ($action == 'act_login')
 			$cardMoney = $card_result['Points'];
 			// 卡有效期
 			$cardOutTime = date('Y-m-d',strtotime($card_result['CardValieTime']));
-//            $company_id = $card_result['CustomerID'];
+            $company_id = $card_result['CustomerID'];
 			if ($card_result['Status'] !=2)
 			{
 				exit('不是激活状态，请联系华影客服！');
@@ -169,7 +169,7 @@ elseif ($action == 'act_login')
 			$cardMoney = $card_result['BalanceCash'];
 			// 卡有效期
 			$cardOutTime = date('Y-m-d',strtotime($card_result['ExpDate']));
-//            $company_id = 1;//现无公司字段，防止出错，默认1
+            $company_id = 1;//现无公司字段，防止出错，默认1
 			if ($card_result['Status'] != '正常')
 			{
 				exit($card_result['Status']);
@@ -183,11 +183,11 @@ elseif ($action == 'act_login')
 			$reg_date = gmtime();
 			$last_ip  = real_ip();
 //            设置默认值
-            $userheader = 'http://192.168.1.161/hy/images/headpic.png';
+            $userheader = '/hy/images/headpic.png';
             $basic = '保密';
             $pass_edit = 0;
 //			$GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`company_id`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$company_id."')");
-			$GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`nickname`,`basic`,`pass_edit`,`pic`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$username."','".$basic."','".$pass_edit."','".$userheader."')");
+			$GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`nickname`,`basic`,`pass_edit`,`pic`,`company_id`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$username."','".$basic."','".$pass_edit."','".$userheader."','".$company_id."')");
 		}else{//更新用户信息
 			$GLOBALS['db']->query('UPDATE ' . $GLOBALS['ecs']->table("users") . " SET password='".md5($password)."', card_money = '$cardMoney', youxiao_time = '".$cardOutTime."' WHERE user_id = '$int_uid'");
 		}

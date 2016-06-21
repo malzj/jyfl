@@ -42,7 +42,7 @@ a:focus{outline: none;}
 .zhuti_a_hover:hover{background: #35A794!important;transition: background .5s linear;-webkit-transition: background .5s linear;}
 .zhuti_a_hovercolor:hover{color:#2fd0b5!important;}
 .hd .prevStop{visibility: hidden;}
-.bg_white{background: white;}
+.bg_white{/* background: white; */}
 .hd .nextStop{
     visibility: hidden;
 }
@@ -671,7 +671,7 @@ body {
 }
 
 .header .header_nav li.balance span {
-	color: #df763a;
+	color: #ff781e;
 }
 
 .header {
@@ -729,7 +729,7 @@ html.movie .reying .reying_title {
 	margin: 0 auto;
 	background: white;
 	padding: 0 10px 20px 10px;
-	position: relative;
+	/* position: relative; */
 	padding-top: 20px;
 }
 
@@ -1200,7 +1200,7 @@ html.movie .midbox .nav_main ul.header_left li a:hover {
 	}
 .juqing_left{margin-left:-28px;}
 /*movie_1.html*/
-.pic img{transition:all .5s linear;opacity: .7;}
+.pic img{transition:all .5s linear;opacity: .8;}
 .pic img:hover{
 	opacity: 1;
     -webkit-box-shadow: 0 15px 30px rgba(0,0,0,0.5);
@@ -1749,7 +1749,7 @@ html.shuaka  .select_tips{margin: 15px 0 30px 0;font-size: 12px;color: #333333;}
 .shuaka_tip_title{margin:10px 0;font-size:16px;}
 .shuaka_tip{background: #c0f1e9;font-size: 12px;padding: 10px;}
 /*yingyuan1.html*/
-html.yingyuan1  .select_area{border: 1px solid #ddd;overflow: hidden;padding: 15px 0px 15px 15px;margin-bottom: 20px;clear: both;/* margin-top: 20px; */}
+html.yingyuan1  .select_area{border: 1px solid #ddd;overflow: hidden;padding: 15px 0px 15px 15px;margin-bottom: 20px;/* margin-top: 20px; */}
 html.yingyuan1  .select_area ul li{margin: 10px 0px;float: left;width: 120px;}
 html.yingyuan1  .select_area .title{padding: 5px 0;float: left;}
 html.yingyuan1  .select_area ul{float: right;width: 1085px;}
@@ -2321,7 +2321,7 @@ html.huaju2 .xupay{font-size: 22px;color: #2fd0b5;}
 .shouhuoren .shouhuo_title .shouhuorenxinxi{/* font-weight: 600; */font-size: 14px;color: #333333;}
 .shouhuoren .shouhuo_title .add_adress{color:#2ed2c1;cursor: pointer;}
  .shouhuoren{margin: 0 20px;}
- .shouhuoren .shouhuoren_item ul li{overflow: hidden;margin: 10px 20px 10px 0;}
+ .shouhuoren .shouhuoren_item ul li{overflow: hidden;margin: 10px 20px 10px 0;/* padding: 14px; */}
  .shouhuoren .shouhuoren_item ul li:hover{/* background: #ffe4cc; */}
  .shouhuoren .shouhuoren_item ul li div.shouhuoren_name{
 	width: 205px;
@@ -2336,8 +2336,10 @@ html.huaju2 .xupay{font-size: 22px;color: #2fd0b5;}
 }
  .shouhuoren .shouhuoren_item ul li div.shouhuoren_xinxi{
 	margin-left: 20px;
-	height: 30px;
-	line-height: 30px;
+	/* height: 30px; */
+	/* line-height: 30px; */
+	margin-top: 10px;
+	margin-right: 20px;
 }
  .shouhuoren .shouhuoren_item ul li div.shouhuoren_xinxi span.name{margin-left: 10px;}
  .shouhuoren .shouhuoren_item ul li div.shouhuoren_hover{
@@ -2350,7 +2352,7 @@ html.huaju2 .xupay{font-size: 22px;color: #2fd0b5;}
 	color: #3BA79B;
 }
  .shouhuoren .shouhuoren_item{overflow: hidden;height: 150px;margin: 10px 0;}
- .shouhuoren .add_item{display: none;border: 1px solid #ddd;padding: 20px 20px;}
+ .shouhuoren .add_item{display: none;border: 1px solid #ddd;padding: 20px 20px;margin-bottom: 20px;}
  .shouhuoren .add_item .item{line-height: 28px;/* height: 30px; */margin: 10px 0;overflow: hidden;}
  .shouhuoren .add_item .item label{height: 40px;width: 75px;line-height: 40px;}
  .shouhuoren .add_item .item input,
@@ -2364,9 +2366,9 @@ html.huaju2 .xupay{font-size: 22px;color: #2fd0b5;}
  .shouhuoren .add_item .item select{border: 1px solid #ddd;margin-right: 20px;width: 250px;}
  .shouhuoren .add_item .item div.input{border: 1px solid #ddd;}
  .shouhuoren .add_item .item .xiangxi input{width: 400px;}
- .shouhuoren .add_item .btn_1 span.save{background: #ff9a12;padding: 5px 10px;color: white;margin-right: 50px;border-radius: 10px;cursor: pointer;}
+ .shouhuoren .add_item .btn_1 span.save{background: #ff9a12;padding: 3px 24px;color: white;margin-right: 50px;border-radius: 10px;cursor: pointer;}
  .shouhuoren .add_item .btn_1 span.cancel{padding: 5px 10px;color: #43d2b9;cursor: pointer;}
- .shouhuoren .more{margin: 10px 0 20px 0;}
+ .shouhuoren .more{margin: 0px 0 20px 0;}
  .shouhuoren .more span.jiantou{/* transform: rotate(180deg); */margin-left: 10px;transition: all .5s linear;}
  .shouhuoren .more span#more{cursor: pointer;}
  .shouhuoren_item .shouhuo_list.selected{background-position: -258px 0px;/* border:1px red solid!important; */}
@@ -2376,9 +2378,11 @@ html.huaju2 .xupay{font-size: 22px;color: #2fd0b5;}
  .bianji:hover{background-position: -34px -137px;}
  .remove{background: url(/images/juyoufuli/img_login/shouhuo.png) no-repeat -124px -137px;width: 25px;height: 30px;display: inline-block;}
  .remove:hover{background-position: -153px -137px;}
- .xuanzhong{background: url(/images/juyoufuli/img_login/shouhuo.png) no-repeat -69px -137px;width: 25px;height: 30px;display: inline-block;cursor: pointer;}
+ .xuanzhong{background: url(/images/juyoufuli/img_login/shouhuo.png) no-repeat -66px -137px;width: 25px;height: 30px;display: inline-block;cursor: pointer;}
  .xuanzhong.selected{background-position: -7px -137px;}
- .xuanzhong:hover{background-position: -10px -137px;}
+ .xuanzhong:hover{background-position: -7px -137px;}
+.shouhuo_list_add{cursor: pointer;float: left;width: 245px;height: 140px;background: url(/images/juyoufuli/img_login/shouhuo.png) no-repeat -259px -155px;}
+ 
  
  .pay_way .pay_way_title{font-size: 16px;color: #43d2b9;font-weight: 600;margin: 20px 0;}
  .pay_way .pay_way_details{margin:10px 20px;}
@@ -2692,7 +2696,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 	color: white;
 	}
 .cake2_top_item{width: 410px;}
-.cake2_img{width: 526px;height: 519px;}
+.cake2_img{width: 520px;height: 519px;}
 .cake2_img img{/* width: 100%; *//* height: 100%; */}
 .cake2_shangpin_details span{display: inline-block;padding-bottom: 5px;border-bottom: 4px solid #2fd0b5;font-weight: bold;}
 .cake2_shangpin_details{font-size: 16px;margin: 40px 0 20px 0;}
@@ -2763,6 +2767,7 @@ html.shenghuo1 body{background: white;}
 
 
 /*pop_right*/
+.game_name1{white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 .guize_content,.xieyi_content{padding: 0 10px;}
 
 /*order.html*/
@@ -2794,7 +2799,7 @@ html.shenghuo1 body{background: white;}
 .order_submit1 button{margin-left: 20px;letter-spacing: 1.5px;color: white;border: none;background: #2ed2c1;padding: 9px 50px;border-radius: 5px;}
 .shiji_price{height: 40px;line-height: 40px;}
 .shiji_price font{color: #2ed2c1;font-size: 22px;}
-.order_gyshang_itemAll_height {height:120px}
+.order_gyshang_itemAll_height {height:120px;}
 .order_item_guige{width: 500px;}
 .peisong_date{margin-right: 15px;height: 21px;width: 130px!important;border: 1px solid #B1AFAF;text-align: center;}
 .peisong_time{margin-right: 10px;}

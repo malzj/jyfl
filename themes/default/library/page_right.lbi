@@ -86,7 +86,7 @@
             						'<img src="{$app_path}jyflapi/Public/games/upload/'+game_glo[i].thumbnail+'" class="img-responsive">'+
             						'</div>'+
             						'<div class="act_item2 f_l">'+
-            						'<div>'+game_glo[i].game_name+'</div>'+
+            						'<div class="game_name1">'+game_glo[i].game_name+'</div>'+
             						'<div>共'+game_glo[i].total_point+'点</div>'+
             						'<div style="line-height: 15px;">'+
             						'<span class="jindu"><span class="jindu1" style="width:'+game_glo[i].percent+'%"></span></span>'+
@@ -119,7 +119,7 @@
             						'<img src="{$app_path}jyflapi/Public/games/upload/'+game_com[i].thumbnail+'" class="img-responsive">'+
             						'</div>'+
             						'<div class="act_item2 f_l">'+
-            						'<div>'+game_com[i].game_name+'</div>'+
+            						'<div class="game_name1">'+game_com[i].game_name+'</div>'+
             						'<div>共'+game_com[i].total_point+'点</div>'+
             						'<div style="line-height: 15px;">'+
             						'<span class="jindu"><span class="jindu1" style="width:'+game_com[i].percent+'%"></span></span>'+

@@ -20,6 +20,10 @@ class CompanyController extends Controller
         $result = $Card -> getResult();
         var_dump($result);
     }
+
+    /**
+     * 同步卡系统公司列表
+     */
     public function companySync(){
         $CompanyModel = M('Company');
         $lastTime = $CompanyModel->order('create_time DESC')->getField('create_time');
@@ -53,12 +57,15 @@ class CompanyController extends Controller
      * @since   v1.0
      */
     public function companyList(){
+        $companyName = I('request.searchkey');
         $CompanyModel = M('Company');
         $GradeModel = M('Grade');
-        $count = $CompanyModel -> count();
+        if(!empty($companyName))
+        $sqldata['company_name']=$companyName;
+        $count = $CompanyModel ->where($sqldata) -> count();
         $Page = new Page($count,10);
         $pages = $Page -> show();
-        $data = $CompanyModel -> order('id desc') -> limit($Page->firstRow.','.$Page -> listRows) -> select();
+        $data = $CompanyModel->where($sqldata) -> order('id desc') -> limit($Page->firstRow.','.$Page -> listRows) -> select();
         $companyList = array();
         foreach($data as $key => $value){
             $gradeName = $GradeModel -> where(array('id'=>$value['grade_id'])) -> getField('grade_name');
@@ -70,6 +77,7 @@ class CompanyController extends Controller
         $this -> assign('pages',$pages);
         $this -> display();
     }
+
     /**
      * 公司编辑
      */

@@ -44,6 +44,8 @@
                             公司列表
                         </header>
                         <div class="panel-body">
+                            <div><form action="{:U('Company/companyList')}"><input type="text" name="searchkey"><button type="submit">搜索</button> </form></div>
+                            <a  class="btn btn-primary" style="margin-right: 20px;margin-top:10px;float: right" href="{:U('Company/companySync')}">同步卡系统公司</a>
                             <table class="table table-striped" cellpadding=3 cellspacing=5>
                                 <thead>
                                 <tr>

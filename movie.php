@@ -147,7 +147,6 @@ elseif ($_REQUEST['step'] == "movie")
 	
 	// 电影产品
 	$shifuMovie = $shifuComing = array();
-	$shifuMovie = array_shift($arr_data);
 	$shifuComing = array_shift($arr_datas);
 	$movies = array(
 	    'hot'=>$arr_data, 

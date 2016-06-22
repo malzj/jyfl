@@ -28,7 +28,7 @@
 							<ul class="sport4_img_item">
                             	{foreach from=$detail.imgs item=img}
 								<li class="f_l">
-									<img src="{$img}" alt="{$detail.productName}" width="90">
+									<img src="{$img}" alt="{$detail.productName}" width="90" height="90">
 								</li>
 								{/foreach}
 							</ul>
@@ -41,7 +41,7 @@
 						<li class="sport4_pri">价格：<span class="sport4_dianshu">{$detail.salePrice}</span>点</li>
 						<li class="sport4_mar">营业时间：<span>{$detail.businessHours} </span></li>
 						<li class="sport4_mar">详细地址：<span>{$detail.viewAddress}</span></li>
-						<li><a href="#goumai"><span class="sport4_btn">立即购买</span></a></li>
+						<li><a href="#goumai"><span class="sport4_btn" style="text-align: center;">立即购买</span></a></li>
                         <li id="goumai"></li>
 					</ul>
 				</div>

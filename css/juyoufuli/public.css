@@ -731,7 +731,7 @@ html.movie .reying .reying_title {
 	margin: 0 auto;
 	background: white;
 	padding: 0 10px 20px 10px;
-	/* position: relative; */
+	/* position: absolute; */
 	padding-top: 20px;
 	margin-top: 0px!important;
 }

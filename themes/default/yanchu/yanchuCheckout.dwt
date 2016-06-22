@@ -7,9 +7,9 @@
 		<script src="{$app_path}js/juyoufuli/jquery.shoppingflow.js"></script>
         <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
         {insert_scripts files='jquery.region.js,utils.js'}
-		<!--<style>
-		.shouhuoren_item .shouhuoren_name.selected{border:1px red solid!important;background:white url(/images/index/img_login/hy_hj.jpg) no-repeat right bottom!important;}
-        </style>-->
+		<script>
+        	var peisong = {$peisong};
+        </script>
 	</head>
 	<body>
         <!-- 头部 -->
@@ -59,6 +59,9 @@
 			</div>
 			<div class="tijiao">
 				<div class="f_r">
+                	{if $peisong eq 1}
+                	<span style="color:red;">当前地址不支持配送，请换一个！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    {/if}
 					<span>实际付款金额：</span>
 					<span class="num">{$order.amount}</span> 点
                     <input type="hidden" name="act" value="act_order" />		
@@ -77,7 +80,7 @@
         <!-- 公共右边 -->
 		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
         <!-- 公共右边结束 -->
-        <script> 
+        <script> 	
 			
 			var checkconsignee = '{$checkconsignee}';
 		
@@ -86,6 +89,10 @@
 			function checkYcOrderForm(){	
 				if(checkconsignee == 0){
 					alert('请选择你的收货地址');
+					return false;
+				}
+				if(peisong == 0){
+					alert('当前地址不支持配送');
 					return false;
 				}
 				return true;		

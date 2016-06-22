@@ -179,11 +179,13 @@ elseif ($_REQUEST['act'] == 'checkout')
 	    $smarty->assign('checkconsignee', 0);
 	}
 	
+	
 	/* 检查当前地址是否支持配送*/
-	/* if ( check_consignee($consignee) )
-	{
-	    show_message('当前地址不支持配送！');
-	} */
+	if ( !check_consignee($consignee) ){
+	    $smarty->assign('peisong', 0);
+	}else{
+	    $smarty->assign('peisong', 1);
+	}
 	
 	$smarty->assign('consignee', $consignee);
 
@@ -242,7 +244,7 @@ else if ($str_action == 'act_order'){
 	}
     
 	/* 检查当前地址是否支持配送*/
-	if ( check_consignee($arr_consignee) )
+	if ( !check_consignee($arr_consignee) )
 	{
 	    show_message('当前地址不支持配送！');
 	}

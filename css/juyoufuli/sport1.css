@@ -34,8 +34,8 @@ a:link,a:visited{text-decoration:none;}
 .tg_navgation ul li{float:left; padding:0 15px; font-size:12px; margin-right:45px;}
 .tg_navgation ul .linow{background:#F1141B;}
 .tg_navgation ul li a{color:#fff;}
-.tg_n{width:1200px;margin: 0 auto;overflow: hidden;}
-.tg_sx{width: 1200px;border: 1px solid #ddd;margin:0 auto;height:100%;overflow: hidden;}
+.tg_n{background: white;width:1200px;margin: 0 auto;/* overflow: hidden; */padding-left: 10px;padding-right: 10px;}
+.tg_sx{width: 1200px;border: 1px solid #ddd;margin:0 auto;height:100%;/* overflow: hidden; *//* margin-top: 90px; *//* padding-top: 60px; */}
 .tg_area ul li a{display: block;padding: 0px 5px;margin-bottom:5px;white-space:nowrap;color: black;}
 .tg_area ul li a:hover{background-color: #ff7900;text-decoration:none;color: white;border-radius: 5px;}
 .tg_area ul li a.nn{border-radius:5px;background:#51B5E7; color:#fff;}
@@ -43,7 +43,7 @@ a:link,a:visited{text-decoration:none;}
 .tg_area ul{width:1043px;}
 .tg_sx  ul li{float:left; margin:0 18px 5px 0;_width:120px;}
 .tg_sx  ul li .active{background: #ff7900;color:#fff;text-decoration:none;border-radius: 5px;}
-.tg_area{border-bottom: 1px solid #ddd;padding: 8px 80px 8px 75px;position:relative;height:100%;overflow:hidden;clear:both;font-size:14px;margin: 5px 20px;}
+.tg_area{border-bottom: 1px solid #ddd;padding: 8px 80px 8px 75px;position:relative;height:100%;overflow:hidden;font-size:14px;margin: 5px 20px;}
 .tg_areaheadline{width:80px;position:absolute;left: 0;top: 8px;padding-left:10px;}
 .tg_areamore{width:50px; padding-top: 8px; position: absolute; right: 0; top: 0; cursor:pointer}
 .tg_arr_u{background-position:30px 14px;}
@@ -196,3 +196,4 @@ table{margin-top: 10px;}
 
 
 .tg_areaheadline strong{color: black;font-weight: bold;}
+.tg_sx_All{width: 1200px;margin: 0 auto!important;background: white;padding: 60px 10px 20px 10px;}

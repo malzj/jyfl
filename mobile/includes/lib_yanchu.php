@@ -85,10 +85,9 @@ function get_yanchu_back($id)
 function check_consignee($consignee)
 {
     $region = findData('area_region', "region_id='".$consignee['province']."'");
-    var_dump($region);
-    /* if (empty($region))
+    if (empty($region))
         return false;
     else
-        return true; */
+        return true; 
 }
 ?>

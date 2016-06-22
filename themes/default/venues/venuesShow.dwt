@@ -113,7 +113,7 @@
                                 <div class="input-t">手机号码</div>
                                 <div class="mobiled">
                                     <label class="inpt">
-                                        <input class="G_input" type="text" name="link_phone" id="mobile" alt="手机号码">
+                                        <input class="G_input judgeBound" type="text" name="link_phone" id="mobile" alt="手机号码">
                                     </label>
                                 </div>
                                 <div class="mobiled">

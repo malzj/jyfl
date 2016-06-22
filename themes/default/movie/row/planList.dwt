@@ -4,7 +4,7 @@
     <i {if $plan.periods==1}class="evening" title="夜晚"{elseif $plan.periods==2}class="morning" title="上午"{elseif $plan.periods==3}class="afternoon" title="下午"{/if}></i>
     <span class="span_1">{$plan.time}</span>
     <span class="span_1">{$plan.screenType}/{$plan.language}</span>
-    <span class="span_1 juqingA">{$plan.hallName}</span>
+    <span class="span_1">{$plan.hallName|truncate:3:false}</span>
     <span class="span_1"><span class="color_ff781e">{$plan.price}</span>点</span>
     <span class="buy span_1">
     {if $plan.is_cut eq 1}

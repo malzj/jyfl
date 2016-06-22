@@ -250,11 +250,38 @@ elseif ($_REQUEST['step'] == 'yunfei')
     // 如果当前供应商运费计算类型，1 地图， 2 商城
     if ($detail['is_map'] == 2)
     {
+        /* 取得购物类型 */
+        $flow_type = isset($_SESSION['flow_type']) ? intval($_SESSION['flow_type']) : CART_GENERAL_GOODS;
+        // 购物车商品
+        $cart_goods = cart_goods($flow_type);
+        // 购物车商品id
+        $cart_goods_id = array();
+        foreach ($cart_goods as $cart){
+            $cart_goods_id[] = $cart['goods_id'];
+        }
+        // 得到购物车所有商品信息
+        $cart_goods_info = findData('goods',"goods_id IN(".implode(',', $cart_goods_id).")");
+        // 计算供应商的商品总金额
+        $totalFee = 0;
+        foreach ($cart_goods_info as $goods_info)
+        {
+            if ($goods_info['supplier_id'] == $id)
+            {
+                foreach ($cart_goods as $cart)
+                {
+                    if ($cart['goods_id'] == $goods_info['goods_id'])
+                    {
+                        $totalFee = $totalFee+($cart['goods_price'] * $cart['goods_number']);
+                    }
+                }
+            }
+        }
+        
         $arr_shipping = supplier_shipping_area_info($id,1,$consignee);
         if (!empty($arr_shipping)){
             $arr_shipping['shipping_id'] = 1;
             $shipping_cfg = unserialize_config($arr_shipping['configure']);
-            $shipping_fee = shipping_fee($arr_shipping['shipping_code'], unserialize($arr_shipping['configure']), 1, $arr_order['goods_amount'], $arr_order['number']);
+            $shipping_fee = shipping_fee($arr_shipping['shipping_code'], unserialize($arr_shipping['configure']), 1, $totalFee, 1);
             $arr_shipping['shipping_fee']        = $shipping_fee;    
         }     
     }

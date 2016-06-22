@@ -36,7 +36,6 @@ class GamesController extends Controller
         $count = $GamesModel->where($sqldata) -> count();
         $Page = new Page($count,10);
         $pages = $Page ->show();
-//        $gameList = $GamesModel -> join('LEFT JOIN __GRADE__ ON __GAMES__.grade_id=__GRADE__.id')-> limit($Page -> firstRow.','.$Page -> listRows) -> select();
         $data = $GamesModel ->where($sqldata) -> limit($Page -> firstRow.','.$Page -> listRows) -> select();
         $grade=$GradeModel->select();
         $gradeList=array();

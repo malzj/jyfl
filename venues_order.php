@@ -2,6 +2,7 @@
 define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
+include_once(ROOT_PATH . 'includes/lib_basic.php');
 include_once(ROOT_PATH . 'includes/lib_order.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_dongsport.php');
@@ -100,6 +101,7 @@ if ($action == 'saveOrder')
     }    
     $smarty->assign( 'order', $order);
     $smarty->assign( 'detail', $venuesDetail );   
+    $smarty->assign('backHtml', getBackHtml('venuesindex.php'));
     $smarty->display('venues/venuesOrder.dwt');
 }
 

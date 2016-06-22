@@ -59,10 +59,10 @@ function sub_str($str, $length = 0, $append = true)
         $newstr = substr($str, 0, $length);
     }
 
-    if ($append && $str != $newstr)
-    {
-        $newstr .= '...';
-    }
+//    if ($append && $str != $newstr)
+//    {
+//        $newstr .= '...';
+//    }
 
     return $newstr;
 }

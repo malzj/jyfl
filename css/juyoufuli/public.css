@@ -702,7 +702,7 @@ body {
 	padding: 0 15px;
 }
 
-html.movie .newsimg {
+.newsimg {
     overflow: hidden;
 }
 
@@ -1571,8 +1571,8 @@ html.movie_2  .content_right .pay_box .img_left{float: left;}
 html.movie_2  .content_right .pay_box .xiangqing{float:right;}
 html.movie_2  .content_right .pay_box .xiangqing li{margin-right: 20px;margin-bottom: 10px;padding: 3px;}
 html.movie_2  .content_right .pay_box ul.yingyuan_del li{padding: 5px 0;}
-html.movie_2  .content_right .pay_box ul.yingyuan_del{margin-top: 20px;}
-html.movie_2  .content_right .pay_box .heji{border-bottom: 1px dashed;margin-top: 80px;}
+html.movie_2  .content_right .pay_box ul.yingyuan_del{margin-top: 10px;}
+html.movie_2  .content_right .pay_box .heji{border-bottom: 1px dashed;margin-top: 20px;}
 html.movie_2  .content_right .pay_box .zongjia{float: right;margin-bottom: 40px;}
 html.movie_2  .content_right .pay_box .tel_shuru input{padding: 5px 20px;}
 html.movie_2  .content_right .pay_box .tel_shuru #mobile{margin-top: 10px;padding: 0 5px;margin-bottom: 5px;}
@@ -2278,11 +2278,13 @@ html.huaju1 .w_1200 .jieshao .jieshao_box ul li span.tip{
 
 html.huaju1 .w_1200 .jieshao .jieshao_box ul li span.tips{
 	width: 440px;
-	height: 50px;
+	/*height: 50px;*/
 	display: inline-block;
-	line-height: 50px;
+	/*line-height: 50px;*/
 	text-indent: 20px;
 	font-size: 16px;
+	margin-left: 10px;
+	vertical-align: middle;
 }
 html.huaju1 .w_1200 .jieshao .jieshao_title span.title_jieshao{font-size: 16px;color: #2fd0b5;font-weight: bold;}
 html.huaju1 .w_1200 .jieshao .jieshao_title span.tip{display: inline-block;width: 5px;height: 20px;background: #ff4a00;vertical-align: text-top;}
@@ -2940,7 +2942,7 @@ html.shenghuo1 body{background: white;}
     padding: 4px 10px;
     border-radius: 15px;}
 /*公共返回按钮*/
-.return_tip{background: white;float: left;width: 65px;height: 135px;/* border: 1px solid #2fd0b5; *//* border-radius: 10px; */z-index: 1;margin-left: -76px;margin-top: 40px;}
+.return_tip{background: white;float: left;width: 65px;/* height: 135px; *//* border: 1px solid #2fd0b5; *//* border-radius: 10px; */z-index: 1;margin-left: -76px;margin-top: 40px;}
 .return_tip_index{
     color: #2fd0b5;
     display: block;
@@ -2952,6 +2954,7 @@ html.shenghuo1 body{background: white;}
 .return_index_img{width: 36px;background: url(/images/juyoufuli/img_login/return_icon1.png) no-repeat 4px 8px;display: block;height: 38px;margin: 0 auto;}
 .return_index_img:hover{background-position: 4px -31px;}
 .return_tip_return{
+	padding-bottom: 10px;
 	color: #2fd0b5;
 	display: block;
 	text-align: center;

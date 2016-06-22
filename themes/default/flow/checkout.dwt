@@ -19,7 +19,7 @@
         	.show_baidumap,.show_baidumap.layui-layer-content { background:#FFF!important;}
         </style>
     </head>
-	<body class='bg_white'>
+	<body>
         <!-- 头部 -->
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->
@@ -259,7 +259,8 @@
 					dataType: "json",					
 				});	
 			}
-		
+		//列表最后一个去掉下划线以及padding值
+		$('.order_gyshang_item:last-child').css({'border-bottom':'none','padding-bottom':'0'});
 		</script>
     </body>
 </html>

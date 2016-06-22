@@ -42,7 +42,7 @@ a:focus{outline: none;}
 .zhuti_a_hover:hover{background: #35A794!important;transition: background .5s linear;-webkit-transition: background .5s linear;}
 .zhuti_a_hovercolor:hover{color:#2fd0b5!important;}
 .hd .prevStop{visibility: hidden;}
-.bg_white{/* background: white; */}
+.bg_white{background: white;}
 .hd .nextStop{
     visibility: hidden;
 }

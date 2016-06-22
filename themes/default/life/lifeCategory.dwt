@@ -70,7 +70,7 @@
         	{$backHtml}
             
             <div class="cake1_top o_hidden">
-				<div class="cake1_top_Sort f_l"><span class="glyphicon glyphicon-play"></span>商品分类</div>
+				<div class="cake1_top_Sort f_l">商品分类</div>
 				<ul>
                 	{foreach from=$childrenNavigator.middle.17.child item=child}
 					<li {if $child.cid eq $cat_id} class="active"{/if}><a href="{$child.url}">{$child.name}</a></li>
@@ -108,7 +108,7 @@
 					</div>
 					<div class="cake_btn f_r">
 						<a href="{$goods.url}"><span class="cake_btn_look"></span>查看详情</a>
-						<a href="javascript:addToCart({$goods.goods_id})"><span class="cake_btn_add"></span>加入购物车</a>
+						<a href="javascript:;" onclick="MoveBox1(this,'{$goods.goods_id}')"><span class="cake_btn_add"></span>加入购物车</a>
 					</div>
 				</div>
                 {/if}

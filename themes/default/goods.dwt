@@ -12,8 +12,7 @@
         <!-- 头部 -->
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->
-        
-        <div class="w_1200 clearfix">
+        <div class="w_1200">
         
         	<!-- 返回首页 -->
         	{$backHtml}
@@ -108,12 +107,11 @@
                     <!-- {/foreach}-->                    
                 </ul>
                 <!--蛋糕详情-->
-                <div class="details" style="overflow: hidden;width: 990px;margin: 0 auto;text-align: center;">
+                <div class="details">
                 	{$goods.goods_desc}
                 </div>
 			
 			</div>
-            
         
         <!-- 底部 -->
 	 	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->

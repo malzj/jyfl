@@ -679,6 +679,7 @@ $(function () {
         var uid = $('#user_id').val();
         var phone = $(this).val();
         if(phone.length!=11) return false;
+        var index;
         var partten = /^1[3,5,7,8]\d{9}$/;
         if(partten.test(phone)) {
             $.ajax({
@@ -688,7 +689,11 @@ $(function () {
                     user_id: uid,
                 },
                 dataType: 'json',
+                beforeSend:function(){
+                    index=layer.load();
+                },
                 success: function (data) {
+                    layer.close(index);
                     if (data.phone.result == 'false') {
                         layer.confirm('是否绑定手机？', function () {
                             layer.open({

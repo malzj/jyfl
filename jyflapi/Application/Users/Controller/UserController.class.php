@@ -99,28 +99,28 @@ class UserController extends Controller
       $result = $Dao->where(array("user_id"=>$id))->find();
       $rudata = array();
       if($result['pass_edit'] == 0){
-        $rudata['password']['result'] = false;
+        $rudata['password']['result'] = "false";
         $rudata['password']['msg'] = "未修改";
       }else{
-        $rudata['password']['result'] = true;
+        $rudata['password']['result'] = "true";
         $rudata['password']['msg'] = "已修改";
       }
 
       if($result['bound_status']==0){
-        $rudata['phone']['result'] = false;
+        $rudata['phone']['result'] = "false";
         $rudata['phone']['msg'] = "未绑定";
       }else{
-        $rudata['phone']['result'] = true;
+        $rudata['phone']['result'] = "true";
         $rudata['phone']['msg'] = "已绑定";
         $rudata['phone']['num'] = $result['mobile_phone'];
       }
 
 
       if(!empty($result['answerone']) && !empty($result['answertwo']) && !empty($result['answerthree'])){
-        $rudata['answer']['result'] = true;
+        $rudata['answer']['result'] = "true";
         $rudata['answer']['msg'] = "已设置";
       }else{
-        $rudata['answer']['result'] = false;
+        $rudata['answer']['result'] = "false";
         $rudata['answer']['msg'] = "未设置";
       }
       $rudata['result']="true";

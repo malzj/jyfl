@@ -63,7 +63,7 @@ function loacList(param, idClass){
 		type:'POST',
 		data: param,
 		beforeSend:function(){
-			$(idClass).html(" LOADING ... ");
+			$(idClass).html("<center><img src='/images/juyoufuli/img_login/loading.gif'></center>");
 		},
 		success:function( data ){
 			$(idClass).html(data);

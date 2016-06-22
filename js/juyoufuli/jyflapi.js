@@ -412,7 +412,7 @@ function showAddress(){
 						  }else{
 							  var selected = '<span class="checkbox_img"></span>设为默认'
 						  }
-							var html='<tr><td class="td_1">'+list[i].consignee+'</td><td>'+list[i].country+list[i].province+list[i].address+'</td><td class="td_3">'+list[i].mobile+'</td><td class="gn_btn"><a class="set_address" data-address-id="'+list[i].address_id+'" href="javascript:void(0);">'+selected+'</a><a href="javascript:void(0);" onclick="delAddress('+list[i].address_id+')">删除</a><a href="javascript:void(0);" class="xiugai" data-addressid="'+list[i].address_id+'">修改</a></td></tr>';
+							var html='<tr><td class="td_1">'+list[i].consignee+'</td><td class="td_2">'+list[i].country+list[i].province+list[i].address+'</td><td class="td_3">'+list[i].mobile+'</td><td class="gn_btn"><a class="set_address" data-address-id="'+list[i].address_id+'" href="javascript:void(0);">'+selected+'</a><a href="javascript:void(0);" onclick="delAddress('+list[i].address_id+')">删除</a><a href="javascript:void(0);" class="xiugai" data-addressid="'+list[i].address_id+'">修改</a></td></tr>';
 						htmlshouhuolist+=html;
 
 					  }
@@ -458,7 +458,7 @@ function getAddressHtml(){
 					}else{
 						var selected = '<span class="checkbox_img"></span>设为默认'
 					}
-					var html='<tr><td class="td_1">'+list[i].consignee+'</td><td>'+list[i].country+list[i].province+list[i].address+'</td><td class="td_3">'+list[i].mobile+'</td><td class="gn_btn"><a class="set_address" data-address-id="'+list[i].address_id+'" href="javascript:void(0);">'+selected+'</a><a href="javascript:void(0);" onclick="delAddress('+list[i].address_id+')">删除</a><a href="javascript:void(0);" class="xiugai" data-addressid="'+list[i].address_id+'">修改</a></td></tr>';
+					var html='<tr><td class="td_1">'+list[i].consignee+'</td><td class="td_2">'+list[i].country+list[i].province+list[i].address+'</td><td class="td_3">'+list[i].mobile+'</td><td class="gn_btn"><a class="set_address" data-address-id="'+list[i].address_id+'" href="javascript:void(0);">'+selected+'</a><a href="javascript:void(0);" onclick="delAddress('+list[i].address_id+')">删除</a><a href="javascript:void(0);" class="xiugai" data-addressid="'+list[i].address_id+'">修改</a></td></tr>';
 					htmlshouhuolist+=html;
 
 				}

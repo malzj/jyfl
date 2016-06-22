@@ -1,6 +1,6 @@
 .clear{clear:both}
 .left{float:left;}
-.wrap{width:1200px;margin:0px auto;position:relative;margin-top: 90px;}
+.wrap{background: white;width:1200px;margin: 0px auto!important;position:relative;padding: 90px 10px 0 10px;}
 .buy-warp{padding: 10px 0;width:1200px;height:100%;overflow:hidden;font-family:"Microsoft Yahei";}
 .buy-warp-left{padding-top: 0px;}
 .ros-list{border-bottom:1px solid #d8d8d8; margin-top:15px; width:918px;}

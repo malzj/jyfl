@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="{$app_path}css/juyoufuli/sport1.css">
         <link rel="stylesheet" href="{$app_path}css/juyoufuli/venues.css">
 	</head>
-	<body class="bg_white">
+	<body>
         <!-- 头部 -->
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->

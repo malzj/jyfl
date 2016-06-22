@@ -731,7 +731,7 @@ html.movie .reying .reying_title {
 	margin: 0 auto;
 	background: white;
 	padding: 0 10px 20px 10px;
-	/* position: relative; */
+	/* position: absolute; */
 	padding-top: 20px;
 	margin-top: 0px!important;
 }
@@ -2543,7 +2543,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .jy_pass input{padding: 4px 20px;border: 1px solid #ddd;background: #F2F2F2;}
 .jy_jiesuan{
     cursor: pointer;
-    padding: 4px 15px;
+    padding: 4px 23px;
     background: #ff781e;
     color: white;
 }

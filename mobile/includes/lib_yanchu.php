@@ -80,4 +80,14 @@ function get_yanchu_back($id)
     );
     return $backUrl[$id];
 }
+
+/* 演出收货地址验证 */
+function check_consignee($consignee)
+{
+    $region = findData('area_region', "region_id='".$consignee['province']."'");
+    if (empty($region))
+        return false;
+    else
+        return true; 
+}
 ?>

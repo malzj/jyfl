@@ -179,6 +179,12 @@ elseif ($_REQUEST['act'] == 'checkout')
 	    $smarty->assign('checkconsignee', 0);
 	}
 	
+	/* 检查当前地址是否支持配送*/
+	if ( check_consignee($consignee) )
+	{
+	    show_message('当前地址不支持配送！');
+	}
+	
 	$smarty->assign('consignee', $consignee);
 
 	$arr_region = array($consignee['country'], $consignee['province'], $consignee['city'], $consignee['district']);//取得配送列表
@@ -234,7 +240,13 @@ else if ($str_action == 'act_order'){
 	if (empty($arr_consignee)){
 		show_message('请选择一个收货地址！');
 	}
-
+    
+	/* 检查当前地址是否支持配送*/
+	if ( check_consignee($arr_consignee) )
+	{
+	    show_message('当前地址不支持配送！');
+	}
+	
 	$str_regionName = get_add_cn($arr_consignee['country']).' '.get_add_cn($arr_consignee['province']).' '.get_add_cn($arr_consignee['city']).' '.get_add_cn($arr_consignee['district']);
 
 	//计算配送费用
@@ -413,3 +425,4 @@ function ispick( $data=array() )
     else
         return false;
 }
+

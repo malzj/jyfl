@@ -428,8 +428,9 @@ class GamesApiController extends Controller
     }
 
     public function test(){
-$url="netstreambasepath=http%3A%2F%2Fwww.chuanke.com%2Fv1899056-166227-753897.html&flashplayer=http%3A%2F%2Fwebkk.chuanke.com%2Fplayer%2Fplayer_enc.swf&anthology=true&uid=6238264&seekheader=true&quickseek=true&icons=true&controlbar=over&bufferlength=3&type=http&streamer=start&autostart=true&id=mediaspace&base=http%3A%2F%2Fwww.chuanke.com%2F&file=%2F%3Fmod%3Dvideo%26act%3Dplay%26do%3Dfile%26sf%3Dbd%26id%3D6238264%26key1%3Df246efc9db58ee542ab2350550f267f8%26pv%3D0%26ts%3D1466407941%26key%3D38b168db995e38f0164cca33aca71dab";
-        $u = urldecode($url);
-        echo $u;
+        $a = strtotime('05:00:00');
+        $b = strtotime(date('H:i:s',strtotime('2011-1-12 06:00:00')));
+        echo $a.'<br/>'.$b;
+//        date('Y-m-d H:i:s',$a);
     }
 }

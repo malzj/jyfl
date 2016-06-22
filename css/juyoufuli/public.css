@@ -1515,12 +1515,17 @@ html.movie_1 .w_1200 .select_cinema ul li.active p.cinemaName_1{color:#333;font-
 	overflow: hidden;
 	background: #cccccc;
 	font-size: 16px;
+	padding-left: 20px;
 }
 #planList{overflow-y: auto;height: 487px;width: 681px;color: #333333;font-size: 16px;}
-#planList li{border-bottom: 1px dashed #c3c3c3;padding: 18px 0;}
+#planList li{border-bottom: 1px dashed #c3c3c3;padding: 18px 0 18px 20px;position:relative;}
+#planList li i{width: 23px;height: 18px;display: inline-block;position: absolute;top: 25px;left: 25px;}
+#planList li i.morning{background: url('/images/juyoufuli/shangwu.png') no-repeat;}
+#planList li i.afternoon{background: url('/images/juyoufuli/xiawu.png') no-repeat;}
+#planList li i.evening{background: url('/images/juyoufuli/yueliang.png') no-repeat;}
 .cinema_del .cinema_del_title span {
 	display:inline-block;
-	width: 129px;
+	width: 125px;
 	text-align: center;
 	height: 42px;
 	line-height: 42px;
@@ -1530,7 +1535,7 @@ html.movie_1 .w_1200 .select_cinema ul li.active p.cinemaName_1{color:#333;font-
 .movie_xiangqing .cinema_del .span_1 {
 	text-align: center;
 	display: inline-block;
-	width: 129px;
+	width: 125px;
 	vertical-align: bottom;
 	vertical-align: middle;
 }

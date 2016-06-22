@@ -2659,7 +2659,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .paixu_box.active{background: #eaeaea;}
 .cake_content{margin-left: 20px;width: 490px;}
 .cake_box{margin: 20px 0;}
-.cake_box_item{padding: 20px 0;border-bottom: 1px dashed #d8d8d8;}
+.cake_box_item{/* position: relative; */padding: 20px 0;border-bottom: 1px dashed #d8d8d8;}
 .cake_btn{
     margin-top: 60px;
     width: 150px;

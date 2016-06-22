@@ -321,6 +321,17 @@ function searchPlan( $moviePlan, $currentTime, $ratio)
 			}else{
 				$plan['is_cut'] = 0;
 			}
+			//时间分段
+			$ufeatureTime = strtotime(date('H:i:s',strtotime($plan['featureTime'])));
+			if($ufeatureTime>=strtotime('00:00:00')&&$ufeatureTime<strtotime('05:59:59')){
+				$plan['periods']=1;//晚上
+			}elseif($ufeatureTime>=strtotime('06:00:00')&&$ufeatureTime<strtotime('11:59:59')){
+				$plan['periods']=2;//上午
+			}elseif ($ufeatureTime>=strtotime('12:00:00')&&$ufeatureTime<strtotime('17:59:59')){
+				$plan['periods']=3;//下午
+			}elseif ($ufeatureTime>=strtotime('18:00:00')&&$ufeatureTime<strtotime('23:59:59')){
+				$plan['periods']=1;//晚上
+			}
 			// 成本价
 			$plan['extInfo'] = $plan['price'];
 			if ($ratio !== false){

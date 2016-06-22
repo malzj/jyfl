@@ -1,6 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 {foreach from=$moviePlan item=plan}
 <li>
+    <i {if $plan.periods==1}class="evening" title="夜晚"{elseif $plan.periods==2}class="morning" title="上午"{elseif $plan.periods==3}class="afternoon" title="下午"{/if}></i>
     <span class="span_1">{$plan.time}</span>
     <span class="span_1">{$plan.screenType}/{$plan.language}</span>
     <span class="span_1 juqingA">{$plan.hallName}</span>

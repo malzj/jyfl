@@ -180,10 +180,10 @@ elseif ($_REQUEST['act'] == 'checkout')
 	}
 	
 	/* 检查当前地址是否支持配送*/
-	if ( check_consignee($consignee) )
+	/* if ( check_consignee($consignee) )
 	{
 	    show_message('当前地址不支持配送！');
-	}
+	} */
 	
 	$smarty->assign('consignee', $consignee);
 

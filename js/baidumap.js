@@ -198,7 +198,7 @@ var baidumap = {
 			$('#zhichi'+supplierid).html('<font color="red">不支持配送</font>');
 			$('#yunfei'+supplierid).html(0);
 			$('#yunfei'+supplierid).closest('.order_grshang_bottom').css({'border-color':'red'});
-			$('#yunfei'+supplierid).closest('.order_grshang_bottom').prev().css({'border-color':'red','border-bottom':0});
+			$('#yunfei'+supplierid).closest('.order_grshang_bottom').prev().css({'border-color':'red','border-bottom':'1px solid #ddd'});
 		}else{
 			$('#zhichi'+supplierid).html('<font color="green">支持配送</font>');
 			$('#yunfei'+supplierid).html(jiage);

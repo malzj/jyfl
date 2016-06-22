@@ -23,9 +23,7 @@
                 <!--<span class="name">{$consignee.consignee}</span>-->
                 <span class="addr">{$consignee.country_cn|escape}&nbsp;&nbsp;&nbsp;{$consignee.province_cn|escape}&nbsp;&nbsp;{$consignee.city_cn|escape}&nbsp;&nbsp;{$consignee.district_cn|escape}&nbsp;&nbsp;{$consignee.address|escape}</span>
             </div>
-        </li>
-        {foreachelse}
-        <li> 没有收货地址，添加一个去吧！</li>
+        </li>       
         {/foreach}
         <li class="shouhuo_list_add" onclick="selectConsignee(0)">
         </li>

@@ -284,10 +284,11 @@ function checkCardType( $username, $type)
   */
  function getBackHtml( $back )
  {
-     $html = '<div class="return_tip">
-				<a href="'.$back.'" class="return_tip_index"><span class="return_index_img"></span><span>首页</span></a>
-				<a href="javascript:history.go(-1);" class="return_tip_return"><span class="return_return_img"></span><span>返回</span></a>
-			</div>';
+     $html = '<div class="return_tip">';
+     if (!empty($back))
+	   $html .='<a href="'.$back.'" class="return_tip_index"><span class="return_index_img"></span><span>首页</span></a>';
+	 
+     $html .='<a href="javascript:history.go(-1);" class="return_tip_return"><span class="return_return_img"></span><span>返回</span></a></div>';
      $html .="<script>
                 jQuery(function($) {
     				$(document).ready(function() {

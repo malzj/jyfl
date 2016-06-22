@@ -78,5 +78,6 @@ function get_yanchu_back($id)
         '1227' => 'yanchu.php?id=1227',
         '1224' => 'yanchu.php?id=1224'
     );
+    return $backUrl[$id];
 }
 ?>

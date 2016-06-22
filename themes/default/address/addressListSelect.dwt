@@ -32,9 +32,7 @@ body{background: white;}
             <div class="f_r shouhuoren_hover" style="display:block;">              	
             	        
             </div>
-        </li>
-        {foreachelse}
-        <li> 没有收货地址，添加一个去吧！</li>
+        </li> 
         {/foreach}  
          <li class="shouhuo_list_add" onclick="addAddress()">
         </li>

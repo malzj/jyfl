@@ -80,8 +80,28 @@ $cache_id = sprintf('%X', crc32($cat_id . '-' . $display . '-' . $sort  .'-' . $
 
 if (!$smarty->is_cached('category.dwt', $cache_id))
 {
+    // 分类列表只能使用底层分类，非底层分类将跳转到第一个分类
+    $childrenCategory = findData('category',"parent_id='".$cat_id."'",'cat_id');
+    if (!empty($childrenCategory))
+    {
+        $childIds = array();
+        foreach ($childrenCategory as $_v){ $childIds[] = $_v['cat_id'];}
+        
+        $mobble = get_navigator();
+        foreach ((array)$mobble['middle'] as $mval)
+        {
+            foreach ($mval['child'] as $cval)
+            {
+                if ( in_array($cval['cid'], $childIds))
+                {
+                    ecs_header("Location: ".$cval['url'].substr($_SERVER['REQUEST_URI'], strpos($_SERVER['REQUEST_URI'], '&')));
+                }
+            }
+        }
+    }
+    
+    
     /* 如果页面没有被缓存则重新获取页面的内容 */
-
     $children = get_children($cat_id);
 
     $cat = get_cat_info($cat_id);   // 获得分类的相关信息

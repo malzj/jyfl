@@ -10,7 +10,7 @@ html{position: relative;height: 100%;}
 .f_r{float: right;}
 li{list-style: none;}
 .o_hidden{overflow: hidden;}
-.margin_top_90{margin-top: 90px;}
+.margin_top_90{margin-top: 80px;}
 .text_left{text-align: left!important;}
 table tr td{vertical-align: middle;}
 .margin_left_100{display: inline-block;margin-left: 100px;}
@@ -42,7 +42,7 @@ a:focus{outline: none;}
 .zhuti_a_hover:hover{background: #35A794!important;transition: background .5s linear;-webkit-transition: background .5s linear;}
 .zhuti_a_hovercolor:hover{color:#2fd0b5!important;}
 .hd .prevStop{visibility: hidden;}
-.bg_white{/* background: white; */}
+.bg_white{background: white;}
 .hd .nextStop{
     visibility: hidden;
 }
@@ -702,7 +702,9 @@ body {
 	padding: 0 15px;
 }
 
-html.movie .newsimg {}
+.newsimg {
+    overflow: hidden;
+}
 
 html.movie .newsimg .banner ul li img {
 	display: block;
@@ -731,6 +733,7 @@ html.movie .reying .reying_title {
 	padding: 0 10px 20px 10px;
 	/* position: relative; */
 	padding-top: 20px;
+	margin-top: 0px!important;
 }
 
 html.movie .reying .reying_news {
@@ -1038,8 +1041,8 @@ html.movie .w_1200 .will .will_show .will_show2 {
 }
 
 html.movie .w_1200 .will_show .will_img {
-	width: 200px;
-	height: 280px;
+	/* width: 200px; */
+	/* height: 280px; */
 }
 
 html.movie .w_1200 .will_show .will_show1 {
@@ -1055,6 +1058,7 @@ html.movie .w_1200 .will_show .will_show1 ul li {
 html.movie .w_1200 .will_show .will_show1 .title {
 	color: #2fd0b5;
 	font-size: 24px;
+	margin-top: 0px;
 }
 
 html.movie .w_1200 .will_show .will_show1 ul li span {
@@ -1572,8 +1576,8 @@ html.movie_2  .content_right .pay_box .img_left{float: left;}
 html.movie_2  .content_right .pay_box .xiangqing{float:right;}
 html.movie_2  .content_right .pay_box .xiangqing li{margin-right: 20px;margin-bottom: 10px;padding: 3px;}
 html.movie_2  .content_right .pay_box ul.yingyuan_del li{padding: 5px 0;}
-html.movie_2  .content_right .pay_box ul.yingyuan_del{margin-top: 20px;}
-html.movie_2  .content_right .pay_box .heji{border-bottom: 1px dashed;margin-top: 80px;}
+html.movie_2  .content_right .pay_box ul.yingyuan_del{margin-top: 10px;}
+html.movie_2  .content_right .pay_box .heji{border-bottom: 1px dashed;margin-top: 20px;}
 html.movie_2  .content_right .pay_box .zongjia{float: right;margin-bottom: 40px;}
 html.movie_2  .content_right .pay_box .tel_shuru input{padding: 5px 20px;}
 html.movie_2  .content_right .pay_box .tel_shuru #mobile{margin-top: 10px;padding: 0 5px;margin-bottom: 5px;}
@@ -2139,7 +2143,7 @@ html.huaju .huaju_box .box .xinxi_box li span.xuanzuo{
 .search .search_1200 .search_input{
     border: 1px solid white;
     background: white;
-    margin-top: 4px;
+    margin-top: 6px;
     border-radius: 20px;
 }
 .search .search_1200 .search_input input{
@@ -2148,8 +2152,9 @@ html.huaju .huaju_box .box .xinxi_box li span.xuanzuo{
     border-radius: 20px;
     outline: none;
     border: none;
-    padding: 4px 15px;
+    padding: 2px 15px;
     width: 200px;
+    height: 22px;
 }
 .search .search_1200 .search_input i{
 	display: inline-block;
@@ -2278,11 +2283,13 @@ html.huaju1 .w_1200 .jieshao .jieshao_box ul li span.tip{
 
 html.huaju1 .w_1200 .jieshao .jieshao_box ul li span.tips{
 	width: 440px;
-	height: 50px;
+	/*height: 50px;*/
 	display: inline-block;
-	line-height: 50px;
-	text-indent: 20px;
+	/*line-height: 50px;*/
+	/*text-indent: 20px;*/
 	font-size: 16px;
+	margin-left: 10px;
+	vertical-align: middle;
 }
 html.huaju1 .w_1200 .jieshao .jieshao_title span.title_jieshao{font-size: 16px;color: #2fd0b5;font-weight: bold;}
 html.huaju1 .w_1200 .jieshao .jieshao_title span.tip{display: inline-block;width: 5px;height: 20px;background: #ff4a00;vertical-align: text-top;}
@@ -2591,7 +2598,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .infoList a{margin-left: 10px;}
 
 .floor_item img{width: 100%;height: 100%;}
-.floor_box{margin: 0 auto;width: 175px;height: 175px;}
+.floor_box{margin: 0 auto;width: 175px;height: 175px; transition: all .5s linear;}
 .color_CF5926{font-weight: 600;color: #CF5926;}
 #floor_2 .floor_title h4 i{background-position: -46px 0;}
 #floor_3 .floor_title h4 i{background-position: -92px 0;}
@@ -2737,7 +2744,7 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 html.shenghuo body{background: white;}
 .shenghuo_top_title{color: #1b1919;font-weight: bold;padding: 5px 0;font-size: 16px;width: 180px;position: absolute;text-align: center;left: 5px;bottom: 10px;background: white;opacity: .7;font-family: arial;}
 .shenghuo_floor_side{float: left;height: 461px;width: 268px;/* border-right: 1px solid #ddd; */border: 1px solid #ddd;}
-.shenhuo_box{width: 230px;height: 230px;border-top: 1px solid #ddd;border-right: 1px solid #ddd;}
+.shenhuo_box{overflow: hidden;width: 230px;height: 230px;border-top: 1px solid #ddd;border-right: 1px solid #ddd;}
 .shenghuo_floor_side img{width:100%;max-height: auto;}
 .width_460{width: 461px;height: 230px;}
 .border_left_none{border-left: none;}
@@ -2924,7 +2931,7 @@ html.shenghuo1 body{background: white;}
 .movie_action_left{width: 275px;margin-left: 40px;}
 .movie_action_title{font-family: arial;font-weight: bold;padding-bottom: 5px;width: 275px;border-bottom: 2px solid #ddd;border-left: 4px solid #2fd0b5;text-indent: 18px;font-size: 18px;color: #333;}
 .flash_img{margin: 15px 0;position: relative;}
-.movie_action_content{background: #f4f4f4;margin-top: 10px;padding: 5px;font-size: 12px;color: #808080;}
+.movie_action_content{/* background: #f4f4f4; */margin-top: 10px;padding: 5px;font-size: 12px;color: #808080;}
 .movie_flash{position: fixed;top: 0;left: 0;width:100%;height: 100%;background-color:rgba(1,1,1,.5);z-index: 101;}
 .play_flash{position: absolute;top: 50px;left: 110px;cursor: pointer;}
 .movie_close{position: fixed;width: 30px;height: 30px;background: url(/images/juyoufuli/img_login/play_icon1.png) no-repeat 0px 0px;z-index: 101;top: 50%;left: 50%;margin-top: -230px;margin-left: 367px;cursor: pointer;}
@@ -2940,7 +2947,7 @@ html.shenghuo1 body{background: white;}
     padding: 4px 10px;
     border-radius: 15px;}
 /*公共返回按钮*/
-.return_tip{background: white;float: left;width: 65px;height: 135px;/* border: 1px solid #2fd0b5; *//* border-radius: 10px; */z-index: 1;margin-left: -76px;margin-top: 40px;}
+.return_tip{background: white;float: left;width: 65px;/* height: 135px; *//* border: 1px solid #2fd0b5; *//* border-radius: 10px; */z-index: 1;margin-left: -76px;margin-top: 40px;}
 .return_tip_index{
     color: #2fd0b5;
     display: block;
@@ -2952,6 +2959,7 @@ html.shenghuo1 body{background: white;}
 .return_index_img{width: 36px;background: url(/images/juyoufuli/img_login/return_icon1.png) no-repeat 4px 8px;display: block;height: 38px;margin: 0 auto;}
 .return_index_img:hover{background-position: 4px -31px;}
 .return_tip_return{
+	padding-bottom: 10px;
 	color: #2fd0b5;
 	display: block;
 	text-align: center;
@@ -2959,3 +2967,16 @@ html.shenghuo1 body{background: white;}
 }
 .return_return_img{width: 36px;background: url(/images/juyoufuli/img_login/return_icon1.png) no-repeat -29px 13px;display: block;height: 38px;margin: 0 auto;}
 .return_return_img:hover{background-position: -30px -30px;}
+/* 生活图片hover效果*/
+.shenhuo_box img{transition: all 0.2s linear;}
+.shenhuo_box img:hover{
+	-webkit-transform: translateX(5px);
+    -moz-transform: translateX(5px);
+    -ms-transform: translateX(5px);
+    -o-transform: translateX(5px);
+    transform: translateX(5px);
+	}
+
+/*接口详情样式*/
+.details{overflow: hidden;width: 1000px;margin: 0 auto;}
+.details img{text-align: center!important;}

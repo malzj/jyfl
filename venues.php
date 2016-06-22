@@ -3,6 +3,7 @@
 define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
+include_once(ROOT_PATH . 'includes/lib_basic.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_dongsport.php');
 
@@ -97,6 +98,7 @@ $smarty->assign('venues_type', $venues);
 $smarty->assign('list', $data);
 $smarty->assign('pager', $pager);
 $smarty->assign('keyword', $keyWord);
+$smarty->assign('backHtml',           getBackHtml('venuesindex.php'));
 $smarty->display('venues/venuesList.dwt');
 
 // 获得场馆项目

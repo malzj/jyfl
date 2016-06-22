@@ -2,6 +2,7 @@
 define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
+include_once(ROOT_PATH . 'includes/lib_basic.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_dongsport.php');
 
@@ -90,5 +91,6 @@ if ( !empty($apiPrice) )
 $smarty->assign('ticket', $ticketData);
 $smarty->assign('venues', $venueData);
 $smarty->assign('venueId', $venueId);
+$smarty->assign('backHtml', getBackHtml('venuesindex.php'));
 $smarty->display('venues/venuesDetail.dwt');
 ?>

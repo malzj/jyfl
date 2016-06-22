@@ -3,6 +3,7 @@
 define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
+include_once(ROOT_PATH . 'includes/lib_basic.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_order.php');
 include_once(ROOT_PATH . 'includes/lib_dongsport.php');
@@ -132,6 +133,7 @@ if ($_REQUEST['step'] == 'cart')
 	$smarty->assign('fields', 		$fields);
 	$smarty->assign('validity', 	$validity);
 	$smarty->assign('detail', 		$detail);
+	$smarty->assign('backHtml',     getBackHtml('venuesindex.php'));
 	$smarty->display('venues/ticketOrder.dwt');
 }
 
@@ -278,7 +280,7 @@ else if ($_REQUEST['step'] == 'done')
 		$validity = sprintf($validityType[$detail['validityType']], $detail['validityCon']);
 	$smarty->assign('validit', 	$validity);
 	$smarty->assign('list', $lists);
-	
+	$smarty->assign('backHtml',  getBackHtml('venuesindex.php'));
 	$smarty->display('venues/ticketPay.dwt');
 }
 // 我的订单点过来的支付操作
@@ -330,6 +332,8 @@ else if ($_REQUEST['step'] == 'upay'){
 		$validity = sprintf($validityType[$detail['validityType']], $detail['validityCon']);
 	$smarty->assign('validit', 	$validity);
 	$smarty->assign('list', $lists);	
+	
+	$smarty->assign('backHtml', getBackHtml('venuesindex.php'));
 	$smarty->display('venues/ticketPay.dwt');
 }
 // 支付
@@ -394,7 +398,7 @@ else if ($_REQUEST['step'] == 'pay')
 		}
 		else {
 			$arr_result['error'] = 2;
-			$arr_result['message'] = '预订失败，如果卡点已扣，请联系华影客服！';				
+			$arr_result['message'] = '预订失败，如果卡点已扣，请联系聚优客服！';				
 			$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('venues_order'). " SET is_pay = 1, api_card_Id = '".$cardResult."', msg='".$dongPay['msg']."' WHERE id = ".$orders[0]['id']);
 		}			
 	}

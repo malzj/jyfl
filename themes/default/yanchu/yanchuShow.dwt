@@ -92,9 +92,9 @@
                 <div class="jieshao_box">
 					<ul>
 						<li>
-							<div class="time f_l">
+							<div class="time f_l"  style="border-right: 1px solid #cbcbcb;">
 								<span class="tip">时间</span>
-								<span class="tips" style="border-right: 1px solid #cbcbcb;">{if $iteminfo.startDate}{$iteminfo.startDate} ~ {/if} {$iteminfo.endDate}</span>
+								<span class="tips">{if $iteminfo.startDate}{$iteminfo.startDate} ~ {/if} {$iteminfo.endDate}</span>
 							</div>
 							<div class="piaojia f_l">
 								<span class="tip">票价</span>
@@ -102,9 +102,9 @@
 							</div>
 						</li>
 						<li>
-							<div class="zhuangtai f_l">
+							<div class="zhuangtai f_l" style="border-right: 1px solid #cbcbcb;">
 								<span class="tip">售票状态</span>
-								<span class="tips" style="border-right: 1px solid #cbcbcb;">正在热售</span>
+								<span class="tips">正在热售</span>
 							</div>
 							<div class="leixing f_l">
 								<span class="tip" >类型</span>

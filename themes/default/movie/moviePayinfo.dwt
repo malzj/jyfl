@@ -139,9 +139,11 @@
 				
 				if(jQuery.isEmptyObject(password)){
 					alert('密码不能为空');
+					return false;
 				}
 				if(jQuery.isEmptyObject(orderid)){
 					alert('这不是一个有效的订单');
+					return false;
 				}
 				
 				checkSubmitFlg = true;

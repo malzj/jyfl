@@ -12,7 +12,7 @@
     <!-- 头部结束 -->
 			<div class="w_1200">
 				<div class="my_order_tips"></div>
-				<div class="my_order_title o_hidden">
+				<div class="my_order_title o_hidden" style="background: #e6e6e6;">
 					<div class="my_order_details f_l">订单详情</div>
 					<div class="my_order_price f_l">单价（点）</div>
 					<div class="my_order_num f_l">数量</div>
@@ -55,7 +55,15 @@
 				{/foreach}
                 <!-- {else} -->
                 <div class="my_order_item o_hidden">
-                没有订单
+               		<div class="buy_car_none o_hidden">
+		            	<div class="f_l buy_car_img">
+		            		<img src="/images/juyoufuli/img_login/buy_car_no.png">
+		            	</div>
+		            	<div class="f_l buy_car_content">
+		            		<div class="buy_car_font">您目前还没有订单，快去购物吧！</div>
+		            		<div class="buy_car_btn"><a href="#" class="bg_color zhuti_a_hover continue_buy" target="_self">去购物</a></div>
+		            	</div>
+		            </div>
                 </div>
                 <!--{/if}-->
                 <div class="flickr" style="text-align:center;"><!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --></div>
@@ -71,5 +79,19 @@
             <!-- 公共右边 -->
             <!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
             <!-- 公共右边结束 -->
+            <script>
+	//继续购物
+		$('.continue_buy').on('click',function(){
+			layer.open({
+				skin:'continue_buy',
+		        type: 1,
+		        title:false,
+		        area:['570px','350px'],
+		        shadeClose: false, //点击遮罩关闭
+		        content:'<ul class="list_1" style="width: 450px;margin: 20px auto;">{foreach from=$navigator_list.middle item=nav name=foo}<li class="movie" onClick=window.location="{$nav.url}"><div><span class="movie_1"><img src="{$app_path}images/juyoufuli/icon/nav-{$nav.id}.png"></span><i>{$nav.name}</i></div></li>{/foreach}</ul>'
+		      })
+		})
+			</script>
+
 	</body>
 </html>

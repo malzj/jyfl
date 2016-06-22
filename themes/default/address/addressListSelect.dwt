@@ -1,73 +1,84 @@
 <style>
-.shouhuoren .add_item .item select {width:auto;}
-body{background: white;}
-.layui-layer-btn {text-align: center;}
+	.shouhuoren .add_item .item select {
+		width: auto;
+	}
+	body {
+		background: white;
+	}
+	.layui-layer-btn {
+		text-align: center;
+	}
 </style>
-
 <!--<div class="shouhuo_title" style="margin-top:10px;">
     <span class="add_adress f_r" onclick="addAddress()">新增收货地址</span>
 </div>-->
-<div class="shouhuoren_item" style="height:auto;">
-    <ul>
-        {foreach from=$consignee_list item=consignee key=sn}
-        <li class="shouhuo_list">
-        	<div class="o_hidden f_r">
-        		<a href="javascript:void(0)" onClick="setConsigneeSelect(this,'{$consignee.address_id}',supplier_id);" class="checkedall xuanzhong" title="选择"><!--选择--></a>    
-                {if $consignee.selected eq 0}          
-                <a class="bianji" href="javascript:selectConsignee('{$consignee.address_id}');" title="编辑"><!--编辑--></a>  
-                {else}  
-                <a  href="javascript:voit(0)');"><font class="bianji" style=" visibility: hidden;" title="编辑"><!--编辑--></font></a>  
-                {/if}    
-        	</div>
-            <div class="f_l shouhuoren_name {if $consignee.selected eq 1}selected{/if}" style="position:relative;">
-                <span>{$consignee.consignee}</span>
-                <span class="addr_tel">{if $consignee.mobile && $consignee.tel}{$consignee.tel|escape}({$consignee.mobile|escape}){elseif $consignee.tel}{$consignee.tel|escape}{else $consignee.mobile}{$consignee.mobile|escape}{/if}</span>
-                
-            </div>
-            <div class="f_l shouhuoren_xinxi">
-                <!--<span class="name">{$consignee.consignee}</span>-->
-                <span class="addr">{$consignee.country_cn|escape}&nbsp;&nbsp;&nbsp;{$consignee.province_cn|escape}&nbsp;&nbsp;{$consignee.city_cn|escape}&nbsp;&nbsp;{$consignee.district_cn|escape}&nbsp;&nbsp;{$consignee.address|escape}</span>
-
-            </div>
-            <div class="f_r shouhuoren_hover" style="display:block;">              	
-            	        
-            </div>
-        </li>
-        {foreachelse}
-        <li> 没有收货地址，添加一个去吧！</li>
-        {/foreach}  
-         <li class="shouhuo_list_add" onclick="addAddress()">
-        </li>
-    </ul>
-</div> 
-
+<div class="shouhuoren_item">
+	<ul>
+		{foreach from=$consignee_list item=consignee key=sn}
+		<li class="shouhuo_list">
+			<div class="o_hidden f_r">
+				<a href="javascript:void(0)" onClick="setConsigneeSelect(this,'{$consignee.address_id}',supplier_id);" class="checkedall xuanzhong" title="选择">
+					<!--选择-->
+				</a>
+				{if $consignee.selected eq 0}
+				<a class="bianji" href="javascript:selectConsignee('{$consignee.address_id}');" title="编辑">
+					<!--编辑-->
+				</a>
+				{else}
+				<a href="javascript:voit(0)');">
+					<font class="bianji" style=" visibility: hidden;" title="编辑">
+						<!--编辑-->
+					</font>
+				</a>
+				{/if}
+			</div>
+			<div class="f_l shouhuoren_name {if $consignee.selected eq 1}selected{/if}" style="position:relative;">
+				<span>{$consignee.consignee}</span>
+				<span class="addr_tel">{if $consignee.mobile && $consignee.tel}{$consignee.tel|escape}({$consignee.mobile|escape}){elseif $consignee.tel}{$consignee.tel|escape}{else $consignee.mobile}{$consignee.mobile|escape}{/if}</span>
+			</div>
+			<div class="f_l shouhuoren_xinxi">
+				<!--<span class="name">{$consignee.consignee}</span>-->
+				<span class="addr">{$consignee.country_cn|escape}&nbsp;&nbsp;&nbsp;{$consignee.province_cn|escape}&nbsp;&nbsp;{$consignee.city_cn|escape}&nbsp;&nbsp;{$consignee.district_cn|escape}&nbsp;&nbsp;{$consignee.address|escape}</span>
+			</div>
+			<div class="f_r shouhuoren_hover" style="display:block;">
+			</div>
+		</li>
+		{/foreach}
+		<li class="shouhuo_list_add" onclick="addAddress()">
+		</li>
+	</ul>
+</div>
 <div class="more">
-   <span id="more">更多地址<span class="glyphicon glyphicon-chevron-down jiantou"></span></span>
+	<span id="more">更多地址<span class="glyphicon glyphicon-chevron-down jiantou"></span></span>
 </div>
 <input name="isAdd" id="isAdd" type="hidden" value="0">
 <div class="add_item" id="add_item"></div>
 <script>
-
-// 添加收货地址
-function addAddress(){
-	$("input[name='isAdd']").val(1);
-	selectConsignee(0);
-};
-
-// 取消编辑或添加
-$(document).delegate('.add_item .cancel', 'click', function(){
-	$("input[name='isAdd']").val(0);
-	$("#add_item").hide();
-});
-
-$('#more').click(function(){
-	var height=$('.shouhuoren_item').height();
-	if(height=='150'){
-		$('.shouhuoren .more span.jiantou').css('transform','rotate(180deg)');
-		$('.shouhuoren_item').css('height','auto');
-	}else{
-		$('.shouhuoren .more span.jiantou').css('transform','rotate(0deg)');
-		$('.shouhuoren_item').css('height','150px');
+	// 添加收货地址
+	function addAddress() {
+		$("input[name='isAdd']").val(1);
+		selectConsignee(0);
+	};
+	// 取消编辑或添加
+	$(document).delegate('.add_item .cancel', 'click', function() {
+		$("input[name='isAdd']").val(0);
+		$("#add_item").hide();
+	});
+	//判断地址数量，如果大于4个则显示更多按钮，否则不显示
+	var num = $('.shouhuoren_item li').length;
+	if (num>3) {
+		$('#more').show();
+		$('#more').click(function() {
+			var height = $('.shouhuoren_item').height();
+			if (height == '150') {
+				$('.shouhuoren .more span.jiantou').css('transform', 'rotate(180deg)');
+				$('.shouhuoren_item').css('height', 'auto');
+			} else {
+				$('.shouhuoren .more span.jiantou').css('transform', 'rotate(0deg)');
+				$('.shouhuoren_item').css('height', '150px');
+			}
+		})
+	} else {
+		$('#more').css('visibility', 'hidden');
 	}
-})
 </script>

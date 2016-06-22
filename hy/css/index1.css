@@ -455,8 +455,8 @@ img{
 
 #gla form{
 	position: absolute;
-    top: 87px;
-    left: 174px;
+    top: 83px;
+    left: 180px;
 }
 #gla form input{
 	color: white;
@@ -484,7 +484,7 @@ img{
 }
 .form-group {margin-bottom: 0;}
 .gla_inbox form div:nth-child(1){position: absolute;top: 0;}
-.gla_inbox form div:nth-child(2){position: absolute;top: 50px;}
+.gla_inbox form div:nth-child(2){position: absolute;top: 48px;}
 input:-webkit-autofill {
 -webkit-box-shadow: 0 0 0px 1000px transparent inset;
 }

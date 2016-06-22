@@ -43,43 +43,45 @@ if($_REQUEST['act'] == "index")
     $attrName = get_cake_attr(347);
     
     // 将商品和口味关联起来
-    $goodsAttr = array();
-    $sql = 'SELECT * FROM '.$GLOBALS['ecs']->table('goods_attr')." ". 
-           "WHERE goods_id IN(".implode(',', $goodsIds).") ORDER BY goods_attr_id DESC";
-    $goodsAttr = $GLOBALS['db']->getAll($sql);
-  
-    foreach ($attrName as $key=>$val)
+    if(!empty($goodsIds))
     {
-        $attrGoods[$key]['url'] = getCakeAttrUrl($val);
-        $attrGoods[$key]['attrName'] = $val; 
-        $attrGoods[$key]['attrNo'] = $key+1;
-        
-        $i = 0;
-        foreach ($goodsAttr as $akey=>$aval)
+        $goodsAttr = array();
+        $sql = 'SELECT * FROM '.$GLOBALS['ecs']->table('goods_attr')." ". 
+               "WHERE goods_id IN(".implode(',', $goodsIds).") ORDER BY goods_attr_id DESC";
+        $goodsAttr = $GLOBALS['db']->getAll($sql);
+      
+        foreach ($attrName as $key=>$val)
         {
-            $arr = array();
+            $attrGoods[$key]['url'] = getCakeAttrUrl($val);
+            $attrGoods[$key]['attrName'] = $val; 
+            $attrGoods[$key]['attrNo'] = $key+1;
             
-            // 商品数量够8个了就不处理了
-            if (count($attrGoods[$key]['goods']) >=8)
-                continue;
-            // 如果是广告位置，$i 就加2
-            if (in_array($i, array(0,7)))
-                $i++;
-            
-            if ($val == $aval['attr_value']) 
+            $i = 0;
+            foreach ($goodsAttr as $akey=>$aval)
             {
-                $attrGoods[$key]['goods'][$i] = $goods_list[$aval['goods_id']];
-                $i++;
-            }            
-        }
-        
-        // 加入广告信息
-        $attrGoods[$key]['goods'][0] = attrAd($val, 1);
-        $attrGoods[$key]['goods'][7] = attrAd($val, 2);        
-        
-        ksort($attrGoods[$key]['goods']);       
-    }    
-
+                $arr = array();
+                
+                // 商品数量够8个了就不处理了
+                if (count($attrGoods[$key]['goods']) >=8)
+                    continue;
+                // 如果是广告位置，$i 就加2
+                if (in_array($i, array(0,7)))
+                    $i++;
+                
+                if ($val == $aval['attr_value']) 
+                {
+                    $attrGoods[$key]['goods'][$i] = $goods_list[$aval['goods_id']];
+                    $i++;
+                }            
+            }
+            
+            // 加入广告信息
+            $attrGoods[$key]['goods'][0] = attrAd($val, 1);
+            $attrGoods[$key]['goods'][7] = attrAd($val, 2);        
+            
+            ksort($attrGoods[$key]['goods']);       
+        }    
+    }
     $smarty->assign('attrGoods', $attrGoods);
     // 当前城市支持的蛋糕品牌（导航信息）
     $smarty->assign('cakeNav', $cakeNav['child']);

@@ -17,7 +17,7 @@
         	<a class="home_href" href="user.php">
         		<div class="li_img">
                 <span class="glyphicon glyphicon-home"></span>
-                <p>首页</p>
+                <p>聚优</p>
                 </div>
             </a>            
         </li>

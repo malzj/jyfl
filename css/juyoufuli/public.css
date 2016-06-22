@@ -2097,13 +2097,19 @@ html.huaju .w_1200 .big_img{
 html.huaju .big_img .item{overflow: hidden;position: relative;margin:0 10px;width: 215px;height: 215px;}
 html.huaju .reying_bg {
 	font-weight: bold;
+	height: 22px;
 	margin: 30px 0;
 	font-size: 24px;
 	color: #2fd0b5;
 	text-align: center;
-	background: url(/images/juyoufuli/img_login/reying_1.png) no-repeat 0px;
+	background: url(/images/juyoufuli/img_login/tu.png) no-repeat;
 	font-family: sans-serif;
 }
+html.huaju .yanchanghui{background-position: 0px -199px;}
+html.huaju .huaju{background-position: 0px -280px;}
+html.huaju .yinyuehui{background-position: 0px -459px;}
+html.huaju .qinziertong{background-position: 0px -350px;}
+html.huaju .xiqu{background-position: 0px -408px;}
 html.huaju .big_img_xin{background: #111;position:absolute;top: -100%;left: -100%;width: 215px;height: 215px;opacity: .7;}
 html.huaju .big_img_xinxi{margin-top: 30px;color:white;position:absolute;width: 100%;top: -100%;left: -100%;height: 100%;}
 .big_img_btn span{

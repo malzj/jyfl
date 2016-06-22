@@ -13,7 +13,7 @@
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 --> 
         
-        <div class="tg_n" style="margin-top: 90px;padding: 10px 0;">
+        <div class="tg_n" style="padding-top: 90px;">
         	 <!-- 返回首页 -->
         	{$backHtml} 
 			<div class="title">

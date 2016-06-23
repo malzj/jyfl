@@ -77,8 +77,17 @@
 				</div>
 				{/foreach}
 			</div>
-            
-			<div class="reying_bg">{$title}</div>
+            {if $title eq '演唱会'}
+			<div class="reying_bg yanchanghui"></div>
+			{elseif $title eq '话剧'}
+			<div class="reying_bg huaju"></div>
+			{elseif $title eq '音乐会'}
+            <div class="reying_bg yinyuehui"></div>
+            {elseif $title eq '亲子儿童'}
+            <div class="reying_bg qinziertong"></div>
+            {elseif $title eq '戏曲综艺'}
+            <div class="reying_bg xiqu"></div>
+            {/if}
 			<div class="huaju_box">
 				{foreach  from=$list key=id item=listinfo}
 					<div class="box">

@@ -16,7 +16,7 @@
         {insert_scripts files='jquery.region.js,utils.js'}
         {insert_scripts files='jquery.common.js'}
         <style>
-        	.show_baidumap,.show_baidumap.layui-layer-content { background:#FFF!important;}
+        	.show_baidumap,.show_baidumap .layui-layer-content {background:#FFF!important;}
         </style>
     </head>
 	<body>

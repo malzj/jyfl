@@ -20,7 +20,7 @@ $(function () {
                 title: false,
                 area: '570px',
                 shadeClose: false, //点击遮罩关闭
-                content: '<div class="saf"><h3>安全中心</h3><table class="table"><tr class="tr_1"><td><span></span>登录密码</td><td class="td_2">' + data.password.msg + '</td><td class="td_3">设置登陆密码，降低盗号风险；</td><td class="td_4">立即修改</td></tr><tr class="tr_2"><td><span></span>手机号</td><td class="td_2">' + data.phone.msg + '</td><td class="td_3">绑定手机，可直接使用手机号登陆；</td><td class="td_4">立即绑定</td></tr><tr class="tr_3"><td><span></span>安全问题</td><td class="td_2">' + data.answer.msg + '</td><td class="td_3">保护账户安全，验证您身份的工具之一；</td><td class="td_4">立即设置</td></tr></table></div>'
+                content: '<div class="saf"><h3>安全中心</h3><table class="table"><tr class="tr_1"><td><span></span>登录密码</td><td class="td_2">' + data.password.msg + '</td><td class="td_3">设置登陆密码，降低盗号风险；</td><td class="td_4">立即修改</td></tr><tr class="tr_2"><td><span></span>手机号</td><td class="td_2">' + data.phone.msg + '</td><td class="td_3">绑定手机，可直接使用手机号登陆；</td><td class="td_4">'+(data.phone.result=='true'?'修改绑定':'立即绑定')+'</td></tr><tr class="tr_3"><td><span></span>安全问题</td><td class="td_2">' + data.answer.msg + '</td><td class="td_3">保护账户安全，验证您身份的工具之一；</td><td class="td_4">'+(data.answer.result=='true'?'修改答案':'立即设置')+'</td></tr></table></div>'
             });
         } else {
             layer.msg("获取数据失败，请重试！");
@@ -50,22 +50,29 @@ $(function () {
                 // console.log(data);
                 layer.close(index);
                 var info = data.info;
+                var i=0;
                 var html = '<div class="reg">' +
                     '<form name="formSurplus" id="formSurplus" method="post" onsubmit="return submitOp(false)">' +
                     '<h3>卡充值</h3><div style="overflow:hidden">' +
                     '<div class="reg_title">充值金额:</div>' +
                     '<div class="reg_num">';
                 $.each(info.priceList, function (k, val) {
-                    html += '<span class="radio_img"><input type="radio" name="amount" value="' + val + '"></span>' + k + '点<span>人民币' + val + '元</span><br>';
+                    html += '<span class="radio_img '+(k==30?'on':'')+'"><input type="radio" name="amount" value="' + val + '"'+(k==30?'checked':'')+'></span>' + k + '点<span>人民币' + val + '元</span><br>';
                 });
                 html += '</div></div>' +
                     '<div class="pay_title">支付方式</div><table class="table"><thead><tr><td>名称</td><td>描述</td></tr></thead>' +
                     '<tbody>';
                 $.each(info.payment, function (k, val) {
-                    if (val.pay_id > 2)
-                        html += '<tr><td style="width:60px"><span class="radio_img1"><input type="radio" name="payment_id" value="' + val.pay_id + '" /></span>' + val.pay_name + '</td>' +
+                    if (val.pay_id > 2) {
+                        i++
+                        if (i == 1) {
+                            var status = 'on';
+                            var check = 'checked';
+                        }
+                        html += '<tr><td style="width:60px"><span class="radio_img1 ' + status + '"><input type="radio" name="payment_id" value="' + val.pay_id + '"' + check + ' /></span>' + val.pay_name + '</td>' +
                             '<td>' + val.pay_desc + '</td></tr>' +
                             '<tr>';
+                    }
                 });
                 html += '<!--<tr><td bgcolor="#ffffff">{$lang.process_notic}:</td><td align="left" bgcolor="#ffffff"><textarea name="user_note" cols="55" rows="6" style="border:1px solid #ccc;">{$order.user_note|escape}充值</textarea></td></tr>-->' +
                     '</tbody></table>' +
@@ -128,6 +135,23 @@ $(function () {
                 }
             }
         });
+    })
+    $(document).on('click','.bnt_blue_1',function(){
+    	layer.closeAll();
+    	layer.open({
+    		type: 1,
+            title: false,
+            area: '470px',
+            shadeClose: false, //点击遮罩关闭
+            closeBtn:0,
+            content:'<div class="pay_tishi"><div class="pay_tishi_title">支付提示：</div><div class="pay_tishi_content"><div class="pay_tishiAll"><div class="pay_tishi_1"><span class="pay_title_img"><img src="/images/juyoufuli/img_login/pay_tishi.png" width="20"></span>支付完成前，请不要关闭此支付验证窗口</div><div class="pay_tishi_2">支付完成后，请根据您支付的情况点击下面按钮。</div></div><div class="pay_tishi_btnAll"><div class="pay_tishi_btn"><a href="javascript:;" class="pay_tishi_question">支付遇到问题</a><a href="javascript:;" class="pay_tishi_ok">支付完成</a></div></div></div></div>'
+    	})
+//  	点击支付完成按钮关闭弹层
+	$('.pay_tishi_ok').click(function(){
+		layer.closeAll();
+	})
+	// 支付遇到问题
+	
     })
     $('#red_packet').on('click', function () {
         layer.open({
@@ -298,7 +322,7 @@ $(function () {
                                  var checked = '';
                                  var on='';
                              }
-                            html += '<span class="radio_img '+on+'"><input type="radio" name="amount" value="' + val + '" '+checked+'></span>' + k + '点<span>人民币' + val + '元</span><br>';
+                            html += '<span class="radio_img '+on+'"><input type="radio" name="amount" value="' + val + '" '+checked+'></span><span>'+ k +'点</span><span>人民币' + val + '元</span><br>';
                         });
                         html += '</div></div>' +
                             '<div class="pay_title">支付方式</div><table class="table"><thead><tr><td>名称</td><td>描述</td></tr></thead>' +
@@ -471,6 +495,10 @@ $(function () {
         var answerone = $('#answerone').val();
         var answertwo = $('#answertwo').val();
         var answerthree = $('#answerthree').val();
+        if(answertwo==''||answerone==''||answerthree==''){
+            layer.alert('答案不能为空！');
+            return false;
+        }
         editLoginQues(user_id, answerone, answertwo, answerthree);
     });
 //单选按钮点击样式
@@ -510,7 +538,7 @@ $(function () {
         updateAddress();
     });
 //设置默认地址
-    $(document).delegate('.set_address','click',function(){
+    $(document).delegate('.shouhuo_left .table tr','click',function(){
         var address_id = $(this).attr('data-address-id');
         var index;
         $.ajax({
@@ -535,7 +563,8 @@ $(function () {
             }
        })
     });
-    $(document).delegate('.gn_btn .xiugai', 'click', function () {
+    $(document).delegate('.gn_btn .xiugai', 'click', function (e) {
+        e.stopPropagation();
         var address_id=$(this).attr('data-addressid');
         $('.layui-layer-content').html('<div class="set_add"><h3>修改地址</h3><div class="form-group"><input type="hidden" name="address_id" id="address_id" value=""><label><span class="xing">*</span>所在地区：</label><select name="country" id="country" onchange="region.changed(this, 1, \'province\')" style="width:100px;background-color:transparent;" ></select><select name="province" id="province" style="width:100px;background-color:transparent;" ></select></div><div class="form-group"><label><span class="xing">*</span>街道地址：</label><input type="text" id="address"></div><div class="form-group"><label>邮政编码：</label><input type="text" id="zipcode"></div><div class="form-group"><label><span class="xing">*</span>收货人姓名：</label><input type="text" id="consignee"></div><div class="form-group"><label><span class="xing">*</span>电话号码：</label><input type="text" id="mobile"></div><div class="set_add_btn"><button class="edit">保存</button><button class="no">取消</button></div></div>')
         saveAddress(address_id)

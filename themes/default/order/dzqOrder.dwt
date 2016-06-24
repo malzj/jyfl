@@ -11,7 +11,7 @@
     <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
     <!-- 头部结束 -->
 			<div class="w_1200">
-				<div class="my_order_tips"></div>
+				<div class="my_order_tips dzq_order"></div>
 				<div class="my_order_title o_hidden" style="background: #E6E6E6;">
 					<div class="my_order_details f_l">订单详情</div>
 					<div class="my_order_price f_l">单价（点）</div>
@@ -42,9 +42,9 @@
 						<div class="my_order_num f_l line_h_90">x<span>{$order.number}</span></div>
 						<div class="my_order_price_all f_l line_h_90">{$order.total_fee}点</div>
 						<div class="my_order_zhuangtai f_l zhuangtai_margin_top">
-							<div>{$order.order_status_cn}</div>
+							<!--<div>{$order.order_status_cn}</div>-->
 							<div>{$order.pay_status_cn}</div>
-							<div>{$order.shipping_status_cn}</div>
+							<!--<div>{$order.shipping_status_cn}</div>-->
                             <!--<div class="active">未付款</div>-->
                             <!--<div>已取消</div>-->
 						</div>

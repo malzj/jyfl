@@ -104,7 +104,7 @@
 							<li>
 								<div class="renshu">关注人数：<span>{$item.FouseAmount}</span></div>
 								<div class="xuanzuo_buy">
-									<span><a href="movie.php?step=showDzq&id={$item.CinemaNo}">选座购票</a></span>
+									<span><a href="movie.php?step=showDzq&id={$item.CinemaNo}">查看详情</a></span>
 								</div>
 							</li>
 						</ul>

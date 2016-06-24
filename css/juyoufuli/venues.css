@@ -24,7 +24,7 @@
 .mobiled .inpt input{border:0 none;/* width:220px; */height:24px;color:#808080;font:12px verdana,lucida,arial,helvetica,"宋体",sans-serif;vertical-align:-3px;outline:none;background:#fff;font-size:16px;}
 .input-t{color:#999; height:32px; line-height:32px; padding-top:10px;}
 .T_btn_g{display:block;background: #2fd0b5;width:180px;color:#FFF;line-height:42px;border-radius:5px;margin:0 auto;text-align:center;font-size:16px;}
-.T_btn_g:hover{background:#fc924c; color:#FFF; text-decoration:none;}
+.T_btn_g:hover{background:#2cb59e; color:#FFF; text-decoration:none;}
 .StatusBar span em{display:inline-block;width:40px;height:20px;background:#666;margin-right:5px;border: 1px solid #BFBCBC;}
 .StatusBar span em.k1{background:#fff}
 .StatusBar span em.k2{background: #d2d2d2;}

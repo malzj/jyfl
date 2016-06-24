@@ -356,8 +356,25 @@ function get_user_orders($user_id, $num = 10, $start = 0)
             "WHERE og.order_id = '".intval($value['order_id'])."'");
         foreach ($arr_orderGoods as &$val){
             $val['goods_thumb'] = get_image_path($val['goods_id'],$val['goods_thumb']);
-        }        $value['shipping_status'] = ($value['shipping_status'] == SS_SHIPPED_ING) ? SS_PREPARING : $value['shipping_status'];
-        $value['order_status'] = array($GLOBALS['_LANG']['os'][$value['order_status']] ,$GLOBALS['_LANG']['ps'][$value['pay_status']] , $GLOBALS['_LANG']['ss'][$value['shipping_status']]);
+        }
+        $value['shipping_status'] = ($value['shipping_status'] == SS_SHIPPED_ING) ? SS_PREPARING : $value['shipping_status'];
+//        $value['order_status'] = array($GLOBALS['_LANG']['os'][$value['order_status']] ,$GLOBALS['_LANG']['ps'][$value['pay_status']] , $GLOBALS['_LANG']['ss'][$value['shipping_status']]);
+
+        if($value['order_status']==0||$value['order_status']==1||$value['order_status']==5){
+
+            switch($value['pay_status']){
+                case 0:
+                    $value['order_status']=$GLOBALS['_LANG']['ps'][$value['pay_status']];
+                    break;
+                case 2:
+                    $value['order_status']=$GLOBALS['_LANG']['ss'][$value['shipping_status']];
+                default:
+                    break;
+            }
+        }elseif($value['order_status']==2||$value['order_status']==3||$value['order_status']==4||$value['order_status']==6||$value['order_status']==7){
+            $value['order_status']=$GLOBALS['_LANG']['os'][$value['order_status']];
+        }
+
         $arr = array(
             'order_id'       => $value['order_id'],
             'order_sn'       => $value['order_sn'],
@@ -386,8 +403,21 @@ function get_user_orders($user_id, $num = 10, $start = 0)
                 $val['goods_thumb'] = get_image_path($val['goods_id'],$val['goods_thumb']);
             }
             $order['p_temp_order']['shipping_status'] = ($order['p_temp_order']['shipping_status'] == SS_SHIPPED_ING) ? SS_PREPARING : $order['p_temp_order']['shipping_status'];
-            $order['p_temp_order']['order_status'] = array($GLOBALS['_LANG']['os'][$order['p_temp_order']['order_status']] ,$GLOBALS['_LANG']['ps'][$order['p_temp_order']['pay_status']] , $GLOBALS['_LANG']['ss'][$order['p_temp_order']['shipping_status']]);
-
+//            $order['p_temp_order']['order_status'] = array($GLOBALS['_LANG']['os'][$order['p_temp_order']['order_status']] ,$GLOBALS['_LANG']['ps'][$order['p_temp_order']['pay_status']] , $GLOBALS['_LANG']['ss'][$order['p_temp_order']['shipping_status']]);
+            if($order['p_temp_order']['order_status']==0||$order['p_temp_order']['order_status']==1||$order['p_temp_order']['order_status']==5){
+                switch($order['p_temp_order']['pay_status']){
+                    case 0:
+                        $order['p_temp_order']['order_status']=$GLOBALS['_LANG']['ps'][$order['p_temp_order']['pay_status']];
+                        break;
+                    case 2:
+                        $order['p_temp_order']['order_status']=$GLOBALS['_LANG']['ss'][$order['p_temp_order']['shipping_status']];
+                        break;
+                    default:
+                        break;
+                }
+            }elseif($order['p_temp_order']['order_status']==2||$order['p_temp_order']['order_status']==3||$order['p_temp_order']['order_status']==4||$order['p_temp_order']['order_status']==6||$order['p_temp_order']['order_status']==7){
+                $order['p_temp_order']['order_status']=$GLOBALS['_LANG']['os'][$order['p_temp_order']['order_status']];
+            }
             $arr = array(
                 'order_id'       => $order['p_temp_order']['order_id'],
                 'order_sn'       => $order['p_temp_order']['order_sn'],
@@ -1267,32 +1297,32 @@ function get_user_film_orders_cdy($user_id, $num = 10, $start = 0)
 		switch($row['order_status']){
 			// 下单未付款的
 			case '1':
-				$row['order_status_cn'] = array('已下单','未付款','未出票');
+				$row['order_status_cn'] = '未付款';
 //				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="red">未付款</font>','<font color="red">未出票</font>');
 				break;
 			// 取消订单
 			case '2':
-				$row['order_status_cn'] = array('已下单','未付款','已取消');
+				$row['order_status_cn'] = '已取消';
 //				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="red">未付款</font>','<font color="blue">已取消</font>');
 				break;
 			// 已付款
 			case '3':
-				$row['order_status_cn'] = array('已下单','已付款','出票中'	);
+				$row['order_status_cn'] = '已付款';
 //				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="green">已付款</font>','<font color="red">出票中</font>'	);
 				break;
 			// 购票成功
 			case '4':
-				$row['order_status_cn'] = array('已下单','已付款','购票成功');
+				$row['order_status_cn'] = '购票成功';
 //				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="green">已付款</font>','<font color="green">购票成功</font>');
 				break;
 			// 购票失败
 			case '5':
-				$row['order_status_cn'] = array('已下单','已付款','购票失败','退款中');
+				$row['order_status_cn'] = '购票失败退款中';
 //				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="green">已付款</font>','<font color="red">购票失败</font>','<font color="red">退款中</font>');
 				break;
 			// 退款
 			case '6':
-				$row['order_status_cn'] = array('已下单','已付款','购票失败','已退款');
+				$row['order_status_cn'] = '已退款';
 //				$row['order_status_cn'] = array('<font color="green">已下单</font>','<font color="green">已付款</font>','<font color="red";>购票失败</font>','<font color="blue";>已退款</font>');
 				break;
 		}

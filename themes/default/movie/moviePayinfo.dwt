@@ -51,10 +51,10 @@
                             <span class="user_card">聚优卡号：<span style="font-weight: 600;">{$usernames.user_name}</span></span>
                         </div>
                         <div class="box_1">
-                            <span>聚优卡密码：<input name="password" id="password" type="password" autocomplete="off">
+                            <span>聚优密码：<input name="password" id="password" type="password" autocomplete="off">
                         </div>
                         <div class="box_1 center">
-                            <span class="jiesuan">结算</span> &nbsp;&nbsp;&nbsp;<span class="pay-loading" style="color:red;"></span></span>                        </div>
+                            <span class="jiesuan zhuti_a_hover">结算</span> &nbsp;&nbsp;&nbsp;<span class="pay-loading" style="color:red;"></span></span>                        </div>
                         <div class="tips">
                             <ul>
                                 <li>温馨提示：1、支付成功后您将收到取票短信，建议您提前10分钟至影票终端机取票，以免排队耽误您的入场。</li>

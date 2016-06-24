@@ -2199,6 +2199,7 @@ html.huaju1 .w_1200 .huaju_box{
 }
 html.huaju1 .w_1200 .huaju_box .img_left img{padding: 10px 10px;width: 310px;height: 310px;}
 html.huaju1 .w_1200 .huaju_box .box_xinxi ul li{margin: 20px 0;overflow: hidden;}
+html.huaju1 .w_1200 .huaju_box .box_xinxi ul li #showTimeStatus{margin-top:15px;}
 html.huaju1 .w_1200 .huaju_box .box_xinxi li h3{font-size: 24px;color: #ff781e;}
 html.huaju1 .w_1200 .huaju_box .box_xinxi{width: 800px;margin-left: 40px;}
 html.huaju1 .w_1200 .huaju_box .box_xinxi .changci{height: 57px;width: 560px;}
@@ -2493,7 +2494,8 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .sport4_dianshu{font-size: 30px;color: #ff781e;}
 .sport4_pri{background: white;margin: 10px 0;padding: 25px 20px;/* border-bottom: 1px dashed #ddd; */background: #f5f5f5;}
 .sport4_mar{overflow: hidden;padding: 15px 20px;}
-.sport4_btn{cursor: pointer;display: inline-block;margin: 20px 25px;/* padding: 10px 40px; */background: #e70012;color: white;width: 150px;line-height: 30px;padding: 4px 18px;}
+.sport4_btn{cursor: pointer;display: inline-block;margin: 20px 25px 20px 0;/* padding: 10px 40px; */background: #e70012;color: white;width: 150px;line-height: 30px;padding: 4px 18px;}
+.sport4_btn:first-child{margin-left: 109px;}
 .sport4_btn:hover{background: #C71120;}
 .sport4_img_item li{margin: 10px 7px;cursor: pointer;}
 .sport4_img_item li img.active{border: 2px solid #2fd0b5;}

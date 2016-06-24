@@ -109,21 +109,21 @@
 .layui-layer-content .set .set_btn{text-align: center;}
 .layui-layer-content .set{padding-bottom: 20px;}
 .ywz_zhucexiaobo{overflow: hidden;width: 385px;margin: 0 auto;}
-				.ywz_zhuce_youjian{float:left;width:100px;font-size:14px;text-align:right;}
-				.ywz_zhuce_xiaoxiaobao{float:left;width:226px;}
-				.ywz_zhuce_kuangzi{float:left;width:222px;color:#171717;border: 1px solid white; border-radius: 5px;}
-				.ywz_zhuce_huixian{float:left;background:#d6d3d3;width:62px;height:4px;margin-top:5px;_margin-top:0px;margin-left:10px;_height:2px;font-size:0px;}
-				.ywz_zhuce_hongxianwenzi{float:left;width:62px;margin-left:10px;text-align:center;color:#b0adad;font-size:12px;}
+.ywz_zhuce_youjian{float:left;width:100px;font-size:14px;text-align:right;}
+.ywz_zhuce_xiaoxiaobao{float:left;width:226px;}
+.ywz_zhuce_kuangzi{float:left;width:222px;color:#171717;border: 1px solid white; border-radius: 5px;}
+.ywz_zhuce_huixian{float:left;background:#d6d3d3;width:62px;height:4px;margin-top:5px;_margin-top:0px;margin-left:10px;_height:2px;font-size:0px;}
+.ywz_zhuce_hongxianwenzi{float:left;width:62px;margin-left:10px;text-align:center;color:#b0adad;font-size:12px;}
 				
-				.ywz_zhuce_kuangwenzi1{float:left;border:0;color:white;width:210px;padding-left:10px;_padding-left:20px;outline:medium;}/*框*/
+.ywz_zhuce_kuangwenzi1{float:left;border:0;color:white;width:210px;padding-left:10px;_padding-left:20px;outline:medium;}/*框*/
 				
-				.ywz_zhuce_hongxian{float:left;background:#ff3300;width:62px;height:4px;margin-top:5px;margin-left: 10px;_margin-top:0px;_height:2px;font-size:0px;}
-				.ywz_zhuce_hongxian2{float:left;background: #099;width:62px;height:4px;margin-top:5px;margin-left:10px;_margin-top:0px;_height:2px;font-size:0px;}
-				.ywz_zhuce_hongxian3{float:left;background: #060;width:62px;height:4px;margin-top:5px;margin-left:10px;_margin-top:0px;_height:2px;font-size:0px;}
+.ywz_zhuce_hongxian{float:left;background:#ff3300;width:62px;height:4px;margin-top:5px;margin-left: 10px;_margin-top:0px;_height:2px;font-size:0px;}
+.ywz_zhuce_hongxian2{float:left;background: #099;width:62px;height:4px;margin-top:5px;margin-left:10px;_margin-top:0px;_height:2px;font-size:0px;}
+.ywz_zhuce_hongxian3{float:left;background: #060;width:62px;height:4px;margin-top:5px;margin-left:10px;_margin-top:0px;_height:2px;font-size:0px;}
 				
-				.ywz_zhuce_yongyu1{float:left;color: #C00;font-size:12px;padding-left:10px;margin-top:10px;_padding-left:0px;}/*后面的文字*/
-				.ywz_zhuce_yongyu1 a{ color:#C00;text-decoration:none;}
-				.ywz_zhuce_yongyu1 a:hover{ color:#C00;}
+.ywz_zhuce_yongyu1{float:left;color: #C00;font-size:12px;padding-left:10px;margin-top:10px;_padding-left:0px;}/*后面的文字*/
+.ywz_zhuce_yongyu1 a{ color:#C00;text-decoration:none;}
+.ywz_zhuce_yongyu1 a:hover{ color:#C00;}
 
 /*添加地址*/
 .layui-layer-content option{background:black;}

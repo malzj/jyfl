@@ -59,7 +59,7 @@
 			</div>
 			<div class="tijiao">
 				<div class="f_r">
-                	{if $peisong eq 1}
+                	{if $peisong eq 0}
                 	<span style="color:red;">当前地址不支持配送，请换一个！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     {/if}
 					<span>实际付款金额：</span>

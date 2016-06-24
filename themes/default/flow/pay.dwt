@@ -24,7 +24,7 @@
                 <img src="{$app_path}images/juyoufuli/img_login/order_submit_img.png">
                 <div class="order_tijiao_msg">
                     <div class="order_tijiao_username">聚优卡号：<span>{$usernames.user_name}</span></div>
-                    <div class="order_tijiao_password">聚优卡密码：<input type="password" name="password" id="password" placeholder="请输入密码"></div>
+                    <div class="order_tijiao_password">聚优密码：<input type="password" name="password" id="password" placeholder="请输入密码"></div>
                     <button type="button" class="bg_color zhuti_a_hover" onclick="checkPayForm()">结算</button>
                 </div>
             </div>

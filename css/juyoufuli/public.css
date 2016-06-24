@@ -1260,11 +1260,12 @@ html.movie_1 .reying_show .reying_img,
 html.movie_1 .reying_show .reying_img {
 	width: 145px;
 	height: 205px;
+	border:2px solid #FFF;
 }
 
 html.movie_1 .reying_show .reying_show1 {
 	width: 1025px;
-	margin-left: 30px;
+	margin-left: 26px;
 	color: white;
 }
 
@@ -1753,7 +1754,7 @@ html.shuaka  .table thead tr td.name{font-size: 18px;background:#2fd0b5;border-r
 html.shuaka  .table thead tr td.adress{background:#ff781e;font-size: 18px;}
 html.shuaka  .table thead tr td{color: white;}
 html.shuaka  .table tbody tr{border-bottom: 1px dashed #808080;color: #666666;}
-html.shuaka  .select_tips{margin: 15px 0 30px 0;font-size: 12px;color: #333333;}
+html.shuaka  .select_tips{margin: 10px 0 20px 0;font-size: 12px;color: #333333;line-height: 23px;}
 .shuaka_tip_ul li{margin: 5px 0;color: #404040;}
 .shuaka_tip_title{margin:10px 0;font-size:16px;}
 .shuaka_tip{background: #c0f1e9;font-size: 12px;padding: 10px;}

@@ -76,7 +76,7 @@
 						
                         <!-- 加载座位图 -->    
     					<div class='seatmap' style="overflow:auto;">
-                            <center style="height:150px; line-height:150px;">加载中...</center>
+                            <center style="height:150px; line-height:150px;"><img src="/images/juyoufuli/img_login/loading.gif"></center>
                         </div>
             
 					</div>

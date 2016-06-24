@@ -539,7 +539,7 @@ html.login .pop_right{transform: translateX(0);}
 	background: transparent;
 	display: none;
 }
-.pop_left .gn_1 i{display: block;font-size:12px;}
+.pop_left .gn_1 i{line-height: 1;display: block;font-size:12px;}
 .pop_left .per_1 {
 	position: absolute;
 	left: 80px;
@@ -582,11 +582,11 @@ html.login .pop_right{transform: translateX(0);}
 }
 
 .gn_1 .list_1 li div span {
-	/* width: 25px; */
-	/* height: 25px; */
+	width: 25px;
+	height: 19px;
 	display: inline-block;
 	/* margin: 0px auto; */
-	margin-top: 5px;
+	margin-top: 10px;
 }
 .list_2 li {
 	width: 65px!important;
@@ -618,6 +618,7 @@ html.login .pop_right{transform: translateX(0);}
 .per_1 ul.list_2 li.active, .gn_1 ul li.active,.order_1 ul li.active{
 	color: #37e2c3;
 }
+.gn_1 ul li.active span{background-position: -45px 0px!important;}
 .pop_left .order_1{
 	position: absolute;
 	left: 80px;
@@ -2392,7 +2393,7 @@ html.huaju2 .xupay{font-size: 22px;color: #2fd0b5;}
  .shouhuoren .more span#more{cursor: pointer;}
  .shouhuoren_item .shouhuo_list.selected{background-position: -258px 0px;/* border:1px red solid!important; */}
  /*收货地址样式--new*/
-.shouhuo_list{float: left;width: 245px;height: 140px;background: url(/images/juyoufuli/img_login/shouhuo.png) no-repeat;}
+.shouhuo_list{cursor: pointer;float: left;width: 245px;height: 140px;background: url(/images/juyoufuli/img_login/shouhuo.png) no-repeat;}
  .bianji{background: url(/images/juyoufuli/img_login/shouhuo.png) no-repeat -93px -137px;width: 25px;height: 30px;display: inline-block;}
  .bianji:hover{background-position: -34px -137px;}
  .remove{background: url(/images/juyoufuli/img_login/shouhuo.png) no-repeat -124px -137px;width: 25px;height: 30px;display: inline-block;}
@@ -2661,21 +2662,39 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 
 
 /*cake1.html*/
-.cake1_top ul li{float: left;padding: 8px;}
+.cake1_top ul li{float: left;width: 96px;line-height: 32px;}
 .cake1_top ul li a:hover{color:#2fd0b5}
 .cake1_top ul li.active a{color:#2fd0b5}
 .cake1_top{border:1px solid #ddd;margin: 20px 0;}
-.cake1_top_Sort{padding: 8px 20px;background: #eaeaea;}
-.paixu{background: #eaeaea;padding: 5px 10px;margin-top: 20px;}
+.cake1_top_Sort{width: 96px;/* padding: 5px 20px; */background: #eaeaea;line-height: 32px;text-align: center;margin-right: 20px;}
+.paixu{border: 1px solid #ddd;/* background: #eaeaea; *//* padding: 5px 10px; */margin-top: 20px;}
 .paixu_box{
 	background: white;
 	float: left;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	border-top: 1px solid #ccc;
-	padding: 5px 10px;
+	/* border-right: 1px solid #ccc; */
+	/* border-bottom: 1px solid #ccc; */
+	/* border-top: 1px solid #ccc; */
+	/* padding: 5px 20px; */
+	width: 96px;
+	line-height: 32px;
 }
-.paixu_box.active{background: #eaeaea;}
+.paixu_box.active{
+    color: #2fd0b5;
+}
+.paixu_box.active span{
+    background: url(/images/juyoufuli/img_login/paixu_jiantou1.png) no-repeat 3px 5px;
+}
+.paixu_box:hover{color:#2fd0b5;}
+.paixuAll{
+    margin-right: 20px;
+    background: #eaeaea;
+    float: left;
+    /* padding: 5px 20px; */
+    display: inline-block;
+    width: 96px;
+    line-height: 32px;
+    text-align: center;
+    }
 .cake_content{margin-left: 20px;width: 490px;}
 .cake_box{margin: 20px 0;}
 .cake_box_item{/* position: relative; */padding: 20px 0;border-bottom: 1px dashed #d8d8d8;}
@@ -2925,7 +2944,7 @@ html.shenghuo1 body{background: white;}
 .continue_buy .layui-layer-content .movie div span{height: 25px;display:block;padding-top: 10px;}
 
 .floor_more{color: #2fd0b5!important;margin-right: 20px;margin-top: 15px;}
-.paixu_jiantou{background: url(/images/juyoufuli/img_login/paixu_jiantou.png) no-repeat 0px 3px;display: inline-block;width: 13px;height: 16px;}
+.paixu_jiantou{background: url(/images/juyoufuli/img_login/paixu_jiantou.png) no-repeat 3px 5px;display: inline-block;width: 13px;height: 16px;}
 .cake_btn_look{background: url(/images/juyoufuli/img_login/cake_btn.png) no-repeat 0px -26px;display: inline-block;width: 35px;height: 30px;float: left;margin-left: 5px;}
 .cake_btn_add{background: url(/images/juyoufuli/img_login/cake_btn.png) no-repeat 0px -3px;display: inline-block;width: 35px;height: 30px;float: left;margin-left: 5px;}
 .lijigoumai_1{background: url(/images/juyoufuli/img_login/lijigoumai.png) no-repeat -33px -3px;display: inline-block;width: 32px;height: 30px;float: left;}

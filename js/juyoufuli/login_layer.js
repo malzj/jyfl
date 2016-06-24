@@ -144,7 +144,7 @@ $(function () {
 		layer.closeAll();
 	})
 	// 支付遇到问题
-	
+	 
     })
     $('#red_packet').on('click', function () {
         layer.open({

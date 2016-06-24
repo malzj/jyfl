@@ -42,19 +42,19 @@
 					</tbody>
 				</table>
 				<div class="jiesuan">
-					<div class="kahao f_l">
+					<div class="kahao">
 						<span>聚优卡号：</span>
 						<span>{$usernames.user_name}</span>
 					</div>
-					<div class="password f_l">
-						<span>聚优卡密码</span>
+					<div class="password">
+						<span>聚优密码：</span>
                         <input type="password" name="password" id="password" placeholder="请输入密码">
 					</div>
-					<div class="jiesuan_btn f_l">
-						<span class="act-pay">结算</span>&nbsp;<span class="pay-loading" style='background:#f2f2f2; color:red;'></span>
+					<div class="jiesuan_btn" style="text-align: center;">
+						<span class="act-pay zhuti_a_hover">结算</span>&nbsp;<span class="pay-loading" style='background:#f2f2f2; color:red;'></span>
 					</div>
 				</div>
-				<div style="color:#ff781e;">温馨提示：您的订单将在支付后安排发货，72小时内未支付的订单将自动取消，请尽快支付。</div>
+				<div style="color:#ff781e;text-align: center;">温馨提示：您的订单将在支付后安排发货，72小时内未支付的订单将自动取消，请尽快支付。</div>
 			</div>
 		</div>
         

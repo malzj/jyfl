@@ -87,6 +87,7 @@
     padding: 3px 10px;
     background: #ffa116!important;
     margin: 10px 0;}
+.chongzhidianshu{margin-left: 0!important;width: 80px!important;display: inline-block;}    
 /*设置密码*/
 .layui-layer-content .set .password{
     display: inline-block;
@@ -141,7 +142,7 @@
 .layui-layer-content .set_add{padding-bottom: 20px;}
 /*充值记录*/
 .layui-layer-content .log table thead{background: #828385;opacity: .5;}
-
+.log .deposit_pay,.log .cancel{color: #2fd0b5;}
 /*收货信息*/
 .layui-layer-content .shouhuo_left .add_new{margin-left: 10px;color: #37e2c3;cursor: pointer;}
 .layui-layer-content .shouhuo_left table thead{background: #828385;opacity: .5;}
@@ -189,4 +190,47 @@
 .layui-layer-content .question .form-group select{outline: none;background: transparent;border: 1px solid;border-radius: 5px;padding: 2px;width: 200px;}
 .layui-layer-content .question label{width: 80px;text-align: right;}
 .layui-layer-content .question .form-group div{margin: 10px 0;}
-
+/*立即支付提示*/
+.pay_tishi_title{font-size: 14px;background: #2fd0b5;padding: 5px 20px;}
+.pay_tishi_content{
+    color: #2fd0b5;
+    padding: 30px;
+}
+.pay_tishi_1{
+    margin-bottom: 5px;
+}
+.pay_title_img{
+    float: left;
+    margin-left: -40px;
+    margin-right: 10px;
+}
+.pay_tishi_2{}
+.pay_tishi_btn{}
+.pay_tishi_question{
+    margin-right: 15px;
+    width: 100px;
+    color: white;
+    background: #ff781e;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+}
+.pay_tishi_ok{
+    width: 100px;
+    color: white;
+    background: #2fd0b5;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+}
+.pay_tishi_btnAll{
+    width: 220px;
+    margin: 0 auto;
+}
+.pay_tishiAll{
+    width: 265px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}

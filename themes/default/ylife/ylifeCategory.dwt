@@ -162,8 +162,6 @@
 				$(this).find('.paixu_jiantou').css('background','');
 			})
 		</script>
-        
-        
         <!-- 底部 -->
 	 	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 	    <!-- 底部结束 -->

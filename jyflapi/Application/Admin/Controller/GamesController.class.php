@@ -6,16 +6,26 @@
  * Time: 11:20
  */
 
-namespace Games\Controller;
+namespace Admin\Controller;
 
 
-use Think\Controller;
+use Admin\Controller;
 use Think\Model;
 use Think\Page;
 use Think\Upload;
 
-class GamesController extends Controller
+class GamesController extends PublicController
 {
+    /**
+     * 初始化方法
+     */
+    public function _initialize()
+    {
+        $islogin = self::_rule();
+        if(!$islogin){
+            $this->error('登录超时!',U('Public/login'));
+        }
+    }
     /**
      * 游戏列表
      * @author  zhaoyingchao

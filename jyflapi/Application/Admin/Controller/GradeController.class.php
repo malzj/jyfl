@@ -6,7 +6,7 @@
  * Time: 17:55
  */
 
-namespace Games\Controller;
+namespace Admin\Controller;
 
 use Think\Controller;
 use Think\Page;

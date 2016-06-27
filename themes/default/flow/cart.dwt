@@ -5,7 +5,6 @@
 		<title></title>
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
-        
         {insert_scripts files='jquery.common.js'}
 	</head>
 	<body class='bg_white'>
@@ -147,9 +146,13 @@
 		        title:false,
 		        area:['570px','350px'],
 		        shadeClose: false, //点击遮罩关闭
-		        content:'<ul class="list_1" style="width: 450px;margin: 20px auto;">{foreach from=$navigator_list.middle item=nav name=foo}<li class="movie" onClick=window.location="{$nav.url}"><div><span class="movie_1"><img src="{$app_path}images/juyoufuli/icon/nav-{$nav.id}.png"></span><i>{$nav.name}</i></div></li>{/foreach}</ul>'
+		        content:'<ul class="list_1" style="width: 450px;margin: 20px auto;">{foreach from=$navigator_list.middle item=nav name=foo}<li class="movie" onClick=window.location="{$nav.url}"><div><span class="movie_1" style="background:url({$app_path}images/juyoufuli/icon/nav-{$nav.id}.png) no-repeat 0px 14px"></span><i>{$nav.name}</i></div></li>{/foreach}</ul>'
 		      })
+			$('.list_1 li').hover(function(){
+		$(this).addClass('active').siblings().removeClass('active');
 		})
+		})
+		
 		</script>
     </body>
 </html>

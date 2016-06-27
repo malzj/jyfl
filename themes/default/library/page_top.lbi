@@ -6,49 +6,49 @@
 <link rel="stylesheet" href="{$app_path}css/juyoufuli/login_layer.css">
 <script src="{$app_path}js/juyoufuli/jquery.nicescroll.js"></script>
 <script>
-	window.alert = function(str) 
-{ 
-var shield = document.createElement("DIV"); 
-shield.id = "shield"; 
-shield.style.position = "absolute"; 
-shield.style.left = "0px"; 
-shield.style.top = "0px"; 
-shield.style.width = "100%"; 
-shield.style.height = document.body.scrollHeight+"px"; 
-//弹出对话框时的背景颜色 
-shield.style.background = "rgba(1,1,1,0.7)"; 
-shield.style.textAlign = "center"; 
-shield.style.zIndex = "25"; 
-//背景透明 IE有效 
-//shield.style.filter = "alpha(opacity=0)"; 
-var alertFram = document.createElement("DIV"); 
-alertFram.id="alertFram"; 
-alertFram.style.position = "fixed"; 
-alertFram.style.left = "50%"; 
-alertFram.style.top = "50%"; 
-alertFram.style.marginLeft = "-225px"; 
-alertFram.style.marginTop = "-75px"; 
-alertFram.style.width = "450px"; 
-//alertFram.style.height = "150px"; 
-//alertFram.style.background = "#ff0000"; 
-alertFram.style.textAlign = "center"; 
-alertFram.style.lineHeight = "150px"; 
-alertFram.style.zIndex = "300"; 
-strHtml = "<ul style=\"list-style:none;margin:0px;padding:0px;width:100%\">\n"; 
-strHtml += " <li style=\"background:#2fd0b5;text-align:left;padding-left:20px;font-size:14px;height:25px;line-height:25px;color:white;padding:5px 30px;border-top-right-radius: 5px;border-top-left-radius: 5px;\">聚优福利提示：</li>\n"; 
-strHtml += " <li style=\"background:#fff;text-align:center;font-size:12px;height:120px;line-height:120px;border-left:1px solid #F9CADE;border-right:1px solid #F9CADE;\">"+str+"</li>\n"; 
-strHtml += " <li style=\"background:#FDEEF4;text-align:center;font-weight:bold;line-height:25px;\"><input type=\"button\" value=\"确 定\" onclick=\"doOk()\" /></li>\n"; 
-strHtml += "</ul>\n"; 
-alertFram.innerHTML = strHtml; 
-document.body.appendChild(alertFram); 
-document.body.appendChild(shield); 
-this.doOk = function(){ 
-alertFram.style.display = "none"; 
-shield.style.display = "none"; 
-} 
-alertFram.focus(); 
-document.body.onselectstart = function(){return false;}; 
-} 
+//通用alert样式修改
+	window.alert = function(str) { 
+		var shield = document.createElement("DIV"); 
+		shield.id = "shield"; 
+		shield.style.position = "absolute"; 
+		shield.style.left = "0px"; 
+		shield.style.top = "0px"; 
+		shield.style.width = "100%"; 
+		shield.style.height = document.body.scrollHeight+"px"; 
+		//弹出对话框时的背景颜色 
+		shield.style.background = "rgba(1,1,1,0.7)"; 
+		shield.style.textAlign = "center"; 
+		shield.style.zIndex = "25"; 
+		//背景透明 IE有效 
+		//shield.style.filter = "alpha(opacity=0)"; 
+		var alertFram = document.createElement("DIV"); 
+		alertFram.id="alertFram"; 
+		alertFram.style.position = "fixed"; 
+		alertFram.style.left = "50%"; 
+		alertFram.style.top = "50%"; 
+		alertFram.style.marginLeft = "-225px"; 
+		alertFram.style.marginTop = "-100px"; 
+		alertFram.style.width = "450px"; 
+		//alertFram.style.height = "150px"; 
+		//alertFram.style.background = "#ff0000"; 
+		alertFram.style.textAlign = "center"; 
+		alertFram.style.lineHeight = "150px"; 
+		alertFram.style.zIndex = "300"; 
+		strHtml = "<ul style=\"list-style:none;margin:0px;padding:0px;width:100%\">\n"; 
+		strHtml += " <li style=\"background:#2fd0b5;text-align:left;padding-left:20px;font-size:14px;height:25px;line-height:25px;color:white;padding:5px 30px;border-top-right-radius: 5px;border-top-left-radius: 5px;\">聚优福利提示：</li>\n"; 
+		strHtml += " <li style=\"background:#fff;text-align:center;font-size:12px;height:120px;line-height:120px;border-left:1px solid #F9CADE;border-right:1px solid #F9CADE;\">"+str+"</li>\n"; 
+		strHtml += " <li style=\"background:white;text-align:center;line-height:25px;padding-bottom:20px\"><input type=\"button\" value=\"确 定\" onclick=\"doOk()\" style=\"background: #2fd0b5;border: none;color: white;font-weight: normal;padding: 0 20px;border-radius: 5px;\"></li>\n"; 
+		strHtml += "</ul>\n"; 
+		alertFram.innerHTML = strHtml; 
+		document.body.appendChild(alertFram); 
+		document.body.appendChild(shield); 
+		this.doOk = function(){ 
+		alertFram.style.display = "none"; 
+		shield.style.display = "none"; 
+		} 
+		alertFram.focus(); 
+		document.body.onselectstart = function(){return false;}; 
+		} 
 </script>
 {insert_scripts files='utils.js,jquery.region.js,juyoufuli/jquery.shoppingflow.js'}
 <div class="header">

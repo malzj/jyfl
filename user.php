@@ -1172,7 +1172,54 @@ elseif ($action == 'account_log')
     }
 
     //获取余额记录
-    $account_log = get_account_log($user_id, $pager['size'], $pager['start']);
+    $sql1 = 'SELECT * FROM ' .$GLOBALS['ecs']->table('user_account').
+        " WHERE user_id = '$user_id'" .
+        " AND process_type " . db_create_in(array(SURPLUS_SAVE, SURPLUS_RETURN)) .
+        " ORDER BY add_time DESC";
+//    $account_log = get_account_log($user_id, $pager['size'], $pager['start']);
+    $res = $GLOBALS['db']->query($sql1);
+    if ($res)
+    {
+        while ($rows = $GLOBALS['db']->fetchRow($res))
+        {
+            $rows['add_time']         = local_date($GLOBALS['_CFG']['date_format'], $rows['add_time']);
+            $rows['admin_note']       = nl2br(htmlspecialchars($rows['admin_note']));
+            $rows['short_admin_note'] = ($rows['admin_note'] > '') ? sub_str($rows['admin_note'], 30) : 'N/A';
+            $rows['user_note']        = nl2br(htmlspecialchars($rows['user_note']));
+            $rows['short_user_note']  = ($rows['user_note'] > '') ? sub_str($rows['user_note'], 30) : 'N/A';
+            $rows['pay_status']       = ($rows['is_paid'] == 0) ? $GLOBALS['_LANG']['ps'][PS_UNPAYED] : $GLOBALS['_LANG']['is_confirm'];
+            $rows['amount']           = price_format(abs($rows['amount']), false);
+
+            /* 会员的操作类型： 冲值，提现 */
+            if ($rows['process_type'] == 0)
+            {
+                $rows['type'] = $GLOBALS['_LANG']['surplus_type_0'];
+            }
+            else
+            {
+                $rows['type'] = $GLOBALS['_LANG']['surplus_type_1'];
+            }
+
+            /* 支付方式的ID */
+            $sql = 'SELECT pay_id FROM ' .$GLOBALS['ecs']->table('payment').
+                " WHERE pay_name = '$rows[payment]' AND enabled = 1";
+            $pid = $GLOBALS['db']->getOne($sql);
+
+            /* 如果是预付款而且还没有付款, 允许付款 */
+            if (($rows['is_paid'] == 0) && ($rows['process_type'] == 0))
+            {
+//                $rows['handle'] = '<a href="user.php?act=pay&id='.$rows['id'].'&pid='.$pid.'">'.$GLOBALS['_LANG']['pay'].'</a>';
+                $rows['handle'] = '<a class="deposit_pay" href="javascript:void(0);" data-href="user.php?act=pay&id='.$rows['id'].'&pid='.$pid.'">'.$GLOBALS['_LANG']['pay'].'</a>';
+            }
+
+            $account_log[] = $rows;
+        }
+
+    }
+    else
+    {
+        $account_log=array();
+    }
 
     //模板赋值
 //    $smarty->assign('surplus_amount', price_format($surplus_amount, false));

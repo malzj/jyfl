@@ -64,7 +64,10 @@ if ($_REQUEST['step'] == 'show')
 	{
 		$dongpiao['imgs'] = $dongpiao['img'];
 	}
-	
+	//时间处理
+	if(empty($dongpiao['businessHours'])){
+		$dongpiao['businessHours'] = '暂无';
+	}
 	// 地址处理
 	if (empty($dongpiao['viewAddress']))
 	{
@@ -86,7 +89,7 @@ if ($_REQUEST['step'] == 'show')
 	$zfint=$zfint2-$zfint1;
 	$sub=substr($dongpiao['orderDesc'], $zfint1,$zfint);
 	$dongpiaoa=str_replace($sub, '', $dongpiao['orderDesc']);
-	$smarty->assign('detailww', $dongpiaoa);
+-	$smarty->assign('detailww', $dongpiaoa);
 	$smarty->assign('detail', $dongpiao);
 	$smarty->assign('backHtml',           getBackHtml('venuesindex.php'));
 	$smarty->display('venues/ticketShow.dwt');

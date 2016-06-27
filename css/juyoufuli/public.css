@@ -2882,8 +2882,8 @@ html.shenghuo1 body{background: white;}
 .order_select_ul li{background: #2fd0b5;margin: 1px 0;padding: 10px;}
 .order_select_ul li:hover{background: #7ce4d3;}
 .order_select_ul li a{color: white;}
-.order_select_jiantou{position: absolute;color: white;left: 130px;top: 15px;}
-.order_select_box{width: 170px;height: 45px;}
+.order_select_jiantou{position: absolute;color: white;left: 130px;top: 16px;}
+.order_select_box{cursor: pointer;width: 170px;height: 45px;}
 .order_select{/* height: 260px; */}
 
 /*订单详情*/

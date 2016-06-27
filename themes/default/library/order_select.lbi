@@ -11,6 +11,20 @@
 </div>
 <script>
 	$('.order_select_box').hover(function(){
-		$('.order_select_ul').slideToggle();
-	})
+		 t = setTimeout(function(){
+        $('.order_select_ul').slideDown('slow');
+        $('.order_select_box span').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+                },
+            300);
+        },
+        function(){
+        	//鼠标移除后清除上面的操作；
+            clearTimeout(t);   
+        	$('.order_select_ul').slideUp('slow');
+        	$('.order_select_box span').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+                
+        }
+    );
+		
+	
 </script>

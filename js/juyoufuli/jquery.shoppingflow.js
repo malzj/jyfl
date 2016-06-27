@@ -19,7 +19,7 @@ function setConsigneeSelect(that,id,sid){
 		}else{
 //			$(that).closest('ul').find('.checkedall').removeClass('select').html('选择');
 //			$(that).addClass('select').html('<font color=green>已选择</font>');  
-			$(that).addClass('selected').parents('li').addClass('selected').siblings().removeClass('selected').find('.checkedall').removeClass('selected');
+			$(that).addClass('selected').find('.xuanzhong').addClass('selected').parents('li').siblings().removeClass('selected').find('.xuanzhong').removeClass('selected');
 		}		
 	}, 'json');
 }

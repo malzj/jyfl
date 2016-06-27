@@ -146,12 +146,16 @@ $(function () {
             closeBtn:0,
             content:'<div class="pay_tishi"><div class="pay_tishi_title">支付提示：</div><div class="pay_tishi_content"><div class="pay_tishiAll"><div class="pay_tishi_1"><span class="pay_title_img"><img src="/images/juyoufuli/img_login/pay_tishi.png" width="20"></span>支付完成前，请不要关闭此支付验证窗口</div><div class="pay_tishi_2">支付完成后，请根据您支付的情况点击下面按钮。</div></div><div class="pay_tishi_btnAll"><div class="pay_tishi_btn"><a href="javascript:;" class="pay_tishi_question">支付遇到问题</a><a href="javascript:;" class="pay_tishi_ok">支付完成</a></div></div></div></div>'
     	})
-//  	点击支付完成按钮关闭弹层
-	$('.pay_tishi_ok').click(function(){
-		layer.closeAll();
-	})
-	// 支付遇到问题
-	
+    })
+    //  	点击支付完成按钮关闭弹层
+    $(document).delegate('.pay_tishi_ok', 'click', function () {
+        layer.closeAll();
+        rechargeLog();
+    })
+    // 支付遇到问题
+    $(document).delegate('.pay_tishi_question', 'click', function () {
+        layer.closeAll();
+        rechargeLog();
     })
     $('#red_packet').on('click', function () {
         layer.open({
@@ -219,36 +223,10 @@ $(function () {
         );
         showprovince();
     });
+    //充值记录
     $(document).delegate('.btn_all .btn_2', 'click', function () {
-        var index;
-        $.ajax({
-            type: 'post',
-            url: ecs_url + 'user.php',
-            data: {act: 'account_log'},
-            dataType: 'json',
-            beforeSend:function(){
-                index=layer.load();
-            },
-            success: function (data) {
-                layer.close(index);
-                // console.log(data);
-                var info = data.info;
-                var html = '<div class="log"><h3>充值记录</h3><table class="table">' +
-                    '<thead><tr><td>操作时间</td><td>类型</td><td>金额</td><td>管理员备注</td><td>状态</td><td>操作</td></tr></thead>' +
-                    '<tbody>';
-                $.each(info.account_log, function (k, val) {
-                    if ((val.is_paid == 0 && val.process_type == 1) || val.handle){
-                        var cancel = '<a class="cancel" href="javascript:void(0);" data-href="user.php?act=cancel&id='+val.id+'">删除</a>';
-                    }else{
-                        var cancel = '';
-                    }
-
-                    html += '<tr><td>' + val.add_time + '</td><td>' + val.type + '</td><td>' + val.amount + '</td><td>' + val.short_admin_note + '</td><td>' + val.pay_status + '</td><td>' + val.handle+' '+cancel+ '</td></tr>';
-                });
-                html += '</tbody></table></div>';
-                $('.layui-layer-content').html(html);
-            }
-        })
+        layer.closeAll();
+        rechargeLog();
     });
     //充值列表删除点击
     $(document).delegate('.layui-layer-content .log .cancel','click',function(){
@@ -854,6 +832,45 @@ function cardMerge(from_card, from_card_pwd, to_card, to_card_pwd) {
     } else {
         return false;
     }
+}
+//充值记录函数
+function rechargeLog(){
+    var index;
+    $.ajax({
+        type: 'post',
+        url: ecs_url + 'user.php',
+        data: {act: 'account_log'},
+        dataType: 'json',
+        beforeSend:function(){
+            index=layer.load();
+        },
+        success: function (data) {
+            layer.close(index);
+            // console.log(data);
+            var info = data.info;
+            var html = '<div class="log"><h3>充值记录</h3><table class="table">' +
+                '<thead><tr><td>操作时间</td><td>类型</td><td>金额</td><td>管理员备注</td><td>状态</td><td>操作</td></tr></thead>' +
+                '<tbody>';
+            $.each(info.account_log, function (k, val) {
+                if ((val.is_paid == 0 && val.process_type == 1) || val.handle){
+                    var cancel = '<a class="cancel" href="javascript:void(0);" data-href="user.php?act=cancel&id='+val.id+'">删除</a>';
+                }else{
+                    var cancel = '';
+                }
+
+                html += '<tr><td>' + val.add_time + '</td><td>' + val.type + '</td><td>' + val.amount + '</td><td>' + val.short_admin_note + '</td><td>' + val.pay_status + '</td><td>' + val.handle+' '+cancel+ '</td></tr>';
+            });
+            html += '</tbody></table></div>';
+            // $('.layui-layer-content').html(html);
+            layer.open({
+                type: 1,
+                title: false,
+                area: '570px',
+                shadeClose: false, //点击遮罩关闭
+                content: html,
+            });
+        }
+    })
 }
 
 

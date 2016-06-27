@@ -6,11 +6,11 @@
 <div class="shouhuoren_item">
 	<ul>
 		{foreach from=$consignee_list item=consignee key=sn}
-		<li class="shouhuo_list {if $consignee.selected eq 1}selected{/if}">
+		<li class="shouhuo_list {if $consignee.selected eq 1}selected{/if}" onClick="javascript:setDefaultConsignee('{$consignee.address_id}');">
 			<div class="o_hidden">
 				<div class="f_r">
 					<!-- <a href="javascript:setDefaultConsignee('{$consignee.address_id}');">设为默认地址</a>-->
-					<a class="xuanzhong {if $consignee.selected eq 1}selected{/if}" onClick="javascript:setDefaultConsignee('{$consignee.address_id}');" title="选择"></a>
+					<a class="xuanzhong {if $consignee.selected eq 1}selected{/if}" title="选择"></a>
 					<a class="bianji" href="javascript:selectConsignee('{$consignee.address_id}');" title="修改"></a>
 					<a class="remove" href="javascript:dropConsignee('{$consignee.address_id}');" title="删除"></a>
 				</div>

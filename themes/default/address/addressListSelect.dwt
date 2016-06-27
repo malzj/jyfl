@@ -15,9 +15,9 @@
 <div class="shouhuoren_item">
 	<ul>
 		{foreach from=$consignee_list item=consignee key=sn}
-		<li class="shouhuo_list">
+		<li class="shouhuo_list checkedall" onClick="setConsigneeSelect(this,'{$consignee.address_id}',supplier_id);">
 			<div class="o_hidden f_r">
-				<a href="javascript:void(0)" onClick="setConsigneeSelect(this,'{$consignee.address_id}',supplier_id);" class="checkedall xuanzhong" title="选择">
+				<a href="javascript:void(0)" class=" xuanzhong " title="选择">
 					<!--选择-->
 				</a>
 				{if $consignee.selected eq 0}

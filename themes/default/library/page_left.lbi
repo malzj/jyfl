@@ -112,7 +112,19 @@
 		})
 </script>
 <script type="text/javascript">
-		var shopping_amount="{$cartTotal}";
+		var shopping_amount;
+        //统计购物车数量
+        $.ajax({
+            type:'post',
+            url:'/flow.php',
+            async:false,
+            data:{step:'ajax_cart_count'},
+            dataType:'json',
+            success:function (data) {
+                shopping_amount = data;
+            }
+        });
+
 		
 	  //详情页加入购物车动画效果
 			function MoveBox() {

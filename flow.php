@@ -185,6 +185,15 @@ if ($_REQUEST['step'] == 'add_to_cart')
     $result['confirm_type'] = !empty($_CFG['cart_confirm']) ? $_CFG['cart_confirm'] : 2;
     die($json->encode($result));
 }
+//ajax显示购物车数量
+elseif($_REQUEST['step'] == 'ajax_cart_count'){
+    $cart_result = $GLOBALS['db']->getAll("SELECT goods_number " ."FROM " . $GLOBALS['ecs']->table('cart') ." WHERE session_id = '" . SESS_ID . "' " . "AND rec_type = '".CART_GENERAL_GOODS."' ");
+    $cartTotal = 0;
+    foreach ($cart_result as $cart){
+        $cartTotal +=$cart['goods_number'];
+    }
+    exit(json_encode($cartTotal));
+}
 // 查看配送范围
 elseif ($_REQUEST['step'] == 'showYunfei')
 {

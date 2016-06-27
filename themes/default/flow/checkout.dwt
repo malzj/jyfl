@@ -165,6 +165,10 @@
 			});
 			// 选择时间
 			function selectdate(date, sid, address){
+				
+				$('.peisong_check').each(function(){	
+					$(this).css('border','1px solid #B1AFAF');
+				});
 				baidumap.setOptions({
 					isYunfei:true,
 					isSetYunfei:false,
@@ -234,6 +238,7 @@
 				$(this).find('.order_item_more').hide();
 			}
 				})
+				
 			function supplierYunfei(dom){
 				var id = dom.attr('data-id');
 				var bottomhtml = dom.closest('.order_grshang').find('.order_grshang_bottom');
@@ -251,11 +256,7 @@
 						}else{
 							bottomhtml.html(data.html);
 						}
-					},
-					error:function(XHT,DA){
-						console.log(XHT,DA);	
-						
-					},
+					},					
 					dataType: "json",					
 				});	
 			}

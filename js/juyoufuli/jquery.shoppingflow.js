@@ -92,7 +92,7 @@ function saveConsignee(id, from){
 
 	//收货人详细地址不能为空
 	if (Utils.isEmpty(address)){
-		loadMsg('收货人详情地址不能为空！');
+		alert('收货人详情地址不能为空！');
 		return false;
 	}	
 	
@@ -515,13 +515,14 @@ function checkOrderForm(frm, from){
 	}
 	
 	var st = 0;
-	$('.peisong_check').each(function(){		
+	$('.peisong_check').each(function(){	
 		if($(this).val() == '配送日期' || $(this).val() == 0 || $(this).val() == ''){
 			st = 1;
+			$(this).css('border','1px solid red');
 		}
 	});
 	if(st==1){
-		alert('配送时间填写不完整！');
+		alert('配送时间填写不完整！');		
 		return false;
 	}
 }

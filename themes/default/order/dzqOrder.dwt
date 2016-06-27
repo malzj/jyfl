@@ -11,7 +11,11 @@
     <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
     <!-- 头部结束 -->
 			<div class="w_1200">
-				<div class="my_order_tips dzq_order"></div>
+				<div class="my_order_tips dzq_order">
+					<!--订单选择  -->
+					<!-- #BeginLibraryItem "/library/order_select.lbi" --><!-- #EndLibraryItem -->
+			        <!-- 订单选择结束 -->
+				</div>
 				<div class="my_order_title o_hidden" style="background: #E6E6E6;">
 					<div class="my_order_details f_l">订单详情</div>
 					<div class="my_order_price f_l">单价（点）</div>
@@ -78,7 +82,7 @@
             <!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
             <!-- 公共右边结束 -->
             <script>
-	//继续购物
+	//		继续购物
 		$('.continue_buy').on('click',function(){
 			layer.open({
 				skin:'continue_buy',
@@ -86,8 +90,11 @@
 		        title:false,
 		        area:['570px','350px'],
 		        shadeClose: false, //点击遮罩关闭
-		        content:'<ul class="list_1" style="width: 450px;margin: 20px auto;">{foreach from=$navigator_list.middle item=nav name=foo}<li class="movie" onClick=window.location="{$nav.url}"><div><span class="movie_1"><img src="{$app_path}images/juyoufuli/icon/nav-{$nav.id}.png"></span><i>{$nav.name}</i></div></li>{/foreach}</ul>'
+		        content:'<ul class="list_1" style="width: 450px;margin: 20px auto;">{foreach from=$navigator_list.middle item=nav name=foo}<li class="movie" onClick=window.location="{$nav.url}"><div><span class="movie_1" style="background:url({$app_path}images/juyoufuli/icon/nav-{$nav.id}.png) no-repeat 0px 14px"></span><i>{$nav.name}</i></div></li>{/foreach}</ul>'
 		      })
+			$('.list_1 li').hover(function(){
+		$(this).addClass('active').siblings().removeClass('active');
+		})
 		})
 			</script>
 

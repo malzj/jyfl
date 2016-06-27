@@ -1,0 +1,16 @@
+<div class="order_select_box"><span class="glyphicon glyphicon-chevron-down order_select_jiantou"></span>
+<div class="order_select">
+	<ul class="order_select_ul"  style="display: none">
+		<li><a href="user.php?act=order_list">实物订单</a></li>
+		<li><a href="user.php?act=film_order">影院选座</a></li>
+		<li><a href="user.php?act=dzq_order">电子券码</a></li>
+		<li><a href="user.php?act=yanchu_order">演出订单</a></li>
+		<li><a href="user.php?act=venues_order">运动场馆</a></li>
+	</ul>
+</div>
+</div>
+<script>
+	$('.order_select_box').hover(function(){
+		$('.order_select_ul').slideToggle();
+	})
+</script>

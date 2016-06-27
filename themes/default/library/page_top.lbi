@@ -50,7 +50,7 @@ alertFram.focus();
 document.body.onselectstart = function(){return false;}; 
 } 
 </script>
-{insert_scripts files='utils.js,jquery.region.js,jquery.shoppingflow.js'}
+{insert_scripts files='utils.js,jquery.region.js,juyoufuli/jquery.shoppingflow.js'}
 <div class="header">
 	<ul class="header_nav">
 		<li class="m_left"><img src="{$app_path}images/juyoufuli/img_login/logo.png" alt="聚优福利"></li>

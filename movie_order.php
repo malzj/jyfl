@@ -388,7 +388,7 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 				'order_id'   => $arr_orderInfo['order_sn'],
 				'balance'	 => $float_price
 		);
-		$arr_result = getCDYApi($arr_param);
+		//$arr_result = getCDYApi($arr_param);
 		//$arr_result['status'] = 0;
 		if($arr_result['status'] == 0){
 			// 支付成功，更新订单状态

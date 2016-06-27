@@ -20,7 +20,7 @@ if (!defined('IN_ECS'))
 }
 
 // 网站根目录
-defined('APP_PATH') or define('APP_PATH', '/');	// 抠电影
+defined('APP_PATH') or define('APP_PATH', '');	// 项目根目录
 
 error_reporting(E_ALL);
 

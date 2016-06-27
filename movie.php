@@ -257,6 +257,7 @@ elseif ($_REQUEST['step'] == "planCinemas")
 	$banner = getMovieBanner();
 	
 	$smarty->assign('backHtml',getBackHtml('movie.php'));
+	$smarty->assign('category',getCinemaCate(4));
 	$smarty->assign('banner',$banner);
 	$smarty->assign('cityid', $cityid);
 	$smarty->assign('cinemaDetail', $cinemaDetail);

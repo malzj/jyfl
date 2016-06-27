@@ -394,7 +394,7 @@ else if ($str_action == 'act_pay'){
 				'pay'        => 1,
 				'sign'       => $str_sign
 		);
-		$obj_result = getYCApi($arr_param, 'apiorder');//确认支付订单
+		//$obj_result = getYCApi($arr_param, 'apiorder');//确认支付订单
 
 		$_SESSION['BalanceCash'] -= $order_amount; //重新计算用户卡余额
 		//更新卡金额

@@ -32,9 +32,9 @@
                             <!-- {foreach from=$pictures item=picture name=picture}-->
                             <li class="f_l">
                             	{if $smarty.foreach.picture.first}        
-                                <img src="{$picture.img_url|pathimages}" srcimage="{$picture.img_url|pathimages}" class="active" alt="{$goods.goods_name}" width="90" />
+                                <img src="{$picture.img_url}" srcimage="{$picture.img_url}" class="active" alt="{$goods.goods_name}" width="90" />
                             	{else}                     
-                                <img src="{$picture.img_url|pathimages}" srcimage="{$picture.img_url|pathimages}" alt="{$goods.goods_name}" width="90" />
+                                <img src="{$picture.img_url}" srcimage="{$picture.img_url}" alt="{$goods.goods_name}" width="90" />
                             	{/if}
 
                             </li>

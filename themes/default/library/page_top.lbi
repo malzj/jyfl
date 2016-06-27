@@ -58,7 +58,7 @@
 		</li>
 		<ul>
 			<li class="username">
-				<img src="{$usernames.pic}" alt="用户头像">
+				<img id="usertx" src="{$usernames.pic}" alt="用户头像">
 				<span>{$usernames.user_name}</span>
 			</li>
 			<li class="balance">余额：<span>{$usernames.card_money}</span>点</li>

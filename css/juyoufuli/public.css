@@ -2852,7 +2852,11 @@ html.shenghuo1 body{background: white;}
 .order_tijiao_msg input{line-height: 1;padding: 5px;} 
 .order_tijiao_username span{letter-spacing: 1.5px;}
 /*我的订单*/
-.my_order_tips{width: 1200px;margin: 0 auto;height: 45px;background: url(/images/juyoufuli/img_login/my_order.png) no-repeat;margin-top: 90px;}
+.sw_order{position: relative;width: 1200px;margin: 0 auto;height: 45px;background: url(/images/juyoufuli/img_login/my_order.png) no-repeat;margin-top: 90px;}
+.fm_order{position: relative;width: 1200px;margin: 0 auto;height: 45px;background: url(/images/juyoufuli/img_login/my_order.png) no-repeat 0px -71px;margin-top: 90px;}
+.dzq_order{position: relative;width: 1200px;margin: 0 auto;height: 45px;background: url(/images/juyoufuli/img_login/my_order.png) no-repeat 0px -154px;margin-top: 90px;}
+.yanchu_order{width: 1200px;margin: 0 auto;height: 45px;background: url(/images/juyoufuli/img_login/my_order.png) no-repeat 0px -232px;margin-top: 90px;position: relative;}
+.venues_order{position: relative;width: 1200px;margin: 0 auto;height: 45px;background: url(/images/juyoufuli/img_login/my_order.png) no-repeat 0px -309px;margin-top: 90px;}
 .my_order_dingdanhao{width: 170px;text-align: center;}
 .my_order_details{width: 550px;text-align: center;}
 .my_order_price{width: 160px;text-align: center;}
@@ -2874,6 +2878,13 @@ html.shenghuo1 body{background: white;}
 .my_order_details_name{color: #2fd0b5;height: 36px;}
 .my_order_list{width: 1036px;}
 .my_order_listAll{position: relative;}
+.order_select_ul{background: white;font-size: 16px;position: absolute;width: 170px;top: 44px;text-align: center;z-index: 1;}
+.order_select_ul li{background: #2fd0b5;margin: 1px 0;padding: 10px;}
+.order_select_ul li:hover{background: #7ce4d3;}
+.order_select_ul li a{color: white;}
+.order_select_jiantou{position: absolute;color: white;left: 130px;top: 16px;}
+.order_select_box{cursor: pointer;width: 170px;height: 45px;}
+.order_select{/* height: 260px; */}
 
 /*订单详情*/
 .order_zhuangtai{width: 1200px;height: 45px;margin: 90px auto 0;background: url(/images/juyoufuli/img_login/order_zhuangtai.png) no-repeat;}
@@ -2940,8 +2951,12 @@ html.shenghuo1 body{background: white;}
 .continue_buy .layui-layer-content{background-color:rgba(1,1,1,0.9) ;}
 .continue_buy .layui-layer-content .movie{float:left;/* width: 500px; */text-align: center;padding: 10px;margin: 10px 0 0;}
 .continue_buy .layui-layer-content .movie div{cursor: pointer;width: 70px;height: 70px;background: #4d4d4d;border-radius: 50%;}
-.continue_buy .layui-layer-content .movie div:hover{color:#2fd0b5;}
-.continue_buy .layui-layer-content .movie div span{height: 25px;display:block;padding-top: 10px;}
+/*.continue_buy .layui-layer-content .movie div:hover{color:#2fd0b5;}*/
+.continue_buy .layui-layer-content .movie div span{width: 25px;height: 25px;display:block;padding-top: 10px;margin: 0 auto;}
+.continue_buy .list_1 li.active span {
+    background-position: -45px 14px!important;
+}
+.continue_buy .list_1 li.active i{color: #2FD0B5;}
 
 .floor_more{color: #2fd0b5!important;margin-right: 20px;margin-top: 15px;}
 .paixu_jiantou{background: url(/images/juyoufuli/img_login/paixu_jiantou.png) no-repeat 3px 5px;display: inline-block;width: 13px;height: 16px;}

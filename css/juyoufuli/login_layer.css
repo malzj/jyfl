@@ -141,8 +141,16 @@
 }
 .layui-layer-content .set_add{padding-bottom: 20px;}
 /*充值记录*/
-.layui-layer-content .log table thead{background: #828385;opacity: .5;}
+.layui-layer-content .log table thead{position: absolute;background: #6f6f6f;/* opacity: .5; */width: 100%;top: 60px;/* z-index: 10; */}
+.jilu_1{width: 85px;display: inline-block;}
+.jilu_2{width: 30px;display: inline-block;}
+.jilu_3{width: 35px;display: inline-block;}
+.jilu_4{width: 205px;display: inline-block;}
+.jilu_5{width: 40px;display: inline-block;}
+.jilu_6{width: 60px;display: inline-block;}
 .log .deposit_pay,.log .cancel{color: #2fd0b5;}
+.chongzhijilu{padding-top: 30px;height: 270px;overflow: auto;}
+.chongzhijilu td{text-align: center;}
 /*收货信息*/
 .layui-layer-content .shouhuo_left .add_new{margin-left: 10px;color: #37e2c3;cursor: pointer;}
 .layui-layer-content .shouhuo_left table thead{background: #828385;opacity: .5;}

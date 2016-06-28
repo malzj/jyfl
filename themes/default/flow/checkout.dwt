@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>聚优福利</title>
         <link rel="stylesheet" href="{$app_path}js/juyoufuli/layer/skin/layer.css">
         <link rel="stylesheet" href="{$app_path}css/juyoufuli/bootstrap.min.css">
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>

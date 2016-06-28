@@ -848,8 +848,8 @@ function rechargeLog(){
             layer.close(index);
             // console.log(data);
             var info = data.info;
-            var html = '<div class="log"><h3>充值记录</h3><table class="table">' +
-                '<thead><tr><td>操作时间</td><td>类型</td><td>金额</td><td>管理员备注</td><td>状态</td><td>操作</td></tr></thead>' +
+            var html = '<div class="log"><h3>充值记录</h3><div class="chongzhijilu"><table class="table">' +
+                '<thead><tr><td class="jilu_1">操作时间</td><td class="jilu_2">类型</td><td class="jilu_3">金额</td><td class="jilu_4">管理员备注</td><td class="jilu_5">状态</td><td class="jilu_6">操作</td></tr></thead>' +
                 '<tbody>';
             $.each(info.account_log, function (k, val) {
                 if ((val.is_paid == 0 && val.process_type == 1) || val.handle){
@@ -858,9 +858,9 @@ function rechargeLog(){
                     var cancel = '';
                 }
 
-                html += '<tr><td>' + val.add_time + '</td><td>' + val.type + '</td><td>' + val.amount + '</td><td>' + val.short_admin_note + '</td><td>' + val.pay_status + '</td><td>' + val.handle+' '+cancel+ '</td></tr>';
+                html += '<tr><td class="jilu_1">' + val.add_time + '</td><td class="jilu_2">' + val.type + '</td><td class="jilu_3">' + val.amount + '</td><td class="jilu_4">' + val.short_admin_note + '</td><td class="jilu_5">' + val.pay_status + '</td><td class="jilu_6">' + val.handle+' '+cancel+ '</td></tr>';
             });
-            html += '</tbody></table></div>';
+            html += '</tbody></table></div></div>';
             // $('.layui-layer-content').html(html);
             layer.open({
                 type: 1,
@@ -869,6 +869,14 @@ function rechargeLog(){
                 shadeClose: false, //点击遮罩关闭
                 content: html,
             });
+           $(".chongzhijilu").niceScroll({
+				cursorcolor: "#BFB1B1",
+				cursoropacitymax: 1,
+				touchbehavior: false,
+				cursorwidth: "5px",
+				cursorborder: "0",
+				cursorborderradius: "5px"
+			}); 
         }
     })
 }

@@ -8,8 +8,7 @@ define('IN_ECS', true);
 include_once(dirname(__FILE__) . '/lib/_init.php');
 
 $lastTime = $GLOBALS['db']->getOne('SELECT create_time FROM '.$GLOBALS['ecs']->table('company').' ORDER BY create_time DESC');
-//$dataInfo['Info']['Time'] = $lastTime;
-$dataInfo['Info']['Time'] = '2012-1-1 00:00';
+$dataInfo['Info']['Time'] = $lastTime;
 if(!strtotime($lastTime)){
     $dataInfo['Info']['Time'] = '2012-1-1 00:00';
 }

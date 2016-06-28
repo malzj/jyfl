@@ -6,6 +6,8 @@ return array(
         'Ext' => APP_PATH.'Ext',
     ),
     'DB_LIKE_FIELDS'=>'company_name|game_name',
+    'ADMIN_UID'=>'admin_uid',
+    'DEFAULT_MODULE'=>'Admin',
     //RBAC配置
 //    'USER_AUTH_MODEL' => 'users',
 //    'USER_AUTH_ON' => 1,// 是否需要认证

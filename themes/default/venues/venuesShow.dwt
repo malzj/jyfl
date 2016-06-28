@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>聚优福利</title>
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script> 
         <script src="{$app_path}js/juyoufuli/stickUp.js"></script>       

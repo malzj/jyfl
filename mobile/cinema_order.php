@@ -18,13 +18,19 @@ if (!isset($_REQUEST['step']))
 
 assign_template();
 
+// 返回的数据
+$jsonArray = array(
+    'state'=>'true',
+    'data'=>'',
+    'message'=>''
+);
+
 // 电子券下单
 if ($_REQUEST['act'] == "orderDzq")
 {
-	$returnAjax = array( 'error'=>0, 'message'=>'');
 	$int_areaNo = getAreaNo();
 	// 卡规则折扣
-	$ratio = get_card_rule_ratio(10002);
+	$ratio = getDzqRatio();
 	//电子券兑换订单
 	$int_cAreaNo    = intval($_POST['areaNo']);//区域编号
 	$int_areaName   = $_POST['areaName'];//区域名称
@@ -34,23 +40,24 @@ if ($_REQUEST['act'] == "orderDzq")
 	$str_mobile     = $_POST['mobile'];//手机
 	$flo_price      = $_POST['price'];//价格
 	
+	
 	// 基础价格
 	$flo_prices     = number_format($_POST['price'],2,'.','');
 	$int_number     = intval($_POST['number']);//数量
 	
 	//实际价格(商城卖的实际单价)
 	if ($ratio !== false){
-		$flo_sjprice = price_format(($_POST['price']/1.2*1.06)*$ratio);
+		$flo_sjprice = price_format(($flo_price/1.2*1.06)*$ratio);
 		$flo_amount		= price_format($flo_price/1.2*1.06*$ratio * $int_number);
 	}else{
-		$flo_sjprice = price_format($_POST['price']/1.2*1.06);
+		$flo_sjprice = price_format($flo_price/1.2*1.06);
 		$flo_amount		= price_format($flo_price/1.2*1.06 * $int_number);
 	}
 	
 	if (empty($str_mobile)){
-		$returnAjax['error'] = 1;
-		$returnAjax['message'] = '请填写手机号码';
-		exit(json_encode($returnAjax));
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '请填写手机号码';
+		exit(json_encode($jsonArray));		
 	}
 	
 	// 获得影票信息
@@ -60,9 +67,9 @@ if ($_REQUEST['act'] == "orderDzq")
 	$card_money = $GLOBALS['db']->getOne('SELECT card_money FROM '.$GLOBALS['ecs']->table('users')." WHERE user_id = '".intval($_SESSION['user_id'])."'");
 	
 	if (($flo_sjprice * $int_number) > $card_money){
-		$returnAjax['error'] = 1;
-		$returnAjax['message'] = '抱歉您的卡余额不足!';
-		exit(json_encode($returnAjax));
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '抱歉您的卡余额不足';
+		exit(json_encode($jsonArray));
 	}
 		
 	$arr_dzqinfo = $cinemaDzq[$int_ticketNo];
@@ -87,14 +94,15 @@ if ($_REQUEST['act'] == "orderDzq")
 	if ($arr_result['head']['errCode'] == '0'){
 		$arr_orderInfo = $arr_result['body'];
 		//插入订单信息
-		$str_sql = 'INSERT INTO '.$ecs->table('dzq_order')." (order_sn, user_id, user_name, order_status, mobile, city, AreaNo, CinemaNo, CinemaName, TicketNo, TicketName, ProductSizeZn, TicketYXQ, number, pay_id, pay_name, price, sjprice, goods_amount, order_amount, add_time, confirm_time, source) VALUES ('".$arr_orderInfo['OrderNo']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '1', '$str_mobile', '$int_cityId', '$int_cAreaNo', '$str_cinemaNo', '$str_cinemaName', '$int_ticketNo', '".$arr_dzqinfo['TicketName']."', '".$arr_dzqinfo['ProductSizeZn']."', '$str_youxiaoq', '$int_number', '2', '华影支付', '$flo_prices', '$flo_sjprice', '$flo_amount', '$flo_amount', '".gmtime()."', '".gmtime()."', 1)";
+		$str_sql = 'INSERT INTO '.$ecs->table('dzq_order')." (order_sn, user_id, user_name, order_status, mobile, city, AreaNo, CinemaNo, CinemaName, TicketNo, TicketName, ProductSizeZn, TicketYXQ, number, pay_id, pay_name, price, sjprice, goods_amount, order_amount, add_time, confirm_time, source) VALUES ('".$arr_orderInfo['OrderNo']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '1', '$str_mobile', '$int_cityId', '$int_cAreaNo', '$str_cinemaNo', '$str_cinemaName', '$int_ticketNo', '".$arr_dzqinfo['TicketName']."', '".$arr_dzqinfo['ProductSizeZn']."', '$str_youxiaoq', '$int_number', '2', '聚优支付', '$flo_prices', '$flo_sjprice', '$flo_amount', '$flo_amount', '".gmtime()."', '".gmtime()."', 1)";
 		$query = $db->query($str_sql);
-		$returnAjax['message'] = $db->insert_id();
-		exit(json_encode($returnAjax));		
-	}else{
-		$returnAjax['error'] = 1;
-		$returnAjax['message'] = $arr_result['head']['errMsg'];
-		exit(json_encode($returnAjax));
+		// 下单成功，返回订单id
+		$jsonArray['data']['orderid'] = $db->insert_id();
+		exit(json_encode($jsonArray));
+	}else{		
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = $arr_result['head']['errMsg'];
+		exit(json_encode($jsonArray));
 	}
 }
 
@@ -104,19 +112,23 @@ elseif ($_REQUEST['act'] == "payinfoDzq")
 	$int_orderid = intval($_REQUEST['id']);
 	$arr_order = $db->getRow('SELECT * FROM ' .$ecs->table('dzq_order'). " WHERE order_id = '$int_orderid' and user_id = '".$_SESSION['user_id']."'");
 	if (empty($arr_order)){
-		ecs_header('Location:index.php');
-		exit;
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '没有订单信息';
+		exit(json_encode($jsonArray));
 	}
 	// 已经支付了的订单，跳转到提示页面 
 	if ($arr_order['pay_status'] == 2)
-	{
-		show_wap_message('订单已经支付过了', '网站首页','index.php');
+	{	
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '订单已经支付过了';
+		exit(json_encode($jsonArray));
 	}
 
 	$arr_order['price'] = price_format($arr_order['price']);
-	
-	$smarty->assign('header',get_header($arr_order['CinemaName'],true,true));
 	$smarty->assign('order', $arr_order);	
+	
+	$jsonArray['data'] = $arr_order;
+	exit(json_encode($jsonArray));
 }
 // 电子券支付操作
 elseif ($_REQUEST['act'] == 'doneDzq')

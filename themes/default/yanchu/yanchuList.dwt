@@ -42,7 +42,7 @@
 							<div class="tempWrap">
 							<ul class="infoList">
                             {foreach from=$text item=t}
-								<li ><a href="{$t.ad_link}" target="_blank">{$t.ad_name}{$t.ad_name}{$t.ad_name}</a></li>
+								<li ><a href="{$t.ad_link}" target="_blank">{$t.ad_name}</a></li>
                             {foreachelse}
                             	<li class="guangbo"> 暂无广播 </li>
                             {/foreach}

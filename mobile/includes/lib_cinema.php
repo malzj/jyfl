@@ -174,6 +174,35 @@ function getMoviePlan( $cinemaid, $movieid)
 	return $moviePlan;
 }
 
+/** 手机端影院列表  */
+function wapCinemaList()
+{
+    $returnArray = array();
+    $cinemas = $GLOBALS['db']->getAll('SELECT * FROM ' . $GLOBALS['ecs']->table('cinema_list') .' WHERE region_id ='.$_SESSION['cityid']);
+    foreach ($cinemas as $cinema)
+    {
+        // 删除地区为空的影院
+        if (empty($cinema['area_id']))
+        {
+            continue;
+        }
+        // 删除什么都不支持的影院
+        if ($cinema['is_komovie'] == 0 && $cinema['is_dzq'] == 0 && $cinema['is_brush'] ==0)
+        {
+            continue;
+        }
+
+        if ( empty($returnArray[$cinema['area_id']]) )
+        {
+            $returnArray[$cinema['area_id']]['area_name'] = $cinema['area_name'];
+        }
+
+        $returnArray[$cinema['area_id']]['cinemas'][] = $cinema;
+    }
+
+    return $returnArray;
+}
+
 /**  
  * 获得所有影院列表
  */

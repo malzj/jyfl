@@ -116,6 +116,7 @@ elseif ($action == 'login')
 
     }
 
+    $smarty->assign('username_cookie', $_COOKIE['username_cookie']);
     $smarty->assign('back_act', $back_act);
     $smarty->display('login.html');   
 }
@@ -175,6 +176,9 @@ elseif ($action == 'act_login')
 		$GLOBALS['user']->set_session($username);
 		$GLOBALS['user']->set_cookie($username);
 		$_SESSION['BalanceCash'] = $cardMoney;
+		
+		// cookie 记住卡号
+		setcookie('username_cookie',$username, local_gettime()+5184600);
 	
 		update_user_info();
 		recalculate_price();
@@ -313,9 +317,26 @@ elseif ($action == 'docardyue')
     $arr_param = array( 'CardInfo'=>array('CardNo'  => $user_name, 'CardPwd' => $password ));
     $state = $cardPay->action($arr_param,8);
     if($state==0){
-        $sql = 'SELECT * FROM ' . $ecs->table('users') . " WHERE user_name='$user_name'";
-        $user_id = $db->getOne($sql);
-        $user_info = get_profile($user_id);
+        
+        $card_result = $cardPay->getResult();
+        // 华影卡处理结果
+        if ($cardPay->getCardType() == 1)
+        {
+            // 卡余额
+            $cardMoney = $card_result['Points'];
+            // 卡有效期
+            $cardOutTime = date('Y-m-d',strtotime($card_result['CardValieTime']));           
+        }
+        // 中影卡处理结果
+        else
+        {
+            // 卡余额
+            $cardMoney = $card_result['BalanceCash'];
+            // 卡有效期
+            $cardOutTime = date('Y-m-d',strtotime($card_result['ExpDate']));            
+        }
+        
+       
 
     }else{
         show_wap_message( $cardPay->getMessage() );
@@ -324,7 +345,8 @@ elseif ($action == 'docardyue')
     $smarty->assign('passwd_questions', $_LANG['passwd_questions']);
     $smarty->assign('is_login',2);
     $smarty->assign('header', get_header('卡余额',true,true));
-    $smarty->assign('info', $user_info);
+    $smarty->assign('money', $cardMoney);
+    $smarty->assign('time', $cardOutTime);
     $smarty->display('cardyue.html');
 }
 /* 修改个人资料的处理 */
@@ -1554,6 +1576,23 @@ include_once(ROOT_PATH . './includes/lib_order.php');
 			{
 				exit('转入的卡已过有效期，合并失败');
 			}
+			
+			// 卡状态验证
+			if ($cardPay->getCardType() == 1)
+			{			   
+			    if ($cardResult['Status'] !=2)
+			    {
+			        exit('不是激活状态，请联系华影客服！');
+			    }
+			}			
+			else
+			{			 
+			    if ($cardResult['Status'] != '正常')
+			    {
+			        exit($cardResult['Status']);
+			    }
+			}
+			
 		}
 		else
 		{
@@ -1587,6 +1626,8 @@ include_once(ROOT_PATH . './includes/lib_order.php');
 	     
 	    if ($cardPay->action($pay_param, 1) == 0)
 	    {
+	        $logMsg .= "[卡号] ".$str_fromCard." ～ [状态] 已消费  ～ [时间] ".local_date('Y-m-d H:i:s', gmtime())." \r\n";
+	        error_log($logMsg,3,'../temp/card_merge/deffmessage_'.date('Ym',time()).'.log');
 	        $state = $cardPay->action($recharge_param, 6);
 	    }
 	}
@@ -1646,7 +1687,7 @@ include_once(ROOT_PATH . './includes/lib_order.php');
 		//插入日志表
 		$sql = "INSERT INTO " . $GLOBALS['ecs']->table('card_log') . " (card_from, card_to, card_money, pay_time, message) " .
 				"VALUES('$str_fromCard', '$str_toCard', '$cardValueMoney', '".gmtime()."', '卡合并失败，来源卡点数已扣')";
-	
+		$db->query($sql);
 		exit($cardPay->getMessage());
 	}
 	else
@@ -1751,6 +1792,7 @@ else if ($action == 'huanlegu_order')
     }
 
     //var_dump($orders); exit;
+    $smarty->assign('header',get_header('我的订单',true,true));
     $smarty->assign('pager',  $pager);
     $smarty->assign('order_list', $orders);
     $smarty->display('order_list.html');

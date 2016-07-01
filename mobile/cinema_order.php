@@ -125,15 +125,13 @@ elseif ($_REQUEST['act'] == "payinfoDzq")
 	}
 
 	$arr_order['price'] = price_format($arr_order['price']);
-	$smarty->assign('order', $arr_order);	
 	
 	$jsonArray['data'] = $arr_order;
 	exit(json_encode($jsonArray));
 }
 // 电子券支付操作
 elseif ($_REQUEST['act'] == 'doneDzq')
-{
-	$ajaxArray = array( 'error'=>0, 'message'=>'' );
+{	
 	$int_orderId = intval($_POST['order_id']);
 	$str_password = $_POST['password'];
 	
@@ -146,22 +144,30 @@ elseif ($_REQUEST['act'] == 'doneDzq')
 	
 	if (empty($arr_orderInfo))
 	{
-		$ajaxArray['error'] = 1;
-		$ajaxArray['message'] = '抱歉，您提交的支付信息不存在';
-		exit(json_encode($ajaxArray));
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '抱歉，您提交的支付信息不存在';
+		exit(json_encode($jsonArray));
 	}
 	
 	if (empty($str_password))
+	{		
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '卡密码不能为空';
+		exit(json_encode($jsonArray));		
+	}
+	
+	// 已经支付了的订单
+	if ($arr_orderInfo['pay_status'] == 2)
 	{
-		$ajaxArray['error'] = 1;
-		$ajaxArray['message'] = '卡密码不能为空';
-		exit(json_encode($ajaxArray));
+	    $jsonArray['state'] = 'false';
+	    $jsonArray['message'] = '订单已经支付过了';
+	    exit(json_encode($jsonArray));
 	}
 	
 	// 卡消费
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$float_price)
+			'TransationInfo' => array( 'TransRequestPoints'=>$float_price, 'TransSupplier'=>setCharset('中影电子券'))
 	);
 	
 	if ($cardPay->action($arr_param, 1, $arr_orderInfo['order_sn']) == 0)
@@ -180,24 +186,26 @@ elseif ($_REQUEST['act'] == 'doneDzq')
 				'SendType' => 3
 		);
 		//确认支付订单
-		$arr_result = getYYApi($arr_param, 'confirmOrder');
+		//$arr_result = getYYApi($arr_param, 'confirmOrder');
+		$arr_result['body']['OrderStatus'] = 0;
 		//重新计算用户卡余额
 		$_SESSION['BalanceCash'] -= $float_price; 
 		//更新卡金额
 		$db->query('UPDATE '.$ecs->table('users')." SET card_money = card_money - ('$float_price') WHERE user_id = '".intval($_SESSION['user_id'])."'");
-		if ($arr_result['body']['OrderStatus'] == '1'){
-		    $ajaxArray['error'] = 1;
-		    $ajaxArray['message'] = '付款失败，如果卡点已扣请联系华影客服！';
-		    exit(json_encode($ajaxArray));
+		if ($arr_result['body']['OrderStatus'] == '1'){		   
+		    $jsonArray['state'] = 'false';
+		    $jsonArray['message'] = '付款失败，如果卡点已扣请联系客服';
+		    exit(json_encode($jsonArray));
+		    
 		}
-		$ajaxArray['message'] = '支付成功';
-		exit(json_encode($ajaxArray));
+		$jsonArray['message'] = '支付成功';
+		exit(json_encode($jsonArray));
 	}
 	else
 	{
-		$ajaxArray['error'] = 1;
-		$ajaxArray['message'] = "您输入的密码不正确！";
-		exit(json_encode($ajaxArray));
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = $cardPay->getMessage();
+		exit(json_encode($jsonArray));
 	}
 	
 }
@@ -242,10 +250,14 @@ else if ($_REQUEST['act'] == 'order'){
 	$seatsNo = trim($seatsNo);
 
 	if (empty($mobile)){
-		show_wap_message('请填写手机号码！');
+	    $jsonArray['state'] = 'false';
+	    $jsonArray['message'] = '请填写手机号码';
+	    exit(json_encode($jsonArray));	
 	}
-	if (empty($seatsNo)){
-		show_wap_message('请选择座位！');
+	if (empty($seatsNo)){		
+		$jsonArray['state'] = 'false';
+	    $jsonArray['message'] = '请选择座位';
+	    exit(json_encode($jsonArray));	
 	}
 
 	// 拆分座位号
@@ -263,7 +275,9 @@ else if ($_REQUEST['act'] == 'order'){
 	//用户卡余额
 	$card_money = $GLOBALS['db']->getOne('SELECT card_money FROM '.$GLOBALS['ecs']->table('users')." WHERE user_id = '".intval($_SESSION['user_id'])."'");
 	if ($totalMoney > $card_money){
-		show_wap_message('抱歉您的卡余额不足！');
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '抱歉您的卡余额不足';
+		exit(json_encode($jsonArray));
 	}
 
 	// 下单
@@ -281,10 +295,14 @@ else if ($_REQUEST['act'] == 'order'){
 		$str_sql = 'INSERT INTO '. $ecs->table('seats_order') ."(order_sn, user_id, user_name, order_status, mobile, city_id, activity_id, channel_id, count, agio, money, unit_price, seat_info, seat_no, hall_name, hall_id, language, screen_type, featuretime, pay_id,pay_name, add_time, payment_time, movie_name, cinema_name,param_url,source) VALUES('".$arr_orderInfo['orderId']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_orderInfo['orderStatus']."', '$mobile','".$int_cityId."', '".$arr_orderInfo['activityId']."', '".$arr_orderInfo['channelId']."', '".$seatCount."', '".$arr_orderInfo['agio']."', '".$money."', '".$unitPrice."', '".$seatsName."', '".$seatsNo."', '".$hallName."', '".$arr_orderInfo['plan']['hallNo']."', '".$arr_orderInfo['plan']['language']."', '".$arr_orderInfo['plan']['screenType']."', '".$featureTimeStr."', '2', '华影支付', '".gmtime()."', '0', '".$movieName."', '".$cinemaName."', '".$seatParamUrl."',1)";
 		$query = $db->query($str_sql);
 		$int_orderid = $db->insert_id();
-		ecs_header('location:cinema_order.php?act=payinfoMovie&id='.$int_orderid);//跳到支付页面
-		exit;
+		
+		$jsonArray['data']['orderid'] = $int_orderid;
+		exit(json_encode($jsonArray));
+		
 	}else{
-		show_wap_message($arr_result['error']);
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = $arr_result['error'];
+		exit(json_encode($jsonArray));
 	}
 }
 
@@ -292,39 +310,45 @@ else if ($_REQUEST['act'] == 'payinfoMovie'){
 	//支付线选座页面
 	$int_orderid = intval($_REQUEST['id']);
 	if (empty($int_orderid)){
-		ecs_header('location:cinema.php');
-		exit;
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '订单号不能为空';
+		exit(json_encode($jsonArray));
 	}
 	$arr_order = $db->getRow('SELECT * FROM ' .$ecs->table('seats_order'). " WHERE id = '$int_orderid' and user_id = '".$_SESSION['user_id']."'");
 	if (empty($arr_order)){
-		ecs_header('location:cinema.php');
-		exit;
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '订单不存在';
+		exit(json_encode($jsonArray));
 	}
 	//过滤支付过的订单
-	if($arr_order['order_status'] !=1){
-		show_wap_message('订单已经支付过了，请选择其他电影吧！',' ','cinema.php');
-		exit;
+	if($arr_order['order_status'] !=1){		
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '订单已经支付过了';
+		exit(json_encode($jsonArray));
 	}
 	//支付倒计时
 	$int_endPayTime = $arr_order['add_time'] + 15 * 60;
 	if ($int_endPayTime < gmtime()){
 		$db->query('UPDATE '.$ecs->table('seats_order')." SET order_status=2 WHERE id = '$int_orderid'");
 		getCDYapi(array('action'=>'order_Delete', 'order_id'=>$arr_order['order_sn']));
-		ecs_header('location:index.php');
-		exit;
+		
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '订单超时，无法支付';
+		exit(json_encode($jsonArray));
 	}
 	$smarty->assign('endPayTime', local_date('M d, Y H:i:s',$int_endPayTime));
 
 	$arr_order['seat_info'] = str_replace('|', ', ', $arr_order['seat_info']);
 	$arr_order['date'] = local_date('Y-m-d', $arr_order['add_time']);
-	$smarty->assign('order', $arr_order);
-	$smarty->assign('header', get_header($arr_order['movie_name'],true,true));
+	$arr_order['end_paytime'] = $int_endPayTime;
+	
+	$jsonArray['data'] = $arr_order;
+	exit(json_encode($jsonArray));
 }
 
 /* 支付电影票 */
-else if ($_REQUEST['act'] == 'doneMovie'){
-	
-	$ajaxArray = array( 'error'=>0, 'message'=>'' );
+else if ($_REQUEST['act'] == 'doneMovie'){	
+
 	//完成支付在线选座订单
 	$int_orderId = intval($_POST['order_id']);
 	$str_password = trim($_POST['password']);
@@ -335,35 +359,42 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 	// 需要支付的卡点的价格
 	$card_price = number_format(round($arr_orderInfo['money'],1), 2, '.', '');
 
-	if (empty($arr_orderInfo)){
-		$ajaxArray['error'] = 1;
-		$ajaxArray['message'] = '抱歉，您提交的支付信息不存在';
-		exit(json_encode($ajaxArray));
+	if (empty($arr_orderInfo)){		
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '抱歉，您提交的支付信息不存在';
+		exit(json_encode($jsonArray));
 	}
 	
 	// 检查订单是否在支付中，如果在支付中返回错误消息
-	if ($arr_orderInfo['card_pay'] > 0){
-		$ajaxArray['error'] = 1;
-		$ajaxArray['message'] = '订单已经支付';
-		exit(json_encode($ajaxArray));
+	if ($arr_orderInfo['card_pay'] > 0){		
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '订单已经支付';
+		exit(json_encode($jsonArray));
 	}
 	
 	if (empty($str_password)){
-		$ajaxArray['error'] = 1;
-		$ajaxArray['message'] = '卡密码不能为空';
-		exit(json_encode($ajaxArray));
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '卡密码不能为空';
+		exit(json_encode($jsonArray));
 	}	
 	
+	$int_endPayTime = $arr_orderInfo['add_time'] + 15 * 60;
+	if ($int_endPayTime < gmtime()){
+	    $db->query('UPDATE '.$ecs->table('seats_order')." SET order_status=2 WHERE id = '$int_orderid'");	
+	    $jsonArray['state'] = 'false';
+	    $jsonArray['message'] = '订单超时，无法支付';
+	    exit(json_encode($jsonArray));
+	}
+	
 	// 卡订单号
-	$cardOrderId = local_date('ymdHis').mt_rand(1,1000);	
+	$cardOrderId = local_date('ymdHis').mt_rand(1,1000);
 	
 	/** TODO 支付 （双卡版） */
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$card_price)
+			'TransationInfo' => array( 'TransRequestPoints'=>$card_price, 'TransSupplier'=>setCharset('抠电影'))
 	);
 	$state = $cardPay->action($arr_param, 1, $cardOrderId);	
-	//$state = 0;
 	if ($state == 0){
 		$cardResult = $cardPay->getResult();
 		$_SESSION['BalanceCash'] -= $card_price; //重新计算用户卡余额
@@ -377,17 +408,18 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 				'order_id'   => $arr_orderInfo['order_sn'],
 				'balance'	 => $float_price
 		);
-		$arr_result = getCDYApi($arr_param);
+		//$arr_result = getCDYApi($arr_param);
 		$arr_result['status'] = 0;
 		if($arr_result['status'] == 0){
 			// 支付成功，更新订单状态
 			$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET order_status = '3', payment_time = '".gmtime()."' WHERE id = '$int_orderId'");
-			$ajaxArray['message'] = '支付成功';
-			exit(json_encode($ajaxArray));
+		
+    		$jsonArray['message'] = '支付成功';
+    		exit(json_encode($jsonArray));
 		}else{			
-			$ajaxArray['error'] = 1;
-			$ajaxArray['message'] = $arr_result['error'];
-			exit(json_encode($ajaxArray));
+		    $jsonArray['state'] = 'false';
+		    $jsonArray['message'] = $arr_result['error'];
+		    exit(json_encode($jsonArray));			
 		}
 	
 	}else{
@@ -397,9 +429,6 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 		exit(json_encode($ajaxArray));
 	}
 }
-
-$smarty->assign('act', $_REQUEST['act']);
-$smarty->display('cinema_order.html');
 
 
 

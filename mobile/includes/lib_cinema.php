@@ -11,6 +11,18 @@ function getDzqRatio()
     return get_card_rule_ratio(10004);
 }
 
+// 电影销售比例销售比例
+function getMovieRatio()
+{
+    return get_card_rule_ratio(10002);
+}
+
+function getDzqRatio()
+{
+    return get_card_rule_ratio(10004);
+}
+
+}
 /** 获得影片详情
  *  @param	int		$movieid 	影片id
  *  @return	array	返回影片信息  
@@ -223,27 +235,6 @@ function getCinemaList()
 	
 	return $returnArray;
 }
-
-/** 
- * 试听盛宴的导航列表
- */
-function getCinemaCate( $selected )
-{
-	$returnArray = array();
-	$navigator = get_navigator();
-	init_wap_middle($navigator['middle']);
-	foreach ($navigator['middle'] as $cateid=>$middle)
-	{
-		if ($cateid == 6)
-		{
-			$returnArray = $middle['child'];
-			$returnArray[$selected]['active'] = isset($returnArray[$selected]) ? 1 : 0;
-		}
-	}
-	
-	return $returnArray;
-}
-
 /**
  * 整理并获得排期日期（年-月-日）  
  */
@@ -253,13 +244,32 @@ function featureTime( $moviePlan )
 	foreach ($moviePlan as $plan)
 	{
 		 $strtotime = date('Y-m-d', strtotime($plan['featureTime']));
-		 if (!in_array($strtotime, $returnArray))
+		 $totime = strtotime($strtotime);
+		 if (!array_key_exists($totime, $returnArray))
 		 {
-			$returnArray[strtotime($strtotime)] = $strtotime;	 	
+			$returnArray[$totime]['strtotime'] = $strtotime;
+			$returnArray[$totime]['strtotime_sn'] = date('m月d日',$totime).' '.timeWeek($totime);
 		 }
 	}
 	ksort($returnArray);
 	return $returnArray;
+}
+
+/**  
+ *  星期
+ */
+function timeWeek($time)
+{
+    $strWeek = '';
+    $week = array('周日','周一','周二','周三','周四','周五','周六');
+    $w = date('w',$time);
+    if ($w == date('w', local_gettime()))
+        $strWeek = '今天';
+    else 
+        $strWeek = $week[$w];
+       
+    
+    return $strWeek;
 }
 
 /**
@@ -340,25 +350,6 @@ function getCinemaDzq( $cinemaid, $ratio)
 	return $dzqData;
 	
 }
-
-/**
- *  远程图片本地化
- */
-function moviesImages( $movies )
-{
-	foreach ($movies as &$arr)
-	{
-		$image_path = explode('/', $arr['pathVerticalS']);
-		$filenames = array_pop($image_path);
-		if (!file_exists('../temp/komovie/'.$filenames)){
-			$new_images = getImage($arr['pathVerticalS'], ROOT_PATH. 'temp/komovie', $filenames);
-		}
-		$arr['thumb'] = '../temp/komovie/'.$filenames;
-	}
-	
-	return $movies;
-}
-
 
 /**
  * 删除 platform 不在 10000 - 20000 直接的影院（不在 10000 - 20000 之间的影院不能在线选座）

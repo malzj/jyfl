@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title>个人信息</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/jquery-mobile-swatch-g.css.css" />
+		<script src="js/rem.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquerymobile.js"></script>
+	</head>
+	<body>
+		<div data-role="page" id="pageone" data-theme="g">
+		  <div data-role="content" >
+		    <ul data-role="listview" class="margin_30">
+		      <li class="person_touxiang"><a href="#" class="ui-icon-myicon">头像<!--<img src="images/jy_index/person_bg.jpg" style="border-radius: 50%;width: 3rem;height: 3rem;">--></a></li>
+		      <li class="person_li"><a href="#" class="ui-icon-myicon">卡号<span class="ui-li-count">999999999999999</span></a></li>
+		      <li class="person_li"><a href="#username_page" class="ui-icon-myicon">用户名<span class="ui-li-count">用户名</span></a></li>
+		      <li class="person_li"><a href="#" class="ui-icon-myicon">性别<span class="ui-li-count">男</span></a></li>
+		      <li class="person_li"><a class="border_bottom_none ui-icon-myicon" href="#">生日</a></li>
+		    </ul>
+		    <ul data-role="listview">
+		      <li class="person_li"><a class="border_top_none ui-icon-myicon" href="#">情感状态</a></li>
+		      <li class="person_li"><a class="border_bottom_none ui-icon-myicon" href="#">兴趣</a></li>
+		    </ul>
+		  </div>
+		</div> 
+		<!--用户名-->
+		<div data-role="page" data-theme="g" id="username_page">
+			<div data-role="main" class="ui-content">
+			    <form method="post" action="">
+			      <div class="ui-field-contain">
+			        <label for="username">用户名：</label>
+			        <input type="text" name="username" id="username">       
+			      </div>
+			    </form>
+			</div>
+		</div>
+	</body>
+</html>

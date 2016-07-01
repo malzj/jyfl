@@ -211,7 +211,7 @@ elseif ($_REQUEST['step'] == "planList")
 	$planList = searchPlan($moviePlan, $currentTime, $ratio);	
 	
 	$jsonArray['data']['time'] = $featureTimes;
-	$jsonArray['data']['plan'] = $currentTime;    // 排期列表	
+	$jsonArray['data']['plan'] = $planList;    // 排期列表	
 	exit(json_encode($jsonArray));		
 }
 

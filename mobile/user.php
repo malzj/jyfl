@@ -930,7 +930,6 @@ elseif ($action == 'act_account')
             'amount'       => $amount
     );
   
-    
     /* 退款申请的处理 */
     if ($surplus['process_type'] == 1)
     {

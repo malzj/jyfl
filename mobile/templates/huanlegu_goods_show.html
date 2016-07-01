@@ -4,9 +4,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
 <meta name="Description" content="{$description}" />
 <title>{$page_title}</title>
-	<script src="js/jquery-1.9.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-
 	<link href="/css/test.css" rel="stylesheet" type="text/css" />
 	<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
 	<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
@@ -16,6 +13,9 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/fd.css">	
 	<link rel="stylesheet" href="css/main.css">
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="/js/layer.js"></script>	
 <style>
 /*top*/
 	.h-wrop{width: 1200px;margin: 0 auto;}
@@ -39,7 +39,7 @@
 	.h-centimg .h-choice ul li a{background: #E70012 none repeat scroll 0% 0%;color: #FFF;margin-left: 95px;display: inline-block;line-height: 48px;width: 150px;}
 	/*cencer*/
 	.h-inforbox{float: left;margin-top:20px;position: relative;}
-	.h-inforbox .h-tabletitle{width: 100%; height:450px;}
+	.h-inforbox .h-tabletitle{width: 100%; height:400px;}
 	.h-inforbox .h-table{line-height: 32px;background-color: #f2f2f2;}
 	.h-inforbox .h-table tr .h-left{line-height: 30px;}
 	.h-inforbox .h-table .h-tr{text-align: center; font-size:20px; height:40px;}
@@ -87,9 +87,9 @@
 	.huanlegu-price{position:absolute; top:0; right:0; min-height:40px; line-height:20px; padding:10px; width:50px; text-align: right; color:red;}
 	
 	.huanlegu-time{ background:#fff; padding:10px;}
-	.select-time{ margin:10px 0; border:1px #ccc solid; padding:3px;}
-	.h-inforbox{ position:absolute; top:30px; z-index:101}
-	.mengceng{ background:#333; opacity:0.8; position:absolute; top:39px; width:100%; height:100%; z-index:100}
+	.select-time{ margin:10px 0; border:1px #ccc solid; padding:3px;width: 50%;}
+	.h-inforbox{ position:fixed; top:0; z-index:101;bottom: 0;margin: auto;height: 400px;}
+	.mengceng{ background:#333; opacity:0.8; position:fixed; top:0;left: 0; width:100%; height:100%; z-index:100}
 	.mengceng span{position: absolute;
     bottom: 11%;
     z-index: 102;
@@ -108,7 +108,22 @@
 	    font-size: 15px;
 	    height: 35px;
 	    width: 100%;
+	    z-index: 1;
 	}
+	
+	/*弹窗样式*/
+.popCenter{ background:url(/images/popCenter.png) repeat-y center; width:280px;padding: 0 5px; padding-top:10px; line-height: 1.5;}
+.layui-layer-content{background:#A29F9F;}
+
+.know{ display:block; width:70px; height:35px; line-height:35px; color:#fff; background:#24adbf; font-family:"微软雅黑"; text-decoration:none; text-align:center; text-align:center; font-size:16px; border-radius: 5px;}
+.fl{float: left;}
+.fr{float: right;}
+.grayBgColor {
+background-color: gray;
+}
+.grayBgColor:hover{
+	background-color: gray;
+}
 </style>	
 
 
@@ -133,7 +148,7 @@
 <form name="f1" id="f1" action="huanlegu_goods_order.php" method="post">
 <div class="huanlegu-time">
 	<div class="huanlegu-youwantime">
-		<input type="text" name="time" class="select-time" placeholder="选择游玩时间">
+		<div name="time" class="select-time">选择游玩日期</div>
 	</div>
 	<div class="huanlegu-number">
 		<span style="float:left; display:inline-block; height:40px; line-height:40px;">数量</span>
@@ -153,15 +168,17 @@
 </div>	
 		
 <div class="clear"></div>
-<div style="text-align: left; padding:10px; background:#fff; margin-top:10px;">
+<div style="text-align: left; padding:10px; background:#fff; margin-top:10px;line-height: 1.5; margin-bottom: 40px;">
 	{if $goods.Description} {$goods.Description} {else} 
-     1、本套票为成人全价套票，适用于1.5米以上（含1.5米）成人游客购买，儿童套票、长者套票请现场购买；<br />
-     2、购买本套票后，可全天畅玩北京欢乐谷，并可于于欢乐谷内入口进入华侨城大剧院C区座位观看17:30场次的《金面王朝》演出；<br />
-     3、本套票请在您所选择的出游日期当天使用，且仅限使用一次，《金面王朝》演出开始时间为：当日17:30；<br />
-     4、不同日期，北京欢乐谷开闭园时间不同，本门票的使用时间也不同，具体请查看北京欢乐谷官方网站、官方微信的开放时间；<br />
-     5、请携带购票时预留的有效证件，至北京欢乐谷团体售票大厅5号窗口，将此短信交景区售票员验证后换取纸质门票；<br />
-     6、本票一经购买不可改期、退票，请游客合理安排购票。<br />
-     7、票务咨询电话：4000691111（咨询时间09:00-12:00；14:00-18:00）。
+    1、本套票为成人全价套票，适用于1.5米以上（含1.5米）成人游客购买。儿童套票、长者套票请现场购买；<br>
+2、购买本套票后，可全天畅玩北京欢乐谷，并可凭门票进入华侨城大剧院D区/包厢区座位观看17:30场次的《金面王朝》演出，（座位编号以门票上为准）；<br>
+3、本套票请在您所选择的出游日期当天使用，且仅限使用一次，《金面王朝》演出开始时间为：当日17:30；<br>
+4、不同日期，北京欢乐谷开闭园时间不同，本门票的使用时间也不同，具体请查看北京欢乐谷官方网站、官方微信的开放时间；<br>
+5、请携带购票时预留的有效证件，至北京欢乐谷团体售票大厅5号窗口，将此短信交景区售票员验证后换取纸质门票；<br>
+6、本票一经购买不可改期、退票，请游客合理安排购票。<br>
+7、华影文化订票咨询电话：400-010-0689（咨询时间09:00-21:00）；<br>
+8、欢乐谷票务咨询电话：400-069-1111（咨询时间09:00-12:00；14:00-18:00）。
+
 
      {/if}
 	
@@ -173,11 +190,13 @@
     <input type="hidden" name="date" id="date" value="">   
     <input type="hidden" name="secret" id="secret" value="{$secret}">        					                      	
     <input type="hidden" name="action" id="action" value="saveOrder"> 
-	<input type="button" value="立即预订" class="act-submit" onclick="sub();">
+	<input type="button" value="立即预订" class="act-submit" id="btn-agree">
 
 </div>
 </form>
-			
+	<div class="col-xs-12">
+		<img src="/mobile/images/huanlegu.jpg" width="100%">
+	</div>		
     <script>
 	
 		var ScenicId = "{$goods.ScenicId}";
@@ -257,11 +276,11 @@
 
 			
 			if( $.trim(price) == ''){
-				alert('您选择的出行日期不支持，请从新222选择！');
+				alert('您选择的出行日期不支持，请重新选择！');
 				return false;
 			}				
 			var dates =  $('.active').attr('date');
-			$('.select-time').val(dates);
+			$('.select-time').text(dates);
 			
 			$('.h-inforbox').removeClass('show').addClass('hide');
 			$('.mengceng').removeClass('show').addClass('hide');
@@ -296,10 +315,36 @@
 		$('.mengceng span').click(function(){
 			$('.h-inforbox').removeClass('show').addClass('hide');
 			$('.mengceng').removeClass('show').addClass('hide');
+		});	
+		
+		//			弹层  
+		$('#btn-agree').on('click', function(){
+			 if($('#date').val()==""){
+		   	layer.msg('请在左侧日历表选择游玩日期');
+		   }else{
+		    layer.open({
+		    	title:false,
+		        type: 1,
+		        area:['280px','420px'],
+		        shadeClose: true, //点击遮罩关闭
+		        content: '<div class="popCenter"><div class="popGarden"><p style="text-align:center;">购票须知</p><p>1、北京欢乐谷《华影文化套票》仅限“预约日期”当日有效，过期作废。</p><p>2、购票时请仔细确认游玩日期，一经支付成功，不可更改，不退不换。</p><p>3、每个身份证及手机号每日限购1张,购票本人须携带身份证入园。</p><p>4、若您一旦在其他网站“当日”有过预定北京欢乐谷其他门票，无论是否支付，不可再购买此票，请慎重下单，避免导致无法入园。</p><p>5、购票后如遇园区推出优惠促销，恕不另行通知，不能同时享受该优惠。</p><p>6、购票信息请注意保密，因游客个人原因泄露该信息而造成的损失由游客自行承担。</p><p>7、购票时填写的取票人信息必须是实际入园人真实信息，若因信息有误造成的纠纷与损失均由游客自行承担。</p><p>8、游客购票须允许本网站将有关订票信息以短信或彩信方式发送至订票手机上。</p><p>9、活动内容如有变动，以当日公告为准。所有游乐项目均会定期进行日检、周检和年度检查，相关检修工作可能会造成部分游乐项目运行时间延迟或暂停对游客开放，详情以项目现场公告为 准。</p><p>10、进入华侨城园区，游客必须接受安全检查，严禁携带管制器具、枪支弹药、易燃易爆物品、食品、饮料等物品入园。</p><p>11、游玩前请参阅公园的开放时间、表演时间及注意事项。</p></div><div class="agreeTic"><input id="agreeFlg" name="agreeFlg" type="checkbox" value="agree" checked onchange="changeAgreeFlg(this)"><label for="agreeFlg">已仔细阅读并同意上述购票须知</label></div><div class="knowIcon"><a href="javascript:sub();" class="know fl" id="agreeBtn">同意</a> <a href="javascript:;" class="know unknow fr " id="unAgreeBtn">不同意</a><div class="clear"></div></div></div>'
+		    });
+		    $('#unAgreeBtn').click(function(){
+			layer.closeAll('page');
+		})
+		  }
 		});
-		
-		
-
+		function changeAgreeFlg(obj){
+		var agreeFlg = $(obj).is(':checked');
+		if(agreeFlg){
+			$("#agreeBtn").removeClass("grayBgColor");
+			$("#agreeBtn").attr("href",'javascript:sub()');
+		}else{
+			$("#agreeBtn").addClass("grayBgColor");
+			$("#agreeBtn").attr("href",'javascript:');
+			
+		};
+	}
     </script>
     
     <!-- 底部 -->

@@ -478,7 +478,10 @@ elseif ($_REQUEST['step'] == 'checkout')
 		ecs_header("Location: user.php\n");
         exit;
     }
-
+    if ( check_cart_price() === false)
+    {
+        show_wap_message('价格检查不通过，请删除购物车中价格小于等于0的商品', '', '', 'error');
+    }
     $consignee = get_consignee($_SESSION['user_id']);
 	if (!empty($consignee)){
 		$consignee['country_cn']  = get_add_cn($consignee['country']);
@@ -2097,10 +2100,41 @@ else if ($_REQUEST['step'] == 'act_pay'){
 		$order_amount = $arr_payLog['order_amount'];
 	}
 	
+	//获得供应商名称，用于接口消费
+	$supplierName = '';
+	$arr_childOrder = $db->getAll('SELECT order_id, supplier_id FROM '.$ecs->table('order_info')." WHERE parent_order_id = '{$arr_payLog['order_id']}'");
+	if (!empty($arr_childOrder))
+	{
+	    $sid = array();
+	    foreach ($arr_childOrder as $childs)
+	    {
+	        $sid[] = $db->getOne('SELECT supplier_id FROM '.$ecs->table('order_info')." WHERE order_id = '{$childs['order_id']}'");
+	    }
+	    if (!empty($sid))
+	    {
+	        $tmpSupplier = array();
+	        $supplierNames = $db->getAll('SELECT supplier_name FROM '.$ecs->table('supplier')." WHERE supplier_id IN(".implode(',', $sid).")");
+	        foreach ($supplierNames as $names)
+	        {
+	            $tmpSupplier[] = $names['supplier_name'];
+	        }
+	        $supplierName = implode(',', $tmpSupplier);
+	    }
+	}
+	else{
+	    $sid = $db->getOne('SELECT supplier_id FROM '.$ecs->table('order_info')." WHERE order_id = '{$arr_payLog['order_id']}'");
+	     
+	    if (!empty($sid))
+	    {
+	        $supplierName = $db->getOne('SELECT supplier_name FROM '.$ecs->table('supplier')." WHERE supplier_id = $sid");
+	    }
+	     
+	}	
+
 	/** TODO 订单支付，双卡版 */
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$order_amount)
+			'TransationInfo' => array( 'TransRequestPoints'=>$order_amount, 'TransSupplier'=>setCharset($supplierName))
 	);
 	$state = $cardPay->action($arr_param, 1, $order_sn);
 	//$state = 0;
@@ -4110,5 +4144,29 @@ function suppliers_list()
 	}
  
 	return $list;
+}
+/**
+ *  检查购物车中商品的价格
+ */
+function check_cart_price()
+{
+    $return = true;
+    $sql = "SELECT goods_id, goods_price " .
+            "FROM " . $GLOBALS['ecs']->table('cart') .
+            " WHERE session_id = '" . SESS_ID . "' " .
+            "AND rec_type = '" . CART_GENERAL_GOODS . "' " .
+            "AND is_gift = 0 " .
+            "AND extension_code <> 'package_buy' " .
+            "AND parent_id = 0 ";
+    $parent_list = $GLOBALS['db']->getAll($sql);
+    foreach ($parent_list as $list)
+    {
+        if ($list['goods_price'] <=0)
+        {
+            $return = false;
+        }
+    }
+    
+    return $return;
 }
 ?>

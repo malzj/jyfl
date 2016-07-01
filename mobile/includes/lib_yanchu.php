@@ -10,16 +10,10 @@
  * 演出列表
  * @param unknown_type $cid		分类id
  * @param unknown_type $rid		城市id
- * @param              $size    一页显示多少条数据
- * @param              $page    第几页
- * @param              $find    附加条件
  */
-function get_ticket_list($cid, $rid, $size, $page, $find=null, $order='id ASC')
+function get_ticket_list($cid, $rid, $size, $page)
 {
-    if ($find !== null)
-        $find = ' AND '.$find;
-    
-	$sql = 'SELECT * FROM '.$GLOBALS['ecs']->table('yanchu_list'). " WHERE city_id = '".$rid."' AND type = '".$cid."' $find  ORDER BY $order";
+	$sql = 'SELECT * FROM '.$GLOBALS['ecs']->table('yanchu_list'). " WHERE city_id = '".$rid."' AND type = '".$cid."' ORDER BY id ASC";
 	$res = $GLOBALS['db']->selectLimit($sql, $size, ($page - 1) * $size);
 	$arr = array();
 	while ($row = $GLOBALS['db']->fetchRow($res))
@@ -42,14 +36,10 @@ function get_ticket_list($cid, $rid, $size, $page, $find=null, $order='id ASC')
  * 列表数据统计
  * @param unknown_type $cid		分类id
  * @param unknown_type $rid		城市id
- * @param              $find    附加条件
  */
-function get_yanchu_count($cid, $rid, $find)
+function get_yanchu_count($cid, $rid)
 {
-    if ($find !== null)
-        $find = ' AND '.$find;
-    
-	$sql = 'SELECT count(*) FROM '.$GLOBALS['ecs']->table('yanchu_list'). " WHERE city_id = '".$rid."' AND type = '".$cid."' $find ORDER BY id ASC";
+	$sql = 'SELECT count(*) FROM '.$GLOBALS['ecs']->table('yanchu_list'). " WHERE city_id = '".$rid."' AND type = '".$cid."' ORDER BY id ASC";
 	return $GLOBALS['db']->getOne($sql);
 }
 
@@ -65,29 +55,5 @@ function get_title($id){
 			'1224' => '戏曲综艺'
 	);
 	return $title[$id];
-}
-
-// 演出类型对应的连接地址
-function get_yanchu_back($id)
-{
-    $backUrl = array(
-        '1217' => 'yanchu.php?id=1217',
-        '1220' => 'yanchu.php?id=1220',
-        '1218' => 'yanchu.php?id=1218',
-        '1211' => 'yanchu.php?id=1211',
-        '1227' => 'yanchu.php?id=1227',
-        '1224' => 'yanchu.php?id=1224'
-    );
-    return $backUrl[$id];
-}
-
-/* 演出收货地址验证 */
-function check_consignee($consignee)
-{
-    $region = findData('area_region', "region_id='".$consignee['province']."'");
-    if (empty($region))
-        return false;
-    else
-        return true; 
 }
 ?>

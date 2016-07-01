@@ -6,8 +6,7 @@
 	<title>崋影文化</title>
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/swiper-3.2.7.jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	
+	<script src="js/bootstrap.min.js"></script>	
 	<link href="js/layer/skin/layer.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="css/swiper-3.2.7.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -31,7 +30,7 @@
 			<div class="swiper-wrapper">
 				{foreach from=$category item=cate}
 				<li class="swiper-slide">
-					<h5><a href="{$cate.url}" {if $cate.active eq 1} style="color:#DE6B11;" {/if}>{$cate.name}</a></h5>
+					<h5 style="margin-top: 0;padding-top: 10px;"><a href="{$cate.url}" {if $cate.active eq 1} style="color:#DE6B11;" {/if}>{$cate.name}</a></h5>
 				</li>
 				{/foreach}	
 			</div>

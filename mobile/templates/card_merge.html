@@ -1,39 +1,58 @@
 <!DOCTYPE html>
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">	
-	<title>華影文化</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/fd.css">	
-	<link rel="stylesheet" href="css/main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>卡合并</title>
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/layer/layer.js"></script>
+	<script type="text/javascript" src="js/messageJs.js"></script>
+	<script src="js/loadAjax.js"></script>
 	<script type="text/javascript" src="js/user.js"></script>
-	<style>
-		input{ border: 0; }
-	</style>	
+	<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-{$header}
 
-<div class="container" style="padding-bottom: 20px;">
-	<div class="row">
-		<div class="col-xs-12"> <h5>转出(需清空)的卡号</h5> </div>
-		<div class="col-xs-12">
-			<input name="from_card"  style="margin-bottom: 7px;" class="form-control" type="text" placeholder="卡号：" id="from_card"/>
-			<input name="from_card_pwd" class="form-control" type="password" placeholder="密码：" id="from_card_pwd"/>
+<body>
+<div class=" container">
+	<div class="mobile_logo">
+		<img src="/mobile/images/mobile_logo.png" alt="聚优福利">
+	</div>
+	<div class="row-style1">
+		<div class="title">转出(需清空)的卡号</div>
+		<div class="box">
+			<div class="input-box underline">
+				<input type="text" name="from_card" placeholder="卡号" id="from_card" />
+			</div>
+			<div class="input-box">
+				<input type="password" name="from_card_pwd" placeholder="密码" id="from_card_pwd" />
+			</div>
 		</div>
-		<div class="col-xs-12"> <h5>转入(合并到)的卡号</h5> </div>
-		<div class="col-xs-12">
-			<input name="to_card" style="margin-bottom: 7px;" class="form-control" type="text" placeholder="卡号：" value="{$username}" id="to_card"/>
-			<input name="to_card_pwd" class="form-control" type="password" placeholder="密码：" id="to_card_pwd" />
-		</div>
-		<div class="col-xs-12 text-center">
-			<input type="hidden" name="act" value="act_card_merge" />
-			<button class="btn btn-danger" style="width: 200px;margin-top: 20px;" onclick="submitCardMerge()" >确认转移</button>
+	</div>
+	<div class="row-style1">
+		<div class="title">转入(合并到)的卡号</div>
+		<div class="box">
+			<div class="input-box underline">
+				<input type="text" name="to_card" placeholder="卡号" value="{$username}" id="to_card" />
+			</div>
+			<div class="input-box">
+				<input type="password" name="to_card_pwd" placeholder="密码" id="to_card_pwd" />
+			</div>
 		</div>
 	</div>
 </div>
+<input type="hidden" name="act" value="act_card_merge" />
+<a href="javascript:void(0)" class="btn charge_btn" onclick="submitCardMerge()">立即验证</a>
+
+<div class="reminder">
+	<h4>温馨提示：</h4>
+	<p>1、卡合并后，有效期以转入（合并到）的卡号为准</p>
+	<p>2、3个月内只能合并一次；</p>
+	<p>3、不支持多张（2张以上）卡合并；</p>
+	<p>4、卡合并后，业务以转入卡业务为准；</p>
+	<p>5、请退出官网再次登录后再查询卡合并后卡内余额；</p>
+	<p>6、卡合并（转出或转入）都要求1个点以上才能正常合并，否则不支持合并；</p>
+ </div>
 
 <script type="text/javascript">
 <!--
@@ -43,32 +62,32 @@
 		var to_card       = $('#to_card').val();
 		var to_card_pwd   = $('#to_card_pwd').val();
 		if (from_card == ''){
-			alert('要合并的卡号不能为空！');
+			message.messageAlert('要合并的卡号不能为空！');
 			return false;
 		}
 		if (from_card_pwd == ''){
-			alert('要合并的卡号密码不能为空！');
+			message.messageAlert('要合并的卡号密码不能为空！');
 			return false;
 		}
 		if (to_card == ''){
-			alert('合并到的卡号不为空！');
+			message.messageAlert('合并到的卡号不为空！');
 			return false;
 		}
 		if (to_card_pwd == ''){
-			alert('合并到的卡号密码不为空！');
+			message.messageAlert('合并到的卡号密码不为空！');
 			return false;
 		}
 		if (from_card == to_card){
-			alert('要合并的卡不能一样！');
+			message.messageAlert('要合并的卡不能一样！');
 			return false;
 		}
 		if (confirm('确定要将这两张卡合并？')){
 			$.post('user.php', {act:'act_card_merge', fromcard:from_card, fromcardpwd:from_card_pwd, tocard:to_card, tocardpwd:to_card_pwd}, function (data){
 				if (data.substr(0, 7) == 'success'){
-					alert('合并成功');
+					message.messageShow('合并成功');
 					location.reload();
 				}else{
-					alert(data);
+					message.messageAlert(data);
 				}
 			}, 'text');
 		}else{

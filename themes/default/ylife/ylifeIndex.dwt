@@ -2,10 +2,9 @@
 <html class="youpin">
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>聚优福利</title>
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
-        
         {insert_scripts files='jquery.common.js'}
 	</head>
 	<body class='bg_white' id="body">

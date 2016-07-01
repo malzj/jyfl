@@ -2,7 +2,7 @@
 <html class="movie_3">
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>聚优福利</title>
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
         <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
@@ -54,7 +54,8 @@
                             <span>聚优密码：<input name="password" id="password" type="password" autocomplete="off">
                         </div>
                         <div class="box_1 center">
-                            <span class="jiesuan zhuti_a_hover">结算</span> &nbsp;&nbsp;&nbsp;<span class="pay-loading" style="color:red;"></span></span>                        </div>
+                            <span class="jiesuan zhuti_a_hover">结算</span>
+                        </div>
                         <div class="tips">
                             <ul>
                                 <li>温馨提示：1、支付成功后您将收到取票短信，建议您提前10分钟至影票终端机取票，以免排队耽误您的入场。</li>
@@ -153,14 +154,15 @@
 					url:'movie_order.php?act=doneMovie',
 					data:{order_id:orderid, password:password},
 					beforeSend:function(){
-						$('.pay-loading').html('支付中...');
+						$('.jiesuan').addClass('clickEve').html('支付中...');
+//						layer.msg('支付中...');
 					},
 					success:function(info){
 						var data = jQuery.parseJSON(info);
 						if(data.error > 0){
 							alert(data.message);
 							checkSubmitFlg = false;
-							$('.pay-loading').html(' ');
+							$('.jiesuan').html('结算');
 						}else{
 							window.location.href="movie_order.php?act=respond";
 						}

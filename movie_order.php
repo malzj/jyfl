@@ -413,7 +413,7 @@ else if ($_REQUEST['act'] == 'respond')
 {
     $flowTab = !empty($_REQUEST['flow']) ? $_REQUEST['flow'] : 'movie'; 
     $smarty->assign('flow', $flowTab);
-    $smarty->display('movie/respond.dwt');
+    $smarty->display('movie/movieRespond.dwt');
 }
 
 

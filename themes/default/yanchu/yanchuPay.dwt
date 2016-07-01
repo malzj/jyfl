@@ -2,7 +2,7 @@
 <html class="huaju3">
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>聚优福利</title>
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.shoppingflow.js"></script>
         <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
@@ -51,7 +51,7 @@
                         <input type="password" name="password" id="password" placeholder="请输入密码">
 					</div>
 					<div class="jiesuan_btn" style="text-align: center;">
-						<span class="act-pay zhuti_a_hover">结算</span>&nbsp;<span class="pay-loading" style='background:#f2f2f2; color:red;'></span>
+						<span class="act-pay zhuti_a_hover">结算</span>
 					</div>
 				</div>
 				<div style="color:#ff781e;text-align: center;">温馨提示：您的订单将在支付后安排发货，72小时内未支付的订单将自动取消，请尽快支付。</div>
@@ -103,14 +103,15 @@
 				url:'yanchu_order.php?act=act_pay',
 				data:{password:password, id:item_id, order_id:order_id, order_sn:order_sn, order_amount:amount},
 				beforeSend:function(){
-					$('.pay-loading').html('支付中...');
+					$('.act-pay').html('支付中...');
+//					layer.msg('支付中...');
 				},
 				success:function(info){
 					var data = jQuery.parseJSON(info);
 					if(data.error > 0){
 						alert(data.message);
 						checkSubmitFlg = false;
-						$('.pay-loading').html(' ');
+						$('.act-pay').html('结算');
 					}else{
 						window.location.href = "yanchu_order.php?act=respond";
 					}

@@ -1625,7 +1625,7 @@ html.movie_3  .order_title_left span.color_yellow{margin-right: 10px;
     display: inline-block;
     vertical-align: middle;
     margin-top: -5px;}
-html.movie_3  .pay_way{float:left;width: 634px;padding: 15px;}
+html.movie_3  .pay_way{float:left;width: 610px;padding: 15px;}
 html.movie_3  .pay_way .order_time{font-size: 12px;text-align:center;margin-bottom: 20px;}
 html.movie_3  .pay_way .order_time span a{color: #ff781e;}
 html.movie_3  .order_xinxi .pay_title{float:left;}
@@ -1646,7 +1646,7 @@ html.movie_3  .pay_way .box_1{width: 300px;margin: 0 auto 15px;}
 html.movie_3  .pay_way .box_1.center{text-align: center;}
 html.movie_3  .pay_way .box_1 input{padding: 5px;margin-right: 20px;border: 1px solid #ddd;}
 html.movie_3  .pay_way .box_1 span.user_card{margin-right: 20px;}
-html.movie_3  .pay_way .box_1 span.jiesuan{padding: 6px 73px;color: white;background: #2fd0b5;cursor: pointer;border-radius: 5px;}
+html.movie_3  .pay_way .box_1 span.jiesuan{width: 175px;/* padding: 6px 73px; */color: white;background: #2fd0b5;cursor: pointer;border-radius: 5px;height: 30px;line-height: 30px;display: inline-block;}
 html.movie_3  .pay_way .tips{color: #ff781e;margin: 20px 14px;font-size: 12px;}
 html.movie_3  .order_zhanshi .order_right .yes{
 	padding: 4px 22px;
@@ -2429,7 +2429,7 @@ html.huaju3 .w_1200 .dingdan_tip .jiesuan .kahao{height: 25px;line-height: 25px;
 html.huaju3 .w_1200 .dingdan_tip .jiesuan .password input{height: 20px;width: 170px;padding: 3px 5px;}
 html.huaju3 .w_1200 .dingdan_tip .jiesuan .password{margin-bottom: 20px;}
 html.huaju3 .w_1200 .dingdan_tip .jiesuan .jiesuan_btn span{
-	padding: 0px 71px;
+	width: 175px;
 	background: #2fd0b5;
 	color: white;
 	cursor: pointer;

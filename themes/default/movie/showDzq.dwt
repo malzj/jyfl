@@ -2,7 +2,7 @@
 <html class="dianziquan_1">
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>聚优福利</title>
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
         <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
@@ -76,7 +76,7 @@
                         </div>
                     </div>
 				</div>
-				<div style="text-align: center;"><span class="buy_btn"><span  class="dzq_lijigoumai"></span>立即购买</span><span class="pay-loading" style="background:#f2f2f2; color:red;"></span></div>
+				<div style="text-align: center;"><span class="buy_btn"><span  class="dzq_lijigoumai"></span>立即购买</span></div>
 			</div>
             
             <input type="hidden" name="areaNo" value="{$dzqyy.AreaNo}" />
@@ -155,14 +155,14 @@
 					url:'movie_order.php?act=orderDzq',
 					data:params,
 					beforeSend:function(){
-						$('.pay-loading').html('提交中...');
+						$('.buy_btn').text('提交中...');
 					},
 					success:function(info){
 						var data = jQuery.parseJSON(info);
 						if(data.error > 0){
 							alert(data.message);
 							checkSubmitFlg = false;
-							$('.pay-loading').html(' ');
+							$('.buy_btn').text('立即提交');
 						}else{
 							window.location.href = "movie_order.php?act=payinfoDzq&id="+data.message;
 						}

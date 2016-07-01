@@ -401,7 +401,7 @@ function getCinemaDzq( $cinemaid, $ratio)
 		{
 			$arr_type = array(	'1' => '2D','2' => '3D','3' => '4D','4' => 'IMAX','5' => '点卡'	);			
 			unset($dzqData[$key]);
-			$var['ProductSizeZn'] = $arr_type[$var['ProductSize']];
+			$val['ProductSizeZn'] = $arr_type[$val['ProductSize']];
 			if ($ratio !== false){
 				$val['SalePriceFormat'] = price_format(($val['SalePrice']/1.2*1.06)*$ratio);
 			}else{

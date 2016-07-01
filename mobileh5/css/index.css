@@ -1,0 +1,86 @@
+html,
+body {
+	height: 100%;
+}
+
+.person {
+	background: url(../images/jy_index/person_bg.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+/*menu_left*/
+.ui-panel {
+	background: rgba(1, 1, 1, 0.8);
+	width: 6rem;
+}
+
+.person_menu_icon {
+	background: url(../images/jy_index/person_nav1.png) no-repeat 0px 0px;
+	display: inline-block;
+	width: 1.5rem;
+	height: 1rem;
+	background-size: 100% 100%;
+	padding: 0;
+}
+
+.nav-search .ui-btn {
+	background-image: none;
+	background: none!important;
+	text-align: center!important;
+	font-weight: normal;
+	border-color: #7d7777!important;
+	/* margin-left: 20px!important; */
+	padding: 1rem 0;
+	font-size: 0.9rem;
+	color: #ccc!important;
+}
+
+.nav-search .ui-btn-inner {
+	border-top: 1px solid #888;
+	border-color: rgba(255, 255, 255, .1);
+}
+
+.switch .ui-slider-switch {
+	width: 6.5em !important
+}
+
+.ui-grid-a {
+	margin-top: 1em;
+	padding-top: .8em;
+	margin-top: 1.4em;
+	border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+.nav-search .menu_close{border-color: white!important;margin: 0!important;border: 0!important;border-bottom: 1px solid white!important;}
+.menu_close .person_menu_icon{background: url(../images/jy_index/person_nav2.png) no-repeat 0px 0px;background-size: 100% 100%;}
+.nav-search{height: 100%;overflow-y: auto;position:fixed;width: 100%;}
+#menu_left{height: 100%;overflow-y: auto;position: fixed;}
+#menu_1{padding: 0!important;line-height: 0!important;margin-left: 1rem;margin-top: 1rem;}
+/*menu_left end*/
+
+/*footer*/
+.person_footer{height: 3.5rem;background: transparent!important;}
+.person_footer .ui-navbar{position: fixed;height: 2.5rem;background: rgba(255,255,255,.8)!important;width: 100%;bottom: 0;}
+.footer_icon1,.footer_icon3{width: 1.2rem;height: 1.85rem;}
+.footer_icon2 img{
+    width: 2.5rem;
+    height: 3.2rem;
+   
+    }
+
+.footer_icon2{
+    position: absolute;
+    top: -1.35rem;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    }
+.person_footer a:hover,.person_footer a:active{background-color: transparent!important;}
+#menu_right{width: 9.35rem;height: 100%;overflow-y: auto;position: fixed;}
+.person_menu_iconRight{display: inline-block;height: 4rem;width: 100%;text-align: center;}
+.user_touxiang{margin-top: .5rem;width: 3rem;height: 3rem;border-radius: 50%;}
+
+/*person*/
+.person_touxiang{/* margin-left: .75rem!important; */height: 4rem;}
+.person_touxiang a{line-height: 3rem;height: 3rem;border-top: none!important;}
+.person_li{height: 2.15rem;margin-left: .75rem!important;line-height: 2.15rem;}
+.person_li a{padding: 0!important;}

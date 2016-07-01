@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<script src="js/rem.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquerymobile.js"></script>
+	</head>
+	<body>
+		<div data-role="page" class="ui-responsive-panel person">
+			<link rel="stylesheet" href="css/jquery.mobile.min.css" />
+			<link rel="stylesheet" href="css/index.css" />
+			<div data-role="header" data-theme="f">
+					<a id="menu_1" href="#menu_left" data-iconpos="notext"><span class="person_menu_icon"></span></a>
+			</div>
+			<div data-role="content">
+			</div>
+			<!--左侧-->
+			<div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="menu_left" data-theme="b">				
+					<ul data-role="listview" data-theme="b" data-divider-theme="b" class="nav-search">
+						<li data-icon="delete">
+							<a href="#" data-rel="close" class="menu_close"><span class="person_menu_icon"></span></a>
+						</li>
+						<li><a href="jy_index.html" data-transition="flip">电影</a></li>
+						<li><a href="#">电影</a></li>
+						<li><a href="#">电影</a></li>
+						<li><a href="#">电影</a></li>
+						<li><a href="#">电影</a></li>
+						<li><a href="#">电影</a></li>
+						<li><a href="#">电影</a></li>
+						<li><a href="#">电影</a></li>
+						<li><a href="#">电影</a></li>
+						<li><a href="#">电影</a></li>
+						<li><a href="#">电影</a></li>
+					</ul>
+			</div>
+			<div data-role="panel" data-position="right" data-position-fixed="false" data-display="overlay" id="menu_right" data-theme="b">
+				<ul data-role="listview" data-theme="b" data-divider-theme="b" class="nav-search">
+						<li>
+							<span class="person_menu_iconRight">
+								<img class="user_touxiang" src="images/jy_index/person_bg.jpg"/>
+							</span>
+						</li>
+						<li><a href="person.html">个人信息</a></li>
+						<li><a href="#">安全中心</a></li>
+						<li><a href="#">我的订单</a></li>
+						<li><a href="#">收货信息</a></li>
+						<li><a href="#">卡充值</a></li>
+						<li><a href="#">卡合并</a></li>
+					</ul>
+			</div>
+			<div class="person_footer" data-role="footer">
+				<div data-role="navbar">
+				      <ul>
+				        <li><a href="#"><img class="footer_icon1" src="images/jy_index/footer_nav1.png"/></a></li>
+				        <li><a href="#"  class="footer_icon2"><img src="images/jy_index/footer_nav2.png" alt="购物" /></a></li>
+				        <li><a href="#menu_right"><img class="footer_icon3" src="images/jy_index/footer_nav3.png" alt="我的" /></a></li>
+				      </ul>
+				</div>
+			</div>
+		</div>
+		<!-- /page -->
+	</body>
+
+</html>

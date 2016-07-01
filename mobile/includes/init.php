@@ -207,7 +207,7 @@ header("Content-Type:text/html; charset=utf-8");
 
 //没登陆用户强制登陆
 //不需要登录的操作
-$arr_noLogin = array('user', 'captcha', 'region', 'entity','topic', 'respond');
+$arr_noLogin = array('user', 'captcha', 'region', 'entity','topic', 'respond','userAuth');
 $str_scriptName = substr($_SERVER['PHP_SELF'],  strrpos($_SERVER['PHP_SELF'],'/')+1 , -4);
 
 if (empty($_SESSION['user_id']) && !in_array($str_scriptName, $arr_noLogin)){

@@ -121,8 +121,14 @@ elseif ($_REQUEST['act']=='checkLogin')
         $jsonArray['state'] = 'false';
         $jsonArray['message'] = '验证失败';
         exit(json_encode($jsonArray));
-    }
-    
+    }    
+}
+
+// 登出
+elseif ($_REQUEST['act'] == 'logout')
+{
+    $user->logout();
+    exit(json_encode($jsonArray));
 }
 
 

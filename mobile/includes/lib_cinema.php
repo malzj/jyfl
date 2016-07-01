@@ -47,6 +47,12 @@ function getMovieDetail( $movieid )
 			F($str_cacheName, $movieDetail, 0, $int_cityId.'/');//写入缓存
 		}
 	}
+	
+	// 评分处理
+	$score = explode('.', $movieDetail['score']);
+	$movieDetail['left_score'] = $score[0];
+	$movieDetail['right_score'] = $score[1];
+	
 	$moviesImages = moviesImages(array($movieDetail));
 	return $moviesImages[0];
 }
@@ -118,10 +124,13 @@ function getCinemaDetail($cinemaid, $ext = 'id')
 		$cinemaResult['cinema_name'] 	= $cinemaDetail['cinemaName'];
 		$cinemaResult['cinema_address']	= $cinemaDetail['cinemaAddress'];
 		$cinemaResult['is_komovie']		= 1;
+		$cinemaResult['open_time']		= $cinemaDetail['openTime'];
+		$cinemaResult['logo']		    = !empty($cinemaDetail['logo']) ? $cinemaDetail['logo'] : 'images/dongwang/null.jpg' ;
 		$cinemaResult['cinema_tel']		= !empty($cinemaDetail['cinemaTel']) ? $cinemaDetail['cinemaTel'] : '无' ;
 	}
 	
-	return $cinemaResult;
+	$newCinemaResult = cinemaLogo(array($cinemaResult));
+    return $newCinemaResult[0];
 }
 
 /**
@@ -147,6 +156,7 @@ function getCinemaMovies($cinemaid)
 		$cinemaMovies = $arr_result['movies'];
 		F( $cacheName, $cinemaMovies, 1800, $int_cityId.'/');
 	}
+		
 	return moviesImages($cinemaMovies);
 }
 

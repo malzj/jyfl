@@ -107,7 +107,7 @@ function get_profile($user_id)
     /* 会员帐号信息 */
     $info  = array();
     $infos = array();
-    $sql  = "SELECT user_name, birthday, sex, question, answer, rank_points, pay_points,user_money,card_money, user_rank,".
+    $sql  = "SELECT user_name, birthday, sex, question, rank_points, pay_points,user_money,card_money, user_rank,".
              " msn, qq, office_phone, home_phone, mobile_phone, passwd_question, passwd_answer,youxiao_time, pic, nickname, basic, xingqu ".
            "FROM " .$GLOBALS['ecs']->table('users') . " WHERE user_id = '$user_id'";
     $infos = $GLOBALS['db']->getRow($sql);

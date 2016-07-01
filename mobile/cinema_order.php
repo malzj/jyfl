@@ -149,7 +149,7 @@ elseif ($_REQUEST['act'] == 'doneDzq')
 	// 卡消费
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$float_price)
+			'TransationInfo' => array( 'TransRequestPoints'=>$float_price, 'TransSupplier'=>setCharset('电子券'))
 	);
 	
 	if ($cardPay->action($arr_param, 1, $arr_orderInfo['order_sn']) == 0)
@@ -348,7 +348,7 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 	/** TODO 支付 （双卡版） */
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$card_price)
+			'TransationInfo' => array( 'TransRequestPoints'=>$card_price, 'TransSupplier'=>setCharset('抠电影'))
 	);
 	$state = $cardPay->action($arr_param, 1, $cardOrderId);	
 	//$state = 0;
@@ -366,7 +366,6 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 				'balance'	 => $float_price
 		);
 		$arr_result = getCDYApi($arr_param);
-		$arr_result['status'] = 0;
 		if($arr_result['status'] == 0){
 			// 支付成功，更新订单状态
 			$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET order_status = '3', payment_time = '".gmtime()."' WHERE id = '$int_orderId'");

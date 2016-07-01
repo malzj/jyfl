@@ -291,7 +291,7 @@ function get_header($title, $back=true, $links=null)
 	$html .='</div>';
 	
 	// 标题
-	$html .='<div class="col-xs-8 text-center"><h4 style="white-space: nowrap;text-overflow: ellipsis;overflow:hidden;">'.$title.'</h4></div>';
+	$html .='<div class="col-xs-8 text-center"><h4 style="white-space: nowrap;text-overflow: ellipsis;">'.$title.'</h4></div>';
 	// 连接数组处理
 	if ( is_array($links) && count($links) > 1)
 	{

@@ -1,16 +1,5 @@
 <?php
 
-// 电影销售比例销售比例
-function getMovieRatio()
-{
-    return get_card_rule_ratio(10002);
-}
-
-function getDzqRatio()
-{
-    return get_card_rule_ratio(10004);
-}
-
 /** 获得影片详情
  *  @param	int		$movieid 	影片id
  *  @return	array	返回影片信息  
@@ -35,12 +24,6 @@ function getMovieDetail( $movieid )
 			F($str_cacheName, $movieDetail, 0, $int_cityId.'/');//写入缓存
 		}
 	}
-	
-	// 评分处理
-	$score = explode('.', $movieDetail['score']);
-	$movieDetail['left_score'] = $score[0];
-	$movieDetail['right_score'] = $score[1];
-	
 	$moviesImages = moviesImages(array($movieDetail));
 	return $moviesImages[0];
 }
@@ -112,13 +95,10 @@ function getCinemaDetail($cinemaid, $ext = 'id')
 		$cinemaResult['cinema_name'] 	= $cinemaDetail['cinemaName'];
 		$cinemaResult['cinema_address']	= $cinemaDetail['cinemaAddress'];
 		$cinemaResult['is_komovie']		= 1;
-		$cinemaResult['open_time']		= $cinemaDetail['openTime'];
-		$cinemaResult['logo']		    = !empty($cinemaDetail['logo']) ? $cinemaDetail['logo'] : 'images/dongwang/null.jpg' ;
 		$cinemaResult['cinema_tel']		= !empty($cinemaDetail['cinemaTel']) ? $cinemaDetail['cinemaTel'] : '无' ;
 	}
 	
-	$newCinemaResult = cinemaLogo(array($cinemaResult));
-    return $newCinemaResult[0];
+	return $cinemaResult;
 }
 
 /**
@@ -144,7 +124,6 @@ function getCinemaMovies($cinemaid)
 		$cinemaMovies = $arr_result['movies'];
 		F( $cacheName, $cinemaMovies, 1800, $int_cityId.'/');
 	}
-		
 	return moviesImages($cinemaMovies);
 }
 
@@ -177,91 +156,56 @@ function getMoviePlan( $cinemaid, $movieid)
 /**  
  * 获得所有影院列表
  */
-function getCinemaList($type = 'komovie', $page=1, $pagesize="10", $area_id)
+function getCinemaList()
 {
-	$where = "WHERE 1 AND region_id =".$_SESSION['cityid']." ";
-	if ($type == 'komovie')
-	   $where .= " AND is_komovie = 1 ";
-	elseif($type == 'dzq')
-	   $where .= " AND is_dzq = 1 ";
-	else 
-	   $where .= ' AND is_brush = 1';
+	$returnArray = array();
+	$cinemas = $GLOBALS['db']->getAll('SELECT * FROM ' . $GLOBALS['ecs']->table('cinema_list') .' WHERE region_id ='.$_SESSION['cityid']);
+	foreach ($cinemas as $cinema)
+	{
+		// 删除地区为空的影院
+		if (empty($cinema['area_id']))
+		{
+			continue;
+		}
+		// 删除什么都不支持的影院
+		if ($cinema['is_komovie'] == 0 && $cinema['is_dzq'] == 0 && $cinema['is_brush'] ==0)
+		{
+			continue;
+		}
+		
+		if ( empty($returnArray[$cinema['area_id']]) )
+		{
+			$returnArray[$cinema['area_id']]['area_name'] = $cinema['area_name'];
+		}
+		
+		$returnArray[$cinema['area_id']]['cinemas'][] = $cinema;
+	}
 	
-	// 筛选条件
-	if (!empty($area_id))
-        $where .= ' AND komovie_area_id = '.$area_id;
-    else 
-        $where .= ' AND komovie_area_id > 0';
+	return $returnArray;
+}
+
+/** 
+ * 试听盛宴的导航列表
+ */
+function getCinemaCate( $selected )
+{
+	$returnArray = array();
+	$navigator = get_navigator();
+	init_wap_middle($navigator['middle']);
+	foreach ($navigator['middle'] as $cateid=>$middle)
+	{
+		if ($cateid == 6)
+		{
+			$returnArray = $middle['child'];
+			$returnArray[$selected]['active'] = isset($returnArray[$selected]) ? 1 : 0;
+		}
+	}
 	
-	// 分页
-	$startLimit = ($page-1 != 0) ? ($page-1)*$pagesize : 0 ;
-	$limit = 'LIMIT '.$startLimit.','.$pagesize;
-	$cinemas = $GLOBALS['db']->getAll('SELECT * FROM ' . $GLOBALS['ecs']->table('cinema_list') .' '.$where.' ORDER BY id DESC '.$limit );	
-    
-	return cinemaLogo($cinemas);
+	return $returnArray;
 }
-
-function getCinemaCount($area_id, $type='komovie')
-{
-    $where = "region_id =".$_SESSION['cityid']." ";
-    if ($type == 'komovie')
-        $where .= " AND is_komovie = 1 ";
-    elseif($type == 'dzq')
-        $where .= " AND is_dzq = 1 ";
-    else
-        $where .= ' AND is_brush = 1';
-    
-    // 筛选条件
-    if (!empty($area_id))
-        $where .= ' AND komovie_area_id = '.$area_id;
-    else 
-        $where .= ' AND komovie_area_id > 0';
-    
-    $counts = findData('cinema_list', $where,'count(*) as count');
-    return $counts[0]['count'];
-}
-
-/**  
- * 获取地区分类
- * @param string $type
- */
-function getCinemaArea($type = 'komovie')
-{
-   $returnArray = array();
-   $where = " region_id =".$_SESSION['cityid']." ";
-   
-   if ($type == 'komovie')
-       $where .= " AND is_komovie = 1 AND komovie_area_id > 0";
-   elseif($type == 'dzq')
-       $where .= " AND is_dzq = 1 ";
-   else
-       $where .= ' AND is_brush = 1';
-   
-   $result = findData('cinema_list', $where, 'area_name,komovie_area_id');
-   if (!empty($result))
-   {
-       foreach ($result as $value)
-       {
-           $returnArray[$value['komovie_area_id']]['area_name'] = $value['area_name'];
-           $returnArray[$value['komovie_area_id']]['area_id'] = $value['komovie_area_id'];
-       }
-   }
-   
-   return $returnArray;
-}
-/**  
- *  电影 banner图片    
- */
- 
- function getMovieBanner()
- {
-     // $posid = 1 的是电影banner广告
-    return getNavadvs(1);
-
- }
 
 /**
- * 整理并获得排期日期（月-日 星期）  
+ * 整理并获得排期日期（年-月-日）  
  */
 function featureTime( $moviePlan )
 {
@@ -269,32 +213,13 @@ function featureTime( $moviePlan )
 	foreach ($moviePlan as $plan)
 	{
 		 $strtotime = date('Y-m-d', strtotime($plan['featureTime']));
-		 $totime = strtotime($strtotime);
-		 if (!array_key_exists($totime, $returnArray))
+		 if (!in_array($strtotime, $returnArray))
 		 {
-			$returnArray[$totime]['strtotime'] = $strtotime;
-			$returnArray[$totime]['strtotime_sn'] = date('m月d日',$totime).' '.timeWeek($totime);
+			$returnArray[strtotime($strtotime)] = $strtotime;	 	
 		 }
 	}
 	ksort($returnArray);
 	return $returnArray;
-}
-
-/**  
- *  星期
- */
-function timeWeek($time)
-{
-    $strWeek = '';
-    $week = array('周日','周一','周二','周三','周四','周五','周六');
-    $w = date('w',$time);
-    if ($w == date('w', local_gettime()))
-        $strWeek = '今天';
-    else 
-        $strWeek = $week[$w];
-       
-    
-    return $strWeek;
 }
 
 /**
@@ -321,19 +246,7 @@ function searchPlan( $moviePlan, $currentTime, $ratio)
 			}else{
 				$plan['is_cut'] = 0;
 			}
-			//时间分段
-			$ufeatureTime = strtotime(date('H:i:s',strtotime($plan['featureTime'])));
-			if($ufeatureTime>=strtotime('00:00:00')&&$ufeatureTime<strtotime('05:59:59')){
-				$plan['periods']=1;//晚上
-			}elseif($ufeatureTime>=strtotime('06:00:00')&&$ufeatureTime<strtotime('11:59:59')){
-				$plan['periods']=2;//上午
-			}elseif ($ufeatureTime>=strtotime('12:00:00')&&$ufeatureTime<strtotime('17:59:59')){
-				$plan['periods']=3;//下午
-			}elseif ($ufeatureTime>=strtotime('18:00:00')&&$ufeatureTime<strtotime('23:59:59')){
-				$plan['periods']=1;//晚上
-			}
-			// 成本价
-			$plan['extInfo'] = $plan['price'];
+			//error_log(var_export($a.'\n',true),'3','error.log');
 			if ($ratio !== false){
 				$plan['price'] = number_format(round($plan['price']*$ratio,1),2);
 			}else{
@@ -389,53 +302,21 @@ function getCinemaDzq( $cinemaid, $ratio)
 }
 
 /**
- *  远程图片本地化--电影
+ *  远程图片本地化
  */
 function moviesImages( $movies )
 {
 	foreach ($movies as &$arr)
 	{
-	    // 缩略图
 		$image_path = explode('/', $arr['pathVerticalS']);
 		$filenames = array_pop($image_path);
-		if (!file_exists(ROOT_PATH.'temp/komovie/'.$filenames)){
+		if (!file_exists('../temp/komovie/'.$filenames)){
 			$new_images = getImage($arr['pathVerticalS'], ROOT_PATH. 'temp/komovie', $filenames);
 		}
-		// 宣传图
-		$images_path = explode('/', $arr['pathHorizonH']);
-		$filenames2 = array_pop($images_path);
-		if (!file_exists(ROOT_PATH.'temp/komovie/'.$filenames2)){
-		    $new_images = getImage($arr['pathHorizonH'], ROOT_PATH. 'temp/komovie', $filenames2);
-		}
-		$arr['thumb'] = 'temp/komovie/'.$filenames;
-		$arr['thumbH'] = 'temp/komovie/'.$filenames2;
+		$arr['thumb'] = '../temp/komovie/'.$filenames;
 	}
 	
 	return $movies;
-}
-
-/**
- *  远程图片本地化--影院
- */
-function cinemaLogo( $cinema )
-{
-    foreach ($cinema as &$arr)
-    {
-        if (empty($arr['logo']))
-        {
-            $arr['logo'] = '/images/dongwang/null.jpg';
-        }
-        else {
-            $image_path = explode('/', $arr['logo']);
-            $filenames = array_pop($image_path);
-            if (!file_exists(ROOT_PATH. 'temp/komovie/logo/'.$filenames)){ 
-                $new_images = getImage($arr['logo'], ROOT_PATH. 'temp/komovie/logo/', $filenames);
-            }
-            $arr['logo'] = 'temp/komovie/logo/'.$filenames;
-        }
-    }
-
-    return $cinema;
 }
 
 

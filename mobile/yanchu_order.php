@@ -357,7 +357,7 @@ else if ($str_action == 'act_pay'){
 	/** TODO 支付 （双卡版） */
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$order_amount)
+			'TransationInfo' => array( 'TransRequestPoints'=>$order_amount, 'TransSupplier'=>setCharset('中票'))
 	);
 	$state = $cardPay->action($arr_param, 1, $order_sn);
 
@@ -474,7 +474,7 @@ function ispick( $data=array() )
     else
         $flow = $data;
 
-    $oldTime = strtotime(local_date('Y-m-d',local_strtotime('+3 day', local_gettime())));
+    $oldTime = strtotime(date('Y-m-d',strtotime('+3 day', local_gettime())));
     $ticketTime = strtotime($flow['best_time']);
     if ($ticketTime < $oldTime)
         return true;

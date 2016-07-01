@@ -206,7 +206,7 @@ else if($action == 'pay')
     /** TODO 支付 （双卡版） */
     $param = array(
         'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $password),
-        'TransationInfo' => array( 'TransRequestPoints'=>$order['money'])
+        'TransationInfo' => array( 'TransRequestPoints'=>$order['money'], 'TransSupplier'=>setCharset('欢乐谷'))
     );
     
     if ( $order['is_pay'] == 1)

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+	<title>華影文化</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fd.css">	
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>	
+</head>
+<style>
+	.border .col-xs-4{padding-bottom: 15px;border-right: 1px solid #ccc;border-bottom: 1px solid #CCC;height: 107px;}
+	.border img{margin-top: 30px;}
+	h4,strong{color: white;}	
+	.border{padding-bottom: 210px;}
+	.border img{width: 35px;}
+</style>
+<body>
+{$get_header}
+
+<div class="container" style="background-image:url(/mobile/images/img/zhanghaodenglubeijing_02.jpg);background-repeat: no-repeat;
+			background-size:cover;">
+	<div class="row">
+		<div class="col-xs-12" style="margin-bottom: 10px;margin-top: 30px;">
+			<img src="/mobile/images/img/tubiao.png" class="center-block">
+			<h4 class="text-center">{$info.username}</h4>	
+		</div>
+	</div>
+	<div class="row" style="border-top: 1px solid white; margin-bottom: 5px;">
+		<div class="col-xs-6 text-center" style="border-right: 1px solid white;">
+			<h6 style="color: red;">{$money}点</h6>
+			<strong>我的点数</strong>
+		</div>
+		<div class="col-xs-6 text-center">
+			<h6 style="color: red;">{$info.youxiao_time}</h6>
+			<strong>有效期</strong>
+		</div>
+	</div>
+</div>
+<div class="container border">
+	<div class="row">
+		<div class="col-xs-4 text-center" style="border-right: 1px solid #CCC;">
+			<a href="user.php?act=order_list"><img src="/mobile/images/img/tubiao4.png"><h6>我的订单</h6></a>	
+		</div>
+		<div class="col-xs-4 text-center">
+			<a href="user.php?act=address_list"><img src="/mobile/images/img/tubiao10.png"><h6>送货地址</h6></a>	
+		</div>
+		<div class="col-xs-4 text-center">
+			<a href="user.php?act=account_deposit"><img src="/mobile/images/img/tubiao1.png"><h6>账户充值</h6></a>
+		</div>
+		<div class="col-xs-4 text-center">
+			<a href="user.php?act=card_merge"><img src="/mobile/images/img/tubiao2.png"><h6>余额转移</h6></a>
+		</div>
+		<div class="col-xs-4 text-center">
+			<a href="user.php?act=profile"><img src="/mobile/images/img/tubiao3.png"><h6>修改密码</h6></a>
+		</div>
+		<div class="col-xs-4 text-center">
+		</div>
+	</div>
+</div>
+
+{$get_fixed}
+
+</body>
+</html>

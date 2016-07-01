@@ -49,7 +49,7 @@
 					<div class="leixing">类型：</div>
                         <ul>
                             {foreach from=$dzq item=item name=dzq}
-                                <li style="color: #2fd0b5;border-radius: 3px;" class="border_1" onclick="changeAttr(this, '{$item.TicketNo}');"><span>{$item.TicketName}</span><span>{$item.SalePriceFormat}</span>点</li>
+                                <li style="color: #2fd0b5;border-radius: 3px;" class="border_1 {if $smarty.foreach.dzq.first} active {/if}" onclick="changeAttr(this, '{$item.TicketNo}');"><span>{$item.TicketName}</span><span>{$item.SalePriceFormat}</span>点</li>
                                 <input type="radio" name="ticketNo" id="TicketNo_{$item.TicketNo}" price="{$item.SalePrice}" shijiprice="{$item.CinemaPriceFormat}" value="{$item.TicketNo}" {if $smarty.foreach.dzq.first} checked {/if} style="display:none;"/>
                             {/foreach}
                             

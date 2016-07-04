@@ -185,6 +185,20 @@ $(function(){
         var cid = $(this).parent('a').attr('data-cid');
         var uid = $('#user_id').val();
         var cnum = $(this).parent('a').attr('data-cnum');
+        var phone = $(this).parent('a').attr('data-phone');
+        if(phone==''||phone==null||phone==undefined){
+            var aindex = layer.alert('为确保您及时收到中奖信息，请先绑定手机号！', function () {
+                layer.close(aindex);
+                layer.open({
+                    type: 1,
+                    title: false,
+                    area: '570px',
+                    shadeClose: false, //点击遮罩关闭
+                    content: '<div class="tel"><h3>绑定手机号</h3><div class="form-group"><label>手机号：</label><input id="tel" type="text" value="' + phone + '"><div class="ach"><input type="button" id="getverification" value="获取验证码"></div></div><div class="form-group"><label>动态码：</label><input id="captcha" type="text"></div><div class="btn_tel"><button class="btn_bound">绑定</button> <button class="global_bound_cancel">取消</button></div></div>'
+                });
+            });
+            return false;
+        }
         $.ajax({
             type:'post',
             url:api_url+'index.php/Games/GamesApi/getGame',

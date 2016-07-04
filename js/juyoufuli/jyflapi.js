@@ -317,7 +317,9 @@ function boundPhone(user_id,tel,captcha){
 			if(data.result == "true"){
 				layer.closeAll();
 				// showSafeCenter();
-				layer.msg(data.msg);
+				layer.msg(data.msg,function(){
+					location.reload();
+				});
 			}else{
 				// layer.closeAll();
 				// showSafeCenter();

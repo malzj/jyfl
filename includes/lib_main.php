@@ -1668,7 +1668,7 @@ function assign_template($ctype = '', $catlist = array())
     $smarty->assign('ecs_version',   VERSION);
     $smarty->assign('icp_number',    $GLOBALS['_CFG']['icp_number']);
 	$usernames = $GLOBALS['db']->getRow('SELECT * FROM '.$GLOBALS['ecs']->table('users')." WHERE user_id = '".intval($_SESSION['user_id'])."'");
-	$smarty->assign('usernames',        $usernames);
+    $smarty->assign('usernames',        $usernames);
     $smarty->assign('category_list', cat_list(0, 0, true,  2, false));
     $smarty->assign('catalog_list',  cat_list(0, 0, false, 1, false));
 	//var_dump(get_navigator($ctype, $catlist));exit;

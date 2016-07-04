@@ -38,6 +38,7 @@
 					<li><a>优势</a></li>
 					<li><a>案例</a></li>
 					<li><a>联系</a></li>
+					<li><a>我们</a></li>
 					<li><a class="login-jy">用户登录</a></li>
 				</ul>
 			</nav>
@@ -388,6 +389,44 @@
 				</div>
 			</div>
 		</section>
+		<!--我们-->
+		 <section class="aboutus">
+		    	<ul class="menu"><li>思想</li><li>关于</li><li>荣誉</li></ul>
+		        <div class="swiper-container items">
+		            <div class="swiper-wrapper">
+		              <div class="swiper-slide nth1">
+		                <strong>厚积薄发</strong>
+		                <p>登上峰顶，不是为了饱览风光，是为了寻找更高的山峰<br />日出东方，告别了昨天的荣耀，将光芒照向更远的地方<br />一路上，我们更在意如何积累和沉淀</p>
+		                <u>下一秒，让你看，我们到底有多强</u>
+		              </div>
+		              <div class="swiper-slide nth2">
+		              	<strong>千助科技</strong>
+		                <p>成立于2008年，坐落于北京中关村科技园区，是中国优秀的互联网服务提供商。自成立以来，专注于高端网站建设、移动互联应用、B/S架构系统研发、云服务器部署和运维，为企业客户的互联网应用提供一站式服务。</p>
+		                <p>我们始终坚持以客户需求为导向，为追求用户体验设计，提供有针对性的项目解决方案，千助人将不断地超越自我，挑战险峰！</p>
+		              </div>
+		              <div class="swiper-slide nth3">
+		              	<strong>放下荣誉，放眼未来</strong>
+		                <ul>
+		                  <li>2009年<u>-</u>荣获海淀区创新企业</li>
+		                  <li>2010年<u>-</u>设计联盟评选为金牌设计企业</li>
+		                  <li>2010年<u>-</u>荣获中关村高新技术企业</li>
+		                  <li>2011年<u>-</u>成功注册 " 千助 " 商标，树立品牌</li>
+		                  <li>2013年<u>-</u>已拥有自主知识产权，国家软件著作权达12项之多</li>
+		                </ul>
+		              </div>
+		            </div>
+		        </div>
+		        <table class="exp">
+		        	<tr>
+		              <td><u>611</u>位企业客户信赖之选</td>
+		              <td><u>267</u>上市/集团企业设计作品</td>
+		              <td><u>2010</u>年度金牌设计企业</td>
+		              <td><u>12</u>项国家软件著作权</td>
+		              <td><u>96%</u>以上的客户续费率</td>
+		            </tr>
+		        </table>
+		    </section>
+
 		<section class="quality aboutus">
 			<div class="caption">
 				<i></i><span>登录</span>
@@ -465,7 +504,6 @@
 				<li>聚优通</li>
 			</ul>
 		</section>
-		
 		<div class="dock">
 			<ul class="icons">
 				<li class="up"><i></i></li>
@@ -535,23 +573,16 @@
 					})
 					
 				};
-				
 				var init = function () {
 					bindActions();
 				};
 				return { init: init };
 			}();
-			
 			Expand.init();
-			
-			
 //			滚动屏幕蒙层消失
 			$(document).scroll(function(){
 				$('.mengc').css('opacity','0');
 			});
-			
-			
-
 			$(".btn-default").click(function(){	
 				var _that = $(this).closest('form');
 				var username = _that.find("input[name='username']").val();

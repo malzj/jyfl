@@ -18,15 +18,6 @@
     <td class="label">城市hom页内容：</td>
     <td>{$FCKeditor}</td>
   </tr>
-   <tr>
-    <td class="label">售价：</td>
-    <td><input type="text" name="price" value="{$cardinfo.price}" /> 元</td>
-  </tr> 
-  
-  <tr>
-    <td class="label">支付比例：</td>
-    <td><input type="text" name="pay_than" value="{$cardinfo.pay_than}" /> 会员中心 => 卡充值的时候用于计算需要支付的金额。</td>
-  </tr> 
   <tr>
     <td class="label">卡类型：</td>
     <td>
@@ -36,7 +27,27 @@
     	<input type="radio" name="type" value="4" {if $cardinfo.type eq 4}checked{/if}> 运动卡
     	<input type="radio" name="type" value="5" {if $cardinfo.type eq 5}checked{/if}> 通卡
     </td>
-  </tr
+  </tr>
+  
+  <tr>
+    <td class="label">商城售价策略：</td>
+    <td>
+    	<input type="radio" name="ext" value="1" {if $cardinfo.ext eq 1}checked{/if}> 1.19公式
+    	<input type="radio" name="ext" value="2" {if $cardinfo.ext eq 2}checked{/if}> 0.97公式
+    	&nbsp;&nbsp;<font color=red> 两种公式都是由添加供应商的设置的的，商城比例(1.19)、商城比例(0.97)</font>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="label">实际卡售价：</td>
+    <td><input type="text" name="price" value="{$cardinfo.price}" /> 元</td>
+  </tr>
+  
+  <tr>
+    <td class="label">上调浮比：</td>
+    <td><input type="text" name="raise" value="{$cardinfo.raise}" /> 售价 = 市场价 x（商城售比 + 浮比）x 卡规则 x 单品 </td>
+  </tr>
+  
   <tr>
     <td class="label">折扣调整：</td>
     <td><input type="checkbox" name="zhekou" value="1" {if $cardinfo.zhekou} checked ='checked' {/if}/><br/></td>
@@ -46,6 +57,11 @@
     <td><input type="checkbox" name="shop" value="1" {if $cardinfo.shop} checked ='checked' {/if}/><br/></td>
   </tr> 
  
+  <tr>
+    <td class="label">支付比例：</td>
+    <td><input type="text" name="pay_than" value="{$cardinfo.pay_than}" /> 会员中心 => 卡充值的时候用于计算需要支付的金额。</td>
+  </tr> 
+  
   <tr>
     <td class="label">城市导航设置：<br/><span style="color:#666;line-height:2em;">不设置该项表示该城市默认显示系统导航</span></td>
     <td>

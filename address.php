@@ -71,7 +71,7 @@ elseif ($_REQUEST['act'] == 'AjaxAddressEdit')
     }
     $consigness['country'] = $int_cityId;
     if(empty($address_id)){
-        $smarty->assign('province_list',    get_regions(1, $_CFG['shop_country']));
+        $smarty->assign('province_list',    get_regions(1, $consigness['country']));
     }
     
     $smarty->assign('consignees', $consignees);

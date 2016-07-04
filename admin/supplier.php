@@ -208,7 +208,8 @@ elseif ($_REQUEST['act']=='update')
 							'status'   			=> intval($_POST['status']),
    							'open_time' 		=> intval($_POST['open_time']),
    							'cost_ratio' 		=> trim($_POST['cost_ratio']),
-   							'shop_ratio' 		=> trim($_POST['shop_ratio']),
+   							'shop_ratio' 		=> trim($_POST['shop_ratio']),         // 1.19公式
+   							'shop_ratio_ext'    => trim($_POST['shop_ratio_ext']),     // 0.97公式
    							'is_entity'			=> 2,//intval($_POST['is_entity']),
    							'is_tickets'		=> 2,//intval($_POST['is_tickets']),
    							'show_ordinary'		=> 1//intval($_POST['show_ordinary'])

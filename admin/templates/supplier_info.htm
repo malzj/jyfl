@@ -90,14 +90,19 @@
 				</td>
 			</tr>
 			<tr bgcolor="#ffffff">
-				<td width="28%" align="right"><span style="color: #FF0000">*</span>商城比例：</td>
+				<td width="28%" align="right"><span style="color: #FF0000">*</span>商城比例(1.19)：</td>
 				<td align="left"><input type="text" name="shop_ratio" size=10 value="{$supplier.shop_ratio}" /> <font color="#ccc">例：输入 0.8，商城显示的扣点价是，市场价 X 0.8</font></td>
 			</tr>
+			<tr bgcolor="#ffffff">
+				<td width="28%" align="right"><span style="color: #FF0000">*</span>商城比例(0.97)：</td>
+				<td align="left"><input type="text" name="shop_ratio_ext" size=10 value="{$supplier.shop_ratio_ext}" /> <font color="#ccc">例：输入 0.8，商城显示的扣点价是，市场价 X 0.8</font></td>
+			</tr>
+			
 			<tr bgcolor="#ffffff">
 				<td width="28%" align="right"><span style="color: #FF0000">*</span>成本比例：</td>
 				<td align="left"><input type="text" name="cost_ratio" size=10 value="{$supplier.cost_ratio}" /> <font color="#ccc">例：输入 0.7，供应商给我们的供货价是，市场价 X 0.7</font></td>
 			</tr>
-			<tr bgcolor="#ffffff">
+			<!-- <tr bgcolor="#ffffff">
 				<td width="28%" align="right"><span style="color: #FF0000">*</span>销售方式：</td>
 				<td align="left">
 					<input type="radio" name="is_entity" value="1" {if $supplier.is_entity eq '1'} checked {/if} />实体
@@ -117,7 +122,7 @@
 					<input type="radio" name="show_ordinary" value="2" {if $supplier.show_ordinary eq '2'} checked {/if} />是
 					<input type="radio" name="show_ordinary" value="1" {if $supplier.show_ordinary eq '1' || $supplier eq ''} checked {/if} />否 <font color="red">&nbsp;&nbsp;&nbsp;&nbsp;只有销售方式是 “实体” 的时候，才需要设置此项。</font>
 				</td>
-			</tr>
+			</tr> -->
 			
 			
 			<tr>

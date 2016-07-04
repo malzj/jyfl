@@ -331,6 +331,18 @@ function checkCardType( $username, $type)
  }
  
 /**
+ * 商城售价策略
+ */
+ function getExt($ext)
+ {
+    $extArray = array(
+        1   => '1',
+        2   => '0.8'
+    );     
+    return $extArray[$ext];
+ }
+ 
+/**
  * 设置字符串的字符集
  * @param unknown $content          编码的字符串      
  * @param string $in_charset        输入的字符集

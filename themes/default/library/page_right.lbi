@@ -29,8 +29,9 @@
 		$(function(){
             var id = $('#user_id').val();
             var cnum = {$usernames.user_name};
+            var phone = {if !empty($usernames.mobile_phone)}{$usernames.mobile_phone}{else}''{/if};
 
-            showRight(id,cnum);
+            showRight(id,cnum,phone);
             var url = window.location.href;
             var arr = url.split('?');
 			if((window.location.pathname == '/user.php')&&(arr[1] == ''||arr[1] == null)){
@@ -45,7 +46,7 @@
 					$('.pop_right').css('transform','translateX(0)');
 					$(this).removeClass('glyphicon-chevron-left').addClass('glyphicon-chevron-right');
 					$('.pop_right_bottom').css('display','block')
-					showRight(id,cnum);
+					showRight(id,cnum,phone);
 				}
 			})
 			
@@ -55,7 +56,7 @@
 				$('.pop_right_bottom').css('display','none')
 			}
             // 右侧渲染函数
-				function showRight(id,cnum){
+				function showRight(id,cnum,phone){
             		$.ajax({
             			type:'post',
             			url:'{$app_path}jyflapi/index.php/Games/GamesApi/gameList',
@@ -94,7 +95,7 @@
             						'</div>'+
             						'</div></a>'+
             						'<div class="act_item3 f_l">'+
-            						'<a href="#" class="jinbi" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.card_company_id+'" data-cnum="'+cnum+'">'+
+            						'<a href="#" class="jinbi" data-id="'+game_glo[i].id+'" data-cid="'+data.company_info.card_company_id+'" data-cnum="'+cnum+'" data-phone="'+phone+'">'+
             						'<img src="{$app_path}images/juyoufuli/img_login/'+img+'" '+iclass+' class="img-responsive">'+
             						'</a>'+
             						'</div>'+
@@ -127,7 +128,7 @@
             						'</div>'+
             						'</div></a>'+
             						'<div class="act_item3 f_l">'+
-            						'<a href="#" class="jinbi" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.card_company_id+'" data-cnum="'+cnum+'">'+
+            						'<a href="#" class="jinbi" data-id="'+game_com[i].id+'" data-cid="'+data.company_info.card_company_id+'" data-cnum="'+cnum+'" data-phone="'+phone+'">'+
             						'<img src="{$app_path}images/juyoufuli/img_login/'+img1+'" '+iclass1+'>'+
             						'</a>'+
             						'</div>'+

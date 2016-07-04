@@ -209,9 +209,9 @@ elseif ($_REQUEST['act']=='update')
    							'open_time' 		=> intval($_POST['open_time']),
    							'cost_ratio' 		=> trim($_POST['cost_ratio']),
    							'shop_ratio' 		=> trim($_POST['shop_ratio']),
-   							'is_entity'			=> intval($_POST['is_entity']),
-   							'is_tickets'		=> intval($_POST['is_tickets']),
-   							'show_ordinary'		=> intval($_POST['show_ordinary'])
+   							'is_entity'			=> 2,//intval($_POST['is_entity']),
+   							'is_tickets'		=> 2,//intval($_POST['is_tickets']),
+   							'show_ordinary'		=> 1//intval($_POST['show_ordinary'])
                            );
 
   /* 取得供货商信息 */

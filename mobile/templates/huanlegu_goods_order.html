@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>華影文化</title>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/swiper-3.2.7.jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/layer/layer.js"></script>
+	<script src="js/loadAjax.js"></script>
+	
+	<link href="js/layer/skin/layer.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/swiper-3.2.7.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fd.css">	
+    <link rel="stylesheet" href="css/main.css">
+    
+</head>
+<body>
+
+
+	<style>
+		.font-1 {font-weight:500;}
+		.border-5{ border-bottom: 1px solid #dfdfdf;}
+		.jishi h5{margin:5px 0;}
+	</style>
+	<!-- header start -->
+	{$header}
+	<!-- header end -->
+	
+	{if $action eq 'saveOrder'}
+	<h5 class="font-1 padding_5_5" style="margin:5px 0;">产品信息</h5>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 border-5 padding_5_10">
+				<h4 class="color_red ">订单总价：<span>{$order.money}</span>点</h4>
+			</div>
+			<div class="col-xs-12 border-5 padding_5_10">
+				<h5>产品名称：&nbsp;&nbsp; <span>{$order.name}</span></h5>
+			</div>
+			<div class="col-xs-12 border-5 padding_5_10">
+				<h5>出游时间：&nbsp;&nbsp; <span>{$order.date}</span></h5>
+			</div>
+			<div class="col-xs-12 border-5 padding_5_10">
+				<h5>产品单价：&nbsp;&nbsp; <span> {$order.unit_price} </span></h5>
+			</div>
+			<div class="col-xs-12 border-5 padding_5_10">
+				<h5>预订数量：&nbsp;&nbsp; <span>{$order.number}</span></h5>
+			</div>			
+		</div>
+	</div>
+	
+	<div class="container margin_4" style="margin-top:10px;">
+		<div class="row">
+			<div class="col-xs-12">
+				<h5 style="text-indent: 5px;">联系人：
+					<div class="form-group" style="display: inline-block; margin-bottom: 0;">
+					    <input type="text" class="form-control" id="link_man" placeholder="请填写联系人">
+					 </div>
+				</h5>
+				<h5 style="text-indent: 5px;">身份证：
+					<div class="form-group" style="display: inline-block; margin-bottom: 0;">
+					    <input type="text" class="form-control" id="link_zhengjian" placeholder="请填写身份证">
+					 </div>
+				</h5>
+				<h5 style="text-indent: 5px;">手机号：
+					<div class="form-group" style="display: inline-block; margin-bottom: 0;">
+					    <input type="text" class="form-control" id="link_phone" placeholder="请填写手机号">
+					 </div>
+				</h5>				
+			</div>
+		</div>
+	</div>
+	<div class="container margin_4" style="margin-top:10px;">
+		<div class="row">
+			<div class="col-xs-12">
+				<h5>華影卡号：<span>{$username}</span></h5>
+				<h5 style="text-indent: 26px;">密码：
+					<div class="form-group" style="display: inline-block; margin-bottom: 0;">
+					    <input type="password" class="form-control" id="password" placeholder="密码">
+					 </div>
+				</h5>
+			</div>
+		</div>
+	</div>
+
+	<!--确认支付-->
+	<div class="pay_1">
+		<input type="hidden" name="order_id" id="order_id" value="{$order.id}" />
+		<h5 class="act-pays">确认支付</h5>
+	</div>
+	
+	<script>
+	$(document).ready(function(){
+		
+		var checkSubmitFlg = false;
+		/* 支付操作 */
+		$('.act-pays').click(function(){
+			var password = $('#password').val();
+			var orderid = $('#order_id').val();
+			var link_man = $('#link_man').val();
+			var link_phone = $('#link_phone').val();
+			var link_zhengjian = $('#link_zhengjian').val();
+			
+			if( jQuery.isEmptyObject(password)){
+				loadMsg('密码不能为空！');
+				return false;
+			}
+			if( jQuery.isEmptyObject(link_man)){
+				loadMsg('联系人不能为空！');
+				return false;
+			}
+			if( jQuery.isEmptyObject(link_phone)){
+				loadMsg('联系电话不能为空！');
+				return false;
+			}
+			if( jQuery.isEmptyObject(link_zhengjian)){
+				loadMsg('身份证不能为空！');
+				return false;
+			}
+			
+			if(checkSubmitFlg == true){ 
+				loadMsg('已提交过，请耐心等待');
+				return false;
+			}
+			
+			checkSubmitFlg = true;
+			
+			$(this).loadAjax('huanlegu_goods_order.php?action=pay',{password:password, orderid:orderid, link_man:link_man,link_phone:link_phone,link_zhengjian:link_zhengjian}, function( info ){
+				var data = jQuery.parseJSON(info);
+				if(data.error == 1){
+					loadMsg(data.message);
+					checkSubmitFlg = false;
+				}else{
+					loadMsg('支付成功',function(){ 
+						location.href="user.php?act=huanlegu_order";
+					})
+				}
+			});
+		});
+		
+		
+	});
+	
+	</script>		
+
+	{/if}
+	
+	
+</body>
+</html>

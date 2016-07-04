@@ -10,6 +10,8 @@
 		<script src="js/rem.js"></script>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquerymobile.js"></script>
+		<script src="js/messageJs.js"></script>
+
 	</head>
 	<body>
 		<div data-role="page" data-theme="g" id="">
@@ -44,13 +46,16 @@
 	         	<div class="login_box">
 					<div class="login_icon"><img src="images/jy_index/logo_tongka.png" alt="聚优通卡"></div>
 					<div class="login_form">
+						<form name="loginform" method="post" onsubmit="return false" >
 						<div class="login_username">
-							<input type="number" placeholder="请输入您的聚优卡号" data-role="none"/>
+							<input type="number" name="username" placeholder="请输入您的聚优卡号" data-role="none"/>
 						</div>
 						<div class="login_password">
-							<input type="password" placeholder="请输入密码" data-role="none"/>
+							<input type="password" name="password" placeholder="请输入密码" data-role="none"/>
 						</div>
+							<input type="hidden" name="type" value="1" />
 						<button class="login_btn">立即登录</button>
+						</form>
 					</div>
 					<div class="login_icon1"><img src="images/jy_index/enjoy.png" alt="享受工作，享受生活"></div>
 				</div>
@@ -60,13 +65,16 @@
 	         	<div class="login_box">
 					<div class="login_icon"><img src="images/jy_index/logo_wenhua.png" alt="聚优文化"></div>
 					<div class="login_form">
+						<form name="loginform" method="post" onsubmit="return false" >
 						<div class="login_username">
-							<input type="number" placeholder="请输入您的聚优卡号" data-role="none"/>
+							<input type="number" name="username" placeholder="请输入您的聚优卡号" data-role="none"/>
 						</div>
 						<div class="login_password">
-							<input type="password" placeholder="请输入密码" data-role="none"/>
+							<input type="password" name="password" placeholder="请输入密码" data-role="none"/>
 						</div>
+							<input type="hidden" name="type" value="2" />
 						<button class="login_btn">立即登录</button>
+						</form>
 					</div>
 					<div class="login_icon1"><img src="images/jy_index/enjoy.png" alt="享受工作，享受生活"></div>
 				</div>
@@ -76,13 +84,16 @@
 	         	<div class="login_box">
 					<div class="login_icon"><img src="images/jy_index/logo_shengri.png" alt="聚优生日"></div>
 					<div class="login_form">
+						<form name="loginform" method="post" onsubmit="return false" >
 						<div class="login_username">
 							<input type="number" placeholder="请输入您的聚优卡号" data-role="none" />
 						</div>
 						<div class="login_password">
 							<input type="password" placeholder="请输入密码" data-role="none" />
 						</div>
+							<input type="hidden" name="type" value="3" />
 						<button class="login_btn">立即登录</button>
+						</form>
 					</div>
 					<div class="login_icon1"><img src="images/jy_index/enjoy.png" alt="享受工作，享受生活"></div>
 				</div>
@@ -92,13 +103,16 @@
 	         	<div class="login_box">
 					<div class="login_icon"><img src="images/jy_index/login_shenghuo.png" alt="聚优生活"></div>
 					<div class="login_form">
+						<form name="loginform" method="post" onsubmit="return false" >
 						<div class="login_username">
-							<input type="number" placeholder="请输入您的聚优卡号" data-role="none"/>
+							<input type="number" name="username" placeholder="请输入您的聚优卡号" data-role="none"/>
 						</div>
 						<div class="login_password">
-							<input type="password" placeholder="请输入密码" data-role="none"/>
+							<input type="password" name="password" placeholder="请输入密码" data-role="none"/>
 						</div>
+							<input type="hidden" name="type" value="4" />
 						<button class="login_btn">立即登录</button>
+						</form>
 					</div>
 					<div class="login_icon1"><img src="images/jy_index/enjoy.png" alt="享受工作，享受生活"></div>
 				</div>
@@ -108,16 +122,44 @@
 	         	<div class="login_box">
 					<div class="login_icon"><img src="images/jy_index/logo_yundong.png" alt="聚优运动"></div>
 					<div class="login_form">
+						<form name="loginform" method="post" onsubmit="return false" >
 						<div class="login_username">
-							<input type="number" placeholder="请输入您的聚优卡号" data-role="none"/>
+							<input type="number" name="username" placeholder="请输入您的聚优卡号" data-role="none"/>
 						</div>
 						<div class="login_password">
-							<input type="password" placeholder="请输入密码" data-role="none"/>
+							<input type="password" name="password" placeholder="请输入密码" data-role="none"/>
 						</div>
+							<input type="hidden" name="type" value="4" />
 						<button class="login_btn">立即登录</button>
+						</form>
 					</div>
 					<div class="login_icon1"><img src="images/jy_index/enjoy.png" alt="享受工作，享受生活"></div>
 				</div>
 	         </div>
+	<script>
+		$(function(){
+			$(".login_btn").tap(function(){
+				var form = $(this).parent("form");
+				var username = form.find("input[name='username']").val();
+				var password = form.find("input[name='password']").val();
+				var type = form.find("input[name='type']").val();
+				$.ajax({
+					type:'post',
+					url:'/mobile/userAuth.php?act=actLogin',
+					async:false,
+					data:{username:username,password:password,type:type},
+					dataType:'json',
+					success:function(result){
+						console.log(result);
+						if(result.state=="true"){
+//							window.location.href = "/mobileh5/index.html";
+						}else{
+							message.messageAlert(result.message);
+						}
+					}
+				})
+			})
+		})
+	</script>
 	</body>
 </html>

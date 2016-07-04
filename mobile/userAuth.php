@@ -22,11 +22,10 @@ if ($_REQUEST['act'] == 'actLogin')
     $username = isset($_POST['username']) ? trim($_POST['username']) : '';
     $password = isset($_POST['password']) ? trim($_POST['password']) : '';
     $type = isset($_POST['type']) ? trim($_POST['type']) : '';
-    
     //获取卡信息
     $arr_param = array(	'CardInfo'=>array('CardNo'  => $username, 'CardPwd' => $password) );
     $state = $cardPay->action($arr_param, 8);
-    
+
     // 查询成功
     if ($state == 0)
     {
@@ -63,7 +62,7 @@ if ($_REQUEST['act'] == 'actLogin')
                 
             }
         }
-    
+
         // 执行本地操作
         include_once(ROOT_PATH . 'includes/lib_passport.php');
         $int_uid = $db->getOne('SELECT user_id FROM '.$ecs->table('users'). " WHERE user_name = '$username'");
@@ -78,8 +77,7 @@ if ($_REQUEST['act'] == 'actLogin')
         }else{//更新用户信息
             $GLOBALS['db']->query('UPDATE ' . $GLOBALS['ecs']->table("users") . " SET password='".md5($password)."', card_money = '$cardMoney', youxiao_time = '".$cardOutTime."' WHERE user_id = '$int_uid'");
         }
-    
-    
+
         // 卡类型判断
         if ( checkCardType($username, $type) == false )
         {
@@ -87,7 +85,7 @@ if ($_REQUEST['act'] == 'actLogin')
             $jsonArray['message'] = '卡类型不符，请从新选择并登录';
             exit(json_encode($jsonArray));   
         }
-    
+
         //设置本站登录成功
         $GLOBALS['user']->set_session($username);
         $GLOBALS['user']->set_cookie($username);

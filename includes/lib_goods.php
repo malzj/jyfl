@@ -1729,27 +1729,48 @@ function get_spec_ratio_price($spec, $returnRatio=false)
 	); 
 	
 	if ($spec_info)
-	{	   
-	   // 供应商销售比例
-	   $shop_ratio = $GLOBALS['db']->getOne("SELECT shop_ratio FROM " . $GLOBALS['ecs']->table("supplier") ." WHERE supplier_id = ".$spec_info['supplier_id']);
-	   if (!empty($shop_ratio))
-	   {
-	       $ratios['shop_ratio'] = $shop_ratio;
-	   }
-	   
-	   // 卡规则销售比例
+	{
 	   if ($card_id > 0)
 	   {
-	       $card_rule = $GLOBALS['db']->getOne("SELECT shop_ratio FROM ".$GLOBALS['ecs']->table('card_rule')." WHERE id=".$card_id);
-	       if (!empty($card_rule))
+	       $card_rule = $GLOBALS['db']->getRow("SELECT shop_ratio, price, raise, ext FROM ".$GLOBALS['ecs']->table('card_rule')." WHERE id=".$card_id);
+	       
+	       // 卡规则销售比例
+	       if (!empty($card_rule['shop_ratio']))
 	       {
 	           $cid = $GLOBALS['db']->getOne('SELECT id FROM '.$GLOBALS['ecs']->table('nav').' WHERE cid='.$spec_info['cat_id']);
-	           $card_rule_arr = unserialize($card_rule);
+	           $card_rule_arr = unserialize($card_rule['shop_ratio']);
 	           if ($card_rule_arr[$cid]!=0)
 	           {
 	               $ratios['card_ratio'] = $card_rule_arr[$cid];
 	           }
-	       }	   
+	       }
+	       // 上调浮比
+	       $raise = floatval($card_rule['raise']);
+	       
+	       // 城售价策略
+	       $ext = intval($card_rule['ext']);	  
+	       
+	       // 设置商城销售比例
+	       if (!empty($card_rule))
+	       {	      
+	           $shop_ratio = $GLOBALS['db']->getRow("SELECT shop_ratio, shop_ratio_ext FROM " . $GLOBALS['ecs']->table("supplier") ." WHERE supplier_id = ".$spec_info['supplier_id']);
+	           $ratios['shop_ratio'] = $ext == 1 ? $shop_ratio['shop_ratio']+$raise : $shop_ratio['shop_ratio_ext']+$raise;
+	           if ($ext == 1)
+	               $ratios['shop_ratio'] = $shop_ratio['shop_ratio']+$raise;
+	           else 
+	               $ratios['shop_ratio_ext'] = $shop_ratio['shop_ratio_ext']+$raise;
+	           
+	           
+               // 实际卡售价在线上时，商城销售比例 = shop_ratio + 上调浮比
+               /* if ( floatval($card_rule['price']) > getExt( $ext ))
+               {
+                   $ratios['shop_ratio'] = $ext == 1 ? $shop_ratio['shop_ratio']+$raise : $shop_ratio['shop_ratio_ext']+$raise;
+               }
+               // 实际卡售价在线下时，
+               else {
+                   $ratios['shop_ratio'] = $ext == 1 ? $shop_ratio['shop_ratio']+$raise : $shop_ratio['shop_ratio_ext']+$raise;
+               }	 */           
+	       }
 	   }
 	   
 	   // 单品销售比例
@@ -1768,6 +1789,8 @@ function get_spec_ratio_price($spec, $returnRatio=false)
 	
 	// 计算最终的价格
 	array_unshift($ratios, $spec_info['spec_price']);
+	
+	error_log(var_export($ratios,true),'3','error.logs');
 	$product = array_product($ratios);
 	return price_format($product);	
 }

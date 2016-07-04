@@ -157,20 +157,24 @@ $str_Card = serialize($Card);
 	$str_navinfo = !empty($arr_navSetting) ? serialize($arr_navSetting) : '';
 	$str_shopratio = !empty($shop_ratio) ? serialize($shop_ratio) : '';
 	//var_dump($str_navinfo);exit;
-	$price = !empty($_REQUEST['price']) ? trim($_REQUEST['price']) : '0.0';
+	
 	$zhekou = !empty($_REQUEST['zhekou']) ? trim($_REQUEST['zhekou']) : '0';
 	$shop = !empty($_REQUEST['shop']) ? trim($_REQUEST['shop']) : '0';
 	$pay_than = !empty($_REQUEST['pay_than']) ? trim($_REQUEST['pay_than']) : '0';
 	$type = !empty($_REQUEST['type']) ? trim($_REQUEST['type']) : '1';
 	
+	$ext = !empty($_REQUEST['ext']) ? trim($_REQUEST['ext']) : '1';
+	$price = !empty($_REQUEST['price']) ? trim($_REQUEST['price']) : '0.0';  // 实际卡售价
+	$raise = !empty($_REQUEST['raise']) ? trim($_REQUEST['raise']) : '0.0';  // 上浮比例
+	
 	if (!empty($int_id)){
 		if (!empty($Card)){
-		$query = $db->query('UPDATE '.$ecs->table('card_rule')." SET title = '$str_title', card = '$str_Card', home_desc = '$str_homedesc',price = '$price', zhekou = '$zhekou', shop = '$shop', time = '$time', navinfo = '$str_navinfo', shop_ratio = '$str_shopratio', type = '$type' WHERE id = '$int_id'");
+		$query = $db->query('UPDATE '.$ecs->table('card_rule')." SET title = '$str_title', card = '$str_Card', home_desc = '$str_homedesc',price = '$price', zhekou = '$zhekou', shop = '$shop', time = '$time', navinfo = '$str_navinfo', shop_ratio = '$str_shopratio', type = '$type', ext='$ext', raise='$raise'  WHERE id = '$int_id'");
 		}else{
-		$query = $db->query('UPDATE '.$ecs->table('card_rule')." SET title = '$str_title', home_desc = '$str_homedesc',price = '$price', zhekou = '$zhekou', shop = '$shop',  time = '$time', navinfo = '$str_navinfo', shop_ratio = '$str_shopratio', pay_than = '$pay_than', type = '$type' WHERE id = '$int_id'");
+		$query = $db->query('UPDATE '.$ecs->table('card_rule')." SET title = '$str_title', home_desc = '$str_homedesc',price = '$price', zhekou = '$zhekou', shop = '$shop',  time = '$time', navinfo = '$str_navinfo', shop_ratio = '$str_shopratio', pay_than = '$pay_than', type = '$type', ext='$ext', raise='$raise' WHERE id = '$int_id'");
 		}
 	}else{
-		$str_sql = "INSERT INTO ".$ecs->table('card_rule')." (title, card, home_desc,price,zhekou,shop,time, navinfo, shop_ratio, pay_than, type) VALUES ('$str_title','$str_Card', '$str_homedesc', '$price','$zhekou', '$shop','$time', '$str_navinfo', '$str_shopratio', $pay_than, $type)";
+		$str_sql = "INSERT INTO ".$ecs->table('card_rule')." (title, card, home_desc,price,zhekou,shop,time, navinfo, shop_ratio, pay_than, type, ext, raise) VALUES ('$str_title','$str_Card', '$str_homedesc', '$price','$zhekou', '$shop','$time', '$str_navinfo', '$str_shopratio', $pay_than, $type, $ext, $raise)";
 		$query = $db->query($str_sql);
 	}
 

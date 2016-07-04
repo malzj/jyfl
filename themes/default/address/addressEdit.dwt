@@ -1,5 +1,4 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
 <div class="item form-group">
     <label class="f_l">收货人</label>
     <div class="f_l input">
@@ -16,14 +15,12 @@
             <option value="{$province.region_id}" {if $consignees.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
             {/foreach}               
         </select>
-      <!--  <select name="city" id="city" >
+      <!--<select name="city" id="city" >
             <option value="0"> == 请选择 == </option>
             {foreach from=$city_list item=city}
             <option value="{$city.region_id}" {if $consignees.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
             {/foreach}
         </select>-->
-        
-   
 </div>
 <div class="item form-group">
     <label class="f_l">详细地址</label>

@@ -2411,6 +2411,7 @@ section.marketing {
 	left: 50px;
 	width: 80px;
 	padding: 0px;
+	top: 200px;
 }
 
 .aboutus ul.menu li {
@@ -2421,11 +2422,11 @@ section.marketing {
 	padding: 10px 0px;
 	cursor: pointer;
 	z-index: 30;
-	/*-webkit-transition: all .0s ease-in-out .2s;
+	-webkit-transition: all .0s ease-in-out .2s;
 	-moz-transition: all .0s ease-in-out .2s;
 	-ms-transition: all .0s ease-in-out .2s;
 	-o-transition: all .0s ease-in-out .2s;
-	transition: all .0s ease-in-out .2s;*/
+	transition: all .0s ease-in-out .2s;
 }
 
 .aboutus ul.menu li.active {
@@ -5455,4 +5456,44 @@ section.contact {
 	.clients .banner .hd .prev{left: 10%;}
 	.clients .banner .hd .next{right: 10%;}
 	
+}
+.aboutuss ul.menu {
+    position: absolute;
+    list-style: none;
+    left: 50px;
+    width: 80px;
+    padding: 0px;
+}
+.aboutuss ul.menu li.active {
+    width: 80px;
+    background: #2fd0b5;
+    -webkit-transition: all .3s ease-in-out 0s;
+    -moz-transition: all .3s ease-in-out 0s;
+    -ms-transition: all .3s ease-in-out 0s;
+    -o-transition: all .3s ease-in-out 0s;
+    transition: all .3s ease-in-out 0s;
+    z-index: 20;
+    color: White;
+}
+.aboutuss ul.menu li {
+    position: relative;
+    color: #2fd0b5;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px 0px;
+    cursor: pointer;
+    z-index: 30;
+}
+.aboutuss ul.menu li.bg.all {
+    position: absolute;
+    padding: 0px;
+    top: 0px;
+    left: 0px;
+    width: 80px !important;
+    height: 210px !important;
+    background: #9E9595;
+    -moz-opacity: 0.15;
+    opacity: 0.15;
+    filter: alpha(opacity=15);
+    z-index: 10;
 }

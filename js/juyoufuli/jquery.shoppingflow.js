@@ -25,10 +25,13 @@ function setConsigneeSelect(that,id,sid){
 }
 
 //选择收货人信息
-function selectConsignee(id){
+function selectConsignee(id,event){
 	$.get('address.php', {act:'AjaxAddressEdit', address_id:id, t:Math.random()}, function(result){
 		$('#add_item').html((typeof result == "object") ? result.content : result).show();
 	}, 'json');
+//	停止冒泡
+	 event=event||window.event;    
+  	 event.stopPropagation();    
 }
 
 //修改收货人信息
@@ -46,10 +49,8 @@ function dropConsignee(id, from){
 		}else{
 			alert('删除失败！');
 		}
-	
 	}, 'json');
 }
-
 //保存收货人信息
 function saveConsignee(id, from){
 	

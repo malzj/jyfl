@@ -11,7 +11,7 @@
 				<div class="f_r">
 					<!-- <a href="javascript:setDefaultConsignee('{$consignee.address_id}');">设为默认地址</a>-->
 					<a class="xuanzhong {if $consignee.selected eq 1}selected{/if}" title="选择"></a>
-					<a class="bianji" href="javascript:selectConsignee('{$consignee.address_id}');" title="修改"></a>
+					<a class="bianji" onclick="selectConsignee('{$consignee.address_id}');" title="修改"></a>
 					<a class="remove" href="javascript:dropConsignee('{$consignee.address_id}');" title="删除"></a>
 				</div>
 			</div>

@@ -12,7 +12,7 @@ html{font-size: 20px;}
 
 /*login*/
 .login_box{width:18.75rem;height: 13.7rem;position: absolute;left: 50%;top: 50%;transform: translateX(-50%) translateY(-65%);-webkit-transform: translateX(-50%) translateY(-65%);background:url(../images/jy_index/login_form.png) no-repeat;background-size: 100% 100%;}
-.login_username input,.login_password input{font-size: .7rem;width: 8rem;height: 1.5rem;background: transparent;outline: none;border: 1px solid white;border-radius: 20px;color: white;padding-left: 1rem;}
+.login_username input,.login_password input{font-size: .7rem;width: 9rem;height: 1.5rem;background: transparent;outline: none;border: 1px solid white;border-radius: 20px;color: white;padding: 0;padding-left: 1rem;margin-bottom: .1rem;}
 #juyou_tongka,#juyou_shenghuo,#juyou_shengri,#juyou_yundong,#juyou_wenhua{background: url(../images/jy_index/login_bg.jpg) no-repeat;background-size:100% 100%;height: 100%!important;}
 .login_username,.login_password{width: 9rem;margin: 0 auto;margin-bottom: 0.8rem;}
 .login_icon img{width: 5.75rem;height: 1.4rem;margin-bottom: 1rem;margin-left: 1rem;margin-top: 1rem;}

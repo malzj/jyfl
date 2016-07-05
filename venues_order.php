@@ -18,7 +18,7 @@ $action = isset($_REQUEST['action']) ? addslashes_deep($_REQUEST['action']) : ''
 if ($action == 'saveOrder')
 {
     // 卡规则比例
-    $customRatio = get_card_rule_ratio(10003);
+    $customRatio = get_card_rule_ratio(10003,true);
     //var_dump($_POST);
     $link_man   = isset($_REQUEST['link_man']) ? addslashes($_REQUEST['link_man']) : null ;
     $link_phone = isset($_REQUEST['link_phone']) ? addslashes($_REQUEST['link_phone']) : null ;
@@ -29,9 +29,7 @@ if ($action == 'saveOrder')
     $param      = isset($_REQUEST['param']) ? addslashes($_REQUEST['param']) : null ;
     $venue_id   = isset($_REQUEST['venue_id']) ? intval($_REQUEST['venue_id']) : null ;
     $secret     = isset($_REQUEST['secret']) ? $_REQUEST['secret'].md5($param) : null ;
-    
-    $ratioCustom = ($customRatio == false) ? 1 : $customRatio;
-    
+        
     $checkArray = array(
         'link_man'     => $link_man,
         'link_phone'   => $link_phone,   
@@ -39,11 +37,14 @@ if ($action == 'saveOrder')
         'date'         => $date,
         'num'          => $num,
         'amount'       => $amount,
-        'market_price' => $amount / $ratioCustom,
+        'market_price' => '',
         'param'        => $param,
         'venue_id'     => $venue_id,
         'secret'       => $secret,
-        'sales_ratio'  => $ratioCustom
+        'shop_ratio'  => $customRatio['shop_ratio'],
+        'card_ratio'  => $customRatio['card_ratio'],
+        'raise'       => $customRatio['raise'],
+        'ext'         => $customRatio['ext']
     );
     
     // 数据验证

@@ -3612,6 +3612,8 @@ function split_order($new_order_id){
 		    $split_orders[$row['supplier_id']]['shop_ratio'] = $ratios['shop_ratio'];
 		    $split_orders[$row['supplier_id']]['card_ratio'] = $ratios['card_ratio'];
 		    $split_orders[$row['supplier_id']]['unit_ratio'] = $ratios['unit_ratio'];
+		    $split_orders[$row['supplier_id']]['raise'] = $ratios['raise'];
+		    $split_orders[$row['supplier_id']]['ext'] = $ratios['ext'];
 		}
 		$all_amount += $split_orders[$row['supplier_id']]['order_amount'];
 	}
@@ -3632,6 +3634,8 @@ function split_order($new_order_id){
 					" set shop_ratio='".$split['shop_ratio']."', ".
 					" card_ratio='".$split['card_ratio']."', ".
 					" unit_ratio='".$split['unit_ratio']."',  ".
+					" raise='".$split['raise']."',  ".
+					" ext='".$split['ext']."',  ".
 					" supplier_id='$spkey', ".
 					" parent_order_id='0', ".
 					" best_time='". $split['best_time']. "', ".
@@ -3653,8 +3657,8 @@ function split_order($new_order_id){
 		}else{
 			$order_sn = $split['order_sn'];
 			$sql = 'insert into '.$GLOBALS['ecs']->table('order_info') . '( '.
-					"order_sn, user_id, order_status, shipping_status, pay_status, consignee, country, province, city, district, address, zipcode, tel, mobile, email, best_time , sign_building, postscript, shipping_id, shipping_name, pay_id, pay_name, how_oos, how_surplus, pack_name, card_name, card_message, inv_payee, inv_content, goods_amount, shipping_fee, insure_fee, pay_fee, pack_fee, card_fee, money_paid, surplus, integral, integral_money, bonus, order_amount, from_ad, referer, add_time, confirm_time, pay_time, shipping_time, pack_id, card_id, bonus_id, invoice_no, extension_code, extension_id, to_buyer, pay_note, agency_id, inv_type, tax, is_separate, parent_id, discount, supplier_id, parent_order_id, rebate_id,source,shop_ratio,card_ratio,unit_ratio) ".
-					"select '$order_sn', user_id, order_status, shipping_status, pay_status, '".$supplier_address[$spkey]['consignee']."', '".$supplier_address[$spkey]['country']."', '".$supplier_address[$spkey]['province']."', '".$supplier_address[$spkey]['city']."','".$supplier_address[$spkey]['district']."' , '".$supplier_address[$spkey]['address']."' , '".$supplier_address[$spkey]['zipcode']."','".$supplier_address[$spkey]['tel']."', '".$supplier_address[$spkey]['mobile']."', '".$supplier_address[$spkey]['email']."', '". $split['best_time']. "', sign_building, postscript, shipping_id, shipping_name, pay_id, pay_name, how_oos, how_surplus, pack_name, card_name, card_message, inv_payee, inv_content, '". $split['goods_amount']. "', '".$split['shipping_fee']."', insure_fee, pay_fee, pack_fee, card_fee, money_paid, surplus, integral, integral_money, '".$split['bonus']."', '". $split['order_amount'] ."', from_ad, referer, add_time, confirm_time, pay_time, shipping_time, pack_id, card_id, '".$split['bonus_id']."', invoice_no, extension_code, extension_id, to_buyer, pay_note, agency_id, inv_type, tax, is_separate, parent_id, discount, '$spkey', '$new_order_id', '$rebate_id',source, '".$split['shop_ratio']."', '".$split['card_ratio']."', '".$split['unit_ratio']."' from ".$GLOBALS['ecs']->table('order_info')." where order_id= '$new_order_id' ";
+					"order_sn, user_id, order_status, shipping_status, pay_status, consignee, country, province, city, district, address, zipcode, tel, mobile, email, best_time , sign_building, postscript, shipping_id, shipping_name, pay_id, pay_name, how_oos, how_surplus, pack_name, card_name, card_message, inv_payee, inv_content, goods_amount, shipping_fee, insure_fee, pay_fee, pack_fee, card_fee, money_paid, surplus, integral, integral_money, bonus, order_amount, from_ad, referer, add_time, confirm_time, pay_time, shipping_time, pack_id, card_id, bonus_id, invoice_no, extension_code, extension_id, to_buyer, pay_note, agency_id, inv_type, tax, is_separate, parent_id, discount, supplier_id, parent_order_id, rebate_id,source,shop_ratio,card_ratio,unit_ratio,raise,ext) ".
+					"select '$order_sn', user_id, order_status, shipping_status, pay_status, '".$supplier_address[$spkey]['consignee']."', '".$supplier_address[$spkey]['country']."', '".$supplier_address[$spkey]['province']."', '".$supplier_address[$spkey]['city']."','".$supplier_address[$spkey]['district']."' , '".$supplier_address[$spkey]['address']."' , '".$supplier_address[$spkey]['zipcode']."','".$supplier_address[$spkey]['tel']."', '".$supplier_address[$spkey]['mobile']."', '".$supplier_address[$spkey]['email']."', '". $split['best_time']. "', sign_building, postscript, shipping_id, shipping_name, pay_id, pay_name, how_oos, how_surplus, pack_name, card_name, card_message, inv_payee, inv_content, '". $split['goods_amount']. "', '".$split['shipping_fee']."', insure_fee, pay_fee, pack_fee, card_fee, money_paid, surplus, integral, integral_money, '".$split['bonus']."', '". $split['order_amount'] ."', from_ad, referer, add_time, confirm_time, pay_time, shipping_time, pack_id, card_id, '".$split['bonus_id']."', invoice_no, extension_code, extension_id, to_buyer, pay_note, agency_id, inv_type, tax, is_separate, parent_id, discount, '$spkey', '$new_order_id', '$rebate_id',source, '".$split['shop_ratio']."', '".$split['card_ratio']."', '".$split['unit_ratio']."', '".$split['raise']."', '".$split['ext']."' from ".$GLOBALS['ecs']->table('order_info')." where order_id= '$new_order_id' ";
 			$GLOBALS['db']->query($sql);
 			$order_id_new = $GLOBALS['db']->insert_id();
 			foreach ($split['goods_reclist'] AS $rec){

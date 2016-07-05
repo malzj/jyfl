@@ -41,8 +41,7 @@ $arr_statusZN = array(
 
 // 下单演出票
 if($_REQUEST['act'] == 'order')
-{
- 
+{    
 	//获取已选中的订单信息
 	$arr_orderInfo = array(
 			'itemId'      => $int_itemId,
@@ -232,6 +231,9 @@ elseif ($_REQUEST['act'] == 'checkout')
 else if ($str_action == 'act_order'){	
 	
 	$arr_order = $_SESSION['yc_flow_order']['flow'];
+	
+	$customRatio = get_card_rule_ratio($arr_order['cateId'], true);
+	
 	if (empty($arr_order)){
 		show_message('没有任何信息，请从新选择一个产品购买！');
 	}
@@ -326,7 +328,7 @@ else if ($str_action == 'act_order'){
 	if (!empty($arr_itemInfo['error'])){
 		show_message($arr_itemInfo['error']);
 	}else{
-		$db->query('INSERT INTO ' .$ecs->table('yanchu_order'). " (order_sn, api_order_sn, user_id, user_name, consignee, address, order_status, itemid, itemname, sitename, storeId, storeName, specid, cateid, catename, mobile, tel, best_time, country, province, city, district, regionname, number, pay_id, pay_name, shipping_id, shipping_name, goods_amount, price, shipping_fee, order_amount, add_time, confirm_time, market_price,source, layout, take_way,card_ratio,api_price) VALUES ('".$arr_order['order_sn']."','".$arr_itemInfo['orderSn']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_consignee['consignee']."', '".$arr_consignee['address']."', '1', '".$arr_order['itemId']."', '".$arr_order['itemName']."', '".$arr_order['siteName']."', '".$arr_order['storeId']."', '".$arr_order['storeName']."', '".$arr_order['specid']."', '".$arr_order['cateId']."', '".$arr_order['catename']."', '".$arr_consignee['mobile']."', '".$arr_consignee['tel']."', '".$arr_order['best_time']."', '".$arr_consignee['country']."', '".$arr_consignee['province']."', '".$arr_consignee['city']."', '".$arr_consignee['district']."', '".$str_regionName."', '".$arr_order['number']."', '2', '华影支付', '1', '供货商物流', '".$arr_order['goods_amount']."', '".$arr_order['price']."', '".$arr_order['shipping_fee']."', '".$arr_order['amount']."', '".gmtime()."', '".gmtime()."', '".$arr_order['market_price']."',0, '".$arr_order['layout']."', '".$arr_order['take_way']."', '".$ratio."', '".$arr_order['cost_price']."')");
+		$db->query('INSERT INTO ' .$ecs->table('yanchu_order'). " (order_sn, api_order_sn, user_id, user_name, consignee, address, order_status, itemid, itemname, sitename, storeId, storeName, specid, cateid, catename, mobile, tel, best_time, country, province, city, district, regionname, number, pay_id, pay_name, shipping_id, shipping_name, goods_amount, price, shipping_fee, order_amount, add_time, confirm_time, market_price,source, layout, take_way,api_price,shop_ratio,card_ratio,raise,ext) VALUES ('".$arr_order['order_sn']."','".$arr_itemInfo['orderSn']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_consignee['consignee']."', '".$arr_consignee['address']."', '1', '".$arr_order['itemId']."', '".$arr_order['itemName']."', '".$arr_order['siteName']."', '".$arr_order['storeId']."', '".$arr_order['storeName']."', '".$arr_order['specid']."', '".$arr_order['cateId']."', '".$arr_order['catename']."', '".$arr_consignee['mobile']."', '".$arr_consignee['tel']."', '".$arr_order['best_time']."', '".$arr_consignee['country']."', '".$arr_consignee['province']."', '".$arr_consignee['city']."', '".$arr_consignee['district']."', '".$str_regionName."', '".$arr_order['number']."', '2', '华影支付', '1', '供货商物流', '".$arr_order['goods_amount']."', '".$arr_order['price']."', '".$arr_order['shipping_fee']."', '".$arr_order['amount']."', '".gmtime()."', '".gmtime()."', '".$arr_order['market_price']."',0, '".$arr_order['layout']."', '".$arr_order['take_way']."', '".$arr_order['cost_price']."', '".$customRatio['shop_ratio']."', '".$customRatio['card_ratio']."', '".$customRatio['raise']."', '".$customRatio['ext']."')");
 		$int_orderId = $db->insert_id();
 	}
 

@@ -140,7 +140,8 @@ if ($_REQUEST['step'] == 'cart')
 // 下单
 else if ($_REQUEST['step'] == 'done')
 {	
-	
+    $customRatio = get_card_rule_ratio(10003,true);
+    
 	$num 				=  !empty($_POST['goods_number']) ? intval($_POST['goods_number']) : 0 ;
 	$productNo	 		=  !empty($_POST['productno']) ? intval($_POST['productno']) : 0;
 	$traveldate 		=  trim($_POST['traveldate']);
@@ -251,7 +252,10 @@ else if ($_REQUEST['step'] == 'done')
  	    'secret'    => $secret,
  	    'source'    => 1,
  	    'unit_price'=> $detail['salePrice'],
- 	    'sales_ratio'=> get_card_rule_ratio(10003)
+ 	    'shop_ratio'  => $customRatio['shop_ratio'],
+        'card_ratio'  => $customRatio['card_ratio'],
+        'raise'       => $customRatio['raise'],
+        'ext'         => $customRatio['ext']
  	); 	
  	$cols = array_keys($default);
  	$GLOBALS['db']->query(' INSERT INTO '.$GLOBALS['ecs']->table('venues_order')." ( ".implode(',', $cols)." ) VALUES ('".implode("','", $default)."')");

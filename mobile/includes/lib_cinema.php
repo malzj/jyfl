@@ -1,14 +1,14 @@
 <?php
 
 // 电影销售比例销售比例
-function getMovieRatio()
+function getMovieRatio($returnRatio = false)
 {
-    return get_card_rule_ratio(10002);
+    return get_card_rule_ratio(10002,$returnRatio);
 }
 
-function getDzqRatio()
+function getDzqRatio($returnRatio = false)
 {
-    return get_card_rule_ratio(10004);
+    return get_card_rule_ratio(10004,$returnRatio);
 }
 
 /** 获得影片详情
@@ -365,7 +365,7 @@ function searchPlan( $moviePlan, $currentTime, $ratio)
 			if ($ratio !== false){
 				$plan['price'] = number_format(round($plan['price']*$ratio,1),2);
 			}else{
-				$plan['price'] = interface_price($plan['price'], 'komovie');;
+				$plan['price'] = interface_price($plan['price'], 'komovie');
 			}
 			$plan['time'] = date('H:i', strtotime($plan['featureTime']));
 			$returnArray[] = $plan;

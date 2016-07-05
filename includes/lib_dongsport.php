@@ -119,7 +119,10 @@ function createVenues( $data )
         'secret'    => $data['order']['secret'],
         'source'    => 0,
         'market_price'=> $data['order']['market_price'],
-        'sales_ratio' => $data['order']['sales_ratio']
+        'shop_ratio' => $data['order']['shop_ratio'],
+        'card_ratio' => $data['order']['card_ratio'],
+        'raise' => $data['order']['raise'],
+        'ext' => $data['order']['ext'],
     );
     
     // 预订时间段  / 选场地信息（用于下单） 

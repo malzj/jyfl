@@ -7,8 +7,9 @@
 		<link rel="stylesheet" href="css/mui.min.css" />
 		<link rel="stylesheet" href="css/jy_index.css">
 		<link rel="stylesheet" href="css/new_href.css" />
+		<script src="js/connection.js"></script>
 		<script src="js/rem.js"></script>
-		<!--<script src="js/jquery.min.js"></script>-->
+		<script src="js/jquery.min.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script src="js/messageJs.js"></script>
 		<style>
@@ -157,13 +158,15 @@
 	         </div>
 	         <script src="js/mui.view.js"></script>
 	<script>
-		mui(function(){
-			mui(".login_btn").on('tap',function(){
-				var form = mui(this).parent("form");
+
+		jQuery(function(){
+			jQuery(".login_btn").click(function(){
+				var form = jQuery(this).parent("form");
 				var username = form.find("input[name='username']").val();
 				var password = form.find("input[name='password']").val();
 				var type = form.find("input[name='type']").val();
-				mui.ajax({
+				alert(username);
+				jQuery.ajax({
 					type:'post',
 					url:'/mobile/userAuth.php?act=actLogin',
 					async:false,
@@ -172,9 +175,16 @@
 					success:function(result){
 						console.log(result);
 						if(result.state=="true"){
-//							window.location.href = "/mobileh5/index.html";
+							alert(username);
+//							mui.openWindow({
+//								url: 'index.html',
+//								id: 'index-page',
+//								extras: {
+//									user_id:result.data.userid,
+//								},
+//							})
 						}else{
-							message.messageAlert(result.message);
+							alert(result.message);
 						}
 					}
 				})

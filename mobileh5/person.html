@@ -22,197 +22,115 @@
 			</div>
 		</div>
 		<!--页面主结构结束-->
-		<!--单页面开始-->
-		<div id="person" class="mui-page">
-			<!--页面标题栏开始-->
-			<div class="mui-navbar-inner mui-bar mui-bar-nav">
-				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-					<span class="mui-icon mui-icon-left-nav"></span>
-				</button>
-				<h1 class="mui-center mui-title">个人信息</h1>
-			</div>
-			<!--页面标题栏结束-->
-			<!--页面主内容区开始-->
-			<div class="mui-page-content">
-				<div class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<ul class="mui-table-view">
-							<li class="mui-table-view-cell mui-media person_touxiang">
-								<a class="mui-navigate-right">头像<img class="mui-media-object mui-pull-right " src="images/jy_index/login_bg.jpg"></a>
-							</li>
-							<li class="mui-table-view-cell"><a class="mui-navigate-right">卡号<span class="person_li_right mui-pull-right">999999999999999999</span></a></li>
-							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#yonghuming"><span>用户名</span><span class="person_li_right mui-pull-right">哈哈哈哈哈</span></a></li>
-							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#xingbie">性别<span class="person_li_right mui-pull-right">男</span></a></li>
-							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#person_birthday"><span>生日</span></a></li>
-						</ul>
-						<ul class="mui-table-view margin_top_20">
-							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#qinggan"><span>情感状态</span></a></li>
-							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#xingqu"><span>兴趣</span></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--用户名-->
-		<div id="yonghuming" class="mui-page">
-			<div class="mui-navbar-inner mui-bar mui-bar-nav">
-				<button type="button" id="username" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-					<span class="mui-icon mui-icon-left-nav"></span>
-				</button>
-				<h1 class="mui-center mui-title">用户名</h1>
-			</div>
-			<div class="mui-page-content">
-				<div class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<div class="mui-input-row margin_top_20">
-							<input type="text" class="mui-input-clear">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--性别-->
-		<div id="xingbie" class="mui-page">
-			<div class="mui-navbar-inner mui-bar mui-bar-nav">
-				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-					<span class="mui-icon mui-icon-left-nav"></span>
-				</button>
-				<h1 class="mui-center mui-title">性别</h1>
-			</div>
-			<div class="mui-page-content">
-				<div class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<ul class="mui-table-view mui-table-view-radio">
-							<li class="mui-table-view-cell">
-								<a class="mui-navigate-right">
-									男
-								</a>
-							</li>
-							<li class="mui-table-view-cell mui-selected">
-								<a class="mui-navigate-right">
-									女
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--生日-->
-		<div id="person_birthday" class="mui-page">
-			<div class="mui-navbar-inner mui-bar mui-bar-nav">
-				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-					<span class="mui-icon mui-icon-left-nav"></span>
-				</button>
-				<h1 class="mui-center mui-title">生日</h1>
-			</div>
-			<div class="mui-page-content">
-				<div class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<button id='birth_date' data-options='{"type":"date","beginYear":1970,"endYear":2016}' class="btn mui-btn mui-btn-block margin_top_20">选择日期 ...</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--情感状态-->
-		<div id="qinggan" class="mui-page">
-			<div class="mui-navbar-inner mui-bar mui-bar-nav">
-				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-					<span class="mui-icon mui-icon-left-nav"></span>
-				</button>
-				<h1 class="mui-center mui-title">生日</h1>
-			</div>
-			<div class="mui-page-content">
-				<div class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<select name="" id="" class="margin_top_20">
-							<option value="">保密</option>
-							<option value="">单身</option>
-							<option value="">恋爱中</option>
-							<option value="">已婚</option>
-						</select>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--兴趣-->
-		<div id="xingqu" class="mui-page">
-			<div class="mui-navbar-inner mui-bar mui-bar-nav">
-				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-					<span class="mui-icon mui-icon-left-nav"></span>
-				</button>
-				<h1 class="mui-center mui-title">生日</h1>
-			</div>
-			<div class="mui-page-content">
-				<div class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<div class="mui-input-group margin_top_15">
-							<div class="mui-input-row mui-checkbox">
-								<label>美食</label>
-								<input name="checkbox1" value="美食" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>电影</label>
-								<input name="checkbox1" value="电影" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>酒店</label>
-								<input name="checkbox1" value="酒店" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>休闲娱乐</label>
-								<input name="checkbox1" value="休闲娱乐" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>丽人</label>
-								<input name="checkbox1" value="丽人" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>旅游</label>
-								<input name="checkbox1" value="旅游" type="checkbox">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
+		<div id="page-container"></div>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/template.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.view.js"></script>
 		<script src="js/mui.picker.min.js.js"></script>
-		<script type="text/javascript">
-			mui.init();
-			var viewApi = mui('#gerenxinxi').view({
-				defaultPage: '#person'
-			});
-			//初始化单页的区域滚动
-			mui('.mui-scroll-wrapper').scroll();
-			var view = viewApi.view;
-			(function($) {
 
+		<script type="text/javascript">
+
+			(function($) {
+				var userInfo;
+				$.init();
+				$.ajax("http://jy.com/jyflapi/index.php/Users/User/usershow",{
+					type:'post',
+					data:{user_id:24863},
+					async:false,
+					dataType:'json',
+					success:function(data) {
+						data.business.sexcn = (data.business.sex == 1) ? "男" : "女";
+						userInfo = data.business;
+						document.getElementById('page-container').innerHTML = template('person', userInfo);
+						if (data.business.xingqu != '' || data.business.xingqu != null || data.business.xingqu != undefined) {
+							var xingqu_ex = data.business.xingqu.split(',');
+							for (var i = 0; i < xingqu_ex.length; i++) {
+								switch (xingqu_ex[i]) {
+									case '美食':
+										jQuery('#meishi').prop('checked', true);
+										break;
+									case '电影':
+										jQuery('#dianying').prop('checked', true);
+										break;
+									case '酒店':
+										jQuery('#jiudian').prop('checked', true);
+										break;
+									case '休闲娱乐':
+										jQuery('#xiuxian').prop('checked', true);
+										break;
+									case '丽人':
+										jQuery('#liren').prop('checked', true);
+										break;
+									case '旅游':
+										jQuery('#lvyou').prop('checked', true);
+										break;
+								}
+							}
+						}
+					}
+				});
+
+
+				var viewApi = $('#gerenxinxi').view({
+					defaultPage: '#person'
+				});
+				//初始化单页的区域滚动
+				$('.mui-scroll-wrapper').scroll();
+				var view = viewApi.view;
 				//处理view的后退与webview后退
 				var oldBack = $.back;
 				$.back = function() {
 					if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
-						viewApi.back({
-							onPageBeforeBack:function(){
-alert('ok');
-							}
-						});
+						viewApi.back();
 					} else { //执行webview后退
 						oldBack();
 					}
 				};
+
 				//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
 				//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
 				view.addEventListener('pageBeforeShow', function(e) {
-					//				console.log(e.detail.page.id + ' beforeShow');
+									console.log(e.detail.page.id + ' beforeShow');
+
 				});
 				view.addEventListener('pageShow', function(e) {
 					//				console.log(e.detail.page.id + ' show');
 				});
 				view.addEventListener('pageBeforeBack', function(e) {
-					//				console.log(e.detail.page.id + ' beforeBack');
+									console.log(e.detail.page.id + ' beforeBack');
+					var userdata = {};
+					userdata.user_id = 24863;
+					userdata.nickname = jQuery('input[name="nickname"]').val();
+					userdata.sex = jQuery('#data_sex').find('li.mui-selected').attr('data-sex');
+					var birthday = jQuery('#birth_date').text();
+					userdata.birthday = birthday=='选择日期'?'':birthday;
+					userdata.basic = jQuery("#basic option:selected").val();
+
+					var check = jQuery('input[name="favorite"]:checked');
+					var fav_checked='';
+					jQuery.each(check,function(k,v){
+						fav_checked += jQuery(this).val()+',';
+					})
+					userdata.xingqu = fav_checked;
+					$.ajax("http://jy.com/jyflapi/index.php/Users/User/userUpdate",{
+						type:'post',
+						data:userdata,
+						asnyc:false,
+						dataType:'json',
+						success:function(data){
+							console.log(data);
+							if(data.result=='true'){
+								jQuery('#person_name').text(data.user.nickname);
+								var sexcn = (data.user.sex==1)?"男":"女";
+								jQuery('#person_sex').text(sexcn);
+								jQuery('#birthday').text(data.user.birthday);
+							}else{
+								alert('error');
+							}
+						}
+					})
+
 				});
 				view.addEventListener('pageBack', function(e) {
 					//				console.log(e.detail.page.id + ' back');

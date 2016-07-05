@@ -83,6 +83,7 @@ require(ROOT_PATH . 'includes/lib_article.php');
 require(ROOT_PATH . 'includes/lib_insert.php');
 require(ROOT_PATH . 'includes/lib_huayingcard.php');
 require(ROOT_PATH . 'includes/httpRequest.php');
+require(ROOT_PATH . 'includes/lib_basic.php');
 
 // 实例化卡系统接口
 $cardPay = new huayingcard();

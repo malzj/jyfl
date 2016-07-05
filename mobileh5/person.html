@@ -23,6 +23,7 @@
 		</div>
 		<!--页面主结构结束-->
 		<div id="page-container"></div>
+		<script src="js/connection.js"></script>
 		<script src="js/jquery-1.9.1.min.js"></script>
 		<script src="js/template.js"></script>
 		<script src="js/mui.min.js"></script>
@@ -33,7 +34,7 @@
 
 			(function($) {
 				jQuery.ajax({
-					url:''
+					url:api_url+'/mobile/userAuth.php?act=checkLogin'
 				})
 				var userInfo;
 				$.init();

@@ -4,54 +4,73 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/jquery.mobile.min.css" />
+		<link rel="stylesheet" href="css/mui.min.css" />
 		<link rel="stylesheet" href="css/jy_index.css">
+		<link rel="stylesheet" href="css/new_href.css" />
 		<script src="js/rem.js"></script>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquerymobile.js"></script>
+		<!--<script src="js/jquery.min.js"></script>-->
+		<script src="js/mui.min.js"></script>
 		<script src="js/messageJs.js"></script>
-
+		<style>
+			.mui-pages{top: 0;}
+		</style>
 	</head>
-	<body>
-		<div data-role="page" data-theme="g" id="">
+	<body class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="login_index" class="mui-views">
+			<div class="mui-view">
+				<!--<div class="mui-navbar">
+				</div>-->
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<div id="login_def" class="mui-page">
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<!--<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">-->
 			<div class="wenhua_door vh_20">
-				<a href="#juyou_wenhua"  data-transition="slide">
+				<a href="#juyou_wenhua">
 				<div class="wenhua_title">聚优文化Culture</div>
 				</a>
 			</div>
 			<div class="birth_door vh_20">
-				<a href="#juyou_shengri"  data-transition="slide">
+				<a href="#juyou_shengri">
 				<div class="wenhua_title">聚优生日Birthday</div>
 				</a>
 			</div>
 			<div class="shenghuo_door vh_20">
-				<a href="#juyou_shenghuo"  data-transition="slide">
+				<a href="#juyou_shenghuo">
 				<div class="wenhua_title">聚优生活Life</div>
 				</a>
 			</div>
 			<div class="sport_door vh_20">
-				<a href="#juyou_yundong"  data-transition="slide">
+				<a href="#juyou_yundong">
 				<div class="wenhua_title">聚优运动Sport</div>
 				</a>
 			</div>
 			<div class="tongka_door vh_20">
-				<a href="#juyou_tongka"  data-transition="slide">
+				<a href="#juyou_tongka">
 				<div class="wenhua_title">聚优通All</div>
 				</a>
-			</div>
-		</div>
+						</div>
+					</div>
+				</div>
+			<!--</div>
+		</div>-->
 	         <!--聚优通卡-->
-	         <div data-role='page' id="juyou_tongka" data-theme="g">
+	         <div  id="juyou_tongka" class="mui-page">
 	         	<div class="login_box">
-					<div class="login_icon"><img src="images/jy_index/logo_tongka.png" alt="聚优通卡"></div>
+					<div class="login_icon"><img src="/images/jy_index/logo_tongka.png" alt="聚优通卡"></div>
 					<div class="login_form">
 						<form name="loginform" method="post" onsubmit="return false" >
 						<div class="login_username">
-							<input type="number" name="username" placeholder="请输入您的聚优卡号" data-role="none"/>
+							<input type="number" name="username" placeholder="请输入您的聚优卡号"/>
 						</div>
 						<div class="login_password">
-							<input type="password" name="password" placeholder="请输入密码" data-role="none"/>
+							<input type="password" name="password" placeholder="请输入密码"/>
 						</div>
 							<input type="hidden" name="type" value="1" />
 						<button class="login_btn">立即登录</button>
@@ -61,16 +80,16 @@
 				</div>
 	         </div>
 	         <!--聚优文化卡-->
-	         <div data-role='page' id="juyou_wenhua" data-theme="g">
+	         <div  id="juyou_wenhua" class="mui-page">
 	         	<div class="login_box">
-					<div class="login_icon"><img src="images/jy_index/logo_wenhua.png" alt="聚优文化"></div>
+					<div class="login_icon"><img src="/images/jy_index/logo_wenhua.png" alt="聚优文化"></div>
 					<div class="login_form">
 						<form name="loginform" method="post" onsubmit="return false" >
 						<div class="login_username">
-							<input type="number" name="username" placeholder="请输入您的聚优卡号" data-role="none"/>
+							<input type="number" name="username" placeholder="请输入您的聚优卡号"/>
 						</div>
 						<div class="login_password">
-							<input type="password" name="password" placeholder="请输入密码" data-role="none"/>
+							<input type="password" name="password" placeholder="请输入密码"/>
 						</div>
 							<input type="hidden" name="type" value="2" />
 						<button class="login_btn">立即登录</button>
@@ -80,16 +99,16 @@
 				</div>
 	         </div>
 	         <!--聚优生日卡-->
-	         <div data-role='page' id="juyou_shengri" data-theme="g">
+	         <div id="juyou_shengri" class="mui-page">
 	         	<div class="login_box">
 					<div class="login_icon"><img src="images/jy_index/logo_shengri.png" alt="聚优生日"></div>
 					<div class="login_form">
 						<form name="loginform" method="post" onsubmit="return false" >
 						<div class="login_username">
-							<input type="number" placeholder="请输入您的聚优卡号" data-role="none" />
+							<input type="number" placeholder="请输入您的聚优卡号" />
 						</div>
 						<div class="login_password">
-							<input type="password" placeholder="请输入密码" data-role="none" />
+							<input type="password" placeholder="请输入密码"/>
 						</div>
 							<input type="hidden" name="type" value="3" />
 						<button class="login_btn">立即登录</button>
@@ -99,16 +118,16 @@
 				</div>
 	         </div>
 	         <!--聚优生活卡-->
-	         <div data-role='page' id="juyou_shenghuo" data-theme="g">
+	         <div id="juyou_shenghuo" class="mui-page">
 	         	<div class="login_box">
 					<div class="login_icon"><img src="images/jy_index/login_shenghuo.png" alt="聚优生活"></div>
 					<div class="login_form">
 						<form name="loginform" method="post" onsubmit="return false" >
 						<div class="login_username">
-							<input type="number" name="username" placeholder="请输入您的聚优卡号" data-role="none"/>
+							<input type="number" name="username" placeholder="请输入您的聚优卡号"/>
 						</div>
 						<div class="login_password">
-							<input type="password" name="password" placeholder="请输入密码" data-role="none"/>
+							<input type="password" name="password" placeholder="请输入密码"/>
 						</div>
 							<input type="hidden" name="type" value="4" />
 						<button class="login_btn">立即登录</button>
@@ -118,16 +137,16 @@
 				</div>
 	         </div>
 	         <!--聚优运动卡-->
-	         <div data-role='page' id="juyou_yundong" data-theme="g">
+	         <div id="juyou_yundong" class="mui-page">
 	         	<div class="login_box">
 					<div class="login_icon"><img src="images/jy_index/logo_yundong.png" alt="聚优运动"></div>
 					<div class="login_form">
 						<form name="loginform" method="post" onsubmit="return false" >
 						<div class="login_username">
-							<input type="number" name="username" placeholder="请输入您的聚优卡号" data-role="none"/>
+							<input type="number" name="username" placeholder="请输入您的聚优卡号"/>
 						</div>
 						<div class="login_password">
-							<input type="password" name="password" placeholder="请输入密码" data-role="none"/>
+							<input type="password" name="password" placeholder="请输入密码"/>
 						</div>
 							<input type="hidden" name="type" value="4" />
 						<button class="login_btn">立即登录</button>
@@ -136,14 +155,15 @@
 					<div class="login_icon1"><img src="images/jy_index/enjoy.png" alt="享受工作，享受生活"></div>
 				</div>
 	         </div>
+	         <script src="js/mui.view.js"></script>
 	<script>
-		$(function(){
-			$(".login_btn").tap(function(){
-				var form = $(this).parent("form");
+		mui(function(){
+			mui(".login_btn").on('tap',function(){
+				var form = mui(this).parent("form");
 				var username = form.find("input[name='username']").val();
 				var password = form.find("input[name='password']").val();
 				var type = form.find("input[name='type']").val();
-				$.ajax({
+				mui.ajax({
 					type:'post',
 					url:'/mobile/userAuth.php?act=actLogin',
 					async:false,
@@ -160,6 +180,12 @@
 				})
 			})
 		})
+		mui.init();
+			var viewApi = mui('#login_index').view({
+				defaultPage: '#login_def'
+			});
+			//初始化单页的区域滚动
+		mui('.mui-scroll-wrapper').scroll();
 	</script>
 	</body>
 </html>

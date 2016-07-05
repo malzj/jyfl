@@ -87,9 +87,11 @@ if ($_REQUEST['act'] == "orderDzq")
 	
 	$arr_result = getYYApi($arr_param, 'createCommTicketOrder');//下通兑票订单
 	if ($arr_result['head']['errCode'] == '0'){
+	    
+	    $ratioDzq = getDzqRatio(true);
 		$arr_orderInfo = $arr_result['body'];
 		//插入订单信息
-		$str_sql = 'INSERT INTO '.$ecs->table('dzq_order')." (order_sn, user_id, user_name, order_status, mobile, city, AreaNo, CinemaNo, CinemaName, TicketNo, TicketName, ProductSizeZn, TicketYXQ, number, pay_id, pay_name, price, sjprice, goods_amount, order_amount, add_time, confirm_time, source, card_ratio) VALUES ('".$arr_orderInfo['OrderNo']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '1', '$str_mobile', '$int_cityId', '$int_cAreaNo', '$str_cinemaNo', '$str_cinemaName', '$int_ticketNo', '".$arr_dzqinfo['TicketName']."', '".$arr_dzqinfo['ProductSizeZn']."', '$str_youxiaoq', '$int_number', '2', '华影支付', '$flo_prices', '$flo_sjprice', '$flo_amount', '$flo_amount', '".gmtime()."', '".gmtime()."', 0, '".$ratio."')";
+		$str_sql = 'INSERT INTO '.$ecs->table('dzq_order')." (order_sn, user_id, user_name, order_status, mobile, city, AreaNo, CinemaNo, CinemaName, TicketNo, TicketName, ProductSizeZn, TicketYXQ, number, pay_id, pay_name, price, sjprice, goods_amount, order_amount, add_time, confirm_time, source, card_ratio, shop_ratio,raise,ext) VALUES ('".$arr_orderInfo['OrderNo']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '1', '$str_mobile', '$int_cityId', '$int_cAreaNo', '$str_cinemaNo', '$str_cinemaName', '$int_ticketNo', '".$arr_dzqinfo['TicketName']."', '".$arr_dzqinfo['ProductSizeZn']."', '$str_youxiaoq', '$int_number', '2', '聚优支付', '$flo_prices', '$flo_sjprice', '$flo_amount', '$flo_amount', '".gmtime()."', '".gmtime()."', 0, '".$ratioDzq['card_ratio']."', '".$ratioDzq['shop_ratio']."', '".$ratioDzq['raise']."', '".$ratioDzq['ext']."')";
 		$query = $db->query($str_sql);
 		$returnAjax['message'] = $db->insert_id();
 		exit(json_encode($returnAjax));		
@@ -282,8 +284,9 @@ else if ($_REQUEST['act'] == 'order'){
 	$arr_result = getCDYApi($arr_param);//下选座订单
 	if ($arr_result['status'] == 0){
 		$arr_orderInfo = $arr_result['order'];		
+		$ratioMovie = getMovieRatio(true);
 		//插入订单信息
-		$str_sql = 'INSERT INTO '. $ecs->table('seats_order') ."(order_sn, user_id, user_name, order_status, mobile, city_id, activity_id, channel_id, count, agio, money, unit_price, seat_info, seat_no, hall_name, hall_id, language, screen_type, featuretime, pay_id,pay_name, add_time, payment_time, movie_name, cinema_name,param_url,source,movie_id,extInfo,card_ratio) VALUES('".$arr_orderInfo['orderId']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_orderInfo['orderStatus']."', '$mobile','".$int_cityId."', '".$arr_orderInfo['activityId']."', '".$arr_orderInfo['channelId']."', '".$seatCount."', '".$arr_orderInfo['agio']."', '".$money."', '".$unitPrice."', '".$seatsName."', '".$seatsNo."', '".$hallName."', '".$arr_orderInfo['plan']['hallNo']."', '".$arr_orderInfo['plan']['language']."', '".$arr_orderInfo['plan']['screenType']."', '".$featureTimeStr."', '2', '华影支付', '".gmtime()."', '0', '".$movieName."', '".$cinemaName."', '".$seatParamUrl."',0,'".$movieId."','".$extInfo."','".$card_ratio."')";
+		$str_sql = 'INSERT INTO '. $ecs->table('seats_order') ."(order_sn, user_id, user_name, order_status, mobile, city_id, activity_id, channel_id, count, agio, money, unit_price, seat_info, seat_no, hall_name, hall_id, language, screen_type, featuretime, pay_id,pay_name, add_time, payment_time, movie_name, cinema_name,param_url,source,movie_id,extInfo,card_ratio,shop_ratio,raise,ext) VALUES('".$arr_orderInfo['orderId']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_orderInfo['orderStatus']."', '$mobile','".$int_cityId."', '".$arr_orderInfo['activityId']."', '".$arr_orderInfo['channelId']."', '".$seatCount."', '".$arr_orderInfo['agio']."', '".$money."', '".$unitPrice."', '".$seatsName."', '".$seatsNo."', '".$hallName."', '".$arr_orderInfo['plan']['hallNo']."', '".$arr_orderInfo['plan']['language']."', '".$arr_orderInfo['plan']['screenType']."', '".$featureTimeStr."', '2', '华影支付', '".gmtime()."', '0', '".$movieName."', '".$cinemaName."', '".$seatParamUrl."',0,'".$movieId."','".$extInfo."','".$ratioMovie['card_ratio']."','".$ratioMovie['shop_ratio']."', '".$ratioMovie['raise']."', '".$ratioMovie['ext']."')";
 		$query = $db->query($str_sql);
 		$int_orderid = $db->insert_id();
 		ecs_header('location:movie_order.php?act=payinfoMovie&id='.$int_orderid);//跳到支付页面

@@ -1497,32 +1497,29 @@ function get_products_info($goods_id, $spec_goods_attr_id)
  * 当前登录的卡号，享受的商城折扣。
  * 如果该卡没有在卡规则里，返回false， 否则返回当前栏目的折扣比例。
  * @param unknown_type $catid		栏目id  
+ * @param boolean $returnRatio      返回比例
  */
-function get_card_rule_ratio($catid=0){
+function get_card_rule_ratio($catid=0, $returnRatio=false)
+{
+    //当前城市
+	$int_cityId   = $_SESSION['cityid'];
+	//当前登录用户
+	$int_userName = $_SESSION['user_name'];	
+	// 当前登录账户的卡规则id
+	$card_id = isset($_SESSION['card_id']) ? $_SESSION['card_id'] : 0 ;
+	// 当前卡规则信息
+	$arr_cardRules = $GLOBALS['db']->getRow('SELECT navinfo,card,shop_ratio,price,raise,ext FROM '.$GLOBALS['ecs']->table('card_rule')." WHERE id = '".$card_id."'");
+	// 商城比例 、上调浮比
+	$ratio = array( 'shop_ratio' => '', 'raise' => '');
+	// 卡规则开启的导航信息
+    $navinfo = unserialize($arr_cardRules['navinfo']);
+    // 导航设置的销售比例
+    $ratios  = unserialize($arr_cardRules['shop_ratio']);
+    
+	$ratio['shop_ratio'] = get_interface_shop_ratio($catid,$arr_cardRules);
 	
-	$int_cityId   = $_SESSION['cityid'];//当前城市
-	$int_userName = $_SESSION['user_name'];//当前登录用户
+	$ratio['raise'] = $arr_cardRules['raise'];			
 	
-	$arr_cardRules = $GLOBALS['db']->getAll('SELECT navinfo,card,shop_ratio FROM '.$GLOBALS['ecs']->table('card_rule'));
-	
-	// 当前卡的分类和商城比例信息
-	$ratios = $navinfo = array();
-	if(!empty($arr_cardRules))
-	{
-		foreach ($arr_cardRules as $rule)
-		{
-			if (!empty($rule['card']))
-			{
-				$tmp_cards = unserialize($rule['card']);
-				if (in_array($int_userName, $tmp_cards))
-				{
-					$navinfo = unserialize($rule['navinfo']);
-					$ratios  = unserialize($rule['shop_ratio']);
-				}
-				
-			}
-		}
-	}
 	
 	// $cat_ids 是分类导航， $not_cat_ids 不是分类导航
 	$cat_ids = $not_cat_ids	= array();
@@ -1638,14 +1635,61 @@ function get_card_rule_ratio($catid=0){
 		$new_catid = $interface;
 		
 	}
-	
+
+	// 未设置卡规则比例，默认就是1
 	if ( empty($ratios) || $ratios[$new_catid] <= 0 )
 	{
-		return false;
+		$ratios[$new_catid] = 1;
 	}
 	
-	return $ratios[$new_catid];
+	if ($returnRatio == true)
+	{
+	    return array(
+	        'shop_ratio' => $ratio['shop_ratio'],
+	        'raise' => $ratio['raise'],
+	        'card_ratio' => $ratios[$new_catid],
+	        'ext'  => $arr_cardRules['ext']
+	    );
+	}
 	
+	return array_product( array($ratios[$new_catid], array_sum($ratio)));
+	
+}
+
+function get_interface_shop_ratio($cid, $rule)
+{
+    $array = array(
+        // 1.19公式比例
+        'base'  => array(
+            '1217' => '1',			// 演唱会
+            '1220' => '1',			// 话剧
+            '1218' => '1',			// 音乐会
+            '1227' => '1',			// 亲子儿童
+            '1224' => '1',			// 戏曲综艺
+            
+            '10002'=> '1',			// 电影
+            '10003'=> '1',			// 动网门票
+            '10004'=> '1'
+        ),
+        // 0.97公式比例
+        'senior'  => array(
+            '1217' => '1.2',			// 演唱会
+            '1220' => '1.2',			// 话剧
+            '1218' => '1.2',			// 音乐会
+            '1227' => '1.2',			// 亲子儿童
+            '1224' => '1.2',			// 戏曲综艺
+        
+            '10002'=> '1.2',			// 电影
+            '10003'=> '1.2',			// 动网门票
+            '10004'=> '1.2'             // 电子券
+        ),
+    );
+    
+    if ($rule['ext'] == 1)
+        return $array['base'][$cid];
+    else 
+        return $array['senior'][$cid];
+    
 }
 
 /**
@@ -1754,12 +1798,11 @@ function get_spec_ratio_price($spec, $returnRatio=false)
 	       if (!empty($card_rule))
 	       {	      
 	           $shop_ratio = $GLOBALS['db']->getRow("SELECT shop_ratio, shop_ratio_ext FROM " . $GLOBALS['ecs']->table("supplier") ." WHERE supplier_id = ".$spec_info['supplier_id']);
-	           $ratios['shop_ratio'] = $ext == 1 ? $shop_ratio['shop_ratio']+$raise : $shop_ratio['shop_ratio_ext']+$raise;
+	           	           
 	           if ($ext == 1)
-	               $ratios['shop_ratio'] = $shop_ratio['shop_ratio']+$raise;
-	           else 
-	               $ratios['shop_ratio_ext'] = $shop_ratio['shop_ratio_ext']+$raise;
-	           
+	               $ratios['shop_ratio'] = $shop_ratio['shop_ratio'];
+	           else
+	               $ratios['shop_ratio'] = $shop_ratio['shop_ratio_ext'];
 	           
                // 实际卡售价在线上时，商城销售比例 = shop_ratio + 上调浮比
                /* if ( floatval($card_rule['price']) > getExt( $ext ))
@@ -1784,13 +1827,20 @@ function get_spec_ratio_price($spec, $returnRatio=false)
 	// 返回三个销售比例，用于在下单的时候保存到当前订单中。
 	if ($returnRatio == true)
 	{
-	    return $ratios;
+	    $temp = array(
+	        'raise' => $raise,
+	        'ext'   => $ext,
+	    );
+	    return array_merge($ratios,$temp);
 	}
+	
+	// 商城售比 + 上调浮比
+	$ratios['shop_ratio'] += $raise;
 	
 	// 计算最终的价格
 	array_unshift($ratios, $spec_info['spec_price']);
 	
-	error_log(var_export($ratios,true),'3','error.logs');
+	//error_log(var_export($ratios,true),'3','error.logs');
 	$product = array_product($ratios);
 	return price_format($product);	
 }

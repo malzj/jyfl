@@ -85,7 +85,7 @@
     </ul>
     
 </div>
-		<a class="switch off"></a>
+		<a class="switch"></a>
 <script>
 //	首页左侧公共部分默认展开
     var url = window.location.href;
@@ -104,7 +104,6 @@
 	$('.switch').click(function(){
 		$(this).toggleClass('off');
 		if($(this).hasClass('off')){
-			
 			$('.pop_left').animate({left:-100},'slow');	
 			}else{
 				$('.pop_left').animate({left:0},'slow');	

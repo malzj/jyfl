@@ -165,7 +165,7 @@ html.login .wrap {
     -o-transition-delay: .15s;
     transition-delay: .15s;
 }
-.pop_left{left: -100px;/* position: relative; */}
+/*.pop_left{left: -100px;}*/
 html.login .pop_left{left:0;}
 .switch.off {
     background-position: -32px -640px;

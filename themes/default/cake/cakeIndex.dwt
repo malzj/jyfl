@@ -96,7 +96,7 @@
 								</a>	
 							</div>
 							<a class="margin_top_10 dis_block" href="{$good.url}" target="_blank">
-							  <span class="juqingA">{$good.name}</span><br>	
+							  <span class="juqingA" style="width: 170px;display: inline-block;">{$good.name}</span><br>	
 							  <span class="color_CF5926">{$good.shop_price}点</span>
 							</a>
 						</div>

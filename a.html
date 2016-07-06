@@ -1,0 +1,43 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+	<script src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+
+<input name="name" type="text" value="" id='username'>
+<input name="password" type="text" value="" id="password">
+<input name="type" type="text" value="" id="type">
+
+<span>提交</span>
+
+<script>
+
+$('span').click(function(){
+	var u = $('#username').val();
+	var p = $('#password').val();
+	var t = $('#type').val();
+	alert(u+'=='+p+'=='+t);
+	$.ajax(  
+		    {  
+		        type:'get',  
+		        url : 'http://jy.com/mobile/userAuth.php?act=actLogin',  
+		        data:{username:u,password:p,type:t},
+		        dataType : 'jsonp',  
+		        jsonp:"jsoncallback",  
+		        success  : function(data) {  
+		            alert("用户名"+data.state+',message:'+data.message);  
+		        }
+		       
+		    }  
+		)  
+		
+	
+});
+
+</script>
+</body>

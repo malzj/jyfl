@@ -283,18 +283,14 @@ function checkCardType( $username, $type)
   * 返回首页和上一页  
   */
  function getBackHtml( $back )
- {
-     $html = '<div class="return_tip">';
+ {  
      if (!empty($back))
-	   $html .='<a href="'.$back.'" class="return_tip_index"><span class="return_index_img"></span><span>首页</span></a>';
-	 
-     $html .='<a href="javascript:history.go(-1);" class="return_tip_return"><span class="return_return_img"></span><span>返回</span></a></div>';
-     $html .="<script>
-                jQuery(function($) {
-    				$(document).ready(function() {
-    					$('.return_tip').stickUp();
-    				});
-			});</script>";
+     {
+       $html .='<div class="pop_right_icon" style="background: rgba(0, 0, 0, 0.6);">';
+       $html .='<a href="'.$back.'"><i class="icon_1"></i><em style="right: 0px; visibility: hidden; background: rgba(0, 0, 0, 0.6);">首页</em></a></div>';
+     }
+     
+     $html .='<div class="pop_right_icon"><a href="javascript:history.go(-1);"><i class="icon_2"></i><em>返回</em></a></div>';
      
      return $html;
  }
@@ -327,7 +323,6 @@ function checkCardType( $username, $type)
          return $templates[$category['cat_id']];
      else
         return 'category.dwt';
-     
  }
  
 /**

@@ -212,9 +212,13 @@ $arr_noLogin = array('user', 'captcha', 'region', 'entity','topic', 'respond','u
 $str_scriptName = substr($_SERVER['PHP_SELF'],  strrpos($_SERVER['PHP_SELF'],'/')+1 , -4);
 
 if (empty($_SESSION['user_id']) && !in_array($str_scriptName, $arr_noLogin)){
-	$Loaction = 'user.php';
-	ecs_header("Location: $Loaction\n");
-	exit;
+	// 返回的数据
+    $jsonArray = array(
+        'state'=>'false',
+        'data'=>array('isLogin'=>1),
+        'message'=>''
+    );
+    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
 }else{
 	//城市id
 	if ($_SESSION['user_id']){

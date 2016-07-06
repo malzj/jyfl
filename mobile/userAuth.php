@@ -19,9 +19,10 @@ $jsonArray = array(
 /* 登录 */
 if ($_REQUEST['act'] == 'actLogin')
 {
-    $username = isset($_POST['username']) ? trim($_POST['username']) : '';
-    $password = isset($_POST['password']) ? trim($_POST['password']) : '';
-    $type = isset($_POST['type']) ? trim($_POST['type']) : '';
+    $username = isset($_REQUEST['username']) ? trim($_REQUEST['username']) : '';
+    $password = isset($_REQUEST['password']) ? trim($_REQUEST['password']) : '';
+    $type = isset($_REQUEST['type']) ? trim($_REQUEST['type']) : '';
+    
     //获取卡信息
     $arr_param = array(	'CardInfo'=>array('CardNo'  => $username, 'CardPwd' => $password) );
     $state = $cardPay->action($arr_param, 8);
@@ -43,7 +44,7 @@ if ($_REQUEST['act'] == 'actLogin')
             {
                 $jsonArray['state'] = 'false';
                 $jsonArray['message'] = '不是激活状态，请联系华影客服';
-                exit(json_encode($jsonArray));   
+                exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");   
             }
         }
         // 中影卡处理结果
@@ -58,7 +59,7 @@ if ($_REQUEST['act'] == 'actLogin')
             {
                 $jsonArray['state'] = 'false';
                 $jsonArray['message'] = $card_result['Status'];
-                exit(json_encode($jsonArray));
+                exit($_GET['jsoncallback']."(".json_encode($jsonArray).")"); 
                 
             }
         }
@@ -83,7 +84,7 @@ if ($_REQUEST['act'] == 'actLogin')
         {
             $jsonArray['state'] = 'false';
             $jsonArray['message'] = '卡类型不符，请从新选择并登录';
-            exit(json_encode($jsonArray));   
+            exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");   
         }
 
         //设置本站登录成功
@@ -95,30 +96,30 @@ if ($_REQUEST['act'] == 'actLogin')
         recalculate_price();
         
         $jsonArray['data']['userid'] = $int_uid;
-        exit(json_encode($jsonArray));  
+        exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");  
     }
     else
     {
         $jsonArray['state'] = 'false';
         $jsonArray['message'] = $cardPay->getMessage();
-        exit(json_encode($jsonArray));
+        exit($_GET['jsoncallback']."(".json_encode($jsonArray).")"); 
     }
 }
 
 // 登录验证
 elseif ($_REQUEST['act']=='checkLogin')
 {
-    if ($_SESSION['user_id'] && $_SESSION['user_id'] == $_POST['userid'])
+    if ($_SESSION['user_id'] && $_SESSION['user_id'] == $_REQUEST['userid'])
     {
         $usernames = userinfo($_SESSION['user_name']);        
         $jsonArray['data'] = $usernames;
-        exit(json_encode($jsonArray));
+        exit($_GET['jsoncallback']."(".json_encode($jsonArray).")"); 
     }
     else 
     {
         $jsonArray['state'] = 'false';
         $jsonArray['message'] = '验证失败';
-        exit(json_encode($jsonArray));
+        exit($_GET['jsoncallback']."(".json_encode($jsonArray).")"); 
     }    
 }
 
@@ -126,7 +127,7 @@ elseif ($_REQUEST['act']=='checkLogin')
 elseif ($_REQUEST['act'] == 'logout')
 {
     $user->logout();
-    exit(json_encode($jsonArray));
+    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")"); 
 }
 
 

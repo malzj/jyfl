@@ -67,8 +67,7 @@
 		</div>
         
         <div class="w_1200">
-        	<!-- 返回首页 -->
-        	{$backHtml}
+        	
 			<div class="select">				
 				<form name="yyForm" id="yyForm" action="movie.php?step=shuaka" method="POST" style="height: 30px;line-height: 30px;font-size: 16px;">
                 <span class="hy_yy_name" style="float:left;">按区域选择：</span>

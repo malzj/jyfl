@@ -67,9 +67,6 @@
         
         <div class="w_1200">			
             
-            <!-- 返回首页 -->
-        	{$backHtml}
-            
             <!--组合搜索 开始-->
 			<!-- #BeginLibraryItem "/library/goods_filters.lbi" --><!-- #EndLibraryItem -->
             <!--组合搜索 结束-->

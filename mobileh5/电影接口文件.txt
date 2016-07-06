@@ -1,0 +1,155 @@
+数据类型：
+	state   状态
+	data	返回的json数据
+	message 当状态是 false时，对应的错误提示
+
+所有数据使用，请参考聚优pc端的html页面
+
+登录接口
+
+	说明：登录
+	地址：userAuth.php?act=actLogin
+	参数：username 卡号，password 密码，type 卡类型
+	备注：成功返回用户id，data[userid]
+	
+	说明：验证登录状态
+	地址：userAuth.php?act=checkLogin
+	参数：userid= 用户id
+	备注：返回当前用户信息
+
+	说明：登出操作
+	地址：userAuth.php?act=logout
+	
+
+电影接口
+
+	说明：正在上映
+	地址：mobile/cinema.php	
+	参数：无
+
+	说明：即将上映
+	地址：mobile/cinema.php?op=coming	
+	参数：无
+
+	说明：影片详情
+	地址：mobile/cinema.php?step=movieDetail
+	参数：movieid = 影片id
+
+	说明：影片详情 -> 选影院
+	地址：mobile/cinema.php?step=movieCinema
+	参数：movieid = 影片id
+
+	说明：影院详情【在线选座】
+	地址：cinema.php?step=cinemaDetail
+	参数：cinemaid = 影院id
+	备注：is_komovie=1 是支持在线选座
+	      is_dzq=1	   是电子券选购
+	      is_brush=1   是支持线下刷卡
+	      komovie_cinema_id  抠电影对应的影院id
+	      dzq_cinema_id      电子券对应的影院id
+	      dzq_area_id	 电子券对应的区域id
+	      komovie_area_id 	 在线选座对应的区域id
+	   
+	      当支持在线选座的时候，调用 排期 和 影院上映 的影片列表
+    	      当不支持在线选座的时候，就调用电子券详情接口，
+	      当不支持在线选座和电子券的时候，显示只可以线下刷卡的提示。
+	
+	说明：影院上映的影片列表
+	地址：cinema.php?step=movieList
+	参数：cinemaid = 影院id， movieid = 影片id
+	备注：selected = 1 是当前选中的影片
+
+	说明：指定影院，指定影片的排期列表
+	地址：cinema.php?step=planList
+	参数：cinemaid = 影院id， movieid = 影片id，currentTime=时间
+	备注：数据格式：data[time] 排期时间，data[plan] 排期列表
+
+	说明：指定厅号排期信息
+	地址：cinema.php?step=cinemaSeats
+	参数：hallno = 厅号，planid=排期id，movieid=影片id，cinemaid=影院id
+	备注：选择一个排期信息，用户加载座位图
+	
+	说明：加载座位图
+	地址：cinema.php?step=seatAjax
+	参数：hallno = 厅号，planid=排期id，movieid=影片id，cinemaid=影院id
+	备注：数据格式 data[width] 所有座位宽度，data[seat] 座位图
+
+	说明：影院列表
+	地址：cinema.php?step=cinema
+	参数：无
+
+	说明：指定影院的电子券信息【电子券】
+	地址：cinema.php?step=cinemaDzq
+	参数：cinemaid=M101210214 电子券影院id
+	备注：SalePriceFormat 是最终的销售价格
+
+	说明：电子券下单
+	地址：cinema_order.php?act=orderDzq
+	参数：areaNo		区域id
+	      areaName		区域名
+	      cinemaNo		影院编号
+	      cinemaName	影院名
+	      ticketNo		电子券编号
+	      mobile	手机号
+	      price	价格 对应 SalePrice字段，而不是 SalePriceFormat 字段
+	      number	数量
+	备注：区域id 是电子券接口对应的区域id，影院详情接口都有，
+	返回：下单成功，返回订单号，data[orderid] = 订单号
+
+	说明：获取电子券下单信息
+	地址：cinema_order.php?act=payinfoDzq
+	参数：id=订单id
+	备注：order_amount，订单总金额，sjprice 单价，number数量，price接口价格
+
+	说明：电子券支付
+	地址：cinema_order.php?act=doneDzq
+	参数：order_id = 订单id，password=卡密码
+
+	说明：电影下单
+	地址：cinema_order.php?act=order
+	参数：
+		[mobile] => 13691090473
+    		[planId] => 1040058036
+    		[hallName] => 六号厅
+    		[featureTimeStr] => 2016-07-01 星期五 13:10
+    		[movieName] => 所以……和黑粉结婚了
+    		[cinemaName] => 大地影院-顺义隆华店
+    		[language] => 国语 / 2D
+    		[seatsNo] => 0266-6-4-10|0266-6-5-11|0266-6-6-11
+    		[seatsName] => 4排10座|5排11座|6排11座
+    		[seatsCount] => 3
+    		[vipPrice] => 39.0
+    		[seatParam] => {\"hallno\":\"6\",\"planid\":1040058036,\"cinemaid\":5963,\"movieid\":387707}，
+		[movieId] => 2015,
+		[extInfo] =>29.00,
+	备注：返回订单号，data[orderid]
+
+	说明：电影订单详情
+	地址：cinema_order.php?act=payinfoMovie
+	参数：id = 订单号
+	备注：end_paytime 最后支付的时间戳，
+	      add_time 下单的时间
+
+	说明：电影支付
+	地址：cinema_order.php?act=doneMovie
+	参数：order_id = 订单号，password = 卡密码，
+
+
+新增：
+
+	电影下单接口，新增 movieId => 电影id, extInfo => 成本价
+
+		
+
+	
+
+	
+
+
+	
+
+ 	
+
+
+
+			

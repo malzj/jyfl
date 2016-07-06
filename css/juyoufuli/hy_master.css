@@ -21,10 +21,10 @@
 .ui_city_plugs a{text-decoration: none !important;}
 #hotCitys_content ul li{width: 61px;}
 .ui_city_List ul li{display: inline; float: left; margin: 0 0 1px;}
-.ui_city_List ul li a{color: #27C7AC;display: inline-block;float: left;height: 26px;line-height: 26px;margin: 0;overflow: hidden;padding: 0 12px;text-align: left;white-space: nowrap;}
+.ui_city_List ul li a{color: #2fd0bd;display: inline-block;float: left;height: 26px;line-height: 26px;margin: 0;overflow: hidden;padding: 0 12px;text-align: left;white-space: nowrap;}
 .ui_city_List ul li a:focus {outline:none;}
 .ui_city_List ul li a:hover, .ui_city_List ul li a.select{background-color: #ec6120; color: #fff;}
-.ui_city_List ul li a:hover, .ui_city_List ul li a.select{background-color: #27C7AC;color: #fff;border-radius: 10px;}
+.ui_city_List ul li a:hover, .ui_city_List ul li a.select{background-color: #2fd0b5;color: #fff;border-radius: 10px;}
 .ui_city_List .inner{padding: 15px 0 0; float:left; width:100%; margin-bottom:15px;}
 .ui_city_List .inner ul{float:left; width:100%;}
 .tar {text-align: right; float:left; width:100%;}

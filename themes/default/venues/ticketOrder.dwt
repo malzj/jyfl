@@ -14,8 +14,7 @@
         
        <div class="w_1200">
        
-       		<!-- 返回首页 -->
-        	{$backHtml} 
+       		
 			<div class="sport6_tip margin_top_90"></div>
             <form id="formCart" name="formCart" method="post" action="ticket_order.php" onsubmit="return checkSubmit();">
 			<div class="sport6_main">            

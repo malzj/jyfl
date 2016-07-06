@@ -15,8 +15,7 @@
         <!-- 头部结束 -->
         
         <div class="wrap">
-        	<!-- 返回首页 -->
-        	{$backHtml} 
+        	
             <div class="buy-warp">
                 <div class="title">
                     <span>{$detail.venueName}</span>

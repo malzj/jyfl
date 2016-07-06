@@ -14,8 +14,7 @@
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->        
         <div class="tg_sx_All">
-        	<!-- 返回首页 -->
-        	{$backHtml} 
+        	
         <div class="tg_sx">
         	
             <div class="tg_area">

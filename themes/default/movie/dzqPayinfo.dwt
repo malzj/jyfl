@@ -15,8 +15,7 @@
         <!-- 头部结束 --> 
         
         <div class="w_1200">
-        	<!-- 返回首页 -->
-        	{$backHtml}
+        	
             
 			<div class="pay_del" style="background:'/images/index/img_login/pay_del4.png'">
 			</div>

@@ -15,8 +15,7 @@
         <!-- 头部结束 -->
         
         <div class="w_1200">
-        	<!-- 返回首页 -->
-        	{$backHtml}
+        
             
 			<div class="yanchu_tip1"></div>
 			<div class="dingdan_tip">

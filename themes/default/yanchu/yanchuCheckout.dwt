@@ -16,8 +16,7 @@
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->
         <div class="w_1200">
-        	<!-- 返回首页 -->
-        	{$backHtml}
+        	
             
 			<div class="yanchu_tip"></div>
 			<div class="goupiao">确认购票信息</div>

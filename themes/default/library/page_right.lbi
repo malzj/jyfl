@@ -16,6 +16,19 @@
     </div>
 </div>
 <script>
+		 var url = window.location.href;
+            var arr = url.split('?');
+			if(window.location.pathname == '/user.php'
+			){
+				$('.pop_right .right span').removeClass('glyphicon-chevron-left').addClass('glyphicon-chevron-right');
+				$('.pop_right_icon').css('display','none');
+			};
+			if(arr[1] == 'step=movie'||arr[1] == 'id=1217'||arr[1] == 'id=1220'||arr[1] == 'id=1218'||arr[1] == 'id=1227'||arr[1] == 'id=1224'||window.location.pathname == '/life.php'||window.location.pathname == '/cake.php'||arr[1] ==null||arr[1]=='id=19'
+			||arr[1]=='id=18'
+			){
+				$('.pop_right_icon').css('display','none');
+			};
+			
 //		hover触发右侧按钮特效
 		$('.pop_right_icon').hover(function(){
 			$(this).css('background','#2fd0b5');
@@ -44,11 +57,7 @@
             var phone = {if !empty($usernames.mobile_phone)}{$usernames.mobile_phone}{else}''{/if};
 
             showRight(id,cnum,phone);
-            var url = window.location.href;
-            var arr = url.split('?');
-			if((window.location.pathname == '/user.php')&&(arr[1] == ''||arr[1] == null)){
-				$('.pop_right .right span').removeClass('glyphicon-chevron-left').addClass('glyphicon-chevron-right');
-			}
+           
 			$('.pop_right .right span').click(function(){						
 				if($(this).hasClass('glyphicon-chevron-right')){
 					$('.pop_right').css('transform','translateX(100%)');

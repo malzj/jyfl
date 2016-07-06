@@ -52,9 +52,7 @@
 		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 --> 
 		
-        <div class="w_1200">
-        	<!-- 返回首页 -->
-        	{$backHtml}
+        <div class="w_1200">        	
         
 			<div class="pay_del">
             

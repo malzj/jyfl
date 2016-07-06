@@ -67,8 +67,7 @@
 		</div>
         
         <div class="w_1200">        
-        	<!-- 返回首页 -->
-        	{$backHtml}
+        	
         
 			<div class="select_area">
 				<div class="title">选择城区：</div>

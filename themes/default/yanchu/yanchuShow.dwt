@@ -13,8 +13,7 @@
         <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->
         <div class="w_1200">
-        	<!-- 返回首页 -->
-        	{$backHtml}
+        	
         	<form name="ycForm" id="ycForm" method="post" action="yanchu_order.php" onsubmit="return checkYcForm();">
 			<div class="huaju_box">
 				<div class="img_left f_l">

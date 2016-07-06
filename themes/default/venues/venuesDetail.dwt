@@ -14,8 +14,7 @@
         <!-- 头部结束 --> 
         
         <div class="tg_n" style="padding-top: 90px;">
-        	 <!-- 返回首页 -->
-        	{$backHtml} 
+        	
 			<div class="title">
 				<span>{$detail.venueName}</span>
                 <span class="facico">

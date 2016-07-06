@@ -1,5 +1,10 @@
 <div class="pop_right">
-    <div class="right"><span class="glyphicon glyphicon-chevron-left"></span></div>
+    <div class="right">
+    	<div><span class="glyphicon glyphicon-chevron-left"></span></div>
+    	<div class="pop_right_icon"><a href="#"><i class="icon_1"></i><em>首页</em></a></div>
+    	<div class="pop_right_icon"><a href="#"><i class="icon_2"></i><em>返回</em></a></div>
+    	<!--<div class="pop_right_icon"><a href="#"><i class="icon_3"></i><em>返回顶部</em></a></div>-->
+    </div>
     <div class="message">
     </div>
     <div class="scroll_msg">
@@ -11,6 +16,14 @@
     </div>
 </div>
 <script>
+//		hover触发右侧按钮特效
+		$('.pop_right_icon').hover(function(){
+			$(this).css('background','#2fd0b5');
+			$(this).find('em').css({'background':'#2fd0b5','right':'45px','visibility':'visible'})
+		},function(){
+			$(this).css('background','rgba(0,0,0,.6)');
+			$(this).find('em').css({'background':'rgba(0,0,0,.6)','right':'0px','visibility':'hidden'})
+		})
 		$('#per').click(function(){
 			var user_id = $('#user_id').val();
 			var data =userShow(user_id);
@@ -22,7 +35,6 @@
 			var data = userSave();
 //			console.log(data);
 		});
-		
 		</script>
 		<script>
 		

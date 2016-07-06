@@ -1,8 +1,7 @@
 <div class="pop_right">
     <div class="right">
     	<div><span class="glyphicon glyphicon-chevron-left"></span></div>
-    	<div class="pop_right_icon"><a href="#"><i class="icon_1"></i><em>首页</em></a></div>
-    	<div class="pop_right_icon"><a href="#"><i class="icon_2"></i><em>返回</em></a></div>
+    	{$backHtml}
     	<!--<div class="pop_right_icon"><a href="#"><i class="icon_3"></i><em>返回顶部</em></a></div>-->
     </div>
     <div class="message">

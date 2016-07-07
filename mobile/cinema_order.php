@@ -56,7 +56,7 @@ if ($_REQUEST['act'] == "orderDzq")
 	if (empty($str_mobile)){
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '请填写手机号码';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");		
+		JsonpEncode($jsonArray); 		
 	}
 	
 	// 获得影票信息
@@ -68,7 +68,7 @@ if ($_REQUEST['act'] == "orderDzq")
 	if (($flo_sjprice * $int_number) > $card_money){
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '抱歉您的卡余额不足';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 		
 	$arr_dzqinfo = $cinemaDzq[$int_ticketNo];
@@ -98,11 +98,11 @@ if ($_REQUEST['act'] == "orderDzq")
 		$query = $db->query($str_sql);
 		// 下单成功，返回订单id
 		$jsonArray['data']['orderid'] = $db->insert_id();
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}else{		
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = $arr_result['head']['errMsg'];
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 }
 
@@ -114,20 +114,20 @@ elseif ($_REQUEST['act'] == "payinfoDzq")
 	if (empty($arr_order)){
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '没有订单信息';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 	// 已经支付了的订单，跳转到提示页面 
 	if ($arr_order['pay_status'] == 2)
 	{	
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '订单已经支付过了';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 
 	$arr_order['price'] = price_format($arr_order['price']);
 	
 	$jsonArray['data'] = $arr_order;
-	exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+	JsonpEncode($jsonArray); 
 }
 // 电子券支付操作
 elseif ($_REQUEST['act'] == 'doneDzq')
@@ -146,14 +146,14 @@ elseif ($_REQUEST['act'] == 'doneDzq')
 	{
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '抱歉，您提交的支付信息不存在';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 	
 	if (empty($str_password))
 	{		
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '卡密码不能为空';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");		
+		JsonpEncode($jsonArray); 		
 	}
 	
 	// 已经支付了的订单
@@ -161,7 +161,7 @@ elseif ($_REQUEST['act'] == 'doneDzq')
 	{
 	    $jsonArray['state'] = 'false';
 	    $jsonArray['message'] = '订单已经支付过了';
-	    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+	    JsonpEncode($jsonArray); 
 	}
 	
 	// 卡消费
@@ -195,17 +195,17 @@ elseif ($_REQUEST['act'] == 'doneDzq')
 		if ($arr_result['body']['OrderStatus'] == '1'){		   
 		    $jsonArray['state'] = 'false';
 		    $jsonArray['message'] = '付款失败，如果卡点已扣请联系客服';
-		    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		    JsonpEncode($jsonArray); 
 		    
 		}
 		$jsonArray['message'] = '支付成功';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 	else
 	{
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = $cardPay->getMessage();
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 	
 }
@@ -254,12 +254,12 @@ else if ($_REQUEST['act'] == 'order'){
 	if (empty($mobile)){
 	    $jsonArray['state'] = 'false';
 	    $jsonArray['message'] = '请填写手机号码';
-	    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");	
+	    JsonpEncode($jsonArray); 	
 	}
 	if (empty($seatsNo)){		
 		$jsonArray['state'] = 'false';
 	    $jsonArray['message'] = '请选择座位';
-	    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");	
+	    JsonpEncode($jsonArray); 	
 	}
 
 	// 拆分座位号
@@ -279,7 +279,7 @@ else if ($_REQUEST['act'] == 'order'){
 	if ($totalMoney > $card_money){
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '抱歉您的卡余额不足';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 
 	// 下单
@@ -300,12 +300,12 @@ else if ($_REQUEST['act'] == 'order'){
 		$int_orderid = $db->insert_id();
 		
 		$jsonArray['data']['orderid'] = $int_orderid;
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 		
 	}else{
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = $arr_result['error'];
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 }
 
@@ -315,19 +315,19 @@ else if ($_REQUEST['act'] == 'payinfoMovie'){
 	if (empty($int_orderid)){
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '订单号不能为空';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 	$arr_order = $db->getRow('SELECT * FROM ' .$ecs->table('seats_order'). " WHERE id = '$int_orderid' and user_id = '".$_SESSION['user_id']."'");
 	if (empty($arr_order)){
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '订单不存在';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 	//过滤支付过的订单
 	if($arr_order['order_status'] !=1){		
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '订单已经支付过了';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 	//支付倒计时
 	$int_endPayTime = $arr_order['add_time'] + 15 * 60;
@@ -337,7 +337,7 @@ else if ($_REQUEST['act'] == 'payinfoMovie'){
 		
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '订单超时，无法支付';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 	$smarty->assign('endPayTime', local_date('M d, Y H:i:s',$int_endPayTime));
 
@@ -346,7 +346,7 @@ else if ($_REQUEST['act'] == 'payinfoMovie'){
 	$arr_order['end_paytime'] = $int_endPayTime;
 	
 	$jsonArray['data'] = $arr_order;
-	exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+	JsonpEncode($jsonArray); 
 }
 
 /* 支付电影票 */
@@ -365,20 +365,20 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 	if (empty($arr_orderInfo)){		
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '抱歉，您提交的支付信息不存在';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 	
 	// 检查订单是否在支付中，如果在支付中返回错误消息
 	if ($arr_orderInfo['card_pay'] > 0){		
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '订单已经支付';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 	
 	if (empty($str_password)){
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = '卡密码不能为空';
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}	
 	
 	$int_endPayTime = $arr_orderInfo['add_time'] + 15 * 60;
@@ -386,7 +386,7 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 	    $db->query('UPDATE '.$ecs->table('seats_order')." SET order_status=2 WHERE id = '$int_orderid'");	
 	    $jsonArray['state'] = 'false';
 	    $jsonArray['message'] = '订单超时，无法支付';
-	    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+	    JsonpEncode($jsonArray); 
 	}
 	
 	// 卡订单号
@@ -418,18 +418,18 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 			$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET order_status = '3', payment_time = '".gmtime()."' WHERE id = '$int_orderId'");
 		
     		$jsonArray['message'] = '支付成功';
-    		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+    		JsonpEncode($jsonArray); 
 		}else{			
 		    $jsonArray['state'] = 'false';
 		    $jsonArray['message'] = $arr_result['error'];
-		    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");			
+		    JsonpEncode($jsonArray); 			
 		}
 	
 	}else{
 		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET card_order_id= '0' WHERE id = '$int_orderId'");
 		$jsonArray['state'] = 'false';
 		$jsonArray['message'] = $cardPay->getMessage();
-		exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+		JsonpEncode($jsonArray); 
 	}
 }
 

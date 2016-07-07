@@ -9,13 +9,19 @@ if ((DEBUG_MODE & 2) != 2)
 	$smarty->caching = true;
 }
 
+// 返回的数据
+$jsonArray = array(
+    'state'=>'true',
+    'data'=>'',
+    'message'=>''
+);
+
 //根据城市id获取影院区域编号
 $int_areaNo = getAreaNo(0, 'yanchu');
 $int_itemId = intval($_REQUEST['id']);
 $int_cateId = intval($_REQUEST['cateid']);
 
 $str_action = $_REQUEST['act'];
-$smarty->assign('action', $str_action);
 
 $arr_catName = array(
 		'1217' => '演唱会',
@@ -44,35 +50,45 @@ if($_REQUEST['act'] == 'order')
 			'itemId'      => $int_itemId,
 			'cateId'      => $int_cateId,
 			'catename'    => $arr_catName[$int_cateId],
-			'best_time'   => local_date('Y-m-d H:i', intval($_POST['time'])),
-			'price'       => $_POST['price'],
-			'specid'      => intval($_POST['specid']),
-			'number'      => intval($_POST['number']),
-			'goods_amount' => $_POST['price'] * intval($_POST['number']),
-			'status'      => intval($_POST['status']),
-			'statusZn'    => $arr_statusZN[$_POST['status']],
-			'storeId'     => intval($_POST['storeId']),
-			'storename'   => $_POST['storeName'],
-			'market_price'=> $_POST['market_price']
+			'best_time'   => local_date('Y-m-d H:i', intval($_REQUEST['time'])),
+			'price'       => $_REQUEST['price'],
+			'specid'      => intval($_REQUEST['specid']),
+			'number'      => intval($_REQUEST['number']),
+			'goods_amount' => $_REQUEST['price'] * intval($_REQUEST['number']),
+			'status'      => intval($_REQUEST['status']),
+			'statusZn'    => $arr_statusZN[$_REQUEST['status']],
+			'storeId'     => intval($_REQUEST['storeId']),
+			'storename'   => $_REQUEST['storeName'],
+			'market_price'=> $_REQUEST['market_price']
 	);
 
 	if ($arr_orderInfo['status'] > 3){
-		show_wap_message('抱歉，该演出不能购买');
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '抱歉，该演出不能购买';
+		JsonpEncode($jsonArray);
 	}
 	if (empty($arr_orderInfo['best_time'])){
-		show_wap_message('抱歉，请选择时间');
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '抱歉，请选择时间';
+		JsonpEncode($jsonArray);
 	}
 	if (empty($arr_orderInfo['specid'])){
-		show_wap_message('抱歉，请选择价格');
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '抱歉，请选择价格';
+		JsonpEncode($jsonArray);
 	}
 	if (empty($arr_orderInfo['number'])){
-		show_wap_message('抱歉，请输入购买数量');
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '抱歉，请输入购买数量';
+		JsonpEncode($jsonArray);
 	}
 
 	//用户卡余额
 	$card_money = $GLOBALS['db']->getOne('SELECT card_money FROM '.$GLOBALS['ecs']->table('users')." WHERE user_id = '".intval($_SESSION['user_id'])."'");
 	if ($arr_orderInfo['goods_amount'] > $card_money){
-		show_wap_message('抱歉，您的卡余额不足');
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '抱歉，您的卡余额不足';
+		JsonpEncode($jsonArray);
 	}
 
 	//或许项目信息
@@ -83,8 +99,9 @@ if($_REQUEST['act'] == 'order')
 	$int_showTimeCount = count($obj_result->showtimes->showtime);
 	$arr_itemInfo = object2array($obj_result);
 	if (empty($arr_itemInfo)){
-		ecs_header('location:index.php');
-		exit;
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '项目不存在';
+		JsonpEncode($jsonArray);
 	}
 
 	$arr_orderInfo['itemName']   = $arr_itemInfo['itemName'];//项目名称
@@ -103,8 +120,13 @@ if($_REQUEST['act'] == 'order')
 			$var['shEndDateFormat']   = !empty($var['shEndDate']) ? local_date('Y-m-d H:i', $var['shEndDate']).'（周'.$arr_week[local_date('w', $var['shEndDate'])].'）' : '';
 			$var['statusZn']    = $arr_statusZN[$var['status']];
 			if ($var['specs']['spec']){
+			    if (count($var['specs']['spec']) == 1){
+			        $arr_temp[0] = $var['specs']['spec'];
+			    }else {
+			        $arr_temp = $var['specs']['spec'];
+			    }
 				$arr_spec = array();
-				foreach ($var['specs']['spec'] as $k=>$v){
+				foreach ($arr_temp as $k=>$v){
 					$arr_spec[$v['@attributes']['specId']]['specId']   = $v['@attributes']['specId'];
 					$arr_spec[$v['@attributes']['specId']]['specType'] = $v['@attributes']['specType'];
 					$arr_spec[$v['@attributes']['specId']]['price']    = $v['@attributes']['price'];
@@ -120,62 +142,77 @@ if($_REQUEST['act'] == 'order')
 	}
 	
 	// 时间和价格的判断
-	$times = $_POST['time']-(8*3600);
+	$times = $_REQUEST['time']-(8*3600);
 	$is_ok = false;
 	foreach ($arr_showtime as $showtime)
 	{
 	    if ($showtime['shEndDate'] == $times)
 	    {
-	        if ($showtime['specs'][$_POST['specid']])
+	        if ($showtime['specs'][$_REQUEST['specid']])
 	        {
 	            $is_ok = true;
-	            $arr_orderInfo['layout'] = $showtime['specs'][$_POST['specid']]['layout'];
+	            $arr_orderInfo['cost_price'] = $showtime['specs'][$_REQUEST['specid']]['price'];
+	            $arr_orderInfo['layout'] = $showtime['specs'][$_REQUEST['specid']]['layout'];	            
 	        }
 	    }
 	}
 	if ($is_ok === false)
 	{
-	    show_wap_message('未知错误，请从新选择！');
+	    $jsonArray['state'] = 'false';
+	    $jsonArray['message'] = '未知错误，请从新选择！';
+	    JsonpEncode($jsonArray);
 	}
 	
 	$_SESSION['yc_flow_order'] = array('flow'=>$arr_orderInfo, 'item'=>$arr_itemInfo);//将订单信息保存到session中
-	ecs_header('location:yanchu_order.php?act=checkout');
+	// 提交成功
+	JsonpEncode($jsonArray);
 }
 
 // 下单操作
 elseif ($_REQUEST['act'] == 'checkout')
 {
 	$arr_orderInfo = $_SESSION['yc_flow_order']['flow'];
-	if(empty($_SESSION['yc_flow_order']))
+	if(empty($arr_orderInfo))
 	{
-		ecs_header('location:index.php');
-		exit;
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '没有任何信息，请从新选择一个产品购买';
+		JsonpEncode($jsonArray);
 	}
-	
 	
 	//配送费用
-	$consignee = $_SESSION['flow_consignee_mobile'];//获取用户默认配送地址
+	$consignee = get_consignee($_SESSION['user_id']);
 	if (!empty($consignee)){
-		$consignee['country_cn']  = get_add_cn($consignee['country']);
-		$consignee['province_cn'] = get_add_cn($consignee['province']);
-		$consignee['city_cn']     = get_add_cn($consignee['city']);		
+	    $consignee['country_cn']  = get_add_cn($consignee['country']);
+	    $consignee['province_cn'] = get_add_cn($consignee['province']);
+	    $consignee['city_cn']     = get_add_cn($consignee['city']);
+	    $consignee['district_cn'] = get_add_cn($consignee['district']);
 	}
-	
+
 	/* 检查收货人信息是否完整 */
-	if (!empty($consignee['consignee']) && 
-		!empty($consignee['country']) && 
-		(!empty($consignee['tel']) || !empty($consignee['mobile'])))
+	if (!empty($consignee['consignee']) &&
+	    !empty($consignee['country']) &&
+	    (!empty($consignee['tel']) || !empty($consignee['mobile'])))
 	{
-		$smarty->assign('checkconsignee', 1);
+	    $checkconsignee = 1;
 	}else{
-		$smarty->assign('checkconsignee', 0);
+	    $checkconsignee = 0;
 	}
 	
-	$smarty->assign('consignee', $consignee);
 	
-	//$smarty->assign('consignee', $arr_consignee);
+	/* 检查当前地址是否支持配送*/
+	if ( !check_consignee($consignee) ){
+	    $peisong = 0;
+	}else{
+	    $peisong = 1;
+	}
+	
+	// 设置配送地址信息
+	$jsonArray['data']['shipping'] = $consignee;
+	$jsonArray['data']['shipping']['checkconsignee'] = $checkconsignee;
+	$jsonArray['data']['shipping']['peisong'] = $peisong;
+
 	$arr_region = array($consignee['country'], $consignee['province'], $consignee['city'], $consignee['district']);//取得配送列表
-	
+
 	$arr_shipping = shipping_area_info(1, $arr_region);
 	if (!empty($arr_shipping)){
 		$arr_shipping['shipping_id'] = 1;
@@ -189,130 +226,138 @@ elseif ($_REQUEST['act'] == 'checkout')
 	}
 	
 	// 如果是自取，运费为0
-	if (ispick() === true)
+	if (ispick($arr_orderInfo) === true)
 	{
 	    $arr_shipping['shipping_fee']        = 0;
-	    $arr_orderInfo['take_way']     = '自取';
-	}
-	else {
-	    $arr_orderInfo['take_way']     = '快递';
-	}
+	}	
 	
 	//配送方式
-	$smarty->assign('shipping_info',   $arr_shipping);
+	$jsonArray['data']['shipping_info'] = $arr_shipping;
 	//支付方式
-	$smarty->assign('payment_info', payment_info(2));	
+	$jsonArray['data']['payment_info'] = payment_info(2);
+	// 订单信息
+	$_SESSION['yc_flow_order']['flow']['amount'] = $order['goods_amount'] + $arr_shipping['shipping_fee'];
+	$jsonArray['data']['order'] = $_SESSION['yc_flow_order']['flow'];
+	// 产品信息
+	$jsonArray['data']['item'] = $_SESSION['yc_flow_order']['item'];
 	
-	$order = $_SESSION['yc_flow_order']['flow'];
-	$item = $_SESSION['yc_flow_order']['item'];
-	$order['amount'] = $order['goods_amount'] + $arr_shipping['shipping_fee'];
-	
-	$smarty->assign('order',  $order);
-	$smarty->assign('yanchu', $item);
-	$smarty->assign('header', get_header('提交订单',true,true));
+	JsonpEncode($jsonArray);
 }
 
 else if ($str_action == 'act_order'){
 	
-	
-	$arr_order = $_SESSION['yc_flow_order']['flow'];
-	if (empty($arr_order)){
-		ecs_header('location:index.php');
-		exit;
-	}
-	$arr_consignee = $_SESSION['flow_consignee_mobile'];//获取用户默认配送地址
-	if (empty($arr_consignee)){
-		ecs_header('location:index.php');
-		exit;
-	}
-
-	$str_regionName = get_add_cn($arr_consignee['country']).' '.get_add_cn($arr_consignee['province']).' '.get_add_cn($arr_consignee['city']).' '.get_add_cn($arr_consignee['district']);
-
-	//计算配送费用
-	$arr_region = array($arr_consignee['country'], $arr_consignee['province'], $arr_consignee['city'], $arr_consignee['district']);//取得配送列表
-	$arr_shipping = shipping_area_info(1, $arr_region);
-	
-	
-	if (!empty($arr_shipping)){
-		$arr_shipping['shipping_id'] = 1;
-		$shipping_cfg = unserialize_config($arr_shipping['configure']);
-		$shipping_fee = shipping_fee($arr_shipping['shipping_code'], unserialize($arr_shipping['configure']), 1, $arr_order['goods_amount'], $arr_order['number']);
-		$arr_shipping['format_shipping_fee'] = price_format($shipping_fee, false);
-		$arr_shipping['shipping_fee']        = $shipping_fee;
-		$arr_shipping['free_money']          = price_format($shipping_cfg['free_money'], false);
-	}else{
-		$arr_shipping['shipping_fee']        = 0;
-	}
-	
-	// 如果是自取，运费为0
-	if (ispick() === true)
-	{
-	    $shipping_fee  = 0;
-	    $arr_order['take_way']     = '自取';
-	}
-	else {
-	    $arr_order['take_way']     = '快递';
-	}
-	
-	$arr_order['shipping_fee'] = $shipping_fee;
-	$arr_order['amount'] = $arr_order['goods_amount'] + $shipping_fee;
-	$arr_order['order_sn'] = get_order_sn();
-	
-	//接口下单
-	$int_shippingId = 0;
-	$arr_param = array(
-			'storeId' => $arr_order['storeId']
-	);
-	$obj_result = getYCApi($arr_param, 'getShippings');
-	$int_shippingCount = count($obj_result->shipping);
-	$arr_itemInfo = object2array($obj_result);
-	$arr_shipping = $arr_itemInfo['shipping'];
-	
-
-	
-	if ($int_shippingCount > 1){
-		$int_shippingKey = array_rand($arr_shipping);
-		$int_shippingId = intval($arr_shipping[$int_shippingKey]['@attributes']['id']);
-	}else{
-		$int_shippingId = intval($arr_shipping['@attributes']['id']);
-	}
-	
-	$str_sign = md5('u='.$GLOBALS['_CFG']['ycappUser'].'&storeId='.$arr_order['storeId'].'&specId='.$arr_order['specid'].'&num='.$arr_order['number'].'&consignee='.$arr_consignee['consignee'].'&address='.$arr_consignee['address'].'&tel='.$arr_consignee['tel'].'&mob='.$arr_consignee['mobile'].'&email=ceshi@qq.com&shippingId='.$int_shippingId.'&apiorderSn='.$arr_order['order_sn'].'&key='.$GLOBALS['_CFG']['ycappKey']);
-	//项目信息
-	$arr_param = array(
-			'storeId'        => $arr_order['storeId'],
-			'specId'         => $arr_order['specid'],
-			'num'            => $arr_order['number'],
-			'consignee'      => $arr_consignee['consignee'],
-			'regionId'       => $arr_consignee['province'],
-			'regionName'     => $str_regionName,
-			'address'        => $arr_consignee['address'],
-			'zip'            => '',
-			'tel'            => $arr_consignee['tel'],
-			'mob'            => $arr_consignee['mobile'],
-			'email'          => 'ceshi@qq.com',
-			'invoiceTitle'   => '',
-			'invoiceContent' => '',
-			'postscript'     => '',
-			'shippingId'     => $int_shippingId,
-			'apiorderSn'     => $arr_order['order_sn'],
-			'sign'           => $str_sign
-	);
-	
-	$obj_result = getYCApi($arr_param, 'apiorder');
-	$arr_itemInfo = object2array($obj_result);
-	
-	if (!empty($arr_itemInfo['error'])){
-		show_wap_message($arr_itemInfo['error']);
-	}else{
-		$db->query('INSERT INTO ' .$ecs->table('yanchu_order'). " (order_sn, api_order_sn, user_id, user_name, consignee, address, order_status, itemid, itemname, sitename, storeId, storeName, specid, cateid, catename, mobile, tel, best_time, country, province, city, district, regionname, number, pay_id, pay_name, shipping_id, shipping_name, goods_amount, price, shipping_fee, order_amount, add_time, confirm_time, market_price,source, layout, take_way) VALUES ('".$arr_order['order_sn']."','".$arr_itemInfo['orderSn']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_consignee['consignee']."', '".$arr_consignee['address']."', '1', '".$arr_order['itemId']."', '".$arr_order['itemName']."', '".$arr_order['siteName']."', '".$arr_order['storeId']."', '".$arr_order['storeName']."', '".$arr_order['specid']."', '".$arr_order['cateId']."', '".$arr_order['catename']."', '".$arr_consignee['mobile']."', '".$arr_consignee['tel']."', '".$arr_order['best_time']."', '".$arr_consignee['country']."', '".$arr_consignee['province']."', '".$arr_consignee['city']."', '".$arr_consignee['district']."', '".$str_regionName."', '".$arr_order['number']."', '2', '华影支付', '1', '供货商物流', '".$arr_order['goods_amount']."', '".$arr_order['price']."', '".$arr_order['shipping_fee']."', '".$arr_order['amount']."', '".gmtime()."', '".gmtime()."', '".$arr_order['market_price']."',1, '".$arr_order['layout']."', '".$arr_order['take_way']."')");
-		$int_orderId = $db->insert_id();
-	}
-
-	unset($_SESSION['flow_consignee']);
-	unset($_SESSION['yc_flow_order']);
-	ecs_header('location:yanchu_order.php?act=pay&id='.$arr_order['itemId'].'&orderid='.$int_orderId);
-	exit;
+    $arr_order = $_SESSION['yc_flow_order']['flow'];
+    
+    $customRatio = get_card_rule_ratio($arr_order['cateId'], true);
+    
+    if (empty($arr_order)){
+        $jsonArray['state'] = 'false';
+        $jsonArray['message'] = '没有任何信息，请从新选择一个产品购买';
+        JsonpEncode($jsonArray);
+    }
+    
+    $ratio = get_card_rule_ratio($arr_order['cateId']);
+    
+    $arr_consignee = get_consignee($_SESSION['user_id']);//获取用户默认配送地址
+    if (empty($arr_consignee)){
+        $jsonArray['state'] = 'false';
+        $jsonArray['message'] = '请选择一个收货地址';
+        JsonpEncode($jsonArray);
+    }
+    
+    /* 检查当前地址是否支持配送*/
+    if ( !check_consignee($arr_consignee) )
+    {
+        $jsonArray['state'] = 'false';
+        $jsonArray['message'] = '当前地址不支持配送';
+        JsonpEncode($jsonArray);
+    }
+    
+    $str_regionName = get_add_cn($arr_consignee['country']).' '.get_add_cn($arr_consignee['province']).' '.get_add_cn($arr_consignee['city']).' '.get_add_cn($arr_consignee['district']);
+    
+    //计算配送费用
+    $arr_region = array($arr_consignee['country'], $arr_consignee['province'], $arr_consignee['city'], $arr_consignee['district']);//取得配送列表
+    $arr_shipping = shipping_area_info(1, $arr_region);
+    
+    if (!empty($arr_shipping)){
+        $arr_shipping['shipping_id'] = 1;
+        $shipping_cfg = unserialize_config($arr_shipping['configure']);
+        $shipping_fee = shipping_fee($arr_shipping['shipping_code'], unserialize($arr_shipping['configure']), 1, $arr_order['goods_amount'], $arr_order['number']);
+        $arr_shipping['format_shipping_fee'] = price_format($shipping_fee, false);
+        $arr_shipping['shipping_fee']        = $shipping_fee;
+        $arr_shipping['free_money']          = price_format($shipping_cfg['free_money'], false);
+    }else{
+        $arr_shipping['shipping_fee']        = 0;
+    }
+    
+    // 如果是自取，运费为0
+    if (ispick() === true)
+    {
+        $shipping_fee  = 0;
+        $arr_order['take_way']     = '自取';
+    }
+    else {
+        $arr_order['take_way']     = '快递';
+    }
+    
+    $arr_order['shipping_fee'] = $shipping_fee;
+    $arr_order['amount'] = $arr_order['goods_amount'] + $shipping_fee;
+    $arr_order['order_sn'] = get_order_sn();
+    
+    //接口下单
+    $int_shippingId = 0;
+    $arr_param = array(
+        'storeId' => $arr_order['storeId']
+    );
+    $obj_result = getYCApi($arr_param, 'getShippings');
+    $int_shippingCount = count($obj_result->shipping);
+    $arr_itemInfo = object2array($obj_result);
+    $arr_shipping = $arr_itemInfo['shipping'];
+    
+    
+    if ($int_shippingCount > 1){
+        $int_shippingKey = array_rand($arr_shipping);
+        $int_shippingId = intval($arr_shipping[$int_shippingKey]['@attributes']['id']);
+    }else{
+        $int_shippingId = intval($arr_shipping['@attributes']['id']);
+    }
+    
+    $str_sign = md5('u='.$GLOBALS['_CFG']['ycappUser'].'&storeId='.$arr_order['storeId'].'&specId='.$arr_order['specid'].'&num='.$arr_order['number'].'&consignee='.$arr_consignee['consignee'].'&address='.$arr_consignee['address'].'&tel='.$arr_consignee['tel'].'&mob='.$arr_consignee['mobile'].'&email=ceshi@qq.com&shippingId='.$int_shippingId.'&apiorderSn='.$arr_order['order_sn'].'&key='.$GLOBALS['_CFG']['ycappKey']);
+    //项目信息
+    $arr_param = array(
+        'storeId'        => $arr_order['storeId'],
+        'specId'         => $arr_order['specid'],
+        'num'            => $arr_order['number'],
+        'consignee'      => $arr_consignee['consignee'],
+        'regionId'       => $arr_consignee['province'],
+        'regionName'     => $str_regionName,
+        'address'        => $arr_consignee['address'],
+        'zip'            => '',
+        'tel'            => $arr_consignee['tel'],
+        'mob'            => $arr_consignee['mobile'],
+        'email'          => 'ceshi@qq.com',
+        'invoiceTitle'   => '',
+        'invoiceContent' => '',
+        'postscript'     => '',
+        'shippingId'     => $int_shippingId,
+        'apiorderSn'     => $arr_order['order_sn'],
+        'sign'           => $str_sign
+    );
+    
+    $obj_result = getYCApi($arr_param, 'apiorder');
+    $arr_itemInfo = object2array($obj_result);
+    
+    if (!empty($arr_itemInfo['error'])){
+        show_message($arr_itemInfo['error']);
+    }else{
+        $db->query('INSERT INTO ' .$ecs->table('yanchu_order'). " (order_sn, api_order_sn, user_id, user_name, consignee, address, order_status, itemid, itemname, sitename, storeId, storeName, specid, cateid, catename, mobile, tel, best_time, country, province, city, district, regionname, number, pay_id, pay_name, shipping_id, shipping_name, goods_amount, price, shipping_fee, order_amount, add_time, confirm_time, market_price,source, layout, take_way,api_price,shop_ratio,card_ratio,raise,ext) VALUES ('".$arr_order['order_sn']."','".$arr_itemInfo['orderSn']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_consignee['consignee']."', '".$arr_consignee['address']."', '1', '".$arr_order['itemId']."', '".$arr_order['itemName']."', '".$arr_order['siteName']."', '".$arr_order['storeId']."', '".$arr_order['storeName']."', '".$arr_order['specid']."', '".$arr_order['cateId']."', '".$arr_order['catename']."', '".$arr_consignee['mobile']."', '".$arr_consignee['tel']."', '".$arr_order['best_time']."', '".$arr_consignee['country']."', '".$arr_consignee['province']."', '".$arr_consignee['city']."', '".$arr_consignee['district']."', '".$str_regionName."', '".$arr_order['number']."', '2', '华影支付', '1', '供货商物流', '".$arr_order['goods_amount']."', '".$arr_order['price']."', '".$arr_order['shipping_fee']."', '".$arr_order['amount']."', '".gmtime()."', '".gmtime()."', '".$arr_order['market_price']."',0, '".$arr_order['layout']."', '".$arr_order['take_way']."', '".$arr_order['cost_price']."', '".$customRatio['shop_ratio']."', '".$customRatio['card_ratio']."', '".$customRatio['raise']."', '".$customRatio['ext']."')");
+        $int_orderId = $db->insert_id();
+    }
+    
+    unset($_SESSION['flow_consignee']);
+    unset($_SESSION['yc_flow_order']);
+    ecs_header('location:yanchu_order.php?act=pay&id='.$arr_order['itemId'].'&orderid='.$int_orderId);
+    exit;
 }
 elseif( $_REQUEST['act'] == 'pay')
 {
@@ -325,10 +370,10 @@ elseif( $_REQUEST['act'] == 'pay')
 	
 }
 else if ($str_action == 'act_pay'){
-	$str_password = !empty($_POST['password']) ? $_POST['password'] : '';
-	$order_sn     = $_POST['order_sn'];
-	$order_id     = $_POST['order_id'];
-	$order_amount = floatval($_POST['order_amount']);
+	$str_password = !empty($_REQUEST['password']) ? $_REQUEST['password'] : '';
+	$order_sn     = $_REQUEST['order_sn'];
+	$order_id     = $_REQUEST['order_id'];
+	$order_amount = floatval($_REQUEST['order_amount']);
 
 	$arr_result = array('error' => 0, 'message' => '', 'content' => '');
 

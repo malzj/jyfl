@@ -41,11 +41,11 @@
 						<div class="bd">
 							<div class="tempWrap">
 							<ul class="infoList">
-								{foreach from=$category item=cate}
-                                <li><a href="{$cate.url}">{$cate.name}</a></li>
+								{foreach from=$text item=t}
+								<li><a href="{$t.ad_link}" target="_blank">{$t.ad_name}</a></li>
                                 {foreachelse}
-                                <li>暂无广播</li>
-                                {/foreach}								
+                                    <li> 暂无广播 </li>
+                                {/foreach}				
 							</ul>
 							</div>
 						</div>

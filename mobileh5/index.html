@@ -1,103 +1,198 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<title></title>
-		<link href="css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="css/index.css" />
-		<style>
-		.mui-content{background: url(images/jy_index/person_bg.jpg) no-repeat !important;background-size: 100% 100%!important;}
-		.mui-bar{background-color: transparent;}
-		</style>
-	</head>
-	<body>
-		<!-- 侧滑导航根容器 -->
-		<div class="mui-off-canvas-wrap mui-draggable">
-				<!-- 菜单容器 -->
-				<aside id="offCanvasSide" class="mui-off-canvas-left">
-					<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-							<!-- 菜单具体展示内容 -->
-							<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">电影</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">演唱会</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">蛋糕</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">鲜花</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">电影</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">演唱会</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">蛋糕</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">鲜花</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">电影</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">电影</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">电影</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">电影</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">电影</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">电影</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">电影</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">电影</a></li>
-							</ul>
-						</div>
-					</div>
-				</aside>
-				<aside id="offCanvasSide"  class="mui-off-canvas-right">
-					<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-							<!-- 菜单具体展示内容 -->
-							<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
-								<li class="mui-table-view-cell index_touxiang"><img src="images/jy_index/login_bg.jpg" alt="头像"/></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right" href="../mobileh5/person.html" open-type="common">个人信息</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right" href="../mobileh5/safe_center.html">安全中心</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">我的订单</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right" href="../mobileh5/shouhuoxinxi.html">收货信息</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">卡充值</a></li>
-								<li class="mui-table-view-cell"><a class="mui-navigate-right">卡合并</a></li>
-							</ul>
-						</div>
-					</div>
-				</aside>
-				<!-- 主页面容器 -->
-			<div class="mui-inner-wrap">
-				<!-- 主页面标题 -->
-				<header class="mui-bar mui-bar-nav">
-					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
-					<!--<h1 class="mui-title">标题</h1>-->
-				</header>
-				<!-- 主页面内容容器 -->
-				<div class="mui-content mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<!-- 主界面具体展示内容 -->
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="css/mui.min.css"/>
+    <link rel="stylesheet" href="css/jy_index.css">
+    <link rel="stylesheet" href="css/new_href.css"/>
+    <script src="js/connection.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/mui.min.js"></script>
+    <script src="js/messageJs.js"></script>
+    <style>
+        .mui-pages {
+            top:0;
+        }
+    </style>
+</head>
+<body class="mui-fullscreen">
+<!--页面主结构开始-->
+<div id="login_index" class="mui-views">
+    <div class="mui-view">
+        <!--<div class="mui-navbar">
+        </div>-->
+        <div class="mui-pages">
+        </div>
+    </div>
+</div>
+<!--页面主结构结束-->
+<div id="login_def" class="mui-page">
+    <!--页面主内容区开始-->
+    <div class="mui-page-content">
+        <!--<div class="mui-scroll-wrapper">
+            <div class="mui-scroll">-->
+        <div class="wenhua_door vh_20">
+            <a href="#juyou_wenhua">
+                <div class="wenhua_title">聚优文化Culture</div>
+            </a>
+        </div>
+        <div class="birth_door vh_20">
+            <a href="#juyou_shengri">
+                <div class="wenhua_title">聚优生日Birthday</div>
+            </a>
+        </div>
+        <div class="shenghuo_door vh_20">
+            <a href="#juyou_shenghuo">
+                <div class="wenhua_title">聚优生活Life</div>
+            </a>
+        </div>
+        <div class="sport_door vh_20">
+            <a href="#juyou_yundong">
+                <div class="wenhua_title">聚优运动Sport</div>
+            </a>
+        </div>
+        <div class="tongka_door vh_20">
+            <a href="#juyou_tongka">
+                <div class="wenhua_title">聚优通All</div>
+            </a>
+        </div>
+    </div>
+</div>
+<!--</div>
+</div>-->
 
-					</div>
-				</div>
-				<!-- off-canvas backdrop -->
-				<div class="mui-off-canvas-backdrop"></div>
-			</div>
-		</div>
-		<script src="js/mui.min.js"></script>
-		<script src="js/template.js"></script>
-		<script type="text/javascript" charset="utf-8">
-			mui.init();
-//			mui('.mui-off-canvas-wrap').offCanvas('close');
-			mui('#offCanvasSideScroll').scroll();
-			mui('#offCanvasSideScroll1').scroll();
-			//页面a标签的点击跳转事件
-			mui('.shop-content,.mui-table-view,.shop-category-container,.mui-bar,.mui-scroll,.mui-content').on('tap', 'a', function (e) {
-			if (!this.classList.contains('mui-disabled')) {
-			mui.openWindow({
-			url: this.getAttribute('href'),
-			id: '#yonghuming',
-			});
-			}
-			else {
-			//s e.preventDefault();
-			mui.preventDefault(e);
-			mui.stopPropagation(e);
-			}
-			});
-		</script>
-	</body>
+<!--聚优文化卡-->
+<div id="juyou_wenhua" class="mui-page">
+    <div class="login_box">
+        <div class="login_icon"><img src="images/jy_index/logo_wenhua.png" alt="聚优文化"></div>
+        <div class="login_form">
+            <form name="loginform" method="post" onsubmit="return false">
+                <div class="login_username">
+                    <input type="number" name="username" placeholder="请输入您的聚优卡号"/>
+                </div>
+                <div class="login_password">
+                    <input type="password" name="password" placeholder="请输入密码"/>
+                </div>
+                <input type="hidden" name="type" value="1"/>
+                <button class="login_btn">立即登录</button>
+            </form>
+        </div>
+        <div class="login_icon1"><img src="images/jy_index/enjoy.png" alt="享受工作，享受生活"></div>
+    </div>
+</div>
+<!--聚优生日卡-->
+<div id="juyou_shengri" class="mui-page">
+    <div class="login_box">
+        <div class="login_icon"><img src="images/jy_index/logo_shengri.png" alt="聚优生日"></div>
+        <div class="login_form">
+            <form name="loginform" method="post" onsubmit="return false">
+                <div class="login_username">
+                    <input type="number" placeholder="请输入您的聚优卡号"/>
+                </div>
+                <div class="login_password">
+                    <input type="password" placeholder="请输入密码"/>
+                </div>
+                <input type="hidden" name="type" value="2"/>
+                <button class="login_btn">立即登录</button>
+            </form>
+        </div>
+        <div class="login_icon1"><img src="images/jy_index/enjoy.png" alt="享受工作，享受生活"></div>
+    </div>
+</div>
+<!--聚优生活卡-->
+<div id="juyou_shenghuo" class="mui-page">
+    <div class="login_box">
+        <div class="login_icon"><img src="images/jy_index/login_shenghuo.png" alt="聚优生活"></div>
+        <div class="login_form">
+            <form name="loginform" method="post" onsubmit="return false">
+                <div class="login_username">
+                    <input type="number" name="username" placeholder="请输入您的聚优卡号"/>
+                </div>
+                <div class="login_password">
+                    <input type="password" name="password" placeholder="请输入密码"/>
+                </div>
+                <input type="hidden" name="type" value="3"/>
+                <button class="login_btn">立即登录</button>
+            </form>
+        </div>
+        <div class="login_icon1"><img src="images/jy_index/enjoy.png" alt="享受工作，享受生活"></div>
+    </div>
+</div>
+<!--聚优运动卡-->
+<div id="juyou_yundong" class="mui-page">
+    <div class="login_box">
+        <div class="login_icon"><img src="images/jy_index/logo_yundong.png" alt="聚优运动"></div>
+        <div class="login_form">
+            <form name="loginform" method="post" onsubmit="return false">
+                <div class="login_username">
+                    <input type="number" name="username" placeholder="请输入您的聚优卡号"/>
+                </div>
+                <div class="login_password">
+                    <input type="password" name="password" placeholder="请输入密码"/>
+                </div>
+                <input type="hidden" name="type" value="4"/>
+                <button class="login_btn">立即登录</button>
+            </form>
+        </div>
+        <div class="login_icon1"><img src="images/jy_index/enjoy.png" alt="享受工作，享受生活"></div>
+    </div>
+</div>
+<!--聚优通卡-->
+<div id="juyou_tongka" class="mui-page">
+    <div class="login_box">
+        <div class="login_icon"><img src="images/jy_index/logo_tongka.png" alt="聚优通卡"></div>
+        <div class="login_form">
+            <form name="loginform" method="post" onsubmit="return false">
+                <div class="login_username">
+                    <input type="number" name="username" placeholder="请输入您的聚优卡号"/>
+                </div>
+                <div class="login_password">
+                    <input type="password" name="password" placeholder="请输入密码"/>
+                </div>
+                <input type="hidden" name="type" value="5"/>
+                <button class="login_btn">立即登录</button>
+            </form>
+        </div>
+        <div class="login_icon1"><img src="images/jy_index/enjoy.png" alt="享受工作，享受生活"></div>
+    </div>
+</div>
+<script src="js/mui.view.js"></script>
+<script>
 
+    jQuery(function () {
+        jQuery(".login_btn").click(function () {
+            var form = jQuery(this).parent("form");
+            var username = form.find("input[name='username']").val();
+            var password = form.find("input[name='password']").val();
+            var type = form.find("input[name='type']").val();
+            jQuery.ajax({
+                type: 'post',
+                url: web_url + '/mobile/userAuth.php?act=actLogin',
+                async: false,
+                data: {username: username, password: password, type: type},
+                dataType: 'jsonp',
+                jsonp:'jsoncallback',
+                success: function (result) {
+                    console.log(result);
+                    if (result.state == "true") {
+                        localStorage.user_id = result.data.userid;
+                        window.location.href = 'jy_index.html';
+                    } else {
+                        alert(result.message);
+                    }
+                }
+            })
+        })
+    })
+    mui.init();
+    var viewApi = mui('#login_index').view({
+        defaultPage: '#login_def'
+    });
+    //初始化单页的区域滚动
+    mui('.mui-scroll-wrapper').scroll();
+</script>
+</body>
 </html>

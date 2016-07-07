@@ -5,7 +5,7 @@
 		<title>聚优福利</title>
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
-        <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
+        <!--<script src="{$app_path}js/juyoufuli/stickUp.js"></script>-->
         <link rel="stylesheet" href="{$app_path}css/juyoufuli/sport1.css">
 	</head>
 	<body>

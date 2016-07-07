@@ -168,7 +168,7 @@
         var new_password = jQuery("input[name='new_password']").val();
         var confirm_password = jQuery("input[name='comfirm_password']").val();
         var user_name = localStorage.user_name;
-        console.log(old_password + '-' + new_password + '-' + confirm_password + '-' + user_name + '-' + localStorage.user_id);
+        console.log(old_password + '-' + new_password.length + '-' + confirm_password + '-' + user_name + '-' + localStorage.user_id);
         if (old_password.length == 0) {
             mui.alert('原密码不能为空！');
             return false;

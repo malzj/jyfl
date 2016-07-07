@@ -140,7 +140,6 @@ elseif ($_REQUEST['act'] == 'act_edit_password')
     $user_id      = isset($_REQUEST['uid'])  ? intval($_REQUEST['uid']) : $user_id;
     $code         = isset($_REQUEST['code']) ? trim($_REQUEST['code'])  : '';
     $post_user_name    = isset($_REQUEST['user_name']) ? trim($_REQUEST['user_name']) : '';
-    JsonpEncode($new_password);
     if (strlen($new_password) < 6)
     {
         $jsonArray['state']='false';

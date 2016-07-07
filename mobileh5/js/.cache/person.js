@@ -1,14 +1,14 @@
-/*TMODJS:{"version":50,"md5":"7921f949bd0691743223296973707534"}*/
+/*TMODJS:{"version":51,"md5":"502b3736f9d469a2feb5cd7f0d800d65"}*/
 template('person',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,nickname=$data.nickname,sex=$data.sex,birthday=$data.birthday,basic=$data.basic,$out='';$out+='  <div id="yonghuming" class="mui-page"> <div class="mui-navbar-inner mui-bar mui-bar-nav"> <button type="button" id="username" class="mui-left mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left"> <span class="mui-icon mui-icon-left-nav"></span> </button> <h1 class="mui-center mui-title">用户名</h1> </div> <div class="mui-page-content"> <div class="mui-scroll-wrapper"> <div class="mui-scroll"> <div class="mui-input-row margin_top_20"> <input type="text" name="nickname" value="';
 $out+=$escape(nickname);
 $out+='" class="mui-input-clear"> </div> </div> </div> </div> </div>  <div id="xingbie" class="mui-page"> <div class="mui-navbar-inner mui-bar mui-bar-nav"> <button type="button" class="mui-left mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left"> <span class="mui-icon mui-icon-left-nav"></span> </button> <h1 class="mui-center mui-title">性别</h1> </div> <div class="mui-page-content"> <div class="mui-scroll-wrapper"> <div class="mui-scroll"> <ul id="data_sex" class="mui-table-view mui-table-view-radio"> <li class="mui-table-view-cell ';
-if(sex=='1'){
+if(sex==1){
 $out+='mui-selected';
 }
 $out+='" data-sex="1"> <a class="mui-navigate-right"> 男 </a> </li> <li class="mui-table-view-cell ';
-if(sex=='2'){
+if(sex==2){
 $out+='mui-selected';
 }
 $out+='" data-sex="2"> <a class="mui-navigate-right"> 女 </a> </li> </ul> </div> </div> </div> </div>  <div id="person_birthday" class="mui-page"> <div class="mui-navbar-inner mui-bar mui-bar-nav"> <button type="button" class="mui-left mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left"> <span class="mui-icon mui-icon-left-nav"></span> </button> <h1 class="mui-center mui-title">生日</h1> </div> <div class="mui-page-content"> <div class="mui-scroll-wrapper"> <div class="mui-scroll"> <button id=\'birth_date\' data-options=\'{"type":"date","beginYear":1970,"endYear":2016}\' class="btn mui-btn mui-btn-block margin_top_20">';

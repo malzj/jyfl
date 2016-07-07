@@ -174,18 +174,12 @@
                 async: false,
                 data: {username: username, password: password, type: type},
                 dataType: 'jsonp',
-                jsonp:'callback',
-                jsonpCallback:"flightHandler",
+                jsonp:'jsoncallback',
                 success: function (result) {
                     console.log(result);
                     if (result.state == "true") {
-                        mui.openWindow({
-                            url: 'index.html',
-                            id: 'index-page',
-                            extras: {
-                                user_id: result.data.userid,
-                            },
-                        })
+                        localStorage.user_id = result.data.userid;
+                        window.location.href = 'index.html';
                     } else {
                         alert(result.message);
                     }

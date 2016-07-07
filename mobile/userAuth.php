@@ -44,7 +44,7 @@ if ($_REQUEST['act'] == 'actLogin')
             {
                 $jsonArray['state'] = 'false';
                 $jsonArray['message'] = '不是激活状态，请联系华影客服';
-                exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");   
+                JsonpEncode($jsonArray);    
             }
         }
         // 中影卡处理结果
@@ -59,7 +59,7 @@ if ($_REQUEST['act'] == 'actLogin')
             {
                 $jsonArray['state'] = 'false';
                 $jsonArray['message'] = $card_result['Status'];
-                exit($_GET['jsoncallback']."(".json_encode($jsonArray).")"); 
+                JsonpEncode($jsonArray);  
                 
             }
         }
@@ -84,7 +84,7 @@ if ($_REQUEST['act'] == 'actLogin')
         {
             $jsonArray['state'] = 'false';
             $jsonArray['message'] = '卡类型不符，请从新选择并登录';
-            exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");   
+            JsonpEncode($jsonArray);    
         }
 
         //设置本站登录成功
@@ -102,7 +102,7 @@ if ($_REQUEST['act'] == 'actLogin')
     {
         $jsonArray['state'] = 'false';
         $jsonArray['message'] = $cardPay->getMessage();
-        exit($_GET['jsoncallback']."(".json_encode($jsonArray).")"); 
+        JsonpEncode($jsonArray);
     }
 }
 
@@ -113,13 +113,13 @@ elseif ($_REQUEST['act']=='checkLogin')
     {
         $usernames = userinfo($_SESSION['user_name']);        
         $jsonArray['data'] = $usernames;
-        exit($_GET['jsoncallback']."(".json_encode($jsonArray).")"); 
+        JsonpEncode($jsonArray);  
     }
     else 
     {
         $jsonArray['state'] = 'false';
         $jsonArray['message'] = '验证失败';
-        exit($_GET['jsoncallback']."(".json_encode($jsonArray).")"); 
+        JsonpEncode($jsonArray); 
     }    
 }
 
@@ -127,7 +127,7 @@ elseif ($_REQUEST['act']=='checkLogin')
 elseif ($_REQUEST['act'] == 'logout')
 {
     $user->logout();
-    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")"); 
+    JsonpEncode($jsonArray);  
 }
 
 /* 修改会员密码 */
@@ -190,4 +190,5 @@ elseif ($_REQUEST['act'] == 'act_edit_password')
         exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
     }
 }
+
 

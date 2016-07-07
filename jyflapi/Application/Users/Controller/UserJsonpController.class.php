@@ -37,8 +37,6 @@ class UserJsonpController extends Controller
             $data['msg'] = "失败";
         };
         $this->ajaxReturn($data, "JSONP");
-//    $jsondData = json_encode($data);
-//    echo $jsondData;
     }
 
     public function userUpdate()
@@ -76,8 +74,7 @@ class UserJsonpController extends Controller
         } else {
             $data['result'] = "false";
         };
-        $jsondData = json_encode($data);
-        echo $jsondData;
+        $this->ajaxReturn($data);
     }
 
     public function userPassWord()
@@ -93,8 +90,7 @@ class UserJsonpController extends Controller
         } else {
             $rudata['result'] = "false";
         }
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
     /**
@@ -134,8 +130,7 @@ class UserJsonpController extends Controller
         $rudata['result'] = "true";
         $rudata['msg'] = "成功";
         $rudata['phone']['num'] = !empty($result['mobile_phone']) ? $result['mobile_phone'] : '';
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
 
@@ -179,8 +174,7 @@ class UserJsonpController extends Controller
             $rudata['msg'] = "新密码与确认密码不匹配！";
         }
 
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
 
@@ -215,8 +209,8 @@ class UserJsonpController extends Controller
                 $rudata['msg'] = "失败";
             }
         }
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
+
     }
 
     /**
@@ -245,8 +239,7 @@ class UserJsonpController extends Controller
             $rudata['result'] = "false";
             $rudata['msg'] = "验证码错误！";
         }
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
     /**
@@ -263,8 +256,7 @@ class UserJsonpController extends Controller
         $rudata['answerthree'] = $result['answerthree'];
         $rudata['result'] = 'true';
         $rudata['msg'] = "成功";
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
     /**
@@ -294,8 +286,7 @@ class UserJsonpController extends Controller
             $rudata['msg'] = "修改安全问题失败！";
         }
 
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
     /**
@@ -308,8 +299,7 @@ class UserJsonpController extends Controller
         $rudata['result'] = "true";
         $rudata['business'] = $result;
         $rudata['msg'] = "成功";
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
     /**
@@ -323,8 +313,7 @@ class UserJsonpController extends Controller
         $rudata['result'] = "true";
         $rudata['business'] = $result;
         $rudata['msg'] = "成功";
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
     /*
@@ -357,8 +346,7 @@ class UserJsonpController extends Controller
             $rudata['msg'] = "失败！";
         }
 
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
     /**
@@ -406,8 +394,7 @@ class UserJsonpController extends Controller
             $rudata['msg'] = "失败";
         }
 
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
     /**
@@ -454,9 +441,7 @@ class UserJsonpController extends Controller
             $rudata['msg'] = "失败";
         }
 
-
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
     /**
@@ -487,8 +472,7 @@ class UserJsonpController extends Controller
             $rudata['business'] = "";
             $rudata['msg'] = '失败';
         }
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
     /**
@@ -535,8 +519,7 @@ class UserJsonpController extends Controller
                 $rudata['msg'] = "失败";
             }
         }
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
     /*
@@ -578,8 +561,7 @@ class UserJsonpController extends Controller
             $rudata['msg'] = "失败！";
         }
 
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
     /**
@@ -603,8 +585,7 @@ class UserJsonpController extends Controller
             $rudata['result'] = "false";
             $rudata['msg'] = "删除失败，请刷新重试！";
         }
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
     }
 
     /**
@@ -660,8 +641,7 @@ class UserJsonpController extends Controller
             $rudata['business'] = "";
         }
 
-        $jsondData = json_encode($rudata);
-        echo $jsondData;
+        $this->ajaxReturn($rudata);
 
     }
 

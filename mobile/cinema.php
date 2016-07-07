@@ -59,14 +59,14 @@ if ($_REQUEST['step'] == "movie")
 	}
     
 	$jsonArray['data'] = $arr_data;
-	exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+	JsonpEncode($jsonArray); 
 
 }
 // 影院列表
 elseif ($_REQUEST['step'] == "cinema")
 {	
 	$jsonArray['data'] = wapCinemaList();
-	exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+	JsonpEncode($jsonArray); 
 }
 
 // 影片详情
@@ -78,7 +78,7 @@ elseif ($_REQUEST['step'] == "movieDetail")
     // 影片评分
     $movieDetail['scoreBest'] = $movieDetail['score'] * 10;
     $jsonArray['data'] = $movieDetail;
-    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+    JsonpEncode($jsonArray); 
     
 }
 // 影片详情--选影院
@@ -115,7 +115,7 @@ elseif ($_REQUEST['step'] == "movieCinema")
 	}
 	
 	$jsonArray['data'] = $cinemas;
-    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+    JsonpEncode($jsonArray); 
 	
 }
 // 影院详情(显示影院信息，影院支持信息)
@@ -135,7 +135,7 @@ elseif ($_REQUEST['step'] == 'cinemaDetail')
     }
 
     $jsonArray['data'] = $cinemaDetail;    
-    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+    JsonpEncode($jsonArray); 
     
 }
 
@@ -150,7 +150,7 @@ elseif ($_REQUEST['step'] == "cinemaDzq")
 	$cinemaDzq = getCinemaDzq($cinemaid, $ratio);
 	
 	$jsonArray['data'] = $cinemaDzq;    
-    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+    JsonpEncode($jsonArray); 
 }
 
 // 影院所有影片列表
@@ -173,7 +173,7 @@ elseif ($_REQUEST['step'] == "movieList")
 	}
 	
 	$jsonArray['data'] = $movies;    
-    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+    JsonpEncode($jsonArray); 
 }
 
 // 指定影院，指定影片的排期
@@ -212,7 +212,7 @@ elseif ($_REQUEST['step'] == "planList")
 	
 	$jsonArray['data']['time'] = $featureTimes;
 	$jsonArray['data']['plan'] = $planList;    // 排期列表	
-	exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");	
+	JsonpEncode($jsonArray); 	
 }
 
 // 在线选座
@@ -259,7 +259,7 @@ elseif ($_REQUEST['step'] == "cinemaSeats")
 	}
 	
 	$jsonArray['data'] = $planInfo;
-	exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");	
+	JsonpEncode($jsonArray); 	
 }
 
 // 加载座位图
@@ -312,7 +312,7 @@ elseif ($_REQUEST['step'] == "seatAjax")
 	
 	$jsonArray['data']['width'] = $allWidth;
 	$jsonArray['data']['seat'] = $seatInfo;
-	exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+	JsonpEncode($jsonArray); 
 	
 }
 

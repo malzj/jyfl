@@ -1,6 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title></title>
@@ -22,28 +21,26 @@
     </div>
 </div>
 <!--页面主结构结束-->
-<div id="page-container">
-    <!--单页面开始-->
-    <div id="safe_center" class="mui-page">
-        <!--页面标题栏开始-->
-        <div class="mui-navbar-inner mui-bar mui-bar-nav">
-            <button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-                <span class="mui-icon mui-icon-left-nav"></span>
-            </button>
-            <h1 class="mui-center mui-title">登录密码</h1>
-        </div>
-        <!--页面标题栏结束-->
-        <!--页面主内容区开始-->
-        <div class="mui-page-content">
-            <div class="mui-scroll-wrapper">
-                <div class="mui-scroll">
-                    <ul class="mui-table-view">
-                        <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#login_passwoed">登录密码</a>
-                        </li>
-                        <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#tel">手机号</a></li>
-                        <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">安全问题</a></li>
-                    </ul>
-                </div>
+<!--单页面开始-->
+<div id="safe_center" class="mui-page">
+    <!--页面标题栏开始-->
+    <div class="mui-navbar-inner mui-bar mui-bar-nav">
+        <button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+            <span class="mui-icon mui-icon-left-nav"></span>
+        </button>
+        <h1 class="mui-center mui-title">登录密码</h1>
+    </div>
+    <!--页面标题栏结束-->
+    <!--页面主内容区开始-->
+    <div class="mui-page-content">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#login_passwoed">登录密码</a>
+                    </li>
+                    <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#tel">手机号</a></li>
+                    <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">安全问题</a></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -59,29 +56,28 @@
     <div class="mui-page-content">
         <div class="mui-scroll-wrapper">
             <div class="mui-scroll">
-                <form id="formPassword" name="formPassword" onsubmit="return false">
-                <div class="mui-input-group margin_top_15">
-                    <div class="mui-input-row mui-password">
-                        <label>原密码</label>
-                        <input type="password" name="old_password" class="mui-input-password" placeholder="请输入原密码">
+                    <div class="mui-input-group margin_top_15">
+                        <div class="mui-input-row mui-password">
+                            <label>原密码</label>
+                            <input type="password" name="old_password" class="mui-input-password" placeholder="请输入原密码">
+                        </div>
                     </div>
-                </div>
-                <div class="mui-input-group margin_top_15">
-                    <div class="mui-input-row mui-password">
-                        <label>新密码</label>
-                        <input type="password" name="new_password" class="mui-input-password" placeholder="请输入新密码">
+                    <div class="mui-input-group margin_top_15">
+                        <div class="mui-input-row mui-password">
+                            <label>新密码</label>
+                            <input type="password" name="new_password" class="mui-input-password" placeholder="请输入新密码">
+                        </div>
+                        <div class="mui-input-row mui-password">
+                            <label>确认密码</label>
+                            <input type="password" name="comfirm_password" class="mui-input-password"
+                                   placeholder="请再次确认密码">
+                        </div>
                     </div>
-                    <div class="mui-input-row mui-password">
-                        <label>确认密码</label>
-                        <input type="password" name="comfirm_password" class="mui-input-password" placeholder="请再次确认密码">
+                    <div class="mui-button-row margin_top_20">
+                        <button type="button" class="mui-btn mui-btn-primary login_password_btn" id="edit_password">
+                            确认修改
+                        </button>
                     </div>
-                </div>
-                <div class="mui-button-row margin_top_20">
-                    <button type="button" class="mui-btn mui-btn-primary login_password_btn" onclick="editPassword()">
-                        确认修改
-                    </button>
-                </div>
-                </form>
             </div>
         </div>
     </div>
@@ -155,68 +151,74 @@
             //				console.log(e.detail.page.id + ' show');
         });
         view.addEventListener('pageBeforeBack', function (e) {
-            //				console.log(e.detail.page.id + ' beforeBack');
+            console.log(e.detail.page.id + ' beforeBack');
+            if(e.detail.page.id=='login_passwoed'){
+                jQuery('input[name="old_password"]').val('');
+                jQuery('input[name="new_password"]').val('');
+                jQuery('input[name="comfirm_password"]').val('');
+            }
         });
         view.addEventListener('pageBack', function (e) {
             //				console.log(e.detail.page.id + ' back');
         });
     })(mui);
 
-    function editPassword()
-    {
-        var frm              = document.forms['formPassword'];
-        var old_password     = frm.elements['old_password'].value;
-        var new_password     = frm.elements['new_password'].value;
-        var confirm_password = frm.elements['comfirm_password'].value;
-        var user_name 	   = localStorage.user_name;
-        console.log(old_password+'-'+new_password+'-'+confirm_password+'-'+user_name);
-        if (old_password.length == 0)
-        {
+    jQuery("#edit_password").on("click",function() {
+        var old_password = jQuery("input[name='old_password']").val();
+        var new_password = jQuery("input[name='new_password']").val();
+        var confirm_password = jQuery("input[name='comfirm_password']").val();
+        var user_name = localStorage.user_name;
+        console.log(old_password + '-' + new_password + '-' + confirm_password + '-' + user_name + '-' + localStorage.user_id);
+        if (old_password.length == 0) {
             mui.alert('原密码不能为空！');
             return false;
         }
 
-        if (new_password.length == 0)
-        {
+        if (new_password.length == 0) {
             mui.alert('新密码不能为空！');
             return false;
         }
 
-        if (confirm_password.length == 0)
-        {
+        if (confirm_password.length == 0) {
             mui.alert('确认密码不能为空！');
             return false;
         }
 
-        if (new_password.length > 0 && confirm_password.length > 0)
-        {
-            if (new_password != confirm_password)
-            {
+        if (new_password.length > 0 && confirm_password.length > 0) {
+            if (new_password != confirm_password) {
                 mui.alert('确认密码与新密码不相同！');
                 return false;
             }
         }
-
         jQuery.ajax({
-            url:api_url+'user.php',
-            data:{act:'act_edit_password', 'old_password': old_password, 'new_password': new_password, 'user_name':user_name},
-            type:'get',
-            dataType:'jsonp',
-            jsonp:'jsoncallback',
-            success:function (result) {
-                console.log(result);
+            url: web_url + '/mobile/userAuth.php',
+            data: {
+                'act': 'act_edit_password',
+                'old_password': old_password,
+                'new_password': new_password,
+                'user_name': user_name,
+                'user_id':localStorage.user_id,
+            },
+            type: 'get',
+            dataType: 'jsonp',
+            jsonp: 'jsoncallback',
+            success: function (result) {
                 if (result.state == 'true') {
                     mui.alert(result.message);
-                } else {
-                    mui.alert(result.message);
+                } else if(result.state == 'false') {
+                    console.log(result);
+                    if(result.data.isLogin==1){
+                        mui.alert(result.message,function () {
+                            window.location.href='index.html';
+                        });
+                    }else{
+                        mui.alert(result.message);
+                    }
                 }
-                return false;
             }
         });
-        return false;
-    }
+    });
 
 </script>
 </body>
-
 </html>

@@ -208,7 +208,7 @@ header("Content-Type:text/html; charset=utf-8");
 
 //没登陆用户强制登陆
 //不需要登录的操作
-$arr_noLogin = array('user', 'captcha', 'region', 'entity','topic', 'respond','userAuth');
+$arr_noLogin = array('user', 'captcha', 'region', 'entity','topic', 'respond');
 $str_scriptName = substr($_SERVER['PHP_SELF'],  strrpos($_SERVER['PHP_SELF'],'/')+1 , -4);
 
 if (empty($_SESSION['user_id']) && !in_array($str_scriptName, $arr_noLogin)){
@@ -216,7 +216,7 @@ if (empty($_SESSION['user_id']) && !in_array($str_scriptName, $arr_noLogin)){
     $jsonArray = array(
         'state'=>'false',
         'data'=>array('isLogin'=>1),
-        'message'=>''
+        'message'=>'你未登录或登录超时，请重新登录！'
     );
     exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
 }else{

@@ -170,7 +170,7 @@
             var type = form.find("input[name='type']").val();
             jQuery.ajax({
                 type: 'post',
-                url: api_url + '/mobile/userAuth.php?act=actLogin',
+                url: web_url + '/mobile/userAuth.php?act=actLogin',
                 async: false,
                 data: {username: username, password: password, type: type},
                 dataType: 'jsonp',

@@ -16,11 +16,31 @@ $jsonArray = array(
     'message'=>''
 );
 
+// 导航信息
 if ($_REQUEST['act'] == 'navList')
 {
     $navList = get_navigator();
     $jsonArray['data'] = $navList['middle'];
-    exit(json_encode($jsonArray));
-    exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+    JsonpEncode($jsonArray); 
 }
+
+// 城市切换
+elseif ($_REQUEST['act'] == 'city')
+{
+    JsonpEncode($jsonArray);    
+}
+
+// 当前登录的城市id
+elseif ($_REQUEST['act'] == 'getCityId')
+{
+    $jsonArray['data']['cityid'] = $_SESSION['cityid']; 
+    JsonpEncode($jsonArray); 
+}
+// 城市列表
+elseif ($_REQUEST['act'] == 'getCityList')
+{
+    $jsonArray['data'] = getCityList();;
+    JsonpEncode($jsonArray); 
+}
+
 

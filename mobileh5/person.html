@@ -61,7 +61,6 @@
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.view.js"></script>
 		<script src="js/mui.picker.min.js.js"></script>
-
 		<script type="text/javascript">
 			(function($) {
 				var userInfo;
@@ -107,8 +106,6 @@
 						}
 					}
 				});
-
-
 				var viewApi = $('#gerenxinxi').view({
 					defaultPage: '#person'
 				});
@@ -124,12 +121,10 @@
 						oldBack();
 					}
 				};
-
 				//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
 				//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
 				view.addEventListener('pageBeforeShow', function(e) {
 									console.log(e.detail.page.id + ' beforeShow');
-
 				});
 				view.addEventListener('pageShow', function(e) {
 					//				console.log(e.detail.page.id + ' show');
@@ -143,7 +138,6 @@
 					var birthday = jQuery('#birth_date').text();
 					userdata.birthday = birthday=='选择日期'?'':birthday;
 					userdata.basic = jQuery("#basic option:selected").val();
-
 					var check = jQuery('input[name="favorite"]:checked');
 					var fav_checked='';
 					jQuery.each(check,function(k,v){
@@ -167,7 +161,6 @@
 							}
 						}
 					})
-
 				});
 				view.addEventListener('pageBack', function(e) {
 					//				console.log(e.detail.page.id + ' back');
@@ -218,5 +211,4 @@
 			})(mui);
 		</script>
 	</body>
-
 </html>

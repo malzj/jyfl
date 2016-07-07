@@ -178,10 +178,11 @@
                 success: function (result) {
                     console.log(result);
                     if (result.state == "true") {
-                        localStorage.user_id = result.data.userid;
+                        localStorage.user_id = result.data.user_id;
+                        localStorage.username = result.data.username;
                         window.location.href = 'jy_index.html';
                     } else {
-                        alert(result.message);
+                        mui.alert(result.message);
                     }
                 }
             })

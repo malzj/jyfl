@@ -66,8 +66,8 @@ if ($_REQUEST['act'] == 'actLogin')
 
         // 执行本地操作
         include_once(ROOT_PATH . 'includes/lib_passport.php');
-        $int_uid = $db->getOne('SELECT user_id FROM '.$ecs->table('users'). " WHERE user_name = '$username'");
-        if (empty($int_uid)){//插入用户信息
+        $int_user = $db->getRow('SELECT * FROM '.$ecs->table('users'). " WHERE user_name = '$username'");
+        if (empty($int_user['user_id'])){//插入用户信息
             $reg_date = gmtime();
             $last_ip  = real_ip();
             //设置默认值
@@ -76,7 +76,7 @@ if ($_REQUEST['act'] == 'actLogin')
             $pass_edit = 0;
             $GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`nickname`,`basic`,`pass_edit`,`pic`,`company_id`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$username."','".$basic."','".$pass_edit."','".$userheader."','".$company_id."')");
         }else{//更新用户信息
-            $GLOBALS['db']->query('UPDATE ' . $GLOBALS['ecs']->table("users") . " SET password='".md5($password)."', card_money = '$cardMoney', youxiao_time = '".$cardOutTime."' WHERE user_id = '$int_uid'");
+            $GLOBALS['db']->query('UPDATE ' . $GLOBALS['ecs']->table("users") . " SET password='".md5($password)."', card_money = '$cardMoney', youxiao_time = '".$cardOutTime."' WHERE user_id = '".$int_user['user_id']."'");
         }
 
         // 卡类型判断
@@ -95,8 +95,8 @@ if ($_REQUEST['act'] == 'actLogin')
         update_user_info();
         recalculate_price();
         
-        $jsonArray['data']['userid'] = $int_uid;
-        JsonpEncode($jsonArray);   
+        $jsonArray['data'] = $int_user;
+        exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");  
     }
     else
     {
@@ -130,6 +130,65 @@ elseif ($_REQUEST['act'] == 'logout')
     JsonpEncode($jsonArray);  
 }
 
+/* 修改会员密码 */
+elseif ($_REQUEST['act'] == 'act_edit_password')
+{
+    include_once(ROOT_PATH . 'includes/lib_passport.php');
 
+    $old_password = isset($_POST['old_password']) ? trim($_POST['old_password']) : null;
+    $new_password = isset($_POST['new_password']) ? trim($_POST['new_password']) : '';
+    $user_id      = isset($_POST['uid'])  ? intval($_POST['uid']) : $user_id;
+    $code         = isset($_POST['code']) ? trim($_POST['code'])  : '';
+    $post_user_name    = isset($_POST['user_name']) ? trim($_POST['user_name']) : '';
+
+    if (strlen($new_password) < 6)
+    {
+        $jsonArray['state']='false';
+        $jsonArray['message']='密码长度不能少于6位';
+        exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+    }
+
+    $user_name = $_SESSION['user_name'];
+    if (empty($_SESSION['user_id']))
+    {
+        if (empty($post_user_name))
+        {
+            $jsonArray['state']='false';
+            $jsonArray['message']='卡号是不能为空';
+            exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+        }
+        else{
+            $user_name = $post_user_name;
+        }
+    }
+
+    //修改卡密码
+    $arr_param = array(	'CardInfo'=>array('CardNo'  => $user_name, 'CardPwd' => $old_password, 'CardNewPwd'=>$new_password) );
+    $state = $cardPay->action($arr_param, 2);
+
+    // 查询成功
+    if ($state == 0)
+    {
+        $sql="UPDATE ".$ecs->table('users'). "SET `ec_salt`='0' WHERE user_id= '".$user_id."'";
+        $db->query($sql);
+
+        if (empty($_SESSION['user_id']))
+        {
+            $jsonArray['state']='true';
+            $jsonArray['message']='密码修改成功！';
+            exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+        }else{
+            $jsonArray['state']='true';
+            $jsonArray['message']='密码修改成功！';
+            exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+        }
+    }
+    else
+    {
+        $jsonArray['state']='false';
+        $jsonArray['message']=$cardPay->getMessage();
+        exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+    }
+}
 
 

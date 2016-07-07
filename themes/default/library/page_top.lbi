@@ -53,7 +53,7 @@
 {insert_scripts files='utils.js,jquery.region.js,juyoufuli/jquery.shoppingflow.js'}
 <div class="header">
 	<ul class="header_nav">
-		<li class="m_left"><img src="{$app_path}images/juyoufuli/img_login/logo.png" alt="聚优福利"></li>
+		<li class="m_left"><a href="user.php"><img src="{$app_path}images/juyoufuli/img_login/logo.png" alt="聚优福利"></a></li>
 		<li><span class="adress"><span class="glyphicon glyphicon-map-marker"></span><a href="javascript:;">{$cityinfo.region_name}</a></span>
 		</li>
 		<ul>

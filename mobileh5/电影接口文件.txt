@@ -19,7 +19,10 @@
 
 	说明：登出操作
 	地址：userAuth.php?act=logout
-	
+
+	说明：修改会员密码
+	地址：userAuth.php?act=act_edit_password
+	参数：
 
 电影接口
 

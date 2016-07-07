@@ -1,4 +1,4 @@
-/*TMODJS:{"version":6,"md5":"3b87d4b5bd94802c2eb2df814ae1af89"}*/
+/*TMODJS:{"version":7,"md5":"3b87d4b5bd94802c2eb2df814ae1af89"}*/
 template('public/header',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,include=function(filename,data){data=data||$data;var text=$utils.$include(filename,data,$filename);$out+=text;return $out;},$out='';$out+=' <div id="header"> ';

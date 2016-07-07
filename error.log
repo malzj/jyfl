@@ -1,4 +1,13 @@
 array (
-  'shop_ratio' => '1.1',
-  'raise' => '0.15',
+  'time' => '1469619000',
+  'price' => '100',
+  'market_price' => '100',
+  'specid' => '677622',
+  'number' => '1',
+  'status' => '2',
+  'id' => '25448',
+  'cateid' => '1220',
+  'act' => 'order',
+  'storeId' => '18',
+  'storeName' => '票网●北京站',
 )

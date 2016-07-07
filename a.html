@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -13,29 +11,70 @@
 <input name="password" type="text" value="" id="password">
 <input name="type" type="text" value="" id="type">
 
-<span>提交</span>
+<span class="action">提交</span>
+
+<span class="check">登录验证</span>
+
+<span class="logout">退出登录</span>
 
 <script>
 
-$('span').click(function(){
+$('.action').click(function(){
 	var u = $('#username').val();
 	var p = $('#password').val();
 	var t = $('#type').val();
-	alert(u+'=='+p+'=='+t);
+
 	$.ajax(  
 		    {  
 		        type:'get',  
-		        url : 'http://jy.com/mobile/userAuth.php?act=actLogin',  
+		        url : 'http://192.168.0.54/mobile/userAuth.php?act=actLogin',  
 		        data:{username:u,password:p,type:t},
 		        dataType : 'jsonp',  
 		        jsonp:"jsoncallback",  
 		        success  : function(data) {  
-		            alert("用户名"+data.state+',message:'+data.message);  
+		            alert("用户名"+data.state+',message:'+data.userid);  
 		        }
 		       
 		    }  
-		)  
-		
+		)
+	
+});
+
+ $('.check').click(function(){
+	$.ajax(  
+		    {  
+		        type:'get',  
+		        url : 'http://192.168.0.54/mobile/userAuth.php?act=checkLogin',  
+		        data:{userid:24863},
+		        dataType : 'jsonp',  
+		        jsonp:"jsoncallback",  
+		        success  : function(data) {  
+		        	console.log(data);
+		            //alert("用户名"+data.state+',message:'+data.message);  
+		        }
+		       
+		    }  
+		)
+	
+});
+ 
+
+ $('.logout').click(function(){
+	$.ajax(  
+		    {  
+		        type:'get',  
+		        url : 'http://192.168.0.54/mobile/userAuth.php?act=logout',  
+		        data:{userid:24863},
+		        dataType : 'jsonp',  
+		        jsonp:"jsoncallback",  
+		        success  : function(data) {  
+		        	console.log(data);
+		            alert(data.state);
+		        	//alert("用户名"+data.state+',message:'+data.message);  
+		        }
+		       
+		    }  
+		)
 	
 });
 

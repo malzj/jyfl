@@ -2629,6 +2629,8 @@ html.huaju4 .w_1200 .pay_success .tips{width: 615px;margin: 20px auto;color:#ff7
 .floor_content_item{text-align: center;padding: 10px;width: 179px;height: 230px;border-right: 1px solid #F2F2F2;border-bottom: 1px solid #f2f2f2;}
 .wide{width: 379px;}
 #floor_7{margin-bottom:120px;}
+#floor_6{padding-bottom: 115px;}
+html.youpin #floor_5{padding-bottom:120px;}
 /*楼层引导*/
 .floor-guide{overflow: visible;display: none;position: fixed;top: 0;bottom: 0;margin: auto;left: 50%;width: 35px;height: 245px;margin-left: -655px;/* z-index: 100; */width: 35px;text-align: center;}
 .floor-guide a{position: relative;display: block;width: 45px;height: 45px;line-height: 40px;color: #666;text-decoration: none;cursor: pointer;}

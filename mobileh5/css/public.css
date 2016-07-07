@@ -1,0 +1,9 @@
+.f_l{float: left;}
+.f_r{float: right;}
+.clearfix:after{content:"";clear: both;font-size: 0;display: block;height: 0;}
+.margin_30{
+    margin-top: .75rem!important;
+    margin-bottom: 1rem!important;
+}
+.border_bottom_none{border-bottom: none!important;}
+.border_top_none{border-top: none!important;}

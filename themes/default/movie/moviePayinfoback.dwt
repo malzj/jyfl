@@ -14,9 +14,6 @@
         
         <div class="w_1200">
         
-        	<!-- 返回首页 -->
-        	{$backHtml}
-            
 			<div class="pay_del">
 			</div>
 			<div class="order_xinxi">

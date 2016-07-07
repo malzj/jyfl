@@ -63,9 +63,7 @@
 		</div>
         <!-- search end -->
         
-        <div class="w_1200">			
-            <!-- 返回首页 -->
-        	{$backHtml}
+        <div class="w_1200">
             
             <div class="cake1_top o_hidden">
 				<div class="cake1_top_Sort f_l">商品分类</div>

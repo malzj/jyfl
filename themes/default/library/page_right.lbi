@@ -17,8 +17,9 @@
 <script>
 		 var url = window.location.href;
             var arr = url.split('?');
-			if(window.location.pathname == '/user.php'
-			){
+			//if(window.location.pathname == '/user.php'
+			//console.log(arr);
+			if(window.location.pathname == '/user.php' && arr[1] == undefined){
 				$('.pop_right .right span').removeClass('glyphicon-chevron-left').addClass('glyphicon-chevron-right');
 				$('.pop_right_icon').css('display','none');
 			};

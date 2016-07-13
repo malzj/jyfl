@@ -176,10 +176,9 @@
                 dataType: 'jsonp',
                 jsonp:'jsoncallback',
                 success: function (result) {
-                    console.log(result);
                     if (result.state == "true") {
                         localStorage.user_id = result.data.user_id;
-                        localStorage.username = result.data.username;
+                        localStorage.user_name = result.data.user_name;
                         window.location.href = 'jy_index.html';
                     } else {
                         mui.alert(result.message);

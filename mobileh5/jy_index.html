@@ -54,6 +54,7 @@
 								<li class="mui-table-view-cell"><a class="mui-navigate-right" href="shouhuoxinxi.html">收货信息</a></li>
 								<li class="mui-table-view-cell"><a class="mui-navigate-right">卡充值</a></li>
 								<li class="mui-table-view-cell"><a class="mui-navigate-right">卡合并</a></li>
+								<li class="mui-table-view-cell"><a id="logout" href="javascript:void(0);">退出登录</a></li>
 							</ul>
 						</div>
 					</div>
@@ -76,6 +77,9 @@
 				<div class="mui-off-canvas-backdrop"></div>
 			</div>
 		</div>
+		<script src="js/connection.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+
 		<script src="js/mui.min.js"></script>
 		<script src="js/template.js"></script>
 		<script type="text/javascript" charset="utf-8">
@@ -97,6 +101,30 @@
 			mui.stopPropagation(e);
 			}
 			});
+
+			mui('#logout')[0].addEventListener('tap',function(){
+
+				jQuery.ajax({
+					url: web_url + '/mobile/userAuth.php',
+					data: {
+						'act': 'logout',
+					},
+					type: 'get',
+					dataType: 'jsonp',
+					jsonp: 'jsoncallback',
+					success: function (result) {
+						console.log(result);
+						if (result.state == 'true') {
+							mui.alert("退出登录成功！",function(){
+								window.location.href='index.html';
+							});
+						} else {
+							mui.alert("退出登录失败！");
+						}
+					}
+				});
+				return false;
+			})
 		</script>
 	</body>
 

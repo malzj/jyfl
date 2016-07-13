@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
@@ -10,7 +9,6 @@
 		<link rel="stylesheet" href="css/mui-picker.min.css" />
 		<link rel="stylesheet" href="css/new_href.css" />
 	</head>
-
 	<body class="mui-fullscreen ">
 		<!--页面主结构开始-->
 		<div id="gerenxinxi" class="mui-views">
@@ -108,8 +106,6 @@
 						}
 					}
 				});
-
-
 				var viewApi = $('#gerenxinxi').view({
 					defaultPage: '#person'
 				});
@@ -125,12 +121,10 @@
 						oldBack();
 					}
 				};
-
 				//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
 				//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
 				view.addEventListener('pageBeforeShow', function(e) {
 //									console.log(e.detail.page.id + ' beforeShow');
-
 				});
 				view.addEventListener('pageShow', function(e) {
 					//				console.log(e.detail.page.id + ' show');

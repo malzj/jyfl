@@ -10,10 +10,17 @@ require(dirname(__FILE__) . '/includes/lib_cinema.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 
 $int_areaId = getAreaNo(0, 'yanchu');
-$int_cateId = intval($_GET['id']);
+$int_cateId = intval($_REQUEST['id']);
 
 $page = isset($_REQUEST['page'])   && intval($_REQUEST['page'])  > 0 ? intval($_REQUEST['page'])  : 1;
 $size = isset($_CFG['page_size'])  && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 20;
+
+// 返回的数据
+$jsonArray = array(
+    'state'=>'true',
+    'data'=>'',
+    'message'=>''
+);
 
 if (!isset($_REQUEST['act']))
 {
@@ -26,28 +33,23 @@ $ratio = get_card_rule_ratio($int_cateId);
 if ($_REQUEST['act'] == 'list')
 {
 	if (empty($int_cateId)){
-		ecs_header('location:index.php');
-		exit;
+	    $jsonArray['state'] = 'false';
+		$jsonArray['message'] = '演出类型不正确';
+	    JsonpEncode($jsonArray);
 	}
 	
 	$count = get_yanchu_count($int_cateId, $int_areaId);
 	$goods_list = get_ticket_list($int_cateId, $int_areaId, $size, $page);
 	$pagebar = get_wap_pager($count, $size, $page, 'yanchu.php?id='.$int_cateId);
 	
-	$smarty->assign('page_title', 	get_title($int_cateId)); 
-	$smarty->assign('pagebar', 		$pagebar);
-	$smarty->assign('list', 		$goods_list);
-	$smarty->assign('category',		getCinemaCate());
-	$smarty->assign('header', 		get_header(get_title($int_cateId),'index.php',true));
+	$jsonArray['data'] = $goods_list;
+	JsonpEncode($jsonArray);
 	
-	$smarty->display('yanchu.html');
 }
 
 // 演出票详情
 elseif ($_REQUEST['act'] == 'show')
-{
-	
-	assign_template();
+{	
 	$itemid = intval($_REQUEST['itemid']);	
 	$obj_result   = getYCApi( array('itemId'=>$itemid), 'getItem');
 	$int_showTimeCount = count($obj_result->showtimes->showtime);
@@ -125,14 +127,12 @@ elseif ($_REQUEST['act'] == 'show')
 			}
 		}		
 	}
-	
-	$smarty->assign('cateid',             $int_cateId);
-	$smarty->assign('iteminfo',           $arr_itemInfo);
-	$smarty->assign('showtime',       	  $arr_showtime);
-	$smarty->assign('str_showtime',       json_encode($arr_showtime));
-	$smarty->assign('header',			  get_header('详情页','index.php',true));
-	
-	$smarty->display('yanchuShow.html');
+
+
+	$jsonArray['data']['iteminfo'] = $arr_itemInfo;
+	$jsonArray['data']['showtime'] = $arr_showtime;
+	$jsonArray['data']['str_showtime'] = json_encode($arr_showtime);	
+	JsonpEncode($jsonArray);
 }
 
 

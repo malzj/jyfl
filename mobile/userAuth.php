@@ -135,12 +135,11 @@ elseif ($_REQUEST['act'] == 'act_edit_password')
 {
     include_once(ROOT_PATH . 'includes/lib_passport.php');
 
-    $old_password = isset($_POST['old_password']) ? trim($_POST['old_password']) : null;
-    $new_password = isset($_POST['new_password']) ? trim($_POST['new_password']) : '';
-    $user_id      = isset($_POST['uid'])  ? intval($_POST['uid']) : $user_id;
-    $code         = isset($_POST['code']) ? trim($_POST['code'])  : '';
-    $post_user_name    = isset($_POST['user_name']) ? trim($_POST['user_name']) : '';
-
+    $old_password = isset($_REQUEST['old_password']) ? trim($_REQUEST['old_password']) : null;
+    $new_password = isset($_REQUEST['new_password']) ? trim($_REQUEST['new_password']) : '';
+    $user_id      = isset($_REQUEST['uid'])  ? intval($_REQUEST['uid']) : $user_id;
+    $code         = isset($_REQUEST['code']) ? trim($_REQUEST['code'])  : '';
+    $post_user_name    = isset($_REQUEST['user_name']) ? trim($_REQUEST['user_name']) : '';
     if (strlen($new_password) < 6)
     {
         $jsonArray['state']='false';
@@ -190,5 +189,4 @@ elseif ($_REQUEST['act'] == 'act_edit_password')
         exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
     }
 }
-
 

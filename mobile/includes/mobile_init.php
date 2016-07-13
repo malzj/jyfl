@@ -6,7 +6,7 @@
 // josn 数据返回，jsonp数据返回
 function JsonpEncode($jsonArray)
 {
-    $jsonType = 'jsonp';
+    $jsonType = 'json';
     $callback = 'jsoncallback';
     if ($jsonType == 'json')
         exit(json_encode($jsonArray));

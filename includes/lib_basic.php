@@ -232,6 +232,11 @@ function checkCardType( $username, $type)
              'banner' => 28,
              'text'   => 27
          ),
+         //体检
+         '27' => array(
+             'banner' => 33,
+             'text'   => 32
+         ),
      );
      
      return $advs[$catid];
@@ -273,7 +278,9 @@ function checkCardType( $username, $type)
          //洗衣
          '20' => 'category.php?id=20',
          //体检
-         '19' => 'category.php?id=19'
+         '19' => 'category.php?id=19',
+         //味多美
+         '27' => 'category.php?id=27',
      );
      
      return $catUrl[$id];
@@ -317,6 +324,7 @@ function checkCardType( $username, $type)
          '18'   =>'simple/sportsCategory.dwt',
          '20'   =>'simple/sportsCategory.dwt',
          '19'   =>'simple/sportsCategory.dwt',
+         '27'   =>'simple/sportsCategory.dwt',
      );
      
      if (isset($templates[$category['cat_id']])) 

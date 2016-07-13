@@ -96,7 +96,7 @@ if ($_REQUEST['act'] == 'actLogin')
         recalculate_price();
         
         $jsonArray['data'] = $int_user;
-        exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");  
+        JsonpEncode($jsonArray); 
     }
     else
     {
@@ -144,7 +144,7 @@ elseif ($_REQUEST['act'] == 'act_edit_password')
     {
         $jsonArray['state']='false';
         $jsonArray['message']='密码长度不能少于6位';
-        exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+        JsonpEncode($jsonArray);
     }
 
     $user_name = $_SESSION['user_name'];
@@ -154,7 +154,7 @@ elseif ($_REQUEST['act'] == 'act_edit_password')
         {
             $jsonArray['state']='false';
             $jsonArray['message']='卡号是不能为空';
-            exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+            JsonpEncode($jsonArray);
         }
         else{
             $user_name = $post_user_name;
@@ -175,18 +175,18 @@ elseif ($_REQUEST['act'] == 'act_edit_password')
         {
             $jsonArray['state']='true';
             $jsonArray['message']='密码修改成功！';
-            exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+            JsonpEncode($jsonArray);
         }else{
             $jsonArray['state']='true';
             $jsonArray['message']='密码修改成功！';
-            exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+            JsonpEncode($jsonArray);
         }
     }
     else
     {
         $jsonArray['state']='false';
         $jsonArray['message']=$cardPay->getMessage();
-        exit($_GET['jsoncallback']."(".json_encode($jsonArray).")");
+        JsonpEncode($jsonArray);
     }
 }
 

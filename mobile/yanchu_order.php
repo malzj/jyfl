@@ -348,7 +348,9 @@ else if ($str_action == 'act_order'){
     $arr_itemInfo = object2array($obj_result);
     
     if (!empty($arr_itemInfo['error'])){
-        show_message($arr_itemInfo['error']);
+        $jsonArray['state'] = 'false';
+        $jsonArray['message'] = $arr_itemInfo['error'];
+        JsonpEncode($jsonArray);        
     }else{
         $db->query('INSERT INTO ' .$ecs->table('yanchu_order'). " (order_sn, api_order_sn, user_id, user_name, consignee, address, order_status, itemid, itemname, sitename, storeId, storeName, specid, cateid, catename, mobile, tel, best_time, country, province, city, district, regionname, number, pay_id, pay_name, shipping_id, shipping_name, goods_amount, price, shipping_fee, order_amount, add_time, confirm_time, market_price,source, layout, take_way,api_price,shop_ratio,card_ratio,raise,ext) VALUES ('".$arr_order['order_sn']."','".$arr_itemInfo['orderSn']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_consignee['consignee']."', '".$arr_consignee['address']."', '1', '".$arr_order['itemId']."', '".$arr_order['itemName']."', '".$arr_order['siteName']."', '".$arr_order['storeId']."', '".$arr_order['storeName']."', '".$arr_order['specid']."', '".$arr_order['cateId']."', '".$arr_order['catename']."', '".$arr_consignee['mobile']."', '".$arr_consignee['tel']."', '".$arr_order['best_time']."', '".$arr_consignee['country']."', '".$arr_consignee['province']."', '".$arr_consignee['city']."', '".$arr_consignee['district']."', '".$str_regionName."', '".$arr_order['number']."', '2', '华影支付', '1', '供货商物流', '".$arr_order['goods_amount']."', '".$arr_order['price']."', '".$arr_order['shipping_fee']."', '".$arr_order['amount']."', '".gmtime()."', '".gmtime()."', '".$arr_order['market_price']."',0, '".$arr_order['layout']."', '".$arr_order['take_way']."', '".$arr_order['cost_price']."', '".$customRatio['shop_ratio']."', '".$customRatio['card_ratio']."', '".$customRatio['raise']."', '".$customRatio['ext']."')");
         $int_orderId = $db->insert_id();
@@ -356,17 +358,19 @@ else if ($str_action == 'act_order'){
     
     unset($_SESSION['flow_consignee']);
     unset($_SESSION['yc_flow_order']);
-    ecs_header('location:yanchu_order.php?act=pay&id='.$arr_order['itemId'].'&orderid='.$int_orderId);
-    exit;
+    
+    $jsonArray['data']['orderid'] = $int_orderId;
+    JsonpEncode($jsonArray);
 }
 elseif( $_REQUEST['act'] == 'pay')
 {
-	assign_template();
 	
 	$int_orderid = intval($_REQUEST['orderid']);
-	$arr_order = $db->getRow('SELECT *, (goods_amount + shipping_fee) as total_amount FROM '.$ecs->table('yanchu_order')." WHERE order_id = '$int_orderid'");
-	$smarty->assign('order', $arr_order);
-	$smarty->assign('header', get_header('订单支付',true,true));
+	$arr_order = $GLOBALS['db']->getRow('SELECT *, (goods_amount + shipping_fee) as total_amount FROM '.$GLOBALS['ecs']->table('yanchu_order')." WHERE order_id = '$int_orderid'");
+
+	$jsonArray['data'] = $arr_order;
+	JsonpEncode($jsonArray);
+	
 	
 }
 else if ($str_action == 'act_pay'){
@@ -377,32 +381,34 @@ else if ($str_action == 'act_pay'){
 
 	$arr_result = array('error' => 0, 'message' => '', 'content' => '');
 
-	if (empty($str_password)){
-		$arr_result['error'] = 1;
-		$arr_result['message'] = '卡密码不能为空';
-		die(json_encode($arr_result));
+	if (empty($str_password)){		
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '卡密码不能为空';
+		JsonpEncode($jsonArray);
 	}
-	if (empty($order_sn)){
-		$arr_result['error'] = 2;
-		$arr_result['message'] = '订单信息不正确';
-		die(json_encode($arr_result));
+	if (empty($order_sn)){		
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '订单信息不正确';
+		JsonpEncode($jsonArray);
 	}
-	if ($order_amount > $_SESSION['BalanceCash']){
-		$arr_result['error'] = 3;
-		$arr_result['message'] = '卡余额不足';
-		die(json_encode($arr_result));
-	}
+	
 	$arr_order = $db->getRow('SELECT * FROM '.$ecs->table('yanchu_order')." WHERE order_id = '$order_id'");
-	if (empty($arr_order)){
-		$arr_result['error'] = 6;
-		$arr_result['message'] = '支付订单信息不存在';
-		die(json_encode($arr_result));
+	if (empty($arr_order)){		
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '支付订单信息不存在';
+		JsonpEncode($jsonArray);
 	}
 
+	if ($arr_order['order_amount'] > $_SESSION['BalanceCash']){
+	    $jsonArray['state'] = 'false';
+	    $jsonArray['message'] = '卡余额不足';
+	    JsonpEncode($jsonArray);
+	}
+	
 	/** TODO 支付 （双卡版） */
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$order_amount, 'TransSupplier'=>setCharset('中票'))
+			'TransationInfo' => array( 'TransRequestPoints'=>$arr_order['order_amount'], 'TransSupplier'=>setCharset('中票'))
 	);
 	$state = $cardPay->action($arr_param, 1, $order_sn);
 
@@ -418,19 +424,20 @@ else if ($str_action == 'act_pay'){
 				'pay'        => 1,
 				'sign'       => $str_sign
 		);
-		$obj_result = getYCApi($arr_param, 'apiorder');//确认支付订单
+		//$obj_result = getYCApi($arr_param, 'apiorder');//确认支付订单
 
-		$_SESSION['BalanceCash'] -= $order_amount; //重新计算用户卡余额
+		$_SESSION['BalanceCash'] -= $arr_order['order_amount']; //重新计算用户卡余额
 		//更新卡金额
-		$db->query('UPDATE '.$ecs->table('users')." SET card_money = card_money - ('$order_amount') WHERE user_id = '".intval($_SESSION['user_id'])."'");
+		$db->query('UPDATE '.$ecs->table('users')." SET card_money = card_money - ('".$arr_order['order_amount']."') WHERE user_id = '".intval($_SESSION['user_id'])."'");
 		$arr_result['content'] = $order_id;
 		$arr_result['itemid']  = $arr_order['itemid'];
 	}else{
-		$arr_result['error']   = 2;
-		$arr_result['message'] = $cardPay->getMessage();
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = $cardPay->getMessage();
+		JsonpEncode($jsonArray);
 	}
 
-	die(json_encode($arr_result));
+	JsonpEncode($jsonArray);
 
 }
 // 选择收获地址

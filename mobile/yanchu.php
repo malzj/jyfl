@@ -42,7 +42,8 @@ if ($_REQUEST['act'] == 'list')
 	$goods_list = get_ticket_list($int_cateId, $int_areaId, $size, $page);
 	$pagebar = get_wap_pager($count, $size, $page, 'yanchu.php?id='.$int_cateId);
 	
-	$jsonArray['data'] = $goods_list;
+	$jsonArray['data']['list'] = $goods_list;
+	$jsonArray['data']['pages'] = array( 'count'=>$count, 'size'=>$size, 'page'=>$page);
 	JsonpEncode($jsonArray);
 	
 }
@@ -61,14 +62,17 @@ elseif ($_REQUEST['act'] == 'show')
 	
 	// 如果不存在就跳转到网站首页
 	if (empty($arr_itemInfo)){
-		ecs_header('location:index.php');
-		exit;
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '产品不存在';
+	    JsonpEncode($jsonArray);
 	}
 	
 	// 如果下架了，返回上一页
 	if($arr_itemInfo['ifShow'] == 0)
-	{
-		$smarty->assign('emptyInfo',       '您访问的项目已经下架！请选择其他项目');
+	{		
+		$jsonArray['state'] = 'false';
+		$jsonArray['message'] = '您访问的项目已经下架';
+		JsonpEncode($jsonArray);
 	}
 	else 
 	{

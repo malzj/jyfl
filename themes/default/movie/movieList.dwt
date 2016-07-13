@@ -177,7 +177,6 @@
         <!-- 公共右边结束 -->
 
 		<script type="text/javascript">
-			
 			jQuery(function($) {
 				$(document).ready(function() {
 					$('#ticketSearchFixDiv').stickUp();
@@ -205,6 +204,7 @@
 			$('.movie_flash').on('click','.movie_close',function(){
 				$('.movie_flash').hide();
 			})
+			
 		</script>   
         <script src="{$app_path}js/juyoufuli/movieSearch.js"></script>
 	</body>

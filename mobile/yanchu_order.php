@@ -4,6 +4,7 @@ define('IN_ECS', true);
 require(dirname(__FILE__) . '/includes/init.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_order.php');
+include_once(ROOT_PATH . 'mobile/includes/lib_yanchu.php');
 if ((DEBUG_MODE & 2) != 2)
 {
 	$smarty->caching = true;
@@ -248,13 +249,12 @@ else if ($str_action == 'act_order'){
 	
     $arr_order = $_SESSION['yc_flow_order']['flow'];
     
-    $customRatio = get_card_rule_ratio($arr_order['cateId'], true);
-    
     if (empty($arr_order)){
         $jsonArray['state'] = 'false';
         $jsonArray['message'] = '没有任何信息，请从新选择一个产品购买';
         JsonpEncode($jsonArray);
     }
+    $customRatio = get_card_rule_ratio($arr_order['cateId'], true);
     
     $ratio = get_card_rule_ratio($arr_order['cateId']);
     
@@ -352,7 +352,7 @@ else if ($str_action == 'act_order'){
         $jsonArray['message'] = $arr_itemInfo['error'];
         JsonpEncode($jsonArray);        
     }else{
-        $db->query('INSERT INTO ' .$ecs->table('yanchu_order'). " (order_sn, api_order_sn, user_id, user_name, consignee, address, order_status, itemid, itemname, sitename, storeId, storeName, specid, cateid, catename, mobile, tel, best_time, country, province, city, district, regionname, number, pay_id, pay_name, shipping_id, shipping_name, goods_amount, price, shipping_fee, order_amount, add_time, confirm_time, market_price,source, layout, take_way,api_price,shop_ratio,card_ratio,raise,ext) VALUES ('".$arr_order['order_sn']."','".$arr_itemInfo['orderSn']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_consignee['consignee']."', '".$arr_consignee['address']."', '1', '".$arr_order['itemId']."', '".$arr_order['itemName']."', '".$arr_order['siteName']."', '".$arr_order['storeId']."', '".$arr_order['storeName']."', '".$arr_order['specid']."', '".$arr_order['cateId']."', '".$arr_order['catename']."', '".$arr_consignee['mobile']."', '".$arr_consignee['tel']."', '".$arr_order['best_time']."', '".$arr_consignee['country']."', '".$arr_consignee['province']."', '".$arr_consignee['city']."', '".$arr_consignee['district']."', '".$str_regionName."', '".$arr_order['number']."', '2', '华影支付', '1', '供货商物流', '".$arr_order['goods_amount']."', '".$arr_order['price']."', '".$arr_order['shipping_fee']."', '".$arr_order['amount']."', '".gmtime()."', '".gmtime()."', '".$arr_order['market_price']."',0, '".$arr_order['layout']."', '".$arr_order['take_way']."', '".$arr_order['cost_price']."', '".$customRatio['shop_ratio']."', '".$customRatio['card_ratio']."', '".$customRatio['raise']."', '".$customRatio['ext']."')");
+        $db->query('INSERT INTO ' .$ecs->table('yanchu_order'). " (order_sn, api_order_sn, user_id, user_name, consignee, address, order_status, itemid, itemname, sitename, storeId, storeName, specid, cateid, catename, mobile, tel, best_time, country, province, city, district, regionname, number, pay_id, pay_name, shipping_id, shipping_name, goods_amount, price, shipping_fee, order_amount, add_time, confirm_time, market_price,source, layout, take_way,api_price,shop_ratio,card_ratio,raise,ext) VALUES ('".$arr_order['order_sn']."','".$arr_itemInfo['orderSn']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_consignee['consignee']."', '".$arr_consignee['address']."', '1', '".$arr_order['itemId']."', '".$arr_order['itemName']."', '".$arr_order['siteName']."', '".$arr_order['storeId']."', '".$arr_order['storeName']."', '".$arr_order['specid']."', '".$arr_order['cateId']."', '".$arr_order['catename']."', '".$arr_consignee['mobile']."', '".$arr_consignee['tel']."', '".$arr_order['best_time']."', '".$arr_consignee['country']."', '".$arr_consignee['province']."', '".$arr_consignee['city']."', '".$arr_consignee['district']."', '".$str_regionName."', '".$arr_order['number']."', '2', '华影支付', '1', '供货商物流', '".$arr_order['goods_amount']."', '".$arr_order['price']."', '".$arr_order['shipping_fee']."', '".$arr_order['amount']."', '".gmtime()."', '".gmtime()."', '".$arr_order['market_price']."',1, '".$arr_order['layout']."', '".$arr_order['take_way']."', '".$arr_order['cost_price']."', '".$customRatio['shop_ratio']."', '".$customRatio['card_ratio']."', '".$customRatio['raise']."', '".$customRatio['ext']."')");
         $int_orderId = $db->insert_id();
     }
     
@@ -376,7 +376,7 @@ elseif( $_REQUEST['act'] == 'pay')
 else if ($str_action == 'act_pay'){
 	$str_password = !empty($_REQUEST['password']) ? $_REQUEST['password'] : '';
 	$order_sn     = $_REQUEST['order_sn'];
-	$order_id     = $_REQUEST['order_id'];
+	$order_id     = $_REQUEST['orderid'];
 	$order_amount = floatval($_REQUEST['order_amount']);
 
 	$arr_result = array('error' => 0, 'message' => '', 'content' => '');
@@ -440,83 +440,6 @@ else if ($str_action == 'act_pay'){
 	JsonpEncode($jsonArray);
 
 }
-// 选择收获地址
-elseif( $_REQUEST['act'] == 'edit_address')
-{
-	$address = isset($_SESSION['flow_consignee_mobile']) ? $_SESSION['flow_consignee_mobile'] : '' ;
-	
-	if (!empty($address))
-	{
-		$cityInfo = get_regions(2, $address['province']);
-		$cityIds = array();
-		foreach ($cityInfo as $city){  $cityIds[] = $city['region_id'];}
-		array_push($cityIds, $address['province']);
-		
-		$sql = "SELECT a.region_id, r.region_name" .
-				" FROM " . $GLOBALS['ecs']->table('area_region'). " AS a" .
-				" LEFT JOIN " . $GLOBALS['ecs']->table('region'). " AS r" .
-				" ON r.region_id = a.region_id" .
-				" LEFT JOIN " . $GLOBALS['ecs']->table('shipping_area'). " AS s" .
-				" ON a.shipping_area_id = s.shipping_area_id" .
-				" WHERE a.region_id IN (".implode(',',$cityIds).")" .
-				" ORDER by a.region_id DESC";
-		$regionInfo = $GLOBALS['db']->getAll($sql);
-		
-		if( $regionInfo != false)
-		{
-			$content = $regionInfo;
-		}
-		
-		$first = current($regionInfo);
-		if ( $first['region_id'] == $parent){
-			$content = array(array( 'region_id' => -2 , 'region_name' => '所有地区'));
-		}	
-	}
-	
-	//获取城市区域列表
-	$smarty->assign('province_list',    get_regions(1, $int_cityId));
-	$smarty->assign('consignees',    	$address);
-	$smarty->assign('citys', 			$content);
-	$smarty->assign('header', 			get_header('添加收货地址',true, false));
-}
-
-// 保存收货地址
- elseif ( $_REQUEST['act'] == 'save_address')
-{
-	$returnArray = array('error'=>0, 'message'=>'');
-	
-	$consignee 	= !empty($_REQUEST['consignee']) ? trim($_REQUEST['consignee']) : null;
-	$mobile		= !empty($_REQUEST['mobile']) ? trim($_REQUEST['mobile']) : null;
-	$country	= !empty($_REQUEST['country']) ? trim($_REQUEST['country']) : null;
-	$province   = !empty($_REQUEST['province']) ? trim($_REQUEST['province']) : null;
-	$city		= !empty($_REQUEST['city']) ? trim($_REQUEST['city']) : null;
-	$address	= !empty($_REQUEST['address']) ? trim($_REQUEST['address']) : null;
-	
-	if (is_null($consignee)
-		|| is_null($mobile)
-		|| is_null($country)
-		|| is_null($province)
-		|| is_null($city)
-		|| is_null($address))
-	{
-		$returnArray['error'] = 1;
-		$returnArray['message'] = '收货信息不完整！';
-		exit(json_encode($returnArray));
-	}
-	
-	$_SESSION['flow_consignee_mobile'] = array(
-											'consignee'	=> $consignee,
-											'country'	=> $country,
-											'province'	=> $province,
-											'city'		=> $city,
-											'mobile'	=> $mobile,
-											'address'	=> $address
-										);
-	exit(json_encode($returnArray));
-	
-} 
-
-$smarty->display('yanchuOrder.html');
 
 // 判断演出票是否是三天内的，如果是运费就是0，演出票自取
 function ispick( $data=array() )

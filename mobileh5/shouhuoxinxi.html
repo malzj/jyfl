@@ -39,44 +39,7 @@
 				<div class="mui-scroll-wrapper">
 					<div class="mui-scroll">
 						<ul id="shouhuo_list" class="mui-table-view mui-table-view-striped mui-table-view-condensed">
-							<li class="mui-table-view-cell">
-								<div class="mui-slider-right mui-disabled">
-									<a class="mui-btn mui-btn-yellow" href="#change_adress">编辑</a>
-									<a class="mui-btn mui-btn-red shouhuo_remove">删除</a>
-								</div>
-								<div class="mui-slider-handle">
-									<div class="mui-table">
-										<div class="mui-table-cell">
-											<h4 class="mui-ellipsis margin_bottom_10"><span class="shouhuo_name">汪洋</span><span>13820906181</span>
-											 <div class="mui-input-row mui-radio def_radio">
-												<label>默认地址</label>
-												<input name="radio1" type="radio">
-											</div>
-											</h4>
-											<h5>北京朝阳区东四环住邦2000A座507</h5>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li class="mui-table-view-cell">
-								<div class="mui-slider-right mui-disabled">
-									<a class="mui-btn mui-btn-yellow" href="#change_adress">编辑</a>
-									<a class="mui-btn mui-btn-red shouhuo_remove">删除</a>
-								</div>
-								<div class="mui-slider-handle">
-									<div class="mui-table">
-										<div class="mui-table-cell">
-											<h4 class="mui-ellipsis margin_bottom_10"><span class="shouhuo_name">汪洋</span><span>13820906181</span>
-						                    <div class="mui-input-row mui-radio def_radio">
-												<label>默认地址</label>
-												<input name="radio1" type="radio">
-											</div>
-						                    </h4>
-											<h5>北京朝阳区东四环住邦2000A座507</h5>
-										</div>
-									</div>
-								</div>
-							</li>
+
 						</ul>
 					</div>
 				</div>
@@ -95,12 +58,12 @@
 					<div class="mui-scroll">
 						<div class="mui-input-group margin_top_20">
 							<div class="mui-input-row">
-								<label>用户名</label>
-								<input type="text" class="mui-input-clear" placeholder="请输入">
+								<label>收货人姓名</label>
+								<input type="text" name="consignee" class="mui-input-clear" placeholder="请输入">
 							</div>	
 							<div class="mui-input-row">
 								<label>手机号码</label>
-								<input type="text" class="mui-input-clear" placeholder="请输入">
+								<input type="text" name="mobile" class="mui-input-clear" placeholder="请输入">
 							</div>	
 							<div class="mui-input-row">
 								<label>选择地区</label>
@@ -108,11 +71,11 @@
 							</div>	
 							<div class="mui-input-row xiangxi_adress">
 								<label>详细地址</label>
-								<textarea id="textarea"  placeholder="多行文本框"></textarea>
+								<textarea id="textarea" name="address"  placeholder="多行文本框"></textarea>
 							</div>
 							<div class="mui-input-row">
 								<label>邮政编码</label>
-								<input type="text" class="mui-input-clear" placeholder="请输入">
+								<input type="text" name="zipcode" class="mui-input-clear" placeholder="请输入">
 							</div>	
 						</div>
 						<div class="mui-button-row margin_top_20">
@@ -122,17 +85,56 @@
 				</div>
 			</div>
 		</div>
+		<script src="js/connection.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.view.js"></script>
 		<script type="text/javascript">
-			mui.init();
-			var viewApi = mui('#shouhuoxinxi').view({
-				defaultPage: '#shouhuo_content'
-			});
-			//初始化单页的区域滚动
-			mui('.mui-scroll-wrapper').scroll();
-			var view = viewApi.view;
 			(function($) {
+				$.init();
+				jQuery.ajax({
+					url:web_url+'/jyflapi/index.php/Users/UserJsonp/showAddress',
+					type:'get',
+					data:{user_id:localStorage.user_id},
+					dataType:'jsonp',
+					jsonp:'jsoncallback',
+					success:function(result){
+						var html='';
+						var selectword='';
+						var selected='';
+
+						jQuery.each(result.business.result,function(k,val){
+							if(val.selected=='1'){
+								selectword='默认地址';
+								selected='checked';
+							}else{
+								selectword='默认地址';
+								selected='';
+							}
+							html+='<li class="mui-table-view-cell"><div class="mui-slider-right mui-disabled">' +
+									'<a class="mui-btn mui-btn-yellow shouhuo_edit" data-address-id="'+val.address_id+'" href="#change_adress">编辑</a>' +
+									'<a class="mui-btn mui-btn-red shouhuo_remove" data-address-id="'+val.address_id+'">删除</a>' +
+									'</div><div class="mui-slider-handle"><div class="mui-table"><div class="mui-table-cell">' +
+									'<h4 class="mui-ellipsis margin_bottom_10"><span class="shouhuo_name">'+val.consignee+'</span><span>'+val.mobile+'</span>' +
+									'<div class="mui-input-row mui-radio def_radio">' +
+									'<label>'+selectword+'</label><input name="radio1" type="radio" value="'+val.address_id+'" '+selected+'>' +
+									'</div></h4><h5>'+val.country+val.province+val.address+'</h5>' +
+									'</div></div></div></li>'
+							jQuery('#shouhuo_list').html(html);
+						})
+
+					}
+				})
+				var viewApi = mui('#shouhuoxinxi').view({
+					defaultPage: '#shouhuo_content'
+				});
+				var address_id='';
+				$('#shouhuo_list').on('tap','.shouhuo_edit',function(){
+					address_id=jQuery(this).attr('data-address-id');
+				});
+				//初始化单页的区域滚动
+				$('.mui-scroll-wrapper').scroll();
+				var view = viewApi.view;
 				var oldBack = $.back;
 				$.back = function() {
 					if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
@@ -144,7 +146,31 @@
 				//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
 				//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
 				view.addEventListener('pageBeforeShow', function(e) {
-					//				console.log(e.detail.page.id + ' beforeShow');
+//									console.log(e.detail.page.id + ' beforeShow');
+					/*
+					* 地址编辑页面
+					* */
+					if(e.detail.page.id=='change_adress'){
+						jQuery.ajax({
+							url:web_url+'/jyflapi/index.php/Users/UserJsonp/getEditAddress',
+							type:'get',
+							data:{user_id:localStorage.user_id,address_id:address_id},
+							dataType:'jsonp',
+							jsonp:'jsoncallback',
+							success:function(result){
+								if(result.result=='true'){
+									console.log(result);
+									jQuery("#change_adress input[name='consignee']").val(result.addressInfo.consignee);
+									jQuery("#change_adress input[name='mobile']").val(result.addressInfo.mobile);
+									jQuery("#change_adress textarea[name='address']").val(result.addressInfo.address);
+									jQuery("#change_adress input[name='zipcode']").val(result.addressInfo.zipcode);
+								}else{
+									mui.alert(result.msg);
+								}
+							}
+						})
+					}
+
 				});
 				view.addEventListener('pageShow', function(e) {
 					//				console.log(e.detail.page.id + ' show');
@@ -167,9 +193,23 @@
 				$('#shouhuo_list').on('tap', '.shouhuo_remove', function(event) {
 					var elem = this;
 					var li = elem.parentNode.parentNode;
-					mui.confirm('确认删除该条记录？', '聚优福利', btnArray, function(e) {
+					var address_id=elem.getAttribute('data-address-id');
+					$.confirm('确认删除该条记录？', '聚优福利', btnArray, function(e) {
 						if (e.index == 0) {
-							li.parentNode.removeChild(li);
+							jQuery.ajax(web_url+'/jyflapi/index.php/Users/UserJsonp/delAddress',{
+								type:'get',
+								data:{user_id:localStorage.user_id,address_id:address_id},
+								dataType:'jsonp',
+								jsonp:'jsoncallback',
+								success:function(result){
+									if(result.result=='true'){
+										li.parentNode.removeChild(li);
+									}else if(result.result=='false'){
+										mui.alert(result.msg);
+									}
+								}
+							});
+
 						} else {
 							setTimeout(function() {
 								$.swipeoutClose(li);

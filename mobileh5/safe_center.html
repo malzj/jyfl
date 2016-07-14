@@ -250,7 +250,7 @@
             data:{user_id:localStorage.user_id,tel:tel,captcha:captcha},
             dataType:'jsonp',
             jsonp:'jsoncallback',
-            success:function(){
+            success:function(result){
                 if(result.result == 'true'){
                     mui.alert(result.msg);
                 }else if(result.result == 'false'){

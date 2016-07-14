@@ -90,7 +90,7 @@ class UserJsonpController extends Controller
         } else {
             $rudata['result'] = "false";
         }
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
     /**
@@ -130,7 +130,7 @@ class UserJsonpController extends Controller
         $rudata['result'] = "true";
         $rudata['msg'] = "成功";
         $rudata['phone']['num'] = !empty($result['mobile_phone']) ? $result['mobile_phone'] : '';
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
 
@@ -174,7 +174,7 @@ class UserJsonpController extends Controller
             $rudata['msg'] = "新密码与确认密码不匹配！";
         }
 
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
 
@@ -256,7 +256,7 @@ class UserJsonpController extends Controller
         $rudata['answerthree'] = $result['answerthree'];
         $rudata['result'] = 'true';
         $rudata['msg'] = "成功";
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
     /**
@@ -286,7 +286,7 @@ class UserJsonpController extends Controller
             $rudata['msg'] = "修改安全问题失败！";
         }
 
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
     /**
@@ -299,7 +299,7 @@ class UserJsonpController extends Controller
         $rudata['result'] = "true";
         $rudata['business'] = $result;
         $rudata['msg'] = "成功";
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
     /**
@@ -313,7 +313,7 @@ class UserJsonpController extends Controller
         $rudata['result'] = "true";
         $rudata['business'] = $result;
         $rudata['msg'] = "成功";
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
     /*
@@ -340,13 +340,13 @@ class UserJsonpController extends Controller
             $rudata['provinceList'] = $provinceList;
 //        $rudata['cityList']=$cityList;
             $rudata['addressInfo'] = $addressInfo;
-            $rudata['msg'] = "成功！";
+            $rudata['msg'] = "获取地址成功！";
         } else {
             $rudata['result'] = "false";
-            $rudata['msg'] = "失败！";
+            $rudata['msg'] = "获取地址失败！";
         }
 
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
     /**
@@ -394,7 +394,7 @@ class UserJsonpController extends Controller
             $rudata['msg'] = "失败";
         }
 
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
     /**
@@ -441,7 +441,7 @@ class UserJsonpController extends Controller
             $rudata['msg'] = "失败";
         }
 
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
     /**
@@ -472,7 +472,7 @@ class UserJsonpController extends Controller
             $rudata['business'] = "";
             $rudata['msg'] = '失败';
         }
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
     /**
@@ -519,7 +519,7 @@ class UserJsonpController extends Controller
                 $rudata['msg'] = "失败";
             }
         }
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
     /*
@@ -561,7 +561,7 @@ class UserJsonpController extends Controller
             $rudata['msg'] = "失败！";
         }
 
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
     /**
@@ -576,16 +576,16 @@ class UserJsonpController extends Controller
         if ($result['user_id'] == $user_id) {
             if ($Dao->where("address_id=" . $address_id)->delete()) {
                 $rudata['result'] = "true";
-                $rudata['msg'] = "成功";
+                $rudata['msg'] = "删除成功！";
             } else {
                 $rudata['result'] = "false";
-                $rudata['msg'] = "失败";
+                $rudata['msg'] = "删除失败！";
             }
         } else {
             $rudata['result'] = "false";
-            $rudata['msg'] = "删除失败，请刷新重试！";
+            $rudata['msg'] = "删除失败！";
         }
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
     /**
@@ -641,7 +641,7 @@ class UserJsonpController extends Controller
             $rudata['business'] = "";
         }
 
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
 
     }
 

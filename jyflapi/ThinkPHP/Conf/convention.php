@@ -159,7 +159,7 @@ return  array(
     'VAR_CONTROLLER'        =>  'c',    // 默认控制器获取变量
     'VAR_ACTION'            =>  'a',    // 默认操作获取变量
     'VAR_AJAX_SUBMIT'       =>  'ajax',  // 默认的AJAX提交变量
-    'VAR_JSONP_HANDLER'     =>  'jsoncallback',
+    'VAR_JSONP_HANDLER'     =>  'callback',
     'VAR_PATHINFO'          =>  's',    // 兼容模式PATHINFO获取变量例如 ?s=/module/action/id/1 后面的参数取决于URL_PATHINFO_DEPR
     'VAR_TEMPLATE'          =>  't',    // 默认模板切换变量
     'VAR_FILTERS'           =>  'filter_exp',     // 全局系统变量的默认过滤方法 多个用逗号分割

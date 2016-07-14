@@ -209,7 +209,7 @@ class UserJsonpController extends Controller
                 $rudata['msg'] = "失败";
             }
         }
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
 
     }
 

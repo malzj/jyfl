@@ -97,13 +97,13 @@
                     <div class="mui-input-row">
                         <div class="mui-col-xs-9">
                             <label>手机号</label>
-                            <input type="number" placeholder="请输入手机号">
+                            <input type="number" name="mobile_phone" placeholder="请输入手机号">
                         </div>
                     </div>
                     <div class="mui-input-row mui-row">
                         <div class="mui-col-xs-9">
                             <label>动态码</label>
-                            <input type="number" placeholder="请输入动态码">
+                            <input type="number" name="verify" placeholder="请输入动态码">
                         </div>
                         <div class="mui-col-xs-3">
                             <button type="button" class="mui-btn mui-btn-danger yanzheng">获取</button>
@@ -162,7 +162,9 @@
             //				console.log(e.detail.page.id + ' back');
         });
     })(mui);
-
+    /**
+     * 修改密码
+     */
     jQuery("#edit_password").on("click",function() {
         var old_password = jQuery("input[name='old_password']").val();
         var new_password = jQuery("input[name='new_password']").val();
@@ -218,7 +220,32 @@
             }
         });
     });
-
+    /**
+     * 绑定手机号
+     */
+    jQuery('.yanzheng').on('click',function(){
+        var tel = jQuery("input[name='mobile_phone']").val();
+        jQuery.ajax({
+            url:web_url+'/jyflapi/index.php/Users/UserJsonp/smsvrerifyJs',
+            type:'get',
+            data:{user_id:localStorage.user_id,tel:tel},
+            dataType:'jsonp',
+            jsonp:'jsonpcallback',
+            success:function(result){
+                if(result.state == 'true'){
+                    mui.alert(result.message);
+                }else if(result.state == 'false'){
+                    if(result.data.isLogin==1){
+                        mui.alert(result.message,function(){
+                            window.location.href='index.html';
+                        });
+                    }else{
+                        mui.alert(result.message);
+                    }
+                }
+            }
+        })
+    })
 </script>
 </body>
 </html>

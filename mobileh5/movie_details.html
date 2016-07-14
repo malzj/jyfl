@@ -6,6 +6,7 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/public.css" />
 		<style>
 			.mui-media .mui-media-object{margin-right: 10px;}
 			.mui-media-object{width: 100px;}
@@ -19,14 +20,83 @@
 		    <h1 class="mui-title">影片详情</h1>
 		</header>
 		<div class="mui-content">
-		    <div class="mui-table-view-cell mui-media">
+		    <div class="mui-table-view-cell mui-media movie_details_top">
 						<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
 						<div class="mui-media-body">
 							<h4>梦想合伙人</h4>
 							<p>导演：<span>薛晓路</span></p>
 							<p>主演：<span>汪洋/汪洋/汪洋/汪洋</span></p>
-							<p><span>动作</span><span>科幻</span></p>
+							<p><span class="margin_right_13">动作</span><span class="margin_right_13">科幻</span><span>冒险</span>|<span>101分钟</span></p>
+							<p>2014-06-30</p>
+							<p>评分用星星表示</p>
 						</div>
+			</div>
+			<div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item" href="#item1mobile">快速购票</a>
+					<a class="mui-control-item" href="#item2mobile">影片详情</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-6"></div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
+									</li>
+								</ul>
+								</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<script src="js/mui.min.js"></script>

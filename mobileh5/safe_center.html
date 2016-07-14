@@ -97,13 +97,13 @@
                     <div class="mui-input-row">
                         <div class="mui-col-xs-9">
                             <label>手机号</label>
-                            <input type="number" placeholder="请输入手机号">
+                            <input type="number" name="mobile_phone" placeholder="请输入手机号">
                         </div>
                     </div>
                     <div class="mui-input-row mui-row">
                         <div class="mui-col-xs-9">
                             <label>动态码</label>
-                            <input type="number" placeholder="请输入动态码">
+                            <input type="number" name="verify" placeholder="请输入动态码">
                         </div>
                         <div class="mui-col-xs-3">
                             <button type="button" class="mui-btn mui-btn-danger yanzheng">获取</button>
@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 <div class="mui-button-row margin_top_20">
-                    <button type="button" class="mui-btn mui-btn-primary login_password_btn" onclick="return false;">
+                    <button type="button" class="mui-btn mui-btn-primary login_password_btn" id="boundphone">
                         确认绑定
                     </button>
                 </div>
@@ -162,13 +162,14 @@
             //				console.log(e.detail.page.id + ' back');
         });
     })(mui);
-
+    /**
+     * 修改密码
+     */
     jQuery("#edit_password").on("click",function() {
         var old_password = jQuery("input[name='old_password']").val();
         var new_password = jQuery("input[name='new_password']").val();
         var confirm_password = jQuery("input[name='comfirm_password']").val();
         var user_name = localStorage.user_name;
-        console.log(old_password + '-' + new_password.length + '-' + confirm_password + '-' + user_name + '-' + localStorage.user_id);
         if (old_password.length == 0) {
             mui.alert('原密码不能为空！');
             return false;
@@ -191,7 +192,7 @@
             }
         }
         jQuery.ajax({
-            url: web_url + '/mobile/userAuth.php',
+            url: web_url + '/mobile/basic.php',
             data: {
                 'act': 'act_edit_password',
                 'old_password': old_password,
@@ -201,12 +202,11 @@
             },
             type: 'get',
             dataType: 'jsonp',
-            jsonp: 'jsoncallback',
+            jsonp:'jsoncallback',
             success: function (result) {
                 if (result.state == 'true') {
                     mui.alert(result.message);
                 } else if(result.state == 'false') {
-                    console.log(result);
                     if(result.data.isLogin==1){
                         mui.alert(result.message,function () {
                             window.location.href='index.html';
@@ -218,7 +218,47 @@
             }
         });
     });
-
+    /**
+     * 获取验证码
+     */
+    jQuery('.yanzheng').on('click',function(){
+        var tel = jQuery("input[name='mobile_phone']").val();
+        jQuery.ajax({
+            url:web_url+'/jyflapi/index.php/Users/UserJsonp/smsvrerifyJs',
+            type:'get',
+            data:{user_id:localStorage.user_id,tel:tel},
+            dataType:'jsonp',
+            jsonp:'jsoncallback',
+            success:function(result){
+                if(result.result == 'true'){
+                    mui.alert(result.msg);
+                }else if(result.result == 'false'){
+                    mui.alert(result.msg);
+                }
+            }
+        });
+    });
+    /**
+     * 确认绑定手机号
+     */
+    jQuery('#boundphone').on('click',function(){
+        var tel = jQuery("input[name='mobile_phone']").val();
+        var captcha = jQuery("input[name='verify']").val();
+        jQuery.ajax({
+            url:web_url+'/jyflapi/index.php/Users/UserJsonp/editphone',
+            type:'get',
+            data:{user_id:localStorage.user_id,tel:tel,captcha:captcha},
+            dataType:'jsonp',
+            jsonp:'jsoncallback',
+            success:function(){
+                if(result.result == 'true'){
+                    mui.alert(result.msg);
+                }else if(result.result == 'false'){
+                    mui.alert(result.msg);
+                }
+            }
+        })
+    })
 </script>
 </body>
 </html>

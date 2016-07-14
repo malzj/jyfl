@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 <div class="mui-button-row margin_top_20">
-                    <button type="button" class="mui-btn mui-btn-primary login_password_btn" onclick="return false;">
+                    <button type="button" class="mui-btn mui-btn-primary login_password_btn" id="boundphone">
                         确认绑定
                     </button>
                 </div>
@@ -170,7 +170,6 @@
         var new_password = jQuery("input[name='new_password']").val();
         var confirm_password = jQuery("input[name='comfirm_password']").val();
         var user_name = localStorage.user_name;
-        console.log(old_password + '-' + new_password.length + '-' + confirm_password + '-' + user_name + '-' + localStorage.user_id);
         if (old_password.length == 0) {
             mui.alert('原密码不能为空！');
             return false;
@@ -193,7 +192,7 @@
             }
         }
         jQuery.ajax({
-            url: web_url + '/mobile/userAuth.php',
+            url: web_url + '/mobile/basic.php',
             data: {
                 'act': 'act_edit_password',
                 'old_password': old_password,
@@ -221,7 +220,7 @@
         });
     });
     /**
-     * 绑定手机号
+     * 获取验证码
      */
     jQuery('.yanzheng').on('click',function(){
         var tel = jQuery("input[name='mobile_phone']").val();
@@ -230,7 +229,7 @@
             type:'get',
             data:{user_id:localStorage.user_id,tel:tel},
             dataType:'jsonp',
-            jsonp:'jsonpcallback',
+            jsonp:'jsoncallback',
             success:function(result){
                 if(result.state == 'true'){
                     mui.alert(result.message);
@@ -238,6 +237,33 @@
                     if(result.data.isLogin==1){
                         mui.alert(result.message,function(){
                             window.location.href='index.html';
+                        });
+                    }else{
+                        mui.alert(result.message);
+                    }
+                }
+            }
+        });
+    });
+    /**
+     * 确认绑定手机号
+     */
+    jQuery('#boundphone').on('click',function(){
+        var tel = jQuery("input[name='mobile_phone']").val();
+        var captcha = jQuery("input[name='verify']").val();
+        jQuery.ajax({
+            url:web_url+'/jyflapi/index.php/Users/UserJsonp/editphone',
+            type:'get',
+            data:{user_id:localStorage.user_id,tel:tel,captcha:captcha},
+            dataType:'jsonp',
+            jsonp:'jsoncallback',
+            success:function(){
+                if(result.state == 'true'){
+                    mui.alert(result.message);
+                }else if(result.state == 'false'){
+                    if(result.data.isLogin==1) {
+                        mui.alert(result.message, function () {
+                            window.location.href = 'index.html';
                         });
                     }else{
                         mui.alert(result.message);

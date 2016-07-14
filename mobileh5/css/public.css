@@ -7,3 +7,11 @@
 }
 .border_bottom_none{border-bottom: none!important;}
 .border_top_none{border-top: none!important;}
+
+.buy_ticket{text-align: center;margin-top: 30px;background: #2fd0b5;color: white;border: none;}
+.star_pinfen i{background: url(../images/jy_index/star.png) no-repeat;width: 15px;height: 15px;display: inline-block;background-size: 100% 100%;}
+.star_pinfen{margin-top: 5px;}
+.jijiang_time{margin-top: 5px;color: #2fd0b5;}
+.title_nav{}
+.title_movie{font-size: 14px;border: 1px solid #2fd0b5;background: #2fd0b5;padding: 5px 20px;color: white!important;border-top-left-radius: 5px;border-bottom-left-radius: 5px;}
+.title_cinema{font-size: 14px;border: 1px solid #2fd0b5;padding: 5px 20px;border-bottom-right-radius: 5px;border-top-right-radius: 5px;}

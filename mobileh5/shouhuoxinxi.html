@@ -12,6 +12,8 @@
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
 		<link rel="stylesheet" href="css/app.css" />
 		<link rel="stylesheet" href="css/new_href.css" />
+		<link rel="stylesheet" href="css/mui-picker.min.css" />
+		<link rel="stylesheet" href="css/mui.poppicker.css" />
 	</head>
 	<body>
 		<!--页面主结构开始-->
@@ -103,8 +105,8 @@
 								<input type="text" class="mui-input-clear" placeholder="请输入">
 							</div>	
 							<div class="mui-input-row">
-								<label>选择地区</label>
-								<input type="text" class="mui-input-clear" placeholder="请输入">
+								<label>地区</label>
+								<input id='showCityPicker' class="cityResult" type="text" value="山西 打通" placeholder="请选择地区">
 							</div>	
 							<div class="mui-input-row xiangxi_adress">
 								<label>详细地址</label>
@@ -124,6 +126,9 @@
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.view.js"></script>
+		<script src="js/mui.picker.min.js.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/data.city.js"></script>
 		<script type="text/javascript">
 			mui.init();
 			var viewApi = mui('#shouhuoxinxi').view({
@@ -179,6 +184,28 @@
 				});
 				var btnArray = ['确认', '取消'];
 			})(mui);
+		</script>
+		<script>
+			(function($, doc) {
+				$.init();
+				$.ready(function() {
+					//普通示例
+					
+					var cityPicker = new $.PopPicker({
+						layer: 2
+					});
+					cityPicker.setData(cityData);
+					var showCityPickerButton = doc.getElementById('showCityPicker');
+					var cityResult = doc.getElementById('showCityPicker');
+					showCityPickerButton.addEventListener('tap', function(event) {
+						cityPicker.show(function(items) {
+							cityResult.value = items[0].text + " " + items[1].text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+				});
+			})(mui, document);
 		</script>
 	</body>
 

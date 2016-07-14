@@ -1,0 +1,52 @@
+数据类型：
+	state   状态
+	data	返回的json数据
+	message 当状态是 false时，对应的错误提示
+
+所有数据使用，请参考华影手机端对应的html页面。
+
+===============================================================================================
+
+	说明：收货地址列表
+	地址：address.php?act=AjaxAddressList
+	参数：无
+	备注：data[address_id][selected] 是否是默认收货地址，1 是，0不是
+
+	说明：添加新地址
+	地址：address.php?act=AjaxAddress
+	参数：无
+	备注：data[country] 当前城市，data[province] 当前城区
+
+	说明：提交 保存/编辑 地址
+	地址：address.php?act=ajaxAddressSave
+	参数：address_id 	地址id【编辑地址的时候必填】
+	      consignee 	收货联系人
+	      country 		城市id
+	      province		区域id
+	      address		详细地址
+	      mobile		手机
+	备注：无
+
+	说明：编辑收货地址
+	地址：address.php?act=AjaxEditress
+	参数：address_id 地址id
+	备注：data[country] 当前城市，data[province] 当前城区 data[consignee] 地址信息
+
+	说明：设置默认地址
+	地址：address.php?act=AjaxAddressDefault
+	参数：address_id 地址id
+	备注：无
+
+	说明：已供应商为单位保存到session中
+	地址：address.php?act=AjaxAddressSelect
+	参数：address_id 地址id，sid 供应商id
+	备注：格式是 SESSION[supplier][sid] = adderss_id 的配送地址
+
+	说明：删除一条收货地址
+	地址：address.php?act=AjaxAddressDorp
+	参数：address_id 地址id
+	备注：无
+
+	
+
+	

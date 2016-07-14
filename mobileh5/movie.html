@@ -5,17 +5,33 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/public.css" />
 		<style>
 			.mui-control-content {
 				background-color: white;
-				min-height:700px;
+				min-height:600px;
 			}
 			.mui-control-content .mui-loading {
 				margin-top: 50px;
 			}
+			.mui-table-view .mui-media-object {
+			    line-height: 100px;
+			    max-width: 80px;
+			    height: 100px;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{color:#2fd0b5;}
+			.mui-segmented-control.mui-segmented-control-inverted~.mui-slider-progress-bar{background-color:#2FD0B5;}
 		</style>
 	</head>
 	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">
+		    	<div class="title_nav">
+		    		<a href="#" class="title_movie">影片</a><a href="#" class="title_cinema">影院</a>
+		    	</div>	
+		    </h1>
+		</header>
 		<div class="mui-content">
 			<div id="slider" class="mui-slider">
 				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
@@ -28,30 +44,268 @@
 						<div id="scroll1" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<ul class="mui-table-view">
-									<li class="mui-table-view-cell">
-										第一个选项卡子项-1
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
 									</li>
-									<li class="mui-table-view-cell">
-										第一个选项卡子项-2
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
 									</li>
-									<li class="mui-table-view-cell">
-										第一个选项卡子项-3
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
 									</li>
-									<li class="mui-table-view-cell">
-										第一个选项卡子项-4
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
 									</li>
-									<li class="mui-table-view-cell">
-										第一个选项卡子项-5
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
 									</li>
-									<li class="mui-table-view-cell">
-										第一个选项卡子项-6
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
 									</li>
-									<li class="mui-table-view-cell">
-										第一个选项卡子项-7
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
 									</li>
-									
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;" class="mui-row">
+											<div class="mui-col-xs-9">
+												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
+												<div class="mui-media-body">
+													<h4>伦敦陷落</h4>
+													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
+													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
+													<div class="star_pinfen">
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+														<i></i>
+													</div>
+												</div>
+											</div>
+											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
+										</a>
+									</li>
 								</ul>
-							</div>
+								</div>
 						</div>
 					</div>
 					<div id="item2mobile" class="mui-slider-item mui-control-content">
@@ -69,14 +323,10 @@
 	</div>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
-			mui.init({
-				swipeBack: false
-			})
+			mui.init()
 			(function($) {
-				$('.mui-scroll-wrapper').scroll({
-					indicators: true //是否显示滚动条
-				});
-				var html2 = '<ul class="mui-table-view"><li class="mui-table-view-cell">第二个选项卡子项-1</li><li class="mui-table-view-cell">第二个选项卡子项-2</li><li class="mui-table-view-cell">第二个选项卡子项-3</li><li class="mui-table-view-cell">第二个选项卡子项-4</li><li class="mui-table-view-cell">第二个选项卡子项-5</li></ul>';
+				$('.mui-scroll-wrapper').scroll();
+				var html2 = '<ul class="mui-table-view"><li class="mui-table-view-cell mui-media"><a href="javascript:;" class="mui-row"><div class="mui-col-xs-9"><img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg"<div class="mui-media-body"><h4>伦敦陷落</h4><p class="mui-ellipsis">导演：<span>汪洋</span></p><p class="mui-ellipsis">主演：<span>反复加咖啡可东方故事范德萨发啊</span></p><div class="jijiang_time mui-ellipsis"><span>2016-07-08</span>上映</div></div></a></li>';
 				var item2 = document.getElementById('item2mobile');
 				document.getElementById('slider').addEventListener('slide', function(e) {
 					if (e.detail.slideNumber === 1) {

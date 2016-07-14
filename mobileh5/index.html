@@ -90,10 +90,10 @@
         <div class="login_form">
             <form name="loginform" method="post" onsubmit="return false">
                 <div class="login_username">
-                    <input type="number" placeholder="请输入您的聚优卡号"/>
+                    <input type="number" name="username" placeholder="请输入您的聚优卡号"/>
                 </div>
                 <div class="login_password">
-                    <input type="password" placeholder="请输入密码"/>
+                    <input type="password" name="password" placeholder="请输入密码"/>
                 </div>
                 <input type="hidden" name="type" value="2"/>
                 <button class="login_btn">立即登录</button>
@@ -176,6 +176,7 @@
                 dataType: 'jsonp',
                 jsonp:'jsoncallback',
                 success: function (result) {
+                    console.log(result);
                     if (result.state == "true") {
                         localStorage.user_id = result.data.user_id;
                         localStorage.user_name = result.data.user_name;

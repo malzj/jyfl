@@ -202,7 +202,7 @@
             },
             type: 'get',
             dataType: 'jsonp',
-            jsonp: 'jsoncallback',
+            jsonp:'jsoncallback',
             success: function (result) {
                 if (result.state == 'true') {
                     mui.alert(result.message);
@@ -229,7 +229,7 @@
             type:'get',
             data:{user_id:localStorage.user_id,tel:tel},
             dataType:'jsonp',
-            jsonp: 'jsoncallback',
+            jsonp:'jsoncallback',
             success:function(result){
                 if(result.state == 'true'){
                     mui.alert(result.message);
@@ -256,7 +256,7 @@
             type:'get',
             data:{user_id:localStorage.user_id,tel:tel,captcha:captcha},
             dataType:'jsonp',
-            jsonp: 'jsoncallback',
+            jsonp:'jsoncallback',
             success:function(){
                 if(result.state == 'true'){
                     mui.alert(result.message);

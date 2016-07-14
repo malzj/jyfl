@@ -45,7 +45,7 @@ return  array(
     'DEFAULT_CHARSET'       =>  'utf-8', // 默认输出编码
     'DEFAULT_TIMEZONE'      =>  'PRC',	// 默认时区
     'DEFAULT_AJAX_RETURN'   =>  'JSON',  // 默认AJAX 数据返回格式,可选JSON XML ...
-    'DEFAULT_JSONP_HANDLER' =>  'jsoncallback', // 默认JSONP格式返回的处理方法
+    'DEFAULT_JSONP_HANDLER' =>  'jsonpReturn', // 默认JSONP格式返回的处理方法
     'DEFAULT_FILTER'        =>  'htmlspecialchars', // 默认参数过滤方法 用于I函数...
 
     /* 数据库设置 */
@@ -159,7 +159,7 @@ return  array(
     'VAR_CONTROLLER'        =>  'c',    // 默认控制器获取变量
     'VAR_ACTION'            =>  'a',    // 默认操作获取变量
     'VAR_AJAX_SUBMIT'       =>  'ajax',  // 默认的AJAX提交变量
-    'VAR_JSONP_HANDLER'     =>  'callback',
+    'VAR_JSONP_HANDLER'     =>  'jsoncallback',
     'VAR_PATHINFO'          =>  's',    // 兼容模式PATHINFO获取变量例如 ?s=/module/action/id/1 后面的参数取决于URL_PATHINFO_DEPR
     'VAR_TEMPLATE'          =>  't',    // 默认模板切换变量
     'VAR_FILTERS'           =>  'filter_exp',     // 全局系统变量的默认过滤方法 多个用逗号分割

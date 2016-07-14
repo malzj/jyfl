@@ -209,7 +209,7 @@ class UserJsonpController extends Controller
                 $rudata['msg'] = "失败";
             }
         }
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
 
     }
 
@@ -239,7 +239,7 @@ class UserJsonpController extends Controller
             $rudata['result'] = "false";
             $rudata['msg'] = "验证码错误！";
         }
-        $this->ajaxReturn($rudata);
+        $this->ajaxReturn($rudata,'jsonp');
     }
 
     /**

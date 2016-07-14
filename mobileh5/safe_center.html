@@ -207,7 +207,6 @@
                 if (result.state == 'true') {
                     mui.alert(result.message);
                 } else if(result.state == 'false') {
-                    console.log(result);
                     if(result.data.isLogin==1){
                         mui.alert(result.message,function () {
                             window.location.href='index.html';
@@ -231,16 +230,10 @@
             dataType:'jsonp',
             jsonp:'jsoncallback',
             success:function(result){
-                if(result.state == 'true'){
-                    mui.alert(result.message);
-                }else if(result.state == 'false'){
-                    if(result.data.isLogin==1){
-                        mui.alert(result.message,function(){
-                            window.location.href='index.html';
-                        });
-                    }else{
-                        mui.alert(result.message);
-                    }
+                if(result.result == 'true'){
+                    mui.alert(result.msg);
+                }else if(result.result == 'false'){
+                    mui.alert(result.msg);
                 }
             }
         });
@@ -258,16 +251,10 @@
             dataType:'jsonp',
             jsonp:'jsoncallback',
             success:function(){
-                if(result.state == 'true'){
-                    mui.alert(result.message);
-                }else if(result.state == 'false'){
-                    if(result.data.isLogin==1) {
-                        mui.alert(result.message, function () {
-                            window.location.href = 'index.html';
-                        });
-                    }else{
-                        mui.alert(result.message);
-                    }
+                if(result.result == 'true'){
+                    mui.alert(result.msg);
+                }else if(result.result == 'false'){
+                    mui.alert(result.msg);
                 }
             }
         })

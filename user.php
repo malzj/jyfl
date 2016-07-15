@@ -2770,6 +2770,7 @@ else if ($action == 'act_card_merge'){
         exit;
 	}
 
+	$cardno2 = array('999011', '999013');
 	
 	// 每点金额一样的卡才可以合并
 	$cardno = array(
@@ -2803,52 +2804,50 @@ else if ($action == 'act_card_merge'){
 	else
 	    $merge_limit = 1;
 	
+	// 卡规则，卡合并限制
+	// 来源卡，卡合并限制
+	//$card_from_id = $GLOBALS['db']->getOne('SELECT card_id FROM '.$GLOBALS['ecs']->table('users')." where user_name = '".$str_fromCard."'");
+	$arr_cardRules = $GLOBALS['db']->getAll('SELECT merge_limit,card FROM '.$GLOBALS['ecs']->table('card_rule'));
+	foreach ($arr_cardRules as $key=>$var){
+	    if (!empty($var['card'])){
+	        $arr_card = unserialize($var['card']);
+	        if (in_array($str_fromCard, $arr_card)){
+	            $merge_limit_from = $var['merge_limit'];
+	        }
+	    }
+	}
 	
-	// 卡合并限制是开启的（转入卡）
-	if ($merge_limit == 1)
+	// 只有都关闭了卡合并限制，才会跳过卡合并限制
+	if ($merge_limit_from == 1 || $merge_limit == 1)
 	{
-	    $card_from_id = $GLOBALS['db']->getOne('SELECT card_id FROM '.$GLOBALS['ecs']->table('users')." where user_name = '".$str_fromCard."'");
+	
+	    $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('card_log') .
+	    " WHERE card_from = '$str_fromCard' or card_to = '$str_fromCard' ORDER BY  log_id DESC";
+	    $res = $GLOBALS['db']->query($sql);
 	     
-	    if ($card_from_id > 0 || $card_from_id == -2){
-	        if ($card_from_id == -2)
-	            $merge_limit_from = 1;
-	        else
-	            $merge_limit_from = $GLOBALS['db']->getOne('SELECT merge_limit FROM '.$GLOBALS['ecs']->table('card_rule')." where id = ".$card_from_id);
-	         
-	        // 两张卡都不限制卡合并的情况下
-	        if ($merge_limit_from == 1)
-	        {
-	            $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('card_log') .
-	            " WHERE card_from = '$str_fromCard' or card_to = '$str_fromCard' ORDER BY  log_id DESC";
-	            $res = $GLOBALS['db']->query($sql);
-	             
-	            while ($row = $GLOBALS['db']->fetchRow($res))
-	            {
-	                $pay_time = $row['pay_time'];
-	                $times  = gmtime() - $pay_time;
-	                if ($times < 90*24*3600){
-	                   $redata['msg']='您的这卡在短期内已经转移过！';
-	    	           exit(json_encode($redata));
-	                }
-	                 
-	            }
-	             
-	            $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('card_log') .
-	            " WHERE card_from = '$str_toCard' or card_to = '$str_toCard' ORDER BY  log_id DESC";
-	            $res = $GLOBALS['db']->query($sql);
-	             
-	            while ($row = $GLOBALS['db']->fetchRow($res))
-	            {
-	                $pay_time = $row['pay_time'];
-	                $times  = gmtime() - $pay_time;
-	                if ($times < 90*24*3600){
-	    	           $redata['msg']='您的这卡在短期内已经转移过！';
-	    	           exit(json_encode($redata));
-	                }
-	            }
+	    while ($row = $GLOBALS['db']->fetchRow($res))
+	    {
+	        $pay_time = $row['pay_time'];
+	        $times  = gmtime() - $pay_time;
+	        if ($times < 90*24*3600){
+	            $redata['msg']='您的这卡在短期内已经转移过！';
+	    	    exit(json_encode($redata));
 	        }
 	         
-	         
+	    }
+	     
+	    $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('card_log') .
+	    " WHERE card_from = '$str_toCard' or card_to = '$str_toCard' ORDER BY  log_id DESC";
+	    $res = $GLOBALS['db']->query($sql);
+	     
+	    while ($row = $GLOBALS['db']->fetchRow($res))
+	    {
+	        $pay_time = $row['pay_time'];
+	        $times  = gmtime() - $pay_time;
+	        if ($times < 90*24*3600){
+	            $redata['msg']='您的这卡在短期内已经转移过！';
+	    	    exit(json_encode($redata));
+	        }
 	    }
 	}
 	
@@ -2930,7 +2929,7 @@ else if ($action == 'act_card_merge'){
 	
 	$state = 0;
 	// 两个卡系统的卡执行卡合并的时候，一个充值一个是消费
-	if ( (in_array($a, $cardno) && !in_array($b, $cardno)) || (!in_array($a, $cardno) && in_array($b, $cardno)))
+	if ( (in_array($a, $cardno2) && !in_array($b, $cardno2)) || (!in_array($a, $cardno2) && in_array($b, $cardno2)))
 	{
 	    $pay_param = array(
 	        'CardInfo' => array( 'CardNo'=> $str_fromCard, 'CardPwd' => $str_fromCardPwd),

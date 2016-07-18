@@ -28,7 +28,7 @@
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">
 		    	<div class="title_nav">
-		    		<a href="#" class="title_movie">影片</a><a href="#" class="title_cinema">影院</a>
+		    		<a href="movie.html" class="title_movie">影片</a><a href="#" class="title_cinema">影院</a>
 		    	</div>	
 		    </h1>
 		</header>
@@ -44,26 +44,7 @@
 						<div id="scroll1" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<ul class="mui-table-view">
-									<li class="mui-table-view-cell mui-media">
-										<a href="javascript:;" class="mui-row">
-											<div class="mui-col-xs-9">
-												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
-												<div class="mui-media-body">
-													<h4>伦敦陷落</h4>
-													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
-													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
-													<div class="star_pinfen">
-														<i></i>
-														<i></i>
-														<i></i>
-														<i></i>
-														<i></i>
-													</div>
-												</div>
-											</div>
-											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
-										</a>
-									</li>
+
 									<li class="mui-table-view-cell mui-media">
 										<a href="javascript:;" class="mui-row">
 											<div class="mui-col-xs-9">
@@ -305,7 +286,7 @@
 										</a>
 									</li>
 								</ul>
-								</div>
+							</div>
 						</div>
 					</div>
 					<div id="item2mobile" class="mui-slider-item mui-control-content">
@@ -321,8 +302,13 @@
 				</div>
 			</div>
 	</div>
+		<script src="js/connection.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
+			jQuery.ajaxLoad(web_url+'/mobile/cinema.php','',function(){
+
+			});
 			mui.init()
 			(function($) {
 				$('.mui-scroll-wrapper').scroll();

@@ -302,9 +302,13 @@
 				</div>
 			</div>
 	</div>
+		<script src="js/connection.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
-			jQuery.ajaxLoad(web_url+'/mobile/cinema.php',{})
+			jQuery.ajaxLoad(web_url+'/mobile/cinema.php','',function(){
+
+			});
 			mui.init()
 			(function($) {
 				$('.mui-scroll-wrapper').scroll();

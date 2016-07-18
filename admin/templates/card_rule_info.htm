@@ -19,6 +19,11 @@
     <td>{$FCKeditor}</td>
   </tr>
   <tr>
+  	<td class="label">卡合并限制</td>
+  	<td><input type="radio" name="merge_limit" value="1" {if $cardinfo.merge_limit eq 1}checked{/if}> 开
+    	<input type="radio" name="merge_limit" value="2" {if $cardinfo.merge_limit eq 2}checked{/if}> 关</td>
+  </tr>
+  <tr>
     <td class="label">卡类型：</td>
     <td>
     	<input type="radio" name="type" value="1" {if $cardinfo.type eq 1}checked{/if}> 文化卡

@@ -15,6 +15,9 @@ $jsonArray = array(
     'data'=>'',
     'message'=>''
 );
+/**
+ * 卡合并
+ */
 if($_REQUEST['act'] == 'act_card_merge'){
     include_once(ROOT_PATH . './includes/lib_order.php');
     $str_fromCard    = trim($_REQUEST['fromcard']);
@@ -263,4 +266,224 @@ if($_REQUEST['act'] == 'act_card_merge'){
         $jsonArray['message']=$cardPay->getMessage();
         JsonpEncode($jsonArray);
     }
+}
+/*
+ * 卡充值
+ *  会员预付款界面 
+ * */
+elseif ($_REQUEST['act'] == 'account_deposit')
+{
+    include_once(ROOT_PATH . 'includes/lib_clips.php');
+    $surplus_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+    $account    = get_surplus_info($surplus_id);
+    $user_id=$_SESSION['user_id'];
+
+    //获取剩余余额
+    $surplus_amount = get_user_surplus($user_id);
+    if (empty($surplus_amount))
+    {
+        $surplus_amount = 0;
+    }
+
+    // 售价比例 TODO 2015-11-06
+    $pay_than = 1.3;
+
+    if( !is_null($_SESSION['card_id']) )
+    {
+        $pay_price = $GLOBALS['db']->getOne('SELECT pay_than FROM '.$GLOBALS['ecs']->table('card_rule')." where id = ".$_SESSION['card_id']);
+        if ( !empty($pay_price) && $pay_price > 0.001)
+        {
+            $pay_than = $pay_price;
+        }
+    }
+
+    $priceList = array( 30=>30, 50=>50, 100=>100 );
+    foreach($priceList as &$point){
+        $point = price_format($point * $pay_than);
+    }
+
+    $jsonArray['data']=array(
+        'priceList'=>$priceList,
+        'surplus_amount'=>price_format($surplus_amount, false),
+        'username'=>$_SESSION['user_name'],
+        'order'=>$account,
+    );
+    JsonpEncode($jsonArray);
+}
+/**
+ * 点击确认充值
+ * 对会员余额申请的处理 */
+elseif ($_REQUEST['act'] == 'act_account')
+{
+    $user_id=$_SESSION['user_id'];
+    include_once(ROOT_PATH . 'includes/lib_clips.php');
+    include_once(ROOT_PATH . 'includes/lib_order.php');
+    $amount = isset($_REQUEST['amount']) ? floatval($_REQUEST['amount']) : 0;
+
+    // 充值金额为0的话，定义为非法操作
+    if ($amount <= 0){
+        $jsonArray['state']   = 'false';
+        $jsonArray['message'] = '非法操作！';
+        JsonpEncode($jsonArray);
+    }
+
+    // 如果没有登陆不能充值
+    if(empty($user_id))
+    {
+        $jsonArray['state']   = 'false';
+        $jsonArray['message'] = '请先验证卡号！';
+        JsonpEncode($jsonArray);
+    }
+
+    /* 变量初始化 */
+    $surplus = array(
+        'user_id'      => $user_id,
+        'rec_id'       => !empty($_REQUEST['rec_id'])      ? intval($_REQUEST['rec_id'])       : 0,
+        'process_type' => isset($_REQUEST['surplus_type']) ? intval($_REQUEST['surplus_type']) : 0,
+        'payment_id'   => isset($_REQUEST['payment_id'])   ? intval($_REQUEST['payment_id'])   : 0,
+        'user_note'    => isset($_REQUEST['user_note'])    ? trim($_REQUEST['user_note'])      : '',
+        'amount'       => $amount
+    );
+
+    /* 退款申请的处理 */
+    if ($surplus['process_type'] == 1)
+    {
+
+    }
+    /* 如果是会员预付款，跳转到下一步，进行线上支付的操作 */
+    else
+    {
+        // 如果没有选择支付方式，输出错误消息。
+        if ($surplus['payment_id'] < 3)
+        {
+            $jsonArray['state']   = 'false';
+            $jsonArray['message'] = '选择支付方式！';
+            JsonpEncode($jsonArray);
+        }
+
+        include_once(ROOT_PATH .'includes/lib_payment.php');
+
+        //获取支付方式名称
+        $payment_info = array();
+        $payment_info = payment_info($surplus['payment_id']);
+        $surplus['payment'] = $payment_info['pay_name'];
+
+        if ($surplus['rec_id'] > 0)
+        {
+            //更新会员账目明细
+            $surplus['rec_id'] = update_user_account($surplus);
+        }
+        else
+        {
+            //充值申请接口
+            include_once(ROOT_PATH . 'includes/lib_cardApi.php');
+
+            // 售价比例 TODO 2015-11-06
+            $pay_than = 1.3;
+
+            if( !is_null($_SESSION['card_id']) )
+            {
+                $pay_price = $GLOBALS['db']->getOne('SELECT pay_than FROM '.$GLOBALS['ecs']->table('card_rule')." where id = ".$_SESSION['card_id']);
+                if ( !empty($pay_price) && $pay_price > 0.001)
+                {
+                    $pay_than = $pay_price;
+                }
+            }
+
+
+            // 点数 => 金额
+            $priceList = array( 30=>30, 50=>50 ,100=>100);
+            foreach($priceList as &$point){
+                $point = price_format($point * $pay_than);
+            }
+            if (!in_array( $amount , $priceList))
+            {
+                $int_sjAmount = 0;
+            }
+            else {
+                $int_sjAmount = array_search( $amount, $priceList);
+            }
+
+            // TODO 卡系统识别
+            $userinfo = $db->getRow('SELECT user_name, password FROM '.$ecs->table('users')." WHERE user_id = '".$user_id."'");
+            $arr_param = array(	'CardInfo' => array( 'CardNo'=>$userinfo['user_name'], 'CardPwd'=>$userinfo['password']));
+            $state = $cardPay->action($arr_param, 8);
+            // 中影卡充值
+            if ($cardPay->getCardType() == 2)
+            {
+                $arr_param = array(
+                    'cardSeq'   => $_SESSION['user_name'],//卡序号
+                    'orderType' => 1,//1，单卡充值，2，批量充值
+                    'operId'    => $GLOBALS['_CFG']['operId'],//充值操作员(自助终端传终端编号)
+                    'cardNum'   => 1,//充值卡数量
+                    'saleId'    => $GLOBALS['_CFG']['saleId'],//售卡机构编号
+                    'timeStamp' => local_date('YmdHis'),//时间戳
+                    'company'   => 'alipay',//购卡单位
+                    'singleSaveAmount' => $int_sjAmount,//单张充值金额
+                    'singleRealAmount' => $int_sjAmount,//单张实收金额
+                    'totalSaveAmount'  => '',//总充值金额
+                    'totalRealAmount'  => '',//总实收金额
+                    'expDate'      => '',//有效期
+                    'thirdJournal' => '',//第三方流水号
+                    'extendInfo'   => ''//接口扩展字段信息
+                );
+                $arr_cardInfo = getCardApi($arr_param, 'CARD-RECHARGE', 7);
+                if ($arr_cardInfo['ReturnCode'] == '0'){
+                    $surplus['order_sn'] = $arr_cardInfo['OrderId'];
+                }else{
+                    $jsonArray['state']   = 'false';
+                    $jsonArray['message'] = $arr_cardInfo['ReturnMessage'];
+                    JsonpEncode($jsonArray);
+                }
+            }
+
+            //插入会员账目明细
+            $surplus['rec_id'] = insert_user_account($surplus, $amount);
+
+            // 华影卡，在支付宝成功支付后，在充值 。 lib_common.php   log_account_change（）；
+
+        }
+
+        //取得支付信息，生成支付代码
+        $payment = unserialize_config($payment_info['pay_config']);
+
+        //生成伪订单号, 不足的时候补0
+        $order = array();
+        $order['order_sn']       = $surplus['rec_id'];
+        $order['user_name']      = $_SESSION['user_name'];
+        $order['surplus_amount'] = $amount;
+
+        //计算支付手续费用
+        $payment_info['pay_fee'] = pay_fee($surplus['payment_id'], $order['surplus_amount'], 0);
+
+        //计算此次预付款需要支付的总金额
+        $order['order_amount']   = $amount + $payment_info['pay_fee'];
+
+        //记录支付log
+        $order['log_id'] = insert_pay_log($surplus['rec_id'], $order['order_amount'], $type=PAY_SURPLUS, 0);
+
+
+        /* 调用相应的支付方式文件 */
+        include_once(ROOT_PATH . 'includes/modules/payment/' . $payment_info['pay_code'] . '.php');
+        /* 取得在线支付方式的支付按钮 */
+        $pay_obj = new $payment_info['pay_code'];
+        $linkpay = $pay_obj->get_code($order, $payment, 1);
+        $jsonArray['state']   = 'true';
+        if ($payment_info['pay_code'] == 'alipay')
+        {
+            $jsonArray['data']['href'] = '/mobile/user.php?act=pays&code='.base64_encode($linkpay);
+        }
+        else if ( $payment_info['pay_code'] == 'weixin')
+        {
+            $jsonArray['data']['href'] = $linkpay;
+        }
+
+        JsonpEncode($jsonArray);
+    }
+}
+elseif ($_REQUEST['act'] == 'pays')
+{
+    $code = base64_decode($_GET['code']);
+    $smarty->assign('url', $code);
+    $smarty->display('alipayPay.html');
 }

@@ -1,7 +1,7 @@
 <div class="clearfix pb9">
 	<form class="filterform" action="#">
 	<span class="searcher">
-		<input id="movieSelectText_146172266147" type="text" class="input c_a5" placeholder="输入影院名称快速定位"><i class="sub"></i></span><span class="lh25">当前共有135家影院
+		<input id="movieSelectText_146172266147" type="text" class="input c_a5" placeholder="输入影院名称快速定位"><i class="sub"></i></span><span class="lh25">
 	</span>
 	</form>
 </div>

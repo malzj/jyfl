@@ -2755,7 +2755,7 @@ else if ($action == 'act_card_merge'){
 	$b=substr($str_toCard,0,6);
 	
 	// 不是同一个卡系统的卡，不能合并 TODO guoyunepng
-	$cardno = array('999011', '999013');
+	//$cardno = array('999011', '999013');
 	/* if ( (in_array($a, $cardno) && !in_array($b, $cardno)) || (!in_array($a, $cardno) && in_array($b, $cardno)))
 	{
 		echo '两张卡类型不符合，不能合并，有问题请拨打客服电话：400-010-0689';
@@ -2770,40 +2770,85 @@ else if ($action == 'act_card_merge'){
         exit;
 	}
 
-	//搜索是否已经存在记录
-	//var_dump($str_fromCard);
-	 $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('card_log') .
-            " WHERE card_from = '$str_fromCard' or card_to = '$str_fromCard' ORDER BY  log_id DESC";
-	 $res = $GLOBALS['db']->query($sql);
-
-     while ($row = $GLOBALS['db']->fetchRow($res))
-     {
-      	$pay_time = $row['pay_time'];
-		$times  = gmtime() - $pay_time;
-		if ($times < 90*24*3600){
-//			echo '您的这卡在短期内已经转移过！';
-//			exit;
-            $redata['msg']='您的这卡在短期内已经转移过！';
-            echo json_encode($redata);
-            exit;
-        }
-   	}
-
-	$sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('card_log') .
-            " WHERE card_from = '$str_toCard' or card_to = '$str_toCard' ORDER BY  log_id DESC";
-	$res = $GLOBALS['db']->query($sql);
-
-	while ($row = $GLOBALS['db']->fetchRow($res))
+	$cardno2 = array('999011', '999013');
+	
+	// 每点金额一样的卡才可以合并
+	$cardno = array(
+	    '999011' => 1.19,
+	    '999013' => 1,
+	    '711001' => 1.19,
+	    '711002' => 0.97,
+	    '711003' => 1.19,
+	    '711005' => 0.97,
+	    '711006' => 0.97,
+	    '711007' => 0.97,
+	    '711008' => 0.97,
+	    '711009' => 0.97,
+	    '711015' => 1.19,
+	    '711016' => 1.19,
+	    '711017' => 1.19,
+	    '711018' => 1.19,
+	    '711019' => 1.19
+	);
+	
+	if ($cardno[$a] != $cardno[$b])
 	{
-		$pay_time = $row['pay_time'];
-		$times  = gmtime() - $pay_time;
-		if ($times < 90*24*3600){
-//			echo '您的这卡在短期内已经转移过！';
-//			exit;
-            $redata['msg']='您的这卡在短期内已经转移过！';
-            echo json_encode($redata);
-            exit;
-        }
+	    $redata['msg']='两张卡类型不统一，不支持合并！';
+	    exit(json_encode($redata));
+	}	   
+	
+	// 卡规则，卡合并限制
+	// 无卡规则，默认限制是开启的
+	if (!empty($_SESSION['card_id']))
+	    $merge_limit = $GLOBALS['db']->getOne('SELECT merge_limit FROM '.$GLOBALS['ecs']->table('card_rule')." where id = ".$_SESSION['card_id']);
+	else
+	    $merge_limit = 1;
+	
+	// 卡规则，卡合并限制
+	// 来源卡，卡合并限制
+	//$card_from_id = $GLOBALS['db']->getOne('SELECT card_id FROM '.$GLOBALS['ecs']->table('users')." where user_name = '".$str_fromCard."'");
+	$arr_cardRules = $GLOBALS['db']->getAll('SELECT merge_limit,card FROM '.$GLOBALS['ecs']->table('card_rule'));
+	foreach ($arr_cardRules as $key=>$var){
+	    if (!empty($var['card'])){
+	        $arr_card = unserialize($var['card']);
+	        if (in_array($str_fromCard, $arr_card)){
+	            $merge_limit_from = $var['merge_limit'];
+	        }
+	    }
+	}
+	
+	// 只有都关闭了卡合并限制，才会跳过卡合并限制
+	if ($merge_limit_from == 1 || $merge_limit == 1)
+	{
+	
+	    $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('card_log') .
+	    " WHERE card_from = '$str_fromCard' or card_to = '$str_fromCard' ORDER BY  log_id DESC";
+	    $res = $GLOBALS['db']->query($sql);
+	     
+	    while ($row = $GLOBALS['db']->fetchRow($res))
+	    {
+	        $pay_time = $row['pay_time'];
+	        $times  = gmtime() - $pay_time;
+	        if ($times < 90*24*3600){
+	            $redata['msg']='您的这卡在短期内已经转移过！';
+	    	    exit(json_encode($redata));
+	        }
+	         
+	    }
+	     
+	    $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('card_log') .
+	    " WHERE card_from = '$str_toCard' or card_to = '$str_toCard' ORDER BY  log_id DESC";
+	    $res = $GLOBALS['db']->query($sql);
+	     
+	    while ($row = $GLOBALS['db']->fetchRow($res))
+	    {
+	        $pay_time = $row['pay_time'];
+	        $times  = gmtime() - $pay_time;
+	        if ($times < 90*24*3600){
+	            $redata['msg']='您的这卡在短期内已经转移过！';
+	    	    exit(json_encode($redata));
+	        }
+	    }
 	}
 	
 	// 双卡密码验证==> 转出卡密码验证
@@ -2884,7 +2929,7 @@ else if ($action == 'act_card_merge'){
 	
 	$state = 0;
 	// 两个卡系统的卡执行卡合并的时候，一个充值一个是消费
-	if ( (in_array($a, $cardno) && !in_array($b, $cardno)) || (!in_array($a, $cardno) && in_array($b, $cardno)))
+	if ( (in_array($a, $cardno2) && !in_array($b, $cardno2)) || (!in_array($a, $cardno2) && in_array($b, $cardno2)))
 	{
 	    $pay_param = array(
 	        'CardInfo' => array( 'CardNo'=> $str_fromCard, 'CardPwd' => $str_fromCardPwd),

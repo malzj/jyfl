@@ -431,14 +431,14 @@ class UserJsonpController extends Controller
             $result = $Dao->add();
             if ($result) {
                 $rudata['result'] = "true";
-                $rudata['msg'] = "成功";
+                $rudata['msg'] = "添加地址成功！";
             } else {
                 $rudata['result'] = "false";
-                $rudata['msg'] = "失败";
+                $rudata['msg'] = "添加地址失败！";
             }
         } else {
             $rudata['result'] = "false";
-            $rudata['msg'] = "失败";
+            $rudata['msg'] = "添加地址失败！";
         }
 
         $this->ajaxReturn($rudata,'jsonp');
@@ -452,7 +452,7 @@ class UserJsonpController extends Controller
         $address_id = $_REQUEST['address_id'];
         $user_id = $_REQUEST['user_id'];
         $Dao = M("user_address");
-        $result = $Dao->where(array("user_id" => $user_id, "address_id=" => $address_id))->find();
+        $result = $Dao->where(array("user_id" => $user_id, "address_id" => $address_id))->find();
         $regoin = M("region");
         $city = $result['city'];
         $province = $result['province'];
@@ -555,10 +555,10 @@ class UserJsonpController extends Controller
         $result = $Dao->where(array('user_id' => $id, 'address_id' => $address_id))->save($data);
         if ($result !== false) {
             $rudata['result'] = "true";
-            $rudata['msg'] = "成功！";
+            $rudata['msg'] = "修改地址成功！";
         } else {
             $rudata['result'] = "false";
-            $rudata['msg'] = "失败！";
+            $rudata['msg'] = "修改地址失败！";
         }
 
         $this->ajaxReturn($rudata,'jsonp');

@@ -39,10 +39,14 @@ elseif ($_REQUEST['act'] == 'getCityId')
 // 城市列表
 elseif ($_REQUEST['act'] == 'getCityList')
 {
-    $jsonArray['data'] = getCityList();;
+    $jsonArray['data'] = getCityList();
     JsonpEncode($jsonArray); 
 }
-
+/*手机城市列表*/
+elseif($_REQUEST['act'] == 'getMobileCities'){
+    $jsonArray['data'] = getMobileCities();
+    JsonpEncode($jsonArray);
+}
 /* 修改会员密码 */
 elseif ($_REQUEST['act'] == 'act_edit_password')
 {

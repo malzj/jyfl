@@ -44,27 +44,6 @@
 						<div id="scroll1" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<ul class="mui-table-view">
-
-									<li class="mui-table-view-cell mui-media">
-										<a href="javascript:;" class="mui-row">
-											<div class="mui-col-xs-9">
-												<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">
-												<div class="mui-media-body">
-													<h4>伦敦陷落</h4>
-													<p class='mui-ellipsis'>导演：<span>汪洋</span></p>
-													<p class='mui-ellipsis'>主演：<span>反复加咖啡可东方故事范德萨发啊</span></p>
-													<div class="star_pinfen">
-														<i></i>
-														<i></i>
-														<i></i>
-														<i></i>
-														<i></i>
-													</div>
-												</div>
-											</div>
-											<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>
-										</a>
-									</li>
 									<li class="mui-table-view-cell mui-media">
 										<a href="javascript:;" class="mui-row">
 											<div class="mui-col-xs-9">
@@ -304,10 +283,26 @@
 	</div>
 		<script src="js/connection.js"></script>
 		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/ajaxJsonp.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
-			jQuery.ajaxLoad(web_url+'/mobile/cinema.php','',function(){
-
+			jQuery.ajaxJsonp(web_url+'/mobile/cinema.php','',function(result){
+				var html1='';
+				console.log(result);
+				jQuery.each(result.data,function(k,val){
+					html1+='<li class="mui-table-view-cell mui-media">' +
+							'<a href="javascript:;" class="mui-row">' +
+							'<div class="mui-col-xs-9">' +
+							'<img class="mui-media-object mui-pull-left" src="images/jy_index/01.jpg">' +
+							'<div class="mui-media-body">' +
+							'<h4>'+val.movieName+'</h4>' +
+							'<p class="mui-ellipsis">导演：<span>'+val.actor+'</span></p>' +
+							'<p class="mui-ellipsis">主演：<span>'+val.director+'</span></p>' +
+							'<div class="star_pinfen"><i></i><i></i><i></i><i></i><i></i></div></div></div>' +
+							'<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket">立即购票</button></div>' +
+							'</a></li>'
+				});
+				jQuery('#item1mobile #scroll1 ul').html(html1);
 			});
 			mui.init()
 			(function($) {

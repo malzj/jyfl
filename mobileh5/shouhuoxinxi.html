@@ -89,6 +89,7 @@
 		</div>
 		<script src="js/connection.js"></script>
 		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/ajaxJsonp.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.view.js"></script>
 		<script src="js/mui.picker.min.js.js"></script>
@@ -97,6 +98,7 @@
 		<script type="text/javascript">
 			(function($) {
 				$.init();
+				//收货列表渲染start
 				jQuery.ajax({
 					url:web_url+'/jyflapi/index.php/Users/UserJsonp/showAddress',
 					type:'get',
@@ -107,13 +109,12 @@
 						var html='';
 						var selectword='';
 						var selected='';
-
 						jQuery.each(result.business.result,function(k,val){
 							if(val.selected=='1'){
 								selectword='默认地址';
 								selected='checked';
 							}else{
-								selectword='默认地址';
+								selectword='设为默认';
 								selected='';
 							}
 							html+='<li class="mui-table-view-cell"><div class="mui-slider-right mui-disabled">' +
@@ -127,9 +128,10 @@
 									'</div></div></div></li>'
 							jQuery('#shouhuo_list').html(html);
 						})
-
 					}
-				})
+				});
+				//收货列表渲染end
+
 				var viewApi = mui('#shouhuoxinxi').view({
 					defaultPage: '#shouhuo_content'
 				});
@@ -194,6 +196,25 @@
 				//						$.swipeoutClose(document.getElementById("OA_task_1").querySelector('li:last-child'));
 				//					}, 1000);
 				//				}, 1000);
+
+				//点击设为默认地址操作
+				$('#shouhuo_list').on('tap','.mui-input-row.mui-radio',function(){
+					var address_id =this.getElementsByTagName('input')[0].value;
+					jQuery.ajaxJsonp(web_url+'/mobile/address.php',{act:'AjaxAddressDefault',address_id:address_id},function(result){
+						console.log(result);
+						if(result.state=='true'){
+							$.alert(result.message,function(){
+								location.reload();
+							})
+						}else if(result.state=='false'){
+							if(result.data.isLogin==1){
+								$.alert(result.message);
+								window.location.href='./index.html';
+							}else{$.alert(result.message);}
+						}
+					});
+				});
+
 				//第一个demo，拖拽后显示操作图标，点击操作图标删除元素；
 				$('#shouhuo_list').on('tap', '.shouhuo_remove', function(event) {
 					var elem = this;

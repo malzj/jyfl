@@ -125,6 +125,7 @@ elseif ( $_REQUEST['act'] == 'AjaxAddressDefault')
         $db->query("UPDATE " . $GLOBALS['ecs']->table('users') ." SET address_id = '$address_id' WHERE user_id = '$_SESSION[user_id]'");
         // 删除 session 中保存的默认收货地址，下单页面从新获取
         $_SESSION['flow_consignee'] = array();
+        $jsonArray['message']='设置默认地址成功！';
     }else{
         $jsonArray['state'] = 'false';
         $jsonArray['message'] = '您未登录，或登录超时，请从新登录后操作';

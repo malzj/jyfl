@@ -43,6 +43,7 @@ ul li{list-style: none;}
 .movie_item .btn_ticket{margin-top: 15px;}
 .movie_price{color: #ff781e;}
 .dianziquan{font-size: 14px;width: 80%;padding: 10px;display: block;margin: 0 auto;text-align: center;border: 1px solid #ddd;margin-bottom: 15px;}
-.btn_next{padding: 10px 0;width: 80%;background: #2fd0b5;color: white;border: none;margin: 0 auto;display: block;margin-top: 40px;}
+.btn_next{padding: 10px 0;width: 80%;background: #2fd0b5!important;color: white;border: none!important;margin: 0 auto;display: block;margin-top: 40px;}
 .dianziquan_mima{height: 28px!important;}
 .movie_seat_dianshu{line-height: 52px;font-size: 18px;}
+.seat_next{margin-top:20px;margin-bottom: 20px!important;}

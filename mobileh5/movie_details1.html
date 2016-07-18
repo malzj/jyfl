@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style>
+			#icon-phone{
+			    color: #8F8F94;
+			}
+			#icon-phone{
+			    margin: 3px;
+			    width: 50px;
+			    height: 50px;
+			    display: inline-block;
+			    text-align: center;
+			    background-color: #fff;
+			    border: 1px solid #ddd;
+			    border-radius: 25px;
+			    background-clip: padding-box;
+			}
+			#icon-phone .mui-icon {
+			    margin-top: 12px;
+			}
+			.mui-segmented-control.mui-scroll-wrapper .mui-scroll{height:auto;}
+			.movie_date .mui-segmented-control.mui-scroll-wrapper{height: 50px;}
+			.movie_paiqi{height: 45px;}
+			.mui-numbox{display: block;margin: 0 auto;margin-bottom: 15px;}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">购票详情</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-row movie_details1_top bg_white">
+				<div class="mui-col-xs-9">
+					<h4 class="mui-ellipsis">北京万达国际影城</h4>
+					<p class="mui-ellipsis">北京市朝阳区建国路...........非事故发生的国防高</p>
+				</div>
+				<div class="mui-col-xs-3 tel_movie_details1">
+					<a id="icon-phone"><span class="mui-icon mui-icon-phone-filled"></span></a>
+				</div>
+			</div>
+			
+			<div style="padding: 10px 10px;" class="bg_white">
+				<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item mui-active" href="#item1">在线选座</a>
+					<a class="mui-control-item" href="#item2">电子券兑换</a>
+				</div>
+			</div>
+			<div>
+				<!--在线选座 start-->
+				<div id="item1" class="mui-control-content mui-active bg_white">
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted movie_select"
+						style="height: 150px;background: url(images/jy_index/01.jpg) no-repeat;background-position: 50%;background-color: #4685a4;background-size: 300%;">
+					    <div class="mui-scroll">
+					        <a class="mui-control-item mui-active select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
+					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
+					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
+					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
+					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
+					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
+					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
+					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
+					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
+					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
+					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
+					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
+					    </div>
+					</div>
+					<div class="movie_title">
+					<div class="mui-text-center"><span>北京遇上西雅图之不二情书</span></div>
+					<div class="mui-text-center">星星评分</div>
+					</div>	
+					<!--温馨提示-->
+					<div class="mui-row movie_wenxintishi">
+						<div class="mui-col-xs-12">温馨提示：影院提前60分钟关闭网络售票</div>
+					</div>
+					<!--日期排期-->
+					<div class="movie_date">
+						<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+							    <div class="mui-scroll">
+							        <a class="mui-control-item mui-active movie_paiqi">2016-05-21</a>
+							        <a class="mui-control-item movie_paiqi">2016-05-22</a>
+							        <a class="mui-control-item movie_paiqi">2016-05-23</a>
+							        <a class="mui-control-item movie_paiqi">2016-05-24</a>
+							        <a class="mui-control-item movie_paiqi">2016-05-25</a>
+							    </div>
+						</div>
+					</div>
+					<!--电影列表-->
+					<div class="movie_item">
+						<div class="mui-row movie_list">
+							<div class="mui-col-xs-3 mui-text-center movie_time">00:05</div>
+							<div class="mui-col-xs-4 movie_type">
+								<div>国语2D</div>
+								<p>5号厅</p>
+							</div>
+							<div class="mui-col-xs-2 mui-text-center movie_price">33.0</div>
+							<div class="mui-col-xs-3 mui-text-center"><button class="btn_ticket" type="button">选座购票</button></div>
+						</div>
+						<div class="mui-row movie_list">
+							<div class="mui-col-xs-3 mui-text-center movie_time">00:05</div>
+							<div class="mui-col-xs-4 movie_type">
+								<div>国语2D</div>
+								<p>5号厅</p>
+							</div>
+							<div class="mui-col-xs-2 mui-text-center movie_price">33.0</div>
+							<div class="mui-col-xs-3 mui-text-center"><button class="btn_ticket" type="button">选座购票</button></div>
+						</div>
+					</div>
+				</div>
+				<!--在线选座 end-->
+				<!--电子兑换券 start-->
+				<div id="item2" class="mui-control-content">
+					<div class="mui-row bg_white">
+						<div class="mui-col-xs-12"><span class="dianziquan">朝阳剧场3D电子卡(42.4点)</span></div>
+						<div class="mui-col-xs-12"><span class="dianziquan">朝阳剧场3D电子卡(42.4点)</span></div>
+						<div class="mui-numbox" data-numbox-min='1'>
+							<button class="mui-btn-numbox-minus" type="button">-</button>
+							<input class="mui-input-numbox" type="number" />
+							<button class="mui-btn-numbox-plus" type="button">+</button>
+						</div>
+					</div>
+					<div class="mui-input-row margin_top_10 bg_white">
+						<label>手机号：</label>
+						<input type="text">
+					</div>
+					<button type="button" class="mui-btn btn_next">下一步</button>
+				</div>
+				<!--电子兑换券 end-->
+			</div>
+			
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html> 

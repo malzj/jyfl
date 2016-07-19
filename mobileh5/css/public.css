@@ -15,6 +15,8 @@
 .color_ff781e{color: #FF781E;}
 .color_2fd0b5{color: #2FD0B5;}
 ul li{list-style: none;}
+.mui-bar{background: white;}
+.border_right_ddd{border-right: 1px solid #ddd;}
 /*movie*/
 .buy_ticket{text-align: center;margin-top: 30px;background: #2fd0b5;color: white;border: none;}
 .star_pinfen i{background: url(../images/jy_index/star.png) no-repeat;width: 15px;height: 15px;display: inline-block;background-size: 100% 100%;}
@@ -49,3 +51,14 @@ ul li{list-style: none;}
 .movie_seat_dianshu{line-height: 52px;font-size: 18px;}
 .seat_next{margin-top:20px;margin-bottom: 20px!important;}
 .remainder_time{background: #fdf4d9;line-height: 40px;font-size: 14px;}
+.dianziquan_tips{margin-top: 30px;padding: 15px;}
+
+/*cake*/
+.xiangqing h6 {border: 1px solid #dfdfdf;padding: 5px 10px;color: #888585;/* margin: 6px 5px 0 0; */display: inline-block;border-radius: 5px;}
+.xiangqing h6.checked{border: 1px solid #2fd0b5;}
+.guige_1{padding-right: 15px;margin-top: 10px;}
+.cake_details_title{border-bottom: 1px solid #ddd;padding: 10px;}
+.xiangqing{padding: 10px 0;}
+.cake_tips{border-bottom: 1px solid #ddd;border-top: 1px solid #ddd;padding: 15px 10px;font-size: 14px;}
+.footer_liji{background: #FF781E;color: white!important;}
+.footer_jiaru{background: #2fd0b5;color: white!important;}

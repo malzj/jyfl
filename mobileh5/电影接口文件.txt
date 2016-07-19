@@ -31,15 +31,11 @@
 	参数：无
 
 	说明：即将上映
-	地址：mobile/cinema.php?op=coming	
+	地址：mobile/cinema.php?op=coming
 	参数：无
 
-	说明：影片详情
+	说明：影片详情及影片影院列表
 	地址：mobile/cinema.php?step=movieDetail
-	参数：movieid = 影片id
-
-	说明：影片详情 -> 选影院
-	地址：mobile/cinema.php?step=movieCinema
 	参数：movieid = 影片id
 
 	说明：影院详情【在线选座】

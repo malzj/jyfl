@@ -10,8 +10,8 @@
     <script src="js/connection.js"></script>
     <script src="js/rem.js"></script>
     <script src="js/jquery.min.js"></script>
+    <script src="js/ajaxJsonp.js"></script>
     <script src="js/mui.min.js"></script>
-    <script src="js/messageJs.js"></script>
     <style>
         .mui-pages {
             top:0;
@@ -168,24 +168,17 @@
             var username = form.find("input[name='username']").val();
             var password = form.find("input[name='password']").val();
             var type = form.find("input[name='type']").val();
-            jQuery.ajax({
-                type: 'post',
-                url: web_url + '/mobile/userAuth.php?act=actLogin',
-                async: false,
-                data: {username: username, password: password, type: type},
-                dataType: 'jsonp',
-                jsonp:'jsoncallback',
-                success: function (result) {
+            jQuery.ajaxJsonp(web_url + '/mobile/userAuth.php?act=actLogin',{username: username, password: password, type: type},function (result) {
                     console.log(result);
                     if (result.state == "true") {
                         localStorage.user_id = result.data.user_id;
                         localStorage.user_name = result.data.user_name;
-                        window.location.href = 'jy_index.html';
+                        window.location.href = './jy_index.html';
                     } else {
                         mui.alert(result.message);
                     }
                 }
-            })
+            )
         })
     })
     mui.init();

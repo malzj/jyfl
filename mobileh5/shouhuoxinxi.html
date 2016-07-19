@@ -240,7 +240,6 @@
 								showCityPickerButton.addEventListener('tap', function(event) {
 									cityPicker.show(function(items) {
 										cityResult.value = items[0].text + " " + items[1].text;
-										console.log(items);
 										hcountry.value = items[0].value;
 										hprovince.value = items[1].value;
 										//返回 false 可以阻止选择框的关闭
@@ -271,7 +270,6 @@
 								showCityPickerButton.addEventListener('tap', function(event) {
 									cityPicker.show(function(items) {
 										cityResult.value = items[0].text + " " + items[1].text;
-										console.log(items);
 										hcountry.value = items[0].value;
 										hprovince.value = items[1].value;
 										//返回 false 可以阻止选择框的关闭
@@ -311,7 +309,6 @@
 				$('#shouhuo_list').on('tap','.mui-input-row.mui-radio',function(){
 					var address_id =this.getElementsByTagName('input')[0].value;
 					jQuery.ajaxJsonp(web_url+'/mobile/address.php',{act:'AjaxAddressDefault',address_id:address_id},function(result){
-						console.log(result);
 						if(result.state=='true'){
 							$.alert(result.message,function(){
 								location.reload();
@@ -333,7 +330,6 @@
 					var zipcode = document.getElementById('adzipcode').value;
 					var consignee = document.getElementById('adconsignee').value;
 					var mobile = document.getElementById('admobile').value;
-//					alert(hcountryid+'-'+hprovinceid+'-'+hstreet+'-'+consignee+'-'+mobile+'-'+zipcode);
 					jQuery.ajaxJsonp(web_url+'/jyflapi/index.php/Users/UserJsonp/addAddress',{
 						user_id:localStorage.user_id,
 						hcountryid:hcountryid,
@@ -369,7 +365,6 @@
 						consignee:consignee,
 						mobile:mobile
 					},function(result){
-						console.log(result);
 						if(result.result=='true'){
 							$.alert(result.msg);
 						}else{

@@ -19,28 +19,9 @@ $jsonArray = array(
     'message'=>''
 );
 
-// 蛋糕banner图
-if($_REQUEST['act'] == "getBanner")
-{
-    $banner = getNavadvs(34);
-    foreach ($banner as $key=>&$val)
-    {
-        $val['ad_code'] = getImagePath($val['ad_code'],'ad');
-    }
-    $jsonArray['data'] = $banner; 
-    JsonpEncode($jsonArray);
-}
 
-// 蛋糕品牌列表
-elseif ($_REQUEST['act'] == "getBrands")
-{
-    $navList = get_navigator();
-    $cakeNav = $navList['middle'][16];
-    $jsonArray['data'] = $cakeNav['child'];
-    JsonpEncode($jsonArray);
-}
-// 口味数组
-elseif($_REQUEST['act'] == "getIndex")
+// 蛋糕首页
+if($_REQUEST['act'] == "getIndex")
 {
     // 口味数组
     $attrGoods = array();
@@ -59,7 +40,18 @@ elseif($_REQUEST['act'] == "getIndex")
         $attrGoods[$key]['goods'][] = attrAd($val, 4, 35);
     }
     
-    $jsonArray['data'] = $attrGoods;
+    // 图片替换为绝对地址
+    foreach ($attrGoods as $key=>&$attr)
+    {
+        foreach ( $attr['goods'] as $key2=>&$goods)
+        {
+            $goods['ad_code'] = getImagePath($goods['ad_code'],'ad');
+        }
+    }
+    
+    $jsonArray['data']['cate'] = getCinemaCate(16,true);
+    $jsonArray['data']['banner'] = getBanner(34);
+    $jsonArray['data']['goods'] = $attrGoods;
     JsonpEncode($jsonArray);
 }
 
@@ -76,4 +68,13 @@ function getCakeAttrUrl($val)
     );
     
     return $value[$val];
+}
+
+function getBanner($id){
+    $banner = getNavadvs($id);
+    foreach ($banner as $key=>&$val)
+    {
+        $val['ad_code'] = getImagePath($val['ad_code'],'ad');
+    }
+    return $banner;
 }

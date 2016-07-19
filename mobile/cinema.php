@@ -69,7 +69,7 @@ elseif ($_REQUEST['step'] == "cinema")
 	JsonpEncode($jsonArray); 
 }
 
-// 影片详情
+// 影片详情及影片影院列表
 elseif ($_REQUEST['step'] == "movieDetail")
 {
     $movieid = !empty($_REQUEST['movieid']) ? intval($_REQUEST['movieid']) : 0 ;
@@ -77,15 +77,6 @@ elseif ($_REQUEST['step'] == "movieDetail")
     $movieDetail = getMovieDetail( $movieid );
     // 影片评分
     $movieDetail['scoreBest'] = $movieDetail['score'] * 10;
-    $jsonArray['data'] = $movieDetail;
-    JsonpEncode($jsonArray); 
-    
-}
-// 影片详情--选影院
-elseif ($_REQUEST['step'] == "movieCinema")
-{
-	$movieid = !empty($_REQUEST['movieid']) ? intval($_REQUEST['movieid']) : 0 ;
-	
 	// 根据影片得到该影片上映的影院信息
 	$cinemaList = getMovieCinema( $movieid );
 	// 整理区
@@ -113,8 +104,8 @@ elseif ($_REQUEST['step'] == "movieCinema")
 			
 		}
 	}
-	
-	$jsonArray['data'] = $cinemas;
+	$jsonArray['data']['movieDetail'] = $movieDetail;
+	$jsonArray['data']['cinemas'] = $cinemas;
     JsonpEncode($jsonArray); 
 	
 }

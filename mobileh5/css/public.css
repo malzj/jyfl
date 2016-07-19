@@ -7,7 +7,15 @@
 }
 .border_bottom_none{border-bottom: none!important;}
 .border_top_none{border-top: none!important;}
-
+.btn_ticket{background: #2fd0b5;border: none;color: white;padding: 5px 8px;}
+.margin_top_10{margin-top: 10px;}
+.margin_top_20{margin-top: 20px;}
+.margin_top_15{margin-top: 15px!important;}
+.margin_bottom_10{margin-bottom: 10px!important;}
+.color_ff781e{color: #FF781E;}
+.color_2fd0b5{color: #2FD0B5;}
+ul li{list-style: none;}
+/*movie*/
 .buy_ticket{text-align: center;margin-top: 30px;background: #2fd0b5;color: white;border: none;}
 .star_pinfen i{background: url(../images/jy_index/star.png) no-repeat;width: 15px;height: 15px;display: inline-block;background-size: 100% 100%;}
 .star_pinfen{margin-top: 5px;}
@@ -18,3 +26,26 @@
 .margin_right_13{margin-right: 13px;}
 .movie_details_top{background: url(../images/jy_index/04.png) no-repeat center;padding-top: 20px;}
 .movie_details_top,.movie_details_top p{color: white;}
+.xuanzuo_btn{background: #2fd0b5;margin-top: 7px;margin-left: 15px;color: white;border: none;}
+.movie_xianqing{padding:20px 10px;font-size: 16px;text-indent: 32px;line-height: 1.5;}
+.bg_white{background: white!important;}
+.movie_details1_top{border-bottom: 1px solid #ccc;padding:10px 10px 5px 10px;}
+.tel_movie_details1{text-align: right;}
+.select_movie{padding: 0!important;margin: 25px 10px 0 10px;}
+.select_movie{display:inline-block;width: 70px!important;height:100px;background-size: 100% 100%!important;}
+.movie_title{margin: 10px 0;}
+.movie_wenxintishi{background:#ff781e;color: white;padding: 10px 0;font-size: 14px;padding-left: 15px;}
+.movie_date{padding: 10px 0;background: #efeff4;padding-bottom: 0;}
+.movie_paiqi.mui-active{color: #2FD0B5!important;}
+.movie_type{font-size: 14px;}
+.movie_list{overflow: hidden;height: 60px;border-bottom: 1px solid #ddd;}
+.movie_time,.movie_price{line-height: 60px;}
+.movie_type{margin-top: 10px;}
+.movie_item .btn_ticket{margin-top: 15px;}
+.movie_price{color: #ff781e;}
+.dianziquan{font-size: 14px;width: 80%;padding: 10px;display: block;margin: 0 auto;text-align: center;border: 1px solid #ddd;margin-bottom: 15px;}
+.btn_next{padding: 10px 0;width: 80%;background: #2fd0b5!important;color: white;border: none!important;margin: 0 auto;display: block;margin-top: 40px;}
+.dianziquan_mima{height: 28px!important;}
+.movie_seat_dianshu{line-height: 52px;font-size: 18px;}
+.seat_next{margin-top:20px;margin-bottom: 20px!important;}
+.remainder_time{background: #fdf4d9;line-height: 40px;font-size: 14px;}

@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">			
+			.tips .seat-intro {text-align: center;font-size: 14px;padding: 0;overflow: hidden;margin-top: 0;}			
+			.tips {overflow: hidden;min-height: 34px;line-height: 34px;}
+			.tips .seat-intro li {float: left;width: 25%;}			
+			.tips .seat-intro .seat {margin: 0 3px;vertical-align: -2px;}
+			
+			.seat,.empty-col {display: inline-block;width: 18px;height: 18px;line-height: 18px;margin: 0 2px 2px 0;background-size: 18px 18px;}
+			
+			.active {background-image: url(images/seat_1.png)}
+			.select {background-image: url(images/seat_2.png);}
+			.disabled{background-image:url(images/seat_3.png);}
+			.love {background-image: url(images/seat_4.png);}
+			.main_a {position: relative;z-index: 1; background: #f0f0f0;text-align: center;overflow: hidden;border-top: 1px solid #dfdfdf;}
+			.main_a h6 {margin: 0;position: absolute;top: 0;left: 50%;z-index: 5;margin-left: -84px;width: 168px;height: 20px; line-height:20px;color: #ffe4a5;background: transparent url(images/tips_5.png) no-repeat center top;background-size: 167px 19px;}
+			.wrapper {position: relative;top: 0;left: 0;z-index: 3;height: 100%;-webkit-overflow-scrolling: touch;}
+			.scroller {position: relative; margin-top: 20px;padding: 0 23px;}
+			 
+			.c-tips {margin-top:25px;margin-bottom:10px;height: 16px;line-height: 16px;background: #f0f0f0;}
+				
+			.map-row .number-row{width:20px;   font-weight: 600; font-size:15px;}
+			.map-row .seat-row{overflow:scroll; width:auto;}
+			.act-phone{padding-top:15px;}
+			::-webkit-scrollbar{display: none;}
+			
+			.plan-price{position:absolute; top:0; right:0; height:60px; line-height:60px; margin:0; color:#FC7E2C; font-size:16px;}
+			.disabled-seat{height: 62px;line-height: 60px;font-size: 16px; text-align:center;}
+			.disabled-seat span{border:1px solid #ff6900; padding:5px 5px; margin:0 5px; font-size:14px; background:#fff;}
+			.cf{background: white;}
+		</style>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">选择座位</h1>
+		</header>
+		<div class="mui-content">
+		    <div class="mui-row movie_details1_top bg_white">
+				<div class="mui-col-xs-9">
+					<h4 class="mui-ellipsis">朝阳剧场</h4>
+					<p class="mui-ellipsis">今天 05-05 12:00 (国语2D)</p>
+				</div>
+				<div class="mui-col-xs-3 mui-text-right">
+					<span class="color_ff781e movie_seat_dianshu">33.0点</span>
+				</div>
+			</div>
+			<div class="tips cf margin_0">
+				<div class='row disabled-seat'>
+					<center>请在下方座位图选择您满意的座位</center>
+				</div>
+				<ul class="seat-intro">
+					<li><span class="seat active"></span>可选</li>
+					<li><span class="seat select"></span>已选</li>
+					<li><span class="seat disabled"></span>已售</li>
+					<li><span class="seat love"></span>情侣座</li>
+				</ul>
+			</div>
+			<div class="main_a main-small main-big" style="min-height: 200px; max-height:1500px;">
+				<h6>7号厅</h6>
+				<div class="wrapper">
+					<div class="c-tips"><h4>银幕中央</h4></div>
+					<div class='seatmap' style="overflow:scroll;">
+						<center style="height:150px; line-height:150px;">加载中...</center>
+					</div>
+				</div>
+				<div class="container act-phone">
+					<form action="cinema_order.php" method="post" name="orderForm" onsubmit="return checkOrderForm(this);">
+					<div class="mui-input-row bg_white">
+						<label>手机号</label>
+						<input type="text">
+					</div>
+					<p class="mui-text-right margin_top_10">（此手机号码用来接收取票密码）</p>
+					<div class='mui-row'>
+						<input type="hidden" name="act" value="order" />
+						<input type="hidden" name="planId" value="1221309185" />								
+						<input type="hidden" name="hallName"  value="六号厅" />								
+						<input type="hidden" name="featureTimeStr" value="2016-07-18 星期一 10:20" />   			
+						<input type="hidden" name="movieName"  value="陆垚知马俐" />				
+						<input type="hidden" name="cinemaName" value="大地影院-顺义隆华店" />				
+						<input type="hidden" name="language" value="国语 / 2D" />			
+			            <input type="hidden" name="seatsNo" id="seatsNo" value="" />					
+			            <input type="hidden" name="seatsName" id="seatsName" value="" />				
+			            <input type="hidden" name="seatsCount" id="seatsCount" value="" />				
+			            <input type="hidden" name="vipPrice" id="vipPrice" value="34.0" />	
+			            <input type="hidden" name="seatParam" id="seatParam" value='{"hallno":"6","planid":1221309185,"cinemaid":5963,"movieid":387672}' />
+						<input class="mui-btn btn_next seat_next" type="submit" value=" &nbsp;下一步 &nbsp; ">
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

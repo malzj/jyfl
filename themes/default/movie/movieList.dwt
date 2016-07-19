@@ -95,10 +95,10 @@
 							<li style="float: left;">
 								<!--<div class="li_top"></div>-->
 								<div class="pic">
-									<a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_blank"><img src="{$hot.pathVerticalS}" width="140" height="196"></a>
+									<a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_self"><img src="{$hot.pathVerticalS}" width="140" height="196"></a>
 								</div>
-								<div class="title"><a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_blank"><span>{$hot.movieName}</span></a>
-								<div class="buy"> <a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_blank" class="zhuti_a_hover">选座购票</a></div>
+								<div class="title"><a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_self"><span>{$hot.movieName}</span></a>
+								<div class="buy"> <a href="{$app_path}movie.php?step=planCinema&movieid={$hot.movieId}" target="_self" class="zhuti_a_hover">选座购票</a></div>
 							</a></div>
 							</li>
 						{/foreach}

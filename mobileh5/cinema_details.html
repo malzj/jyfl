@@ -39,9 +39,8 @@
 		</header>
 		<div class="mui-content">
 			<div class="mui-row movie_details1_top bg_white">
-				<div class="mui-col-xs-9">
-					<h4 class="mui-ellipsis">北京万达国际影城</h4>
-					<p class="mui-ellipsis">北京市朝阳区建国路...........非事故发生的国防高</p>
+				<div id="cinema_info" class="mui-col-xs-9">
+
 				</div>
 				<div class="mui-col-xs-3 tel_movie_details1">
 					<a id="icon-phone"><span class="mui-icon mui-icon-phone-filled"></span></a>
@@ -60,24 +59,10 @@
 					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted movie_select"
 						style="height: 150px;background: url(images/jy_index/01.jpg) no-repeat;background-position: 50%;background-color: #4685a4;background-size: 300%;">
 					    <div class="mui-scroll">
-					        <a class="mui-control-item mui-active select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
-					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
-					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
-					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
-					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
-					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
-					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
-					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
-					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
-					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
-					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
-					        <a class="mui-control-item select_movie" style="background: url(images/jy_index/01.jpg) no-repeat"></a>
 					    </div>
 					</div>
 					<div class="movie_title">
-					<div class="mui-text-center"><span>北京遇上西雅图之不二情书</span></div>
-					<div class="mui-text-center">星星评分</div>
-					</div>	
+					</div>
 					<!--温馨提示-->
 					<div class="mui-row movie_wenxintishi">
 						<div class="mui-col-xs-12">温馨提示：影院提前60分钟关闭网络售票</div>
@@ -86,34 +71,11 @@
 					<div class="movie_date">
 						<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 							    <div class="mui-scroll">
-							        <a class="mui-control-item mui-active movie_paiqi">2016-05-21</a>
-							        <a class="mui-control-item movie_paiqi">2016-05-22</a>
-							        <a class="mui-control-item movie_paiqi">2016-05-23</a>
-							        <a class="mui-control-item movie_paiqi">2016-05-24</a>
-							        <a class="mui-control-item movie_paiqi">2016-05-25</a>
 							    </div>
 						</div>
 					</div>
 					<!--电影列表-->
 					<div class="movie_item">
-						<div class="mui-row movie_list">
-							<div class="mui-col-xs-3 mui-text-center movie_time">00:05</div>
-							<div class="mui-col-xs-4 movie_type">
-								<div>国语2D</div>
-								<p>5号厅</p>
-							</div>
-							<div class="mui-col-xs-2 mui-text-center movie_price">33.0</div>
-							<div class="mui-col-xs-3 mui-text-center"><button class="btn_ticket" type="button">选座购票</button></div>
-						</div>
-						<div class="mui-row movie_list">
-							<div class="mui-col-xs-3 mui-text-center movie_time">00:05</div>
-							<div class="mui-col-xs-4 movie_type">
-								<div>国语2D</div>
-								<p>5号厅</p>
-							</div>
-							<div class="mui-col-xs-2 mui-text-center movie_price">33.0</div>
-							<div class="mui-col-xs-3 mui-text-center"><button class="btn_ticket" type="button">选座购票</button></div>
-						</div>
 					</div>
 				</div>
 				<!--在线选座 end-->
@@ -138,9 +100,87 @@
 			</div>
 			
 		</div>
+		<script src="js/connection.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jqueryExtend.js"></script>
+		<script src="js/cinema_detail.js"></script>
 		<script src="js/mui.min.js"></script>
+		<script src="js/mui.hrefclick.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			(function($) {
+				var cinemaid = jQuery.getUrlParam('cinemaid');
+				var movieid = jQuery.getUrlParam('movieid');
+				jQuery.ajaxJsonp(web_url + '/mobile/cinema.php?step=allCinemaDetail', {
+					cinemaid: cinemaid,
+					movieid: movieid
+				}, function (result) {
+					console.log(result);
+					if (result.state == 'true') {
+						//影院
+						jQuery('#cinema_info').html('<h4 class="mui-ellipsis">' + result.data.cinemaDetail.cinema_name + '</h4><p class="mui-ellipsis">' + result.data.cinemaDetail.cinema_address + '</p>');
+						//电影列表
+						var movieList = '';
+						jQuery.each(result.data.movies, function (key, value) {
+							var selected = '';
+							if (value.selected == 1) {
+								selected = 'mui-active';
+								jQuery.movieTitle(value.pathHorizonH,value.movieName,value.score);
+							} else {
+								selected = '';
+							}
+							movieList += '<a class="mui-control-item ' + selected + ' select_movie" data-movieid="'+value.movieId+'" data-title="'+value.movieName+'" data-score="'+value.score+'" data-img="'+value.pathHorizonH+'" style="background: url(' + value.pathVerticalS + ') no-repeat"></a>'
+						})
+						jQuery('#item1 .movie_select .mui-scroll').html(movieList);
+						//时间列表
+						var timeList = jQuery.timeList(cinemaid,movieid,result.data.time);
+						jQuery('.movie_date .mui-scroll').html(timeList).find('a:first-child').addClass('mui-active');
+						//放映厅列表
+						var planList = jQuery.planList(result.data.plan);
+						jQuery('.movie_item').html(planList);
+					} else if (result.state == 'false') {
+						if (result.data.isLogin == 1) {
+							$.alert(result.message, function () {
+								window.location.href = './index.html';
+							})
+						} else {
+							$.alert(result.message);
+						}
+					}
+				});
+
+				$.init();
+				//电影切换
+				$('#item1 .movie_select .mui-scroll').on('tap','.mui-control-item',function(){
+					var movie_id = this.getAttribute('data-movieid');
+					var title = this.getAttribute('data-title');
+					var score = this.getAttribute('data-score');
+					var img = this.getAttribute('data-img');
+					jQuery.movieTitle(img,title,score);
+					jQuery.ajaxJsonp(web_url + '/mobile/cinema.php?step=planList', {cinemaid:cinemaid,movieid:movie_id},function(result){
+						console.log(result);
+						//时间列表
+						var timeList = jQuery.timeList(cinemaid,movie_id,result.data.time);
+						jQuery('.movie_date .mui-scroll').html(timeList).find('a:first-child').addClass('mui-active');
+						//放映厅列表
+						var planList = jQuery.planList(result.data.plan);
+						jQuery('.movie_item').html(planList);
+					});
+				});
+				//放映厅列表切换
+				$('.movie_date .mui-scroll').on('tap','.mui-control-item',function(){
+					var time = this.getAttribute('data-current');
+					var cinema_id = this.getAttribute('data-cinemaid');
+					var movie_id = this.getAttribute('data-movieid');
+					jQuery.ajaxJsonp(web_url + '/mobile/cinema.php?step=planList', {cinemaid:cinema_id,movieid:movie_id,currentTime:time},function(result){
+						var planList = jQuery.planList(result.data.plan);
+						jQuery('.movie_item').html(planList);
+					});
+				});
+
+
+
+			})(mui);
+
 		</script>
 	</body>
 

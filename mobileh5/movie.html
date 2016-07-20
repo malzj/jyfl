@@ -68,13 +68,13 @@
 	</div>
 		<script src="js/connection.js"></script>
 		<script src="js/jquery-1.9.1.min.js"></script>
-		<script src="js/ajaxJsonp.js"></script>
+		<script src="js/jqueryExtend.js"></script>
 		<script src="js/mui.min.js"></script>
+		<script src="js/mui.hrefclick.js"></script>
 		<script type="text/javascript">
 			var item1 = document.getElementById('item1mobile');
 			if (item1.querySelector('.mui-loading')) {
 				jQuery.ajaxJsonp(web_url + '/mobile/cinema.php', '', function (result) {
-					console.log(result);
 					if(result.state=='true') {
 						var html1 = '<ul class="mui-table-view">';
 						jQuery.each(result.data, function (k, val) {
@@ -112,7 +112,6 @@
 					if (e.detail.slideNumber === 1) {
 						if (item2.querySelector('.mui-loading')) {
 							jQuery.ajaxJsonp(web_url+'/mobile/cinema.php','',function(result){
-								console.log(result);
 								if(result.state=='true') {
 								var html2='<ul class="mui-table-view">';
 									jQuery.each(result.data,function(k,val){
@@ -138,19 +137,10 @@
 									}
 								}
 							});
-
-//							setTimeout(function() {
-//								item2.querySelector('.mui-scroll').innerHTML = html2;
-//							}, 500);
 						}
 					} 
 				});
-				//点击跳转
-				$('.mui-content').on('tap','.click_btn',function(event){
-					event.stopPropagation();
-					var url = this.getAttribute('data-href');
-					window.location.href=url;
-				})
+
 			})(mui);
 		</script>
 	</body>

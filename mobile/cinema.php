@@ -109,6 +109,90 @@ elseif ($_REQUEST['step'] == "movieDetail")
     JsonpEncode($jsonArray); 
 	
 }
+
+//影院详情页对应整体接口
+elseif($_REQUEST['step'] == 'allCinemaDetail'){
+	/*
+	 * 影院详情(显示影院信息，影院支持信息)
+	 */
+	$cinemaids = !empty($_REQUEST['cinemaid']) ? trim($_REQUEST['cinemaid']) : 0 ;
+
+	// 直接从影院列表点过来的情况下
+	if (strpos($cinemaids, 'c') !== false )
+	{
+		$temp = explode('-', $cinemaids);
+		$cinemaDetail = getCinemaDetail($temp['1']);
+	}
+	else {
+		$cinemaid = $cinemaids;
+		$cinemaDetail = getCinemaDetail($cinemaid, 'komovie_cinema_id');
+	}
+	$jsonArray['data']['cinemaDetail']=$cinemaDetail;
+
+	if($cinemaDetail['is_komovie']) {
+
+		/*
+         * 影院所有影片列表
+         */
+		// 影片id
+		$movieid = !empty($_REQUEST['movieid']) ? intval($_REQUEST['movieid']) : 0;
+		// 影院所有影片列表
+		$movies = getCinemaMovies($cinemaid);
+
+		// 处理选中的影片，如果没有选择影片，默认取第一个
+		foreach ($movies as &$movie) {
+			if (strcasecmp($movie['movieId'], $movieid) == 0)
+				$movie['selected'] = 1;
+			else
+				$movie['selected'] = 0;
+		}
+
+		/*
+         * 指定影院，指定影片的排期
+         */
+		// 销售比例
+		$ratio = getMovieRatio();
+		// 当前选择的日期
+		$currentTime = !empty($_REQUEST['currentTime']) ? trim($_REQUEST['currentTime']) : 0;
+
+		if (empty($cinemaid) || empty($movieid)) {
+			$jsonArray['state'] = 'false';
+			$jsonArray['message'] = '暂时没有可用的场次';
+			exit(json_encode($jsonArray));
+		}
+		// 获得影片的排期
+		$moviePlan = getMoviePlan($cinemaid, $movieid);
+
+		// 整理排期日期
+		$featureTimes = featureTime($moviePlan);
+
+		// 如果没有选择时间，默认选择第一个
+		if (empty($currentTime)) {
+			reset($featureTimes);
+			$currentTimes = current($featureTimes);
+			$currentTime = $currentTimes['strtotime'];
+		}
+
+		$planList = searchPlan($moviePlan, $currentTime, $ratio);
+		$jsonArray['data']['movies']=$movies;
+		$jsonArray['data']['time'] = $featureTimes;
+		$jsonArray['data']['plan'] = $planList;
+
+	}elseif($cinemaDetail['is_dzq']){
+		/*
+         * 影院购票详情（电子兑换券购买）
+         */
+		// 销售比例
+		$ratio = getDzqRatio();
+		// 电子券信息
+		$cinemaDzq = getCinemaDzq($cinemaid, $ratio);
+		$jsonArray['data']['cinemaDzq']=$cinemaDzq;
+	}
+
+
+	JsonpEncode($jsonArray);
+}
+
 // 影院详情(显示影院信息，影院支持信息)
 elseif ($_REQUEST['step'] == 'cinemaDetail')
 {
@@ -300,10 +384,11 @@ elseif ($_REQUEST['step'] == "seatAjax")
 	
 	$smarty->assign('allwidth',		$allWidth);
 	$smarty->assign('seatInfo',     $seatInfo);   //座位信息
-	
+
 	$jsonArray['data']['width'] = $allWidth;
 	$jsonArray['data']['seat'] = $seatInfo;
-	JsonpEncode($jsonArray); 
-	
+	$jsonArray['data']['info']=$smarty->fetch('_seat_map.html');
+	JsonpEncode($jsonArray);
+//	exit(json_encode($jsonArray));
 }
 

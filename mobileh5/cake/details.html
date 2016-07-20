@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/public.css" />
+		<style>
+			.mui-numbox{margin-top: 10px;}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">商品详情</h1>
+		</header>
+		<!--底部固定导航-->
+		<nav class="mui-bar mui-bar-tab mui-row">
+			<div class="mui-col-xs-5">
+			    <a class="mui-tab-item mui-active border_right_ddd" href="#">
+					<span class="mui-icon mui-icon-home"></span>
+					<span class="mui-tab-label">首页</span>
+				</a>
+				<a class="mui-tab-item border_right_ddd" href="#">
+					<span class="mui-icon mui-icon-chat"></span>
+					<span class="mui-tab-label">购物车</span>
+				</a>
+				<a class="mui-tab-item" href="#">
+					<span class="mui-icon mui-icon-contact"></span>
+					<span class="mui-tab-label">我的</span>
+				</a>
+			</div>
+			<div class="mui-col-xs-7">
+				<a class="mui-tab-item footer_liji" href="#">
+					<span class="mui-tab-label">立即结算</span>
+				</a>
+				<a class="mui-tab-item footer_jiaru" href="#">
+					<span class="mui-tab-label">加入购物车</span>
+				</a>
+			</div>
+		</nav>
+		<!--底部固定导航 end-->
+		<div class="mui-content">
+			<!--图片轮播 start-->
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../images/cake_index.png">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/cake_index.png">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/cake_index.png">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/cake_index.png">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/cake_index.png">
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../images/cake_index.png">
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			<!--图片轮播 end-->
+			<div class="cake_details_title mui-row bg_white">
+				<div class="mui-col-xs-8">
+					<h4>雪域牛乳芝士蛋糕</h4>
+					<span>￥260</span>
+				</div>
+				<div class="mui-col-xs-4">
+					<div class="mui-numbox" data-numbox-min='1'>
+							<button class="mui-btn-numbox-minus" type="button">-</button>
+							<input class="mui-input-numbox" type="number" />
+							<button class="mui-btn-numbox-plus" type="button">+</button>
+					</div>
+				</div>
+			</div>
+			<div class="container xiangqing bg_white">
+				<div class="mui-row">
+					<div class="mui-col-xs-3">
+						<h5 class="mui-pull-right guige_1">规格：</h5>
+					</div>
+					<div class="mui-col-xs-9">
+						<label for="guige"><h6  class="checked" data-id="S_2434781">1磅（13*13cm）</h6>				
+						<input type="radio" name="spec_s_100" value="S_2434781" id="spec_value_S_2434781" checked onclick="changePrice()" style="display: none;" /></label>
+
+						<label for="guige"><h6  data-id="S_2434165">2磅（17*17cm）</h6>				
+						<input type="radio" name="spec_s_100" value="S_2434165" id="spec_value_S_2434165"  onclick="changePrice()" style="display: none;" /></label>
+
+						<label for="guige"><h6  data-id="S_2434110">3磅（22*22cm）</h6>				
+						<input type="radio" name="spec_s_100" value="S_2434110" id="spec_value_S_2434110"  onclick="changePrice()" style="display: none;" /></label>
+
+						<label for="guige"><h6  data-id="S_2434489">5磅（31*31cm）</h6>				
+						<input type="radio" name="spec_s_100" value="S_2434489" id="spec_value_S_2434489"  onclick="changePrice()" style="display: none;" /></label>
+					</div>
+				</div>
+
+				<div class="mui-row">
+					<div class="mui-col-xs-3">
+						<h5 class="mui-pull-right guige_1">生日牌：</h5>
+					</div>
+					<div class="mui-col-xs-9 pt3">
+
+						<label for="spec_value_29371"><h6  class="checked" data-id="29371">生日快乐</h6>			
+						<input type="radio" name="spec_355" value="29371" id="spec_value_29371" checked onclick="changePrice()" style="display: none;" /></label>
+
+						<label for="spec_value_29372"><h6  data-id="29372">Happy Birthday</h6>			
+						<input type="radio" name="spec_355" value="29372" id="spec_value_29372"  onclick="changePrice()" style="display: none;" /></label>
+						<input type="hidden" name="spec_list" value="1" />
+
+					</div>
+				</div>
+				<div class="mui-row">
+					<div class="mui-col-xs-3">
+						<h5 class="mui-pull-right guige_1">蜡烛：</h5>
+					</div>
+					<div class="mui-col-xs-9 pt3">
+
+						<label for="spec_value_29373"><h6  class="checked" data-id="29373">免费赠送（金色1支）</h6>			
+						<input type="radio" name="spec_356" value="29373" id="spec_value_29373" checked onclick="changePrice()" style="display: none;" /></label>
+
+						<label for="spec_value_29378"><h6  data-id="29378">心</h6>			
+						<input type="radio" name="spec_356" value="29378" id="spec_value_29378"  onclick="changePrice()" style="display: none;" /></label>
+
+						<label for="spec_value_29374"><h6  data-id="29374">I LOVE PAPA</h6>			
+						<input type="radio" name="spec_356" value="29374" id="spec_value_29374"  onclick="changePrice()" style="display: none;" /></label>
+
+						<label for="spec_value_29376"><h6  data-id="29376">Happy birthday</h6>			
+						<input type="radio" name="spec_356" value="29376" id="spec_value_29376"  onclick="changePrice()" style="display: none;" /></label>
+
+						<label for="spec_value_29377"><h6  data-id="29377">金色蜡烛</h6>			
+						<input type="radio" name="spec_356" value="29377" id="spec_value_29377"  onclick="changePrice()" style="display: none;" /></label>
+
+						<label for="spec_value_29375"><h6  data-id="29375">I LOVE MAMA</h6>			
+						<input type="radio" name="spec_356" value="29375" id="spec_value_29375"  onclick="changePrice()" style="display: none;" /></label>
+						<input type="hidden" name="spec_list" value="5" />
+
+					</div>
+				</div>
+				<div class=" mui-row">
+					<div class="mui-col-xs-3">
+						<h5 class="mui-pull-right guige_1">餐具：</h5>
+					</div>
+					<div class="mui-col-xs-9 pt3">
+
+						<label for="spec_value_29379"><h6  class="checked" data-id="29379">标准餐具（免费）</h6>			
+						<input type="radio" name="spec_358" value="29379" id="spec_value_29379" checked onclick="changePrice()" style="display: none;" /></label>
+
+						<label for="spec_value_29380"><h6  data-id="29380">外加1套（5个一套）</h6>			
+						<input type="radio" name="spec_358" value="29380" id="spec_value_29380"  onclick="changePrice()" style="display: none;" /></label>
+
+						<label for="spec_value_29381"><h6  data-id="29381">外加2套（5个一套）</h6>			
+						<input type="radio" name="spec_358" value="29381" id="spec_value_29381"  onclick="changePrice()" style="display: none;" /></label>
+
+						<label for="spec_value_29382"><h6  data-id="29382">外加3套（5个一套）</h6>			
+						<input type="radio" name="spec_358" value="29382" id="spec_value_29382"  onclick="changePrice()" style="display: none;" /></label>
+						<input type="hidden" name="spec_list" value="3" />
+					</div>
+				</div>
+			</div>
+			<div class="bg_white color_2fd0b5 cake_tips">阿尔卑斯封顶的纯雪遇上东南亚的暖风，交织一首冰与火歌，呢喃着旅途的故事，变成了你的样子.（鲜果因时令季节变化，会适当调整）</div>
+			<div style="padding: 10px 10px;" class="bg_white">
+				<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item mui-active" href="#item1">规格参数</a>
+					<a class="mui-control-item" href="#item2">内容详情</a>
+				</div>
+				<!--规格参数 start-->
+				<div id="item1" class="mui-control-content mui-active">
+					<ul class="mui-table-view">
+						 <li class="mui-table-view-cell">名称<p class="mui-pull-right">雪域牛乳芝士蛋糕</p></li>
+				         <li class="mui-table-view-cell">所属分类<p class="mui-pull-right">芝士</p></li>
+				         <li class="mui-table-view-cell">品牌<p class="mui-pull-right">诺心 </p></li>
+				         <li class="mui-table-view-cell">口味<p class="mui-pull-right">芝士口味 </p></li>
+				         <li class="mui-table-view-cell">适合节日<p class="mui-pull-right">所有节日 </p></li>
+				         <li class="mui-table-view-cell">适合人群<p class="mui-pull-right">所有人群  </p></li>
+					</ul>
+				</div>
+				<!--规格参数 end-->
+				<!--内容详情 start-->
+				<div id="item2" class="mui-control-content">
+					蛋糕详情介绍。。。。。
+				</div>
+				<!--内容详情 end-->
+			</div>
+			</div>
+			<script src="../js/mui.min.js"></script>
+			<script type="text/javascript">
+				mui.init()
+			</script>
+	</body>
+
+</html>

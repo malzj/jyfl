@@ -33,7 +33,7 @@ if($_REQUEST['act'] == "index")
     
     // 后台推荐的热卖商品
     $goodsIds = array();
-    $goods_list = category_get_goods('g.cat_id '.db_create_in($cat_ids), 'g.sort_order DESC');
+    $goods_list = category_get_goods('g.cat_id '.db_create_in($cat_ids), 'g.sort_order ASC');
     foreach ($goods_list as $value){
         $goodsIds[] = $value['goods_id'];
     }

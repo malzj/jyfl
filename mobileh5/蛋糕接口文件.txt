@@ -1,0 +1,51 @@
+数据类型：
+	state   状态
+	data	返回的json数据
+	message 当状态是 false时，对应的错误提示
+
+所有数据使用，请参考华影手机端对应的html页面。
+
+===============================================================================================
+
+  	说明：蛋糕首页
+	地址：cake.php?act=getIndex
+	参数：无
+	备注：data[banner] banner图，data[cate] 子类， data[goods] 楼层广告
+
+	说明：商品列表
+	地址：category.php
+	参数：	id 分类id，[蛋糕就是品牌id]
+		sort[sort_order默认，sales_num销量，last_update上架时间]排序
+		filter_attr 属性id
+		page 分页
+	备注：	data[list] 商品列表
+
+		data[attrList] 属性列表
+
+		data[navigator] 所有导航信息，例如：蛋糕，应该是 data[navigator][16][child] 就是蛋糕的品牌列表
+
+		data[pager] 分页信息
+		data[pager][page] 当前分页
+		data[pager][page_count] 总分页数
+		data[pager][record_count] 总商品数
+		
+		data[pager][search][category] 分类id
+		data[pager][search][keywords] 关键字
+		data[pager][search][order] 排序方式【DESC 和 ASC，默认是 ASC】
+		data[pager][search][sort] 排序类型【sort_order默认，sales_num销量，last_update上架时间】
+
+	说明：商品详情
+	地址：goods.php
+	参数：id 商品id
+	备注：data[goods]	商品信息
+	      data[pictures]	商品相册
+	      data[specs]	商品规格
+	      data[specification] 商品规格（其他）
+	      data[properties]	商品属性	
+
+	说明：计算规格价格
+	地址：goods.php?act=price
+	参数：id 商品id，attr 选中的规格和属性信息，number 数量
+	备注：data[shopPrice] 售价
+
+

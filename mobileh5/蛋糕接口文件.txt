@@ -7,20 +7,10 @@
 
 ===============================================================================================
 
-	说明：蛋糕banner图
-	地址：cake.php?act=getBanner
-	参数：无
-	备注：无
-
-	说明：蛋糕品牌
-	地址：cake.php?act=getBrands
-	参数：无
-	备注：无
-
-  	说明：蛋糕楼层广告
+  	说明：蛋糕首页
 	地址：cake.php?act=getIndex
 	参数：无
-	备注：data[0][filterId] 属性id， data[0][brandId] 品牌id
+	备注：data[banner] banner图，data[cate] 子类， data[goods] 楼层广告
 
 	说明：商品列表
 	地址：category.php

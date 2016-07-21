@@ -62,12 +62,12 @@
 		</div>
 		<script src="js/connection.js"></script>
 		<script src="js/jquery-1.9.1.min.js"></script>
-		<script src="js/ajaxJsonp.js"></script>
-		<script src="js/functionJs.js"></script>
+		<script src="js/jqueryExtend.js"></script>
 		<script src="js/mui.min.js"></script>
+		<script src="js/mui.hrefclick.js"></script>
 		<script type="text/javascript">
-			var id = getUrlParam('id');
-			var step = getUrlParam('step');
+			var id = jQuery.getUrlParam('id');
+			var step = jQuery.getUrlParam('step');
 			if(step=='movieDetail'){
 				jQuery('#item2mobile').addClass('mui-active')
 			}else if(step=='movieCinema'){
@@ -96,7 +96,7 @@
 									'<h5 class="mui-ellipsis">' + v.cinemaName + '</h5>' +
 									'<p class="mui-ellipsis">' + v.cinemaAddress + '</p>' +
 									'</div><div class="mui-col-xs-2">' +
-									'<button type="button" class="xuanzuo_btn click_btn" data-href="">选座购票</button></div></div></li>'
+									'<button type="button" class="xuanzuo_btn click_btn" data-href="./cinema_details.html?cinemaid='+v.cinemaId+'&movieid='+id+'">选座购票</button></div></div></li>'
 						});
 						cinemaList += '</ul></li>'
 					});

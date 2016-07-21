@@ -38,6 +38,11 @@
 	地址：mobile/cinema.php?step=movieDetail
 	参数：movieid = 影片id
 
+	说明：影院详情页对应整体接口
+    地址：cinema.php?step=allCinemaDetail
+    参数：cinemaid = 影院id， movieid = 影片id
+    备注：以下几项整合备注
+
 	说明：影院详情【在线选座】
 	地址：cinema.php?step=cinemaDetail
 	参数：cinemaid = 影院id

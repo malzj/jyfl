@@ -14,18 +14,21 @@
 .margin_bottom_10{margin-bottom: 10px!important;}
 .color_ff781e{color: #FF781E;}
 .color_2fd0b5{color: #2FD0B5;}
+.color_8f8f94{color: #8f8f94;}
 ul li{list-style: none;}
 .mui-bar{background: white;}
 .border_right_ddd{border-right: 1px solid #ddd;}
 .color_dd4223{color: #dd4223;}
+.overflow_hidden{overflow: hidden;}
 /*movie*/
 .buy_ticket{text-align: center;margin-top: 30px;background: #2fd0b5;color: white;border: none;}
 .star_pinfen i{background: url(../images/jy_index/star.png) no-repeat;width: 15px;height: 15px;display: inline-block;background-size: 100% 100%;}
 .star_pinfen{margin-top: 5px;}
 .jijiang_time{margin-top: 5px;color: #2fd0b5;}
 .title_nav{}
-.title_movie{font-size: 14px;border: 1px solid #2fd0b5;background: #2fd0b5;padding: 5px 20px;color: white!important;border-top-left-radius: 5px;border-bottom-left-radius: 5px;}
+.title_movie{font-size: 14px;border: 1px solid #2fd0b5;padding: 5px 20px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;}
 .title_cinema{font-size: 14px;border: 1px solid #2fd0b5;padding: 5px 20px;border-bottom-right-radius: 5px;border-top-right-radius: 5px;}
+.title_movie.active,.title_cinema.active{background: #2fd0b5;color: white!important;}
 .margin_right_13{margin-right: 13px;}
 .movie_details_top{background: url(../images/jy_index/04.png) no-repeat center;padding-top: 20px;}
 .movie_details_top,.movie_details_top p{color: white;}
@@ -47,6 +50,7 @@ ul li{list-style: none;}
 .movie_item .btn_ticket{margin-top: 15px;}
 .movie_price{color: #ff781e;}
 .dianziquan{font-size: 14px;width: 80%;padding: 10px;display: block;margin: 0 auto;text-align: center;border: 1px solid #ddd;margin-bottom: 15px;}
+.dianziquan.active{color:#FFF !important;background-color: #2fd0b5;border-color: #2fd0b5;}
 .btn_next{padding: 10px 0;width: 80%;background: #2fd0b5!important;color: white;border: none!important;margin: 0 auto;display: block;margin-top: 40px;}
 .dianziquan_mima{height: 28px!important;}
 .movie_seat_dianshu{line-height: 52px;font-size: 18px;}
@@ -66,3 +70,23 @@ ul li{list-style: none;}
 .gys h5{color: black!important;}
 .gys_name{padding: 10px;}
 .gys_guige{overflow: hidden;height: 35px;line-height: 1.5;font-size: 12px;}
+.psfanwei{font-size: 14px;}
+.gys_number{margin-top: 12px;color: #8f8f94;}
+.gys_price{margin-top: 3px;}
+.gys_adress{display: inline-block;margin-left: 15px;vertical-align: bottom;}
+.gys_yunfei{color: #8f8f94;margin-right: 5px;}
+.select_time{padding: 0;margin-bottom: 0;padding-left: 144px;margin-top: -22px;}
+.select_date{border: 0;left: 120px;}
+.select_date{text-align: left;padding: 0px;margin-top: -2px;font-size: 14px;margin-left: 40px;}
+.adress_select_title{padding: 15px 0;border-bottom: 1px solid #ddd;}
+.adress_select{min-height: 350px;position: fixed;z-index: 1111;bottom: 0;}
+.add_adress{position:absolute;width: 100%;text-align: center;line-height: 50px;background: #2fd0b5;color: white;bottom: 0;}
+#OA_task_2{height: 300px;overflow-y: scroll;padding-bottom: 60px;}
+#OA_task_2:after{height: 0;}
+.adress_default{background: #2fd0b5;color: white;padding: 2px 10px;}
+/*订单确认支付*/
+.confirm_img{background: url(../images/cake_pay.png) no-repeat;height:8.75rem;background-size: 100% 100%;z-index: 11;position: relative;}
+.confirm_img h4{width: 280px;margin: 2rem auto;line-height: 1.5rem;color: white;}
+.confirm_list{margin-top: -10px;}
+/*收货地址*/
+.shouhuo_addAdress{background: #2fd0b5;color: white!important;}

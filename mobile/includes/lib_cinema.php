@@ -392,7 +392,7 @@ function getCinemaDzq( $cinemaid, $ratio)
 	$param = array('AreaNo'=>$int_cityId ,'CinemaNo'=>$cinemaid);//
 	$cacheName = 'getCommTickets_'. $cinemaid . '_'.$int_cityId;
 	$result = getYYApi($param, 'getCommTickets');
-	
+
 	// 整理数据格式
 	if ( !empty($result['body']['item']))
 	{

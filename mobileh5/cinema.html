@@ -6,6 +6,7 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/public.css" />
 		<style>
 			/*.mui-table-view-cell.mui-collapse .mui-table-view .mui-table-view-cell:after{left: 15px;}*/
 			.mui-table-view-cell.mui-collapse .mui-table-view .mui-table-view-cell{padding-left: 20px;}
@@ -20,72 +21,30 @@
 	</head>
 
 	<body>
-		<div class="mui-content">
-				<ul class="mui-table-view mui-table-view-chevron">
-					<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">顺义区</a>
-						<ul class="mui-table-view mui-table-view-chevron">
-							<li class="mui-table-view-cell ">
-								<a href="#" class="mui-row">
-								<div class="mui-table-cell mui-col-xs-10">
-				                    <h4 class="mui-ellipsis">博纳国际影城大发发发发达噶沙发沙发</h4>
-				                    <p class="mui-ellipsis">北京市顺义区发发看就能看见啊符合你看见爱抚你啊</p>
-				                </div>
-				               </a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a href="#" class=" mui-row">
-								<div class="mui-table-cell mui-col-xs-10">
-				                    <h4 class="mui-ellipsis">博纳国际影城大发发发发达噶沙发沙发</h4>
-				                    <p class="mui-ellipsis">北京市顺义区发发看就能看见啊符合你看见爱抚你啊</p>
-				                </div>
-				                </a>
-							</li>
-						</ul>
-					</li>
-					<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">顺义区</a>
-						<ul class="mui-table-view mui-table-view-chevron">
-							<li class="mui-table-view-cell ">
-								<a href="#" class="mui-row">
-								<div class="mui-table-cell mui-col-xs-10">
-				                    <h4 class="mui-ellipsis">博纳国际影城大发发发发达噶沙发沙发</h4>
-				                    <p class="mui-ellipsis">北京市顺义区发发看就能看见啊符合你看见爱抚你啊</p>
-				                </div>
-				               </a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a href="#" class=" mui-row">
-								<div class="mui-table-cell mui-col-xs-10">
-				                    <h4 class="mui-ellipsis">博纳国际影城大发发发发达噶沙发沙发</h4>
-				                    <p class="mui-ellipsis">北京市顺义区发发看就能看见啊符合你看见爱抚你啊</p>
-				                </div>
-				                </a>
-							</li>
-						</ul>
-					</li>
-					<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">顺义区</a>
-						<ul class="mui-table-view mui-table-view-chevron">
-							<li class="mui-table-view-cell ">
-								<a href="#" class="mui-row">
-								<div class="mui-table-cell mui-col-xs-10">
-				                    <h4 class="mui-ellipsis">博纳国际影城大发发发发达噶沙发沙发</h4>
-				                    <p class="mui-ellipsis">北京市顺义区发发看就能看见啊符合你看见爱抚你啊</p>
-				                </div>
-				               </a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a href="#" class=" mui-row">
-								<div class="mui-table-cell mui-col-xs-10">
-				                    <h4 class="mui-ellipsis">博纳国际影城大发发发发达噶沙发沙发</h4>
-				                    <p class="mui-ellipsis">北京市顺义区发发看就能看见啊符合你看见爱抚你啊</p>
-				                </div>
-				                </a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-		</div>
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">
+			<div class="title_nav">
+				<a href="./movie.html" class="title_movie">影片</a><a href="./cinema.html" class="title_cinema active">影院</a>
+			</div>
+		</h1>
+	</header>
+
+	<div id="cinema_list_page" class="mui-content"></div>
+		<script src="js/connection.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jqueryExtend.js"></script>
+		<script src="js/template.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
+			jQuery.ajaxJsonp(web_url+'/mobile/cinema.php?step=cinema','',function(result){
+				console.log(result);
+				if(result.state=='true'){
+					document.getElementById('cinema_list_page').innerHTML=template('tmp_cinema_list',result);
+				}else if(result.state=='false'){
+					jQuery.errorJudge(result.data,result.message);
+				}
+			});
 			mui.init()
 		</script>
 	</body>

@@ -124,8 +124,24 @@ else
 /* 更新点击次数 */
 $db->query('UPDATE ' . $ecs->table('goods') . " SET click_count = click_count + 1 WHERE goods_id = '$_REQUEST[id]'");
 
+$gallery = get_goods_gallery($goods_id); //商品相册
+foreach ($gallery as $key=>&$val)
+{
+    $val['img_url'] = getImagePath($val['img_url']);
+    $val['thumb_url'] = getImagePath($val['thumb_url']);
+}
+
+/* 规格整理 */
+if ( !empty($properties['spe']))
+{
+    foreach ($properties['spe'] as $pkey=>&$pval)
+    {
+        $pval['attr_id'] = $pkey;
+    }
+}
+//error_log(var_export($properties['spe'],true),'3','') 
 $jsonArray['data']['goods'] = $goods;                           // 商品信息
-$jsonArray['data']['pictures'] = get_goods_gallery($goods_id);  // 商品相册
+$jsonArray['data']['pictures'] = $gallery;                      // 商品相册
 $jsonArray['data']['specs'] = get_show_specs($goods_id);        // 商品规格
 $jsonArray['data']['specification'] = $properties['spe'];       // 商品规格（其他）
 $jsonArray['data']['properties'] = $properties['pro'];          // 商品属性

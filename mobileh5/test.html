@@ -10,14 +10,18 @@
 		<link rel="stylesheet" href="css/index.css" />
 	</head>
 	<body>
-		
+	<div class="test">	
+		aaa
+	</div>
 	<script src="js/connection.js"></script>
 	<script src="js/jquery-1.9.1.min.js"></script>
 
 	<script src="js/mui.min.js"></script>
 	<script src="js/template.js"></script>
 	<script type="text/javascript" charset="utf-8">
-		
+		var header = require('./tpl/public/header');
+		var html = header({});
+		$('.test').html(html);
 	</script>
 	</body>
 

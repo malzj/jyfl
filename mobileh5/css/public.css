@@ -24,8 +24,9 @@ ul li{list-style: none;}
 .star_pinfen{margin-top: 5px;}
 .jijiang_time{margin-top: 5px;color: #2fd0b5;}
 .title_nav{}
-.title_movie{font-size: 14px;border: 1px solid #2fd0b5;background: #2fd0b5;padding: 5px 20px;color: white!important;border-top-left-radius: 5px;border-bottom-left-radius: 5px;}
+.title_movie{font-size: 14px;border: 1px solid #2fd0b5;padding: 5px 20px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;}
 .title_cinema{font-size: 14px;border: 1px solid #2fd0b5;padding: 5px 20px;border-bottom-right-radius: 5px;border-top-right-radius: 5px;}
+.title_movie.active,.title_cinema.active{background: #2fd0b5;color: white!important;}
 .margin_right_13{margin-right: 13px;}
 .movie_details_top{background: url(../images/jy_index/04.png) no-repeat center;padding-top: 20px;}
 .movie_details_top,.movie_details_top p{color: white;}
@@ -47,6 +48,7 @@ ul li{list-style: none;}
 .movie_item .btn_ticket{margin-top: 15px;}
 .movie_price{color: #ff781e;}
 .dianziquan{font-size: 14px;width: 80%;padding: 10px;display: block;margin: 0 auto;text-align: center;border: 1px solid #ddd;margin-bottom: 15px;}
+.dianziquan.active{color:#FFF !important;background-color: #2fd0b5;border-color: #2fd0b5;}
 .btn_next{padding: 10px 0;width: 80%;background: #2fd0b5!important;color: white;border: none!important;margin: 0 auto;display: block;margin-top: 40px;}
 .dianziquan_mima{height: 28px!important;}
 .movie_seat_dianshu{line-height: 52px;font-size: 18px;}

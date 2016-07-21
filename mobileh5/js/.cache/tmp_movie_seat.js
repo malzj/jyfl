@@ -1,7 +1,7 @@
-/*TMODJS:{"version":21,"md5":"943fad081050a2abbcdca2bf9dd166a4"}*/
+/*TMODJS:{"version":27,"md5":"4fc14843a81ec263c0deef5fc0e4c3d1"}*/
 template('tmp_movie_seat',function($data,$filename
 /**/) {
-'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,cinema=$data.cinema,featureTimeStr=$data.featureTimeStr,language=$data.language,screenType=$data.screenType,price=$data.price,hallName=$data.hallName,planId=$data.planId,movie=$data.movie,vipPrice=$data.vipPrice,hallNo=$data.hallNo,cinemaId=$data.cinemaId,$out='';$out+='<div class="mui-row movie_details1_top bg_white"> <div class="mui-col-xs-9"> <h4 class="mui-ellipsis">';
+'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,cinema=$data.cinema,featureTimeStr=$data.featureTimeStr,language=$data.language,screenType=$data.screenType,price=$data.price,hallName=$data.hallName,planId=$data.planId,movie=$data.movie,vipPrice=$data.vipPrice,hallNo=$data.hallNo,cinemaId=$data.cinemaId,movieId=$data.movieId,extInfo=$data.extInfo,$out='';$out+='<div class="mui-row movie_details1_top bg_white"> <div class="mui-col-xs-9"> <h4 class="mui-ellipsis">';
 $out+=$escape(cinema.cinemaName);
 $out+='</h4> <p class="mui-ellipsis">';
 $out+=$escape(featureTimeStr);
@@ -35,6 +35,10 @@ $out+=',"cinemaid":';
 $out+=$escape(cinemaId);
 $out+=',"movieid":';
 $out+=$escape(movie.movieId);
-$out+=',}\'/> <input class="mui-btn btn_next seat_next" type="submit" value=" &nbsp;下一步 &nbsp; "> </div> </form> </div> </div>';
+$out+=',}\'/> <input type="hidden" name="movieId" id="mvoieId" value="';
+$out+=$escape(movieId);
+$out+='"/> <input type="hidden" name="extInfo" id="extInfo" value="';
+$out+=$escape(extInfo);
+$out+='"/> <input class="mui-btn btn_next seat_next" type="submit" value=" &nbsp;下一步 &nbsp; "> </div> </form> </div> </div>';
 return new String($out);
 });

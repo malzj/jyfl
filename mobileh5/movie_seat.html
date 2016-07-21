@@ -60,14 +60,6 @@
 			var cinemaid=jQuery.getUrlParam('cinemaid');
 			jQuery.ajaxJsonp(web_url+'/mobile/cinema.php?step=cinemaSeats',{hallno:hallno,planid:planid,movieid:movieid,cinemaid:cinemaid},function(result){
 				console.log(result);
-//				//影院
-//				jQuery('.movie_details1_top').html(
-//					'<div class="mui-col-xs-9">' +
-//					'<h4 class="mui-ellipsis">' + result.data.cinema.cinemaName + '</h4>' +
-//					'<p class="mui-ellipsis">' + result.data.featureTimeStr+'('+result.data.language+result.data.screenType+')'+'</p></div>' +
-//					'<div class="mui-col-xs-3 mui-text-right">' +
-//					'<span class="color_ff781e movie_seat_dianshu">'+result.data.price+'点</span></div>'
-//				);
 				if(result.state=='true') {
 					document.getElementById('movie_seat_page').innerHTML = template('tmp_movie_seat', result.data);
 					//加载座位
@@ -81,13 +73,7 @@
 						jQuery('.seatmap').html(result.data.info);
 					});
 				}else if(result.state=='false'){
-					if(result.data.isLogin==1){
-						mui.alert(result.message,function(){
-							window.location.href='./index.html';
-						});
-					}else{
-						mui.alert(result.message);
-					}
+					jQuery.errorJudge(result.data,result.message);
 				}
 			});
 			//验证购票信息
@@ -96,13 +82,6 @@
 					mui.alert('请先选择座位！');
 					return false;
 				}
-//				var cardMoney = '18328.60';
-//				var amount    = parseFloat($(".init-price").text());
-//
-//				if (amount > cardMoney){
-//					loadMsg('您的卡余额不足');
-//					return false;
-//				}
 
 				if ($('#mobile').val() == ''){
 					mui.alert('手机号码不能为空！');
@@ -117,21 +96,16 @@
 			}
 			(function($) {
 				$.init();
+				//点击下一步进入订单详情页
 				$('#movie_seat_page').on('tap','.seat_next',function(){
 					checkOrderForm();
 					var formData = jQuery(this).parents('#orderForm').serialize();
-					console.log(decodeURI(formData));
-					jQuery.ajaxJsonp(web_url+'/mobile/cinema.php?act=order',formData,function(result){
+					jQuery.ajaxJsonp(web_url+'/mobile/cinema_order.php?act=order',formData,function(result){
+						console.log(result);
 						if(result.state=='true'){
-
+							window.location.href='./movie_order_detail.html?orderid='+result.data.orderid;
 						}else if(result.state=='false'){
-							if(result.data.isLogin==1){
-								mui.alert(result.message,function(){
-									window.location.href='./index.html';
-								});
-							}else{
-								mui.alert(result.message);
-							}
+							jQuery.errorJudge(result.data,result.message);
 						}
 					})
 				});

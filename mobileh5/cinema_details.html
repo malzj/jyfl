@@ -38,19 +38,14 @@
 		    <h1 class="mui-title">购票详情</h1>
 		</header>
 		<div class="mui-content">
-			<div class="mui-row movie_details1_top bg_white">
-				<div id="cinema_info" class="mui-col-xs-9">
+			<div id="cinema_info" class="mui-row movie_details1_top bg_white">
 
-				</div>
-				<div class="mui-col-xs-3 tel_movie_details1">
-					<a id="icon-phone"><span class="mui-icon mui-icon-phone-filled"></span></a>
-				</div>
 			</div>
 			
 			<div style="padding: 10px 10px;" class="bg_white">
 				<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted">
-					<a class="mui-control-item mui-active" href="#item1">在线选座</a>
-					<a class="mui-control-item" href="#item2">电子券兑换</a>
+					<a id="selectseat" class="mui-control-item mui-active" href="#item1">在线选座</a>
+					<a id="buydzq" class="mui-control-item" href="#item2">电子券兑换</a>
 				</div>
 			</div>
 			<div>
@@ -81,20 +76,7 @@
 				<!--在线选座 end-->
 				<!--电子兑换券 start-->
 				<div id="item2" class="mui-control-content">
-					<div class="mui-row bg_white">
-						<div class="mui-col-xs-12"><span class="dianziquan">朝阳剧场3D电子卡(42.4点)</span></div>
-						<div class="mui-col-xs-12"><span class="dianziquan">朝阳剧场3D电子卡(42.4点)</span></div>
-						<div class="mui-numbox" data-numbox-min='1'>
-							<button class="mui-btn-numbox-minus" type="button">-</button>
-							<input class="mui-input-numbox" type="number" />
-							<button class="mui-btn-numbox-plus" type="button">+</button>
-						</div>
-					</div>
-					<div class="mui-input-row margin_top_10 bg_white">
-						<label>手机号：</label>
-						<input type="text">
-					</div>
-					<button type="button" class="mui-btn btn_next">下一步</button>
+
 				</div>
 				<!--电子兑换券 end-->
 			</div>
@@ -117,7 +99,15 @@
 					console.log(result);
 					if (result.state == 'true') {
 						//影院
-						jQuery('#cinema_info').html('<h4 class="mui-ellipsis">' + result.data.cinemaDetail.cinema_name + '</h4><p class="mui-ellipsis">' + result.data.cinemaDetail.cinema_address + '</p>');
+						jQuery('#cinema_info').html(
+							'<div class="mui-col-xs-9">' +
+							'<h4 class="mui-ellipsis">' + result.data.cinemaDetail.cinema_name + '</h4>' +
+							'<p class="mui-ellipsis">' + result.data.cinemaDetail.cinema_address + '</p>' +
+							'</div>' +
+							'<div class="mui-col-xs-3 tel_movie_details1">' +
+							'<a id="icon-phone" href="tel:'+result.data.cinemaDetail.cinema_tel+'"><span class="mui-icon mui-icon-phone-filled"></span></a>' +
+							'</div>'
+						);
 						//电影列表
 						var movieList = '';
 						jQuery.each(result.data.movies, function (key, value) {
@@ -137,6 +127,13 @@
 						//放映厅列表
 						var planList = jQuery.planList(result.data.plan);
 						jQuery('.movie_item').html(planList);
+						if(result.data.cinemaDetail.is_dzq==0){
+							jQuery('#buydzq').css('display','none');
+						}else{
+							var dzqhtml = jQuery.dzqshow(result.data);
+							jQuery('#item2').html(dzqhtml);
+							$('.mui-numbox').numbox();
+						}
 					} else if (result.state == 'false') {
 						if (result.data.isLogin == 1) {
 							$.alert(result.message, function () {
@@ -176,9 +173,52 @@
 						jQuery('.movie_item').html(planList);
 					});
 				});
-
-
-
+				//选择电子券
+				$('#item2').on('tap','.dianziquan',function(e){
+					$.stopPropagation(e);
+					var price=this.getAttribute('data-price');
+					var ticketNo = this.getAttribute('data-ticketNo');
+					jQuery('.dianziquan').removeClass('active');
+					jQuery(this).addClass('active');
+					document.getElementById('price').value = price;
+					document.getElementById('ticketNo').value = ticketNo;
+				});
+				//电子券点击下一步
+				$('#item2').on('tap','.btn_next',function(){
+					var ticketNo 	= jQuery('input[name=ticketNo]').val();
+					var areaNo   	= jQuery('input[name=areaNo]').val();
+					var areaName 	= jQuery('input[name=areaName]').val();
+					var cinemaNo 	= jQuery('input[name=cinemaNo]').val();
+					var cinemaName  = jQuery('input[name=cinemaName]').val();
+					var number  	= jQuery('input[name=number]').val();
+					var price   	= jQuery('input[name=price]').attr('price');
+					var mobile 		= jQuery('input[name=mobile]').val();
+					if (mobile == ''){
+						mui.alert('手机号码不能为空！');
+						return false;
+					}else{
+						var reg = /^1[3,5,7,8]\d{9}$/;
+						if (!reg.test( mobile )){
+							mui.alert('手机号码格式不正确！');
+							return false;
+						}
+					}
+					if( areaNo == '' || areaName == '' || cinemaNo == '' || cinemaName == '' || price == '' ){
+						$.alert('无法提交！');
+						return false;
+					}
+					var param = jQuery(this).parents('#dzqform').serialize();
+					jQuery.ajaxJsonp(web_url+'/mobile/cinema_order.php?act=orderDzq',param,function(result){
+						console.log(result.data.orderid);
+						if(result.state=='true'){
+							mui.openWindow({
+								url: './dianziquan_order.html?orderid='+result.data.orderid,
+							});
+						}else if(result.state='false'){
+							jQuery.errorJudge(result.data,result.message);
+						}
+					});
+				})
 			})(mui);
 
 		</script>

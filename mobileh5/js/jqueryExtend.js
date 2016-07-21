@@ -39,6 +39,21 @@
             //返回参数值
             if (r!=null) return unescape(r[2]);
             return null;
-        }
+        },
+       /**
+        * ajaxJsonp返回数据为false时进行判断
+        * @param data       返回数据
+        * @param message    错误信息
+        * @param func       回调函数
+        */
+       errorJudge:function(data,message,func){
+           if(data.isLogin==1){
+               mui.alert(message,function(){
+                   window.location.href='./index.html';
+               });
+           }else{
+               mui.alert(message,func);
+           }
+       }
    })
 })(jQuery);

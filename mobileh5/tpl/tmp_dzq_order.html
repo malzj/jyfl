@@ -1,0 +1,18 @@
+<ul class="mui-table-view">
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">类型</h4><p class="mui-pull-right">{{TicketName}}</p></li>
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">有效期</h4><p class="mui-pull-right">{{TicketYXQ}}</p></li>
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">单价</h4><p class="mui-pull-right">{{sjprice}}点</p></li>
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">数量</h4><p class="mui-pull-right">{{number}}</p></li>
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">手机</h4><p class="mui-pull-right">{{mobile}}</p></li>
+</ul>
+<ul class="mui-table-view margin_top_15">
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">聚优卡号</h4><p class="mui-pull-right">{{user_name}}</p></li>
+    <li class="mui-table-view-cell">
+        <div class="mui-input-row">
+            <label class="mui-pull-left"><h4>请输入密码</h4></label>
+            <input name="password" type="password" class="mui-pull-right dianziquan_mima" />
+            <input type="hidden" name="order_id" value="{{order_id}}" />
+        </div>
+    </li>
+</ul>
+<button id="pay" type="button" class="btn_next">确认支付</button>

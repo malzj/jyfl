@@ -25,7 +25,7 @@
 		<div class="mui-content">
 		    <div class="mui-table-view">
 				<div class="mui-table-view-cell">
-					<a class="mui-navigate-right">
+					<a class="mui-navigate-right select_shouhuoAdress">
 						<h4>王小雪 13820906181</h4>
 						<p>北京市朝阳区住邦2000</p>
 					</a>
@@ -87,6 +87,87 @@
 				</li>
 			</ul>	
 		</div>
+		<!--选择修改配送地址 start-->
+			<div class="row adress_select bg_white" style="display: none;">
+				<div class="adress_select_title"><h4 class="mui-text-center">配送地址</h4></div>
+				<ul id="OA_task_2" class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<div class="mui-slider-right mui-disabled">
+							<a class="mui-btn mui-btn-grey">编辑</a>
+							<a class="mui-btn mui-btn-red add_adress_remove">删除</a>
+						</div>
+						<div class="mui-slider-handle">
+							<div class="mui-table-cell">
+								<p class="color_2fd0b5">
+									<span>王小雪</span>
+									<span class="mui-pull-right">13820906181</span>
+								</p>
+								<p>
+									<em class="adress_default">默认</em>
+									<span>北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区</span>
+								</p>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-slider-right mui-disabled">
+							<a class="mui-btn mui-btn-grey">编辑</a>
+							<a class="mui-btn mui-btn-red add_adress_remove">删除</a>
+						</div>
+						<div class="mui-slider-handle">
+							<div class="mui-table-cell">
+								<p class="color_2fd0b5">
+									<span>王小雪</span>
+									<span class="mui-pull-right">13820906181</span>
+								</p>
+								<p>
+									<em class="adress_default">默认</em>
+									<span>北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区</span>
+								</p>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-slider-right mui-disabled">
+							<a class="mui-btn mui-btn-grey">编辑</a>
+							<a class="mui-btn mui-btn-red add_adress_remove">删除</a>
+						</div>
+						<div class="mui-slider-handle">
+							<div class="mui-table-cell">
+								<p class="color_2fd0b5">
+									<span>王小雪</span>
+									<span class="mui-pull-right">13820906181</span>
+								</p>
+								<p>
+									<em class="adress_default">默认</em>
+									<span>北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区</span>
+								</p>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-slider-right mui-disabled">
+							<a class="mui-btn mui-btn-grey">编辑</a>
+							<a class="mui-btn mui-btn-red add_adress_remove">删除</a>
+						</div>
+						<div class="mui-slider-handle">
+							<div class="mui-table-cell">
+								<p class="color_2fd0b5">
+									<span>王小雪</span>
+									<span class="mui-pull-right">13820906181</span>
+								</p>
+								<p>
+									<em class="adress_default">默认</em>
+									<span>北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区</span>
+								</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="add_adress">添加新地址</div>
+			</div>
+			<!--选择修改配送地址 end-->
+		<script src="../js/jquery-1.9.1.min.js"></script>	
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/mui.picker.min.js.js"></script>
 		<script type="text/javascript">
@@ -130,7 +211,33 @@
 						});
 					}, false);
 				});
+				//拖拽后显示操作图标，点击操作图标删除元素；
+				$('#OA_task_2').on('tap', '.add_adress_remove', function(event) {
+					var elem = this;
+					var li = elem.parentNode.parentNode;
+					mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
+						if (e.index == 0) {
+							li.parentNode.removeChild(li);
+						} else {
+							setTimeout(function() {
+								$.swipeoutClose(li);
+							}, 0);
+						}
+					});
+				});
+				var btnArray = ['确认', '取消'];
+
 			})(mui);
+			var mask = mui.createMask();//创建蒙版
+			jQuery('.select_shouhuoAdress')[0].addEventListener('tap',function(){
+				jQuery('.adress_select').css('display','block');
+				mask.show();
+			})
+			jQuery(document).on('tap','.mui-backdrop',function(){
+				jQuery('.adress_select').css('display','none');
+				
+			})
+			
 		</script>
 	</body>
 </html>

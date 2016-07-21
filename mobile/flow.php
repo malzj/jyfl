@@ -51,38 +51,31 @@ assign_template();
 if ($_REQUEST['step'] == 'add_to_cart')
 {
     include_once('includes/cls_json.php');
-    $_POST['goods']=strip_tags(urldecode($_POST['goods']));
-    $_POST['goods'] = json_str_iconv($_POST['goods']);
-
-    if (!empty($_REQUEST['goods_id']) && empty($_POST['goods']))
-    {
-        if (!is_numeric($_REQUEST['goods_id']) || intval($_REQUEST['goods_id']) <= 0)
-        {
-            ecs_header("Location:./\n");
-        }
-        $goods_id = intval($_REQUEST['goods_id']);
-        exit;
-    }
-
+    $_REQUEST['goods']=strip_tags(urldecode($_REQUEST['goods']));
+    $_REQUEST['goods'] = json_str_iconv($_REQUEST['goods']);
+   
     $result = array('error' => 0, 'message' => '', 'content' => '', 'goods_id' => '');
     $json  = new JSON;
 
-    if (empty($_POST['goods']))
+    if (empty($_REQUEST['goods']))
     {
          $result['error'] = 1;
-        die($json->encode($result));
+         $result['message'] = '此商品暂时无法购买';
+         JsonpEncode($result);
     }
 
-    $goods = $json->decode($_POST['goods']);
+    $goods = $json->decode($_REQUEST['goods']);
     $specArray = get_show_specs($goods->goods_id);
+    error_log(var_export($specArray,true),'3','error.log');
 	if (empty($specArray))
 	{
 		$result['error'] = 1;
 		$result['message'] = '此商品暂时无法购买';
-		die($json->encode($result));
+		JsonpEncode($result);
+		//die($json->encode($result));
 	}
 	$result['carttype']  = $goods->carttype;
-
+	
     /* 检查：如果商品有规格，而post的数据没有规格，把商品的规格属性通过JSON传到前台 */
     if (empty($goods->spec) AND empty($goods->quick))
     {
@@ -173,7 +166,7 @@ if ($_REQUEST['step'] == 'add_to_cart')
     }
 	
     $result['confirm_type'] = !empty($_CFG['cart_confirm']) ? $_CFG['cart_confirm'] : 2;
-    die($json->encode($result));
+    JsonpEncode($result);
 }
 
 //ajax显示购物车数量
@@ -506,7 +499,7 @@ elseif ($_REQUEST['step'] == 'done')
     }
 	
 	/* 检测运费是否正确*/
-    foreach ($_POST['sup'] as $supval)
+    foreach ($_REQUEST['sup'] as $supval)
     {
         if ($supval == -1)
         {
@@ -549,31 +542,31 @@ elseif ($_REQUEST['step'] == 'done')
 
     $consignee = get_consignee($_SESSION['user_id']);
 
-    $_POST['how_oos'] = isset($_POST['how_oos']) ? intval($_POST['how_oos']) : 0;
-    $_POST['card_message'] = isset($_POST['card_message']) ? compile_str($_POST['card_message']) : '';
-    $_POST['inv_type'] = !empty($_POST['inv_type']) ? compile_str($_POST['inv_type']) : '';
-    $_POST['inv_payee'] = isset($_POST['inv_payee']) ? compile_str($_POST['inv_payee']) : '';
-    $_POST['inv_content'] = isset($_POST['inv_content']) ? compile_str($_POST['inv_content']) : '';
-    $_POST['postscript'] = isset($_POST['postscript']) ? compile_str($_POST['postscript']) : '';
+    $_REQUEST['how_oos'] = isset($_REQUEST['how_oos']) ? intval($_REQUEST['how_oos']) : 0;
+    $_REQUEST['card_message'] = isset($_REQUEST['card_message']) ? compile_str($_REQUEST['card_message']) : '';
+    $_REQUEST['inv_type'] = !empty($_REQUEST['inv_type']) ? compile_str($_REQUEST['inv_type']) : '';
+    $_REQUEST['inv_payee'] = isset($_REQUEST['inv_payee']) ? compile_str($_REQUEST['inv_payee']) : '';
+    $_REQUEST['inv_content'] = isset($_REQUEST['inv_content']) ? compile_str($_REQUEST['inv_content']) : '';
+    $_REQUEST['postscript'] = isset($_REQUEST['postscript']) ? compile_str($_REQUEST['postscript']) : '';
 
-	$arr_supplierBonus = $_POST['supplier_bonus'];
+	$arr_supplierBonus = $_REQUEST['supplier_bonus'];
 
     $order = array(
-        'shipping_id'     => intval($_POST['shipping']),
-        'pay_id'          => intval($_POST['payment']),
-        'pack_id'         => isset($_POST['pack']) ? intval($_POST['pack']) : 0,
-        'card_id'         => isset($_POST['card']) ? intval($_POST['card']) : 0,
-        'card_message'    => trim($_POST['card_message']),
-        'surplus'         => isset($_POST['surplus']) ? floatval($_POST['surplus']) : 0.00,
-        'integral'        => isset($_POST['integral']) ? intval($_POST['integral']) : 0,
-        'bonus_id'        => isset($_POST['bonus']) ? intval($_POST['bonus']) : 0,
-        'need_inv'        => empty($_POST['need_inv']) ? 0 : 1,
-        'inv_type'        => $_POST['inv_type'],
-        'inv_payee'       => trim($_POST['inv_payee']),
-        'inv_content'     => $_POST['inv_content'],
-        'postscript'      => trim($_POST['postscript']),
-        'how_oos'         => isset($_LANG['oos'][$_POST['how_oos']]) ? addslashes($_LANG['oos'][$_POST['how_oos']]) : '',
-        'need_insure'     => isset($_POST['need_insure']) ? intval($_POST['need_insure']) : 0,
+        'shipping_id'     => intval($_REQUEST['shipping']),
+        'pay_id'          => intval($_REQUEST['payment']),
+        'pack_id'         => isset($_REQUEST['pack']) ? intval($_REQUEST['pack']) : 0,
+        'card_id'         => isset($_REQUEST['card']) ? intval($_REQUEST['card']) : 0,
+        'card_message'    => trim($_REQUEST['card_message']),
+        'surplus'         => isset($_REQUEST['surplus']) ? floatval($_REQUEST['surplus']) : 0.00,
+        'integral'        => isset($_REQUEST['integral']) ? intval($_REQUEST['integral']) : 0,
+        'bonus_id'        => isset($_REQUEST['bonus']) ? intval($_REQUEST['bonus']) : 0,
+        'need_inv'        => empty($_REQUEST['need_inv']) ? 0 : 1,
+        'inv_type'        => $_REQUEST['inv_type'],
+        'inv_payee'       => trim($_REQUEST['inv_payee']),
+        'inv_content'     => $_REQUEST['inv_content'],
+        'postscript'      => trim($_REQUEST['postscript']),
+        'how_oos'         => isset($_LANG['oos'][$_REQUEST['how_oos']]) ? addslashes($_LANG['oos'][$_REQUEST['how_oos']]) : '',
+        'need_insure'     => isset($_REQUEST['need_insure']) ? intval($_REQUEST['need_insure']) : 0,
         'user_id'         => $_SESSION['user_id'],
         'add_time'        => gmtime(),
         'order_status'    => OS_UNCONFIRMED,
@@ -634,9 +627,9 @@ elseif ($_REQUEST['step'] == 'done')
             $order['bonus_id'] = 0;
         }
     }
-    elseif (isset($_POST['bonus_sn']))
+    elseif (isset($_REQUEST['bonus_sn']))
     {
-        $bonus_sn = trim($_POST['bonus_sn']);
+        $bonus_sn = trim($_REQUEST['bonus_sn']);
         $bonus = bonus_info(0, $bonus_sn);
         $now = gmtime();
         if (empty($bonus) || $bonus['user_id'] > 0 || $bonus['order_id'] > 0 || $bonus['min_goods_amount'] > cart_amount(true, $flow_type) || $now > $bonus['use_end_date'])
@@ -699,7 +692,7 @@ elseif ($_REQUEST['step'] == 'done')
     /* 处理配货时间*/
     $rctArray = array();
 	foreach( array('riqi','time') as $rct){
-		foreach($_POST[$rct] as $sid=>$stime){	
+		foreach($_REQUEST[$rct] as $sid=>$stime){	
 		    if (empty($stime)){
 		        $jsonArray['state'] = 'false';
 		        $jsonArray['message'] = '配送时间不能为空';
@@ -737,9 +730,9 @@ elseif ($_REQUEST['step'] == 'done')
     
     // 计算运费
     $shipping_total_fee = 0;
-    if (!empty($_POST['sup']))
+    if (!empty($_REQUEST['sup']))
     {
-        $shipping_total_fee = array_sum($_POST['sup']);
+        $shipping_total_fee = array_sum($_REQUEST['sup']);
     }    
     $total['shipping_fee'] = $shipping_total_fee;
     // 总价 = 商品总价 + 运费总价
@@ -871,9 +864,9 @@ elseif ($_REQUEST['step'] == 'done')
     $supplierIds = array();
     $supplierAddress = $_SESSION['supplier'];
     foreach ((array) $supplierAddress as $supk=>$supv) { $supplierIds[] = $supk;}    
-    if (count($_POST['sup']) != count($_SESSION['supplier']))
+    if (count($_REQUEST['sup']) != count($_SESSION['supplier']))
     {
-        foreach ($_POST['sup'] as $supid=>$supyun)
+        foreach ($_REQUEST['sup'] as $supid=>$supyun)
         {
             if (!in_array($supid, $supplierIds))
             {
@@ -883,7 +876,7 @@ elseif ($_REQUEST['step'] == 'done')
     }
     $order['supplier_address'] = serialize($supplierAddress);
     // 运费    
-    $order['supplier_shipping'] = serialize($_POST['sup']);
+    $order['supplier_shipping'] = serialize($_REQUEST['sup']);
     
     /* 插入订单表 */
     $error_no = 0;
@@ -1079,8 +1072,8 @@ else if ($_REQUEST['step'] == 'act_pay')
 {    
     include_once(ROOT_PATH . 'includes/lib_payment.php');
     
-	$str_password = !empty($_POST['password']) ? $_POST['password'] : '';	
-	$order_id     = intval($_POST['order_id']);
+	$str_password = !empty($_REQUEST['password']) ? $_REQUEST['password'] : '';	
+	$order_id     = intval($_REQUEST['order_id']);
 
 	//$arr_result = array('error' => 0, 'message' => '', 'content' => '');
 	
@@ -1189,9 +1182,9 @@ else if ($_REQUEST['step'] == 'act_pay')
 
 elseif ($_REQUEST['step'] == 'update_cart')
 {
-    if (isset($_POST['goods_number']) && is_array($_POST['goods_number']))
+    if (isset($_REQUEST['goods_number']) && is_array($_REQUEST['goods_number']))
     {
-        flow_update_cart($_POST['goods_number']);
+        flow_update_cart($_REQUEST['goods_number']);
     }
 
     $cart_goods = get_cart_goods();    
@@ -1236,7 +1229,7 @@ elseif ($_REQUEST['step'] == 'drop_to_collect')
 //-- 删除购物车中选中的商品
 /*------------------------------------------------------ */
 /* elseif($_REQUEST['step'] == 'drop_allgoods'){
-	foreach($_POST['sel_cartgoods'] as $rec_id){
+	foreach($_REQUEST['sel_cartgoods'] as $rec_id){
 		flow_drop_cart_goods($rec_id);
 	}
 	ecs_header("Location: flow.php\n");

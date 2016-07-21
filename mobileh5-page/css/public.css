@@ -76,3 +76,15 @@ ul li{list-style: none;}
 .select_time{padding: 0;margin-bottom: 0;padding-left: 144px;margin-top: -22px;}
 .select_date{border: 0;left: 120px;}
 .select_date{text-align: left;padding: 0px;margin-top: -2px;font-size: 14px;margin-left: 40px;}
+.adress_select_title{padding: 15px 0;border-bottom: 1px solid #ddd;}
+.adress_select{min-height: 350px;position: fixed;z-index: 1111;bottom: 0;}
+.add_adress{position:absolute;width: 100%;text-align: center;line-height: 50px;background: #2fd0b5;color: white;bottom: 0;}
+#OA_task_2{height: 300px;overflow-y: scroll;padding-bottom: 60px;}
+#OA_task_2:after{height: 0;}
+.adress_default{background: #2fd0b5;color: white;padding: 2px 10px;}
+/*订单确认支付*/
+.confirm_img{background: url(../images/cake_pay.png) no-repeat;height:8.75rem;background-size: 100% 100%;z-index: 11;position: relative;}
+.confirm_img h4{width: 280px;margin: 2rem auto;line-height: 1.5rem;color: white;}
+.confirm_list{margin-top: -10px;}
+/*收货地址*/
+.shouhuo_addAdress{background: #2fd0b5;color: white!important;}

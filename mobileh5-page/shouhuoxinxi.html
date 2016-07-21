@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="css/new_href.css" />
 		<link rel="stylesheet" href="css/mui-picker.min.css" />
 		<link rel="stylesheet" href="css/mui.poppicker.css" />
+		<link rel="stylesheet" href="css/public.css" />
 	</head>
 	<body>
 		<!--页面主结构开始-->
@@ -45,9 +46,12 @@
 						</ul>
 					</div>
 				</div>
-				<a href="#add_adress" style="position: fixed;bottom: 0;left: 0; display:block;width: 100%;text-align:center;color:#FFF;line-height:40px;background-color: #2fd0b5;z-index: 10000">
+				<!--<a href="#add_adress" style="position: fixed;bottom: 0;left: 0; display:block;width: 100%;text-align:center;color:#FFF;line-height:40px;background-color: #2fd0b5;z-index: 10000">
 					添加地址
-				</a>
+				</a>-->
+				<nav class="mui-bar mui-bar-tab">
+					<a href="#add_adress" class="shouhuo_addAdress mui-tab-item">添加新地址</a>
+				</nav>
 			</div>
 		</div>
 		<!--添加收货地址-->
@@ -63,7 +67,7 @@
 					<div class="mui-scroll">
 						<div class="mui-input-group margin_top_20">
 							<div class="mui-input-row">
-								<label>收货人姓名</label>
+								<label>姓名</label>
 								<input type="text" id="adconsignee" name="consignee" class="mui-input-clear" placeholder="请输入">
 							</div>
 							<div class="mui-input-row">

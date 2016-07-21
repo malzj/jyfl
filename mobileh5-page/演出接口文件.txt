@@ -1,0 +1,57 @@
+数据类型：
+	state   状态
+	data	返回的json数据
+	message 当状态是 false时，对应的错误提示
+
+所有数据使用，请参考华影手机端对应的html页面。
+
+===============================================================================================
+
+	说明：演出列表
+	地址：yanchu.php?act=list
+	参数：id = 演出类型id
+	备注：data[list] 列表，data[pages] 分页数据 （count 总数，size 每页条数，page 当前页数）
+
+	说明：演出详情
+	地址：yanchu.php?act=show
+	参数：id = 演出类型id，itemid = 项目id
+	备注：data[iteminfo] 项目信息，data[showtime] 场次和票价信息，data[str_showtime] 场次和票价信息json格式
+
+	说明：提交演出信息
+	地址：yanchu_order.php?act=order
+	参数：time 时间，
+	      price 价格，
+	      market_price 市场价，
+	      specid 价格id，
+	      number 数量，
+	      status 项目状态，
+	      id 项目id
+	      cateid 演出类型id
+	      storeId 
+	      storeName 
+	备注：
+
+	说明：确认演出信息
+	地址：yanchu_order.php?act=checkout
+	参数：无
+	备注：data[shipping] 配送地址信息
+	      data[shipping_info] 配送信息
+	      data[payment_info] 支付信息
+	      data[order] 订单信息
+	      data[item] 产品信息
+
+	说明：提交订单
+	地址：yanchu_order.php?act=act_order
+	参数：无
+	备注：提交成功，返回订单号 data[orderid] = 订单号
+
+	说明：确认支付订单
+	地址：yanchu_order.php?act=pay
+	参数：orderid = 订单id
+	备注：返回订单信息
+
+	说明：支付订单
+	地址：yanchu_order.php?act=act_pay
+	参数：order_sn = 订单编号，order_id 订单号，password 卡密码，
+
+	

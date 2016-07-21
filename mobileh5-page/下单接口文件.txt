@@ -1,0 +1,87 @@
+数据类型：
+	state   状态
+	data	返回的json数据
+	message 当状态是 false时，对应的错误提示
+
+所有数据使用，请参考华影手机端对应的html页面。
+
+===============================================================================================
+
+	说明：加入购物车
+	地址：flow.php?step=add_to_cart
+	参数：goods[] 选择的规格信息，json格式
+	备注：参考pc端html，和js，返回格式和pc端一样，未做修改
+
+	说明：购物车
+	地址：flow.php
+	参数：无
+	备注：无
+
+	说明：删除购物车商品
+	地址：flow.php?step=drop_to_collect
+	参数：id 商品id
+	备注：返回最新的购物车信息
+
+	说明：删除购物车全部商品
+	地址：flow.php?step=clear
+	参数：无
+	备注：无
+
+	说明：更改购物车数量
+	地址：flow.php?step=update_cart
+	参数：goods_number[商品id] = 商品数量
+	备注：返回最新的购物车信息
+
+	说明：购物车统计
+	地址：flow.php?step=ajax_cart_count
+	参数：无
+	备注：无
+
+	说明：查看配送范围
+	地址：flow.php?step=showYunfei
+	参数：id 供应商id
+	备注：data[yunfei] 运费信息，data[id] 供应商id
+
+	说明：计算运费
+	地址：flow.php?step=yunfei
+	参数：id 供应商id
+	备注：data[shipping_fee] 运费
+	      data[detail] 供应商信息
+	      data[consignee] 配送地址
+	      运费计算，只限于供应商运费类型是2（商城），1（地图）不包括
+
+	说明：删除某个供应商在购物车中所有的商品
+	地址：flow.php?step=drop_supplier_goods
+	参数：id 供应商id
+	备注：删除成功后，刷新当前页面查询最新的信息
+
+	说明：为供应商单独设置收货地址
+	地址：flow.php?step=newAddress
+	参数：id 供应商id
+	备注：无
+
+	说明：确认订单信息
+	地址：flow.php?step=checkout
+	参数：无
+	备注：data[checkconsignee] 收货地址是否完整，0 no，1 yes
+	      data[consignee] 收货地址
+	      data[goodsList] 购物车商品
+	      data[order] 订单信息
+	      data[total] 统计信息
+	   
+	说明：提交订单
+	地址：flow.php?step=done
+	参数：无
+	备注：主订单信息
+
+	说明：支付订单
+	地址：flow.php?step=act_pay
+	参数：password 卡密码，order_id 订单号
+	备注：无
+
+
+
+
+	
+
+	

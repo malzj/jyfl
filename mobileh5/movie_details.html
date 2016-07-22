@@ -113,7 +113,14 @@
 				}
 			});
 			mui.init();
-			mui('.mui-scroll-wrapper').scroll();
+			//滑动选项卡根据内容高度设置容器高度
+			    mui('.mui-scroll-wrapper').scroll({
+			        indicators: true //是否显示滚动条
+			    });
+			    var resolutionHeight = window.innerHeight;
+			    resolutionHeight = resolutionHeight-85;
+			    document.getElementById("item1mobile").setAttribute("style","min-height:"+resolutionHeight+"px;");
+			    document.getElementById("item2mobile").setAttribute("style","min-height:"+resolutionHeight+"px;");
 		</script>
 	</body>
 </html>

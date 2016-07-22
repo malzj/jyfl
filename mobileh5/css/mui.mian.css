@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
 /* 遮罩加 loading */
-.mui-backdrop{background-color:#fff; height:100%;}
-.loading-mui{position:absolute;left:50%;top:50%;transform: translate(-50%,-50%);}
+/* .mui-backdrop{background-color:#fff; height:100%;}
+.loading-mui{position:absolute;left:50%;top:50%;transform: translate(-50%,-50%);} */
 

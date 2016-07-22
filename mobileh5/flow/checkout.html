@@ -5,239 +5,46 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="../css/public.css" />
-		<link rel="stylesheet" href="../css/mui-picker.min.css" />
+		<link href="../css/public.css" rel="stylesheet"/>
+		<link href="../css/mui-picker.min.css" rel="stylesheet" />
+		<link href="../css/mui.mian.css" rel="stylesheet"/>
+		<script src="../js/connection.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js"></script>
+		
+		<script src="../js/mui.min.js"></script>		
+		<script src="../js/template.js"></script>
+		<script src="../js/ajaxJsonp.js"></script>
+		<script src="../js/functionJs.js"></script>
+		<script src="../js/mui.picker.min.js.js"></script>
+		<script src="../js/mui.mian.js"></script>		
+		
 		<style>
 			.mui-table-view .mui-media-object{max-width: 80px;height: 80px;}
 			.mui-table-view-cell>a:not(.mui-btn){white-space: normal;}
 		</style>
+		<script>
+			var type = getUrlParam('flowtype');
+		</script>
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav">
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">提交订单</h1>
 		</header>
-		<nav class="mui-bar mui-bar-tab mui-row">
-			<div class="mui-col-xs-7"><a class="mui-tab-item">合计：<span class="color_2fd0b5">480</span>点</a></div>
-			<div class="mui-col-xs-5">
-				<a class="mui-tab-item footer_jiaru" href="javascript:alert('2222')"><span class="mui-tab-label">去结算</span></a></div>
-		</nav>	
-		<div class="mui-content">
-		    <div class="mui-table-view">
-				<div class="mui-table-view-cell">
-					<a class="mui-navigate-right select_shouhuoAdress">
-						<h4>王小雪 13820906181</h4>
-						<p>北京市朝阳区住邦2000</p>
-					</a>
-				</div>
-			</div>
-			<div class="mui-row gys">
-		    	<div class="gys_name">诺心<a href="#"><span class="color_2fd0b5 mui-pull-right psfanwei">查看配送范围</span></a></div>
-		    	<ul class="mui-table-view">
-					<li class="mui-table-view-cell mui-media">
-						<a href="javascript:;" class="mui-row">
-							<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
-							<div class="mui-media-body mui-col-xs-5">
-								<h4 class="mui-ellipsis">雪域牛乳芝士蛋糕</h4>
-								<p class="gys_guige">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-							</div>
-							<div class="pull-right mui-text-right overflow_hidden">
-								<div class="gys_price"><span class="color_dd4223">￥26.00</span></div>
-								<div class="gys_number"><span>x1</span></div>
-							</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a class="mui-navigate-right">
-							配送地址<span class="gys_adress mui-ellipsis mui-col-xs-7">王小雪 北京市朝阳区住邦2000一号楼 西区 507</span>
-						</a>
-					</li>	
-					<li class="mui-table-view-cell">
-						<a class="mui-navigate-right" id="select_date" data-options='{"type":"date"}'>
-							<label>选择配送日期</label>
-							<input class="btn mui-btn mui-btn-block select_date" value="">
-						</a>
-					</li>	
-					<li class="mui-table-view-cell">
-						<a class="mui-navigate-right">
-							选择配送时间
-							<select name="" id="" class="mui-pull-right select_time">
-								<option value="">09:00-11:00</option>	
-								<option value="">09:00-12:00</option>	
-								<option value="">09:00-13:00</option>	
-							</select>
-						</a>
-					</li>	
-					<li class="mui-table-view-cell">
-						<a href="#">
-							运费<span class="mui-pull-right gys_yunfei">0</span>
-						</a>
-					</li>	
-				</ul>
-		    </div>
-		    <ul class="mui-table-view margin_top_15">
-				<li class="mui-table-view-cell">
-					支付方式<span class="mui-pull-right color_8f8f94">聚优卡支付</span>
-				</li>
-				<li class="mui-table-view-cell">
-					配送方式<span class="mui-pull-right color_8f8f94">供货商物流</span>
-				</li>
-				<li class="mui-table-view-cell">
-					运费合计<span class="mui-pull-right color_8f8f94">0</span>
-				</li>
-			</ul>	
-		</div>
-		<!--选择修改配送地址 start-->
-			<div class="row adress_select bg_white" style="display: none;">
-				<div class="adress_select_title"><h4 class="mui-text-center">配送地址</h4></div>
-				<ul id="OA_task_2" class="mui-table-view">
-					<li class="mui-table-view-cell">
-						<div class="mui-slider-right mui-disabled">
-							<a class="mui-btn mui-btn-grey">编辑</a>
-							<a class="mui-btn mui-btn-red add_adress_remove">删除</a>
-						</div>
-						<div class="mui-slider-handle">
-							<div class="mui-table-cell">
-								<p class="color_2fd0b5">
-									<span>王小雪</span>
-									<span class="mui-pull-right">13820906181</span>
-								</p>
-								<p>
-									<em class="adress_default">默认</em>
-									<span>北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区</span>
-								</p>
-							</div>
-						</div>
-					</li>
-					<li class="mui-table-view-cell">
-						<div class="mui-slider-right mui-disabled">
-							<a class="mui-btn mui-btn-grey">编辑</a>
-							<a class="mui-btn mui-btn-red add_adress_remove">删除</a>
-						</div>
-						<div class="mui-slider-handle">
-							<div class="mui-table-cell">
-								<p class="color_2fd0b5">
-									<span>王小雪</span>
-									<span class="mui-pull-right">13820906181</span>
-								</p>
-								<p>
-									<em class="adress_default">默认</em>
-									<span>北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区</span>
-								</p>
-							</div>
-						</div>
-					</li>
-					<li class="mui-table-view-cell">
-						<div class="mui-slider-right mui-disabled">
-							<a class="mui-btn mui-btn-grey">编辑</a>
-							<a class="mui-btn mui-btn-red add_adress_remove">删除</a>
-						</div>
-						<div class="mui-slider-handle">
-							<div class="mui-table-cell">
-								<p class="color_2fd0b5">
-									<span>王小雪</span>
-									<span class="mui-pull-right">13820906181</span>
-								</p>
-								<p>
-									<em class="adress_default">默认</em>
-									<span>北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区</span>
-								</p>
-							</div>
-						</div>
-					</li>
-					<li class="mui-table-view-cell">
-						<div class="mui-slider-right mui-disabled">
-							<a class="mui-btn mui-btn-grey">编辑</a>
-							<a class="mui-btn mui-btn-red add_adress_remove">删除</a>
-						</div>
-						<div class="mui-slider-handle">
-							<div class="mui-table-cell">
-								<p class="color_2fd0b5">
-									<span>王小雪</span>
-									<span class="mui-pull-right">13820906181</span>
-								</p>
-								<p>
-									<em class="adress_default">默认</em>
-									<span>北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区</span>
-								</p>
-							</div>
-						</div>
-					</li>
-				</ul>
-				<div class="add_adress">添加新地址</div>
-			</div>
-			<!--选择修改配送地址 end-->
-		<script src="../js/jquery-1.9.1.min.js"></script>	
-		<script src="../js/mui.min.js"></script>
-		<script src="../js/mui.picker.min.js.js"></script>
-		<script type="text/javascript">
-			(function($) {
-				$.init();
-				var result = $('.select_date')[0];
-				var btns = $('#select_date');
-				btns.each(function(i, btn) {
-					btn.addEventListener('tap', function() {
-						var optionsJson = this.getAttribute('data-options') || '{}';
-						var options = JSON.parse(optionsJson);
-						var id = this.getAttribute('id');
-						/*
-						 * 首次显示时实例化组件
-						 * 示例为了简洁，将 options 放在了按钮的 dom 上
-						 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
-						 */
-						var picker = new $.DtPicker(options);
-						picker.show(function(rs) {
-							/*
-							 * rs.value 拼合后的 value
-							 * rs.text 拼合后的 text
-							 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
-							 * rs.m 月，用法同年
-							 * rs.d 日，用法同年
-							 * rs.h 时，用法同年
-							 * rs.i 分（minutes 的第二个字母），用法同年
-							 */
-							result.value = rs.value;
-							/* 
-							 * 返回 false 可以阻止选择框的关闭
-							 * return false;
-							 */
-							/*
-							 * 释放组件资源，释放后将将不能再操作组件
-							 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
-							 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
-							 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
-							 */
-							picker.dispose();
-						});
-					}, false);
-				});
-				//拖拽后显示操作图标，点击操作图标删除元素；
-				$('#OA_task_2').on('tap', '.add_adress_remove', function(event) {
-					var elem = this;
-					var li = elem.parentNode.parentNode;
-					mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
-						if (e.index == 0) {
-							li.parentNode.removeChild(li);
-						} else {
-							setTimeout(function() {
-								$.swipeoutClose(li);
-							}, 0);
-						}
-					});
-				});
-				var btnArray = ['确认', '取消'];
-
-			})(mui);
-			var mask = mui.createMask();//创建蒙版
-			jQuery('.select_shouhuoAdress')[0].addEventListener('tap',function(){
-				jQuery('.adress_select').css('display','block');
-				mask.show();
-			})
-			jQuery(document).on('tap','.mui-backdrop',function(){
-				jQuery('.adress_select').css('display','none');
 				
-			})
-			
-		</script>
 	</body>
+	
+	<script type="text/javascript">		
+		mui.init();
+		// ajax调取数据
+		jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{step:'checkout',flowtype:type},function(data){	
+			console.log(data);
+			// 加载页面				
+			replaceHtml('header', template('flow/checkout', data));
+			// 重新触发计数插件
+			//mui('.mui-numbox').numbox();
+		});
+	</script>
 </html>

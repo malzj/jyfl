@@ -13,6 +13,7 @@
 		<script src="../js/mui.min.js"></script>		
 		<script src="../js/template.js"></script>
 		<script src="../js/ajaxJsonp.js"></script>
+		<script src="../js/functionJs.js"></script>
 		<script src="../js/mui.mian.js"></script>
 		
 		<style>
@@ -20,7 +21,7 @@
 		</style>
 		<script>
 			// 商品id
-			var goods_id = 2648; 
+			var goods_id = getUrlParam('id'); 
 		</script>
 	</head>
 	<body>
@@ -28,23 +29,14 @@
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">商品详情</h1>
-		</header>
+		</header>		
 		
-		<div class="mui-content"></div>
-		
-		<script type="text/javascript">
-			
+		<script type="text/javascript">			
 			mui.init();
-			// 页面加载前遮罩
-			var mask = mui.createMask();
-			createMask(mask,'show');
 			// ajax调取数据
 			jQuery.ajaxJsonp(web_url+"/mobile/goods.php",{id:goods_id},function(data){
-				//console.log(data);
 				// 加载页面			
-				replaceHtml('.mui-content', template('cake/detail', data));
-				// 关闭遮罩
-				createMask(mask,'colse');	
+				replaceHtml('header', template('cake/detail', data));
 				// 从新触发相册插件
 				var gallery = mui('.mui-slider');
 				gallery.slider();

@@ -1182,12 +1182,13 @@ else if ($_REQUEST['step'] == 'act_pay')
 
 elseif ($_REQUEST['step'] == 'update_cart')
 {
-    if (isset($_REQUEST['goods_number']) && is_array($_REQUEST['goods_number']))
+    if (isset($_REQUEST['goods_number']) && isset($_REQUEST['rec_id']))
     {
-        flow_update_cart($_REQUEST['goods_number']);
-    }
+        $goods_number[$_REQUEST['rec_id']] = $_REQUEST['goods_number'];
+        flow_update_cart($goods_number);
+    }    
 
-    $cart_goods = get_cart_goods();    
+    $cart_goods = get_cart_goods_init();    
     $jsonArray['data'] = $cart_goods;
     JsonpEncode($jsonArray);
 }
@@ -1220,7 +1221,7 @@ elseif ($_REQUEST['step'] == 'drop_to_collect')
         flow_drop_cart_goods($rec_id);
     }
     
-    $cart_goods = get_cart_goods();    
+    $cart_goods = get_cart_goods_init();    
     $jsonArray['data'] = $cart_goods;
     JsonpEncode($jsonArray);
 }
@@ -1335,8 +1336,8 @@ else
     $_SESSION['flow_type'] = CART_GENERAL_GOODS;
     
     /* 取得商品列表，计算合计 */
-    $cart_goods = get_cart_goods();
-    
+    $cart_goods = get_cart_goods_init();
+    /* 修改图片地址为绝对地址 */ 
     $jsonArray['data'] = $cart_goods;
     JsonpEncode($jsonArray);
     
@@ -2195,4 +2196,23 @@ function check_cart_price()
 	
 	return $return;
 }
+
+/**  
+ * 购物车商品图片地址转换为绝对地址
+ */
+ function get_cart_goods_init()
+ {
+     $cart = get_cart_goods();
+     if (!empty($cart)){
+         foreach ($cart['goods_list'] as $key=>&$supplier) 
+         {
+             foreach ($supplier['goods_list'] as $key2=>&$goods)
+             {
+                $goods['goods_thumb'] = getImagePath($goods['goods_thumb']);        
+             }
+         }
+     }
+     return $cart;
+ }
+ 
 ?>

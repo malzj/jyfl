@@ -1068,7 +1068,7 @@ function cart_goods($type = CART_GENERAL_GOODS)
 
     $sql = "SELECT c.rec_id, c.user_id, c.goods_id, c.goods_name, c.goods_sn, c.goods_number, " .
             "c.market_price, c.goods_price, c.goods_attr, c.is_real, c.extension_code, c.parent_id, c.is_gift, c.is_shipping, " .
-            "c.goods_price * c.goods_number AS subtotal, g.supplier_id, IFNULL(s.supplier_name,'网站自营') as seller, s.is_map " .
+            "c.goods_price * c.goods_number AS subtotal, g.supplier_id, IFNULL(s.supplier_name,'网站自营') as seller, s.is_map,s.open_time " .
             "FROM " . $GLOBALS['ecs']->table('cart') .
             " as c LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " as g ON c.goods_id = g.goods_id ".
             "LEFT JOIN ". $GLOBALS['ecs']->table('supplier') .

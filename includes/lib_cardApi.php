@@ -370,7 +370,7 @@ function getDongSite( $site, $param=array())
 function getDongapi($tradaId="list",$arr_param=array(), $method="post"){
 	$default = array(
 		'custId' => '247640',
-		'apiKey' => '8D36F9E70356360470A32EF16226A165'
+		'apikey' => '8D36F9E70356360470A32EF16226A165'
 	);
 	
 	require_once(ROOT_PATH . 'includes/httpRequest.php');

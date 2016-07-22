@@ -6,7 +6,9 @@ namespace Peisong\Controller;
  * Date: 2016/4/29
  * Time: 9:21
  */
-class PeisongController extends \Think\Controller
+use Think\Controller;
+
+class PeisongController extends Controller
 {
     public  function __construct(){
         header("Access-Control-Allow-Origin: *");
@@ -80,6 +82,31 @@ class PeisongController extends \Think\Controller
         $result['result']=true;
         $jsondData = json_encode($result);
         echo $jsondData;
+    }
+    
+    public  function showmap_wap(){
+        $id = $_REQUEST['gongyingshang_id'];
+        $istime = isset($_REQUEST['isTime'])? $_REQUEST['isTime'] : 1 ;
+        $result=array();
+        $data=array();
+        $data['gongyingshang_id']=$id;
+        $data['isTime'] = $istime;
+        $Dao = M('peisongmap');
+        $Dao1 = M('peisongmapzuobiao');
+        $list=$Dao->where($data)->select();
+        $size =$Dao->where($data)->count();
+        $number = 0;
+        for($number;$number<$size;$number++){
+            $mapid=$list[$number]['id'];
+            $map=array();
+            $map['peisongmap_id']=$mapid;
+            $list[$number]['zuobiao']=$Dao1->where($map)->select();
+        }
+    
+        $result['list']=$list;
+        $result['result']=true;
+        exit($_GET['jsoncallback']."(".json_encode($result).")");
+        
     }
 
 }

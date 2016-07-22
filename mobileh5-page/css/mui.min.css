@@ -221,7 +221,7 @@ th {
 
 body {
 	font-family: 'Helvetica Neue', Helvetica, sans-serif;
-	font-size: 17px;
+	font-size: 14px;
 	line-height: 21px;
 	color: #000;
 	background-color: #efeff4;
@@ -1439,7 +1439,7 @@ input[type=submit]:enabled:active {
 	position: relative;
 	z-index: 20;
 	padding-top: 10px;
-	padding-bottom: 10px
+	padding-bottom: 10px;
 }
 
 .mui-bar .mui-icon:active {

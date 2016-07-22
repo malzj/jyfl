@@ -8,16 +8,18 @@
 		<title></title>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/public.css" />
 		<style>
 		.mui-content{background: url(images/jy_index/person_bg.jpg) no-repeat !important;background-size: 100% 100%!important;}
-		.mui-bar{background-color: transparent;}
+		.mui-bar-nav{background-color: transparent;}
 		</style>
 	</head>
 	<body>
 		<!-- 侧滑导航根容器 -->
 		<div class="mui-off-canvas-wrap mui-draggable">
 				<!-- 菜单容器 -->
-				<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<aside id="offCanvasSide1" class="mui-off-canvas-left">
 					<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
 					<div class="mui-scroll">
 							<!-- 菜单具体展示内容 -->
@@ -66,6 +68,28 @@
 					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
 					<!--<h1 class="mui-title">标题</h1>-->
 				</header>
+				<nav class="mui-bar mui-bar-tab bg_white">
+			        <a class="mui-tab-item mui-active">
+			            <span class="mui-icon iconfont icon-zhuye"></span>
+			            <span class="mui-tab-label">聚优</span>
+			        </a>
+			        <a class="mui-tab-item">
+			            <span class="mui-icon iconfont icon-order"></span>
+			            <span class="mui-tab-label">订单</span>
+			        </a>
+			        <a class="mui-tab-item">
+			            <span class="mui-icon iconfont icon-order"></span>
+			            <span class="mui-tab-label">功能</span>
+			        </a>
+			        <a class="mui-tab-item">
+			            <span class="mui-icon iconfont icon-gouwuche"></span>
+			            <span class="mui-tab-label">购物车</span>
+			        </a>
+			        <a class="mui-tab-item" href="#offCanvasSide">
+			            <span class="mui-icon iconfont icon-wode"></span>
+			            <span class="mui-tab-label">我的</span>
+			        </a>
+			    </nav>
 				<!-- 主页面内容容器 -->
 				<div class="mui-content mui-scroll-wrapper">
 					<div class="mui-scroll">
@@ -73,7 +97,6 @@
 
 					</div>
 				</div>
-				<!-- off-canvas backdrop -->
 				<div class="mui-off-canvas-backdrop"></div>
 			</div>
 		</div>
@@ -88,7 +111,7 @@
 			mui('#offCanvasSideScroll').scroll();
 			mui('#offCanvasSideScroll1').scroll();
 			//页面a标签的点击跳转事件
-			mui('.shop-content,.mui-table-view,.shop-category-container,.mui-bar,.mui-scroll,.mui-content').on('tap', 'a', function (e) {
+			mui('.shop-content,.mui-table-view,.shop-category-container,.mui-scroll,.mui-content').on('tap', 'a', function (e) {
 			if (!this.classList.contains('mui-disabled')) {
 			mui.openWindow({
 			url: this.getAttribute('href'),

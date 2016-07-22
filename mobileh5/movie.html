@@ -28,7 +28,7 @@
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">
 		    	<div class="title_nav">
-		    		<a href="./movie.html" class="title_movie active">影片</a><a href="./cinema.html" class="title_cinema">影院</a>
+		    		<a data-href="./movie.html" class="title_movie href_click active">影片</a><a data-href="./cinema.html" class="title_cinema href_click">影院</a>
 		    	</div>	
 		    </h1>
 		</header>
@@ -79,7 +79,7 @@
 						var html1 = '<ul class="mui-table-view">';
 						jQuery.each(result.data, function (k, val) {
 							html1 += '<li class="mui-table-view-cell mui-media">' +
-									'<a href="javascript:void(0);" data-href="./movie_details.html?step=movieDetail&id=' + val.movieId + '" class="mui-row click_btn">' +
+									'<a href="javascript:void(0);" data-href="./movie_details.html?step=movieDetail&id=' + val.movieId + '" class="mui-row href_click">' +
 									'<div class="mui-col-xs-9">' +
 									'<img class="mui-media-object mui-pull-left" src="' + val.pathVerticalS + '">' +
 									'<div class="mui-media-body">' +
@@ -87,43 +87,26 @@
 									'<p class="mui-ellipsis">导演：<span>' + val.director + '</span></p>' +
 									'<p class="mui-ellipsis">主演：<span>' + val.actor + '</span></p>' +
 									'<div class="star_pinfen"><i></i><i></i><i></i><i></i><i></i></div></div></div>' +
-									'<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket click_btn" data-href="movie_details.html?step=movieCinema&id=' + val.movieId + '">立即购票</button></div>' +
+									'<div class="mui-col-xs-3 mui-text-center"><button type="button" class="mui-btn buy_ticket href_click" data-href="movie_details.html?step=movieCinema&id=' + val.movieId + '">立即购票</button></div>' +
 									'</a></li>'
 						});
 						html1 += '</ul>';
 						item1.querySelector('.mui-scroll').innerHTML = html1;
 					}else if(result.state=='false'){
-						if(result.data.isLogin==1){
-							mui.alert(result.message,function(){
-								window.location.href='./index.html';
-							})
-						}else{
-							mui.alert(result.message);
-						}
+						jQuery.errorJudge(result.data,result.message);
 					}
 				});
 			}
 
 			(function($) {
 				$.init();
-				//影片及影院a标签事件绑定重写
-				$('.mui-title .title_nav').on('tap','a',function(e){
-					if (!this.classList.contains('mui-disabled')) {
-						mui.openWindow({
-							url: this.getAttribute('href'),
-						});
-					}else {
-						$.stopPropagation(e);
-						$.preventDefault(e);
-					}
-				})
 				//正在热映点击
 				$('.mui-scroll-wrapper').scroll();
 				var item2 = document.getElementById('item2mobile');
 				document.getElementById('slider').addEventListener('slide', function(e) {
 					if (e.detail.slideNumber === 1) {
 						if (item2.querySelector('.mui-loading')) {
-							jQuery.ajaxJsonp(web_url+'/mobile/cinema.php','',function(result){
+							jQuery.ajaxJsonp(web_url+'/mobile/cinema.php?op=coming','',function(result){
 								if(result.state=='true') {
 								var html2='<ul class="mui-table-view">';
 									jQuery.each(result.data,function(k,val){
@@ -140,13 +123,7 @@
 									html2+='</ul>';
 									item2.querySelector('.mui-scroll').innerHTML = html2;
 								}else if(result.state=='false'){
-									if(result.data.isLogin==1){
-										mui.alert(result.message,function(){
-											window.location.href='./index.html';
-										})
-									}else{
-										mui.alert(result.message);
-									}
+									jQuery.errorJudge(result.data,result.message);
 								}
 							});
 						}

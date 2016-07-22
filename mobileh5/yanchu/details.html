@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/public.css" />
+		<style>
+			.mui-table-view-cell.mui-active{background-color: transparent!important;}
+			.mui-slider-indicator .mui-control-item.mui-active{border:1px solid #2fd0b5!important;}
+			.mui-segmented-control.mui-scroll-wrapper.yanchu_time{height: 50px;}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">详情页</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a href="#" class="mui-tab-item btn_next color_white">下一步</a>
+		</nav>
+		<div id="yuanchu_detail" class="mui-content">
+
+		</div>
+		<script src="../js/connection.js"></script>
+		<script src="../js/template.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.hrefclick.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/jqueryExtend.js"></script>
+		<script src="../js/rem.js"></script>
+		<script type="text/javascript">
+			var id = jQuery.getUrlParam('id');
+			var itemid = jQuery.getUrlParam('itemid');
+			var showtime;
+			jQuery.ajaxJsonp(web_url+'/mobile/yanchu.php?act=show',{id:id,itemid:itemid},function(result){
+				console.log(result);
+				if(result.state=='true'){
+					showtime = result.data.str_showtime;
+					document.getElementById('yuanchu_detail').innerHTML=template('tmp_yanchu_detail',result.data);
+					mui('.mui-scroll-wrapper').scroll();
+					mui('.mui-numbox').numbox();
+				}else if(result.state=='false'){
+					jQuery.errorJudge(result.data,result.message);
+				}
+			});
+			mui.init();
+			//点击切换选项卡
+			mui('body').on('tap','.mui-control-item',function(e){
+				if(this.classList.contains('stock-off')){
+					mui.stopPropagation(e);
+					mui.preventDefault(e);
+				}else{
+					var input = obj.getElementsByTagName('input');
+					for(i=0;i<input.length;i++){
+						input[i].checked=true;
+					}
+				}
+			});
+			//点击下一步提交订单
+			mui('body').on('tap','btn_next',function(){
+				var price = jQuery('#yanchu_form input[name="price"]:checked').val();
+				if (!stock){
+					loadMsg('请选择价格');
+					return false;
+				}
+				if ($('#status').val() > 3){
+					loadMsg('抱歉，该演出不能购买');
+					return false;
+				}
+
+
+			});
+		</script>
+	</body>
+
+</html>

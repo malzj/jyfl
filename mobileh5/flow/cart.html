@@ -5,7 +5,15 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="../css/public.css" />
+		<link href="../css/public.css" rel="stylesheet"/>
+		<link href="../css/mui.mian.css" rel="stylesheet"/>
+		<script src="../js/connection.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/mui.min.js"></script>		
+		<script src="../js/template.js"></script>
+		<script src="../js/ajaxJsonp.js"></script>
+		<script src="../js/mui.mian.js"></script>
+		
 		<style type="text/css">
 			.mui-table-view .mui-media-object{max-width: 80px;height: 80px;}
 			.mui-table-view-cell>a:not(.mui-btn){white-space: normal;}
@@ -19,146 +27,17 @@
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">购物车</h1>
 		</header>
-		<nav class="mui-bar mui-bar-tab mui-row">
-			<div class="mui-col-xs-7"><a class="mui-tab-item">合计：<span class="color_2fd0b5">480</span>点</a></div>
-			<div class="mui-col-xs-5">
-				<a class="mui-tab-item footer_jiaru" href="javascript:alert('2222')"><span class="mui-tab-label">去结算</span></a></div>
-		</nav>	
-		<div class="mui-content">
-		    <div class="mui-row gys">
-		    	<div class="gys_name">诺心</div>
-		    	<ul class="mui-table-view">
-					<li class="mui-table-view-cell mui-media">
-						<a href="javascript:;" class="mui-row">
-							<div class="mui-col-xs-4">
-								<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
-							</div>	
-							<div class="mui-media-body mui-col-xs-5">
-								<h5>雪域牛乳芝士蛋糕</h5>
-								<p class="gys_guige">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-								<span class="color_dd4223">￥26.00</span>
-							</div>
-							<div class="mui-col-xs-3">
-								<span class="mui-icon mui-icon-trash mui-pull-right"></span>
-								<div class="mui-numbox mui-pull-right" data-numbox-min='1'>
-										<button class="mui-btn-numbox-minus" type="button">-</button>
-										<input class="mui-input-numbox" type="number" style="border: none!important;"/>
-										<button class="mui-btn-numbox-plus" type="button">+</button>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media">
-						<a href="javascript:;" class="mui-row">
-							<div class="mui-col-xs-4">
-								<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
-							</div>	
-							<div class="mui-media-body mui-col-xs-5">
-								<h5>雪域牛乳芝士蛋糕</h5>
-								<p class="gys_guige">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-								<span class="color_dd4223">￥26.00</span>
-							</div>
-							<div class="mui-col-xs-3">
-								<span class="mui-icon mui-icon-trash mui-pull-right"></span>
-								<div class="mui-numbox mui-pull-right" data-numbox-min='1'>
-										<button class="mui-btn-numbox-minus" type="button">-</button>
-										<input class="mui-input-numbox" type="number" style="border: none!important;"/>
-										<button class="mui-btn-numbox-plus" type="button">+</button>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media">
-						<a href="javascript:;" class="mui-row">
-							<div class="mui-col-xs-4">
-								<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
-							</div>	
-							<div class="mui-media-body mui-col-xs-5">
-								<h5>雪域牛乳芝士蛋糕</h5>
-								<p class="gys_guige">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-								<span class="color_dd4223">￥26.00</span>
-							</div>
-							<div class="mui-col-xs-3">
-								<span class="mui-icon mui-icon-trash mui-pull-right"></span>
-								<div class="mui-numbox mui-pull-right" data-numbox-min='1'>
-										<button class="mui-btn-numbox-minus" type="button">-</button>
-										<input class="mui-input-numbox" type="number" style="border: none!important;"/>
-										<button class="mui-btn-numbox-plus" type="button">+</button>
-								</div>
-							</div>
-						</a>
-					</li>
-				</ul>
-		    </div>
-		    <div class="mui-row gys">
-		    	<div class="gys_name">诺心</div>
-		    	<ul class="mui-table-view">
-					<li class="mui-table-view-cell mui-media">
-						<a href="javascript:;" class="mui-row">
-							<div class="mui-col-xs-4">
-								<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
-							</div>	
-							<div class="mui-media-body mui-col-xs-5">
-								<h5>雪域牛乳芝士蛋糕</h5>
-								<p class="gys_guige">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-								<span class="color_dd4223">￥26.00</span>
-							</div>
-							<div class="mui-col-xs-3">
-								<span class="mui-icon mui-icon-trash mui-pull-right"></span>
-								<div class="mui-numbox mui-pull-right" data-numbox-min='1'>
-										<button class="mui-btn-numbox-minus" type="button">-</button>
-										<input class="mui-input-numbox" type="number" style="border: none!important;"/>
-										<button class="mui-btn-numbox-plus" type="button">+</button>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media">
-						<a href="javascript:;" class="mui-row">
-							<div class="mui-col-xs-4">
-								<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
-							</div>	
-							<div class="mui-media-body mui-col-xs-5">
-								<h5>雪域牛乳芝士蛋糕</h5>
-								<p class="gys_guige">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-								<span class="color_dd4223">￥26.00</span>
-							</div>
-							<div class="mui-col-xs-3">
-								<span class="mui-icon mui-icon-trash mui-pull-right"></span>
-								<div class="mui-numbox mui-pull-right" data-numbox-min='1'>
-										<button class="mui-btn-numbox-minus" type="button">-</button>
-										<input class="mui-input-numbox" type="number" style="border: none!important;"/>
-										<button class="mui-btn-numbox-plus" type="button">+</button>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media">
-						<a href="javascript:;" class="mui-row">
-							<div class="mui-col-xs-4">
-								<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
-							</div>	
-							<div class="mui-media-body mui-col-xs-5">
-								<h5>雪域牛乳芝士蛋糕</h5>
-								<p class="gys_guige">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-								<span class="color_dd4223">￥26.00</span>
-							</div>
-							<div class="mui-col-xs-3">
-								<span class="mui-icon mui-icon-trash mui-pull-right"></span>
-								<div class="mui-numbox mui-pull-right" data-numbox-min='1'>
-										<button class="mui-btn-numbox-minus" type="button">-</button>
-										<input class="mui-input-numbox" type="number" style="border: none!important;"/>
-										<button class="mui-btn-numbox-plus" type="button">+</button>
-								</div>
-							</div>
-						</a>
-					</li>
-				</ul>
-		    </div>
-		</div>
-		<script src="../js/mui.min.js"></script>
+				
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			
+			// ajax调取数据
+			jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{},function(data){				
+				// 加载页面				
+				replaceHtml('header', template('flow/cart', data));
+				// 重新触发计数插件
+				mui('.mui-numbox').numbox();
+			});
 		</script>
 	</body>
 

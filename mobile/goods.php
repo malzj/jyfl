@@ -87,6 +87,7 @@ $goods = get_goods_info($goods_id);
 
 if ($goods === false)
 {
+    $jsonArray['state'] = 'false';
     $jsonArray['message'] = '没有找到任何记录';
     JsonpEncode($jsonArray);
 }

@@ -28,7 +28,9 @@ function addToCart(goodsId, parentId, carttype){
 	goods.carttype = (typeof(carttype) == "undefined") ? 0 : parseInt(carttype);
 	jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{step:"add_to_cart", goods:JSON.stringify(goods), t:Math.random()},function(data){
 		addToCartResponse(data);
+		return true;
 	});
+	
 }
 
 /**
@@ -65,7 +67,10 @@ function addToCartResponse(result){
 		var cart_url = 'flow.php?step=checkout&flowtype=5';
 		
 		if (result.carttype == '5'){
-			location.href = cart_url;
+			mui.openWindow({
+				url:'../flow/checkout.html?flowtype=5',
+				id:'checkout5.html',
+			});
 		}else{
 			mui.toast('加入购物车成功');
 		}

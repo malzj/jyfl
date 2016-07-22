@@ -32,17 +32,17 @@ if ($_REQUEST['act'] == "orderDzq")
 	// 卡规则折扣
 	$ratio = getDzqRatio();
 	//电子券兑换订单
-	$int_cAreaNo    = intval($_POST['areaNo']);//区域编号
-	$int_areaName   = $_POST['areaName'];//区域名称
-	$str_cinemaNo   = $_POST['cinemaNo'];//影院编号
-	$str_cinemaName = $_POST['cinemaName'];//影院名称
-	$int_ticketNo   = $_POST['ticketNo'];//电子券编号
-	$str_mobile     = $_POST['mobile'];//手机
-	$flo_price      = $_POST['price'];//价格	
+	$int_cAreaNo    = intval($_REQUEST['areaNo']);//区域编号
+	$int_areaName   = $_REQUEST['areaName'];//区域名称
+	$str_cinemaNo   = $_REQUEST['cinemaNo'];//影院编号
+	$str_cinemaName = $_REQUEST['cinemaName'];//影院名称
+	$int_ticketNo   = $_REQUEST['ticketNo'];//电子券编号
+	$str_mobile     = $_REQUEST['mobile'];//手机
+	$flo_price      = $_REQUEST['price'];//价格	
 	
 	// 基础价格
-	$flo_prices     = number_format($_POST['price'],2,'.','');
-	$int_number     = intval($_POST['number']);//数量
+	$flo_prices     = number_format($_REQUEST['price'],2,'.','');
+	$int_number     = intval($_REQUEST['number']);//数量
 	
 	//实际价格(商城卖的实际单价)
 	if ($ratio !== false){
@@ -132,8 +132,8 @@ elseif ($_REQUEST['act'] == "payinfoDzq")
 // 电子券支付操作
 elseif ($_REQUEST['act'] == 'doneDzq')
 {	
-	$int_orderId = intval($_POST['order_id']);
-	$str_password = $_POST['password'];
+	$int_orderId = intval($_REQUEST['order_id']);
+	$str_password = $_REQUEST['password'];
 	
 	$arr_orderInfo = $db->getRow('SELECT * FROM '.$ecs->table('dzq_order')." WHERE order_id = '$int_orderId'");
 	$order_amount = price_format($arr_orderInfo['sjprice'])*$arr_orderInfo['number'];
@@ -215,7 +215,7 @@ else if($_REQUEST['act'] == 'delorder')
 {
 	//删除限时没支付的订单
 	$int_orderId = intval($_GET['order_id']);
-	$order_sn = $GLOBALS['db']->getOne('SELECT order_sn FROM '.$GLOBALS['ecs']->table('seats_order')." WHERE user_id = '".intval($_SESSION['user_id'])."' and id = '".$int_orderId);
+	$order_sn = $GLOBALS['db']->getOne('SELECT order_sn FROM '.$GLOBALS['ecs']->table('seats_order')." WHERE user_id = '".intval($_SESSION['user_id'])."' and id = '".$int_orderId."'");
 	$orderQuery = getCDYapi(array('action'=>'order_Query', 'order_id'=>$order_sn));
 	if($orderQuery['orders'][0]['orderStatus']==1){
 		$db->query('UPDATE '.$ecs->table('seats_order')." SET order_status = 2 WHERE id = '$int_orderId'");
@@ -225,24 +225,24 @@ else if($_REQUEST['act'] == 'delorder')
 /* 在线选座下单 */
 else if ($_REQUEST['act'] == 'order'){
 	//下在线选择订单
-	$mobile 			= $_POST['mobile'];				// 手机号
-	$planId 			= intval($_POST['planId']);		// 排期ID
+	$mobile 			= $_REQUEST['mobile'];				// 手机号
+	$planId 			= intval($_REQUEST['planId']);		// 排期ID
 
-	$vipPrice  			= number_format(round($_POST['vipPrice'],1), 2, '.', '');  // 价格
-	$seatCount 			= intval($_POST['seatsCount']);  // 座位数
+	$vipPrice  			= number_format(round($_REQUEST['vipPrice'],1), 2, '.', '');  // 价格
+	$seatCount 			= intval($_REQUEST['seatsCount']);  // 座位数
 	$totalMoney    		= $vipPrice * $seatCount;	// 总价格
-	$extInfo            = addslashes_deep($_POST['extInfo']);
+	$extInfo            = addslashes_deep($_REQUEST['extInfo']);
 	
-	$hallName   		= addslashes_deep(trim($_POST['hallName']));
-	$featureTimeStr 	= addslashes_deep(trim($_POST['featureTimeStr']));
-	$movieName 			= addslashes_deep(trim($_POST['movieName']));
-	$cinemaName   		= addslashes_deep(trim($_POST['cinemaName']));
-	$language  			= addslashes_deep(trim($_POST['language']));
-	$seatsNo  			= addslashes_deep(trim($_POST['seatsNo']));		// 座位号
-	$seatsName  		= addslashes_deep(trim($_POST['seatsName']));
-	$movieId  		    = intval(trim($_POST['movieId']));
+	$hallName   		= addslashes_deep(trim($_REQUEST['hallName']));
+	$featureTimeStr 	= addslashes_deep(trim($_REQUEST['featureTimeStr']));
+	$movieName 			= addslashes_deep(trim($_REQUEST['movieName']));
+	$cinemaName   		= addslashes_deep(trim($_REQUEST['cinemaName']));
+	$language  			= addslashes_deep(trim($_REQUEST['language']));
+	$seatsNo  			= addslashes_deep(trim($_REQUEST['seatsNo']));		// 座位号
+	$seatsName  		= addslashes_deep(trim($_REQUEST['seatsName']));
+	$movieId  		    = intval(trim($_REQUEST['movieId']));
 
-	$seatParam 			= stripslashes_deep(trim($_POST['seatParam']));
+	$seatParam 			= stripslashes_deep(trim($_REQUEST['seatParam']));
 	$seatParamArr 		= json_decode($seatParam, TRUE);
 	$seatParamUrl 		= array2url($seatParamArr);
 	
@@ -339,11 +339,10 @@ else if ($_REQUEST['act'] == 'payinfoMovie'){
 		$jsonArray['message'] = '订单超时，无法支付';
 		JsonpEncode($jsonArray); 
 	}
-	$smarty->assign('endPayTime', local_date('M d, Y H:i:s',$int_endPayTime));
 
 	$arr_order['seat_info'] = str_replace('|', ', ', $arr_order['seat_info']);
 	$arr_order['date'] = local_date('Y-m-d', $arr_order['add_time']);
-	$arr_order['end_paytime'] = $int_endPayTime;
+	$arr_order['end_paytime'] = local_date('M d, Y H:i:s',$int_endPayTime);
 	
 	$jsonArray['data'] = $arr_order;
 	JsonpEncode($jsonArray); 
@@ -353,8 +352,8 @@ else if ($_REQUEST['act'] == 'payinfoMovie'){
 else if ($_REQUEST['act'] == 'doneMovie'){	
 
 	//完成支付在线选座订单
-	$int_orderId = intval($_POST['order_id']);
-	$str_password = trim($_POST['password']);
+	$int_orderId = intval($_REQUEST['order_id']);
+	$str_password = trim($_REQUEST['password']);
 	
 	$arr_orderInfo = $db->getRow('SELECT * FROM '.$ecs->table('seats_order')." WHERE id = '$int_orderId'");	
 	// 需要支付的电影票的价格
@@ -432,14 +431,3 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 		JsonpEncode($jsonArray); 
 	}
 }
-
-
-
-
-
-
-
-
-
-
-

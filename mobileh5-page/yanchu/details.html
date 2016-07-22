@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/public.css" />
+		<style>
+			.mui-table-view-cell.mui-active{background-color: transparent!important;}
+			.mui-slider-indicator .mui-control-item.mui-active{border:1px solid #2fd0b5!important;}
+			.mui-segmented-control.mui-scroll-wrapper.yanchu_time{height: 50px;}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">详情页</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a href="#" class="mui-tab-item btn_next color_white">下一步</a>
+		</nav>
+		<div class="mui-content">
+		    	 <ul class="mui-table-view yanchu_list yanchu_details_top" style="background-image: url(../images/test/yanchu_test.jpg);">
+					<li class="mui-table-view-cell mui-media">
+							<img class="mui-media-object mui-pull-left yanchu_img" src="../images/test/yanchu_test.jpg">
+							<div class="mui-media-body">
+								<h4 class="yanchu_top_name">2016李荣浩巡回粉丝见面会方式发给多少富商大贾</h4>
+								<p class="mui-ellipsis">2016.07.25</p>
+								<p class="mui-ellipsis">国家奥林匹克体育中心</p>
+							</div>
+					</li>
+				</ul>	
+			<div class="bg_white">
+				<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item mui-active" href="#item1">快速购票</a>
+					<a class="mui-control-item" href="#item2">演唱会详情</a>
+				</div>
+			</div>
+			<div id="item1" class="mui-control-content mui-active">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">选择时间</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted yanchu_time">
+						    <div class="mui-scroll">
+						        <a class="mui-control-item mui-active">
+						            <span>2016.05.25</span>
+						            <span>19:20(周五)</span>
+						        </a>
+						        <a class="mui-control-item">
+						            <span>2016.05.25</span>
+						            <span>19:20(周五)</span>
+						        </a>
+						        <a class="mui-control-item">
+						            <span>2016.05.25</span>
+						            <span>19:20(周五)</span>
+						        </a>
+						        <a class="mui-control-item">
+						            <span>2016.05.25</span>
+						            <span>19:20(周五)</span>
+						        </a>
+						        <a class="mui-control-item">
+						            <span>2016.05.25</span>
+						            <span>19:20(周五)</span>
+						        </a>
+						        <a class="mui-control-item">
+						            <span>2016.05.25</span>
+						            <span>19:20(周五)</span>
+						        </a>
+						    </div>
+						</div>
+					</li>
+				</ul>
+				<ul class="mui-table-view margin_top_10">
+					<li class="mui-table-view-cell">选择价格</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						    <div class="mui-scroll yanchu_time">
+						        <a class="mui-control-item mui-active">
+						            <span>180点</span>
+						        </a>
+						        <a class="mui-control-item">
+						            <span>180点</span>
+						        </a>
+						        <a class="mui-control-item">
+						            <span>180点</span>
+						        </a>
+						        <a class="mui-control-item">
+						            <span>180点</span>
+						        </a>
+						        <a class="mui-control-item">
+						            <span>180点</span>
+						        </a>
+						        <a class="mui-control-item">
+						            <span>180点</span>
+						        </a>
+						        <a class="mui-control-item">
+						            <span>180点</span>
+						        </a>
+						    </div>
+						</div>
+					</li>
+				</ul>	
+				<div class="mui-table-view margin_top_10">
+					<div class="mui-table-view-cell">
+						<span class="vertical_align_sub">购买数量</span>
+						<div class="mui-numbox mui-pull-right" data-numbox-min='1'>
+							<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+							<input id="test" class="mui-input-numbox" type="number"/>
+							<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+						</div>
+					</div>	
+				</div>
+			</div>
+			<!--演唱会详情-->
+			<div id="item2" class="mui-control-content">
+				<p>演唱会演唱会演唱会演唱会演唱会演唱会</p>
+			</div>	
+		</div>	
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/rem.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			//根据图片设置相应的背景
+			var bg=jQuery('.yanchu_img').attr('src');
+			jQuery('.yanchu_details_top').css('background-image','url('+bg+')');
+		</script>
+	</body>
+
+</html>

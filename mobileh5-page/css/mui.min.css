@@ -221,7 +221,7 @@ th {
 
 body {
 	font-family: 'Helvetica Neue', Helvetica, sans-serif;
-	font-size: 17px;
+	font-size: 14px;
 	line-height: 21px;
 	color: #000;
 	background-color: #efeff4;
@@ -440,7 +440,7 @@ h3 {
 
 .mui-h4,
 h4 {
-	font-size: 18px
+	font-size: 18px;
 }
 
 .mui-h5,
@@ -1804,7 +1804,7 @@ input[type=submit]:enabled:active {
 }
 
 .mui-table-view-cell p {
-	margin-bottom: 0
+	margin-bottom: 0;
 }
 
 .mui-table-view-cell.mui-transitioning>.mui-slider-handle,
@@ -2781,8 +2781,8 @@ select:focus {
 .mui-segmented-control.mui-scroll-wrapper .mui-control-item {
 	display: inline-block;
 	width: auto;
-	padding: 0 20px;
-	border: 0
+	padding: 0px 20px;
+	border: 0;
 }
 
 .mui-segmented-control .mui-control-item {
@@ -4485,7 +4485,7 @@ body>.mui-progressbar {
 
 .mui-ios .mui-table-view-cell {
 	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d
+	transform-style: preserve-3d;
 }
 
 .mui-plus-visible,

@@ -1439,7 +1439,7 @@ input[type=submit]:enabled:active {
 	position: relative;
 	z-index: 20;
 	padding-top: 10px;
-	padding-bottom: 10px
+	padding-bottom: 10px;
 }
 
 .mui-bar .mui-icon:active {

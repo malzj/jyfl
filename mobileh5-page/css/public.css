@@ -29,6 +29,8 @@ ul li{list-style: none;}
 	color: #2fd0b5;
     border-bottom: 2px solid #2fd0b5;
     background: 0 0;}
+.mui-h4, h4{font-size: 16px;}  
+.mui-bar-tab .mui-tab-item.mui-active{color: #2fd0b5;}  
 /*movie*/
 .buy_ticket{text-align: center;margin-top: 30px;background: #2fd0b5;color: white;border: none;}
 .star_pinfen i{background: url(../images/jy_index/star.png) no-repeat;width: 15px;height: 15px;display: inline-block;background-size: 100% 100%;}

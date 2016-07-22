@@ -8,8 +8,8 @@
 .border_bottom_none{border-bottom: none!important;}
 .border_top_none{border-top: none!important;}
 .btn_ticket{background: #2fd0b5;border: none;color: white;padding: 5px 8px;}
-.margin_top_10{margin-top: 10px;}
-.margin_top_20{margin-top: 20px;}
+.margin_top_10{margin-top: 10px!important;}
+.margin_top_20{margin-top: 20px!important;}
 .margin_top_15{margin-top: 15px!important;}
 .margin_bottom_10{margin-bottom: 10px!important;}
 .color_ff781e{color: #FF781E;}

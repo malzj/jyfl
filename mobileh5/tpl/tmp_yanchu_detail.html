@@ -15,7 +15,7 @@
     </div>
 </div>
 <div id="item1" class="mui-control-content mui-active">
-    <form id="yanchu_form" onclick="return false">
+    <form id="yanchu_form" name="yanchu_form" onclick="return false">
     <ul class="mui-table-view">
         <li class="mui-table-view-cell">选择时间</li>
         <li class="mui-table-view-cell">
@@ -25,7 +25,7 @@
                     <a class="mui-control-item {{if key==0}}mui-active{{/if}}">
                         <span>{{time.shEndDateFormat[0]}}</span>
                         <span>{{time.shEndDateFormat[1]}}</span>
-                        <input type="radio" name="time" {{if key==0}}checked{{/if}} value="{{time.shEndDate}}" style="display:none;" />
+                        <input type="radio" name="time" id="time" {{if key==0}}checked{{/if}} value="{{time.shEndDate}}" style="display:none;" />
                     </a>
                     {{/each}}
                 </div>
@@ -40,11 +40,12 @@
                     {{each showtime as time key}}
                     {{if key==0}}
                     {{each time.specs as val k}}
-                    <a class="mui-control-item">
+                    <a class="mui-control-item {{if val.stock == 0}}stock-off{{/if}}">
                         <span>{{if (val.layout != undefined||val.layout != null)}}{{val.layout}}{{else}}{{val.price}}{{/if}}点</span>
                         <input type="radio" name="price" value="{{val.price}}" style="display:none;" />
                         <input type="radio" name="market_price" value="{{val.market_price}}" style="display:none;" />
                         <input type="radio" name="specid" value="{{val.specId}}" style="display:none;" />
+                        <input type="radio" name="stock" value="{{val.stock}}" style="display:none;" />
                     </a>
                     {{/each}}
                     {{/if}}
@@ -56,9 +57,9 @@
     <div class="mui-table-view margin_top_10">
         <div class="mui-table-view-cell">
             <span class="vertical_align_sub">购买数量</span>
-            <div class="mui-numbox mui-pull-right" data-numbox-min="1" data-numbox-max="">
+            <div class="mui-numbox mui-pull-right" data-numbox-min="1">
                 <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-                <input id="test" class="mui-input-numbox" type="number"/>
+                <input id="number" class="mui-input-numbox" type="number" name="number"/>
                 <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
             </div>
         </div>

@@ -24,6 +24,7 @@ ul li{list-style: none;}
 .vertical_align_sub{vertical-align: sub;}
 .color_white{color:white!important;}
 .font_style{font-weight: bold;font-size: 18px;letter-spacing: 4px;}
+.mui-bar.public_footer{background: rgba(255, 255, 255,.7)!important;}
 /*复写Mui部分样式*/
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
 	color: #2fd0b5;
@@ -31,6 +32,10 @@ ul li{list-style: none;}
     background: 0 0;}
 .mui-h4, h4{font-size: 16px;}  
 .mui-bar-tab .mui-tab-item.mui-active{color: #2fd0b5;}  
+/*jy_index*/
+.icon-gongneng{width: 58px!important;background: url(../images/public_footer_icon.png) no-repeat 0px;display: inline-block;background-size: 100% 100%;height: 60px!important;position: absolute!important;top: -28px!important;left: 50%;transform: translateX(-50%);}
+.public_gongneng{/* overflow: auto!important; */}
+.public_gongneng_title{margin-top: 27px;}
 /*movie*/
 .buy_ticket{text-align: center;margin-top: 30px;background: #2fd0b5;color: white;border: none;}
 .star_pinfen i{background: url(../images/jy_index/star.png) no-repeat;width: 15px;height: 15px;display: inline-block;background-size: 100% 100%;}

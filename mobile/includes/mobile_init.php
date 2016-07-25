@@ -26,9 +26,9 @@ function getImagePath($path, $ext='goods')
     
     switch ($ext)
     {
-        case "goods":      $imagePath = $httpHost.'/'.$newPath;   break;
+        case "goods":      $imagePath = strpos($path, 'http://') !== 0 ? $httpHost.'/'.$newPath : $newPath ;   break;
              
-        case "ad":         $imagePath = $httpHost.'/data/afficheimg/'.$newPath;   break;
+        case "ad":         $imagePath = strpos($path, 'http://') !== 0 ? $httpHost.'/data/afficheimg/'.$newPath : $newPath;   break;
     }
      
      return $imagePath;

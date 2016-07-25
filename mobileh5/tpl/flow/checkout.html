@@ -156,6 +156,21 @@
 		});
 	});
 	
+	/* 编辑收货地址 */
+	jQuery('.adress_select').on('tap','.mui-btn-grey',function(){
+		var _that = jQuery(this);
+		var address_id = _that.parents('div').attr('data-id');
+		mui.openWindow({
+			url:'./editAddress.html?address_id='+address_id,
+			id:'editaddress'
+		});
+		/* jQuery.ajaxJsonp(web_url+"/mobile/address.php",{act:'AjaxEditress',address_id:address_id},function(data){			
+			jQuery('.adress_select').html(template('flow/editAddress', data));
+			enablePopPicker();
+							
+		}); */
+	});
+	
 	/* 查看运费 */
 	jQuery('.mui-content').on('tap','.shwo-yunfei',function(){
 		var sid = jQuery(this).attr('data-id');
@@ -228,8 +243,6 @@
 		orderTotal = (parseFloat(yunfeiTotal)+parseFloat(jQuery('.orderTotal').text())).toFixed(2);
 		jQuery('.orderTotal').html(orderTotal);
 	}	
-	
-	
 	
 
 </script>

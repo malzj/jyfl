@@ -15,8 +15,7 @@
 		
 		<script src="../js/mui.min.js"></script>		
 		<script src="../js/template.js"></script>
-		<script src="../js/ajaxJsonp.js"></script>
-		<script src="../js/functionJs.js"></script>
+		<script src="../js/jqueryExtend.js"></script>
 		<script src="../js/mui.picker.min.js.js"></script>
 		<script src="../js/mui.mian.js"></script>		
 		
@@ -25,7 +24,7 @@
 			.mui-table-view-cell>a:not(.mui-btn){white-space: normal;}
 		</style>
 		<script>
-			var type = getUrlParam('flowtype');
+			var type = jQuery.getUrlParam('flowtype');
 		</script>
 	</head>
 	<body>
@@ -40,11 +39,8 @@
 		mui.init();
 		// ajax调取数据
 		jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{step:'checkout',flowtype:type},function(data){	
-			console.log(data);
 			// 加载页面				
 			replaceHtml('header', template('flow/checkout', data));
-			// 重新触发计数插件
-			//mui('.mui-numbox').numbox();
 		});
 	</script>
 </html>

@@ -21,7 +21,7 @@
     	<div class="gys_name">
     		{{supplier[0].seller}}
     		{{if supplier[0].is_map == 1}}
-    		<a href="#"><span class="color_2fd0b5 mui-pull-right psfanwei shwo-yunfei" data-id="{{supplier[0].supplier_id}}">查看配送范围</span></a>
+    		<span class="color_2fd0b5 mui-pull-right psfanwei shwo-yunfei" data-id="{{supplier[0].supplier_id}}">查看配送范围</span>
     		{{else}}
     		<span class="psfanwei" data-id="{{supplier[0].supplier_id}}"></span>
     		{{/if}}
@@ -90,82 +90,8 @@
 </div>
 <!--选择修改配送地址 start-->
 <div class="row adress_select bg_white" style="display: none;">
-	<div class="adress_select_title"><h4 class="mui-text-center">配送地址</h4></div>
-	<ul id="OA_task_2" class="mui-table-view">
-		<li class="mui-table-view-cell">
-			<div class="mui-slider-right mui-disabled">
-				<a class="mui-btn mui-btn-grey">编辑</a>
-				<a class="mui-btn mui-btn-red add_adress_remove">删除</a>
-			</div>
-			<div class="mui-slider-handle">
-				<div class="mui-table-cell">
-					<p class="color_2fd0b5">
-						<span>王小雪</span>
-						<span class="mui-pull-right">13820906181</span>
-					</p>
-					<p>
-						<em class="adress_default">默认</em>
-						<span>北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区</span>
-					</p>
-				</div>
-			</div>
-		</li>
-		<li class="mui-table-view-cell">
-			<div class="mui-slider-right mui-disabled">
-				<a class="mui-btn mui-btn-grey">编辑</a>
-				<a class="mui-btn mui-btn-red add_adress_remove">删除</a>
-			</div>
-			<div class="mui-slider-handle">
-				<div class="mui-table-cell">
-					<p class="color_2fd0b5">
-						<span>王小雪</span>
-						<span class="mui-pull-right">13820906181</span>
-					</p>
-					<p>
-						<em class="adress_default">默认</em>
-						<span>北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区</span>
-					</p>
-				</div>
-			</div>
-		</li>
-		<li class="mui-table-view-cell">
-			<div class="mui-slider-right mui-disabled">
-				<a class="mui-btn mui-btn-grey">编辑</a>
-				<a class="mui-btn mui-btn-red add_adress_remove">删除</a>
-			</div>
-			<div class="mui-slider-handle">
-				<div class="mui-table-cell">
-					<p class="color_2fd0b5">
-						<span>王小雪</span>
-						<span class="mui-pull-right">13820906181</span>
-					</p>
-					<p>
-						<em class="adress_default">默认</em>
-						<span>北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区</span>
-					</p>
-				</div>
-			</div>
-		</li>
-		<li class="mui-table-view-cell">
-			<div class="mui-slider-right mui-disabled">
-				<a class="mui-btn mui-btn-grey">编辑</a>
-				<a class="mui-btn mui-btn-red add_adress_remove">删除</a>
-			</div>
-			<div class="mui-slider-handle">
-				<div class="mui-table-cell">
-					<p class="color_2fd0b5">
-						<span>王小雪</span>
-						<span class="mui-pull-right">13820906181</span>
-					</p>
-					<p>
-						<em class="adress_default">默认</em>
-						<span>北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区</span>
-					</p>
-				</div>
-			</div>
-		</li>
-	</ul>
-	<div class="add_adress">添加新地址</div>
+	
+		
 </div>
 
 <!--选择修改配送地址 end-->
@@ -206,21 +132,38 @@
 		});
 	});
 	
-	
+	/* 更改单个供应商的配送地址 */
 	var mask = mui.createMask();
 	jQuery('.mui-content').on('tap','.select_shouhuoAdress',function(){
 		jQuery('.adress_select').css('display','block');
 		mask.show();
+		jQuery.ajaxJsonp(web_url+"/mobile/address.php",{act:'AjaxAddressList'},function(data){			
+			jQuery('.adress_select').html(template('flow/selectAddress', data));
+		});
 	});
 	jQuery(document).on('tap','.mui-backdrop',function(){
 		jQuery('.adress_select').css('display','none');
+		jQuery('.adress_select').html('');
 		
 	});
 	
+	/* 删除一个地址 */
+	jQuery('.adress_select').on('tap','.add_adress_remove',function(){
+		var _that = jQuery(this);
+		var address_id = _that.parents('div').attr('data-id');
+		jQuery.ajaxJsonp(web_url+"/mobile/address.php",{act:'AjaxAddressDorp',address_id:address_id},function(data){
+			_that.parents('li').remove();
+		});
+	});
+	
 	/* 查看运费 */
-	jQuery('.mui-content').on('tap',function(){
-		
-	})
+	jQuery('.mui-content').on('tap','.shwo-yunfei',function(){
+		var sid = jQuery(this).attr('data-id');
+		mui.openWindow({
+			url:'./map.html?sid='+sid,
+			id:'map.html'
+		});
+	});
 	
 	/* 设置收货地址和运费 */
 	jQuery('.psfanwei').each(function(index,dom){			

@@ -195,6 +195,7 @@ elseif ($_REQUEST['step'] == 'showYunfei')
     }
     
     $jsonArray['data']['yunfei'] = $yunfei;
+    $jsonArray['data']['cityname'] = get_add_cn($_SESSION['cityid']);
     $jsonArray['data']['id'] = $id;
     JsonpEncode($jsonArray);   
 }
@@ -304,12 +305,6 @@ elseif ($_REQUEST['step'] == 'drop_supplier_goods')
     
     JsonpEncode($jsonArray);
     
-}
-// 供应商单独指定收货地址
-elseif ($_REQUEST['step'] == 'newAddress')
-{
-    $jsonArray['data'] = $_REQUEST['id'];
-    JsonpEncode($jsonArray);
 }
 
 // 确认订单信息

@@ -47,7 +47,7 @@ var baidumap = {
 		var address = address || '';		
 		
 		var map = new BMap.Map(_this.options.showMapId);
-		map.centerAndZoom(this.options.currentCity,11);
+		map.centerAndZoom(this.options.currentCity,10);
 		map.enableScrollWheelZoom(); //开启滚动缩放
 		map.enableContinuousZoom(); //开启缩放平滑
 		

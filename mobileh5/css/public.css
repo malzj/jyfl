@@ -8,8 +8,9 @@
 .border_bottom_none{border-bottom: none!important;}
 .border_top_none{border-top: none!important;}
 .btn_ticket{background: #2fd0b5;border: none;color: white;padding: 5px 8px;}
-.margin_top_10{margin-top: 10px;}
-.margin_top_20{margin-top: 20px;}
+.margin_top_0{margin-top: 0!important;}
+.margin_top_10{margin-top: 10px!important;}
+.margin_top_20{margin-top: 20px!important;}
 .margin_top_15{margin-top: 15px!important;}
 .margin_bottom_10{margin-bottom: 10px!important;}
 .color_ff781e{color: #FF781E;}
@@ -20,6 +21,16 @@ ul li{list-style: none;}
 .border_right_ddd{border-right: 1px solid #ddd;}
 .color_dd4223{color: #dd4223;}
 .overflow_hidden{overflow: hidden;}
+.vertical_align_sub{vertical-align: sub;}
+.color_white{color:white!important;}
+.font_style{font-weight: bold;font-size: 18px;letter-spacing: 4px;}
+/*复写Mui部分样式*/
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+	color: #2fd0b5;
+    border-bottom: 2px solid #2fd0b5;
+    background: 0 0;}
+.mui-h4, h4{font-size: 16px;}  
+.mui-bar-tab .mui-tab-item.mui-active{color: #2fd0b5;}  
 /*movie*/
 .buy_ticket{text-align: center;margin-top: 30px;background: #2fd0b5;color: white;border: none;}
 .star_pinfen i{background: url(../images/jy_index/star.png) no-repeat;width: 15px;height: 15px;display: inline-block;background-size: 100% 100%;}
@@ -28,8 +39,7 @@ ul li{list-style: none;}
 .title_nav{}
 .title_movie{font-size: 14px;border: 1px solid #2fd0b5;padding: 5px 20px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;}
 .title_cinema{font-size: 14px;border: 1px solid #2fd0b5;padding: 5px 20px;border-bottom-right-radius: 5px;border-top-right-radius: 5px;}
-.title_movie.active,.title_cinema.active{background: #2fd0b5;color: white!important;}
-.margin_right_13{margin-right: 13px;}
+.title_movie.active,.title_cinema.active{background: #2fd0b5;color: white!important;}.margin_right_13{margin-right: 13px;}
 .movie_details_top{background: url(../images/jy_index/04.png) no-repeat center;padding-top: 20px;}
 .movie_details_top,.movie_details_top p{color: white;}
 .xuanzuo_btn{background: #2fd0b5;margin-top: 7px;margin-left: 15px;color: white;border: none;}
@@ -79,7 +89,7 @@ ul li{list-style: none;}
 .select_date{border: 0;left: 120px;}
 .select_date{text-align: left;padding: 0px;margin-top: -2px;font-size: 14px;margin-left: 40px;}
 .adress_select_title{padding: 15px 0;border-bottom: 1px solid #ddd;}
-.adress_select{min-height: 350px;position: fixed;z-index: 1111;bottom: 0;}
+.adress_select{width: 100%;min-height: 350px;position: fixed;z-index: 1111;bottom: 0;}
 .add_adress{position:absolute;width: 100%;text-align: center;line-height: 50px;background: #2fd0b5;color: white;bottom: 0;}
 #OA_task_2{height: 300px;overflow-y: scroll;padding-bottom: 60px;}
 #OA_task_2:after{height: 0;}
@@ -90,3 +100,17 @@ ul li{list-style: none;}
 .confirm_list{margin-top: -10px;}
 /*收货地址*/
 .shouhuo_addAdress{background: #2fd0b5;color: white!important;}
+
+/*演出*/
+.yanchu_list .yanchu_img{width: 80px;height: 80px;max-width: 80px;}
+.yanchu_details_top{background-size: 2000%;background-position: 50%;background-color: #4685a4;background-repeat:no-repeat;color: white;    margin-top: 0!important;
+    padding: 20px 0px;}
+.yanchu_details_top p{color: white!important;}
+.yanchu_details_top .yanchu_img{width: 5rem;height: 6rem;max-width: 5rem;}
+.yanchu_top_name{height: 3rem;white-space: normal;line-height: 1.25rem;font-size: 16px;}
+.yanchu_time span{line-height: 1.3;display: block;}
+.yanchu_time a{border: 1px solid #ccc!important;border-radius: 5px;padding: 5px 20px!important;}
+.yanchu_number{line-height: 1.8;}
+
+/*map*/
+.fanwei_block{display: inline-block;width: 60px;height: 20px;background: #2fd0b5;margin-right: 10px;}

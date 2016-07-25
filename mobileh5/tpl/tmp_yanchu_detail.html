@@ -1,0 +1,73 @@
+<ul class="mui-table-view yanchu_list yanchu_details_top" style="background-image: url({{iteminfo.imageUrl}});">
+    <li class="mui-table-view-cell mui-media">
+        <img class="mui-media-object mui-pull-left yanchu_img" src="{{iteminfo.imageUrl}}">
+        <div class="mui-media-body">
+            <h4 class="yanchu_top_name">{{iteminfo.itemName}}</h4>
+            <p class="mui-ellipsis">{{iteminfo.startDate}}{{if iteminfo.startDate}}~{{/if}}{{iteminfo.endDate}}</p>
+            <p class="mui-ellipsis">{{iteminfo['site']['@attributes']['siteName']}}</p>
+        </div>
+    </li>
+</ul>
+<div class="bg_white">
+    <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted">
+        <a class="mui-control-item mui-active" href="#item1">快速购票</a>
+        <a class="mui-control-item" href="#item2">演唱会详情</a>
+    </div>
+</div>
+<div id="item1" class="mui-control-content mui-active">
+    <form id="yanchu_form" onclick="return false">
+    <ul class="mui-table-view">
+        <li class="mui-table-view-cell">选择时间</li>
+        <li class="mui-table-view-cell">
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted yanchu_time">
+                <div class="mui-scroll">
+                    {{each showtime as time key}}
+                    <a class="mui-control-item {{if key==0}}mui-active{{/if}}">
+                        <span>{{time.shEndDateFormat[0]}}</span>
+                        <span>{{time.shEndDateFormat[1]}}</span>
+                        <input type="radio" name="time" {{if key==0}}checked{{/if}} value="{{time.shEndDate}}" style="display:none;" />
+                    </a>
+                    {{/each}}
+                </div>
+            </div>
+        </li>
+    </ul>
+    <ul class="mui-table-view margin_top_10">
+        <li class="mui-table-view-cell">选择价格</li>
+        <li class="mui-table-view-cell">
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                <div class="mui-scroll yanchu_time">
+                    {{each showtime as time key}}
+                    {{if key==0}}
+                    {{each time.specs as val k}}
+                    <a class="mui-control-item">
+                        <span>{{if (val.layout != undefined||val.layout != null)}}{{val.layout}}{{else}}{{val.price}}{{/if}}点</span>
+                        <input type="radio" name="price" value="{{val.price}}" style="display:none;" />
+                        <input type="radio" name="market_price" value="{{val.market_price}}" style="display:none;" />
+                        <input type="radio" name="specid" value="{{val.specId}}" style="display:none;" />
+                    </a>
+                    {{/each}}
+                    {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="mui-table-view margin_top_10">
+        <div class="mui-table-view-cell">
+            <span class="vertical_align_sub">购买数量</span>
+            <div class="mui-numbox mui-pull-right" data-numbox-min="1" data-numbox-max="">
+                <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+                <input id="test" class="mui-input-numbox" type="number"/>
+                <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+<!--演唱会详情-->
+<div id="item2" class="mui-control-content">
+    <p>
+      {{#iteminfo.description}}
+    </p>
+</div>

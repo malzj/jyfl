@@ -85,8 +85,16 @@ elseif ($_REQUEST['act'] == 'show')
 				$arr_showtime[0] = $arr_itemInfo['showtimes']['showtime'];
 			}
 			foreach ($arr_showtime as $key=>$var){
-				$var['shStartDateFormat'] = !empty($var['shStartDate']) ? local_date('Y-m-d H:i', $var['shStartDate'] + 8 * 3600).'（周'.$arr_week[local_date('w', $var['shStartDate'] + 8 * 3600)].'）' : '';
-				$var['shEndDateFormat']   = !empty($var['shEndDate']) ? local_date('Y-m-d H:i', $var['shEndDate'] + 8 * 3600).'（周'.$arr_week[local_date('w', $var['shEndDate'] + 8 * 3600)].'）' : '';
+				$var['shStartDateFormat'] = !empty($var['shStartDate']) ? array(
+						local_date('Y.m.d', $var['shStartDate'] + 8 * 3600),
+						local_date('H:i', $var['shStartDate'] + 8 * 3600).'(周'.$arr_week[local_date('w', $var['shStartDate'] + 8 * 3600)].')'
+					):array();
+				$var['shEndDateFormat']   = !empty($var['shEndDate']) ? array(
+						local_date('Y.m.d', $var['shEndDate'] + 8 * 3600),
+						local_date('H:i', $var['shEndDate'] + 8 * 3600).'（周'.$arr_week[local_date('w', $var['shEndDate'] + 8 * 3600)].'）'
+					):array();
+//				$var['shStartDateFormat'] = !empty($var['shStartDate']) ? local_date('Y-m-d H:i', $var['shStartDate'] + 8 * 3600).'（周'.$arr_week[local_date('w', $var['shStartDate'] + 8 * 3600)].'）' : '';
+//				$var['shEndDateFormat']   = !empty($var['shEndDate']) ? local_date('Y-m-d H:i', $var['shEndDate'] + 8 * 3600).'（周'.$arr_week[local_date('w', $var['shEndDate'] + 8 * 3600)].'）' : '';
 				if ($var['specs']['spec']){
 					$arr_spec = array();
 					$arr_temp = array();

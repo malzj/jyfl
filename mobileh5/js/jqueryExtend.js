@@ -49,7 +49,9 @@
        errorJudge:function(data,message,func){
            if(data.isLogin==1){
                mui.alert(message,function(){
-                   window.location.href='./index.html';
+                   $.openWindow({
+                       url:'./index.html'
+                   });
                });
            }else{
                mui.alert(message,func);

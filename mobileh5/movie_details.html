@@ -12,7 +12,6 @@
 			.mui-media-object{width: 100px;}
 			.mui-control-content {
 				background-color: white;
-				min-height:500px;
 			}
 			.mui-scrollbar {
 	            display: none !important;
@@ -66,6 +65,15 @@
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.hrefclick.js"></script>
 		<script type="text/javascript">
+			mui.init();
+			//滑动选项卡根据内容高度设置容器高度
+			    mui('.mui-scroll-wrapper').scroll({
+			        indicators: true //是否显示滚动条
+			    });
+			    var resolutionHeight = window.innerHeight;
+			    resolutionHeight = resolutionHeight-256;
+			    document.getElementById("item1mobile").setAttribute("style","min-height:"+resolutionHeight+"px;");
+			    document.getElementById("item2mobile").setAttribute("style","min-height:"+resolutionHeight+"px;");
 			var id = jQuery.getUrlParam('id');
 			var step = jQuery.getUrlParam('step');
 			if(step=='movieDetail'){
@@ -79,8 +87,8 @@
 					var detail = '<img class="mui-media-object mui-pull-left" src="' + result.data.movieDetail.pathVerticalS + '"><div class="mui-media-body">' +
 							'<h4>' + result.data.movieDetail.movieName + '</h4>' +
 							'<p>导演：<span>' + result.data.movieDetail.director + '</span></p>' +
-							'<p>主演：<span>' + result.data.movieDetail.actor + '</span></p>' +
-							'<p>' + result.data.movieDetail.movieType + '|<span>' + result.data.movieDetail.movieLength + '分钟</span></p>' +
+							'<p class="mui-ellipsis">主演：<span>' + result.data.movieDetail.actor + '</span></p>' +
+							'<p class="mui-ellipsis">' + result.data.movieDetail.movieType + '|<span>' + result.data.movieDetail.movieLength + '分钟</span></p>' +
 							'<p>' + result.data.movieDetail.publishTime + '</p>' +
 							'<p>评分用星星表示</p></div>'
 					jQuery('#movie_detail .movie_details_top').html(detail);
@@ -112,15 +120,7 @@
 					}
 				}
 			});
-			mui.init();
-			//滑动选项卡根据内容高度设置容器高度
-			    mui('.mui-scroll-wrapper').scroll({
-			        indicators: true //是否显示滚动条
-			    });
-			    var resolutionHeight = window.innerHeight;
-			    resolutionHeight = resolutionHeight-85;
-			    document.getElementById("item1mobile").setAttribute("style","min-height:"+resolutionHeight+"px;");
-			    document.getElementById("item2mobile").setAttribute("style","min-height:"+resolutionHeight+"px;");
+			
 		</script>
 	</body>
 </html>

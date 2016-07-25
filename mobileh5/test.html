@@ -19,9 +19,16 @@
 	<script src="js/mui.min.js"></script>
 	<script src="js/template.js"></script>
 	<script type="text/javascript" charset="utf-8">
-		var header = require('./tpl/public/header');
-		var html = header({});
-		$('.test').html(html);
+		$.ajax({
+			url:'http://a.piaowutong.cc:9001/encryptvoucher/encode',
+			type:'post',
+			data:{voucherno:7110011},
+			dataType:'json',
+			success:function(result){
+				alert(result);
+			}
+		});
+
 	</script>
 	</body>
 

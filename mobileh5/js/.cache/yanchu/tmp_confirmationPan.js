@@ -1,0 +1,8 @@
+/*TMODJS:{"version":5,"md5":"84541c6b7172cc8f9177303f814ee03d"}*/
+template('yanchu/tmp_confirmationPan',function($data,$filename
+/**/) {
+'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,order_sn=$data.order_sn,$out='';$out+='<nav class="mui-bar mui-bar-tab mui-row"> <div class="mui-col-xs-7"><a class="mui-tab-item">应付总额：<span class="color_2fd0b5">480.00</span>点</a></div> <div class="mui-col-xs-5"> <a class="mui-tab-item footer_jiaru" href="#"><span class="mui-tab-label">确认支付</span></a> </div> </nav> <div class="mui-content"> <ul class="mui-table-view margin_top_15"> <li class="mui-table-view-cell"><h4 class="mui-pull-left">订单号</h4><p class="mui-pull-right">';
+$out+=$escape(order_sn);
+$out+='</p></li> <li class="mui-table-view-cell"><h4 class="mui-pull-left">数量</h4><p class="mui-pull-right">1</p></li> <li class="mui-table-view-cell"><h4 class="mui-pull-left">价格</h4><p class="mui-pull-right color_2fd0b5">53.00点</p></li> <li class="mui-table-view-cell"><h4 class="mui-pull-left">运费</h4><p class="mui-pull-right color_2fd0b5">10.00点</p></li> <li class="mui-table-view-cell"><h4 class="mui-pull-left">状态</h4><p class="mui-pull-right">未付款</p></li> </ul> <ul class="mui-table-view margin_top_15"> <li class="mui-table-view-cell"><h4 class="mui-pull-left">聚优卡号</h4><p class="mui-pull-right">999999999999999999</p></li> <li class="mui-table-view-cell"> <div class="mui-input-row"> <label class="mui-pull-left"><h4>请输入密码</h4></label> <input type="password" class="mui-pull-right dianziquan_mima" /> </div> </li> </ul> </div>';
+return new String($out);
+});

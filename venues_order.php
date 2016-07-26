@@ -145,8 +145,7 @@ else if($action == 'pay')
         // 更新订单的支付状态、支付流水号、支付时间
         update( 'is_pay=1,pay_time="'.local_gettime().'",api_card_id="'.$cardResult.'"', 'id='.$orderId, 'venues_order');
         // 接口付款
-        //$result = getDongSite('pay', array('orderId' => $order['api_order_id']));
-        $result['code'] = 0;
+        $result = getDongSite('pay', array('orderId' => $order['api_order_id']));
         if ($result['code'] == 0)
         {                     
             update( 'is_pay=1,state=1', 'id='.$orderId, 'venues_order');           

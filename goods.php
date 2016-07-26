@@ -30,11 +30,7 @@ $smarty->assign('affiliate', $affiliate);
 /*------------------------------------------------------ */
 
 $goods_id = isset($_REQUEST['id'])  ? intval($_REQUEST['id']) : 0;
-$sql_cat = "SELECT * FROM " .$GLOBALS['ecs']->table('goods'). " WHERE goods_id = " . $goods_id;
-$catArr = $GLOBALS['db']->getRow($sql_cat);
-if(in_array($catArr['cat_id'], array(91))){
-    ecs_header("Location:/coupons_list.php?id=$goods_id");
-}
+
 /*------------------------------------------------------ */
 //-- 改变属性、数量时重新计算商品价格
 /*------------------------------------------------------ */

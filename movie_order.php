@@ -181,7 +181,7 @@ elseif ($_REQUEST['act'] == 'doneDzq')
 				'SendType' => 3
 		);
 		//确认支付订单
-		//$arr_result = getYYApi($arr_param, 'confirmOrder');
+		$arr_result = getYYApi($arr_param, 'confirmOrder');
 		$arr_result['body']['OrderStatus'] == '0';
 		//重新计算用户卡余额
 		$_SESSION['BalanceCash'] -= $float_price; 
@@ -391,8 +391,7 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 				'order_id'   => $arr_orderInfo['order_sn'],
 				'balance'	 => $float_price
 		);
-		//$arr_result = getCDYApi($arr_param);
-		//$arr_result['status'] = 0;
+		$arr_result = getCDYApi($arr_param);
 		if($arr_result['status'] == 0){
 			// 支付成功，更新订单状态
 			$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET order_status = '3', payment_time = '".gmtime()."' WHERE id = '$int_orderId'");

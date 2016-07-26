@@ -139,7 +139,7 @@ html.login .wrap {
 
 .pop_left {
 	z-index: 9;
-	width: 80px;
+	width: 70px;
 	height: 350px;
 	position: fixed;
 	left: 0px;
@@ -148,13 +148,14 @@ html.login .wrap {
 	margin: auto;
 	background: transparent;
 	color: white;
+	font-size: 12px;
 }
 .switch {
     margin-top: 190px;
     position: fixed;
     display: block;
     top: 50%;
-    left: 26px;
+    left: 23px;
     width: 26px;
     height: 26px;
     background: url(/images/juyoufuli/icons.png) no-repeat 0px -640px;

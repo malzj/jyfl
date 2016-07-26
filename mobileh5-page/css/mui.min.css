@@ -216,7 +216,10 @@ th {
 	-webkit-user-select: none;
 	outline: 0;
 	-webkit-tap-highlight-color: transparent;
-	-webkit-tap-highlight-color: transparent
+	-webkit-tap-highlight-color: transparent;/
+	nt; */
+	nt; */
+	nt; */
 }
 
 body {
@@ -420,7 +423,7 @@ h5,
 h6 {
 	line-height: 1;
 	margin-top: 5px;
-	margin-bottom: 5px
+	margin-bottom: 5px;
 }
 
 .mui-h1,
@@ -1329,7 +1332,7 @@ input[type=submit]:enabled:active {
 	table-layout: fixed;
 	border-top: 0;
 	border-bottom: 0;
-	-webkit-touch-callout: none
+	-webkit-touch-callout: none;
 }
 
 .mui-bar-tab .mui-tab-item {
@@ -4067,7 +4070,7 @@ body>.mui-progressbar {
 	line-height: 1;
 	display: inline-block;
 	text-decoration: none;
-	-webkit-font-smoothing: antialiased
+	-webkit-font-smoothing: antialiased;
 }
 
 .mui-icon.mui-active {

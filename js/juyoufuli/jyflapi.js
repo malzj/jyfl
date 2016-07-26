@@ -13,6 +13,7 @@ function userShow(data){
             var xingqu; //兴趣
             var xingqu_1;
             var img;
+            var youxiao_time;
 	var url=api_url+"index.php?s=Users/User/userShow"
     $.ajax({
 		type:"post",
@@ -21,6 +22,7 @@ function userShow(data){
 		data:{user_id:user_id},
 		dataType:"json",
 		success:function(data){
+			console.log(data);
 			if(data.result=='true'){
 			 username = data.business.user_name;
              nickname = data.business.nickname;//用户名
@@ -31,7 +33,8 @@ function userShow(data){
              basic=data.business.basic;//个人情况
              xingqu=data.business.xingqu?data.business.xingqu:''; //兴趣
              xingqu_1=xingqu.split(',');
-             img=data.business.pic;	
+             img=data.business.pic;
+			 youxiao_time=data.business.youxiao_time;
 			 rudata=data;
 			 return ;
 			}
@@ -51,7 +54,7 @@ layer.open({
     });
                $('#preview').attr('src',img);
             
-            $('#card_id').text(username);
+            $('#card_id').text(username+'（有效期至:'+youxiao_time+'）');
             $('#username').val(nickname);
             $('#mobile_phone').val(mobile_phone);
 //			性别

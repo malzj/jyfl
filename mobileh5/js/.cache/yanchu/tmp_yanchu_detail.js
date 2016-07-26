@@ -1,7 +1,7 @@
-/*TMODJS:{"version":66,"md5":"373b08c295c974025e51f0e9fa65bb79"}*/
-template('tmp_yanchu_detail',function($data,$filename
+/*TMODJS:{"version":4,"md5":"904326455ecd445c173d8cd6f5b18790"}*/
+template('yanchu/tmp_yanchu_detail',function($data,$filename
 /**/) {
-'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,iteminfo=$data.iteminfo,$each=$utils.$each,showtime=$data.showtime,time=$data.time,key=$data.key,val=$data.val,k=$data.k,$string=$utils.$string,$out='';$out+='<ul class="mui-table-view yanchu_list yanchu_details_top" style="background-image: url(';
+'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,iteminfo=$data.iteminfo,$each=$utils.$each,showtime=$data.showtime,time=$data.time,key=$data.key,val=$data.val,k=$data.k,$string=$utils.$string,$out='';$out+='<div id="yuanchu_detail" class="mui-content"> <ul class="mui-table-view yanchu_list yanchu_details_top" style="background-image: url(';
 $out+=$escape(iteminfo.imageUrl);
 $out+=');"> <li class="mui-table-view-cell mui-media"> <img class="mui-media-object mui-pull-left yanchu_img" src="';
 $out+=$escape(iteminfo.imageUrl);
@@ -33,7 +33,7 @@ $out+='checked';
 }
 $out+=' value="';
 $out+=$escape(time.shEndDate);
-$out+='" style="display:none;" /> <input type="radio" name="status" id="status" value="';
+$out+='" style="display:none;"/> <input type="radio" name="status" id="status" value="';
 $out+=$escape(time.status);
 $out+='" ';
 if(key==0){
@@ -59,13 +59,13 @@ $out+=$escape(val.price);
 }
 $out+='点</span> <input type="radio" name="price" value="';
 $out+=$escape(val.price);
-$out+='" style="display:none;" /> <input type="radio" name="market_price" value="';
+$out+='" style="display:none;"/> <input type="radio" name="market_price" value="';
 $out+=$escape(val.market_price);
-$out+='" style="display:none;" /> <input type="radio" name="specid" value="';
+$out+='" style="display:none;"/> <input type="radio" name="specid" value="';
 $out+=$escape(val.specId);
-$out+='" style="display:none;" /> <input type="radio" name="stock" value="';
+$out+='" style="display:none;"/> <input type="radio" name="stock" value="';
 $out+=$escape(val.stock);
-$out+='" style="display:none;" /> </a> ';
+$out+='" style="display:none;"/> </a> ';
 });
 $out+=' ';
 }
@@ -73,12 +73,12 @@ $out+=' ';
 });
 $out+=' </div> </div> </li> </ul> <div class="mui-table-view margin_top_10"> <div class="mui-table-view-cell"> <span class="vertical_align_sub">购买数量</span> <div class="mui-numbox mui-pull-right" data-numbox-min="1"> <button class="mui-btn mui-btn-numbox-minus" type="button">-</button> <input id="number" class="mui-input-numbox" type="number" name="number"/> <button class="mui-btn mui-btn-numbox-plus" type="button">+</button> </div> </div> </div> <input type="hidden" name="id" value="';
 $out+=$escape(iteminfo.itemId);
-$out+='" /> <input type="hidden" name="storeId" value="';
+$out+='"/> <input type="hidden" name="storeId" value="';
 $out+=$escape(iteminfo['store']['@attributes']['storeId']);
-$out+='" /> <input type="hidden" name="storeName" value="';
+$out+='"/> <input type="hidden" name="storeName" value="';
 $out+=$escape(iteminfo['store']['@attributes']['storeName']);
-$out+='" /> </form> </div>  <div id="item2" class="mui-control-content"> <p> ';
+$out+='"/> </form> </div>  <div id="item2" class="mui-control-content"> <p> ';
 $out+=$string(iteminfo.description);
-$out+=' </p> </div>';
+$out+=' </p> <p></p> </div> </div>';
 return new String($out);
 });

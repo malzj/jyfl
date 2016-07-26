@@ -200,6 +200,7 @@ var baidumap = {
 			jQuery('#address-'+supplierid).css({'border':'1px solid red'});
 		}else{
 			jQuery('#yunfei'+supplierid).html(jiage);
+			jQuery('#address-'+supplierid).css({'border':'0'});
 		}
 		
 		// 每次执行都要执行的操作

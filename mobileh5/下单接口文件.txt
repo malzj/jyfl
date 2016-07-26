@@ -55,10 +55,6 @@
 	参数：id 供应商id
 	备注：删除成功后，刷新当前页面查询最新的信息
 
-	说明：为供应商单独设置收货地址
-	地址：flow.php?step=newAddress
-	参数：id 供应商id
-	备注：无
 
 	说明：确认订单信息
 	地址：flow.php?step=checkout

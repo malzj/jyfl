@@ -2054,7 +2054,7 @@ else if ($_REQUEST['step'] == 'act_pay')
 	    /** TODO 订单支付，双卡版 */
 	    $arr_param = array(
 	        'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-	        'TransationInfo' => array( 'TransRequestPoints'=>1, 'TransSupplier'=>setCharset($supplierName))
+	        'TransationInfo' => array( 'TransRequestPoints'=>$order_amount, 'TransSupplier'=>setCharset($supplierName))
 	    );
 	    
 	    //if (true)

@@ -7,13 +7,14 @@
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/public.css" />
 		<style type="text/css">
-			.mui-input-row label{padding:0;}
+			.yanchu_details_top{background: white;color: #000;padding: 0;margin-top: 10px!important;}
+			.yanchu_details_top p{color: #000!important;}
 		</style>
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav">
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">确认支付</h1>
+		    <h1 class="mui-title">提交订单</h1>
 		</header>
 
 		<script src="../js/connection.js"></script>
@@ -24,30 +25,20 @@
 		<script src="../js/jquery-1.9.1.min.js"></script>
 		<script src="../js/jqueryExtend.js"></script>
 		<script type="text/javascript">
-			var orderid = jQuery.getUrlParam('orderid');
-			jQuery.ajaxJsonp(web_url+'/mobile/yanchu_order.php?act=pay',{orderid:orderid},function(result){
-				if(result.state=='true'){
-					replaceHtml('header',template('yanchu/tmp_confirmationPay',result.data));
-				}else if(result.state=='false'){
-					jQuery.errorJudge(result.data,result.message);
-				}
+			//加载页面信息
+			jQuery.ajaxJsonp(web_url+'/mobile/yanchu_order.php?act=checkout','',function(result){
+				replaceHtml('header',template('yanchu/tmp_yanchu_submit',result.data));
 			});
-			mui('body').on('tap','#pay_submit',function(){
-				var order_sn = jQuery('input[name=order_sn]').val();
-				var order_id = jQuery('input[name=order_id]').val();
-				var password = jQuery('input[name=password]').val();
-				var order_amount = jQuery('input[name=order_amount]').val();
-				jQuery.ajaxJsonp(web_url+'/mobile/yanchu_order.php?act=act_pay',{order_sn:order_sn,orderid:order_id,password:password,order_amount:order_amount},function(result){
-					console.log(result);
+			//订单提交
+			mui('body').on('tap','#order_submit',function(){
+				jQuery.ajaxJsonp(web_url+'/mobile/yanchu_order.php?act=act_order','',function(result){
 					if(result.state=='true'){
-						mui.alert('支付成功！',function(){
-							//						jQuery.jumpTo();
-						});
+						jQuery.jumpTo('./confirmationPay.html?orderid='+result.data.orderid);
 					}else if(result.state=='false'){
 						jQuery.errorJudge(result.data,result.message);
 					}
 				});
-			});
+			})
 			mui.init()
 		</script>
 	</body>

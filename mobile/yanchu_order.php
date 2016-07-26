@@ -237,7 +237,7 @@ elseif ($_REQUEST['act'] == 'checkout')
 	//支付方式
 	$jsonArray['data']['payment_info'] = payment_info(2);
 	// 订单信息
-	$_SESSION['yc_flow_order']['flow']['amount'] = $order['goods_amount'] + $arr_shipping['shipping_fee'];
+	$_SESSION['yc_flow_order']['flow']['amount'] = $arr_orderInfo['goods_amount'] + $arr_shipping['shipping_fee'];
 	$jsonArray['data']['order'] = $_SESSION['yc_flow_order']['flow'];
 	// 产品信息
 	$jsonArray['data']['item'] = $_SESSION['yc_flow_order']['item'];

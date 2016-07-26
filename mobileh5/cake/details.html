@@ -34,6 +34,11 @@
 			mui.init();
 			// ajax调取数据
 			jQuery.ajaxJsonp(web_url+"/mobile/goods.php",{id:goods_id},function(data){
+				if(data.state == 'false'){
+					jQuery.errorJudge(data,data.message,function(){
+						mui.back();	
+					});					
+				}
 				// 加载页面			
 				replaceHtml('header', template('cake/detail', data));
 				// 从新触发相册插件

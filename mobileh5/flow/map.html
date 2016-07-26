@@ -31,7 +31,11 @@
 			mui.init();
 			// ajax调取数据
 			jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{step:'showYunfei',id:id},function(data){	
-				console.log(data);
+				if(data.state == 'false'){
+					jQuery.errorJudge(data,data.message,function(){
+						mui.back();	
+					});					
+				}
 				// 加载页面				
 				replaceHtml('header', template('flow/map', data));
 			});			

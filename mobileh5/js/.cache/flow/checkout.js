@@ -1,4 +1,4 @@
-/*TMODJS:{"version":364,"md5":"635f811b26b56aa943d1a6bb3b9f20c1"}*/
+/*TMODJS:{"version":365,"md5":"033f6079112ca6b7edc1812fb5047890"}*/
 template('flow/checkout',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,data=$data.data,$each=$utils.$each,supplier=$data.supplier,$index=$data.$index,goods=$data.goods,$out='';$out+='<nav class="mui-bar mui-bar-tab mui-row"> <div class="mui-col-xs-7"><a class="mui-tab-item">合计：<span class="color_2fd0b5 orderTotal" data-total="';
@@ -55,7 +55,7 @@ $out+='"> <label>选择配送日期</label> <input class="btn mui-btn mui-btn-bl
 $out+=$escape(supplier[0].supplier_id);
 $out+=']" id="riqi';
 $out+=$escape(supplier[0].supplier_id);
-$out+='" value="" placeholder="选择日期"> </a> </li> <li class="mui-table-view-cell"> <a class="mui-navigate-right"> 选择配送时间 <select name="time[';
+$out+='" placeholder="选择日期"> </a> </li> <li class="mui-table-view-cell"> <a class="mui-navigate-right"> 选择配送时间 <select name="time[';
 $out+=$escape(supplier[0].supplier_id);
 $out+=']" id="time';
 $out+=$escape(supplier[0].supplier_id);

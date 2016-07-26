@@ -8,9 +8,13 @@
     <!--选择收货地址-->
     <div class="mui-table-view margin_top_0">
         <div class="mui-table-view-cell">
-            <a class="mui-navigate-right">
+            <a id="shipping" class="mui-navigate-right">
+                {{if shipping.checkconsignee}}
                 <h4>{{shipping.consignee}} {{shipping.mobile}}</h4>
                 <p>{{shipping.country_cn}}{{shipping.province_cn}}{{shipping.address}}</p>
+                {{else}}
+                <h4>请选择收货地址</h4>
+                {{/if}}
             </a>
         </div>
     </div>

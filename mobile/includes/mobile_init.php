@@ -198,3 +198,17 @@ function assign_pager_wap($app, $cat, $record_count, $size, $sort, $order, $page
     return $pager;
     //$GLOBALS['smarty']->assign('pager', $pager);
 }
+
+/**
+ * 返回加密卡号
+ *
+ * @param $num              要加密数字(卡号)
+ * @return string|void
+ */
+function getCode($num){
+    include_once(ROOT_PATH . 'includes/httpRequest.php');
+    $url='http://a.piaowutong.cc:9001/encryptvoucher/encode';
+    $HttpRequest = new HttpRequest();
+    $code = $HttpRequest->get($url,array('voucherno'=>$num));
+    return $code;
+}

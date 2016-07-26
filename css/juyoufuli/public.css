@@ -537,7 +537,7 @@ html.login .pop_right{transform: translateX(0);}
 
 .pop_left .gn_1{
 	position: absolute;
-	left: 80px;
+	left: 70px;
 	top: -25px;
 	background: #111;
 	width: 430px;
@@ -547,7 +547,7 @@ html.login .pop_right{transform: translateX(0);}
 .pop_left .gn_1 i{line-height: 1;display: block;font-size:12px;}
 .pop_left .per_1 {
 	position: absolute;
-	left: 80px;
+	left: 70px;
 	top: -95px;
 	background: #1B1A1A;
 	width: 180px;
@@ -626,7 +626,7 @@ html.login .pop_right{transform: translateX(0);}
 .gn_1 ul li.active span{background-position: -45px 0px!important;}
 .pop_left .order_1{
 	position: absolute;
-	left: 80px;
+	left: 70px;
 	top: -240px;
 	background: #1B1A1A;
 	width: 170px;

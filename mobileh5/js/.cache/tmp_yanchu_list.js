@@ -1,4 +1,4 @@
-/*TMODJS:{"version":13,"md5":"ca1f2a54c64c400bde9146dfb6ec0922"}*/
+/*TMODJS:{"version":14,"md5":"ca1f2a54c64c400bde9146dfb6ec0922"}*/
 template('tmp_yanchu_list',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,list=$data.list,val=$data.val,k=$data.k,$escape=$utils.$escape,$out='';$out+='<div class="mui-scroll-wrapper" style="padding-top: 50px;"> <div class="mui-scroll"> <ul class="mui-table-view yanchu_list"> ';

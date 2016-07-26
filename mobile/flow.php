@@ -475,8 +475,7 @@ else if ($_REQUEST['step'] == 'change_supplier_bonus'){
 //-- 完成所有订单操作，提交到数据库
 /*------------------------------------------------------ */
 elseif ($_REQUEST['step'] == 'done')
-{
-	
+{        
     include_once('includes/lib_clips.php');
     include_once('includes/lib_payment.php');
     /* 取得购物类型 */
@@ -1055,7 +1054,20 @@ elseif ($_REQUEST['step'] == 'done')
 	$jsonArray['data'] = findData('order_info',"order_id=$new_order_id");
 	JsonpEncode($jsonArray);
 }
-
+//
+else if($_REQUEST['step'] == 'pay')
+{
+    $order_id = $_REQUEST['order_id'];
+    if (empty($order_id))
+    {
+        $jsonArray['state'] = 'false';
+        $jsonArray['message'] = '订单信息不存在';
+        JsonpEncode($jsonArray);
+    }
+    $jsonArray['data']['order'] = current(findData('order_info',"order_id=$order_id"));
+    $jsonArray['data']['users'] = current(findData('users',"user_id=".$_SESSION['user_id']));
+    JsonpEncode($jsonArray);
+}
 //支付成功页面
 else if ($_REQUEST['step'] == 'respond'){
 	$order_id = intval($_REQUEST['id']);
@@ -1132,7 +1144,7 @@ else if ($_REQUEST['step'] == 'act_pay')
 	    /** TODO 订单支付，双卡版 */
 	    $arr_param = array(
 	        'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-	        'TransationInfo' => array( 'TransRequestPoints'=>1, 'TransSupplier'=>setCharset($supplierName))
+	        'TransationInfo' => array( 'TransRequestPoints'=>$order_amount, 'TransSupplier'=>setCharset($supplierName))
 	    );
 	    
 	    //if (true)
@@ -1265,10 +1277,9 @@ else if($_REQUEST['step'] == 'shippingTime')
     // 配送时间信息、供应商id 不能我空
     if( empty($supplier_id) || empty($shipping_start) || empty($shipping_end) || empty($shipping_waiting) || empty($shipping_booking))
     {
-        $arr_result['error'] = 1;
-        $arr_result['message'] = '非常规操作！';
-        die(json_encode($arr_result));
-        exit;
+        $jsonArray['state'] = 'false';
+        $jsonArray['message'] = '非常规操作！';
+        JsonpEncode($jsonArray);
     }
     
     
@@ -1293,36 +1304,30 @@ else if($_REQUEST['step'] == 'shippingTime')
         $timesArray = getShippingTimes($shipping_times,'tomorrow',$supplier_id);
     }
     else{
-        $arr_result['error'] 	= 1;
-        $arr_result['message'] 	= '此时间不能配送，请选择其他时间！';
-        die(json_encode($arr_result));
-        exit;
+        $jsonArray['state'] = 'false';
+        $jsonArray['message'] = '此时间不能配送，请选择其他时间！';
+        JsonpEncode($jsonArray);
     }
     
     
     //是否有可选的配送时间，如果没有，请选择明天
     if(empty($timesArray))
     {
-        $arr_result['error'] 	= 1;
-        $arr_result['message'] 	= '此时间不能配送，请选择其他时间段！';
-        die(json_encode($arr_result));
-        exit;
+        $jsonArray['state'] = 'false';
+        $jsonArray['message'] = '此时间不能配送，请选择其他时间段！';
+        JsonpEncode($jsonArray);
     }
     
     // 处理错误消息
     if($timesArray['error'] == 1)
-    {
-        $arr_result['error'] 	= 1;
-        $arr_result['message'] 	= $timesArray['message'];
-        die(json_encode($arr_result));
-        exit;
+    {       
+        $jsonArray['state'] = 'false';
+        $jsonArray['message'] = $timesArray['message'];
+        JsonpEncode($jsonArray);
     }
     
-    
-    //供应商名称   
-    $arr_result['content']  = $timesArray;
-    die(json_encode($arr_result));
-    exit;
+    $jsonArray['data'] = $timesArray;
+    JsonpEncode($jsonArray);    
 }
 
 else

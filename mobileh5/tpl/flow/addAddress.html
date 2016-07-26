@@ -3,25 +3,25 @@
 		<div class="mui-input-group margin_top_20">
 			<div class="mui-input-row">
 				<label>收货人姓名</label>
-				<input type="text" id="consignee" name="consignee" class="mui-input-clear" value="{{data.consignee.consignee}}" placeholder="请输入">
+				<input type="text" id="consignee" name="consignee" class="mui-input-clear" value="" placeholder="请输入">
 			</div>
 			<div class="mui-input-row">
 				<label>手机号码</label>
-				<input type="text" name="mobile" id="mobile" class="mui-input-clear" value="{{data.consignee.mobile}}" placeholder="请输入">
+				<input type="text" name="mobile" id="mobile" class="mui-input-clear" value="" placeholder="请输入">
 			</div>
 			<div class="mui-input-row">
 				<label>地区</label>
-				<input id='showCityPicker' class="cityResult" type="text" value="{{data.consignee.country_cn}} {{data.consignee.province_cn}} " placeholder="请选择地区">
-				<input id="country" type="hidden" value="{{data.consignee.country}}"/>
-				<input id="province" type="hidden"  value="{{data.consignee.province}}"/>
+				<input id='showCityPicker' class="cityResult" type="text" placeholder="请选择地区">
+				<input id="country" type="hidden" value=""/>
+				<input id="province" type="hidden"  value=""/>
 			</div>
 			<div class="mui-input-row xiangxi_adress">
 				<label>详细地址</label>
-				<textarea id="address" name="address" placeholder="请输入">{{data.consignee.address}}</textarea>
+				<textarea id="address" name="address" placeholder="请输入"></textarea>
 			</div>
 			<div class="mui-input-row">
 				<label>邮政编码</label>
-				<input type="text" id="zipcode" name="zipcode" class="mui-input-clear" value="{{data.consignee.zipcode}}" placeholder="请输入">
+				<input type="text" id="zipcode" name="zipcode" class="mui-input-clear" value="" placeholder="请输入">
 			</div>
 		</div>
 		<div class="mui-button-row margin_top_20">
@@ -34,6 +34,7 @@
 
 	/* 启用选择器插件 */
 	jQuery.ajaxJsonp(web_url+'/mobile/basic.php?act=getMobileCities',{onlyCountry:1},function(result){
+		console.log(result);
 		if(result.state=='true'){
 			var cityPicker = new mui.PopPicker({
 				layer: 2
@@ -72,6 +73,7 @@
 			!zipcode.trim()
 		){
 			mui.alert('信息填写不完整');
+			return false;
 		}
 		
 		jQuery.ajaxJsonp(
@@ -83,8 +85,7 @@
 					country:country,
 					province:province,
 					address:address,
-					zipcode:zipcode,
-					address_id:{{data.consignee.address_id}}
+					zipcode:zipcode
 				},
 				function(data){
 					if(data.state == 'true'){

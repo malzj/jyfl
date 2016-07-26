@@ -37,8 +37,10 @@
 		<script>
 			mui.init();			
 			jQuery.ajaxJsonp(web_url+"/mobile/address.php",{act:'AjaxEditress',address_id:address_id},function(data){			
-				console.log(data);
-				replaceHtml('header',template('flow/editAddress', data));
+				if(address_id !== null)
+					replaceHtml('header',template('flow/editAddress', data));
+				else
+					replaceHtml('header',template('flow/addAddress', data));
 								
 			});
 			

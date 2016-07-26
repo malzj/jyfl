@@ -4,9 +4,9 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui-picker.min.css" rel="stylesheet" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/public.css" rel="stylesheet"/>
-		<link href="../css/mui-picker.min.css" rel="stylesheet" />
 		<link href="../css/mui.mian.css" rel="stylesheet"/>
 		<script src="../js/connection.js"></script>
 		<script src="../js/jquery-1.9.1.min.js"></script>
@@ -38,9 +38,15 @@
 	<script type="text/javascript">		
 		mui.init();
 		// ajax调取数据
-		jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{step:'checkout',flowtype:type},function(data){	
-			// 加载页面				
-			replaceHtml('header', template('flow/checkout', data));
+		jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{step:'checkout',flowtype:type},function(data){
+			if(data.state == 'false'){
+				jQuery.errorJudge(data, data.message, function(){
+					mui.back();
+				});	
+			}else{
+				// 加载页面				
+				replaceHtml('header', template('flow/checkout', data));
+			}
 		});
 	</script>
 </html>

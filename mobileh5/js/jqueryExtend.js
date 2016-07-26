@@ -49,13 +49,22 @@
        errorJudge:function(data,message,func){
            if(data.isLogin==1){
                mui.alert(message,function(){
-                   $.openWindow({
+                   mui.openWindow({
                        url:'./index.html'
                    });
                });
            }else{
                mui.alert(message,func);
            }
+       },
+       /**
+        * 跳转页面
+        * @param url    跳转至url
+        */
+       jumpTo:function(url){
+           mui.openWindow({
+               url:url
+           });
        }
    })
 })(jQuery);

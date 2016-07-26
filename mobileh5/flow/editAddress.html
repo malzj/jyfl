@@ -36,7 +36,13 @@
 		
 		<script>
 			mui.init();			
-			jQuery.ajaxJsonp(web_url+"/mobile/address.php",{act:'AjaxEditress',address_id:address_id},function(data){			
+			jQuery.ajaxJsonp(web_url+"/mobile/address.php",{act:'AjaxEditress',address_id:address_id},function(data){
+				if(data.state == 'false'){
+					jQuery.errorJudge(data,data.message,function(){
+						mui.back();	
+					});					
+				}
+				
 				if(address_id !== null)
 					replaceHtml('header',template('flow/editAddress', data));
 				else

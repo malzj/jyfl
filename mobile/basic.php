@@ -44,7 +44,7 @@ elseif ($_REQUEST['act'] == 'getCityList')
 }
 /*手机城市列表*/
 elseif($_REQUEST['act'] == 'getMobileCities'){
-    $jsonArray['data'] = getMobileCities($_REQUEST['onlyCountry']); 
+    $jsonArray['data'] = getMobileCities($_REQUEST['only_country']);
     JsonpEncode($jsonArray);
 }
 /* 修改会员密码 */

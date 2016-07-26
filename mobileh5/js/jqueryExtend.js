@@ -50,7 +50,7 @@
            if(data.isLogin==1){
                mui.alert(message,function(){
                    mui.openWindow({
-                       url:'./index.html'
+                       url:'/index.html'
                    });
                });
            }else{
@@ -58,13 +58,21 @@
            }
        },
        /**
-        * 跳转页面
-        * @param url    跳转至url
+        * 页面跳转
+        * @param url    跳转链接
+        * @param id     新页面id
+        * @param ext    扩展变量json对象（{id:'id'})
         */
-       jumpTo:function(url){
-           mui.openWindow({
-               url:url
-           });
+       jumpTo:function(url,id,ext){
+           var data = new Object();
+           data['url'] = url;
+           if(id){
+               data['id'] = id;
+           }
+           if(ext){
+               data['extras'] = ext;
+           }
+           mui.openWindow(data);
        }
    })
 })(jQuery);

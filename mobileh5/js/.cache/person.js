@@ -1,4 +1,4 @@
-/*TMODJS:{"version":29,"md5":"502b3736f9d469a2feb5cd7f0d800d65"}*/
+/*TMODJS:{"version":31,"md5":"502b3736f9d469a2feb5cd7f0d800d65"}*/
 template('person',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,nickname=$data.nickname,sex=$data.sex,birthday=$data.birthday,basic=$data.basic,$out='';$out+='  <div id="yonghuming" class="mui-page"> <div class="mui-navbar-inner mui-bar mui-bar-nav"> <button type="button" id="username" class="mui-left mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left"> <span class="mui-icon mui-icon-left-nav"></span> </button> <h1 class="mui-center mui-title">用户名</h1> </div> <div class="mui-page-content"> <div class="mui-scroll-wrapper"> <div class="mui-scroll"> <div class="mui-input-row margin_top_20"> <input type="text" name="nickname" value="';

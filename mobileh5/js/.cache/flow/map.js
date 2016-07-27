@@ -1,4 +1,4 @@
-/*TMODJS:{"version":29,"md5":"f6cb8c63ec81bbb6b379f86ca90e28ca"}*/
+/*TMODJS:{"version":31,"md5":"f6cb8c63ec81bbb6b379f86ca90e28ca"}*/
 template('flow/map',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,data=$data.data,yunfei=$data.yunfei,$index=$data.$index,$escape=$utils.$escape,$out='';$out+='<style> #supplier-showmap{position:absolute;height:100%;width:100%;} </style> <div class="mui-content"> <div class="mui-table-view" style="margin-top: 0;"> <li class="mui-table-view-cell"> ';

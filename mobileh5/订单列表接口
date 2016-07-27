@@ -1,0 +1,36 @@
+数据类型：
+	state   状态
+	data	返回的json数据
+	message 当状态是 false时，对应的错误提示
+
+所有数据使用，请参考华影手机端对应的html页面。
+
+===============================================================================================
+
+	说明：实物订单列表接口
+	地址：mobile/order.php?act=order_list
+	参数：page=下一页面
+	备注：无
+
+	说明：电影订单列表接口
+	地址：mobile/order.php?act=film_order
+	参数：page=下一页面
+	备注：无
+
+	说明：电子券订单列表接口
+	地址：mobile/order.php?act=dzq_order
+	参数：page=下一页面
+	备注：无
+
+	说明：演出订单列表接口
+	地址：mobile/order.php?act=yanchu_order
+	参数：page=下一页面
+	备注：无
+
+	说明：场馆订单列表接口
+	地址：mobile/order.php?act=venues_order
+	参数：page=下一页面
+	备注：无
+
+
+

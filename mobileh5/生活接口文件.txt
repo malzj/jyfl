@@ -1,0 +1,28 @@
+数据类型：
+	state   状态
+	data	返回的json数据
+	message 当状态是 false时，对应的错误提示
+
+所有数据使用，请参考华影手机端对应的html页面。
+
+===============================================================================================
+
+
+  	说明：舌尖美食楼层广告
+	地址：life.php?act=getYGIndex
+	参数：无
+	备注：data[banner] banner图，data[cate] 子类， data[goods] 楼层广告
+
+
+  	说明：优品生活楼层广告
+	地址：life.php?act=getNSIndex
+	参数：无
+	备注：data[banner] banner图，data[cate] 子类， data[goods] 楼层广告
+
+
+
+
+
+	
+
+	

@@ -58,6 +58,30 @@
            }
        },
        /**
+        * 点击链接跳转页面
+        * @param container  非动态渲染的包含框选择器
+        * @param selector   包含的元素选择器
+        */
+       hrefClick:function(container,selector){
+           var defContain = 'body';
+           var defSelector = '.href_click';
+           container = container?container:defContain;
+           selector = selector?selector:defSelector;
+
+           mui(container).on('tap',selector,function(e){
+               var url = this.getAttribute('data-href');
+               if (!this.classList.contains('mui-disabled')) {
+                   e.stopPropagation();
+                   mui.openWindow({
+                       url:url
+                   });
+               }else {
+                   e.preventDefault();
+                   e.stopPropagation();
+               }
+           });
+       },
+       /**
         * 页面跳转
         * @param url    跳转链接
         * @param id     新页面id

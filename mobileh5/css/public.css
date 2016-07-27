@@ -189,6 +189,7 @@ a{color: black;}
 .order_ciema_number{color: #2FD0B5;}
 .order_ciema_name{font-size: 16px;color: black;}
 .order_cinema_itemLeft span{margin-right: 10px;}
+.order_cinema_itemLeft .order_sn{font-size: 14px;}
 .order_ciema_details span{margin-right: 10px;color:#8f8f94;}
 .order_cinemaBox{background-color: white;padding: 15px;position: relative;}
 .order_cinema_itemLeft{width: 230px;line-height: 1.6;}

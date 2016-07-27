@@ -1,52 +1,205 @@
 <!doctype html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
 		<script src="../js/rem.js"></script>
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/public.css" />
+		<link rel="stylesheet" href="../css/new_href.css" />
+		<style type="text/css">
+			.mui-segmented-control.mui-scroll-wrapper {
+				height: 70px;
+			}
+		</style>
 	</head>
-
-	<body>
-		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">实物订单</h1>
-		</header>
-		<div class="mui-content">
-		    <div class="mui-row order_shiwu_box margin_top_10">
-		    	<div class="order_shiwu_boxTitle">2016025612356</div>
-		    	<div class="order_shiwu_item">
-		    		<div class="order_shiwu_item_top mui-clearfix">
-		    			<div class="shiwu_item_top_img mui-pull-left">
-		    				<img src="../images/cake_index.png" alt="" />
-		    			</div>
-		    			<div class="shiwu_item_top_details mui-pull-left">
-		    				<div class="mui-ellipsis">海南小西瓜小西瓜小西瓜小西瓜</div>
-		    				<p class="shiwu_item_top_guige">规格：<span>1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱</span></p>
-		    			</div>
-		    			<div class="shiwu_item_top_price">
-		    				<div>19.80点</div>
-		    				<p>X<span>1</span></p>
-		    			</div>
-		    		</div>
-		    		<div class="order_shiwu_item_middle mui-clearfix">
-		    			<p class="mui-pull-left">订单号：<span>999999999999999999</span></p>
-		    			<div class="mui-pull-right">总金额：<span>19.80</span></div>
-		    		</div>
-		    		<div class="order_shiwu_item_bottom">
-		    			<div>未付款<div>
-		    			<div><a href="#">订单详情</a><div>
-		    		</div>
-		    	</div>
-		    	<div class="order_shiwu_item"></div>
-		    </div>
+	<body class="mui-fullscreen ">
+		<div id="order_shiwu" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<div id="page-container">
+			<div class="mui-page" id="order_shiwu_page">
+				<div class="mui-navbar-inner mui-bar mui-bar-nav">
+					<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+					<h1 class="mui-center mui-title">实物订单</h1>
+				</div>
+				<div class="mui-page-content">
+					<div class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<div class="mui-row order_shiwu_box margin_top_10">
+								<div class="order_shiwu_boxTitle">2016025612356</div>
+								<div class="order_shiwu_item">
+									<div class="order_shiwu_item_top mui-clearfix">
+										<div class="shiwu_item_top_img mui-pull-left">
+											<img src="../images/cake_index.png" alt="" />
+										</div>
+										<div class="shiwu_item_top_details mui-pull-left">
+											<div class="mui-ellipsis">海南小西瓜小西瓜小西瓜小西瓜</div>
+											<p class="shiwu_item_top_guige">规格：<span>1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱</span></p>
+										</div>
+										<div class="shiwu_item_top_price">
+											<div>19.80点</div>
+											<p>X<span>1</span></p>
+										</div>
+									</div>
+									<div class="order_shiwu_item_middle mui-clearfix">
+										<p class="mui-pull-left">订单号：<span>999999999999999999</span></p>
+										<div class="mui-pull-right">总金额：<span>19.80</span></div>
+									</div>
+									<div class="order_shiwu_item_bottom mui-row">
+										<div class="color_coral mui-pull-left">未付款</div>
+										<div class="mui-pull-right shiwu_item_bottom_btn">
+											<a href="#order_details_page">订单详情</a>
+										</div>
+									</div>
+								</div>
+								<!--一个订单中有多种商品-->
+								<div class="order_shiwu_item">
+									<div class="order_shiwu_item_top mui-clearfix">
+										<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+											<div class="mui-scroll">
+												<div class="shiwu_item_top_img mui-pull-left">
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="order_shiwu_item_middle mui-clearfix">
+										<p class="mui-pull-left">订单号：<span>201605281025</span></p>
+										<div class="mui-pull-right"><span class="shiwu_item_middle_foodsNum">共<span>4</span>件商品</span>总金额：<span>19.80</span></div>
+									</div>
+									<div class="order_shiwu_item_bottom mui-row">
+										<div class="color_coral mui-pull-left">未付款</div>
+										<div class="mui-pull-right shiwu_item_bottom_btn">
+											<a href="#">订单详情</a>
+										</div>
+									</div>
+								</div>
+								<div class="order_shiwu_item">
+									<div class="order_shiwu_item_top mui-clearfix">
+										<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+											<div class="mui-scroll">
+												<div class="shiwu_item_top_img mui-pull-left">
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="order_shiwu_item_middle mui-clearfix">
+										<p class="mui-pull-left">订单号：<span>201605281025</span></p>
+										<div class="mui-pull-right"><span class="shiwu_item_middle_foodsNum">共<span>4</span>件商品</span>总金额：<span>19.80</span></div>
+									</div>
+									<div class="order_shiwu_item_bottom mui-row">
+										<div class="color_coral mui-pull-left">未付款</div>
+										<div class="mui-pull-right shiwu_item_bottom_btn">
+											<a href="#">订单详情</a>
+										</div>
+									</div>
+								</div>
+								<div class="order_shiwu_item">
+									<div class="order_shiwu_item_top mui-clearfix">
+										<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+											<div class="mui-scroll">
+												<div class="shiwu_item_top_img mui-pull-left">
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="order_shiwu_item_middle mui-clearfix">
+										<p class="mui-pull-left">订单号：<span>201605281025</span></p>
+										<div class="mui-pull-right"><span class="shiwu_item_middle_foodsNum">共<span>4</span>件商品</span>总金额：<span>19.80</span></div>
+									</div>
+									<div class="order_shiwu_item_bottom mui-row">
+										<div class="color_coral mui-pull-left">未付款</div>
+										<div class="mui-pull-right shiwu_item_bottom_btn">
+											<a href="#">订单详情</a>
+										</div>
+									</div>
+								</div>
+								<div class="order_shiwu_item">
+									<div class="order_shiwu_item_top mui-clearfix">
+										<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+											<div class="mui-scroll">
+												<div class="shiwu_item_top_img mui-pull-left">
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+													<img src="../images/cake_index.png" alt="" />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="order_shiwu_item_middle mui-clearfix">
+										<p class="mui-pull-left">订单号：<span>201605281025</span></p>
+										<div class="mui-pull-right"><span class="shiwu_item_middle_foodsNum">共<span>3</span>件商品</span>总金额：<span>19.80</span></div>
+									</div>
+									<div class="order_shiwu_item_bottom mui-row">
+										<div class="color_coral mui-pull-left">未付款</div>
+										<div class="mui-pull-right shiwu_item_bottom_btn">
+											<a href="#order_details_page">订单详情</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--订单详情页面-->
+			<div class="mui-page" id="order_details_page">
+				<div class="mui-navbar-inner mui-bar mui-bar-nav">
+					<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+					<h1 class="mui-center mui-title">订单详情</h1>
+				</div>
+				<div class="mui-page-content">
+					nihao
+				</div>
+			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.view.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			var viewApi = mui('#order_shiwu').view({
+				defaultPage: '#order_shiwu_page'
+			});
+			//初始化单页的区域滚动
+			mui('.mui-scroll-wrapper').scroll();
+			var view = viewApi.view;
+			//处理view的后退与webview后退
+			var oldBack = mui.back;
+			mui.back = function() {
+				if(viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
 		</script>
 	</body>
 

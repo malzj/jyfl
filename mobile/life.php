@@ -21,10 +21,10 @@ $jsonArray = array(
 
 // 舌尖美食
 if($_REQUEST['act'] == "getYGIndex")
-{
+{    
     $jsonArray['data']['banner'] = getBanner(37);
     $jsonArray['data']['cate'] = getCinemaCate(17,true);
-    $jsonArray['data']['goods'] = getIndex(17,36);
+    $jsonArray['data']['goods'] = getIndex(17);
     JsonpEncode($jsonArray);
 }
 
@@ -33,34 +33,30 @@ elseif($_REQUEST['act'] == "getNSIndex")
 {
     $jsonArray['data']['banner'] = getBanner(38);
     $jsonArray['data']['cate'] = getCinemaCate(40,true);
-    $jsonArray['data']['goods'] = getIndex(40,39);
+    $jsonArray['data']['goods'] = getIndex(40);
     JsonpEncode($jsonArray);
 }
 
-
-/**
- * @param unknown $cid   分类id
- * @param unknown $aid   广告为id
- **/
-function getIndex($cid, $aid){
-    
-    $list = array();
-    $childNav = getCinemaCate($cid,true);
-    
-    // 楼层广告
-    foreach ($childNav as $key=>$value)
-    {
-        $list[$key]['name'] = $value['name'];
-        $list[$key]['id'] = $value['id'];
-        $list[$key]['ad_list'][1] = attrAd($value['name'],1,$aid);
-        $list[$key]['ad_list'][2] = attrAd($value['name'],2,$aid);
-        $list[$key]['ad_list'][3] = attrAd($value['name'],3,$aid);
-        $list[$key]['ad_list'][4] = attrAd($value['name'],4,$aid);
+// 商品
+function getIndex($catid)
+{
+    $reutrnGoods = array();
+    $category = getCinemaCate($catid, true);
+    foreach ( (array)$category as $nav){
+        $reutrnGoods[$nav['id']]['name'] = $nav['name']; 
+        $reutrnGoods[$nav['id']]['id'] = $nav['cid']; 
+        $tempGoods = category_get_goods('g.cat_id '.db_create_in(array($nav['cid'])), 'g.sort_order ASC');
+        if(!empty($tempGoods)){
+            foreach ($tempGoods as &$goods){
+                $goods['goods_thumb'] = getImagePath($goods['goods_thumb']);       
+            }
+        }
+        $reutrnGoods[$nav['id']]['goods'] = $tempGoods;
     }
-    return $list;
+    
+    return $reutrnGoods;
 }
 
-/* banner  */
 function getBanner($id){
     $banner = getNavadvs($id);
     foreach ($banner as $key=>&$val)

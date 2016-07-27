@@ -24,13 +24,62 @@ ul li{list-style: none;}
 .vertical_align_sub{vertical-align: sub;}
 .color_white{color:white!important;}
 .font_style{font-weight: bold;font-size: 18px;letter-spacing: 4px;}
+.mui-bar.public_footer{background: rgba(255, 255, 255,.7)!important;}
 /*复写Mui部分样式*/
+a{color: black;}
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
 	color: #2fd0b5;
     border-bottom: 2px solid #2fd0b5;
     background: 0 0;}
 .mui-h4, h4{font-size: 16px;}  
 .mui-bar-tab .mui-tab-item.mui-active{color: #2fd0b5;}  
+/*jy_index*/
+.icon-gongneng{width: 58px!important;background: url(../images/public_footer_icon.png) no-repeat 0px!important;display: inline-block;background-size: 100% 100%!important;height: 60px!important;position: absolute!important;top: -28px!important;left: 50%;transform: translateX(-50%);
+-webkit-transform: translateX(-50%);
+}
+.public_gongneng{/* overflow: auto!important; */}
+.public_gongneng_title{margin-top: 27px;}
+.public_gongneng{}
+
+/*public popUp*/
+.public_popUp{left: 0;top: 0;position: absolute;width: 100%;height: 100%;background:rgba(255,255,255,.9);z-index: -1;/* transition:all .5s ease-out; */}
+.popUp_row{position: absolute;top: 0px;width: 100%;left: 0;z-index: 1;height: 100%;overflow: hidden;transform: translateY(100%);}
+.popUp_row p{margin-top: .5rem;color: black;font-weight: bold;}
+.popUp_item_bg{display: block;width: 3rem;height: 3rem;border-radius: .75rem;margin: 0 auto;line-height: 3rem!important;}
+.popUp_item img{width: 2.5rem;height: 3rem;margin: 0 auto;display: block;}
+.popUp_item{transition: all .2s ease-out;transform: translateY(600%);margin-bottom: .25rem;}
+#popUp_item_bg1{background: #f15a4a;}
+#popUp_item_bg2{background: #467eef;}
+#popUp_item_bg3{background: #fd8e00;}
+#popUp_item_bg4{background: #ff2662;}
+#popUp_item_bg5{background: #01ccff;}
+#popUp_item_bg6{background: #fe3921;}
+#popUp_item_bg7{background: #8cc500;}
+#popUp_item_bg8{background: #f26c60;}
+#popUp_item_bg9{background: #18c95f;}
+#popUp_item_bg10{background: #48bfdf;}
+#popUp_item_bg11{background: #1bd2d5;}
+#popUp_item_bg12{background: #f5403f;}
+#popUp_item_bg13{background: #1ba4f2;}
+#popUp_item_bg14{background: #feb800;}
+#popUp_item_bg15{background: #a4233a;}
+
+.popUp_close{
+			position: absolute;
+			bottom: 1.2rem;
+			left: 50%;
+			transform: translateX(-50%);
+			-webkit-transform: translateX(-50%);
+			}
+.popUp_close img{box-shadow: 0 0 1rem #d9d9d9;display: block;width: 2.5rem;border-radius: 50%;}  
+.popUp_content{
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
+			}  
+.popUp_item.active{transform: translateY(0);}	
+
 /*movie*/
 .buy_ticket{text-align: center;margin-top: 30px;background: #2fd0b5;color: white;border: none;}
 .star_pinfen i{background: url(../images/jy_index/star.png) no-repeat;width: 15px;height: 15px;display: inline-block;background-size: 100% 100%;}
@@ -94,6 +143,27 @@ ul li{list-style: none;}
 #OA_task_2{height: 300px;overflow-y: scroll;padding-bottom: 60px;}
 #OA_task_2:after{height: 0;}
 .adress_default{background: #2fd0b5;color: white;padding: 2px 10px;}
+.cake_pinpai_item img{width: 50px;height: 50px;display: block;margin: 0 auto;}
+.cake_pinpai_item{padding: 15px 15px!important;}
+.floor_item{margin-top: -1px;background-color:white;}
+.floor_title{height: 35px;padding: 5px 0;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;}
+.floor_title_icon{display: inline-block;height: 24px; width: 5px;background: #2fd0b5;float: left;margin-top: -5px;margin-right: 10px;}
+.floor_more{font-size: 15px;display: inline-block;margin-top: 0px;}
+.floor_list_price{color: #ff6666;}
+.floor_listLeft{width: 4rem;}
+.floor_listBox{padding: .75rem;}
+.floor_list_name{color: #666666;height: 2.3rem;font-size: 12px;overflow: hidden;font-weight: bold;}
+.floor_list .floor_listBox:nth-child(odd){border-right: 1px solid #ddd;border-bottom: 1px solid #ddd;}
+.floor_list .floor_listBox:nth-child(even){border-bottom: 1px solid #ddd;}
+.floor_listBox img{width: 3.8rem;height: 3.8rem;}
+.paixu_item a{display: inline-block;color: #666666;padding: 10px 20px;}
+.paixu_item.active a{color: #2fd0b5;border-bottom: 2px solid #2FD0B5;}
+.pinpai_scroll span{font-size: 12px;border: 1px solid #ddd;border-radius: 5px;width: 80px;display: inline-block;line-height: 25px;}
+.select_scroll{border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;}
+.kouwei_scroll{margin-top: -10px;}
+.goods_font{line-height: 1.2;white-space: normal;height: 1.6rem;overflow: hidden;font-size: 12px;}
+.goods_name{font-size: 14px;}
+.goods_price{display: inline-block;color: #dd4223;width: 100%;margin-top: .5rem;}
 /*订单确认支付*/
 .confirm_img{background: url(../images/cake_pay.png) no-repeat;height:8.75rem;background-size: 100% 100%;z-index: 11;position: relative;}
 .confirm_img h4{width: 280px;margin: 2rem auto;line-height: 1.5rem;color: white;}
@@ -114,3 +184,22 @@ ul li{list-style: none;}
 
 /*map*/
 .fanwei_block{display: inline-block;width: 60px;height: 20px;background: #2fd0b5;margin-right: 10px;}
+
+/*订单页面*/
+.order_ciema_number{color: #2FD0B5;}
+.order_ciema_name{font-size: 16px;color: black;}
+.order_cinema_itemLeft span{margin-right: 10px;}
+.order_cinema_itemLeft .order_sn{font-size: 14px;}
+.order_ciema_details span{margin-right: 10px;color:#8f8f94;}
+.order_cinemaBox{background-color: white;padding: 15px;position: relative;}
+.order_cinema_itemLeft{width: 230px;line-height: 1.6;}
+.order_cinema_itemRight{position: absolute;right: 15px;top: 50%;transform: translateY(-50%);-webkit-transform: translateY(-50%);color:#8f8f94 ;}
+.order_cinema_itemRight .active{color: coral;}
+.order_shiwu_boxTitle{background: white;padding: 10px 15px;}
+.shiwu_item_top_img img{width: 70px;height: 70px;margin-right: 10px;border-radius: 10px;}
+.shiwu_item_top_details{width: 8rem;padding: 5px 0;overflow: hidden;height: 70px;}
+.shiwu_item_top_guige{font-size: 12px;height: 1.9rem;}
+.order_shiwu_item_top{position: relative;padding: .75rem;}
+.shiwu_item_top_price{position: absolute;right: 15px;top: 50%;transform: translateY(-50%);-webkit-transform: translateY(-50%);text-align: right;}
+.order_shiwu_item_middle{background: white;padding: 10px 15px;font-size: 12px;border-bottom: 1px solid #ddd;}
+.order_shiwu_item_middle p{margin-bottom: 0;font-size: 12px;}

@@ -1,0 +1,15 @@
+<div class="mui-indexed-list-inner">
+    <div class="mui-indexed-list-empty-alert">没有数据</div>
+    <ul class="mui-table-view">
+    {{each data as value key}}
+        {{if key!="hot"}}
+            {{each value as val k}}
+                <li data-group="{{k}}" class="mui-table-view-divider mui-indexed-list-group">{{k}}</li>
+                {{each val as city cid}}
+                <li data-value="" data-tags="{{city.region_english}}" data-id="{{city.region_id}}" class="mui-table-view-cell mui-indexed-list-item">{{city.region_name}}</li>
+                {{/each}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+    </ul>
+</div>

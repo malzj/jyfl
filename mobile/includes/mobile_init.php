@@ -221,7 +221,7 @@ function category_get_goods($children, $sort)
         'FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' .
         'LEFT JOIN ' . $GLOBALS['ecs']->table('goods_spec') . ' AS gs ' .
         "ON gs.goods_id = g.goods_id " .
-        "WHERE $where $ext GROUP BY g.goods_name ORDER BY g.sort_order ASC ";
+        "WHERE $where GROUP BY g.goods_name ORDER BY ".$sort;
 
     $res = $GLOBALS['db']->getAll($sql);
 
@@ -294,3 +294,16 @@ function category_get_goods($children, $sort)
     return $arr;
 }
 
+/**
+ * 返回加密卡号
+ *
+ * @param $num              要加密数字(卡号)
+ * @return string|void
+ */
+function getCode($num){
+    include_once(ROOT_PATH . 'includes/httpRequest.php');
+    $url='http://a.piaowutong.cc:9001/encryptvoucher/encode';
+    $HttpRequest = new HttpRequest();
+    $code = $HttpRequest->get($url,array('voucherno'=>$num));
+    return $code;
+}

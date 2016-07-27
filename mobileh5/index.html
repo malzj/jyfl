@@ -163,17 +163,17 @@
 <script>
 
     jQuery(function () {
-        jQuery(".login_btn").click(function () {
+        mui('body').on("tap",".login_btn",function () {
             var form = jQuery(this).parent("form");
             var username = form.find("input[name='username']").val();
             var password = form.find("input[name='password']").val();
             var type = form.find("input[name='type']").val();
             jQuery.ajaxJsonp(web_url + '/mobile/userAuth.php?act=actLogin',{username: username, password: password, type: type},function (result) {
-                    console.log(result);
                     if (result.state == "true") {
                         localStorage.user_id = result.data.user_id;
                         localStorage.user_name = result.data.user_name;
-                        window.location.href = './jy_index.html';
+                        localStorage.cityid = result.data.cityid;
+                        jQuery.jumpTo('./jy_index.html');
                     } else {
                         mui.alert(result.message);
                     }

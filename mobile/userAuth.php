@@ -91,11 +91,17 @@ if ($_REQUEST['act'] == 'actLogin')
         $GLOBALS['user']->set_session($username);
         $GLOBALS['user']->set_cookie($username);
         $_SESSION['BalanceCash'] = $cardMoney;
-    
+
         update_user_info();
         recalculate_price();
         
         $jsonArray['data'] = $int_user;
+        $jsonArray['data']['cityid'] = $_SESSION['cityid'];
+
+        //登录成功请求获取加密卡号
+        $code = getCode($username);
+        $jsonArray['data']['code'] = !empty($code)?$code:$username;
+
         JsonpEncode($jsonArray); 
     }
     else

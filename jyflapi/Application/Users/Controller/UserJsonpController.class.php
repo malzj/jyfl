@@ -355,11 +355,19 @@ class UserJsonpController extends Controller
     public function showAddress()
     {
         $id = $_REQUEST['user_id'];
+        $country = $_REQUEST['cityid'];
+
         $Dao = M("user_address");
         $UserModel = M('users');
+
+        $data = array();
+        $data['user_id'] = $id;
+        if(!empty($country)){
+            $data['country'] = $country;
+        }
         $page = $_REQUEST['p'] ? $_REQUEST['p'] : 1;
 
-        $result = $Dao->where("user_id=" . $id)->select();
+        $result = $Dao->where($data)->select();
         $userInfo = $UserModel->where("user_id=" . $id)->find();
         $regoin = M("region");
         $sortKey = array();
@@ -451,8 +459,13 @@ class UserJsonpController extends Controller
     {
         $address_id = $_REQUEST['address_id'];
         $user_id = $_REQUEST['user_id'];
+
         $Dao = M("user_address");
-        $result = $Dao->where(array("user_id" => $user_id, "address_id" => $address_id))->find();
+        $data = array();
+        $data['user_id'] = $user_id;
+        $data['address_id'] = $address_id;
+
+        $result = $Dao->where($data)->find();
         $regoin = M("region");
         $city = $result['city'];
         $province = $result['province'];

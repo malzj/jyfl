@@ -79,7 +79,7 @@
 		</div>
 		<script src="js/connection.js"></script>
 		<script src="js/jquery-1.9.1.min.js"></script>
-
+		<script src="js/jqueryExtend.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script src="js/template.js"></script>
 		<script type="text/javascript" charset="utf-8">
@@ -90,39 +90,30 @@
 			//页面a标签的点击跳转事件
 			mui('.shop-content,.mui-table-view,.shop-category-container,.mui-bar,.mui-scroll,.mui-content').on('tap', 'a', function (e) {
 			if (!this.classList.contains('mui-disabled')) {
-			mui.openWindow({
-			url: this.getAttribute('href'),
-			id: '#yonghuming',
-			});
+				jQuery.jumpTo(this.getAttribute('href'),'#yonghuming');
 			}
 			else {
-//			s e.preventDefault();
-			mui.preventDefault(e);
-			mui.stopPropagation(e);
+	//			s e.preventDefault();
+				mui.preventDefault(e);
+				mui.stopPropagation(e);
 			}
 			});
 
 			mui('#logout')[0].addEventListener('tap',function(){
 
-				jQuery.ajax({
-					url: web_url + '/mobile/userAuth.php',
-					data: {
-						'act': 'logout',
-					},
-					type: 'get',
-					dataType: 'jsonp',
-					jsonp: 'jsoncallback',
-					success: function (result) {
+				jQuery.ajaxJsonp(web_url + '/mobile/userAuth.php', {'act': 'logout'},
+					function (result) {
 						console.log(result);
 						if (result.state == 'true') {
+							localStorage.clear();
 							mui.alert("退出登录成功！",function(){
-								window.location.href='index.html';
+								jQuery.jumpTo('./jy_index.html');
 							});
 						} else {
 							mui.alert("退出登录失败！");
 						}
 					}
-				});
+				);
 				return false;
 			})
 		</script>

@@ -1,9 +1,11 @@
-/*TMODJS:{"version":2,"md5":"45dee6213769dc3bb85ea6649dddd10b"}*/
+/*TMODJS:{"version":7,"md5":"de52d41c0f1c40477d1670927aada7e3"}*/
 template('yanchu/tmp_yanchu_submit',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,order=$data.order,shipping=$data.shipping,item=$data.item,payment_info=$data.payment_info,shipping_info=$data.shipping_info,$out='';$out+='<nav class="mui-bar mui-bar-tab mui-row"> <div class="mui-col-xs-7"><a class="mui-tab-item">订单总额：<span class="color_2fd0b5">';
 $out+=$escape(order.amount);
-$out+='</span>点</a></div> <div class="mui-col-xs-5"> <a id="order_submit" class="mui-tab-item footer_jiaru" href="#"><span class="mui-tab-label">提交订单</span></a> </div> </nav> <div class="mui-content">  <div class="mui-table-view margin_top_0"> <div class="mui-table-view-cell"> <a class="mui-navigate-right"> <h4>';
+$out+='</span>点</a></div> <div class="mui-col-xs-5"> <a id="order_submit" class="mui-tab-item footer_jiaru" href="#"><span class="mui-tab-label">提交订单</span></a> </div> </nav> <div class="mui-content">  <div class="mui-table-view margin_top_0"> <div class="mui-table-view-cell"> <a id="shipping" class="mui-navigate-right"> ';
+if(shipping.checkconsignee){
+$out+=' <h4>';
 $out+=$escape(shipping.consignee);
 $out+=' ';
 $out+=$escape(shipping.mobile);
@@ -11,7 +13,11 @@ $out+='</h4> <p>';
 $out+=$escape(shipping.country_cn);
 $out+=$escape(shipping.province_cn);
 $out+=$escape(shipping.address);
-$out+='</p> </a> </div> </div>  <ul class="mui-table-view yanchu_list yanchu_details_top"> <li class="mui-table-view-cell mui-media"> <img class="mui-media-object mui-pull-left yanchu_img" src="';
+$out+='</p> ';
+}else{
+$out+=' <h4>请选择收货地址</h4> ';
+}
+$out+=' </a> </div> </div>  <ul class="mui-table-view yanchu_list yanchu_details_top"> <li class="mui-table-view-cell mui-media"> <img class="mui-media-object mui-pull-left yanchu_img" src="';
 $out+=$escape(item.imageUrl);
 $out+='"> <div class="mui-media-body"> <h4 class="yanchu_top_name">';
 $out+=$escape(order.itemName);

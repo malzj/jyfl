@@ -5,25 +5,109 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/rem.js"></script>
 		<link rel="stylesheet" href="../css/mui.min.css"/>
+		<link rel="stylesheet" href="../css/public.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+		<style type="text/css">
+			.mui-content{background-color: white;}
+			.mui-segmented-control.mui-scroll-wrapper .mui-control-item{padding: 0;}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{border-bottom: none;}
+			.mui-segmented-control.mui-scroll-wrapper{height: 50px;padding:5px 10px;}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active span{border-color: #2fd0b5;}
+			.mui-table-view .mui-media-object{max-width: 5rem;height: 5rem;}
+			.mui-table-view .mui-media-object.mui-pull-left{margin-right: 5px;}
+			.icon-gouwuche{font-size: 20px;float: right;padding-bottom: 5px;color: #2fd0b5;}
+		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">芝士口味</h1>
+		    <h1 class="mui-title"></h1>
 		</header>
 		<div class="mui-content">
 		    <!--排序-->
-		    <div class="mui-row mui-text-center">
-		    	<div class="mui-col-xs-4">默认</div>
-		    	<div class="mui-col-xs-4">最新</div>
-		    	<div class="mui-col-xs-4">销量</div>
+		    <div class="mui-row mui-text-center paixu_box">
+		    	<div class="mui-col-xs-4 paixu_item active"><a href="#">默认</a></div>
+		    	<div class="mui-col-xs-4 paixu_item"><a href="#">最新</a></div>
+		    	<div class="mui-col-xs-4 paixu_item"><a href="#">销量</a></div>
 		    </div>
+		    <!--滑动区域-->
+		    <div class="select_scroll">
+		    	<!--品牌滑动区域-->
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				    <div class="mui-scroll pinpai_scroll">
+				        <a class="mui-control-item mui-active"><span>诺心蛋糕</span></a>
+				        <a class="mui-control-item"><span>贝思客</span></a>
+				        <a class="mui-control-item"><span>元祖</span></a>
+				        <a class="mui-control-item"><span>小蜜蜂</span></a>
+				        <a class="mui-control-item"><span>米卡米卡</span></a>
+				    </div>
+				</div>
+				<!--口味滑动区域-->
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted kouwei_scroll">
+					    <div class="mui-scroll pinpai_scroll">
+					        <a class="mui-control-item"><span>芝士口味</span></a>
+					        <a class="mui-control-item"><span>慕斯口味</span></a>
+					        <a class="mui-control-item"><span>鲜果口味</span></a>
+					        <a class="mui-control-item"><span>鲜果口味</span></a>
+					        <a class="mui-control-item"><span>鲜果口味</span></a>
+					    </div>
+				</div>
+			</div>
+			<!--商品列表-->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
+						<div class="mui-media-body">
+							<h4 class="goods_name">幸福</h4>
+							<p class="goods_font">这世界色彩太多快乐也变得无所适从，而纯味奶油与酸甜蓝莓的混搭却能治愈快乐缺乏症...</p>
+							<div class="goods_price">￥<span>239.4点</span><span class="mui-icon iconfont icon-gouwuche"></span></div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
+						<div class="mui-media-body">
+							<h4 class="goods_name">幸福</h4>
+							<p class="goods_font">这世界色彩太多快乐也变得无所适从，而纯味奶油与酸甜蓝莓的混搭却能治愈快乐缺乏症...</p>
+							<div class="goods_price">￥<span>239.4点</span><span class="mui-icon iconfont icon-gouwuche"></span></div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
+						<div class="mui-media-body">
+							<h4 class="goods_name">幸福</h4>
+							<p class="goods_font">这世界色彩太多快乐也变得无所适从，而纯味奶油与酸甜蓝莓的混搭却能治愈快乐缺乏症...</p>
+							<div class="goods_price">￥<span>239.4点</span><span class="mui-icon iconfont icon-gouwuche"></span></div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
+						<div class="mui-media-body">
+							<h4 class="goods_name">幸福</h4>
+							<p class="goods_font">这世界色彩太多快乐也变得无所适从，而纯味奶油与酸甜蓝莓的混搭却能治愈快乐缺乏症...</p>
+							<div class="goods_price">￥<span>239.4点</span><span class="mui-icon iconfont icon-gouwuche"></span></div>
+						</div>
+					</a>
+				</li>
+			</ul>
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			//排序选中效果
+			$('.paixu_box').on('tap','.paixu_item',function(){
+				$(this).addClass('active').siblings().removeClass('active');
+			})
 		</script>
 	</body>
 

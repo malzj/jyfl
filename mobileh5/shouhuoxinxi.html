@@ -148,45 +148,74 @@
 				var onlyCountry=jQuery.getUrlParam('onlyCountry');
 
 				$.init();
-				//收货列表渲染start
+				//所有收货列表渲染
 				function showAdressList() {
-					var params = new Object();
-					if(onlyCountry==1){
-						params['cityid'] = localStorage.getItem('cityid');
-					}
-					params['user_id'] = localStorage.getItem('user_id');
-					console.log(params);
 					jQuery.ajaxJsonp(web_url + '/jyflapi/index.php/Users/UserJsonp/showAddress',
-							params,
-							function (result) {
-								console.log(result);
-								var html = '';
-								var selectword = '';
-								var selected = '';
-								jQuery.each(result.business.result, function (k, val) {
-									if (val.selected == '1') {
-										selectword = '默认地址';
-										selected = 'checked';
-									} else {
-										selectword = '设为默认';
-										selected = '';
-									}
-									html += '<li class="mui-table-view-cell"><div class="mui-slider-right mui-disabled">' +
-											'<a class="mui-btn mui-btn-yellow shouhuo_edit" data-address-id="' + val.address_id + '" href="#change_adress">编辑</a>' +
-											'<a class="mui-btn mui-btn-red shouhuo_remove" data-address-id="' + val.address_id + '">删除</a>' +
-											'</div><div class="mui-slider-handle"><div class="mui-table"><div class="mui-table-cell">' +
-											'<h4 class="mui-ellipsis margin_bottom_10"><span class="shouhuo_name">' + val.consignee + '</span><span>' + val.mobile + '</span>' +
-											'<div class="mui-input-row mui-radio def_radio">' +
-											'<label>' + selectword + '</label><input name="radio1" type="radio" value="' + val.address_id + '" ' + selected + '>' +
-											'</div></h4><h5>' + val.country + val.province + val.address + '</h5>' +
-											'</div></div></div></li>'
-									jQuery('#shouhuo_list').html(html);
-								})
-							}
+						{user_id:localStorage.getItem('user_id')},
+						function (result) {
+							var html = '';
+							var selectword = '';
+							var selected = '';
+							jQuery.each(result.business.result, function (k, val) {
+								if (val.selected == '1') {
+									selectword = '默认地址';
+									selected = 'checked';
+								} else {
+									selectword = '设为默认';
+									selected = '';
+								}
+								html += '<li class="mui-table-view-cell"><div class="mui-slider-right mui-disabled">' +
+										'<a class="mui-btn mui-btn-yellow shouhuo_edit" data-address-id="' + val.address_id + '" href="#change_adress">编辑</a>' +
+										'<a class="mui-btn mui-btn-red shouhuo_remove" data-address-id="' + val.address_id + '">删除</a>' +
+										'</div><div class="mui-slider-handle"><div class="mui-table"><div class="mui-table-cell">' +
+										'<h4 class="mui-ellipsis margin_bottom_10"><span class="shouhuo_name">' + val.consignee + '</span><span>' + val.mobile + '</span>' +
+										'<div class="mui-input-row mui-radio def_radio">' +
+										'<label>' + selectword + '</label><input name="radio1" type="radio" value="' + val.address_id + '" ' + selected + '>' +
+										'</div></h4><h5>' + val.country + val.province + val.address + '</h5>' +
+										'</div></div></div></li>'
+							});
+							jQuery('#shouhuo_list').html(html);
+						}
 					);
 				}
 
-				showAdressList();
+				//当前城市的收货地址列表
+				function cityAddressList(){
+					jQuery.ajaxJsonp(web_url+'/mobile/address.php?act=AjaxAddressList','',function(result){
+						var html = '';
+						var selectword = '';
+						var selected = '';
+						if(jQuery.isEmptyObject(result.data)){
+							html+='没有当前城市收货地址，添加一个吧'
+						}else{
+							jQuery.each(result.data, function (k, val) {
+								if (val.selected == '1') {
+									selectword = '默认地址';
+									selected = 'checked';
+								} else {
+									selectword = '设为默认';
+									selected = '';
+								}
+								html += '<li class="mui-table-view-cell"><div class="mui-slider-right mui-disabled">' +
+										'<a class="mui-btn mui-btn-yellow shouhuo_edit" data-address-id="' + val.address_id + '" href="#change_adress">编辑</a>' +
+										'<a class="mui-btn mui-btn-red shouhuo_remove" data-address-id="' + val.address_id + '">删除</a>' +
+										'</div><div class="mui-slider-handle"><div class="mui-table"><div class="mui-table-cell">' +
+										'<h4 class="mui-ellipsis margin_bottom_10"><span class="shouhuo_name">' + val.consignee + '</span><span>' + val.mobile + '</span>' +
+										'<div class="mui-input-row mui-radio def_radio">' +
+										'<label>' + selectword + '</label><input name="radio1" type="radio" value="' + val.address_id + '" ' + selected + '>' +
+										'</div></h4><h5>' + val.country_cn + val.province_cn + val.address + '</h5>' +
+										'</div></div></div></li>'
+							});
+						}
+						jQuery('#shouhuo_list').html(html);
+					});
+				}
+				if(onlyCountry==1){
+					cityAddressList();
+				}else{
+					showAdressList();
+				}
+
 				//收货地址城市列表渲染
 				function showCities(selector,data){
 					var cityPicker = new $.PopPicker({
@@ -230,8 +259,6 @@
 						jQuery.errorJudge(result.data,result.message);
 					}
 				});
-
-				//收货列表渲染end
 
 				var viewApi = mui('#shouhuoxinxi').view({
 					defaultPage: '#shouhuo_content'
@@ -285,7 +312,11 @@
 				view.addEventListener('pageBeforeBack', function(e) {
 					//				console.log(e.detail.page.id + ' beforeBack');
 					if(e.detail.page.id=='change_adress'||e.detail.page.id=='add_adress'){
-						showAdressList();
+						if(onlyCountry==1){
+							cityAddressList();
+						}else{
+							showAdressList();
+						}
 					}
 				});
 				view.addEventListener('pageBack', function(e) {
@@ -312,7 +343,11 @@
 									$.back();
 									return false;
 								}
-								showAdressList();
+								if(onlyCountry==1){
+									cityAddressList();
+								}else{
+									showAdressList();
+								}
 							})
 						}else if(result.state=='false'){
 							jQuery.errorJudge(result.data,result.message);

@@ -172,7 +172,6 @@
                     if (result.state == "true") {
                         localStorage.user_id = result.data.user_id;
                         localStorage.user_name = result.data.user_name;
-                        localStorage.cityid = result.data.cityid;
                         jQuery.jumpTo('./jy_index.html');
                     } else {
                         mui.alert(result.message);

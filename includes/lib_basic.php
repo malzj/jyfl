@@ -237,9 +237,17 @@ function checkCardType( $username, $type)
              'banner' => 33,
              'text'   => 32
          ),
+         //体检
+         '28' => array(
+             'banner' => 40,
+             'text'   => 41
+         ),
      );
      
-     return $advs[$catid];
+     if( empty($advs[$catid]) )
+         return array('banner' => 0,'text'=> 0);
+      else 
+         return $advs[$catid];
  }
  
  /**
@@ -281,6 +289,8 @@ function checkCardType( $username, $type)
          '19' => 'category.php?id=19',
          //味多美
          '27' => 'category.php?id=27',
+         //味多美电子码
+         '28' => 'category.php?id=28',
      );
      
      return $catUrl[$id];
@@ -325,6 +335,7 @@ function checkCardType( $username, $type)
          '20'   =>'simple/sportsCategory.dwt',
          '19'   =>'simple/sportsCategory.dwt',
          '27'   =>'simple/sportsCategory.dwt',
+         '28'   =>'simple/sportsCategory.dwt',
      );
      
      if (isset($templates[$category['cat_id']])) 

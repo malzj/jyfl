@@ -192,3 +192,13 @@ a{color: black;}
 .order_ciema_details span{margin-right: 10px;color:#8f8f94;}
 .order_cinemaBox{background-color: white;padding: 15px;position: relative;}
 .order_cinema_itemLeft{width: 230px;line-height: 1.6;}
+.order_cinema_itemRight{position: absolute;right: 15px;top: 50%;transform: translateY(-50%);-webkit-transform: translateY(-50%);color:#8f8f94 ;}
+.order_cinema_itemRight .active{color: coral;}
+.order_shiwu_boxTitle{background: white;padding: 10px 15px;}
+.shiwu_item_top_img img{width: 70px;height: 70px;margin-right: 10px;border-radius: 10px;}
+.shiwu_item_top_details{width: 8rem;padding: 5px 0;overflow: hidden;height: 70px;}
+.shiwu_item_top_guige{font-size: 12px;height: 1.9rem;}
+.order_shiwu_item_top{position: relative;padding: .75rem;}
+.shiwu_item_top_price{position: absolute;right: 15px;top: 50%;transform: translateY(-50%);-webkit-transform: translateY(-50%);text-align: right;}
+.order_shiwu_item_middle{background: white;padding: 10px 15px;font-size: 12px;border-bottom: 1px solid #ddd;}
+.order_shiwu_item_middle p{margin-bottom: 0;font-size: 12px;}

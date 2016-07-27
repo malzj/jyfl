@@ -10,9 +10,9 @@
 		<link rel="stylesheet" href="../css/public.css" />
 		<link rel="stylesheet" href="../css/new_href.css" />
 		<style type="text/css">
-			.mui-segmented-control.mui-scroll-wrapper {
-				height: 70px;
-			}
+			.mui-segmented-control.mui-scroll-wrapper {height: 70px;}
+			.mui-input-row label{padding:2px 0;}
+			input{padding: 0!important;height: auto!important;}
 		</style>
 	</head>
 	<body class="mui-fullscreen ">
@@ -173,11 +173,68 @@
 				<div class="mui-navbar-inner mui-bar mui-bar-nav">
 					<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
 					<span class="mui-icon mui-icon-left-nav"></span>
-				</button>
+					</button>
 					<h1 class="mui-center mui-title">订单详情</h1>
 				</div>
 				<div class="mui-page-content">
-					nihao
+					<div class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+						<div class="order_shiwu_address">
+							<h4>王小雪  13820906181</h4>
+							<p class="mui-ellipsis">北京市住邦2000</p>
+						</div>
+						<div class="order_shiwu_item margin_top_10">
+							<div class="order_shiwu_boxTitle mui-clearfix">
+								<span class="mui-pull-left">2016025612356</span>
+								<span class="color_coral mui-pull-right">未付款</span>
+							</div>
+							<!--单个商品详情-->
+							<div class="order_shiwu_item_top mui-clearfix">
+								<div class="shiwu_item_top_img mui-pull-left">
+									<img src="../images/cake_index.png" alt="" />
+								</div>
+								<div class="shiwu_item_top_details mui-pull-left">
+									<div class="mui-ellipsis">海南小西瓜小西瓜小西瓜小西瓜</div>
+									<p class="shiwu_item_top_guige">规格：<span>1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱</span></p>
+									</div>
+								<div class="shiwu_item_top_price">
+									<div>19.80点</div>
+									<p>X<span>1</span></p>
+								</div>
+							</div>
+							<div class="order_shiwu_item_top mui-clearfix">
+								<div class="shiwu_item_top_img mui-pull-left">
+									<img src="../images/cake_index.png" alt="" />
+								</div>
+								<div class="shiwu_item_top_details mui-pull-left">
+									<div class="mui-ellipsis">海南小西瓜小西瓜小西瓜小西瓜</div>
+										<p class="shiwu_item_top_guige">规格：<span>1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱1个/箱</span></p>
+									</div>
+								<div class="shiwu_item_top_price">
+									<div>19.80点</div>
+									<p>X<span>1</span></p>
+								</div>
+							</div>
+						</div>
+						<ul class="mui-table-view margin_top_10">
+							 <li class="mui-table-view-cell">支付方式<span class="mui-pull-right">聚优卡支付</span></li>
+							 <li class="mui-table-view-cell">付款时间<span class="mui-pull-right">2016-05-25 08:20:15</span></li>
+					         <li class="mui-table-view-cell">下单时间<span class="mui-pull-right">2016-05-25 08:20:12</span></li>
+					         <li class="mui-table-view-cell">运费<span class="mui-pull-right">0</span></li>
+					         <li class="mui-table-view-cell">实付点数<span class="mui-pull-right">29.80</span></li>
+						</ul>
+						<ul class="mui-table-view margin_top_10">
+							<li class="mui-table-view-cell">聚优卡号<span class="mui-pull-right">999999999999999999</span></li>
+							<li class="mui-table-view-cell mui-input-row">
+								<label>请输入密码</label>
+								<input type="password">
+							</li>
+						</ul>
+						<div class="mui-button-row">
+	                        <button type="button" class="mui-btn order_shiwu_fukuan">付款</button>
+	                    </div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

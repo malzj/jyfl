@@ -68,7 +68,7 @@
 			function delOrder(){
 				jQuery.ajaxJsonp(web_url+'/mobile/cinema_order.php', {act:'delorder', 'order_id':orderid}, function (result){
 					mui.alert('抱歉，您未在规定时间内完成支付，该订单已删除！',function(){
-						window.location.href="./movie.html";
+						jQuery.jumpTo("./movie.html");
 					});
 				});
 			}
@@ -87,8 +87,8 @@
 					console.log(result);
 					if(result.state=='true') {
 						mui.alert('支付成功',function(){
-//							window.location.href="";
-						})
+							jQuery.jumpTo("./order/order_cinema.html");
+						});
 					}else if(result.state=='false'){
 						jQuery.errorJudge(result.data,result.message);
 					}

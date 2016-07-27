@@ -87,9 +87,10 @@
 		<script src="js/jqueryExtend.js"></script>
 		<script src="js/cinema_detail.js"></script>
 		<script src="js/mui.min.js"></script>
-		<script src="js/mui.hrefclick.js"></script>
 		<script type="text/javascript">
 			(function($) {
+				//初始化点击
+				jQuery.hrefClick();
 				var cinemaid = jQuery.getUrlParam('cinemaid');
 				var movieid = jQuery.getUrlParam('movieid');
 				jQuery.ajaxJsonp(web_url + '/mobile/cinema.php?step=allCinemaDetail', {
@@ -135,13 +136,7 @@
 							$('.mui-numbox').numbox();
 						}
 					} else if (result.state == 'false') {
-						if (result.data.isLogin == 1) {
-							$.alert(result.message, function () {
-								window.location.href = './index.html';
-							})
-						} else {
-							$.alert(result.message);
-						}
+						jQuery.errorJudge(result.data,result.message);
 					}
 				});
 
@@ -211,9 +206,7 @@
 					jQuery.ajaxJsonp(web_url+'/mobile/cinema_order.php?act=orderDzq',param,function(result){
 						console.log(result.data.orderid);
 						if(result.state=='true'){
-							mui.openWindow({
-								url: './dianziquan_order.html?orderid='+result.data.orderid,
-							});
+							jQuery.jumpTo('./dianziquan_order.html?orderid='+result.data.orderid);
 						}else if(result.state='false'){
 							jQuery.errorJudge(result.data,result.message);
 						}

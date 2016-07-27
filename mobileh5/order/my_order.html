@@ -29,7 +29,11 @@
 			//初始化点击跳转函数
 			jQuery.hrefClick();
 
-			mui.init()
+			mui.init();
+			mui.back = function() {
+				jQuery.jumpTo("../jy_index.html");
+			}
+
 		</script>
 	</body>
 

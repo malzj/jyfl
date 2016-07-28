@@ -18,6 +18,9 @@
 	        }
 	        a.mui-row{padding-left: 0!important;}
 	        .mui-table-view-cell.mui-collapse .mui-table-view .mui-table-view-cell:after{left: 15px;}
+			.mui-table-view-cell.mui-active>a{color: #2fd0b5;}
+			.mui-table-view-cell.mui-collapse.mui-active{margin-top: 0;background: white;}
+			.mui-table-view-cell.mui-collapse.mui-active .mui-table-view-chevron{background: #efeff4;}
 		</style>
 		
 	</head>
@@ -28,7 +31,7 @@
 		    <h1 class="mui-title">影片详情</h1>
 		</header>
 		<div id="movie_detail" class="mui-content ">
-			<div class="mui-table-view-cell mui-media movie_details_top ">
+			<div class="mui-table-view-cell mui-media movie_details_top">
 
 			</div>
 			<div id="slider" class="mui-slider">
@@ -78,9 +81,11 @@
 			var id = jQuery.getUrlParam('id');
 			var step = jQuery.getUrlParam('step');
 			if(step=='movieDetail'){
-				jQuery('#item2mobile').addClass('mui-active')
+				jQuery('#item2mobile').addClass('mui-active');
+				jQuery('.mui-control-item:nth-child(2)').addClass('mui-active');
 			}else if(step=='movieCinema'){
-				jQuery('#item1mobile').addClass('mui-active')
+				jQuery('#item1mobile').addClass('mui-active');
+				jQuery('.mui-control-item:nth-child(1)').addClass('mui-active');
 			}
 			jQuery.ajaxJsonp(web_url+'/mobile/cinema.php?step=movieDetail',{movieid:id},function(result){
 				console.log(result);
@@ -91,8 +96,12 @@
 							'<p class="mui-ellipsis">主演：<span>' + result.data.movieDetail.actor + '</span></p>' +
 							'<p class="mui-ellipsis">' + result.data.movieDetail.movieType + '|<span>' + result.data.movieDetail.movieLength + '分钟</span></p>' +
 							'<p>' + result.data.movieDetail.publishTime + '</p>' +
-							'<p>评分用星星表示</p></div>'
+							'<div class="star_pinfen"><span class="star_pinfen1"></span></div></div>'
 					jQuery('#movie_detail .movie_details_top').html(detail);
+					//根据影片设置背景
+					var bg=jQuery('.movie_details_top img').attr('src');
+					jQuery('.movie_details_top').css('background-image','url('+bg+')')
+			
 					jQuery('#item2mobile .movie_xianqing').html(result.data.movieDetail.intro);
 					var cinemaList = '<ul class="mui-table-view mui-table-view-chevron">';
 					jQuery.each(result.data.cinemas, function (key, value) {
@@ -115,6 +124,7 @@
 					jQuery.errorJudge(result.data,result.message);
 				}
 			});
+			
 			
 		</script>
 	</body>

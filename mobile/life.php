@@ -54,7 +54,7 @@ function getIndex($catid)
         $reutrnGoods[$nav['id']]['goods'] = $tempGoods;
     }
     
-    return $reutrnGoods;
+    return array_merge($reutrnGoods);
 }
 
 function getBanner($id){

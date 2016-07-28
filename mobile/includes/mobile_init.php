@@ -200,7 +200,7 @@ function assign_pager_wap($app, $cat, $record_count, $size, $sort, $order, $page
 }
 
 /* 手机端推荐推荐的商品 */
-function category_get_goods_wap($children, $sort)
+function category_get_goods_wap($children, $sort, $limit=4)
 {
 
     $display = $GLOBALS['display'];
@@ -221,7 +221,7 @@ function category_get_goods_wap($children, $sort)
         'FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' .
         'LEFT JOIN ' . $GLOBALS['ecs']->table('goods_spec') . ' AS gs ' .
         "ON gs.goods_id = g.goods_id " .
-        "WHERE $where GROUP BY g.goods_name ORDER BY ".$sort." LIMIT 4";
+        "WHERE $where GROUP BY g.goods_name ORDER BY ".$sort." LIMIT $limit";
 
     $res = $GLOBALS['db']->getAll($sql);
 
@@ -259,39 +259,37 @@ function category_get_goods_wap($children, $sort)
 
         if ($watermark_img != '')
         {
-            $temp['watermark_img'] =  $watermark_img;
+            $arr[$row['goods_id']]['watermark_img'] =  $watermark_img;
         }
 
-        $temp['goods_id']         = $row['goods_id'];
+        $arr[$row['goods_id']]['goods_id']         = $row['goods_id'];
         if($display == 'grid')
         {
-            $temp['goods_name']       = $GLOBALS['_CFG']['goods_name_length'] > 0 ? sub_str($row['goods_name'], $GLOBALS['_CFG']['goods_name_length']) : $row['goods_name'];
+            $arr[$row['goods_id']]['goods_name']       = $GLOBALS['_CFG']['goods_name_length'] > 0 ? sub_str($row['goods_name'], $GLOBALS['_CFG']['goods_name_length']) : $row['goods_name'];
         }
         else
         {
-            $temp['goods_name']       = $row['goods_name'];
+            $arr[$row['goods_id']]['goods_name']       = $row['goods_name'];
         }
-        $temp['name']             = $row['goods_name'];
-        $temp['goods_brief']      = $row['goods_brief'];
-        $temp['goods_style_name'] = add_style($row['goods_name'],$row['goods_name_style']);
-        $temp['market_price']     = price_format($row['market_price']);
+        $arr[$row['goods_id']]['name']             = $row['goods_name'];
+        $arr[$row['goods_id']]['goods_brief']      = $row['goods_brief'];
+        $arr[$row['goods_id']]['goods_style_name'] = add_style($row['goods_name'],$row['goods_name_style']);
+        $arr[$row['goods_id']]['market_price']     = price_format($row['market_price']);
         // 商品规格价格处理
         // TODO 当前卡规则不显示这个规格的情况下，去最低的规格价格、（未做）
         $spec_array = array('spec_nember'=> $row['spec_nember'], 'goods_id'=>$row['goods_id']);
-        $temp['shop_price']       = get_spec_ratio_price($spec_array);
+        $arr[$row['goods_id']]['shop_price']       = get_spec_ratio_price($spec_array);
 
-        $temp['spec_name']       = $row['spec_name'];
-        $temp['spec_nember']       = $row['spec_nember'];
+        $arr[$row['goods_id']]['spec_name']       = $row['spec_name'];
+        $arr[$row['goods_id']]['spec_nember']       = $row['spec_nember'];
 
-        $temp['type']             = $row['goods_type'];
-        $temp['goods_num']        = $row['goods_num'];
-        $temp['promote_price']    = ($promote_price > 0) ? price_format($promote_price) : '';
-        $temp['goods_thumb']      = get_image_path($row['goods_id'], $row['goods_thumb'], true);
-        $temp['goods_img']        = get_image_path($row['goods_id'], $row['goods_img']);
-        $temp['url']              = build_uri('goods', array('gid'=>$row['goods_id']), $row['goods_name']);
-        $temp['sort_order']       = $row['sort_order'];
-        
-        $arr[] = $temp; 
+        $arr[$row['goods_id']]['type']             = $row['goods_type'];
+        $arr[$row['goods_id']]['goods_num']        = $row['goods_num'];
+        $arr[$row['goods_id']]['promote_price']    = ($promote_price > 0) ? price_format($promote_price) : '';
+        $arr[$row['goods_id']]['goods_thumb']      = get_image_path($row['goods_id'], $row['goods_thumb'], true);
+        $arr[$row['goods_id']]['goods_img']        = get_image_path($row['goods_id'], $row['goods_img']);
+        $arr[$row['goods_id']]['url']              = build_uri('goods', array('gid'=>$row['goods_id']), $row['goods_name']);
+        $arr[$row['goods_id']]['sort_order']       = $row['sort_order'];
     }
     return $arr;
 }

@@ -87,7 +87,7 @@ function checkCardType( $username, $type)
      {
          if ($cateid == $selected)
          {
-             $returnArray = $middle['child'];
+             $returnArray = array_merge($middle['child']);
          }
      }
  

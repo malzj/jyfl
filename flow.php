@@ -285,8 +285,8 @@ elseif ($_REQUEST['step'] == 'yunfei')
                 }
             }
         }
-        
-        $arr_shipping = supplier_shipping_area_info($id,1,$consignee);
+        $region  = array($consignee['country'], $consignee['province'], $consignee['city'], $consignee['district']);
+        $arr_shipping = supplier_shipping_area_info($id,1,$region);
         if (!empty($arr_shipping)){
             $arr_shipping['shipping_id'] = 1;
             $shipping_cfg = unserialize_config($arr_shipping['configure']);

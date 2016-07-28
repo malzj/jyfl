@@ -107,7 +107,7 @@ function shipping_area_info($shipping_id, $region_id_list)
             ' AND re.region_id = r.region_id AND r.region_id ' . db_create_in($region_id_list) .
             ' AND r.shipping_area_id = a.shipping_area_id AND a.shipping_id = s.shipping_id AND s.enabled = 1 ORDER BY re.region_type DESC';
     $row = $GLOBALS['db']->getRow($sql);
-
+    
     if (!empty($row))
     {
         $shipping_config = unserialize_config($row['configure']);

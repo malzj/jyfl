@@ -31,7 +31,10 @@
 					jQuery.errorJudge(result.data,result.message);
 				}
 			});
-			mui.init()
+			mui.init();
+			mui.back = function() {
+				jQuery.jumpTo("./my_order.html");
+			}
 		</script>
 	</body>
 

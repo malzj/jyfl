@@ -41,7 +41,7 @@
 					console.log(result);
 					if(result.state=='true'){
 						mui.alert('支付成功！',function(){
-							//						jQuery.jumpTo();
+							jQuery.jumpTo('../order/order_yanchu.html');
 						});
 					}else if(result.state=='false'){
 						jQuery.errorJudge(result.data,result.message);

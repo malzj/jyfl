@@ -25,12 +25,17 @@
 			jQuery.ajaxJsonp(web_url+'/mobile/order.php?act=yanchu_order','',function(result){
 				if(result.state=="true"){
 					result.data.hasOrders = jQuery.isEmptyObject(result.data.orders)?0:1;
+					console.log(result);
 					replaceHtml('header',template('order/tmp_order_yanchu',result.data));
 				}else if(result.state=="false"){
 					jQuery.errorJudge(result.data,result.message);
 				}
 			});
-			mui.init()
+			mui.init();
+			mui.back = function() {
+				jQuery.jumpTo("./my_order.html");
+			}
+
 		</script>
 	</body>
 

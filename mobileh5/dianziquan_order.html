@@ -41,9 +41,7 @@
 					console.log(result);
 					if(result.state=='true'){
 						mui.alert(result.message,function(){
-//							mui.openWindow({
-//								url:'./'
-//							})
+							jQuery.jumpTo("./order/order_dzq.html");
 						});
 					}else if(result.state=='false'){
 						jQuery.errorJudge(result.data,result.message);

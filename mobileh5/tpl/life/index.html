@@ -30,8 +30,8 @@
 	<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 	    <div class="mui-scroll">
 	        {{each data.cate as cate}}
-	        <a class="mui-control-item cake_pinpai_item href_click" data-href="list.html?id={{cate.cid}}">
-	           <img src="../images/icon/cake/nav-{{cate.id}}.jpg" alt="" />
+	        <a class="mui-control-item cake_pinpai_item href_click" data-href="../cake/list.html?id={{cate.cid}}">
+	           <img src="../images/icon/life/nav-{{cate.id}}.jpg" alt="" />
 	           <span>{{cate.name}}</span>
 	        </a>
 	    	{{/each}}
@@ -41,8 +41,8 @@
 	{{each data.goods as attr}}
 	<div class="floor_item">
 		<div class="floor_title mui-row">
-			<h4 class="mui-pull-left"><span class="floor_title_icon"></span><span>{{attr.attrName}}</span></h4>
-			<a data-href="list.html?id={{attr.brandId}}&filter_attr={{attr.filterId}}" class="href_click">
+			<h4 class="mui-pull-left"><span class="floor_title_icon"></span><span>{{attr.name}}</span></h4>
+			<a data-href="../cake/list.html?id={{attr.id}}" class="href_click">
 				<div class="mui-pull-right"><span class="floor_more">更多</span><span class="mui-icon mui-icon-arrowright"></span></div>
 			</a>
 		</div>
@@ -54,7 +54,7 @@
 					<div class="floor_list_price"><em>{{good.shop_price}}</em></div>
 				</div>
 				<div class="mui-pull-right">
-					<a data-href="details.html?id={{good.goods_id}}" class="href_click"><img src="{{good.goods_thumb}}" alt=""/></a>
+					<a data-href="../cake/details.html?id={{good.goods_id}}" class="href_click"><img src="{{good.goods_thumb}}" alt=""/></a>
 				</div>
 			</div>
 			{{/each}}

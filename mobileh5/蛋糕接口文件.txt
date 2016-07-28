@@ -16,23 +16,15 @@
 	地址：category.php
 	参数：	id 分类id，[蛋糕就是品牌id]
 		sort[sort_order默认，sales_num销量，last_update上架时间]排序
+		order[ASC,DESC]
 		filter_attr 属性id
 		page 分页
 	备注：	data[list] 商品列表
-
 		data[attrList] 属性列表
-
-		data[navigator] 所有导航信息，例如：蛋糕，应该是 data[navigator][16][child] 就是蛋糕的品牌列表
-
-		data[pager] 分页信息
-		data[pager][page] 当前分页
-		data[pager][page_count] 总分页数
-		data[pager][record_count] 总商品数
+		data[navigator] 二级分类
+		data[cat] 当前分类信息
+		data[filter_attr] 当前选中的属性信息
 		
-		data[pager][search][category] 分类id
-		data[pager][search][keywords] 关键字
-		data[pager][search][order] 排序方式【DESC 和 ASC，默认是 ASC】
-		data[pager][search][sort] 排序类型【sort_order默认，sales_num销量，last_update上架时间】
 
 	说明：商品详情
 	地址：goods.php

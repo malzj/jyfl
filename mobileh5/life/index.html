@@ -22,21 +22,22 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">蛋糕</h1>
+		    <h1 class="mui-title">舌尖美食</h1>
 		</header>
 
 		<script type="text/javascript">
 			mui.init();
 			
 			// ajax调取数据
-			jQuery.ajaxJsonp(web_url+"/mobile/cake.php",{act:'getIndex'},function(data){
+			jQuery.ajaxJsonp(web_url+"/mobile/life.php",{act:'getYGIndex'},function(data){
 				if(data.state == 'false'){
 					jQuery.errorJudge(data,data.message,function(){
 						mui.back();	
 					});					
 				}
+				console.log(data);
 				// 加载页面			
-				replaceHtml('header', template('cake/index', data));
+				replaceHtml('header', template('life/index', data));
 				// 从新触发相册插件
 				var gallery = mui('#slider');
 				gallery.slider({interval:5000});

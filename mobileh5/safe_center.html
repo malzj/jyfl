@@ -274,32 +274,24 @@
                 return false;
             }
         }
-        jQuery.ajax({
-            url: web_url + '/mobile/basic.php',
-            data: {
+        jQuery.ajaxJsonp(web_url + '/mobile/basic.php',
+            {
                 'act': 'act_edit_password',
                 'old_password': old_password,
                 'new_password': new_password,
                 'user_name': user_name,
-                'user_id':localStorage.user_id,
+                'user_id':localStorage.user_id
             },
-            type: 'get',
-            dataType: 'jsonp',
-            jsonp:'jsoncallback',
-            success: function (result) {
+            function (result) {
                 if (result.state == 'true') {
-                    mui.alert(result.message);
+                    mui.alert(result.message+'请重新登录！',function(){
+                        jQuery.jumpTo('./index.html');
+                    });
                 } else if(result.state == 'false') {
-                    if(result.data.isLogin==1){
-                        mui.alert(result.message,function () {
-                            window.location.href='index.html';
-                        });
-                    }else{
-                        mui.alert(result.message);
-                    }
+                    jQuery.errorJudge(result.data,result.message);
                 }
             }
-        });
+        );
     });
     /**
      * 获取验证码
@@ -341,12 +333,8 @@
                 }
             }
         })
-    })
+    });
 
-    /**
-     *
-     */
-    jQuery()
 </script>
 </body>
 </html>

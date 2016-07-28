@@ -1,4 +1,4 @@
-/*TMODJS:{"version":5,"md5":"dbf4efeb74f0d08cc4102940c08d1f35"}*/
+/*TMODJS:{"version":6,"md5":"dbf4efeb74f0d08cc4102940c08d1f35"}*/
 template('life/index',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,data=$data.data,banner=$data.banner,$index=$data.$index,$escape=$utils.$escape,i=$data.i,cate=$data.cate,attr=$data.attr,good=$data.good,$out='';$out+='<div class="mui-content">  <div id="slider" class="mui-slider" > <div class="mui-slider-group mui-slider-loop"> <div class="mui-slider-item mui-slider-item-duplicate slide-a"> <a href=""> <img src=""> </a> </div> ';

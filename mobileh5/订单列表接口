@@ -12,6 +12,11 @@
 	参数：page=下一页面
 	备注：无
 
+	说明：实物订单查看详情接口
+	地址：mobile/order.php?act=order_detail
+	参数：order_id = 订单id
+	备注：无
+
 	说明：电影订单列表接口
 	地址：mobile/order.php?act=film_order
 	参数：page=下一页面

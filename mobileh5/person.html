@@ -73,7 +73,6 @@
 					success:function(data) {
 						data.business.sexcn = (data.business.sex == 1) ? "男" : "女";
 						userInfo = data.business;
-						console.log(userInfo);
 						jQuery('#person_user').text(userInfo.user_name);
 						jQuery('#person_name').text(userInfo.nickname);
 						jQuery('#person_sex').text(userInfo.sexcn);
@@ -173,7 +172,6 @@
 					userdata.user_id = localStorage.user_id;
 					userdata.nickname = jQuery('input[name="nickname"]').val();
 					userdata.sex = jQuery('#data_sex').find('li.mui-selected').attr('data-sex');
-					console.log(userdata.sex);
 					var birthday = jQuery('#birth_date').text();
 					userdata.birthday = birthday=='选择日期'?'':birthday;
 					userdata.basic = jQuery("#basic option:selected").val();
@@ -191,7 +189,6 @@
 						dataType:'jsonp',
 						jsonp:'jsoncallback',
 						success:function(data){
-							console.log(data);
 							if(data.result=='true'){
 								jQuery('#person_name').text(data.user.nickname);
 								var sexcn = (data.user.sex==1)?"男":"女";

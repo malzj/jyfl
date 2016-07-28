@@ -212,3 +212,5 @@ a{color: black;}
 .order_shiwu_address{background: white;padding: 10px 15px;border-bottom: 1px solid #ddd;}
 .order_shiwu_address p{margin-bottom: 0;}
 .order_shiwu_fukuan{width: 80%;background: #2fd0b5;color: white;margin: 15px 0;}
+.question_box{padding: 20px;font-size: 16px;background: white;}
+.question_item{margin: 10px 0;}

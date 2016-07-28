@@ -1,4 +1,4 @@
-/*TMODJS:{"version":50,"md5":"150c67928fe3c32e4e9eebfa8bdb29ce"}*/
+/*TMODJS:{"version":51,"md5":"de81b32198a7a9fc1fab0b3ea8199bd4"}*/
 template('tmp_cinema_list',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,data=$data.data,value=$data.value,key=$data.key,$escape=$utils.$escape,val=$data.val,k=$data.k,is_brush=$data.is_brush,$out='';$out+='<ul class="mui-table-view mui-table-view-chevron"> ';
@@ -7,9 +7,9 @@ $out+=' <li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-righ
 $out+=$escape(value.area_name);
 $out+='</a> <ul class="mui-table-view mui-table-view-chevron"> ';
 $each(value.cinemas,function(val,k){
-$out+=' <li class="mui-table-view-cell "> <a href="./cinema_details.html?cinemaid=';
+$out+=' <li class="mui-table-view-cell "> <a data-href="./cinema_details.html?cinemaid=';
 $out+=$escape(val.komovie_cinema_id);
-$out+='" class="mui-row"> <div class="mui-table-cell mui-col-xs-10"> <h4 class="mui-ellipsis">';
+$out+='" class="mui-row href_click"> <div class="mui-table-cell mui-col-xs-10"> <h4 class="mui-ellipsis">';
 $out+=$escape(val.cinema_name);
 $out+='(';
 if(val.is_komovie==1){

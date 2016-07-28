@@ -97,7 +97,6 @@
                     var amount       = {$order.formated_total_fee};
                     var money        = {$usernames.card_money};
                     var order_id     = '{$order.order_id}';
-                    alert(amount+'-'+money+'-'+order_id);
                     var pwd = document.getElementById('password').value;
                     if (pwd.length == 0){
                         alert('卡密码不能为空');

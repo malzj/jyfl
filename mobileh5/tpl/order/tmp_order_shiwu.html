@@ -1,0 +1,56 @@
+
+    <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+            {{each orders as porder}}
+            <div class="mui-row order_shiwu_box margin_top_10">
+                <div class="order_shiwu_boxTitle">{{porder.p_order_sn}}</div>
+                {{each porder.c_orders as c_order}}
+                <div class="order_shiwu_item">
+                    {{if c_order.goods.length == 1}}
+                    <div class="order_shiwu_item_top mui-clearfix">
+                        <div class="shiwu_item_top_img mui-pull-left">
+                            <img src="{{web_url}}/{{c_order.goods[0].goods_thumb}}" alt="" />
+                        </div>
+                        <div class="shiwu_item_top_details mui-pull-left">
+                            <div class="mui-ellipsis">{{c_order.goods[0].goods_name}}</div>
+                            <p class="shiwu_item_top_guige"><span>{{c_order.goods[0].goods_attr}}</span></p>
+                        </div>
+                        <div class="shiwu_item_top_price">
+                            <div>{{c_order.goods[0].goods_price}}点</div>
+                            <p>X<span>{{c_order.goods[0].goods_number}}</span></p>
+                        </div>
+                    </div>
+                    {{else if c_order.goods.length > 1}}
+                    <div class="order_shiwu_item_top mui-clearfix">
+                        <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                            <div class="mui-scroll">
+                                <div class="shiwu_item_top_img mui-pull-left">
+                                    {{each c_order.goods as goods}}
+                                    <img src="{{web_url}}/{{goods.goods_thumb}}" alt="" />
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+                    <div class="order_shiwu_item_middle mui-clearfix">
+                        <p class="mui-pull-left">订单号：<span>{{c_order.order_sn}}</span></p>
+                        <div class="mui-pull-right">
+                            {{if c_order.goods.length > 1}}
+                            <span class="shiwu_item_middle_foodsNum">共<span>{{c_order.goods.length}}</span>件商品</span>
+                            {{/if}}
+                            总金额：<span>{{c_order.total_fee}}</span>
+                        </div>
+                    </div>
+                    <div class="order_shiwu_item_bottom mui-row">
+                        <div class="color_coral mui-pull-left">{{c_order.order_status}}</div>
+                        <div class="mui-pull-right shiwu_item_bottom_btn">
+                            <a id="order_detail" href="#order_details_page" data-id="{{c_order.order_id}}">订单详情</a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            {{/each}}
+        </div>
+    </div>

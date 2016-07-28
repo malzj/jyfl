@@ -1,4 +1,4 @@
-/*TMODJS:{"version":61,"md5":"9cc68e3aa115a7766bad2b09b04dcc5a"}*/
+/*TMODJS:{"version":62,"md5":"75dc2aed656f0ee29909dfbdb92c2a93"}*/
 template('cake/index',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,data=$data.data,banner=$data.banner,$index=$data.$index,$escape=$utils.$escape,i=$data.i,cate=$data.cate,attr=$data.attr,good=$data.good,$out='';$out+='<div class="mui-content">  <div id="slider" class="mui-slider" > <div class="mui-slider-group mui-slider-loop"> <div class="mui-slider-item mui-slider-item-duplicate slide-a"> <a href=""> <img src=""> </a> </div> ';
@@ -23,7 +23,7 @@ $out+=' <a class="mui-control-item cake_pinpai_item href_click" data-href="list.
 $out+=$escape(cate.cid);
 $out+='"> <img src="../images/icon/cake/nav-';
 $out+=$escape(cate.id);
-$out+='.jpg" alt="" /> <span>';
+$out+='.png" alt="" /> <span>';
 $out+=$escape(cate.name);
 $out+='</span> </a> ';
 });

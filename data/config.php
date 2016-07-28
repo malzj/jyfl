@@ -1,7 +1,7 @@
 <?php
 // database host
-//$db_host   = "1.93.129.186:3306";
-$db_host   = "localhost:3306";
+$db_host   = "1.93.129.186:3306";
+//$db_host   = "localhost:3306";
 
 // database name
 $db_name   = "juyoufuli";
@@ -10,8 +10,8 @@ $db_name   = "juyoufuli";
 $db_user   = "root";
 
 // database password
-//$db_pass   = "huaying507";
-$db_pass   = "root";
+$db_pass   = "huaying507";
+//$db_pass   = "root";
 
 // table prefix
 $prefix    = "ecs_";

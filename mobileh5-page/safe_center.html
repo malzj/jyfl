@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="viewport"content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <link href="css/mui.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="css/index.css"/>
     <link rel="stylesheet" href="css/new_href.css"/>
+    <link rel="stylesheet" href="css/public.css" />
+    <style type="text/css">
+    	.mui-input-row:after {
+		    position: absolute;
+		    right: 0;
+		    bottom: 0;
+		    left: 15px;
+		    height: 1px;
+		    content: '';
+		    -webkit-transform: scaleY(.5);
+		    transform: scaleY(.5);
+		    background-color: #c8c7cc;
+		}
+    </style>
 </head>
-
 <body class="mui-fullscreen">
 <!--页面主结构开始-->
 <div id="safe_center_list" class="mui-views">
@@ -28,7 +40,7 @@
         <button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
             <span class="mui-icon mui-icon-left-nav"></span>
         </button>
-        <h1 class="mui-center mui-title">登录密码</h1>
+        <h1 class="mui-center mui-title">安全中心</h1>
     </div>
     <!--页面标题栏结束-->
     <!--页面主内容区开始-->
@@ -39,7 +51,7 @@
                     <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#login_passwoed">登录密码</a>
                     </li>
                     <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#tel">手机号</a></li>
-                    <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">安全问题</a></li>
+                    <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#question">安全问题</a></li>
                 </ul>
             </div>
         </div>
@@ -109,10 +121,49 @@
                     </div>
                 </div>
                 <div class="mui-button-row margin_top_20">
-                    <button type="button" class="mui-btn mui-btn-primary login_password_btn" id="boundphone">
-                        确认绑定
-                    </button>
+                    <button type="button" class="mui-btn mui-btn-primary login_password_btn" id="boundphone">确认绑定</button>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--安全问题-->
+<div id="question" class="mui-page">
+    <div class="mui-navbar-inner mui-bar mui-bar-nav">
+        <button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+            <span class="mui-icon mui-icon-left-nav"></span>
+        </button>
+        <h1 class="mui-center mui-title">安全问题</h1>
+    </div>
+    <div class="mui-page-content">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+            	<div class="question_box">
+            	<div class="mui-row question_item">
+            		<div class="mui-col-xs-3 ">问题一:</div>
+            		<div class="mui-col-xs-9 ">你第一次坐飞机去哪里</div>
+            	</div>
+            	<div class="mui-input-row">
+						<label class="mui-col-xs-3">答案:</label>
+						<input type="text" placeholder="请输入答案">
+            	</div>
+            	<div class="mui-row question_item">
+            		<div class="mui-col-xs-3">问题一:</div>
+            		<div class="mui-col-xs-9 ">你第一次坐飞机去哪里</div>
+            	</div>
+            	<div class="mui-input-row">
+						<label class="mui-col-xs-3">答案:</label>
+						<input type="text" placeholder="请输入答案">
+            	</div>
+            	<div class="mui-row question_item">
+            		<div class="mui-col-xs-3">问题一:</div>
+            		<div class="mui-col-xs-9 ">你第一次坐飞机去哪里</div>
+            	</div>
+            	<div class="mui-input-row">
+						<label class="mui-col-xs-3">答案:</label>
+						<input type="text" placeholder="请输入答案">
+            	</div>
+            </div>
             </div>
         </div>
     </div>

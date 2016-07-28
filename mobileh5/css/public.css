@@ -7,7 +7,7 @@
 }
 .border_bottom_none{border-bottom: none!important;}
 .border_top_none{border-top: none!important;}
-.btn_ticket{background: #2fd0b5;border: none;color: white;padding: 5px 8px;}
+.btn_ticket{background: #2fd0b5;border: none;color: white;padding: 5px 8px;font-size: 12px;}
 .margin_top_0{margin-top: 0!important;}
 .margin_top_10{margin-top: 10px!important;}
 .margin_top_20{margin-top: 20px!important;}
@@ -81,23 +81,20 @@ a{color: black;}
 .popUp_item.active{transform: translateY(0);}	
 
 /*movie*/
-.buy_ticket{text-align: center;margin-top: 30px;background: #2fd0b5;color: white;border: none;}
-.star_pinfen i{background: url(../images/jy_index/star.png) no-repeat;width: 15px;height: 15px;display: inline-block;background-size: 100% 100%;}
-.star_pinfen{margin-top: 5px;}
+.buy_ticket{text-align: center;margin-top: 30px;background: #2fd0b5;color: white;border: none;font-size: 12px;}
 .jijiang_time{margin-top: 5px;color: #2fd0b5;}
 .title_nav{}
 .title_movie{font-size: 14px;border: 1px solid #2fd0b5;padding: 5px 20px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;}
 .title_cinema{font-size: 14px;border: 1px solid #2fd0b5;padding: 5px 20px;border-bottom-right-radius: 5px;border-top-right-radius: 5px;}
 .title_movie.active,.title_cinema.active{background: #2fd0b5;color: white!important;}.margin_right_13{margin-right: 13px;}
-.movie_details_top{background: url(../images/jy_index/04.png) no-repeat center;padding-top: 20px;}
+.movie_details_top{background-size:2000%;background-position: 50%;background-repeat: no-repeat;padding-top: 20px;background-color: #676794;}
 .movie_details_top,.movie_details_top p{color: white;}
-.xuanzuo_btn{background: #2fd0b5;margin-top: 7px;margin-left: 15px;color: white;border: none;}
+.xuanzuo_btn{background: #2fd0b5;margin-top: 7px;margin-left: 15px;color: white;border: none;font-size: 12px;}
 .movie_xianqing{padding:20px 10px;font-size: 16px;text-indent: 32px;line-height: 1.5;}
 .bg_white{background: white!important;}
 .movie_details1_top{border-bottom: 1px solid #ccc;padding:10px 10px 5px 10px;}
 .tel_movie_details1{text-align: right;}
-.select_movie{padding: 0!important;margin: 25px 10px 0 10px;}
-.select_movie{display:inline-block;width: 70px!important;height:100px;background-size: 100% 100%!important;}
+.select_movie{padding: 0!important;margin: 25px 10px 0 10px;display:inline-block;width: 70px!important;height:100px;background-size: 100% 100%!important;transition: all .2s ease-out!important;}
 .movie_title{margin: 10px 0;}
 .movie_wenxintishi{background:#ff781e;color: white;padding: 10px 0;font-size: 14px;padding-left: 15px;}
 .movie_date{padding: 10px 0;background: #efeff4;padding-bottom: 0;}
@@ -116,7 +113,10 @@ a{color: black;}
 .seat_next{margin-top:20px;margin-bottom: 20px!important;}
 .remainder_time{background: #fdf4d9;line-height: 40px;font-size: 14px;}
 .dianziquan_tips{margin-top: 30px;padding: 15px;}
-
+.mui-segmented-control.mui-segmented-control-inverted~.mui-slider-progress-bar{background-color:#2FD0B5 ;}
+.star_pinfen{margin-top: 5px;overflow: hidden;background: url(../images/star1.svg) no-repeat;height: 25px;background-size: 90px 90px !important;width: 91px;}
+.star_pinfen1{background: url(../images/star.svg) no-repeat;height: 25px;background-size: 90px 90px !important;width: 70%;display: block;}
+.select_movie.mui-active{width: 80px!important;height: 110px;}
 /*cake*/
 .xiangqing h6 {border: 1px solid #dfdfdf;padding: 5px 10px;color: #888585;/* margin: 6px 5px 0 0; */display: inline-block;border-radius: 5px;}
 .xiangqing h6.checked{border: 1px solid #2fd0b5;}
@@ -207,8 +207,11 @@ a{color: black;}
 .order_shiwu_item_bottom{font-size: 12px;padding: 10px 15px;background: white;border-bottom: 1px solid #ddd;}
 .shiwu_item_bottom_btn a{color: #2fd0b5;padding: 5px;border: 1px solid #2fd0b5;border-radius: 2px;}
 .order_shiwu_box{background: white;}
-.order_shiwu_item{background: #f8f8f8;}
+.order_shiwu_item{background: #efeff4;}
 .shiwu_item_middle_foodsNum{margin-right: 10px;}
-.order_shiwu_address{background: white;padding: 10px 15px;border-bottom: 1px solid #ddd;}
-.order_shiwu_address p{margin-bottom: 0;}
-.order_shiwu_fukuan{width: 80%;background: #2fd0b5;color: white;margin: 15px 0;}
+/*iphone5字体适配*/
+@media only screen and (max-width: 320px) {
+	body{font-size: 12px;}
+	p{font-size: 12px;}
+	h4{font-size: 14px;}
+}

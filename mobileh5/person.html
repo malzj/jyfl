@@ -55,6 +55,7 @@
 		</div>
 		<script src="js/connection.js"></script>
 		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jqueryExtend.js"></script>
 		<script src="js/template.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.view.js"></script>
@@ -64,20 +65,16 @@
 			(function($) {
 				var userInfo;
 				$.init();
-				jQuery.ajax(web_url+"/jyflapi/index.php/Users/UserJsonp/usershow",{
-					type:'get',
-					data:{user_id:localStorage.user_id},
-					async:false,
-					dataType:'jsonp',
-					jsonp:'jsoncallback',
-					success:function(data) {
+				jQuery.ajaxJsonp(web_url+"/jyflapi/index.php/Users/UserJsonp/usershow",
+					{user_id:localStorage.user_id},
+					function(data) {
 						data.business.sexcn = (data.business.sex == 1) ? "男" : "女";
 						userInfo = data.business;
 						jQuery('#person_user').text(userInfo.user_name);
 						jQuery('#person_name').text(userInfo.nickname);
 						jQuery('#person_sex').text(userInfo.sexcn);
 						jQuery('#birthday').text(userInfo.birthday);
-						document.getElementById('page-container').innerHTML = template('person', userInfo);
+						document.getElementById('page-container').innerHTML = template('tmp_person', userInfo);
 						if (data.business.xingqu != '' || data.business.xingqu != null || data.business.xingqu != undefined) {
 							var xingqu_ex = data.business.xingqu.split(',');
 							for (var i = 0; i < xingqu_ex.length; i++) {
@@ -142,7 +139,7 @@
 							}, false);
 						});
 					}
-				});
+				);
 				var viewApi = $('#gerenxinxi').view({
 					defaultPage: '#person'
 				});
@@ -182,13 +179,8 @@
 						fav_checked += jQuery(this).val()+',';
 					})
 					userdata.xingqu = fav_checked;
-					jQuery.ajax(web_url+"/jyflapi/index.php/Users/UserJsonp/userUpdate",{
-						type:'get',
-						data:userdata,
-						asnyc:false,
-						dataType:'jsonp',
-						jsonp:'jsoncallback',
-						success:function(data){
+					jQuery.ajaxJsonp(web_url+"/jyflapi/index.php/Users/UserJsonp/userUpdate",userdata,
+						function(data){
 							if(data.result=='true'){
 								jQuery('#person_name').text(data.user.nickname);
 								var sexcn = (data.user.sex==1)?"男":"女";
@@ -198,7 +190,7 @@
 								$.alert('更新失败！');
 							}
 						}
-					})
+					)
 
 				});
 				view.addEventListener('pageBack', function(e) {

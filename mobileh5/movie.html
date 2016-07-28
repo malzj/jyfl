@@ -69,8 +69,9 @@
 		<script src="js/jquery-1.9.1.min.js"></script>
 		<script src="js/jqueryExtend.js"></script>
 		<script src="js/mui.min.js"></script>
-		<script src="js/mui.hrefclick.js"></script>
 		<script type="text/javascript">
+			jQuery.hrefClick();
+
 			var item1 = document.getElementById('item1mobile');
 			if (item1.querySelector('.mui-loading')) {
 				jQuery.ajaxJsonp(web_url + '/mobile/cinema.php', '', function (result) {

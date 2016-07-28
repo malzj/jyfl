@@ -1,7 +1,7 @@
- <div class="seatmap2" style="width:{$allwidth}px;   padding-bottom: 20px; overflow-x:scroll">
+ <div class="seatmap2" style="width:{$allwidth}px;padding-bottom: 20px; overflow-x:scroll;margin: 0 auto;">
  {foreach from=$seatInfo item=seat name=seat}
 	<div class="map-row" id="{$seat.hallId}_{$seat.graphRow}" rowno="{$seat.graphRow}" locno="{$seat.hallId}">
-		<div class="number-row pull-left">
+		<div class="number-row mui-pull-left">
 			<span>{$seat.seatRow}</span>
 		</div>		
 		<div class="seat-row text-center">		

@@ -1,4 +1,4 @@
-/*TMODJS:{"version":48,"md5":"150c67928fe3c32e4e9eebfa8bdb29ce"}*/
+/*TMODJS:{"version":50,"md5":"150c67928fe3c32e4e9eebfa8bdb29ce"}*/
 template('tmp_cinema_list',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,data=$data.data,value=$data.value,key=$data.key,$escape=$utils.$escape,val=$data.val,k=$data.k,is_brush=$data.is_brush,$out='';$out+='<ul class="mui-table-view mui-table-view-chevron"> ';

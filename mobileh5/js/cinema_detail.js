@@ -11,8 +11,8 @@
          */
         movieTitle:function(img,name,score){
             $('#item1 .movie_select').css('background-image', 'url(' + img + ')');
-            $('#item1 .movie_title').html('<div class="mui-text-center"><span>' + name + '</span></div>' +
-                '<div class="mui-text-center">星星评分</div>');
+            $('#item1 .movie_title').html('<div class="mui-text-center"><span class="cinema_details_title">' + name + '</span></div>' +
+                '<div class="star_pinfen_box"><div class="star_pinfen"><span class="star_pinfen1"></span></div><span class="star_pinfenNum">7.0</span></div>');
         },
         /**
          * 排期列表渲染
@@ -44,7 +44,7 @@
                     '</div><div class="mui-col-xs-2 mui-text-center movie_price">' + pv.price + '</div>' +
                     '<div class="mui-col-xs-3 mui-text-center">';
                 if(pv.is_cut==1){
-                    list += '<button class="btn_ticket" type="button">已过场</button></div></div>'
+                    list += '<button class="btn_ticket btn_ticket_no" type="button">已过场</button></div></div>'
                 }else {
                     list += '<button class="btn_ticket href_click" data-href="./movie_seat.html?cinemaid=' + pv.cinemaId + '&movieid=' + pv.movieId + '&hallno=' + pv.hallNo + '&planid=' + pv.planId + '" type="button">选座购票</button></div></div>'
                 }

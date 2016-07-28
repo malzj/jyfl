@@ -207,5 +207,10 @@ a{color: black;}
 .order_shiwu_item_bottom{font-size: 12px;padding: 10px 15px;background: white;border-bottom: 1px solid #ddd;}
 .shiwu_item_bottom_btn a{color: #2fd0b5;padding: 5px;border: 1px solid #2fd0b5;border-radius: 2px;}
 .order_shiwu_box{background: white;}
-.order_shiwu_item{background: #efeff4;}
+.order_shiwu_item{background: #f8f8f8;}
 .shiwu_item_middle_foodsNum{margin-right: 10px;}
+.order_shiwu_address{background: white;padding: 10px 15px;border-bottom: 1px solid #ddd;}
+.order_shiwu_address p{margin-bottom: 0;}
+.order_shiwu_fukuan{width: 80%;background: #2fd0b5;color: white;margin: 15px 0;}
+.question_box{padding: 20px;font-size: 16px;background: white;}
+.question_item{margin: 10px 0;}

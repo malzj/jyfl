@@ -46,7 +46,7 @@
                 if(pv.is_cut==1){
                     list += '<button class="btn_ticket" type="button">已过场</button></div></div>'
                 }else {
-                    list += '<button class="btn_ticket click_btn" data-href="./movie_seat.html?cinemaid=' + pv.cinemaId + '&movieid=' + pv.movieId + '&hallno=' + pv.hallNo + '&planid=' + pv.planId + '" type="button">选座购票</button></div></div>'
+                    list += '<button class="btn_ticket href_click" data-href="./movie_seat.html?cinemaid=' + pv.cinemaId + '&movieid=' + pv.movieId + '&hallno=' + pv.hallNo + '&planid=' + pv.planId + '" type="button">选座购票</button></div></div>'
                 }
             });
             return list;

@@ -506,7 +506,7 @@ p {
 }
 
 .mui-row>[class*=mui-col-] {
-	float: left
+	float: left;
 }
 
 .mui-col-xs-12 {
@@ -2402,7 +2402,7 @@ select:focus {
 
 .mui-input-row {
 	clear: left;
-	overflow: hidden
+	overflow: hidden;
 }
 
 .mui-input-row select {
@@ -2756,7 +2756,7 @@ select:focus {
 	border: 1px solid #007aff;
 	border-radius: 3px;
 	background-color: transparent;
-	-webkit-touch-callout: none
+	-webkit-touch-callout: none;
 }
 
 .mui-segmented-control.mui-segmented-control-vertical {

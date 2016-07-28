@@ -1,26 +1,31 @@
-/*TMODJS:{"version":3,"md5":"5d37fcb79386f34386e852725723125d"}*/
+/*TMODJS:{"version":7,"md5":"65728a7b83d684d0f9af184de078c9ad"}*/
 template('order/tmp_order_venues',function($data,$filename
 /**/) {
-'use strict';var $utils=this,$helpers=$utils.$helpers,hasOrders=$data.hasOrders,$each=$utils.$each,orders=$data.orders,order=$data.order,key=$data.key,$escape=$utils.$escape,$out='';$out+='<div class="mui-content"> ';
+'use strict';var $utils=this,$helpers=$utils.$helpers,hasOrders=$data.hasOrders,$each=$utils.$each,orders=$data.orders,order=$data.order,key=$data.key,$escape=$utils.$escape,time=$data.time,$index=$data.$index,$string=$utils.$string,$out='';$out+='<div class="mui-content"> ';
 if(hasOrders==1){
 $out+=' ';
 $each(orders,function(order,key){
 $out+=' <div class="mui-row order_cinemaBox margin_top_10"> <div class="mui-pull-left order_cinema_itemLeft"> <div class="order_ciema_number">订单号：<span class="order_sn">';
 $out+=$escape(order.order_sn);
 $out+='</span></div> <div class="order_ciema_name"><span>';
-$out+=$escape(order.movie_name);
-$out+='</span><span>';
-$out+=$escape(order.count);
-$out+='张</span></div> <div class="order_ciema_details"><span>';
-$out+=$escape(order.featuretime);
+$out+=$escape(order.venueName);
 $out+='</span></div> <div class="order_ciema_details"><span>';
-$out+=$escape(order.cinema_name);
+$out+=$escape(order.place);
 $out+='</span></div> <div class="order_ciema_details"><span>';
-$out+=$escape(order.seat_info);
+$out+=$escape(order.date);
+$out+='</span></div> <div class="order_ciema_details"><span>';
+$each(order.times_mt,function(time,$index){
+$out+='<span style="display:inline-block; color:green;">';
+$out+=$escape(time);
+$out+='</span>';
+});
+$out+='</span></div> <div class="order_ciema_details"><span>';
+$out+=$escape(order.link_man);
+$out+=$escape(order.link_phone);
 $out+='</span></div> <div class="order_ciema_details"><span>';
 $out+=$escape(order.money);
 $out+='</span></div> </div> <div class="order_cinema_itemRight"> <div class="active">';
-$out+=$escape(order.order_status_cn);
+$out+=$string(order.order_state_sn);
 $out+='</div> </div> </div> ';
 });
 $out+=' ';

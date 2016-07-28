@@ -1,4 +1,4 @@
-/*TMODJS:{"version":4,"md5":"5d37fcb79386f34386e852725723125d"}*/
+/*TMODJS:{"version":6,"md5":"fec39feb76a37f1ba5666eabd99720ad"}*/
 template('order/tmp_order_yanchu',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,hasOrders=$data.hasOrders,$each=$utils.$each,orders=$data.orders,order=$data.order,key=$data.key,$escape=$utils.$escape,$out='';$out+='<div class="mui-content"> ';
@@ -8,17 +8,28 @@ $each(orders,function(order,key){
 $out+=' <div class="mui-row order_cinemaBox margin_top_10"> <div class="mui-pull-left order_cinema_itemLeft"> <div class="order_ciema_number">订单号：<span class="order_sn">';
 $out+=$escape(order.order_sn);
 $out+='</span></div> <div class="order_ciema_name"><span>';
-$out+=$escape(order.movie_name);
+$out+=$escape(order.itemname);
 $out+='</span><span>';
-$out+=$escape(order.count);
+$out+=$escape(order.number);
 $out+='张</span></div> <div class="order_ciema_details"><span>';
-$out+=$escape(order.featuretime);
+$out+=$escape(order.best_time);
 $out+='</span></div> <div class="order_ciema_details"><span>';
-$out+=$escape(order.cinema_name);
+$out+=$escape(order.sitename);
 $out+='</span></div> <div class="order_ciema_details"><span>';
-$out+=$escape(order.seat_info);
+$out+=$escape(order.catename);
 $out+='</span></div> <div class="order_ciema_details"><span>';
-$out+=$escape(order.money);
+$out+=$escape(order.consignee);
+$out+=$escape(order.regionname);
+$out+=$escape(order.address);
+$out+='</span></div> <div class="order_ciema_details"><span>';
+$out+=$escape(order.mobile);
+if(order.tel){
+$out+='(';
+$out+=$escape(order.tel);
+$out+=')';
+}
+$out+='</span></div> <div class="order_ciema_details"><span>';
+$out+=$escape(order.total_fee);
 $out+='</span></div> </div> <div class="order_cinema_itemRight"> <div class="active">';
 $out+=$escape(order.order_status_cn);
 $out+='</div> </div> </div> ';

@@ -63,9 +63,10 @@
 		<script src="js/jquery-1.9.1.min.js"></script>
 		<script src="js/jqueryExtend.js"></script>
 		<script src="js/mui.min.js"></script>
-		<script src="js/mui.hrefclick.js"></script>
 		<script type="text/javascript">
 			mui.init();
+			//初始化点击跳转
+			jQuery.hrefClick();
 			//滑动选项卡根据内容高度设置容器高度
 			    mui('.mui-scroll-wrapper').scroll({
 			        indicators: true //是否显示滚动条
@@ -104,20 +105,14 @@
 									'<h5 class="mui-ellipsis">' + v.cinemaName + '</h5>' +
 									'<p class="mui-ellipsis">' + v.cinemaAddress + '</p>' +
 									'</div><div class="mui-col-xs-2">' +
-									'<button type="button" class="xuanzuo_btn click_btn" data-href="./cinema_details.html?cinemaid='+v.cinemaId+'&movieid='+id+'">选座购票</button></div></div></li>'
+									'<button type="button" class="xuanzuo_btn href_click" data-href="./cinema_details.html?cinemaid='+v.cinemaId+'&movieid='+id+'">选座购票</button></div></div></li>'
 						});
 						cinemaList += '</ul></li>'
 					});
 					cinemaList += '</ul>'
 					jQuery('#item1mobile .mui-scroll').html(cinemaList);
 				}else if(result.state=='false'){
-					if(result.data.isLogin==1){
-						mui.alert(result.message,function(){
-							window.location.href='./index.html';
-						})
-					}else{
-						mui.alert(result.message);
-					}
+					jQuery.errorJudge(result.data,result.message);
 				}
 			});
 			

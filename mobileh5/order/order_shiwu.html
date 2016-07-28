@@ -46,7 +46,11 @@
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			mui.back = function() {
+				jQuery.jumpTo("./my_order.html");
+			}
+
 		</script>
 	</body>
 

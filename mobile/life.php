@@ -45,7 +45,7 @@ function getIndex($catid)
     foreach ( (array)$category as $nav){
         $reutrnGoods[$nav['id']]['name'] = $nav['name']; 
         $reutrnGoods[$nav['id']]['id'] = $nav['cid']; 
-        $tempGoods = category_get_goods('g.cat_id '.db_create_in(array($nav['cid'])), 'g.sort_order ASC');
+        $tempGoods = category_get_goods_wap('g.cat_id '.db_create_in(array($nav['cid'])), 'g.sort_order ASC');
         if(!empty($tempGoods)){
             foreach ($tempGoods as &$goods){
                 $goods['goods_thumb'] = getImagePath($goods['goods_thumb']);       

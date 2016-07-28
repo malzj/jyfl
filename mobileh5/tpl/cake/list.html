@@ -1,0 +1,40 @@
+<!--滑动区域-->
+<div class="select_scroll">
+   	<!--品牌滑动区域-->
+	<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+	    <div class="mui-scroll pinpai_scroll">
+	    	{{each data.navigator.child as navigator}}
+	        <a class="mui-control-item event {{if navigator.cid == data.cat.cat_id}}mui-active{{/if}}" data-id='{"id":"{{navigator.cid}}"}'><span>{{navigator.name}}</span></a>
+	        {{/each}}	        
+	    </div>
+	</div>
+	<!--口味滑动区域-->
+	{{each data.attrList as attr}}
+	<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted kouwei_scroll">
+	    <div class="mui-scroll pinpai_scroll">
+	    	{{each attr.attr_list as alist}}
+	    	{{if $index !=0}}
+	        <a class="mui-control-item event {{if alist.selected}}mui-active{{/if}}" data-id='{"filter_attr":"{{alist.attr_id}}"}'><span>{{alist.attr_value}}</span></a>
+	        {{/if}}
+	        {{/each}}
+	    </div>
+	</div>
+	{{/each}}
+</div>
+<!--商品列表-->
+<ul class="mui-table-view">
+	{{each data.list as list}}
+	<li class="mui-table-view-cell mui-media">
+		<a data-href="details.html?id={{list.goods_id}}" class="href_click">
+			<img class="mui-media-object mui-pull-left" src="{{list.goods_thumb}}">
+			<div class="mui-media-body">
+				<h4 class="goods_name">{{list.goods_name}}</h4>
+				<p class="goods_font">{{list.goods_brief}}</p>
+				<div class="goods_price"><span>{{list.shop_price}}</span><span class="mui-icon iconfont icon-gouwuche"></span></div>
+			</div>
+		</a>
+	</li>
+	{{/each}}
+	
+</ul>
+

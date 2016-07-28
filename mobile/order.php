@@ -12,6 +12,9 @@ include_once(ROOT_PATH . 'includes/lib_transaction.php');
 include_once(ROOT_PATH . 'includes/lib_order.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 
+/* 载入语言文件 */
+require_once(ROOT_PATH . 'languages/' .$_CFG['lang']. '/user.php');
+
 // 返回的数据
 $jsonArray = array(
     'state'=>'true',
@@ -36,6 +39,8 @@ if ($_REQUEST['act'] == 'order_list')
 
     $pagebar = get_wap_pager($record_count, $size, $page, 'order.php?act=order_list');
     $orders = get_user_orders($user_id, $size, (($page-1)*10));
+    //从0重排键值解决浏览器更改顺序
+    $orders = array_merge($orders);
     $merge  = get_user_merge($user_id);
 
     $jsonArray['data'] = array(
@@ -72,6 +77,83 @@ else if ($_REQUEST['act'] == 'film_order'){
         'orders' => $orders,
     );
 
+    JsonpEncode($jsonArray);
+}
+/* 查看订单详情 */
+elseif ($_REQUEST['act'] == 'order_detail')
+{
+    include_once(ROOT_PATH . 'includes/lib_payment.php');
+    include_once(ROOT_PATH . 'includes/lib_clips.php');
+
+    $order_id = isset($_REQUEST['order_id']) ? intval($_REQUEST['order_id']) : 0;
+
+    /* 订单详情 */
+    $order = get_order_detail($order_id, $user_id);
+
+    if ($order === false)
+    {
+        $jsonArray['state'] = "false";
+        $jsonArray['message'] = "未找到订单";
+        JsonpEncode($jsonArray);
+    }
+
+    /* 是否显示添加到购物车 */
+    if ($order['extension_code'] != 'group_buy' && $order['extension_code'] != 'exchange_goods')
+    {
+        $jsonArray['data']['allow_to_cart'] = 1;
+    }
+
+    /* 订单商品 */
+    $goods_list = order_goods($order_id);
+    foreach ($goods_list AS $key => $value)
+    {
+        $goods_list[$key]['market_price'] = price_format($value['market_price'], false);
+        $goods_list[$key]['goods_price']  = price_format($value['goods_price'], false);
+        $goods_list[$key]['subtotal']     = price_format($value['subtotal'], false);
+        $goods_list[$key]['goods_thumb']        = get_image_path($value['goods_id'], $value['goods_thumb'], true);
+    }
+
+    /* 设置能否修改使用余额数 */
+    if ($order['order_amount'] > 0)
+    {
+        if ($order['order_status'] == OS_UNCONFIRMED || $order['order_status'] == OS_CONFIRMED)
+        {
+            $user = user_info($order['user_id']);
+            if ($user['user_money'] + $user['credit_line'] > 0)
+            {
+                $jsonArray['data']['allow_edit_surplus'] = 1;
+                $jsonArray['data']['max_surplus'] = sprintf($_LANG['max_surplus'], $user['user_money']);
+            }
+        }
+    }
+
+    /* 未发货，未付款时允许更换支付方式 */
+    if ($order['order_amount'] > 0 && $order['pay_status'] == PS_UNPAYED && $order['shipping_status'] == SS_UNSHIPPED)
+    {
+        $payment_list = available_payment_list(false, 0, true);
+
+        /* 过滤掉当前支付方式和余额支付方式 */
+        if(is_array($payment_list))
+        {
+            foreach ($payment_list as $key => $payment)
+            {
+                if ($payment['pay_id'] == $order['pay_id'] || $payment['pay_code'] == 'balance')
+                {
+                    unset($payment_list[$key]);
+                }
+            }
+        }
+        $jsonArray['data']['payment_list'] = $payment_list;
+    }
+
+    /* 订单 支付 配送 状态语言项 */
+    $order['order_status_cn'] = $_LANG['os'][$order['order_status']];
+    $order['pay_statuses'] = $order['pay_status'];
+    $order['pay_status_cn'] = $_LANG['ps'][$order['pay_status']];
+    $order['shipping_status_cn'] = $_LANG['ss'][$order['shipping_status']];
+
+    $jsonArray['data']['order'] = $order;
+    $jsonArray['data']['goods_list'] = $goods_list;
     JsonpEncode($jsonArray);
 }
 //电子券订单

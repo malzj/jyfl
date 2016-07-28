@@ -39,7 +39,7 @@ if($_REQUEST['act'] == "getIndex")
 
     // 后台推荐的热卖商品
     $goodsIds = array();
-    $goods_list = category_get_goods('g.cat_id '.db_create_in($cat_ids), 'g.sort_order ASC,g.goods_id DESC');
+    $goods_list = category_get_goods_wap('g.cat_id '.db_create_in($cat_ids), 'g.sort_order ASC,g.goods_id DESC');
     foreach ($goods_list as $value){
         $goodsIds[] = $value['goods_id'];
     }
@@ -62,7 +62,7 @@ if($_REQUEST['act'] == "getIndex")
         foreach ($attrName as $key=>$val)
         {
             $attrGoods[$key]['filterId'] = getCakeAttrUrl($val);
-            $attrGoods[$key]['brandId'] = 4;
+            $attrGoods[$key]['brandId'] = 5;
             $attrGoods[$key]['attrName'] = $val;
             $attrGoods[$key]['attrNo'] = $key+1;
             
@@ -101,13 +101,13 @@ if($_REQUEST['act'] == "getIndex")
 function getCakeAttrUrl($val)
 {
     $value = array(
-        '奶油口味'=>'29393.0',
-        '巧克力味'=>'15636.0',
-        '慕斯口味'=>'17328.0',
-        '拿破仑味'=>'16622.0',
-        '芝士口味'=>'15679.0',
-        '鲜果口味'=>'25556.0',
-        '冰淇淋味'=>'30471.0.0',
+        '奶油口味'=>'29393',
+        '巧克力味'=>'15636',
+        '慕斯口味'=>'17328',
+        '拿破仑味'=>'16622',
+        '芝士口味'=>'15679',
+        '鲜果口味'=>'25556',
+        '冰淇淋味'=>'30471',
     );
     
     return $value[$val];

@@ -28,7 +28,7 @@
 		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		<h1 class="mui-title">
 			<div class="title_nav">
-				<a href="./movie.html" class="title_movie">影片</a><a href="./cinema.html" class="title_cinema active">影院</a>
+				<a href="./movie.html" class="title_movie href_click">影片</a><a href="./cinema.html" class="title_cinema href_click active">影院</a>
 			</div>
 		</h1>
 	</header>
@@ -40,6 +40,7 @@
 		<script src="js/template.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
+			jQuery.hrefClick();
 			jQuery.ajaxJsonp(web_url+'/mobile/cinema.php?step=cinema','',function(result){
 				console.log(result);
 				if(result.state=='true'){

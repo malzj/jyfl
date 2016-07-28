@@ -8,6 +8,20 @@
     <link href="css/mui.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="css/index.css"/>
     <link rel="stylesheet" href="css/new_href.css"/>
+    <link rel="stylesheet" href="css/public.css" />
+    <style type="text/css">
+        .mui-input-row:after {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 15px;
+            height: 1px;
+            content: '';
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+            background-color: #c8c7cc;
+        }
+    </style>
 </head>
 
 <body class="mui-fullscreen">
@@ -39,7 +53,7 @@
                     <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#login_passwoed">登录密码</a>
                     </li>
                     <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#tel">手机号</a></li>
-                    <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">安全问题</a></li>
+                    <li class="mui-table-view-cell"><a class="mui-navigate-right" href="#question">安全问题</a></li>
                 </ul>
             </div>
         </div>
@@ -119,8 +133,51 @@
         </div>
     </div>
 </div>
+<!--安全问题-->
+<div id="question" class="mui-page">
+    <div class="mui-navbar-inner mui-bar mui-bar-nav">
+        <button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+            <span class="mui-icon mui-icon-left-nav"></span>
+        </button>
+        <h1 class="mui-center mui-title">安全问题</h1>
+    </div>
+    <div class="mui-page-content">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <div class="question_box">
+                    <div class="mui-row question_item">
+                        <div class="mui-col-xs-3 ">问题一:</div>
+                        <div class="mui-col-xs-9 ">您的姓名是？</div>
+                    </div>
+                    <div class="mui-input-row">
+                        <label class="mui-col-xs-3">答案:</label>
+                        <input type="text" name="answerone" placeholder="请输入答案">
+                    </div>
+                    <div class="mui-row question_item">
+                        <div class="mui-col-xs-3">问题二:</div>
+                        <div class="mui-col-xs-9 ">您的年龄是？</div>
+                    </div>
+                    <div class="mui-input-row">
+                        <label class="mui-col-xs-3">答案:</label>
+                        <input type="text" name="answertwo" placeholder="请输入答案">
+                    </div>
+                    <div class="mui-row question_item">
+                        <div class="mui-col-xs-3">问题三:</div>
+                        <div class="mui-col-xs-9 ">您的身高是？</div>
+                    </div>
+                    <div class="mui-input-row">
+                        <label class="mui-col-xs-3">答案:</label>
+                        <input type="text" name="answerthree" placeholder="请输入答案">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="js/connection.js"></script>
 <script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jqueryExtend.js"></script>
 <script src="js/mui.min.js"></script>
 <script src="js/mui.view.js"></script>
 <script type="text/javascript">
@@ -146,16 +203,42 @@
         //第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
         view.addEventListener('pageBeforeShow', function (e) {
             //				console.log(e.detail.page.id + ' beforeShow');
+            //跳到安全问题页面渲染
+            if(e.detail.page.id=='question'){
+                jQuery.ajaxJsonp(web_url+'/jyflapi/index.php/Users/UserJsonp/saveLoginQues',{user_id:localStorage.getItem('user_id')},function(result){
+                    if(result.result=='true'){
+                        jQuery('input[name="answerone"]').val(result.answerone);
+                        jQuery('input[name="answertwo"]').val(result.answertwo);
+                        jQuery('input[name="answerthree"]').val(result.answerthree);
+                    }
+                });
+            }
         });
         view.addEventListener('pageShow', function (e) {
             //				console.log(e.detail.page.id + ' show');
         });
         view.addEventListener('pageBeforeBack', function (e) {
-            console.log(e.detail.page.id + ' beforeBack');
+//            console.log(e.detail.page.id + ' beforeBack');
             if(e.detail.page.id=='login_passwoed'){
                 jQuery('input[name="old_password"]').val('');
                 jQuery('input[name="new_password"]').val('');
                 jQuery('input[name="comfirm_password"]').val('');
+            }
+            //从安全问题页面返回时保存编辑
+            if(e.detail.page.id=='question'){
+                var answerone = jQuery('input[name="answerone"]').val();
+                var answertwo = jQuery('input[name="answertwo"]').val();
+                var answerthree = jQuery('input[name="answerthree"]').val();
+                if(answertwo==''||answerone==''||answerthree==''){
+                    mui.alert('答案不能为空！');
+                    return false;
+                }
+                jQuery.ajaxJsonp(web_url+'/jyflapi/index.php/Users/UserJsonp/editLoginQues',{
+                    user_id:localStorage.getItem('user_id'),
+                    answerone:answerone,
+                    answertwo:answertwo,
+                    answerthree:answerthree
+                },function(result){});
             }
         });
         view.addEventListener('pageBack', function (e) {
@@ -191,32 +274,24 @@
                 return false;
             }
         }
-        jQuery.ajax({
-            url: web_url + '/mobile/basic.php',
-            data: {
+        jQuery.ajaxJsonp(web_url + '/mobile/basic.php',
+            {
                 'act': 'act_edit_password',
                 'old_password': old_password,
                 'new_password': new_password,
                 'user_name': user_name,
-                'user_id':localStorage.user_id,
+                'user_id':localStorage.user_id
             },
-            type: 'get',
-            dataType: 'jsonp',
-            jsonp:'jsoncallback',
-            success: function (result) {
+            function (result) {
                 if (result.state == 'true') {
-                    mui.alert(result.message);
+                    mui.alert(result.message+'请重新登录！',function(){
+                        jQuery.jumpTo('./index.html');
+                    });
                 } else if(result.state == 'false') {
-                    if(result.data.isLogin==1){
-                        mui.alert(result.message,function () {
-                            window.location.href='index.html';
-                        });
-                    }else{
-                        mui.alert(result.message);
-                    }
+                    jQuery.errorJudge(result.data,result.message);
                 }
             }
-        });
+        );
     });
     /**
      * 获取验证码
@@ -258,7 +333,8 @@
                 }
             }
         })
-    })
+    });
+
 </script>
 </body>
 </html>

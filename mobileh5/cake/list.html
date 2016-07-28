@@ -5,10 +5,18 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet"/>
+		<link href="../css/iconfont.css" rel="stylesheet"  />
+		<link href="../css/mui.mian.css" rel="stylesheet"/>
+		<script src="../js/connection.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/mui.min.js"></script>		
+		<script src="../js/template.js"></script>
+		<script src="../js/jqueryExtend.js"></script>
 		<script src="../js/rem.js"></script>
-		<link rel="stylesheet" href="../css/mui.min.css"/>
-		<link rel="stylesheet" href="../css/public.css" />
-		<link rel="stylesheet" href="../css/iconfont.css" />
+		<script src="../js/mui.mian.js"></script>
+		
 		<style type="text/css">
 			.mui-content{background-color: white;}
 			.mui-segmented-control.mui-scroll-wrapper .mui-control-item{padding: 0;}
@@ -29,85 +37,101 @@
 		<div class="mui-content">
 		    <!--排序-->
 		    <div class="mui-row mui-text-center paixu_box">
-		    	<div class="mui-col-xs-4 paixu_item active"><a href="#">默认</a></div>
-		    	<div class="mui-col-xs-4 paixu_item"><a href="#">最新</a></div>
-		    	<div class="mui-col-xs-4 paixu_item"><a href="#">销量</a></div>
+		    	<div class="mui-col-xs-4 paixu_item active event" data-id='{"sort":"sort_order","order":"ASC"}'><a href="#">默认</a></div>
+		    	<div class="mui-col-xs-4 paixu_item event" data-id='{"sort":"last_update","order":"DESC"}'><a href="#">最新</a></div>
+		    	<div class="mui-col-xs-4 paixu_item event" data-id='{"sort":"sales_num","order":"DESC"}'><a href="#">销量</a></div>
 		    </div>
-		    <!--滑动区域-->
-		    <div class="select_scroll">
-		    	<!--品牌滑动区域-->
-				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-				    <div class="mui-scroll pinpai_scroll">
-				        <a class="mui-control-item mui-active"><span>诺心蛋糕</span></a>
-				        <a class="mui-control-item"><span>贝思客</span></a>
-				        <a class="mui-control-item"><span>元祖</span></a>
-				        <a class="mui-control-item"><span>小蜜蜂</span></a>
-				        <a class="mui-control-item"><span>米卡米卡</span></a>
-				    </div>
-				</div>
-				<!--口味滑动区域-->
-				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted kouwei_scroll">
-					    <div class="mui-scroll pinpai_scroll">
-					        <a class="mui-control-item"><span>芝士口味</span></a>
-					        <a class="mui-control-item"><span>慕斯口味</span></a>
-					        <a class="mui-control-item"><span>鲜果口味</span></a>
-					        <a class="mui-control-item"><span>鲜果口味</span></a>
-					        <a class="mui-control-item"><span>鲜果口味</span></a>
-					    </div>
-				</div>
-			</div>
-			<!--商品列表-->
-			<ul class="mui-table-view">
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
-						<div class="mui-media-body">
-							<h4 class="goods_name">幸福</h4>
-							<p class="goods_font">这世界色彩太多快乐也变得无所适从，而纯味奶油与酸甜蓝莓的混搭却能治愈快乐缺乏症...</p>
-							<div class="goods_price">￥<span>239.4点</span><span class="mui-icon iconfont icon-gouwuche"></span></div>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
-						<div class="mui-media-body">
-							<h4 class="goods_name">幸福</h4>
-							<p class="goods_font">这世界色彩太多快乐也变得无所适从，而纯味奶油与酸甜蓝莓的混搭却能治愈快乐缺乏症...</p>
-							<div class="goods_price">￥<span>239.4点</span><span class="mui-icon iconfont icon-gouwuche"></span></div>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
-						<div class="mui-media-body">
-							<h4 class="goods_name">幸福</h4>
-							<p class="goods_font">这世界色彩太多快乐也变得无所适从，而纯味奶油与酸甜蓝莓的混搭却能治愈快乐缺乏症...</p>
-							<div class="goods_price">￥<span>239.4点</span><span class="mui-icon iconfont icon-gouwuche"></span></div>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="../images/cake_index.png">
-						<div class="mui-media-body">
-							<h4 class="goods_name">幸福</h4>
-							<p class="goods_font">这世界色彩太多快乐也变得无所适从，而纯味奶油与酸甜蓝莓的混搭却能治愈快乐缺乏症...</p>
-							<div class="goods_price">￥<span>239.4点</span><span class="mui-icon iconfont icon-gouwuche"></span></div>
-						</div>
-					</a>
-				</li>
-			</ul>
+		    						
 		</div>
-		<script src="../js/mui.min.js"></script>
-		<script src="../js/jquery-1.9.1.min.js"></script>
+
 		<script type="text/javascript">
 			mui.init();
+		
+			var id = jQuery.getUrlParam('id'); 
+			var sort = jQuery.getUrlParam('sort'); 
+			var filter_attr = jQuery.getUrlParam('filter_attr'); 
+			
+			if(id==null){
+				mui.alert('缺少参数！',function(){
+					mui.back();
+				});
+			}			
+		
+			// ajax调取数据
+			jQuery.ajaxJsonp(web_url+"/mobile/category.php",{id:id,sort:sort,filter_attr:filter_attr},function(data){
+				if(data.state == 'false'){
+					jQuery.errorJudge(data,data.message,function(){
+						mui.back();	
+					});					
+				}
+				// 设置标题
+				jQuery('.mui-title').html(data.data.cat.cat_name);
+				// 加载页面			
+				replaceHtml('.mui-content > div', template('cake/list', data));
+				_initScroll();
+			});
+			
+			// 选中后的操作
+			jQuery('.mui-content').on('tap','.event',function(){
+				// 显示加载动画
+				Loadings('show');
+				// 当前对象
+				var _that = jQuery(this);
+				// 拼接选中的参数
+				var params = {};
+				jQuery('.active,.mui-active').each(function(){					
+					params = jQuery.extend(params,jQuery.parseJSON(jQuery(this).attr('data-id')));
+				});				
+				// 加上当前点击的参数
+				params = jQuery.extend(params,jQuery.parseJSON(_that.attr('data-id')));
+				// 如果是分类id，规格id设为空
+				var cateid = (new RegExp('id')).test(_that.attr('data-id'));
+				if (cateid){
+					params = jQuery.extend(params,jQuery.parseJSON('{"filter_attr":""}'));
+				}
+				
+				// 获取新的数据
+				jQuery.ajaxJsonp(web_url+"/mobile/category.php",params,function(data){
+					if( cateid ){
+						Loadings();
+						jQuery('.paixu_box').nextAll().remove();
+						replaceHtml('.paixu_box', template('cake/list', data));
+						_initScroll();
+					}else{
+						Loadings();
+						jQuery('.select_scroll').nextAll().remove();
+						replaceHtml('.select_scroll', template('cake/glist', data));
+					}
+					// 设置标题
+					jQuery('.mui-title').html(data.data.cat.cat_name);
+					
+				});			
+			});
+			
+			jQuery.hrefClick();
+			
 			//排序选中效果
 			$('.paixu_box').on('tap','.paixu_item',function(){
 				$(this).addClass('active').siblings().removeClass('active');
 			})
+			
+			function _initScroll(){
+				mui('.mui-scroll-wrapper').scroll({
+					deceleration: 0.0005 
+				});
+			}
+			
+			function Loadings(event){
+				var html ='<div class="mui-scroll" style="position:absolute;top: 50%;"><div class="mui-loading"><div class="mui-spinner"></div></div></div>';
+				if(event == 'show'){
+					jQuery('.select_scroll').nextAll().remove();
+					replaceHtml('.select_scroll', html);
+				}else{
+					jQuery('.select_scroll').next('.mui-scroll').remove();
+				}
+			}
+			
+			
 		</script>
 	</body>
 

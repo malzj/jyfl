@@ -5,8 +5,10 @@
         * @param u  url
         * @param d  data参数
         * @param b  回调函数
+        * @param prev  执行ajax前调用函数
+        * @param after  执行ajax完成时调用函数
         */
-       ajaxJsonp:function(u,d,b){
+       ajaxJsonp:function(u,d,b,prev,after){
            var defaults = {
                url:u||'',
                data:d||'',
@@ -14,8 +16,17 @@
                    $.noop();
                }
            }
+           prev = (typeof prev === "function")?prev:function(){
+               var html ='<div id="mui-loading-box" class="mui-scroll" style="position:absolute;top: 50%;"><div class="mui-loading"><div class="mui-spinner"></div></div></div>';
+               $('body').append(html);
+           }
+           after = (typeof after === "function")?after:function(){
+               $('#mui-loading-box').remove();
+           }
            defaults.success=b;
-           mui.os.plus
+           if(!mui.os.plus){
+                prev();
+           }
            $.ajax({
                url:defaults.url,
                type:'get',
@@ -24,6 +35,9 @@
                jsonp:'jsoncallback',
                success:function(result){
                    defaults.success(result);
+                   if(!mui.os.plus){
+                       after();
+                   }
                }
            })
        },

@@ -29,8 +29,6 @@
 			<a href="#" class="mui-tab-item btn_next color_white">下一步</a>
 		</nav>
 
-
-		</div>
 		<script type="text/javascript">
 			var id = jQuery.getUrlParam('id');
 			var itemid = jQuery.getUrlParam('itemid');
@@ -39,11 +37,13 @@
 				console.log(result);
 				if(result.state=='true'){
 					showtime = result.data.str_showtime;
-					replaceHtml('header',template('yanchu/tmp_yanchu_detail',result.data))
+					replaceHtml('nav',template('yanchu/tmp_yanchu_detail',result.data))
 					mui('.mui-scroll-wrapper').scroll();
 					mui('.mui-numbox').numbox();
 				}else if(result.state=='false'){
-					jQuery.errorJudge(result.data,result.message);
+					jQuery.errorJudge(result.data,result.message,function(){
+						mui.back();
+					});
 				}
 			});
 			mui.init();
@@ -61,7 +61,7 @@
 					}
 				}
 			});
-			mui('#yuanchu_detail').on('tap','.mui-btn-numbox-plus',function(e){
+			mui('body').on('tap','.mui-btn-numbox-plus',function(e){
 				var price = document.yanchu_form.price.value;
 				var stock = document.yanchu_form.stock.value;
 

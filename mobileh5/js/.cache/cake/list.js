@@ -1,7 +1,9 @@
-/*TMODJS:{"version":31,"md5":"80646cda90589a4f9307e80afa5941d7"}*/
+/*TMODJS:{"version":34,"md5":"a80f07f1d51d6e68a9e873c19103b498"}*/
 template('cake/list',function($data,$filename
 /**/) {
-'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,data=$data.data,navigator=$data.navigator,$index=$data.$index,$escape=$utils.$escape,attr=$data.attr,alist=$data.alist,list=$data.list,$out='';$out+=' <div class="select_scroll">  <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"> <div class="mui-scroll pinpai_scroll"> ';
+'use strict';var $utils=this,$helpers=$utils.$helpers,data=$data.data,$each=$utils.$each,navigator=$data.navigator,$index=$data.$index,$escape=$utils.$escape,attr=$data.attr,alist=$data.alist,list=$data.list,$out='';$out+=' <div class="select_scroll">  ';
+if(data.navigator){
+$out+=' <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"> <div class="mui-scroll pinpai_scroll"> ';
 $each(data.navigator.child,function(navigator,$index){
 $out+=' <a class="mui-control-item event ';
 if(navigator.cid == data.cat.cat_id){
@@ -13,7 +15,9 @@ $out+='"}\'><span>';
 $out+=$escape(navigator.name);
 $out+='</span></a> ';
 });
-$out+=' </div> </div>  ';
+$out+=' </div> </div> ';
+}
+$out+='  ';
 $each(data.attrList,function(attr,$index){
 $out+=' <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted kouwei_scroll"> <div class="mui-scroll pinpai_scroll"> ';
 $each(attr.attr_list,function(alist,$index){

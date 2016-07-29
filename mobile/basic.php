@@ -20,6 +20,7 @@ $jsonArray = array(
 if ($_REQUEST['act'] == 'navList')
 {
     $navList = get_navigator();
+    init_wap_middle($navList['middle']);
     $jsonArray['data'] = $navList['middle'];
     JsonpEncode($jsonArray); 
 }

@@ -20,7 +20,8 @@
 		<script src="../js/mui.mian.js"></script>
 		<script src="../js/mui.hrefclick.js"></script>
 		<script type="text/javascript">
-			jQuery.ajaxJsonp(web_url+'/mobile/yanchu.php?act=list',{id:1217},function(result){
+			var id = jQuery.getUrlParam('id');
+			jQuery.ajaxJsonp(web_url+'/mobile/yanchu.php?act=list',{id:id},function(result){
 				if(result.state=='true'){
 					replaceHtml('header',template('yanchu/tmp_yanchu_list',result.data));
 					mui('.mui-scroll-wrapper').scroll();

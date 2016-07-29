@@ -1,4 +1,4 @@
-/*TMODJS:{"version":16,"md5":"de52d41c0f1c40477d1670927aada7e3"}*/
+/*TMODJS:{"version":18,"md5":"de52d41c0f1c40477d1670927aada7e3"}*/
 template('yanchu/tmp_yanchu_submit',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,order=$data.order,shipping=$data.shipping,item=$data.item,payment_info=$data.payment_info,shipping_info=$data.shipping_info,$out='';$out+='<nav class="mui-bar mui-bar-tab mui-row"> <div class="mui-col-xs-7"><a class="mui-tab-item">订单总额：<span class="color_2fd0b5">';

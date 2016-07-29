@@ -64,8 +64,9 @@
 				});
 			});
 			
-			var category = jQuery.parseJSON(sessionStorage.category);
-			replaceHtml('.mui-draggable > .mui-inner-wrap', template('public/footer', category));
+			jQuery.ajaxJsonp(web_url+"/mobile/basic.php",{act:'navList'},function(data){				
+				replaceHtml('.mui-draggable > .mui-inner-wrap', template('public/footer', data));
+			});
 
 		</script>
 	</body>

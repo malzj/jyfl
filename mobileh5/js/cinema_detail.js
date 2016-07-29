@@ -12,7 +12,7 @@
         movieTitle:function(img,name,score){
             $('#item1 .movie_select').css('background-image', 'url(' + img + ')');
             $('#item1 .movie_title').html('<div class="mui-text-center"><span class="cinema_details_title">' + name + '</span></div>' +
-                '<div class="star_pinfen_box"><div class="star_pinfen"><span class="star_pinfen1"></span></div><span class="star_pinfenNum">7.0</span></div>');
+                '<div class="star_pinfen_box"><div class="star_pinfen"><span class="star_pinfen1" style="width:'+parseInt(score)*10+'%"></span></div><span class="star_pinfenNum">'+score+'</span></div>');
         },
         /**
          * 排期列表渲染

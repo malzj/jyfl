@@ -99,7 +99,6 @@
 					cinemaid: cinemaid,
 					movieid: movieid
 				}, function (result) {
-					console.log(result);
 					if (result.state == 'true') {
 						//影院
 						jQuery('#cinema_info').html(
@@ -117,11 +116,11 @@
 							var selected = '';
 							if (value.selected == 1) {
 								selected = 'mui-active';
-								jQuery.movieTitle(value.pathHorizonH,value.movieName,value.score);
+								jQuery.movieTitle(value.pathVerticalS,value.movieName,value.score);
 							} else {
 								selected = '';
 							}
-							movieList += '<a class="mui-control-item ' + selected + ' select_movie" data-movieid="'+value.movieId+'" data-title="'+value.movieName+'" data-score="'+value.score+'" data-img="'+value.pathHorizonH+'" style="background: url(' + value.pathVerticalS + ') no-repeat"></a>'
+							movieList += '<a class="mui-control-item ' + selected + ' select_movie" data-movieid="'+value.movieId+'" data-title="'+value.movieName+'" data-score="'+value.score+'" data-img="'+value.pathVerticalS+'" style="background: url(' + value.pathVerticalS + ') no-repeat"></a>'
 						})
 						jQuery('#item1 .movie_select .mui-scroll').html(movieList);
 						//时间列表
@@ -151,7 +150,6 @@
 					var img = this.getAttribute('data-img');
 					jQuery.movieTitle(img,title,score);
 					jQuery.ajaxJsonp(web_url + '/mobile/cinema.php?step=planList', {cinemaid:cinemaid,movieid:movie_id},function(result){
-						console.log(result);
 						//时间列表
 						var timeList = jQuery.timeList(cinemaid,movie_id,result.data.time);
 						jQuery('.movie_date .mui-scroll').html(timeList).find('a:first-child').addClass('mui-active');
@@ -206,7 +204,6 @@
 					}
 					var param = jQuery(this).parents('#dzqform').serialize();
 					jQuery.ajaxJsonp(web_url+'/mobile/cinema_order.php?act=orderDzq',param,function(result){
-						console.log(result.data.orderid);
 						if(result.state=='true'){
 							jQuery.jumpTo('./dianziquan_order.html?orderid='+result.data.orderid);
 						}else if(result.state='false'){

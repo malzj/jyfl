@@ -38,15 +38,17 @@
 	<script type="text/javascript">		
 		mui.init();
 		// ajax调取数据
-		jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{step:'checkout',flowtype:type},function(data){
-			if(data.state == 'false'){
-				jQuery.errorJudge(data, data.message, function(){
-					mui.back();
-				});
-			}else{
-				// 加载页面				
-				replaceHtml('header', template('flow/checkout', data));
-			}
+		mui.plusReady(function(){
+			jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{step:'checkout',flowtype:type},function(data){
+				if(data.state == 'false'){
+					jQuery.errorJudge(data, data.message, function(){
+						mui.back();
+					});
+				}else{
+					// 加载页面				
+					replaceHtml('header', template('flow/checkout', data));
+				}
+			});
 		});
 	</script>
 </html>

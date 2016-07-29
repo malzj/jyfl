@@ -1,3 +1,4 @@
+body{font-size: 14px;}
 .f_l{float: left;}
 .f_r{float: right;}
 .clearfix:after{content:"";clear: both;font-size: 0;display: block;height: 0;}
@@ -85,27 +86,26 @@ a{color: black;}
 .star_pinfen i{background: url(../images/jy_index/star.png) no-repeat;width: 15px;height: 15px;display: inline-block;background-size: 100% 100%;}
 .star_pinfen{margin-top: 5px;}
 .jijiang_time{margin-top: 5px;color: #2fd0b5;}
-.title_nav{}
 .title_movie{font-size: 14px;border: 1px solid #2fd0b5;padding: 5px 20px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;}
 .title_cinema{font-size: 14px;border: 1px solid #2fd0b5;padding: 5px 20px;border-bottom-right-radius: 5px;border-top-right-radius: 5px;}
 .title_movie.active,.title_cinema.active{background: #2fd0b5;color: white!important;}.margin_right_13{margin-right: 13px;}
 .movie_details_top{background-size:2000%;background-position: 50%;background-repeat: no-repeat;padding-top: 20px;background-color: #676794;}
 .movie_details_top,.movie_details_top p{color: white;}
 .xuanzuo_btn{background: #2fd0b5;margin-top: 7px;margin-left: 15px;color: white;border: none;font-size: 12px;}
-.movie_xianqing{padding:20px 10px;font-size: 16px;text-indent: 32px;line-height: 1.5;}
+.movie_xianqing{padding:20px 10px;font-size: 16px;line-height: 1.5;}
 .bg_white{background: white!important;}
 .movie_details1_top{border-bottom: 1px solid #ccc;padding:10px 10px 5px 10px;}
 .tel_movie_details1{text-align: right;}
 .select_movie{padding: 0!important;margin: 25px 10px 0 10px;}
 .select_movie{display:inline-block;width: 70px!important;height:100px;background-size: 100% 100%!important;}
-.movie_title{margin: 10px 0;}
+.movie_title{margin: 10px 0 0;}
 .movie_wenxintishi{background:#ff781e;color: white;padding: 10px 0;font-size: 14px;padding-left: 15px;}
 .movie_date{padding: 10px 0;background: #efeff4;padding-bottom: 0;}
 .movie_paiqi.mui-active{color: #2FD0B5!important;}
-.movie_type{font-size: 14px;}
+.movie_type{font-size: 12px;margin-top: 10px;}
+.movie_type p{font-size: 12px;}
 .movie_list{overflow: hidden;height: 60px;border-bottom: 1px solid #ddd;}
-.movie_time,.movie_price{line-height: 60px;}
-.movie_type{margin-top: 10px;}
+.movie_time,.movie_price{line-height: 60px;font-size: 16px;}
 .movie_item .btn_ticket{margin-top: 15px;}
 .movie_price{color: #ff781e;}
 .dianziquan{font-size: 14px;width: 80%;padding: 10px;display: block;margin: 0 auto;text-align: center;border: 1px solid #ddd;margin-bottom: 15px;}
@@ -119,6 +119,11 @@ a{color: black;}
 .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-progress-bar{background-color:#2FD0B5 ;}
 .star_pinfen{background: url(../images/star1.svg) no-repeat;height: 25px;background-size: 90px 90px !important;width: 91px;}
 .star_pinfen1{background: url(../images/star.svg) no-repeat;height: 25px;background-size: 90px 90px !important;width: 70%;display: block;}
+.select_movie.mui-active{width: 80px!important;height: 110px;}
+.cinema_details_title{font-size: 16px;font-weight: bold;}
+.star_pinfenNum{font-size: 14px;float: left;margin-top: 3px;margin-left: 5px;color: #a5a2a2;}
+.star_pinfen_box{margin: 0 auto;width: 130px;overflow: hidden;}
+.btn_ticket_no{width: 64px;background: #D1D1D1;}
 /*cake*/
 .xiangqing h6 {border: 1px solid #dfdfdf;padding: 5px 10px;color: #888585;/* margin: 6px 5px 0 0; */display: inline-block;border-radius: 5px;}
 .xiangqing h6.checked{border: 1px solid #2fd0b5;}

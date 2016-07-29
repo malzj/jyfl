@@ -1,8 +1,6 @@
 /.idea
 /temp
 Runtime/
-mobileh5/tpl/public/header.html
-mobileh5/tpl/public/footer.html
 mobileh5/js/.cache/public/header.js
 mobileh5/js/.cache/public/footer.js
 mobileh5/js/.cache/person.js

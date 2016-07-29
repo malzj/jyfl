@@ -1,4 +1,4 @@
-/*TMODJS:{"version":35,"md5":"f6cb8c63ec81bbb6b379f86ca90e28ca"}*/
+/*TMODJS:{"version":36,"md5":"bd67b3adae3d0d2d4273d3176d2dc9e2"}*/
 template('flow/map',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,data=$data.data,yunfei=$data.yunfei,$index=$data.$index,$escape=$utils.$escape,$out='';$out+='<style> #supplier-showmap{position:absolute;height:100%;width:100%;} </style> <div class="mui-content"> <div class="mui-table-view" style="margin-top: 0;"> <li class="mui-table-view-cell"> ';
@@ -9,7 +9,7 @@ $out+='</span>点</span> <span class="mui-pull-right fanwei_block" style="backgr
 $out+=$escape(yunfei.color);
 $out+='"></span> ';
 });
-$out+=' </li> </div> <div id="supplier-showmap" style="height:100%; width:100%;"> </div> </div> <script> /*动态导入js*/ insertJs([\'js/baidumap.js\']); baidumap.setOptions({ isYunfei:true, isSetYunfei:false, showMapId:\'supplier-showmap\', currentCity:\'';
+$out+=' </li> </div> <div id="supplier-showmap" style="height:100%; width:100%;"> </div> </div> <script> /*动态导入js*/ insertJs([\'../js/baidumap.js\']); baidumap.setOptions({ isYunfei:true, isSetYunfei:false, showMapId:\'supplier-showmap\', currentCity:\'';
 $out+=$escape(data.cityname);
 $out+='\' }); baidumap.showMap(';
 $out+=$escape(data.id);

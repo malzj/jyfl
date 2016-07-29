@@ -4,7 +4,7 @@
  */ 
 function insertJs(js){
 	for(var i=0; i<js.length; i++){
-		$('body').append("<script src='"+web_url+"/mobileh5/"+js[i]+"'><\/script>"); 
+		$('body').append("<script src='"+js[i]+"'><\/script>"); 
 	}
 	
 }

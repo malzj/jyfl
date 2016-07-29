@@ -89,7 +89,7 @@
 			//页面a标签的点击跳转事件
 			mui('.shop-content,.mui-table-view,.shop-category-container,.mui-bar,.mui-scroll,.mui-content').on('tap', 'a', function (e) {
 			if (!this.classList.contains('mui-disabled')) {
-				jQuery.jumpTo(this.getAttribute('href'),'#yonghuming');
+				jQuery.jumpTo(this.getAttribute('href'));
 			}
 			else {
 	//			s e.preventDefault();
@@ -99,21 +99,22 @@
 			});
 
 			mui('#logout')[0].addEventListener('tap',function(){
-
-				jQuery.ajaxJsonp(web_url + '/mobile/userAuth.php', {'act': 'logout'},
-					function (result) {
-						console.log(result);
-						if (result.state == 'true') {
-							localStorage.clear();
-							mui.alert("退出登录成功！",function(){
-								jQuery.jumpTo('./index.html');
-							});
-						} else {
-							mui.alert("退出登录失败！");
-						}
+				var btnArray = ['确认', '取消'];
+				mui.confirm('确认退出登录？', '聚优福利', btnArray, function(e) {
+					if (e.index == 0) {
+						jQuery.ajaxJsonp(web_url + '/mobile/userAuth.php', {'act': 'logout'},
+								function (result) {
+									if (result.state == 'true') {
+//							localStorage.clear();
+										jQuery.jumpTo('./index.html');
+									} else {
+										mui.alert("退出登录失败！");
+									}
+								}
+						);
+						return false;
 					}
-				);
-				return false;
+				});
 			})
 		</script>
 	</body>

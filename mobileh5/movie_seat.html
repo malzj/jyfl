@@ -59,7 +59,6 @@
 			var movieid=jQuery.getUrlParam('movieid');
 			var cinemaid=jQuery.getUrlParam('cinemaid');
 			jQuery.ajaxJsonp(web_url+'/mobile/cinema.php?step=cinemaSeats',{hallno:hallno,planid:planid,movieid:movieid,cinemaid:cinemaid},function(result){
-				console.log(result);
 				if(result.state=='true') {
 					document.getElementById('movie_seat_page').innerHTML = template('tmp_movie_seat', result.data);
 					//加载座位
@@ -97,9 +96,9 @@
 
 					var formData = jQuery(this).parents('#orderForm').serialize();
 					jQuery.ajaxJsonp(web_url+'/mobile/cinema_order.php?act=order',formData,function(result){
-						console.log(result);
 						if(result.state=='true'){
 							window.location.href='./movie_order_detail.html?orderid='+result.data.orderid;
+
 						}else if(result.state=='false'){
 							jQuery.errorJudge(result.data,result.message);
 						}

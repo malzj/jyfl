@@ -163,6 +163,7 @@
 <script>
 
     jQuery(function () {
+        jQuery('input[name="username"]').val(localStorage.user_name);
         mui('body').on("tap",".login_btn",function () {
             var form = jQuery(this).parent("form");
             var username = form.find("input[name='username']").val();

@@ -15,6 +15,7 @@
                }
            }
            defaults.success=b;
+           mui.os.plus
            $.ajax({
                url:defaults.url,
                type:'get',

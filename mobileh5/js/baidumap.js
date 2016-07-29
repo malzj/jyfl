@@ -5,7 +5,7 @@ var baidumap = {
 	
 	options :{		
 		// 显示多边形的api地址
-		showUrl:'http://jy.com/jyflapi/index.php?s=Peisong/Peisong/showmap_wap',
+		showUrl:'http://juyoufuli.com/jyflapi/index.php?s=Peisong/Peisong/showmap_wap',
 		// 设置配送费用和供应商信息
 		setPeisongUrl:'http://jy.com/jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap',
 		// 设置坐标信息的

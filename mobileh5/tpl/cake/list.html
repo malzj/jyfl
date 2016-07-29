@@ -1,6 +1,7 @@
 <!--滑动区域-->
 <div class="select_scroll">
    	<!--品牌滑动区域-->
+   	{{if data.navigator}}
 	<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 	    <div class="mui-scroll pinpai_scroll">
 	    	{{each data.navigator.child as navigator}}
@@ -8,6 +9,7 @@
 	        {{/each}}	        
 	    </div>
 	</div>
+	{{/if}}
 	<!--口味滑动区域-->
 	{{each data.attrList as attr}}
 	<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted kouwei_scroll">

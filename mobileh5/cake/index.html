@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/public.css" rel="stylesheet"/>
+		<link href="../css/index.css" rel="stylesheet"/>
+		<link href="../css/iconfont.css" rel="stylesheet" />
 		<link href="../css/mui.mian.css" rel="stylesheet"/>
 		<script src="../js/connection.js"></script>
 		<script src="../js/jquery-1.9.1.min.js"></script>
@@ -20,11 +22,27 @@
 		</style>
 	</head>
 	<body>
-		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">蛋糕</h1>
-		</header>
 
+		<div class="mui-off-canvas-wrap mui-draggable">			    
+			<!-- 主页面容器 -->
+			<div class="mui-inner-wrap">
+				<!-- 主页面标题 -->
+				<header class="mui-bar mui-bar-nav">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+					<h1 class="mui-title">蛋糕</h1>
+				</header>
+				
+				<!-- 主页面内容容器 -->
+				<div class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll ajax-content">
+						
+					</div>
+				</div>
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+				
+		</div>
+		
 		<script type="text/javascript">
 			mui.init();
 			
@@ -36,7 +54,7 @@
 					});					
 				}
 				// 加载页面			
-				replaceHtml('header', template('cake/index', data));
+				jQuery('.ajax-content').html(template('cake/index', data));
 				// 从新触发相册插件
 				var gallery = mui('#slider');
 				gallery.slider({interval:5000});
@@ -45,6 +63,9 @@
 					deceleration: 0.0005 
 				});
 			});
+			
+			var category = jQuery.parseJSON(sessionStorage.category);
+			replaceHtml('.mui-draggable > .mui-inner-wrap', template('public/footer', category));
 
 		</script>
 	</body>

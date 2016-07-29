@@ -53,8 +53,7 @@
 					jQuery.errorJudge(data,data.message,function(){
 						mui.back();	
 					});					
-				}
-				sessionStorage.category = JSON.stringify(data);
+				}				
 				replaceHtml('.mui-draggable > .mui-inner-wrap', template('public/footer', data));
 			});
 			

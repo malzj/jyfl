@@ -1,4 +1,4 @@
-/*TMODJS:{"version":23,"md5":"5d37fcb79386f34386e852725723125d"}*/
+/*TMODJS:{"version":24,"md5":"5d37fcb79386f34386e852725723125d"}*/
 template('order/tmp_order_cinema',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,hasOrders=$data.hasOrders,$each=$utils.$each,orders=$data.orders,order=$data.order,key=$data.key,$escape=$utils.$escape,$out='';$out+='<div class="mui-content"> ';

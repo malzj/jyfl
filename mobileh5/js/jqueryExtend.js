@@ -65,7 +65,7 @@
            if(data.isLogin==1){
                mui.alert(message,function(){
                    mui.openWindow({
-                       url:'/index.html'
+                       url:'../index.html'
                    });
                });
            }else{

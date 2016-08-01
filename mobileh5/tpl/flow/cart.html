@@ -59,8 +59,11 @@
 						_that.parents('li').remove();
 						initTotal(0,0);
 					}else{
-						uls.parents('div').remove();
-						jQuery('.empty-cart').show();
+						
+						uls.parents('.mui-row').remove();
+						if(jQuery('.mui-content').find('.gys').length == 0){
+							jQuery('.empty-cart').show();
+						}
 						initTotal(0,0);
 					}
 				});

@@ -64,7 +64,6 @@ function addToCartResponse(result){
 		}
 	}
 	else{
-		var cart_url = 'flow.php?step=checkout&flowtype=5';
 		
 		if (result.carttype == '5'){
 			mui.openWindow({

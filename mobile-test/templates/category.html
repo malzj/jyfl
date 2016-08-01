@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">	
+	<title></title>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/swiper-3.2.7.jquery.min.js"></script>
+	<script type="text/javascript" src="js/layer/layer.js"></script>
+	<script src="js/loadAjax.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+	<link href="js/layer/skin/layer.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/swiper-3.2.7.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fd.css">	
+    <link rel="stylesheet" href="css/main.css">
+		
+
+	<style>
+		.liebiaoye h5 {font-weight: 500; }
+		.liebiaoye h5.height_30{min-height:20px; max-height:45px; line-height:1.5em; overflow:hidden; height:auto;}
+		.liebiaoye h6 {color: #908D8D;  overflow: hidden; max-height: 35px; line-height: 1.5;}
+		.icon_more {margin-right: 5px;line-height: 39px;float: right;color: white;font-size: 23px;}
+		.dropdown-menu {right: 0;left: auto;min-width: 0;background-color: #423E3E;}
+		.dropdown-menu>li>a {color: white;}
+		#myTabContent {padding: 10px;overflow: hidden;}			
+		#myTabContent .col-xs-6 {padding: 5px;}
+		.hiden {display: none;}
+		.swiper-container li {margin: 0px 25px;width: auto;}		
+		.nv2active{background-color: transparent!important;
+			border: 1px solid #ccc!important;
+			margin-bottom: 0!important;
+               position: relative!important;
+               height: 30px!important;
+		    border-bottom: 1px #fff solid!important;
+		    z-index: 100!important;
+		    border-radius: 5px 5px 0 0!important;
+		}
+		.nv1>a {
+			background-color: #ECE9E9;
+			display: inline-block;
+			padding: 3px 5px;
+			margin: 6px;
+			border-radius: 5px;
+			border-bottom: 1px solid #ccc;
+		}
+		.kouwei {
+			padding-left: 0px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}			
+		.shejianmeishi .kouwei ul {
+			padding: 7px;
+			top: 110px;
+			margin: 0;
+			background-color: white;
+			z-index: 10;
+			width: 100%;
+			left: 0;
+			position: absolute;
+			padding-left: 0px;
+		}	
+		.kouwei ul {display:none;}		
+		.shejianmeishi .kouwei .nv2 li {padding: 5px;}			
+		.shejianmeishi .kouwei .col-xs-4 {position: static;}
+		.nv2{border-top: 1px solid #ccc;}
+		#mengceng{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			background: #666;
+			z-index: 7;
+			top: 110px;
+			opacity: 0.5; 
+			display: none; 
+			cursor: pointer;
+		}
+		.swiper-slide h5{
+				margin-top:0;
+				padding-top: 10px;
+			}
+	</style>
+</head>
+
+<body>
+<div class="shejianmeishi">
+	<!-- header  -->
+	{$header}
+	<!-- catetory list -->
+	<div class="container text-center margin_1">
+		<div class="swiper-container border-2">
+			<div class="swiper-wrapper seff-active">
+				{foreach from=$towChilds item=nav}
+				<li class="swiper-slide {if $nav.active eq 1}active {/if}">
+					<h5><a href="{$nav.url}" {if $nav.active eq 1} style="color:#DE6B11" {/if}>{$nav.name}</a></h5>
+				</li>
+				{/foreach}
+			</div>
+		</div>
+
+		<ul class="row xuanze2 kouwei">
+			
+			<!-- threeChilds start -->
+			{if $threeChilds}
+			<li class="col-xs-4 nv1">
+				<a class="nv3" href="#">
+					{if $currentThree eq ''} 分类 {else} <font style="color:#DE6B11">{$currentThree}</font> {/if}
+				</a>
+				<ul class="nv2">
+					{foreach from=$threeChilds item=three}	
+  					<li class="col-xs-6" style="text-align: left; text-indent: 2em;"><a href="{$three.url}" {if $three.active eq 1} style="color:#DE6B11" {/if}>{$three.cat_name}</a></li>       
+					{/foreach}				
+				</ul>
+			</li>
+			{/if}
+			<!-- threeChilds end -->
+			
+			<!-- filterSearch start -->
+			{foreach from=$filter_attr_list item=filter_attr}
+			<li class="col-xs-4 nv1">
+				<a class="nv3" href="#">
+					{if $filter_attr.filter_name} 
+						<font color="#DE6B11">{$filter_attr.filter_name|escape:html}</font>						
+					{else} 
+						{$filter_attr.filter_attr_name|escape:html} 
+					{/if}
+					
+				</a>
+				<ul class="nv2">
+				{foreach from=$filter_attr.attr_list item=attr}
+					<li class="col-xs-6" style="text-align: left; text-indent: 2em;"><a href="{$attr.url}" {if $attr.selected eq 1} style="color:#DE6B11;" {/if}>{$attr.attr_value}</a></li>
+				{/foreach}
+				</ul>
+			</li>
+			{/foreach}
+			<!-- filterSearch end -->			
+			
+			<li class="col-xs-4 nv1">
+				<a class="nv3" href="#">				
+					{if $pager.search.sort == 'sort_order'} <font color="#DE6B11">默认排序</font> {/if}
+					{if $pager.search.sort == 'goods_id'} <font color="#DE6B11">默认排序</font> {/if}
+					{if $pager.search.sort == 'sales_num'} <font color="#DE6B11">销量排序 </font>{/if}
+					{if $pager.search.sort == 'shop_price'} <font color="#DE6B11">价格排序 </font>{/if}
+					{if $pager.search.sort == 'last_update'} <font color="#DE6B11">上架时间</font> {/if}
+				</a>
+				<ul class="nv2">
+					<li class="col-xs-6" style="text-align: left; text-indent: 2em; {if $pager.search.sort eq 'sort_order'} color:#DE6B11;{/if}" onClick="location.href='{$script_name}.php?category={$category}{if $pager.search.keywords}&keywords={$pager.search.keywords}{/if}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=sort_order&order=DESC#goods_list'" >默认排序</li>
+					<li class="col-xs-6" style="text-align: left; text-indent: 2em; {if $pager.search.sort eq 'sales_num'} color:#DE6B11;{/if}" onClick="location.href='{$script_name}.php?category={$category}{if $pager.search.keywords}&keywords={$pager.search.keywords}{/if}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=sales_num&order=DESC'" >销量排序</li>
+					<li class="col-xs-6" style="text-align: left; text-indent: 2em; {if $pager.search.sort eq 'shop_price'} color:#DE6B11;{/if}" onClick="location.href='{$script_name}.php?category={$category}{if $pager.search.keywords}&keywords={$pager.search.keywords}{/if}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=shop_price&order=DESC'" >价格排序</li>
+					<li class="col-xs-6" style="text-align: left; text-indent: 2em; {if $pager.search.sort eq 'last_update'} color:#DE6B11;{/if}" onClick="location.href='{$script_name}.php?category={$category}{if $pager.search.keywords}&keywords={$pager.search.keywords}{/if}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=last_update&order=DESC'" >上架时间</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	
+	<!-- goodsList start  -->
+	{foreach name=goods_list from=$goods_list item=goods}
+	<div class="container liebiaoye media-content" style="margin-bottom:1px;">
+		<div class="row"><a href="{$goods.url}">
+			<div class="col-xs-4" style="padding:5px;">
+				<img src="/{$goods.goods_thumb}" class="img-responsive">
+			</div>
+			<div class="col-xs-8">
+				<div class="media_font">
+					<h5 class="height_30">{$goods.goods_name}</h5>
+					{if $goods.goods_brief}	<h6>{$goods.goods_brief}</h6> {/if}
+					<h5 style="color: red;">{$goods.shop_price} 点</h5>
+				</div>
+			</div></a>
+		</div>
+	</div>
+	{foreachelse}
+	<div class="container margin-top10" style="height:100px; line-height:100px;"> <center>暂时没有数据！</center></div>	
+	{/foreach}
+	<!-- goodsList end -->
+	
+	<div style="margin-top:45px;"></div>
+	
+	<!-- mengcegn  -->
+	<div id="mengceng"></div>
+	
+	{if $pagebar}{$pagebar}{/if}
+
+</div>
+
+<script type="text/javascript">
+
+// 导航滚动
+var mySwiper = $('.swiper-container').swiper({ slidesPerView: 'auto',freeMode: true });
+
+$(function() {
+	
+	$('.seff-active .swiper-slide').each(function(index,dom){
+		if($(dom).hasClass('active')){
+			mySwiper.slideTo(index,0,false);
+		}		
+	});
+	
+	$('#myTab li:eq(0) a').tab("show");
+	
+	// filterSearch event	
+	$(".kouwei>li").click(function(event) {
+		event.stopPropagation();  
+		$(".nv2", this).slideToggle(300);
+		$(this).siblings("li").find("ul").hide();
+		if( $(".nv2",this).css("display")=='block' ) {
+         	$('#mengceng').css('display','block');
+		}else{
+         	$('#mengceng').css('display','none');
+        }         
+	});
+	$(document).click(function (event) {
+		event.stopPropagation();  
+		$('.nv2').css('display','none');$('#mengceng').css('display','none');
+		$('.nv3').removeClass('nv2active');
+	});
+    
+    $('.kouwei>li').click(function(){
+    	$('.nv3',this).toggleClass('nv2active');
+    	$(this).siblings("li").find("a").removeClass('nv2active');
+    })  
+	
+});
+
+</script>
+</body>
+</html>

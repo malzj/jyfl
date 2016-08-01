@@ -1,0 +1,804 @@
+2016-03-07 14:37:27 查询 SELECT * FROM ecs_pay_log WHERE log_id = 20415
+2016-03-07 14:37:27 获取一条记录 SELECT * FROM ecs_pay_log WHERE log_id = 20415
+2016-03-07 14:37:27 更新 update ecs_pay_log set is_paid = '1',is_paid = '1' where 1=1 and  log_id = 20415
+2016-03-07 14:37:27 查询 update ecs_pay_log set is_paid = '1',is_paid = '1' where 1=1 and  log_id = 20415
+2016-03-07 14:37:27 查询 SELECT * FROM ecs_user_account WHERE `id` = 1906
+2016-03-07 14:37:27 获取一条记录 SELECT * FROM ecs_user_account WHERE `id` = 1906
+2016-03-07 14:37:27 更新 update ecs_user_account set paid_time = '1457332647',is_paid = '1',pay_no = '1000270768201603073794782308',paid_time = '1457332647',is_paid = '1',pay_no = '1000270768201603073794782308' where 1=1 and  id = 1906
+2016-03-07 14:37:27 查询 update ecs_user_account set paid_time = '1457332647',is_paid = '1',pay_no = '1000270768201603073794782308',paid_time = '1457332647',is_paid = '1',pay_no = '1000270768201603073794782308' where 1=1 and  id = 1906
+2016-03-07 14:37:27 查询 SELECT * FROM ecs_users where user_id = 32337
+2016-03-07 14:37:27 获取一条记录 SELECT * FROM ecs_users where user_id = 32337
+2016-03-07 14:37:27 查询 SELECT pay_than FROM ecs_card_rule where id = 142
+2016-03-07 14:37:27 获取一条记录 SELECT pay_than FROM ecs_card_rule where id = 142
+2016-03-07 14:37:38 查询 SELECT * FROM ecs_pay_log WHERE log_id = 20415
+2016-03-07 14:37:38 获取一条记录 SELECT * FROM ecs_pay_log WHERE log_id = 20415
+2016-03-07 14:37:38 释放结果集
+2016-03-07 14:37:38 完成整个查询任务,所用时间为0.6513979434967
+2016-03-07 14:40:34 查询 SELECT * FROM ecs_pay_log WHERE log_id = 20417
+2016-03-07 14:40:34 获取一条记录 SELECT * FROM ecs_pay_log WHERE log_id = 20417
+2016-03-07 14:40:34 更新 update ecs_pay_log set is_paid = '1',is_paid = '1' where 1=1 and  log_id = 20417
+2016-03-07 14:40:34 查询 update ecs_pay_log set is_paid = '1',is_paid = '1' where 1=1 and  log_id = 20417
+2016-03-07 14:40:34 查询 SELECT * FROM ecs_user_account WHERE `id` = 1907
+2016-03-07 14:40:34 获取一条记录 SELECT * FROM ecs_user_account WHERE `id` = 1907
+2016-03-07 14:40:34 更新 update ecs_user_account set paid_time = '1457332834',is_paid = '1',pay_no = '1000270768201603073796750659',paid_time = '1457332834',is_paid = '1',pay_no = '1000270768201603073796750659' where 1=1 and  id = 1907
+2016-03-07 14:40:34 查询 update ecs_user_account set paid_time = '1457332834',is_paid = '1',pay_no = '1000270768201603073796750659',paid_time = '1457332834',is_paid = '1',pay_no = '1000270768201603073796750659' where 1=1 and  id = 1907
+2016-03-07 14:40:34 查询 SELECT * FROM ecs_users where user_id = 32337
+2016-03-07 14:40:34 获取一条记录 SELECT * FROM ecs_users where user_id = 32337
+2016-03-07 14:40:34 查询 SELECT pay_than FROM ecs_card_rule where id = 142
+2016-03-07 14:40:34 获取一条记录 SELECT pay_than FROM ecs_card_rule where id = 142
+2016-03-07 14:40:51 查询 SELECT * FROM ecs_pay_log WHERE log_id = 20417
+2016-03-07 14:40:51 获取一条记录 SELECT * FROM ecs_pay_log WHERE log_id = 20417
+2016-03-07 14:40:51 释放结果集
+2016-03-07 14:40:51 完成整个查询任务,所用时间为0.0031540393829346
+2016-03-07 14:46:54 查询 SELECT * FROM ecs_pay_log WHERE log_id = 20422
+2016-03-07 14:46:54 获取一条记录 SELECT * FROM ecs_pay_log WHERE log_id = 20422
+2016-03-07 14:46:54 更新 update ecs_pay_log set is_paid = '1',is_paid = '1' where 1=1 and  log_id = 20422
+2016-03-07 14:46:54 查询 update ecs_pay_log set is_paid = '1',is_paid = '1' where 1=1 and  log_id = 20422
+2016-03-07 14:46:54 查询 SELECT * FROM ecs_user_account WHERE `id` = 1908
+2016-03-07 14:46:54 获取一条记录 SELECT * FROM ecs_user_account WHERE `id` = 1908
+2016-03-07 14:46:54 更新 update ecs_user_account set paid_time = '1457333214',is_paid = '1',pay_no = '1000270768201603073794887430',paid_time = '1457333214',is_paid = '1',pay_no = '1000270768201603073794887430' where 1=1 and  id = 1908
+2016-03-07 14:46:54 查询 update ecs_user_account set paid_time = '1457333214',is_paid = '1',pay_no = '1000270768201603073794887430',paid_time = '1457333214',is_paid = '1',pay_no = '1000270768201603073794887430' where 1=1 and  id = 1908
+2016-03-07 14:46:54 查询 SELECT * FROM ecs_users where user_id = 12075
+2016-03-07 14:46:54 获取一条记录 SELECT * FROM ecs_users where user_id = 12075
+2016-03-07 14:46:54 查询 SELECT pay_than FROM ecs_card_rule where id = 142
+2016-03-07 14:46:54 获取一条记录 SELECT pay_than FROM ecs_card_rule where id = 142
+2016-03-07 14:47:07 查询 SELECT * FROM ecs_pay_log WHERE log_id = 20422
+2016-03-07 14:47:07 获取一条记录 SELECT * FROM ecs_pay_log WHERE log_id = 20422
+2016-03-07 14:47:07 释放结果集
+2016-03-07 14:47:07 完成整个查询任务,所用时间为0.013433933258057
+2016-03-07 14:55:02 查询 SELECT * FROM ecs_pay_log WHERE log_id = 20425
+2016-03-07 14:55:02 获取一条记录 SELECT * FROM ecs_pay_log WHERE log_id = 20425
+2016-03-07 14:55:02 更新 update ecs_pay_log set is_paid = '1',is_paid = '1' where 1=1 and  log_id = 20425
+2016-03-07 14:55:02 查询 update ecs_pay_log set is_paid = '1',is_paid = '1' where 1=1 and  log_id = 20425
+2016-03-07 14:55:02 查询 SELECT * FROM ecs_user_account WHERE `id` = 1909
+2016-03-07 14:55:02 获取一条记录 SELECT * FROM ecs_user_account WHERE `id` = 1909
+2016-03-07 14:55:02 更新 update ecs_user_account set paid_time = '1457333702',is_paid = '1',pay_no = '1000270768201603073796893161',paid_time = '1457333702',is_paid = '1',pay_no = '1000270768201603073796893161' where 1=1 and  id = 1909
+2016-03-07 14:55:02 查询 update ecs_user_account set paid_time = '1457333702',is_paid = '1',pay_no = '1000270768201603073796893161',paid_time = '1457333702',is_paid = '1',pay_no = '1000270768201603073796893161' where 1=1 and  id = 1909
+2016-03-07 14:55:02 查询 SELECT * FROM ecs_users where user_id = 32337
+2016-03-07 14:55:02 获取一条记录 SELECT * FROM ecs_users where user_id = 32337
+2016-03-07 14:55:02 查询 SELECT pay_than FROM ecs_card_rule where id = 142
+2016-03-07 14:55:02 获取一条记录 SELECT pay_than FROM ecs_card_rule where id = 142
+2016-03-07 14:55:14 查询 SELECT * FROM ecs_pay_log WHERE log_id = 20425
+2016-03-07 14:55:14 获取一条记录 SELECT * FROM ecs_pay_log WHERE log_id = 20425
+2016-03-07 14:55:14 释放结果集
+2016-03-07 14:55:14 完成整个查询任务,所用时间为0.0032050609588623
+2016-03-07 15:59:27 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','131151490120160307155914','1000270768201603073795676218')
+2016-03-07 15:59:27 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','131151490120160307155914','1000270768201603073795676218')
+2016-03-07 15:59:27 释放结果集
+2016-03-07 15:59:27 完成整个查询任务,所用时间为0.025272130966187
+2016-03-07 16:03:34 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','131151490120160307152908','1000270768201603073797262416')
+2016-03-07 16:03:34 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','131151490120160307152908','1000270768201603073797262416')
+2016-03-07 16:03:34 释放结果集
+2016-03-07 16:03:34 完成整个查询任务,所用时间为0.022477865219116
+2016-03-07 16:07:03 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20443
+2016-03-07 16:07:03 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20443
+2016-03-07 16:07:03 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20443','1000270768201603073797677548')
+2016-03-07 16:07:03 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20443','1000270768201603073797677548')
+2016-03-07 16:07:03 释放结果集
+2016-03-07 16:07:03 完成整个查询任务,所用时间为0.017197847366333
+2016-03-07 16:07:20 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20443
+2016-03-07 16:07:20 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20443
+2016-03-07 16:07:20 释放结果集
+2016-03-07 16:07:20 完成整个查询任务,所用时间为0.014078140258789
+2016-03-07 16:07:40 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20443
+2016-03-07 16:07:40 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20443
+2016-03-07 16:07:40 释放结果集
+2016-03-07 16:07:40 完成整个查询任务,所用时间为0.0026171207427979
+2016-03-07 16:08:11 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20444
+2016-03-07 16:08:11 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20444
+2016-03-07 16:08:11 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20444','1000270768201603073797688679')
+2016-03-07 16:08:11 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20444','1000270768201603073797688679')
+2016-03-07 16:08:11 释放结果集
+2016-03-07 16:08:11 完成整个查询任务,所用时间为0.01800799369812
+2016-03-07 16:09:19 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20445
+2016-03-07 16:09:19 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20445
+2016-03-07 16:09:19 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20445','1000270768201603073795782672')
+2016-03-07 16:09:19 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20445','1000270768201603073795782672')
+2016-03-07 16:09:19 释放结果集
+2016-03-07 16:09:19 完成整个查询任务,所用时间为0.0053369998931885
+2016-03-07 16:19:21 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','131151490120160307151446','1000270768201603073795193385')
+2016-03-07 16:19:21 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','131151490120160307151446','1000270768201603073795193385')
+2016-03-07 16:19:21 释放结果集
+2016-03-07 16:19:21 完成整个查询任务,所用时间为0.0077838897705078
+2016-03-07 16:21:17 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','131151490120160307151650','1000270768201603073795221847')
+2016-03-07 16:21:17 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','131151490120160307151650','1000270768201603073795221847')
+2016-03-07 16:21:17 释放结果集
+2016-03-07 16:21:17 完成整个查询任务,所用时间为0.11865305900574
+2016-03-07 17:06:06 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20466
+2016-03-07 17:06:06 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20466
+2016-03-07 17:06:06 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20466','1000270768201603073800363606')
+2016-03-07 17:06:06 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20466','1000270768201603073800363606')
+2016-03-07 17:06:06 释放结果集
+2016-03-07 17:06:06 完成整个查询任务,所用时间为0.0067250728607178
+2016-03-07 17:12:04 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20470
+2016-03-07 17:12:04 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20470
+2016-03-07 17:12:04 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20470','1000270768201603073798533562')
+2016-03-07 17:12:04 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20470','1000270768201603073798533562')
+2016-03-07 17:12:04 释放结果集
+2016-03-07 17:12:04 完成整个查询任务,所用时间为0.016570091247559
+2016-03-07 17:17:02 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20472
+2016-03-07 17:17:02 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20472
+2016-03-07 17:17:02 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20472','1000270768201603073798592775')
+2016-03-07 17:17:02 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20472','1000270768201603073798592775')
+2016-03-07 17:17:02 释放结果集
+2016-03-07 17:17:02 完成整个查询任务,所用时间为0.011157989501953
+2016-03-07 17:35:55 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20475
+2016-03-07 17:35:55 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20475
+2016-03-07 17:35:55 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20475','1000270768201603073800745513')
+2016-03-07 17:35:55 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20475','1000270768201603073800745513')
+2016-03-07 17:35:55 释放结果集
+2016-03-07 17:35:55 完成整个查询任务,所用时间为0.15471982955933
+2016-03-07 17:37:15 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20476
+2016-03-07 17:37:15 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20476
+2016-03-07 17:37:15 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20476','1000270768201603073798863096')
+2016-03-07 17:37:15 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20476','1000270768201603073798863096')
+2016-03-07 17:37:15 释放结果集
+2016-03-07 17:37:15 完成整个查询任务,所用时间为0.0058021545410156
+2016-03-07 17:42:36 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20477
+2016-03-07 17:42:36 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20477
+2016-03-07 17:42:36 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20477','1000270768201603073798936313')
+2016-03-07 17:42:36 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20477','1000270768201603073798936313')
+2016-03-07 17:42:36 释放结果集
+2016-03-07 17:42:36 完成整个查询任务,所用时间为0.021424055099487
+2016-03-08 09:22:37 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20543
+2016-03-08 09:22:37 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20543
+2016-03-08 09:22:37 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20543','1000270768201603083811724969')
+2016-03-08 09:22:37 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20543','1000270768201603083811724969')
+2016-03-08 09:22:37 释放结果集
+2016-03-08 09:22:37 完成整个查询任务,所用时间为0.017751216888428
+2016-03-08 09:31:25 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20546
+2016-03-08 09:31:25 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20546
+2016-03-08 09:31:25 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20546','1000270768201603083813670014')
+2016-03-08 09:31:25 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20546','1000270768201603083813670014')
+2016-03-08 09:31:25 释放结果集
+2016-03-08 09:31:25 完成整个查询任务,所用时间为0.019569873809814
+2016-03-08 19:22:04 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =20647
+2016-03-08 19:22:04 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =20647
+2016-03-08 19:22:04 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20647','1001950768201603083829874734')
+2016-03-08 19:22:04 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','20647','1001950768201603083829874734')
+2016-03-08 19:22:04 释放结果集
+2016-03-08 19:22:04 完成整个查询任务,所用时间为0.022173166275024
+2016-03-12 11:26:32 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =21155
+2016-03-12 11:26:32 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =21155
+2016-03-12 11:26:32 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','21155','1008440768201603123922306382')
+2016-03-12 11:26:32 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','21155','1008440768201603123922306382')
+2016-03-12 11:26:32 释放结果集
+2016-03-12 11:26:32 完成整个查询任务,所用时间为0.026137828826904
+2016-03-12 11:26:50 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =21156
+2016-03-12 11:26:50 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =21156
+2016-03-12 11:26:50 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','21156','1008440768201603123922076514')
+2016-03-12 11:26:50 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','21156','1008440768201603123922076514')
+2016-03-12 11:26:50 释放结果集
+2016-03-12 11:26:50 完成整个查询任务,所用时间为0.098407983779907
+2016-03-12 11:27:05 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =21157
+2016-03-12 11:27:05 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =21157
+2016-03-12 11:27:05 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','21157','1008440768201603123922084408')
+2016-03-12 11:27:05 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','21157','1008440768201603123922084408')
+2016-03-12 11:27:05 释放结果集
+2016-03-12 11:27:05 完成整个查询任务,所用时间为0.025868892669678
+2016-03-13 14:26:31 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =21333
+2016-03-13 14:26:31 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =21333
+2016-03-13 14:26:31 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','21333','1000110768201603133954653495')
+2016-03-13 14:26:31 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','21333','1000110768201603133954653495')
+2016-03-13 14:26:31 释放结果集
+2016-03-13 14:26:31 完成整个查询任务,所用时间为0.0065250396728516
+2016-03-17 10:17:54 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =21726
+2016-03-17 10:17:54 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =21726
+2016-03-17 10:17:54 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','21726','1001640768201603174047187038')
+2016-03-17 10:17:54 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','21726','1001640768201603174047187038')
+2016-03-17 10:17:54 释放结果集
+2016-03-17 10:17:54 完成整个查询任务,所用时间为0.0067470073699951
+2016-03-19 11:34:21 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =21962
+2016-03-19 11:34:21 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =21962
+2016-03-19 11:34:21 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','21962','1007160768201603194101629718')
+2016-03-19 11:34:21 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','21962','1007160768201603194101629718')
+2016-03-19 11:34:21 释放结果集
+2016-03-19 11:34:21 完成整个查询任务,所用时间为0.0096049308776855
+2016-03-19 19:26:37 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =22021
+2016-03-19 19:26:37 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =22021
+2016-03-19 19:26:37 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22021','4009952001201603194113911933')
+2016-03-19 19:26:37 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22021','4009952001201603194113911933')
+2016-03-19 19:26:37 释放结果集
+2016-03-19 19:26:37 完成整个查询任务,所用时间为0.017805814743042
+2016-03-21 21:15:24 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =22261
+2016-03-21 21:15:24 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =22261
+2016-03-21 21:15:24 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22261','4005362001201603214167812052')
+2016-03-21 21:15:24 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22261','4005362001201603214167812052')
+2016-03-21 21:15:24 释放结果集
+2016-03-21 21:15:24 完成整个查询任务,所用时间为0.0076460838317871
+2016-03-21 21:17:20 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =22262
+2016-03-21 21:17:20 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =22262
+2016-03-21 21:17:20 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22262','4005362001201603214167840856')
+2016-03-21 21:17:20 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22262','4005362001201603214167840856')
+2016-03-21 21:17:20 释放结果集
+2016-03-21 21:17:20 完成整个查询任务,所用时间为0.069600105285645
+2016-03-24 11:38:06 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =22522
+2016-03-24 11:38:06 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =22522
+2016-03-24 11:38:06 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22522','4001952001201603244233651061')
+2016-03-24 11:38:06 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22522','4001952001201603244233651061')
+2016-03-24 11:38:07 释放结果集
+2016-03-24 11:38:07 完成整个查询任务,所用时间为0.22932481765747
+2016-03-25 11:59:12 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =22640
+2016-03-25 11:59:12 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =22640
+2016-03-25 11:59:12 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22640','4000272001201603254261266235')
+2016-03-25 11:59:12 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22640','4000272001201603254261266235')
+2016-03-25 11:59:12 释放结果集
+2016-03-25 11:59:12 完成整个查询任务,所用时间为0.014418125152588
+2016-03-25 12:01:57 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =22642
+2016-03-25 12:01:57 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =22642
+2016-03-25 12:01:57 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22642','4000272001201603254259765632')
+2016-03-25 12:01:57 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22642','4000272001201603254259765632')
+2016-03-25 12:01:57 释放结果集
+2016-03-25 12:01:57 完成整个查询任务,所用时间为0.11087799072266
+2016-03-25 22:29:35 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =22717
+2016-03-25 22:29:35 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =22717
+2016-03-25 22:29:35 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22717','4002562001201603254278529402')
+2016-03-25 22:29:35 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22717','4002562001201603254278529402')
+2016-03-25 22:29:35 释放结果集
+2016-03-25 22:29:35 完成整个查询任务,所用时间为0.0063250064849854
+2016-03-25 22:29:48 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =22717
+2016-03-25 22:29:48 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =22717
+2016-03-25 22:29:48 释放结果集
+2016-03-25 22:29:48 完成整个查询任务,所用时间为0.0019030570983887
+2016-03-25 22:49:04 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =22719
+2016-03-25 22:49:04 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =22719
+2016-03-25 22:49:04 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22719','4008842001201603254278289431')
+2016-03-25 22:49:04 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22719','4008842001201603254278289431')
+2016-03-25 22:49:04 释放结果集
+2016-03-25 22:49:04 完成整个查询任务,所用时间为0.007004976272583
+2016-03-25 22:49:19 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =22720
+2016-03-25 22:49:19 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =22720
+2016-03-25 22:49:19 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22720','4008842001201603254278767905')
+2016-03-25 22:49:19 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','22720','4008842001201603254278767905')
+2016-03-25 22:49:19 释放结果集
+2016-03-25 22:49:19 完成整个查询任务,所用时间为0.0065188407897949
+2016-03-30 08:29:16 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =23191
+2016-03-30 08:29:16 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =23191
+2016-03-30 08:29:16 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','23191','4004842001201603304389982258')
+2016-03-30 08:29:16 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','23191','4004842001201603304389982258')
+2016-03-30 08:29:16 释放结果集
+2016-03-30 08:29:16 完成整个查询任务,所用时间为0.0073888301849365
+2016-03-30 18:28:12 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =23266
+2016-03-30 18:28:12 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =23266
+2016-03-30 18:28:12 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','23266','4008432001201603304404101596')
+2016-03-30 18:28:12 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','23266','4008432001201603304404101596')
+2016-03-30 18:28:12 释放结果集
+2016-03-30 18:28:12 完成整个查询任务,所用时间为0.023945808410645
+2016-04-02 16:37:58 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =23529
+2016-04-02 16:37:58 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =23529
+2016-04-02 16:37:58 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','23529','4002172001201604024487149047')
+2016-04-02 16:37:58 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','23529','4002172001201604024487149047')
+2016-04-02 16:37:58 释放结果集
+2016-04-02 16:37:58 完成整个查询任务,所用时间为0.02009916305542
+2016-04-05 15:32:07 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =23819
+2016-04-05 15:32:07 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =23819
+2016-04-05 15:32:07 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','23819','4006542001201604054567648497')
+2016-04-05 15:32:07 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','23819','4006542001201604054567648497')
+2016-04-05 15:32:07 释放结果集
+2016-04-05 15:32:07 完成整个查询任务,所用时间为0.01531195640564
+2016-04-14 18:13:50 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =24778
+2016-04-14 18:13:50 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =24778
+2016-04-14 18:13:50 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','24778','4004362001201604144836425643')
+2016-04-14 18:13:50 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','24778','4004362001201604144836425643')
+2016-04-14 18:13:50 释放结果集
+2016-04-14 18:13:50 完成整个查询任务,所用时间为0.0083491802215576
+2016-04-17 12:01:39 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =25042
+2016-04-17 12:01:39 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =25042
+2016-04-17 12:01:39 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','25042','4009502001201604174924240139')
+2016-04-17 12:01:39 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','25042','4009502001201604174924240139')
+2016-04-17 12:01:39 释放结果集
+2016-04-17 12:01:39 完成整个查询任务,所用时间为0.016908168792725
+2016-04-23 20:19:22 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =25715
+2016-04-23 20:19:22 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =25715
+2016-04-23 20:19:22 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','25715','4000242001201604235143657036')
+2016-04-23 20:19:22 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','25715','4000242001201604235143657036')
+2016-04-23 20:19:22 释放结果集
+2016-04-23 20:19:22 完成整个查询任务,所用时间为0.015258073806763
+2016-04-24 18:02:41 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =25818
+2016-04-24 18:02:41 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =25818
+2016-04-24 18:02:41 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','25818','4006702001201604245175736360')
+2016-04-24 18:02:41 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','25818','4006702001201604245175736360')
+2016-04-24 18:02:41 释放结果集
+2016-04-24 18:02:41 完成整个查询任务,所用时间为0.0059280395507812
+2016-04-25 09:26:41 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =25854
+2016-04-25 09:26:41 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =25854
+2016-04-25 09:26:41 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','25854','4007212001201604255194810560')
+2016-04-25 09:26:41 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','25854','4007212001201604255194810560')
+2016-04-25 09:26:41 释放结果集
+2016-04-25 09:26:41 完成整个查询任务,所用时间为0.015543937683105
+2016-04-26 07:33:20 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =25936
+2016-04-26 07:33:20 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =25936
+2016-04-26 07:33:20 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','25936','4004032001201604265228558711')
+2016-04-26 07:33:20 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','25936','4004032001201604265228558711')
+2016-04-26 07:33:20 释放结果集
+2016-04-26 07:33:20 完成整个查询任务,所用时间为0.0047881603240967
+2016-04-27 16:37:59 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =26083
+2016-04-27 16:37:59 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =26083
+2016-04-27 16:37:59 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26083','4004432001201604275276639514')
+2016-04-27 16:37:59 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26083','4004432001201604275276639514')
+2016-04-27 16:37:59 释放结果集
+2016-04-27 16:37:59 完成整个查询任务,所用时间为0.0046720504760742
+2016-04-28 18:54:00 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =26195
+2016-04-28 18:54:00 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =26195
+2016-04-28 18:54:00 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26195','4000162001201604285314557782')
+2016-04-28 18:54:00 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26195','4000162001201604285314557782')
+2016-04-28 18:54:00 释放结果集
+2016-04-28 18:54:00 完成整个查询任务,所用时间为0.016829967498779
+2016-04-28 19:23:35 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =26198
+2016-04-28 19:23:35 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =26198
+2016-04-28 19:23:35 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26198','4009822001201604285313757269')
+2016-04-28 19:23:35 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26198','4009822001201604285313757269')
+2016-04-28 19:23:35 释放结果集
+2016-04-28 19:23:35 完成整个查询任务,所用时间为0.0039300918579102
+2016-04-28 19:38:51 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =26200
+2016-04-28 19:38:51 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =26200
+2016-04-28 19:38:51 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26200','4009822001201604285315349694')
+2016-04-28 19:38:51 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26200','4009822001201604285315349694')
+2016-04-28 19:38:51 释放结果集
+2016-04-28 19:38:51 完成整个查询任务,所用时间为0.0033788681030273
+2016-04-28 19:39:08 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =26201
+2016-04-28 19:39:08 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =26201
+2016-04-28 19:39:08 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26201','4009822001201604285314025925')
+2016-04-28 19:39:08 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26201','4009822001201604285314025925')
+2016-04-28 19:39:08 释放结果集
+2016-04-28 19:39:08 完成整个查询任务,所用时间为0.002155065536499
+2016-05-02 10:22:14 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =26534
+2016-05-02 10:22:14 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =26534
+2016-05-02 10:22:14 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26534','4006592001201605025428617808')
+2016-05-02 10:22:14 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26534','4006592001201605025428617808')
+2016-05-02 10:22:14 释放结果集
+2016-05-02 10:22:14 完成整个查询任务,所用时间为0.0056519508361816
+2016-05-02 10:50:38 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =26540
+2016-05-02 10:50:38 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =26540
+2016-05-02 10:50:38 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26540','4003392001201605025428272611')
+2016-05-02 10:50:38 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26540','4003392001201605025428272611')
+2016-05-02 10:50:38 释放结果集
+2016-05-02 10:50:38 完成整个查询任务,所用时间为0.00341796875
+2016-05-02 10:51:38 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =26541
+2016-05-02 10:51:38 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =26541
+2016-05-02 10:51:38 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26541','4003392001201605025429042233')
+2016-05-02 10:51:38 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26541','4003392001201605025429042233')
+2016-05-02 10:51:38 释放结果集
+2016-05-02 10:51:38 完成整个查询任务,所用时间为0.003633975982666
+2016-05-02 14:54:23 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =26573
+2016-05-02 14:54:23 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =26573
+2016-05-02 14:54:23 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26573','4005192001201605025438349655')
+2016-05-02 14:54:23 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','26573','4005192001201605025438349655')
+2016-05-02 14:54:23 释放结果集
+2016-05-02 14:54:23 完成整个查询任务,所用时间为0.0034689903259277
+2016-05-14 10:19:40 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =27805
+2016-05-14 10:19:40 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =27805
+2016-05-14 10:19:40 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','27805','4003742001201605145832442064')
+2016-05-14 10:19:40 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','27805','4003742001201605145832442064')
+2016-05-14 10:19:40 释放结果集
+2016-05-14 10:19:40 完成整个查询任务,所用时间为0.014339923858643
+2016-05-14 10:40:30 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =27810
+2016-05-14 10:40:30 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =27810
+2016-05-14 10:40:30 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','27810','4003742001201605145831632550')
+2016-05-14 10:40:30 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','27810','4003742001201605145831632550')
+2016-05-14 10:40:30 释放结果集
+2016-05-14 10:40:30 完成整个查询任务,所用时间为0.0044248104095459
+2016-05-15 14:52:46 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =27916
+2016-05-15 14:52:46 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =27916
+2016-05-15 14:52:46 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','27916','4008002001201605155880705602')
+2016-05-15 14:52:46 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','27916','4008002001201605155880705602')
+2016-05-15 14:52:46 释放结果集
+2016-05-15 14:52:46 完成整个查询任务,所用时间为0.0040750503540039
+2016-05-20 14:50:12 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =28372
+2016-05-20 14:50:12 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =28372
+2016-05-20 14:50:12 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','28372','4007492001201605206070131229')
+2016-05-20 14:50:12 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','28372','4007492001201605206070131229')
+2016-05-20 14:50:12 释放结果集
+2016-05-20 14:50:12 完成整个查询任务,所用时间为0.0041489601135254
+2016-05-21 09:56:31 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =28435
+2016-05-21 09:56:31 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =28435
+2016-05-21 09:56:31 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','28435','4002472001201605216103094869')
+2016-05-21 09:56:31 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','28435','4002472001201605216103094869')
+2016-05-21 09:56:31 释放结果集
+2016-05-21 09:56:31 完成整个查询任务,所用时间为0.015781879425049
+2016-05-26 11:21:24 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =28959
+2016-05-26 11:21:24 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =28959
+2016-05-26 11:21:24 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','28959','4002572001201605266317920571')
+2016-05-26 11:21:24 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','28959','4002572001201605266317920571')
+2016-05-26 11:21:24 释放结果集
+2016-05-26 11:21:24 完成整个查询任务,所用时间为0.0037939548492432
+2016-05-28 10:21:04 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =29145
+2016-05-28 10:21:04 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =29145
+2016-05-28 10:21:04 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','29145','4006122001201605286408957072')
+2016-05-28 10:21:04 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','29145','4006122001201605286408957072')
+2016-05-28 10:21:04 释放结果集
+2016-05-28 10:21:04 完成整个查询任务,所用时间为0.0035080909729004
+2016-05-28 10:21:17 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =29145
+2016-05-28 10:21:17 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =29145
+2016-05-28 10:21:17 释放结果集
+2016-05-28 10:21:17 完成整个查询任务,所用时间为0.0030031204223633
+2016-05-31 11:33:39 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =29374
+2016-05-31 11:33:39 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =29374
+2016-05-31 11:33:39 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','29374','4009512001201605316549217777')
+2016-05-31 11:33:39 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','29374','4009512001201605316549217777')
+2016-05-31 11:33:39 释放结果集
+2016-05-31 11:33:39 完成整个查询任务,所用时间为0.0039777755737305
+2016-06-03 17:09:17 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =29721
+2016-06-03 17:09:17 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =29721
+2016-06-03 17:09:17 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','29721','4008272001201606036712860329')
+2016-06-03 17:09:17 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','29721','4008272001201606036712860329')
+2016-06-03 17:09:17 释放结果集
+2016-06-03 17:09:17 完成整个查询任务,所用时间为0.0036261081695557
+2016-06-04 16:47:41 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =29834
+2016-06-04 16:47:41 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =29834
+2016-06-04 16:47:41 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','29834','4003672001201606046766904547')
+2016-06-04 16:47:41 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','29834','4003672001201606046766904547')
+2016-06-04 16:47:41 释放结果集
+2016-06-04 16:47:41 完成整个查询任务,所用时间为0.0042481422424316
+2016-06-04 21:54:43 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =29884
+2016-06-04 21:54:43 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =29884
+2016-06-04 21:54:43 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','29884','4003832001201606046781713452')
+2016-06-04 21:54:43 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','29884','4003832001201606046781713452')
+2016-06-04 21:54:43 释放结果集
+2016-06-04 21:54:43 完成整个查询任务,所用时间为0.011466979980469
+2016-06-04 21:54:56 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =29884
+2016-06-04 21:54:56 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =29884
+2016-06-04 21:54:56 释放结果集
+2016-06-04 21:54:56 完成整个查询任务,所用时间为0.0028719902038574
+2016-06-07 20:30:02 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =30216
+2016-06-07 20:30:02 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =30216
+2016-06-07 20:30:02 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','30216','4009222001201606076923250837')
+2016-06-07 20:30:02 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','30216','4009222001201606076923250837')
+2016-06-07 20:30:02 释放结果集
+2016-06-07 20:30:02 完成整个查询任务,所用时间为0.0042240619659424
+2016-06-09 17:12:48 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =30429
+2016-06-09 17:12:48 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =30429
+2016-06-09 17:12:48 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','30429','4006832001201606097014621951')
+2016-06-09 17:12:48 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','30429','4006832001201606097014621951')
+2016-06-09 17:12:48 释放结果集
+2016-06-09 17:12:48 完成整个查询任务,所用时间为0.0037109851837158
+2016-06-09 22:04:32 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =30453
+2016-06-09 22:04:32 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =30453
+2016-06-09 22:04:32 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','30453','4008552001201606097028064529')
+2016-06-09 22:04:32 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','30453','4008552001201606097028064529')
+2016-06-09 22:04:32 释放结果集
+2016-06-09 22:04:32 完成整个查询任务,所用时间为0.01360011100769
+2016-06-10 13:56:46 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =30520
+2016-06-10 13:56:46 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =30520
+2016-06-10 13:56:46 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','30520','4006702001201606107054425937')
+2016-06-10 13:56:46 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','30520','4006702001201606107054425937')
+2016-06-10 13:56:46 释放结果集
+2016-06-10 13:56:46 完成整个查询任务,所用时间为0.0046470165252686
+2016-06-10 16:05:33 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =30534
+2016-06-10 16:05:33 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =30534
+2016-06-10 16:05:33 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','30534','4003352001201606107059342582')
+2016-06-10 16:05:33 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','30534','4003352001201606107059342582')
+2016-06-10 16:05:33 释放结果集
+2016-06-10 16:05:33 完成整个查询任务,所用时间为0.0034310817718506
+2016-06-10 18:08:40 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =30544
+2016-06-10 18:08:40 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =30544
+2016-06-10 18:08:40 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','30544','4008952001201606107066343906')
+2016-06-10 18:08:40 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','30544','4008952001201606107066343906')
+2016-06-10 18:08:40 释放结果集
+2016-06-10 18:08:40 完成整个查询任务,所用时间为0.0040349960327148
+2016-06-17 12:21:39 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =31236
+2016-06-17 12:21:39 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =31236
+2016-06-17 12:21:39 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31236','4005012001201606177404559170')
+2016-06-17 12:21:39 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31236','4005012001201606177404559170')
+2016-06-17 12:21:39 释放结果集
+2016-06-17 12:21:39 完成整个查询任务,所用时间为0.0037529468536377
+2016-06-18 00:43:47 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =31324
+2016-06-18 00:43:47 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =31324
+2016-06-18 00:43:47 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31324','4004682001201606187441744672')
+2016-06-18 00:43:47 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31324','4004682001201606187441744672')
+2016-06-18 00:43:47 释放结果集
+2016-06-18 00:43:47 完成整个查询任务,所用时间为0.015414953231812
+2016-06-18 17:06:19 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =31404
+2016-06-18 17:06:19 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =31404
+2016-06-18 17:06:19 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31404','4005502001201606187477783179')
+2016-06-18 17:06:19 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31404','4005502001201606187477783179')
+2016-06-18 17:06:19 释放结果集
+2016-06-18 17:06:19 完成整个查询任务,所用时间为0.0070619583129883
+2016-06-20 18:48:11 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =31632
+2016-06-20 18:48:11 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =31632
+2016-06-20 18:48:11 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31632','4009802001201606207597484947')
+2016-06-20 18:48:11 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31632','4009802001201606207597484947')
+2016-06-20 18:48:11 释放结果集
+2016-06-20 18:48:11 完成整个查询任务,所用时间为0.0056078433990479
+2016-06-21 10:00:58 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =31670
+2016-06-21 10:00:58 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =31670
+2016-06-21 10:00:58 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31670','4007952001201606217625312009')
+2016-06-21 10:00:58 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31670','4007952001201606217625312009')
+2016-06-21 10:00:58 释放结果集
+2016-06-21 10:00:58 完成整个查询任务,所用时间为0.0051500797271729
+2016-06-21 22:48:46 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =31771
+2016-06-21 22:48:46 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =31771
+2016-06-21 22:48:46 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31771','4008952001201606217671943448')
+2016-06-21 22:48:46 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31771','4008952001201606217671943448')
+2016-06-21 22:48:46 释放结果集
+2016-06-21 22:48:46 完成整个查询任务,所用时间为0.0034780502319336
+2016-06-22 13:06:10 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =31804
+2016-06-22 13:06:10 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =31804
+2016-06-22 13:06:10 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31804','4004412001201606227693521311')
+2016-06-22 13:06:10 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31804','4004412001201606227693521311')
+2016-06-22 13:06:10 释放结果集
+2016-06-22 13:06:10 完成整个查询任务,所用时间为0.0035839080810547
+2016-06-23 08:57:57 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =31889
+2016-06-23 08:57:57 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =31889
+2016-06-23 08:57:57 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31889','4001922001201606237735138055')
+2016-06-23 08:57:57 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31889','4001922001201606237735138055')
+2016-06-23 08:57:57 释放结果集
+2016-06-23 08:57:57 完成整个查询任务,所用时间为0.016279935836792
+2016-06-23 13:49:25 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =31928
+2016-06-23 13:49:25 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =31928
+2016-06-23 13:49:25 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31928','4003742001201606237748730317')
+2016-06-23 13:49:25 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','31928','4003742001201606237748730317')
+2016-06-23 13:49:25 释放结果集
+2016-06-23 13:49:25 完成整个查询任务,所用时间为0.018238067626953
+2016-06-25 15:48:40 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =32170
+2016-06-25 15:48:40 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =32170
+2016-06-25 15:48:40 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','32170','4005202001201606257864205395')
+2016-06-25 15:48:40 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','32170','4005202001201606257864205395')
+2016-06-25 15:48:40 释放结果集
+2016-06-25 15:48:40 完成整个查询任务,所用时间为0.00394606590271
+2016-06-26 12:35:31 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =32252
+2016-06-26 12:35:31 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =32252
+2016-06-26 12:35:31 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','32252','4007822001201606267906266251')
+2016-06-26 12:35:31 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','32252','4007822001201606267906266251')
+2016-06-26 12:35:31 释放结果集
+2016-06-26 12:35:31 完成整个查询任务,所用时间为0.0038762092590332
+2016-06-26 12:35:54 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =32253
+2016-06-26 12:35:54 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =32253
+2016-06-26 12:35:54 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','32253','4007822001201606267908165189')
+2016-06-26 12:35:54 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','32253','4007822001201606267908165189')
+2016-06-26 12:35:54 释放结果集
+2016-06-26 12:35:54 完成整个查询任务,所用时间为0.003838062286377
+2016-06-27 08:18:51 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =32363
+2016-06-27 08:18:51 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =32363
+2016-06-27 08:18:51 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','32363','4006832001201606277950469921')
+2016-06-27 08:18:51 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','32363','4006832001201606277950469921')
+2016-06-27 08:18:51 释放结果集
+2016-06-27 08:18:51 完成整个查询任务,所用时间为0.0039820671081543
+2016-07-01 11:51:12 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =32997
+2016-07-01 11:51:12 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =32997
+2016-07-01 11:51:12 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','32997','4010142001201607018173818078')
+2016-07-01 11:51:12 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','32997','4010142001201607018173818078')
+2016-07-01 11:51:12 释放结果集
+2016-07-01 11:51:12 完成整个查询任务,所用时间为0.0050170421600342
+2016-07-02 18:23:50 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =33169
+2016-07-02 18:23:50 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =33169
+2016-07-02 18:23:50 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33169','4007682001201607028254096860')
+2016-07-02 18:23:50 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33169','4007682001201607028254096860')
+2016-07-02 18:23:50 释放结果集
+2016-07-02 18:23:50 完成整个查询任务,所用时间为0.0037369728088379
+2016-07-02 22:34:38 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =33206
+2016-07-02 22:34:38 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =33206
+2016-07-02 22:34:38 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33206','4000322001201607028269330135')
+2016-07-02 22:34:38 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33206','4000322001201607028269330135')
+2016-07-02 22:34:38 释放结果集
+2016-07-02 22:34:38 完成整个查询任务,所用时间为0.0038180351257324
+2016-07-05 07:35:25 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =33424
+2016-07-05 07:35:25 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =33424
+2016-07-05 07:35:25 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33424','4004492001201607058389510630')
+2016-07-05 07:35:25 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33424','4004492001201607058389510630')
+2016-07-05 07:35:25 释放结果集
+2016-07-05 07:35:25 完成整个查询任务,所用时间为0.017709016799927
+2016-07-05 09:20:04 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =33435
+2016-07-05 09:20:04 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =33435
+2016-07-05 09:20:04 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33435','4005452001201607058394697801')
+2016-07-05 09:20:04 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33435','4005452001201607058394697801')
+2016-07-05 09:20:04 释放结果集
+2016-07-05 09:20:04 完成整个查询任务,所用时间为0.0038740634918213
+2016-07-06 11:04:28 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =33547
+2016-07-06 11:04:28 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =33547
+2016-07-06 11:04:28 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33547','4000682001201607068454881175')
+2016-07-06 11:04:28 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33547','4000682001201607068454881175')
+2016-07-06 11:04:28 释放结果集
+2016-07-06 11:04:28 完成整个查询任务,所用时间为0.014652013778687
+2016-07-07 09:51:21 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =33620
+2016-07-07 09:51:21 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =33620
+2016-07-07 09:51:21 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33620','4009242001201607078506008920')
+2016-07-07 09:51:21 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33620','4009242001201607078506008920')
+2016-07-07 09:51:21 释放结果集
+2016-07-07 09:51:21 完成整个查询任务,所用时间为0.0050580501556396
+2016-07-07 13:15:36 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =33643
+2016-07-07 13:15:36 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =33643
+2016-07-07 13:15:36 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33643','4009242001201607078519014640')
+2016-07-07 13:15:36 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33643','4009242001201607078519014640')
+2016-07-07 13:15:36 释放结果集
+2016-07-07 13:15:36 完成整个查询任务,所用时间为0.0041289329528809
+2016-07-08 12:22:43 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =33750
+2016-07-08 12:22:43 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =33750
+2016-07-08 12:22:43 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33750','4008932001201607088573602521')
+2016-07-08 12:22:43 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33750','4008932001201607088573602521')
+2016-07-08 12:22:43 释放结果集
+2016-07-08 12:22:43 完成整个查询任务,所用时间为0.0049710273742676
+2016-07-08 23:29:47 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =33816
+2016-07-08 23:29:47 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =33816
+2016-07-08 23:29:47 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33816','4006292001201607088613124372')
+2016-07-08 23:29:47 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33816','4006292001201607088613124372')
+2016-07-08 23:29:47 释放结果集
+2016-07-08 23:29:47 完成整个查询任务,所用时间为0.0045678615570068
+2016-07-09 22:47:09 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =33962
+2016-07-09 22:47:09 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =33962
+2016-07-09 22:47:09 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33962','4002082001201607098671278105')
+2016-07-09 22:47:09 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','33962','4002082001201607098671278105')
+2016-07-09 22:47:09 释放结果集
+2016-07-09 22:47:09 完成整个查询任务,所用时间为0.004533052444458
+2016-07-10 11:11:53 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34006
+2016-07-10 11:11:53 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34006
+2016-07-10 11:11:53 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34006','4004212001201607108690309988')
+2016-07-10 11:11:53 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34006','4004212001201607108690309988')
+2016-07-10 11:11:53 释放结果集
+2016-07-10 11:11:53 完成整个查询任务,所用时间为0.0057010650634766
+2016-07-10 11:26:10 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34012
+2016-07-10 11:26:10 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34012
+2016-07-10 11:26:10 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34012','4005482001201607108689587513')
+2016-07-10 11:26:10 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34012','4005482001201607108689587513')
+2016-07-10 11:26:10 释放结果集
+2016-07-10 11:26:10 完成整个查询任务,所用时间为0.0037181377410889
+2016-07-10 11:26:23 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34012
+2016-07-10 11:26:23 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34012
+2016-07-10 11:26:23 释放结果集
+2016-07-10 11:26:23 完成整个查询任务,所用时间为0.003277063369751
+2016-07-10 11:26:23 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34013
+2016-07-10 11:26:23 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34013
+2016-07-10 11:26:23 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34013','4005482001201607108690790681')
+2016-07-10 11:26:23 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34013','4005482001201607108690790681')
+2016-07-10 11:26:23 释放结果集
+2016-07-10 11:26:23 完成整个查询任务,所用时间为0.01499605178833
+2016-07-10 14:44:02 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34039
+2016-07-10 14:44:02 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34039
+2016-07-10 14:44:02 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34039','4002112001201607108702939579')
+2016-07-10 14:44:02 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34039','4002112001201607108702939579')
+2016-07-10 14:44:02 释放结果集
+2016-07-10 14:44:02 完成整个查询任务,所用时间为0.0044629573822021
+2016-07-12 15:05:45 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34281
+2016-07-12 15:05:45 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34281
+2016-07-12 15:05:45 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34281','4003752001201607128828202367')
+2016-07-12 15:05:45 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34281','4003752001201607128828202367')
+2016-07-12 15:05:45 释放结果集
+2016-07-12 15:05:45 完成整个查询任务,所用时间为0.012866020202637
+2016-07-13 11:05:16 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34357
+2016-07-13 11:05:16 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34357
+2016-07-13 11:05:16 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34357','4001122001201607138878578978')
+2016-07-13 11:05:16 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34357','4001122001201607138878578978')
+2016-07-13 11:05:16 释放结果集
+2016-07-13 11:05:16 完成整个查询任务,所用时间为0.0037178993225098
+2016-07-13 20:57:51 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34438
+2016-07-13 20:57:51 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34438
+2016-07-13 20:57:51 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34438','4001682001201607138917233035')
+2016-07-13 20:57:51 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34438','4001682001201607138917233035')
+2016-07-13 20:57:51 释放结果集
+2016-07-13 20:57:51 完成整个查询任务,所用时间为0.018095970153809
+2016-07-13 20:58:09 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34439
+2016-07-13 20:58:09 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34439
+2016-07-13 20:58:09 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34439','4001682001201607138917243854')
+2016-07-13 20:58:09 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34439','4001682001201607138917243854')
+2016-07-13 20:58:09 释放结果集
+2016-07-13 20:58:09 完成整个查询任务,所用时间为0.011245965957642
+2016-07-14 14:09:48 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34504
+2016-07-14 14:09:48 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34504
+2016-07-14 14:09:48 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34504','4008472001201607148957604691')
+2016-07-14 14:09:48 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34504','4008472001201607148957604691')
+2016-07-14 14:09:48 释放结果集
+2016-07-14 14:09:48 完成整个查询任务,所用时间为0.011875867843628
+2016-07-16 08:23:38 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34692
+2016-07-16 08:23:38 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34692
+2016-07-16 08:23:38 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34692','4009852001201607169075170871')
+2016-07-16 08:23:38 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34692','4009852001201607169075170871')
+2016-07-16 08:23:38 释放结果集
+2016-07-16 08:23:38 完成整个查询任务,所用时间为0.004356861114502
+2016-07-17 20:02:26 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34863
+2016-07-17 20:02:26 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34863
+2016-07-17 20:02:26 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34863','4008672001201607179189684311')
+2016-07-17 20:02:26 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34863','4008672001201607179189684311')
+2016-07-17 20:02:26 释放结果集
+2016-07-17 20:02:26 完成整个查询任务,所用时间为0.0045599937438965
+2016-07-18 14:56:17 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34934
+2016-07-18 14:56:17 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34934
+2016-07-18 14:56:17 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34934','4001172001201607189238998259')
+2016-07-18 14:56:17 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34934','4001172001201607189238998259')
+2016-07-18 14:56:17 释放结果集
+2016-07-18 14:56:17 完成整个查询任务,所用时间为0.0038299560546875
+2016-07-18 15:52:58 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =34947
+2016-07-18 15:52:58 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =34947
+2016-07-18 15:52:58 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34947','4002332001201607189242706102')
+2016-07-18 15:52:58 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','34947','4002332001201607189242706102')
+2016-07-18 15:52:58 释放结果集
+2016-07-18 15:52:58 完成整个查询任务,所用时间为0.013434886932373
+2016-07-19 21:06:00 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =35093
+2016-07-19 21:06:00 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =35093
+2016-07-19 21:06:00 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35093','4004412001201607199332284086')
+2016-07-19 21:06:00 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35093','4004412001201607199332284086')
+2016-07-19 21:06:00 释放结果集
+2016-07-19 21:06:00 完成整个查询任务,所用时间为0.014100790023804
+2016-07-19 21:06:09 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =35093
+2016-07-19 21:06:09 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =35093
+2016-07-19 21:06:09 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35093','4004412001201607199332284086')
+2016-07-19 21:06:09 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35093','4004412001201607199332284086')
+2016-07-19 21:06:09 释放结果集
+2016-07-19 21:06:09 完成整个查询任务,所用时间为0.014209985733032
+2016-07-21 14:28:04 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =35226
+2016-07-21 14:28:04 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =35226
+2016-07-21 14:28:04 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35226','4007692001201607219448762502')
+2016-07-21 14:28:04 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35226','4007692001201607219448762502')
+2016-07-21 14:28:04 释放结果集
+2016-07-21 14:28:04 完成整个查询任务,所用时间为0.0039529800415039
+2016-07-22 12:19:26 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =35356
+2016-07-22 12:19:26 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =35356
+2016-07-22 12:19:26 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35356','4001122001201607229513745214')
+2016-07-22 12:19:26 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35356','4001122001201607229513745214')
+2016-07-22 12:19:26 释放结果集
+2016-07-22 12:19:26 完成整个查询任务,所用时间为0.0042440891265869
+2016-07-22 22:44:55 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =35454
+2016-07-22 22:44:55 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =35454
+2016-07-22 22:44:55 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35454','4001092001201607229559369296')
+2016-07-22 22:44:55 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35454','4001092001201607229559369296')
+2016-07-22 22:44:55 释放结果集
+2016-07-22 22:44:55 完成整个查询任务,所用时间为0.0042159557342529
+2016-07-24 11:48:10 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =35610
+2016-07-24 11:48:10 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =35610
+2016-07-24 11:48:10 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35610','4009002001201607249658763873')
+2016-07-24 11:48:10 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35610','4009002001201607249658763873')
+2016-07-24 11:48:10 释放结果集
+2016-07-24 11:48:10 完成整个查询任务,所用时间为0.0047729015350342
+2016-07-24 16:46:11 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =35651
+2016-07-24 16:46:11 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =35651
+2016-07-24 16:46:11 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35651','4007842001201607249678249267')
+2016-07-24 16:46:11 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35651','4007842001201607249678249267')
+2016-07-24 16:46:11 释放结果集
+2016-07-24 16:46:11 完成整个查询任务,所用时间为0.0036501884460449
+2016-07-24 16:46:21 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =35651
+2016-07-24 16:46:21 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =35651
+2016-07-24 16:46:21 释放结果集
+2016-07-24 16:46:21 完成整个查询任务,所用时间为0.0031280517578125
+2016-07-24 20:01:00 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =35691
+2016-07-24 20:01:00 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =35691
+2016-07-24 20:01:00 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35691','4006102001201607249693419724')
+2016-07-24 20:01:00 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35691','4006102001201607249693419724')
+2016-07-24 20:01:00 释放结果集
+2016-07-24 20:01:00 完成整个查询任务,所用时间为0.014816999435425
+2016-07-25 23:37:45 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =35823
+2016-07-25 23:37:45 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =35823
+2016-07-25 23:37:45 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35823','4000372001201607259782979641')
+2016-07-25 23:37:45 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35823','4000372001201607259782979641')
+2016-07-25 23:37:45 释放结果集
+2016-07-25 23:37:45 完成整个查询任务,所用时间为0.0039618015289307
+2016-07-26 18:22:50 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =35924
+2016-07-26 18:22:50 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =35924
+2016-07-26 18:22:50 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35924','4003762001201607269833992690')
+2016-07-26 18:22:50 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','35924','4003762001201607269833992690')
+2016-07-26 18:22:50 释放结果集
+2016-07-26 18:22:50 完成整个查询任务,所用时间为0.0046260356903076
+2016-07-27 17:45:54 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =36030
+2016-07-27 17:45:54 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =36030
+2016-07-27 17:45:54 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','36030','4009752001201607279905856376')
+2016-07-27 17:45:54 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','36030','4009752001201607279905856376')
+2016-07-27 17:45:54 释放结果集
+2016-07-27 17:45:54 完成整个查询任务,所用时间为0.0050249099731445
+2016-07-30 06:59:29 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =36306
+2016-07-30 06:59:29 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =36306
+2016-07-30 06:59:29 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','36306','4007192001201607300090574901')
+2016-07-30 06:59:29 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','36306','4007192001201607300090574901')
+2016-07-30 06:59:29 释放结果集
+2016-07-30 06:59:29 完成整个查询任务,所用时间为0.0048940181732178
+2016-07-30 19:15:40 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =36379
+2016-07-30 19:15:40 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =36379
+2016-07-30 19:15:40 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','36379','4004602001201607300137113582')
+2016-07-30 19:15:40 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','36379','4004602001201607300137113582')
+2016-07-30 19:15:40 释放结果集
+2016-07-30 19:15:40 完成整个查询任务,所用时间为0.0040631294250488
+2016-08-01 02:25:24 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =36513
+2016-08-01 02:25:24 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =36513
+2016-08-01 02:25:24 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','36513','4002342001201608010238683405')
+2016-08-01 02:25:24 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','36513','4002342001201608010238683405')
+2016-08-01 02:25:24 释放结果集
+2016-08-01 02:25:24 完成整个查询任务,所用时间为0.016023874282837
+2016-08-01 02:30:06 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =36517
+2016-08-01 02:30:06 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =36517
+2016-08-01 02:30:06 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','36517','4002342001201608010238686530')
+2016-08-01 02:30:06 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','36517','4002342001201608010238686530')
+2016-08-01 02:30:06 释放结果集
+2016-08-01 02:30:06 完成整个查询任务,所用时间为0.014060974121094
+2016-08-01 02:36:16 查询 SELECT * FROM ecs_weixin_pay WHERE log_id =36521
+2016-08-01 02:36:16 获取一条记录 SELECT * FROM ecs_weixin_pay WHERE log_id =36521
+2016-08-01 02:36:16 插入 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','36521','4002342001201608010238734091')
+2016-08-01 02:36:16 查询 insert into ecs_weixin_pay(id ,log_id ,transaction_id) values('','36521','4002342001201608010238734091')
+2016-08-01 02:36:16 释放结果集
+2016-08-01 02:36:16 完成整个查询任务,所用时间为0.014380931854248

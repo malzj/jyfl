@@ -129,7 +129,7 @@ var baidumap = {
 				}
 				clearTimeout(b);
 			}			
-		},1000);		
+		},100);		
 
 	},
 	

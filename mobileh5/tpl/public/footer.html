@@ -74,14 +74,21 @@
 			dataType: 'jsonp',
 			jsonp: 'jsoncallback',
 			success: function (result) {
-				console.log(result);
-				if (result.state == 'true') {
-					mui.alert("退出登录成功！",function(){
-						window.location.href='index.html';
-					});
-				} else {
-					mui.alert("退出登录失败！");
-				}
+				var btnArray = ['确认', '取消'];
+				mui.confirm('确认退出登录？', '聚优福利', btnArray, function(e) {
+					if (e.index == 0) {
+						jQuery.ajaxJsonp(web_url + '/mobile/userAuth.php', {'act': 'logout'},
+							function (result) {
+								if (result.state == 'true') {
+									jQuery.jumpTo('./index.html');
+								} else {
+									mui.alert("退出登录失败！");
+								}
+							}
+						);
+						return false;
+					}
+				});
 			}
 		});
 		return false;

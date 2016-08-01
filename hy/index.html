@@ -608,18 +608,23 @@
 			$(document).scroll(function() {
 				$('.mengc').css('opacity', '0');
 			});
+
+			//记录用户卡号渲染
+			var user_name = getCookie('username');
+			$('input[name="username"]').val(user_name);
+
 			$(".btn-default").click(function() {
 				var _that = $(this).closest('form');
 				var username = _that.find("input[name='username']").val();
 				var password = _that.find("input[name='password']").val();
 				var type = _that.find("input[name='type']").val();
-
 				$.ajax({
 					url: "../user.php?act=act_login",
 					type: "POST",
 					data: 'username=' + username + '&password=' + password + '&type=' + type,
 					success: function(result) {
 						if (result == 'success') {
+							setCookie('username',username,'d30');
 							window.location.href = "../user.php";
 						} else {
 							alert(result);
@@ -630,9 +635,42 @@
 				});
 			});
 
-			//记录用户登录
+			//设置cookie
+			function setCookie(name,value,time){
+				var strsec = getsec(time);
+				var exp = new Date();
+				exp.setTime(exp.getTime()+strsec*1);
+				document.cookie = name+"="+escape(value)+";expires="+exp.toGMTString();
+			}
+			//读取cookie
+			function getCookie(name){
+				var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+				if(arr=document.cookie.match(reg))
+					return unescape(arr[2]);
+				else
+					return null;
+			}
 
-			//设置
+			function delCookie(name)
+			{
+				var exp = new Date();
+				exp.setTime(exp.getTime() - 1);
+				var cval=getCookie(name);
+				if(cval!=null)
+					document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+			}
+			function getsec(str){
+				var str1 = str.substr(1,str.length)*1;
+				var str2 = str.substr(0,1);
+				if(str2 == 's'){
+					return str1*1000;
+				}else if(str2 == 'h'){
+					return str1*60*60*1000;
+				}else if(str2 == 'd'){
+					return str1*24*60*60*1000;
+				}
+			}
+
 		</script>
 	</body>
 

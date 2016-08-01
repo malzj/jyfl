@@ -1,5 +1,5 @@
 <script>
-	var app_path = '/mobileh5/';
+	var app_path = '/jyfl/mobileh5/';
 </script>
 <aside id="offCanvasSide"  class="mui-off-canvas-right">
 	<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
@@ -60,9 +60,8 @@
 	</div>
 </div>
 <script>
+	mui.init();
 	mui('#offCanvasSideScroll').scroll();
-	mui('#offCanvasSideScroll1').scroll();
-		
 	mui('#logout')[0].addEventListener('tap',function(){
 
 		jQuery.ajax({
@@ -88,7 +87,7 @@
 	});
 	
 	jQuery('.public_footer').on('tap','.public_gongneng',function(){
-		jQuery('.public_popUp').css({'z-index':'1','visibility':'visible','transition-delay':'0s'});
+		jQuery('.public_popUp').css({'z-index':'4','visibility':'visible','transition-delay':'0s'});
 		jQuery('.popUp_item').addClass('active');
 		jQuery('.popUp_row').css({'transform':'translateY(0)','transition-delay':'0s'});
 		jQuery('.popUp_item:nth-child(1),.popUp_item:nth-child(2),.popUp_item:nth-child(3),.popUp_item:nth-child(4)').css('transition-delay','.05s');

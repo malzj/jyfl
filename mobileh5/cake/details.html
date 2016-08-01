@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
@@ -14,7 +13,6 @@
 		<script src="../js/template.js"></script>
 		<script src="../js/jqueryExtend.js"></script>
 		<script src="../js/mui.mian.js"></script>
-		
 		<style>
 			.mui-numbox{margin-top: 10px;}			
 		</style>
@@ -24,14 +22,11 @@
 		</script>
 	</head>
 	<body>
-	
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">商品详情</h1>
 		</header>		
-		
 		<script type="text/javascript">
-		
 			mui.init();
 			// ajax调取数据
 			jQuery.ajaxJsonp(web_url+"/mobile/goods.php",{id:goods_id},function(data){
@@ -48,8 +43,6 @@
 				// 重新触发计数插件
 				mui('.mui-numbox').numbox();
 			});
-			
-			
 		</script>
 	</body>
 

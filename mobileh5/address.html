@@ -83,7 +83,6 @@
 				mui('body').on('tap','.mui-indexed-list-item',function(){
 					var id = this.getAttribute('data-id');
 					jQuery.ajaxJsonp(web_url+'/mobile/basic.php?act=city',{cityid:id},function(result){
-						console.log(result);
 						if(result.state=='true'){
 							mui.back();
 						}else if(result.state=='false'){

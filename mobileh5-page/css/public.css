@@ -25,7 +25,7 @@ ul li{list-style: none;}
 .vertical_align_sub{vertical-align: sub;}
 .color_white{color:white!important;}
 .font_style{font-weight: bold;font-size: 18px;letter-spacing: 4px;}
-.mui-bar.public_footer{background: rgba(255, 255, 255,.7)!important;}
+/*.mui-bar.public_footer{background: rgba(255, 255, 255,.7)!important;}*/
 /*复写Mui部分样式*/
 a{color: black;}
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
@@ -76,6 +76,7 @@ a{color: black;}
 .popUp_content{
 			position: absolute;
 			top: 50%;
+			width: 100%;
 			transform: translateY(-50%);
 			-webkit-transform: translateY(-50%);
 			}  
@@ -156,10 +157,10 @@ a{color: black;}
 .floor_title{height: 35px;padding: 5px 0;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;}
 .floor_title_icon{display: inline-block;height: 24px; width: 5px;background: #2fd0b5;float: left;margin-top: -5px;margin-right: 10px;}
 .floor_more{font-size: 15px;display: inline-block;margin-top: 0px;}
-.floor_list_price{color: #ff6666;}
+.floor_list_price{margin-top: .4rem;color: #ff6666;}
 .floor_listLeft{width: 4rem;}
 .floor_listBox{padding: .75rem;}
-.floor_list_name{color: #666666;height: 2.3rem;font-size: 12px;overflow: hidden;font-weight: bold;}
+.floor_list_name{color: #666666;font-size: 12px;overflow: hidden;font-weight: bold;line-height: .8rem;}
 .floor_list .floor_listBox:nth-child(odd){border-right: 1px solid #ddd;border-bottom: 1px solid #ddd;}
 .floor_list .floor_listBox:nth-child(even){border-bottom: 1px solid #ddd;}
 .floor_listBox img{width: 3.8rem;height: 3.8rem;}

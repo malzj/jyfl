@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fd.css">
+	<link rel="stylesheet" href="css/main.css">
+	
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<title></title>
+	<style>
+		.margin-1 .col-xs-4{padding-left: 15px;padding-right: 15px;padding-top: 10px;}
+	</style>
+		
+</head>
+
+<body>
+
+{$header}
+
+{foreach name=nav_middle_list from=$middle item=nav name=foo}
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<img src="/mobile/images/icon/cate-{$nav.id}.png" class="img-responsive">
+		</div>
+	</div>
+	<div class="row text-center margin-1" style="padding-bottom: 20px;padding-top: 10px;">
+		{foreach from=$nav.child item=child name=child}		
+		<div class="col-xs-4">
+			<a href="{$child.url}"><img src="/mobile/images/cat/list-{$child.id}.jpg" class="img-responsive"><span>{$child.name}</span></a>
+		</div>		
+		{/foreach}		
+	</div>
+</div>
+{/foreach}	
+
+{$get_fixed}
+</body>
+</html>

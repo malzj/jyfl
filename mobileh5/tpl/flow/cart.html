@@ -37,11 +37,13 @@
 {{/each}} 
 
 <div class="empty-cart" style="display:none">
-	购物车空空如也
+	<div class="empty_cart_box">
+		<img src="../images/cart_null.png" alt="" />
+		<p>购物车空空如也~</p>
+		<a href="../index/jy_index.html"><button type="button">去逛逛</button></a>
+	</div>
 </div>  
 </div>
-
-
 <script>
  	/* 购物车为空显示 */
 	if( jQuery('.mui-content').find('.mui-row').length == 0){

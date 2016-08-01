@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">	
+	<title></title>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/swiper-3.2.7.jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>	
+	<link href="js/layer/skin/layer.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/swiper-3.2.7.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fd.css">	
+    <link rel="stylesheet" href="css/main.css">
+    <style type="text/css">
+		.dianying li{width: auto;margin: 0 20px;}
+	</style>
+</head>
+
+<body>
+<div class="yanchanghui">
+
+	<!-- header start -->
+	{$header}
+	<!-- header end -->
+	
+	<!-- nav start -->
+	<div class="container text-center dianying margin_1">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				{foreach from=$category item=cate}
+				<li class="swiper-slide">
+					<h5 style="margin-top: 0;padding-top: 10px;"><a href="{$cate.url}" {if $cate.active eq 1} style="color:#DE6B11;" {/if}>{$cate.name}</a></h5>
+				</li>
+				{/foreach}	
+			</div>
+		</div>
+	</div>
+	<!-- nav end -->
+	
+	<div class="container">
+		{foreach from=$list item=yanchu}
+		<div class="row padding_10 border-5" onclick="location.href='yanchu.php?act=show&id={$yanchu.type}&itemid={$yanchu.item_id}'">
+			<div class="col-xs-4">
+				<img src="{$yanchu.thumb}" class="img-responsive">
+			</div>
+			<div class="col-xs-8">
+				<h5 class="text_hidden">{$yanchu.item_name}</h5>
+				<h6 class="color_9">时间：<span>{$yanchu.data_ext}</span></h6>
+				<h6 class="text_hidden color_9">场馆：{$yanchu.site_name}</h6>
+				<h6 class="btn_2">立即购票</h6>
+			</div>	
+		</div>
+		{foreachelse}
+		<center style="height:150px; line-height:150px;">暂时没有你数据</center>
+		{/foreach}
+	
+	</div>
+	<div style="margin-top:45px;"></div>
+	{if $pagebar}{$pagebar}{/if}
+	
+</div>
+<script type="text/javascript">
+	var mySwiper = $('.swiper-container').swiper({
+		slidesPerView: 'auto',
+		freeMode: true
+	})
+</script>
+</body>
+</html>

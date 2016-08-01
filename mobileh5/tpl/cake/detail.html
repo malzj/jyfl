@@ -1,3 +1,29 @@
+<!--底部固定导航-->
+<nav class="mui-bar mui-bar-tab mui-row">
+	<div class="mui-col-xs-5">
+	    <a class="mui-tab-item mui-active border_right_ddd" href="#">
+			<span class="mui-icon mui-icon-home"></span>
+			<span class="mui-tab-label">首页</span>
+		</a>
+		<a class="mui-tab-item border_right_ddd jump-cart" href="#">
+			<span class="mui-icon mui-icon-chat"></span>
+			<span class="mui-tab-label">购物车</span>
+		</a>
+		<a class="mui-tab-item" href="#">
+			<span class="mui-icon mui-icon-contact"></span>
+			<span class="mui-tab-label">我的</span>
+		</a>
+	</div>
+	<div class="mui-col-xs-7">
+		<a class="mui-tab-item footer_liji" href="#">
+			<span class="mui-tab-label act-done">立即结算</span>
+		</a>
+		<a class="mui-tab-item footer_jiaru" href="#">
+			<span class="mui-tab-label act-cart">加入购物车</span>
+		</a>
+	</div>
+</nav>
+<!--底部固定导航 end-->
 <div class="mui-content">
 	{{if data}}
 	<div id="slider" class="mui-slider">
@@ -72,14 +98,14 @@
 			<ul class="mui-table-view">
 			{{each data.properties as propertie}}
 			{{each propertie as value}}
-				 <li class="mui-table-view-cell">{{value.name}}<p class="mui-pull-right">{{value.value}}</p></li>
+				 <li class="mui-table-view-cell">{{value.name}}<p class="mui-pull-right" style="width: 60%;">{{value.value}}</p></li>
 			{{/each}}	 
 		    {{/each}}   
 			</ul>
 		</div>
 		<!--规格参数 end-->
 		<!--内容详情 start-->
-		<div id="item2" class="mui-control-content">
+		<div id="item2" class="mui-control-content public_xiangqing_img">
 			{{#data.goods.goods_desc}}
 		</div>
 		<!--内容详情 end-->
@@ -87,33 +113,6 @@
 	{{/if}}
 	</form>
 </div>
-
-<!--底部固定导航-->
-<nav class="mui-bar mui-bar-tab mui-row">
-	<div class="mui-col-xs-5">
-	    <a class="mui-tab-item mui-active border_right_ddd" href="#">
-			<span class="mui-icon mui-icon-home"></span>
-			<span class="mui-tab-label">首页</span>
-		</a>
-		<a class="mui-tab-item border_right_ddd jump-cart" href="#">
-			<span class="mui-icon mui-icon-chat"></span>
-			<span class="mui-tab-label">购物车</span>
-		</a>
-		<a class="mui-tab-item" href="#">
-			<span class="mui-icon mui-icon-contact"></span>
-			<span class="mui-tab-label">我的</span>
-		</a>
-	</div>
-	<div class="mui-col-xs-7">
-		<a class="mui-tab-item footer_liji" href="#">
-			<span class="mui-tab-label act-done">立即结算</span>
-		</a>
-		<a class="mui-tab-item footer_jiaru" href="#">
-			<span class="mui-tab-label act-cart">加入购物车</span>
-		</a>
-	</div>
-</nav>
-<!--底部固定导航 end-->
 <script>
 	/*动态导入js*/
 	insertJs(['../js/jquery.common.js']);

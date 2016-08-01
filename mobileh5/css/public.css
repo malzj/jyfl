@@ -25,7 +25,7 @@ ul li{list-style: none;}
 .vertical_align_sub{vertical-align: sub;}
 .color_white{color:white!important;}
 .font_style{font-weight: bold;font-size: 18px;letter-spacing: 4px;}
-.mui-bar.public_footer{background: rgba(255, 255, 255,.7)!important;}
+/*.mui-bar.public_footer{background: rgba(255, 255, 255,.7)!important;}*/
 /*复写Mui部分样式*/
 a{color: black;}
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
@@ -76,6 +76,7 @@ a{color: black;}
 .popUp_content{
 			position: absolute;
 			top: 50%;
+			width: 100%;
 			transform: translateY(-50%);
 			-webkit-transform: translateY(-50%);
 			}  
@@ -169,6 +170,7 @@ a{color: black;}
 .goods_font{line-height: 1.2;white-space: normal;height: 1.6rem;overflow: hidden;font-size: 12px;}
 .goods_name{font-size: 14px;}
 .goods_price{display: inline-block;color: #dd4223;width: 100%;margin-top: .5rem;}
+.public_xiangqing_img img{width: 100%;}
 /*订单确认支付*/
 .confirm_img{background: url(../images/cake_pay.png) no-repeat;height:8.75rem;background-size: 100% 100%;z-index: 11;position: relative;}
 .confirm_img h4{width: 280px;margin: 2rem auto;line-height: 1.5rem;color: white;}

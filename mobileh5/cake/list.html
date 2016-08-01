@@ -75,7 +75,7 @@
 			// 选中后的操作
 			jQuery('.mui-content').on('tap','.event',function(){
 				// 显示加载动画
-				Loadings('show');
+				//Loadings('show');
 				// 当前对象
 				var _that = jQuery(this);
 				// 拼接选中的参数
@@ -131,10 +131,8 @@
 			}
 			
 			function Loadings(event){
-				var html ='<div class="mui-scroll" style="position:absolute;top: 50%;"><div class="mui-loading"><div class="mui-spinner"></div></div></div>';
 				if(event == 'show'){
 					jQuery('.select_scroll').nextAll().remove();
-					replaceHtml('.select_scroll', html);
 				}else{
 					jQuery('.select_scroll').next('.mui-scroll').remove();
 				}

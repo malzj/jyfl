@@ -1,4 +1,4 @@
-/*TMODJS:{"version":158,"md5":"0efb83253e393237593c4c7e36d02975"}*/
+/*TMODJS:{"version":159,"md5":"0efb83253e393237593c4c7e36d02975"}*/
 template('flow/cart',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,data=$data.data,$each=$utils.$each,supplier=$data.supplier,$index=$data.$index,goods=$data.goods,$out='';$out+='<nav class="mui-bar mui-bar-tab mui-row"> <div class="mui-col-xs-7"><a class="mui-tab-item">合计：<span class="color_2fd0b5 total-price">';

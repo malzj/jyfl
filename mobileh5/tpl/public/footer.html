@@ -6,7 +6,7 @@
 		<div class="mui-scroll">
 			<!-- 菜单具体展示内容 -->
 			<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
-				<li class="mui-table-view-cell index_touxiang"><img src="images/jy_index/login_bg.jpg" alt="头像"/></li>
+				<li class="mui-table-view-cell index_touxiang"><img src="{{user_info.pic}}" alt="头像"/></li>
 				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../person.html" open-type="common">个人信息</a></li>
 				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../safe_center.html">安全中心</a></li>
 				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../order/my_order.html">我的订单</a></li>
@@ -45,7 +45,7 @@
 <!--弹层蒙版-->
 <div class="popUp_row" style="z-index:10">
 	<div class="mui-row popUp_content">
-		{{each data as nav}}
+		{{each nav_list as nav}}
 		<div class="mui-col-xs-3 popUp_item">
 			<a class="popUp_item_bg" id="popUp_item_bg{{nav.id}}" data-id="{{nav.id}}">
 				<img src="../images/icon/nav/nav-{{nav.id}}.svg"/>

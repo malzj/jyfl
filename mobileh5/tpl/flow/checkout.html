@@ -4,12 +4,12 @@
 		<a class="mui-tab-item footer_jiaru" href="#"><span class="mui-tab-label">去结算</span></a></div>
 </nav>	
 
-<div id="showmap" style="display:none;"></div>
+<div id="showmap" style="display:block;"></div>
 
 <div class="mui-content">
     <div class="mui-table-view">
 		<div class="mui-table-view-cell">
-			<a class="mui-navigate-right">
+			<a class="mui-navigate-right href_click" data-href="../shouhuoxinxi.html?onlyCountry=1">
 				<h4>{{data.consignee.consignee}} {{data.consignee.mobile}}</h4>
 				<p>{{data.consignee.country_cn}} {{data.consignee.province_cn}} {{data.consignee.address}}</p>
 			</a>
@@ -101,6 +101,8 @@
 
 <script type="text/javascript">
 
+	/* 当检测不通过时，是否显示提示信息*/
+	var is_show_error = true;
 	/*动态导入js*/
 	insertJs(['../js/baidumap.js','../js/jquery.common.js']);
 	
@@ -257,7 +259,7 @@
 	
 	/* 设置收货地址和运费 */
 	jQuery('.psfanwei').each(function(index,dom){			
-		supplierYunfei($(dom));			
+		supplierYunfei(jQuery(dom));			
 	});
 		
 	function supplierYunfei(dom){
@@ -294,11 +296,13 @@
 			showMapId:'showmap',
 			afterFunction:function(d){
 				if(d == -1){
-					mui.alert('当前地址不支持配送');
+					if(is_show_error == true){
+						mui.alert('当前地址不支持配送');
+						is_show_error = false;
+					}					
 				}else{
 					totalYunfei(d);
-				}
-				
+				}				
 			}	
 		});
 		baidumap.showMap(sid,address);
@@ -322,9 +326,9 @@
 	
 	/* 选择时间 */
 	function selectdate(date, sid, address){
-		/* jQuery('.peisong_check').each(function(){	
+		jQuery('.peisong_check').each(function(){	
 			jQuery(this).css('border','1px solid #B1AFAF');
-		}); */
+		});
 		baidumap.setOptions({
 			isYunfei:true,
 			isSetYunfei:false,
@@ -359,6 +363,8 @@
 		});
 		baidumap.showMap(sid,address);
 	}
+	
+	jQuery.hrefClick();
 
 </script>
 		

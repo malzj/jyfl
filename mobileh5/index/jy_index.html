@@ -6,22 +6,22 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title></title>
-		<link href="css/mui.min.css" rel="stylesheet" />
-		<link href="css/public.css" rel="stylesheet"/>
-		<link href="css/index.css" rel="stylesheet"/>
-		<link href="css/iconfont.css" rel="stylesheet" />
-		<link href="css/mui.mian.css" rel="stylesheet"/>
-		<script src="js/connection.js"></script>
-		<script src="js/jquery-1.9.1.min.js"></script>
-		<script src="js/mui.min.js"></script>		
-		<script src="js/template.js"></script>
-		<script src="js/jqueryExtend.js"></script>
-		<script src="js/rem.js"></script>
-		<script src="js/mui.mian.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet"/>
+		<link href="../css/index.css" rel="stylesheet"/>
+		<link href="../css/iconfont.css" rel="stylesheet" />
+		<link href="../css/mui.mian.css" rel="stylesheet"/>
+		<script src="../js/connection.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/mui.min.js"></script>		
+		<script src="../js/template.js"></script>
+		<script src="../js/jqueryExtend.js"></script>
+		<script src="../js/rem.js"></script>
+		<script src="../js/mui.mian.js"></script>
+		
 		<style>
-		.mui-content{background: url(images/jy_index/person_bg.jpg) no-repeat !important;background-size: 100% 100%!important;}
-		.mui-bar{background-color:rgba(255,255,255,.7)}
-		.icon-site-copy{font-size: 20px!important;margin-right: 5px!important;}
+		.mui-content{background: url(../images/jy_index/person_bg.jpg) no-repeat !important;background-size: 100% 100%!important;}
+		.mui-bar{background-color: transparent;}
 		</style>
 	</head>
 	<body>
@@ -31,8 +31,8 @@
 			<div class="mui-inner-wrap">
 				<!-- 主页面标题 -->
 				<header class="mui-bar mui-bar-nav">
-					<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
-					<h1 class="mui-title"><a class="index_address" href="address.html"><span class="mui-icon iconfont icon-site-copy"></span>北京</a></h1>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+					<!--<h1 class="mui-title">标题</h1>-->
 				</header>
 				<!-- 主页面内容容器 -->
 				<div class="mui-content mui-scroll-wrapper">
@@ -56,9 +56,6 @@
 				}				
 				replaceHtml('.mui-draggable > .mui-inner-wrap', template('public/footer', data));
 			});
-			mui('.index_address')[0].addEventListener('tap',function(){
-				jQuery.jumpTo('address.html','adress.html');
-			})
 			
 		</script>
 	</body>

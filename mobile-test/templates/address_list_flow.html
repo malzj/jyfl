@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">	
+	<title></title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fd.css">	
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/jquery-1.9.1.min.js"></script>
+	{insert_scripts files='utils.js,jquery.shoppingflow.js'}
+	<style>
+		.shouhuo{ margin-right: 10px;}
+		.border .row{border-bottom: 1px solid #f4f4f4;}
+		.border .col-xs-1 span{font-size: 18px;line-height: 80px;}
+		.current{ background:antiquewhite;}
+		.current .hide{display:inline-block!important; color:#ccc;}
+	</style>
+</head>
+
+<body>
+
+<div class="container border">
+	{foreach from=$consignee_list item=consignee}
+	<div class="row {if $consignee.address_id eq $address_id} current {/if}" data-address-id="{$consignee.address_id}">
+		<div class="col-xs-11">
+			<h5><span class="shouhuo">{$consignee.consignee|escape}</span><span>{$consignee.mobile|escape}</span></h5>
+			<h5 style="line-height:17px"><span class="shouhuo">{$consignee.country_cn} </span><span> {$consignee.province_cn} {$consignee.city_cn} {$consignee.district_cn} {$consignee.address|escape}</span></h5>	
+		</div>
+		<div class="col-xs-1 hide">
+			<span class="glyphicon glyphicon glyphicon-ok center-block"></span>
+		</div>
+	</div>
+	{foreachelse}
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 padding-1">
+				<img src="/mobile/images/img/dizhi.png" class="img-responsive center-block">
+				<h5 class="text-center" style="color: #BFBBBA; font-weight: 600;">您还没有收货地址</h5>	
+			</div>
+		</div>
+	</div>
+	{/foreach}
+</div>
+
+<!-- <a href="user.php?act=edit_address&from=flow">添加</a> -->
+<script>
+	var from = '{$from}';
+	$('.border .row').click(function(){
+		var address_id = $(this).attr('data-address-id');
+		if(from == 'flow'){
+			window.location.href = 'flow.php?step=select_consignee&address_id='+address_id;
+		}else{
+			window.location.href = 'yanchu_order.php?act=select_consignee&address_id='+address_id;
+		}
+		
+	});
+</script>
+</body>
+</html>

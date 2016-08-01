@@ -33,7 +33,7 @@
 <script>
 
 	/* 启用选择器插件 */
-	jQuery.ajaxJsonp(web_url+'/mobile/basic.php?act=getMobileCities',{onlyCountry:1},function(result){
+	jQuery.ajaxJsonp(web_url+'/mobile/basic.php?act=getMobileCities',{only_country:1},function(result){
 		console.log(result);
 		if(result.state=='true'){
 			var cityPicker = new mui.PopPicker({

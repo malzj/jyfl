@@ -5,7 +5,7 @@ var baidumap = {
 	
 	options :{		
 		// 显示多边形的api地址
-		showUrl:'http://juyoufuli.com/jyflapi/index.php?s=Peisong/Peisong/showmap_wap',
+		showUrl:'http://www.juyoufuli.com/jyflapi/index.php?s=Peisong/Peisong/showmap_wap',
 		// 设置配送费用和供应商信息
 		setPeisongUrl:'http://jy.com/jyflapi/index.php?s=Peisong/Peisong/savaPeiSongMap',
 		// 设置坐标信息的
@@ -46,6 +46,8 @@ var baidumap = {
 		var ply1 = []; //多边形
 		var address = address || '';		
 		
+		var total, currentNum; 
+		
 		var map = new BMap.Map(_this.options.showMapId);
 		map.centerAndZoom(this.options.currentCity,10);
 		map.enableScrollWheelZoom(); //开启滚动缩放
@@ -60,15 +62,16 @@ var baidumap = {
 			data: {gongyingshang_id:supplierid,isTime:_this.options.isTime},
 			dataType: "jsonp",
 			jsonp:'jsoncallback',
-			success: function(data) {
+			success: function(data) {				
 				if(data.list == null){
 					data.list = [];
 				}
-				var mapnum = data.list.length;
+				var mapnum = total = data.list.length;
 					
 				var list = data.list;
 				var num = 0;
 				for (num; num < mapnum; num++) {
+					currentNum = num;
 					var yanse = list[num]['yanse']
 					var pts = [];
 					var zuobiaolist = list[num]['zuobiao'];
@@ -109,20 +112,25 @@ var baidumap = {
 					jieguo['shipping_waiting'] = shipping_waiting;
 					jieguo['shipping_booking'] = shipping_booking;
 					jieguo['isTime'] = isTime;
-					
+										
 					ply1.push(jieguo);
+					
 					//演示：将面添加到地图上					
 					map.addOverlay(ply);
 				}
 			},
-		});			
+		});	
 		
+		var b = setInterval(function(){
+			if(currentNum+1 == total){
+				// 如果有地址的话，搜索运费
+				if(address !='' && _this.options.isYunfei == true){
+					_this.searchYunfei(address,map,ply1,supplierid);
+				}
+				clearTimeout(b);
+			}			
+		},100);		
 
-		// 如果有地址的话，搜索运费
-		if(address !='' && _this.options.isYunfei == true){
-			_this.searchYunfei(address,map,ply1,supplierid);
-		}
-		
 	},
 	
 	// 搜索地址
@@ -202,7 +210,7 @@ var baidumap = {
 			jQuery('#yunfei'+supplierid).html(jiage);
 			jQuery('#address-'+supplierid).css({'border':'0'});
 		}
-		
+
 		// 每次执行都要执行的操作
 		this.options.afterFunction(jiage);
 	}

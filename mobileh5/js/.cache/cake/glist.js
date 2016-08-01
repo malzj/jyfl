@@ -1,4 +1,4 @@
-/*TMODJS:{"version":18,"md5":"ab724027c86d78c20aa8fdb52e09953c"}*/
+/*TMODJS:{"version":20,"md5":"b0b9289d8526cd77fcddd61252614d6f"}*/
 template('cake/glist',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,data=$data.data,list=$data.list,$index=$data.$index,$escape=$utils.$escape,$out='';$out+='<ul class="mui-table-view"> ';
@@ -13,7 +13,9 @@ $out+='</h4> <p class="goods_font">';
 $out+=$escape(list.goods_brief);
 $out+='</p> <div class="goods_price"><span>';
 $out+=$escape(list.shop_price);
-$out+='</span><span class="mui-icon iconfont icon-gouwuche"></span></div> </div> </a> </li> ';
+$out+='</span><span class="mui-icon iconfont icon-gouwuche" data-id="';
+$out+=$escape(list.goods_id);
+$out+='"></span></div> </div> </a> </li> ';
 });
 $out+=' </ul>';
 return new String($out);

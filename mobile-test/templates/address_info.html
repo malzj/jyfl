@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">	
+	<title></title> 
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fd.css">
+	<link rel="stylesheet" href="css/main.css">
+	{insert_scripts files='utils.js,jquery.region.js,jquery.shoppingflow.js'}
+	<script type="text/javascript" src="js/layer/layer.js"></script>
+	<script src="js/loadAjax.js"></script>
+	<link href="js/layer/skin/layer.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/main.css">
+	<style type="text/css">
+		.region_name,input,select{display: block;width: 100%;padding: 10px 0 10px 20px;height: 50px;font-size: 14px;border: none;background: none;color: #8d8a8a;}
+		.col-xs-12{	border-bottom: 1px solid #ccc;}
+		.region_name{ text-indent:6px; line-height:30px;}
+	</style>
+</head>
+<body>
+
+<div class="container header-color header-height">
+	<div class="row">
+		<div class="col-xs-2">
+			<a href="javascript:history.go(-1)"><span class="glyphicon glyphicon-menu-left tubiao"><img src="/mobile/images/img/logo1.png"></span></a>
+		</div>
+		<div class="col-xs-8 text-center">
+			<h4 style="white-space: nowrap;text-overflow: ellipsis;overflow:hidden;">{if empty($address_id)} 添加收货地址 {else} 编辑收货地址 {/if}</h4>
+		</div>
+		<div class="col-xs-2 text-right">
+			<h5 style="color: white;" onclick="saveConsignee('{$address_id}', '{$from}')">确认</h5>
+		</div>
+	</div>
+</div>
+
+<div id="order_consignee">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<input type="text" name="consignee" id="consignee" class="hy_dz_input"  placeholder="收货人姓名">
+			</div>	
+			<div class="col-xs-12">
+			    <input type="text" name="mobile" id="mobile" class="hy_dz_input" placeholder="手机号码" > 
+			</div>
+			<div class="col-xs-12 region_name">	
+				{$cityinfo.region_name}	
+			</div>
+			<div class="col-xs-12">	
+				<select name="province" id="province">
+					<option value="0">{$lang.please_select}区域</option>
+					{foreach from=$province_list item=province}
+					<option value="{$province.region_id}" {if $consignees.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
+				{/foreach}
+			</select>
+			</div>
+			<div class="col-xs-12">
+				<input type="text" name="address" id="address" class="hy_dz_input" placeholder="详细收货地址" >
+			</div>		
+		</div>
+		<input type="hidden" name="country" id="country" value="{$cityid}" />
+	</div>
+</div>
+		
+
+<script>
+	
+// 加载配送方式页面
+selectConsignee({$address_id}, 'user');
+	
+</script>
+</body>
+</html>

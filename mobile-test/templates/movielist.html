@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title></title>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/swiper-3.2.7.jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" href="css/swiper-3.2.7.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fd.css">	
+    <link rel="stylesheet" href="css/main.css">
+    <style type="text/css">
+		.dianying li{width: auto;margin: 0px 20px;}	
+		.select2_2{color:#FF6801 ;background-color: white;border: 1px solid #FF6801;padding: 6px 20px;border-radius: 0 5px 5px 0;}
+		.select2_1{color: #FF6801;background-color: white;border: 1px solid #FF6801;padding: 6px 20px;border-radius:5px 0 0 5px;}
+		.select2{color: white;padding: 6px 20px;background-color: #FF6801;}
+		#myTab .active{color: #FC7E2C;border-bottom: 2px solid #FC7E2C;display: inline-block; }
+		.swiper-slide h5{
+				margin-top:0;
+				padding-top: 10px;
+			}			
+	</style>
+</head>
+<body>
+<div class="dianying2">
+	<!-- header start-->
+	{$header}
+	<!-- header end -->
+	
+	<!-- category start  -->
+	<div class="container text-center dianying margin_1">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+			{foreach from=$category item=cate}
+				<li class="swiper-slide">
+					<h5><a href="{$cate.url}" {if $cate.active eq 1} style="color:#DE6B11;" {/if}>{$cate.name}</a></h5>
+				</li>
+			{/foreach}	
+			</div>
+		</div>
+	</div>
+	<!-- category end -->
+	
+	<!-- tab start -->
+	<div class="container">
+		<div class="row text-center">
+			<ul id="myTab" class="nav">
+				<li class="active col-xs-6" onclick="location.href='cinema.php'"><h5>影片</h5></li>
+				<li class="col-xs-6" onclick="location.href='cinema.php?step=cinema'"><h5>影院</h5></li>
+			</ul>			
+		</div>
+	</div>
+	<!-- tab end -->
+	
+	<!-- movie start -->
+	<div class="container">
+		<div class="tab-pane fade in active">
+			
+			<!-- movieState start -->
+			<div class="row bg_color">						
+				<div class="col-xs-6 padding_0"><a href="cinema.php"><h5 class="pull-right select2_1 {if $op eq 'hot'}select2{/if}">正在上映</h5></a></div>	
+				<div class="col-xs-6 padding_0"><a href="cinema.php?op=coming"><h5 class="pull-left select2_2 {if $op eq 'coming'}select2{/if}">即将上映</h5></a></div>						
+			</div>	
+			<!-- movieState end -->
+			
+			<!-- movieList start -->
+			{foreach from=$movies item=movie}
+			<div class="padding_10 row border-3" {if $op neq coming} onclick="location.href='cinema.php?step=movieCinema&movieid={$movie.movieId}'"{/if}>
+				<div class="col-xs-3">
+					<img src="{$movie.thumb}" class="img-responsive">
+				</div>
+				<div class="col-xs-9">
+					<div class="row">
+						<h4 class="text_hidden col-xs-10">{$movie.movieName}</h4>
+						<h5 class="col-xs-2"><span class="pull-right color_ff6801"><span>{$movie.score}</span>分</span></h5>
+					</div>
+					<h5 class="color_9 margin_0">导演：{$movie.director}</h5>
+					<h5 class="text_hidden color_9">主演：{$movie.actor}</h5>					
+					{if $op eq coming}
+					<h6 class="tips_1">上映时间：<span>{$movie.publishTime}</span></h6>
+					{else}
+					<h5 class="btn_1">立即购票</h5>
+					{/if}
+				</div>
+			</div>
+			{/foreach}
+			<!-- movieList end -->
+			
+		</div>					
+	</div>
+	<!-- movie end -->
+</div>
+<script type="text/javascript">
+	var mySwiper = $('.swiper-container').swiper({slidesPerView: 'auto',freeMode: true})
+</script>
+
+</body>
+</html>

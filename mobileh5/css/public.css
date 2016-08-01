@@ -170,7 +170,7 @@ a{color: black;}
 .goods_font{line-height: 1.2;white-space: normal;height: 1.6rem;overflow: hidden;font-size: 12px;}
 .goods_name{font-size: 14px;}
 .goods_price{display: inline-block;color: #dd4223;width: 100%;margin-top: .5rem;}
-.public_xiangqing_img img{width: 100%;}
+.public_xiangqing_img img{width: 100%;height: auto;}
 /*订单确认支付*/
 .confirm_img{background: url(../images/cake_pay.png) no-repeat;height:8.75rem;background-size: 100% 100%;z-index: 11;position: relative;}
 .confirm_img h4{width: 280px;margin: 2rem auto;line-height: 1.5rem;color: white;}
@@ -222,3 +222,8 @@ a{color: black;}
 	p{font-size: 12px;}
 	h4{font-size: 14px;}
 }
+
+/*空购物车*/
+.empty_cart_box{width: 60%;text-align: center;margin: 0 auto;position: absolute;left: 50%;top: 50%;transform: translate(-50%,-100%);-webkit-transform: translate(-50%,-100%);}
+.empty_cart_box img{width: 25%;}
+.empty_cart_box button{background: #2fd0b5;color: white;width: 6rem;}

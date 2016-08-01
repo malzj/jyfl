@@ -1,5 +1,5 @@
 <script>
-	var app_path = '/jyfl/mobileh5/';
+	var app_path = '../';
 </script>
 <aside id="offCanvasSide"  class="mui-off-canvas-right">
 	<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
@@ -7,23 +7,23 @@
 			<!-- 菜单具体展示内容 -->
 			<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
 				<li class="mui-table-view-cell index_touxiang"><img src="images/jy_index/login_bg.jpg" alt="头像"/></li>
-				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="person.html" open-type="common">个人信息</a></li>
-				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="safe_center.html">安全中心</a></li>
-				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="order/my_order.html">我的订单</a></li>
-				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="shouhuoxinxi.html">收货信息</a></li>
-				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="account_deposit.html">卡充值</a></li>
-				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="card_merge.html">卡合并</a></li>
+				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../person.html" open-type="common">个人信息</a></li>
+				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../safe_center.html">安全中心</a></li>
+				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../order/my_order.html">我的订单</a></li>
+				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../shouhuoxinxi.html">收货信息</a></li>
+				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../account_deposit.html">卡充值</a></li>
+				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../card_merge.html">卡合并</a></li>
 				<li class="mui-table-view-cell"><a id="logout" href="javascript:void(0);">退出登录</a></li>
 			</ul>
 		</div>
 	</div>
 </aside>
 <nav class="mui-bar mui-bar-tab bg_white public_footer">
-     <a class="mui-tab-item href_click" data-href="jy_index.html">
+     <a class="mui-tab-item href_click" data-href="../index/jy_index.html">
          <span class="mui-icon iconfont icon-zhuye"></span>
          <span class="mui-tab-label">聚优</span>
      </a>
-     <a class="mui-tab-item href_click" data-href="order/my_order.html">
+     <a class="mui-tab-item href_click" data-href="../order/my_order.html">
          <span class="mui-icon iconfont icon-order"></span>
          <span class="mui-tab-label">订单</span>
      </a>
@@ -31,7 +31,7 @@
          <span class="mui-icon iconfont icon-gongneng"></span>
          <span class="mui-tab-label public_gongneng_title">功能</span>
      </a>
-     <a class="mui-tab-item href_click" data-href="flow/cart.html">
+     <a class="mui-tab-item href_click" data-href="../flow/cart.html">
          <span class="mui-icon iconfont icon-gouwuche"></span>
          <span class="mui-tab-label">购物车</span>
      </a>
@@ -48,7 +48,7 @@
 		{{each data as nav}}
 		<div class="mui-col-xs-3 popUp_item">
 			<a class="popUp_item_bg" id="popUp_item_bg{{nav.id}}" data-id="{{nav.id}}">
-				<img src="http://www.juyoufuli.com/mobileh5/images/icon/nav/nav-{{nav.id}}.svg"/>
+				<img src="../images/icon/nav/nav-{{nav.id}}.svg"/>
 			</a>
 			<p class="mui-text-center">{{nav.name}}</p>
 		</div>
@@ -56,16 +56,17 @@
 		
 	</div>
 	<div class="popUp_close">
-		<img src="http://www.juyoufuli.com/mobileh5/images/icon/nav/popUp_close.svg"/>
+		<img src="../images/icon/nav/popUp_close.svg"/>
 	</div>
 </div>
 <script>
-	mui.init();
 	mui('#offCanvasSideScroll').scroll();
+	mui('#offCanvasSideScroll1').scroll();
+		
 	mui('#logout')[0].addEventListener('tap',function(){
 
 		jQuery.ajax({
-			url: web_url + app_path +'userAuth.php',
+			url: web_url +'/mobile/userAuth.php',
 			data: {
 				'act': 'logout',
 			},
@@ -73,28 +74,21 @@
 			dataType: 'jsonp',
 			jsonp: 'jsoncallback',
 			success: function (result) {
-				var btnArray = ['确认', '取消'];
-				mui.confirm('确认退出登录？', '聚优福利', btnArray, function(e) {
-					if (e.index == 0) {
-						jQuery.ajaxJsonp(web_url + '/mobile/userAuth.php', {'act': 'logout'},
-							function (result) {
-								if (result.state == 'true') {
-									jQuery.jumpTo('./index.html');
-								} else {
-									mui.alert("退出登录失败！");
-								}
-							}
-						);
-						return false;
-					}
-				});
+				console.log(result);
+				if (result.state == 'true') {
+					mui.alert("退出登录成功！",function(){
+						window.location.href='../index.html';
+					});
+				} else {
+					mui.alert("退出登录失败！");
+				}
 			}
 		});
 		return false;
 	});
 	
 	jQuery('.public_footer').on('tap','.public_gongneng',function(){
-		jQuery('.public_popUp').css({'z-index':'4','visibility':'visible','transition-delay':'0s'});
+		jQuery('.public_popUp').css({'z-index':'1','visibility':'visible','transition-delay':'0s'});
 		jQuery('.popUp_item').addClass('active');
 		jQuery('.popUp_row').css({'transform':'translateY(0)','transition-delay':'0s'});
 		jQuery('.popUp_item:nth-child(1),.popUp_item:nth-child(2),.popUp_item:nth-child(3),.popUp_item:nth-child(4)').css('transition-delay','.05s');
@@ -139,7 +133,7 @@
 			/* 鲜花 */
 			case '31':	jumpTohref = app_path+'cake/list.html?id=18'; break;
 			/* 洗衣 */
-			case '33':	jumpTohref = app_path+'cake/index.html'; break;
+			case '33':	jumpTohref = app_path+'cake/list.html?id=20'; break;
 			/* 体检 */
 			case '34':	jumpTohref = app_path+'cake/list.html?id=19'; break;
 			/* 优品 */

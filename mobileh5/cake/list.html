@@ -16,6 +16,7 @@
 		<script src="../js/jqueryExtend.js"></script>
 		<script src="../js/rem.js"></script>
 		<script src="../js/mui.mian.js"></script>
+		<script src="../js/jquery.common.js"></script>
 		
 		<style type="text/css">
 			.mui-content{background-color: white;}
@@ -78,7 +79,7 @@
 				// 当前对象
 				var _that = jQuery(this);
 				// 拼接选中的参数
-				var params = {};
+				var params = {id:id};
 				jQuery('.active,.mui-active').each(function(){					
 					params = jQuery.extend(params,jQuery.parseJSON(jQuery(this).attr('data-id')));
 				});				
@@ -89,6 +90,7 @@
 				if (cateid){
 					params = jQuery.extend(params,jQuery.parseJSON('{"filter_attr":""}'));
 				}
+				console.log(params);
 				
 				// 获取新的数据
 				jQuery.ajaxJsonp(web_url+"/mobile/category.php",params,function(data){
@@ -111,8 +113,15 @@
 			jQuery.hrefClick();
 			
 			//排序选中效果
-			$('.paixu_box').on('tap','.paixu_item',function(){
-				$(this).addClass('active').siblings().removeClass('active');
+			jQuery('.paixu_box').on('tap','.paixu_item',function(){
+				jQuery(this).addClass('active').siblings().removeClass('active');
+			});
+			
+			// 加入购物车
+			jQuery('.mui-content').on('tap','.icon-gouwuche', function(e){
+				e.stopPropagation();
+				var gid = jQuery(this).attr('data-id');
+				addToCart(gid);
 			})
 			
 			function _initScroll(){

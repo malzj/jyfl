@@ -1,4 +1,4 @@
-/*TMODJS:{"version":40,"md5":"a80f07f1d51d6e68a9e873c19103b498"}*/
+/*TMODJS:{"version":42,"md5":"c6165f6b118ebf129d877d4170e02fac"}*/
 template('cake/list',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,data=$data.data,$each=$utils.$each,navigator=$data.navigator,$index=$data.$index,$escape=$utils.$escape,attr=$data.attr,alist=$data.alist,list=$data.list,$out='';$out+=' <div class="select_scroll">  ';
@@ -49,7 +49,9 @@ $out+='</h4> <p class="goods_font">';
 $out+=$escape(list.goods_brief);
 $out+='</p> <div class="goods_price"><span>';
 $out+=$escape(list.shop_price);
-$out+='</span><span class="mui-icon iconfont icon-gouwuche"></span></div> </div> </a> </li> ';
+$out+='</span><span class="mui-icon iconfont icon-gouwuche" data-id="';
+$out+=$escape(list.goods_id);
+$out+='"></span></div> </div> </a> </li> ';
 });
 $out+=' </ul> ';
 return new String($out);

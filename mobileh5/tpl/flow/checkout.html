@@ -130,7 +130,6 @@
 			if(data.state == 'false'){
 				jQuery.errorJudge(data,data.message);
 			}else{
-				console.log(data);
 				mui.openWindow({
 					url:'./pay.html?order_id='+data.data[0].order_id
 				});

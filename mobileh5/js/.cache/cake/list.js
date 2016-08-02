@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*TMODJS:{"version":48,"md5":"6ed832fb9b4d91768259efa2f8e76501"}*/
+=======
+/*TMODJS:{"version":45,"md5":"6ed832fb9b4d91768259efa2f8e76501"}*/
+>>>>>>> 0ac059f07fd1fd8f66be8bb4d7de27315260a64a
 template('cake/list',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,data=$data.data,$each=$utils.$each,navigator=$data.navigator,$index=$data.$index,$escape=$utils.$escape,attr=$data.attr,alist=$data.alist,list=$data.list,$out='';$out+=' <div class="select_scroll">  ';

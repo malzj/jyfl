@@ -4,8 +4,8 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="css/indexList.css" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/indexList.css" />
 		<style>
 			html,
 			body {
@@ -59,13 +59,13 @@
 				<div class="mui-indexed-list-alert"></div>
 			</div>
 		</div>
-		<script src="js/connection.js"></script>
-		<script src="js/template.js"></script>
-		<script src="js/jquery-1.9.1.min.js"></script>
-		<script src="js/jqueryExtend.js"></script>
-		<script src="js/mui.min.js"></script>
-		<script src="js/mui.mian.js"></script>
-		<script src="js/indexList.js"></script>
+		<script src="../js/connection.js"></script>
+		<script src="../js/template.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/jqueryExtend.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.mian.js"></script>
+		<script src="../js/indexList.js"></script>
 		<script type="text/javascript">
 			mui.init();
 			mui.ready(function() {
@@ -73,7 +73,7 @@
 				var list = document.getElementById('list');
 				jQuery.ajaxJsonp(web_url+'/mobile/basic.php?act=getCityList','',function(result){
 					if(result.state=='true'){
-						replaceHtml('.mui-indexed-list-alert',template('tmp_address',result));
+						replaceHtml('.mui-indexed-list-alert',template('address/tmp_address',result));
 						//calc hieght
 						list.style.height = (document.body.offsetHeight - header.offsetHeight) + 'px';
 						//create

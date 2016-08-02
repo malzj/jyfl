@@ -5,8 +5,8 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="css/public.css" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/public.css" />
 		<style type="text/css">			
 			.tips .seat-intro {text-align: center;font-size: 14px;padding: 0;overflow: hidden;margin-top: 0;}			
 			.tips {overflow: hidden;min-height: 34px;line-height: 34px;}
@@ -15,12 +15,12 @@
 			.pull-left{float: left;}
 			.seat,.empty-col {display: inline-block;width: 18px;height: 18px;line-height: 18px;margin: 0 2px 2px 0;background-size: 18px 18px;}
 			
-			.active {background-image: url(images/seat_1.png)}
-			.select {background-image: url(images/seat_2.png);}
-			.disabled{background-image:url(images/seat_3.png);}
-			.love {background-image: url(images/seat_4.png);}
+			.active {background-image: url(../images/seat_1.png)}
+			.select {background-image: url(../images/seat_2.png);}
+			.disabled{background-image:url(../images/seat_3.png);}
+			.love {background-image: url(../images/seat_4.png);}
 			.main_a {position: relative;z-index: 1; background: #f0f0f0;text-align: center;overflow: hidden;border-top: 1px solid #dfdfdf;}
-			.main_a h6 {margin: 0;position: absolute;top: 0;left: 50%;z-index: 5;margin-left: -84px;width: 168px;height: 20px; line-height:20px;color: #ffe4a5;background: transparent url(images/tips_5.png) no-repeat center top;background-size: 167px 19px;}
+			.main_a h6 {margin: 0;position: absolute;top: 0;left: 50%;z-index: 5;margin-left: -84px;width: 168px;height: 20px; line-height:20px;color: #ffe4a5;background: transparent url(../images/tips_5.png) no-repeat center top;background-size: 167px 19px;}
 			.wrapper {position: relative;top: 0;left: 0;z-index: 3;height: 100%;-webkit-overflow-scrolling: touch;}
 			.scroller {position: relative; margin-top: 20px;padding: 0 23px;}
 			 
@@ -47,12 +47,12 @@
 		<div id="movie_seat_page" class="mui-content">
 
 		</div>
-		<script src="js/connection.js"></script>
-		<script src="js/jquery-1.9.1.min.js"></script>
-		<script src="js/jqueryExtend.js"></script>
-		<script src="js/template.js"></script>
-		<script src="js/mui.min.js"></script>
-		<script src="js/movieSeat.js"></script>
+		<script src="../js/connection.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/jqueryExtend.js"></script>
+		<script src="../js/template.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/movieSeat.js"></script>
 		<script type="text/javascript">
 			var hallno=jQuery.getUrlParam('hallno');
 			var planid=jQuery.getUrlParam('planid');
@@ -60,7 +60,7 @@
 			var cinemaid=jQuery.getUrlParam('cinemaid');
 			jQuery.ajaxJsonp(web_url+'/mobile/cinema.php?step=cinemaSeats',{hallno:hallno,planid:planid,movieid:movieid,cinemaid:cinemaid},function(result){
 				if(result.state=='true') {
-					document.getElementById('movie_seat_page').innerHTML = template('tmp_movie_seat', result.data);
+					document.getElementById('movie_seat_page').innerHTML = template('movie/tmp_movie_seat', result.data);
 					//加载座位
 					jQuery.ajaxJsonp(web_url + '/mobile/cinema.php?step=seatAjax', {
 						hallno: hallno,

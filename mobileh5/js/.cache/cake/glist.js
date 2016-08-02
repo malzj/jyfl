@@ -1,4 +1,4 @@
-/*TMODJS:{"version":20,"md5":"b0b9289d8526cd77fcddd61252614d6f"}*/
+/*TMODJS:{"version":22,"md5":"96778550f0eeb39a26e08b8dbb703c66"}*/
 template('cake/glist',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,data=$data.data,list=$data.list,$index=$data.$index,$escape=$utils.$escape,$out='';$out+='<ul class="mui-table-view"> ';
@@ -9,7 +9,7 @@ $out+='" class="href_click"> <img class="mui-media-object mui-pull-left" src="';
 $out+=$escape(list.goods_thumb);
 $out+='"> <div class="mui-media-body"> <h4 class="goods_name">';
 $out+=$escape(list.goods_name);
-$out+='</h4> <p class="goods_font">';
+$out+='</h4> <p class="goods_font mui-ellipsis-2">';
 $out+=$escape(list.goods_brief);
 $out+='</p> <div class="goods_price"><span>';
 $out+=$escape(list.shop_price);

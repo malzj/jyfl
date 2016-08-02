@@ -1,4 +1,4 @@
-/*TMODJS:{"version":11,"md5":"bfe4925698e68c7c76792d4afac452ac"}*/
+/*TMODJS:{"version":16,"md5":"e650689382768ecf37cd74fd4984f070"}*/
 template('life/yindex',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,data=$data.data,banner=$data.banner,$index=$data.$index,$escape=$utils.$escape,i=$data.i,cate=$data.cate,attr=$data.attr,good=$data.good,$out='';$out+='<div class="mui-content">  <div id="slider" class="mui-slider" > <div class="mui-slider-group mui-slider-loop"> <div class="mui-slider-item mui-slider-item-duplicate slide-a"> <a href=""> <img src=""> </a> </div> ';
@@ -35,15 +35,15 @@ $out+='</span></h4> <a data-href="../cake/list.html?id=';
 $out+=$escape(attr.id);
 $out+='" class="href_click"> <div class="mui-pull-right"><span class="floor_more">更多</span><span class="mui-icon mui-icon-arrowright"></span></div> </a> </div> <div class="mui-row floor_list"> ';
 $each(attr.goods,function(good,$index){
-$out+=' <div class="mui-col-xs-6 floor_listBox"> <div class="mui-pull-left floor_listLeft"> <div class="floor_list_name">';
+$out+=' <div class="mui-col-xs-6 floor_listBox"> <a data-href="../cake/details.html?id=';
+$out+=$escape(good.goods_id);
+$out+='" class="href_click floor_list_a"> <div class="mui-pull-left floor_listLeft"> <div class="floor_list_name mui-ellipsis-2">';
 $out+=$escape(good.goods_name);
 $out+='</div> <div class="floor_list_price"><em>';
 $out+=$escape(good.shop_price);
-$out+='</em></div> </div> <div class="mui-pull-right"> <a data-href="../cake/details.html?id=';
-$out+=$escape(good.goods_id);
-$out+='" class="href_click"><img src="';
+$out+='</em>点</div> </div> <div class="mui-pull-right"> <img src="';
 $out+=$escape(good.goods_thumb);
-$out+='" alt=""/></a> </div> </div> ';
+$out+='" alt=""/> </div> </a> </div> ';
 });
 $out+=' </div> </div> ';
 });

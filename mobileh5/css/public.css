@@ -35,7 +35,7 @@ a{color: black;}
 .mui-h4, h4{font-size: 16px;}  
 .mui-bar-tab .mui-tab-item.mui-active{color: #2fd0b5;}  
 /*jy_index*/
-.icon-gongneng{width: 58px!important;background: url(../images/public_footer_icon.png) no-repeat 0px!important;display: inline-block;background-size: 100% 100%!important;height: 60px!important;position: absolute!important;top: -28px!important;left: 50%;transform: translateX(-50%);
+.icon-gongneng{width: 56px!important;background: url(../images/public_footer_icon.png) no-repeat 0px!important;display: inline-block;background-size: 100% 100%!important;height: 60px!important;position: absolute!important;top: -28px!important;left: 50%;transform: translateX(-50%);
 -webkit-transform: translateX(-50%);
 }
 .public_gongneng{/* overflow: auto!important; */}
@@ -48,7 +48,7 @@ a{color: black;}
 .popUp_row p{margin-top: .5rem;color: black;font-weight: bold;}
 .popUp_item_bg{display: block;width: 3rem;height: 3rem;border-radius: .75rem;margin: 0 auto;line-height: 3rem!important;}
 .popUp_item img{width: 2.5rem;height: 3rem;margin: 0 auto;display: block;}
-.popUp_item{transition: all .2s ease-out;transform: translateY(600%);margin-bottom: .25rem;}
+.popUp_item{transition: all .5s cubic-bezier(.58,-0.64,.46,1.58);transform: translateY(600%);margin-bottom: .25rem;}
 #popUp_item_bg1{background: #f15a4a;}
 #popUp_item_bg2{background: #467eef;}
 #popUp_item_bg3{background: #fd8e00;}
@@ -155,10 +155,10 @@ a{color: black;}
 .floor_title{height: 35px;padding: 5px 0;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;}
 .floor_title_icon{display: inline-block;height: 24px; width: 5px;background: #2fd0b5;float: left;margin-top: -5px;margin-right: 10px;}
 .floor_more{font-size: 15px;display: inline-block;margin-top: 0px;}
-.floor_list_price{color: #ff6666;}
+.floor_list_price{color: #ff6666;margin-top: 5px;bottom: 5px;position: absolute;}
 .floor_listLeft{width: 4rem;}
 .floor_listBox{padding: .75rem;}
-.floor_list_name{color: #666666;height: 2.3rem;font-size: 12px;overflow: hidden;font-weight: bold;}
+.floor_list_name{color: #666666;/*height: 2.3rem;*/font-size: 12px;overflow: hidden;font-weight: bold;}
 .floor_list .floor_listBox:nth-child(odd){border-right: 1px solid #ddd;border-bottom: 1px solid #ddd;}
 .floor_list .floor_listBox:nth-child(even){border-bottom: 1px solid #ddd;}
 .floor_listBox img{width: 3.8rem;height: 3.8rem;}
@@ -167,10 +167,11 @@ a{color: black;}
 .pinpai_scroll span{font-size: 12px;border: 1px solid #ddd;border-radius: 5px;width: 80px;display: inline-block;line-height: 25px;}
 .select_scroll{border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;}
 .kouwei_scroll{margin-top: -10px;}
-.goods_font{line-height: 1.2;white-space: normal;height: 1.6rem;overflow: hidden;font-size: 12px;}
+.goods_font{line-height: 1.2;white-space: normal;overflow: hidden;font-size: 12px;}
 .goods_name{font-size: 14px;}
 .goods_price{display: inline-block;color: #dd4223;width: 100%;margin-top: .5rem;}
 .public_xiangqing_img img{width: 100%;height: auto;}
+.floor_list_a{display: block;overflow: hidden;position:relative;}
 /*订单确认支付*/
 .confirm_img{background: url(../images/cake_pay.png) no-repeat;height:8.75rem;background-size: 100% 100%;z-index: 11;position: relative;}
 .confirm_img h4{width: 280px;margin: 2rem auto;line-height: 1.5rem;color: white;}
@@ -222,7 +223,11 @@ a{color: black;}
 	p{font-size: 12px;}
 	h4{font-size: 14px;}
 }
-
+/*大于iphone5尺寸适配*/
+@media only screen and (min-width: 321px) {
+	.goods_font{line-height: 1.4;}
+	.goods_font.mui-ellipsis-2{-webkit-line-clamp:3;}
+}
 /*空购物车*/
 .empty_cart_box{width: 60%;text-align: center;margin: 0 auto;position: absolute;left: 50%;top: 50%;transform: translate(-50%,-100%);-webkit-transform: translate(-50%,-100%);}
 .empty_cart_box img{width: 25%;}

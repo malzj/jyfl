@@ -12,11 +12,19 @@ function checkCardType( $username, $type)
 {
     // 卡规则信息
     $cardRule = array();
+    // 默认卡规则信息
+    $defaults = array();
    
     // 直接查找卡规则，而不是从用户表里查找，card_id ,因为如果这张卡修改了卡规则，那么验证就出错了
     $cardRules = $GLOBALS['db']->getAll('SELECT * FROM '.$GLOBALS['ecs']->table('card_rule'));
     if ( !empty($cardRules) )
     foreach ($cardRules as $key=>$var){
+        // 默认卡规则
+        if( strpos($var['title'], 'default') !==false )
+        {
+            $defaults[$key] = $var;
+        }
+        
         if (!empty($var['card'])){
             $arr_card = unserialize($var['card']);
             if (in_array($username, $arr_card))
@@ -24,7 +32,21 @@ function checkCardType( $username, $type)
                 $cardRule = $var;
             }
         }
+    }    
+    
+    // 如果不存在于卡规则里，就找默认的卡规则设置
+    if ( empty($cardRule))
+    {
+        foreach ( (array)$defaults as $value )
+        {
+            $cardBin = explode(',',$value['home_desc']);
+            if (in_array(substr($username, 0,6),$cardBin))
+            {
+                $cardRule = $value;
+            }
+        }
     }
+    
     // 必须存在卡规则里，否则返回 false
     if (empty($cardRule))
     {

@@ -4,8 +4,8 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="css/public.css" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/public.css" />
 		<style type="text/css">
 			.mui-input-row label{padding:0;}
 		</style>
@@ -18,17 +18,17 @@
 		<div id="movie_order_detail" class="mui-content">
 
 		</div>
-		<script src="js/connection.js"></script>
-		<script src="js/jquery-1.9.1.min.js"></script>
-		<script src="js/jqueryExtend.js"></script>
-		<script src="js/template.js"></script>
-		<script src="js/mui.min.js"></script>
+		<script src="../js/connection.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/jqueryExtend.js"></script>
+		<script src="../js/template.js"></script>
+		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
 			var orderid=jQuery.getUrlParam('orderid');
 			jQuery.ajaxJsonp(web_url+'/mobile/cinema_order.php?act=payinfoMovie',{id:orderid},function(result){
 				console.log(result);
 				if(result.state=='true') {
-					document.getElementById('movie_order_detail').innerHTML = template('movie_order_detail', result.data);
+					document.getElementById('movie_order_detail').innerHTML = template('movie/movie_order_detail', result.data);
 					// 支付倒计时
 					countDown(result.data.end_paytime, 'times');
 				}else if(result.state=='false'){

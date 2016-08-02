@@ -54,7 +54,6 @@
 						mui.back();	
 					});					
 				}else if(result.state=='true'){
-					console.log(result);
 					if(jQuery('.index_address .city').length!=0||jQuery('.mui-content').length!=0) {
 						jQuery('.index_address .city').text(result.data.city_cn);
 						jQuery('.mui-content').css('background-image', 'url(' + web_url + '/jyflapi/Public/company/upload/' + result.data.company.back_img + ')');

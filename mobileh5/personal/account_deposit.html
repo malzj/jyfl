@@ -4,14 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <title>卡充值</title>
-    <script src="js/jquery-1.9.1.min.js"></script>
-    <script src="js/connection.js"></script>
-    <script src="js/rem.js"></script>
-    <script src="js/mui.min.js"></script>
-    <script src="js/mui.view.js"></script>
-    <link href="css/mui.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/card.css">
-    <link rel="stylesheet" href="css/new_href.css">
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="../js/connection.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/mui.view.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/card.css">
+    <link rel="stylesheet" href="../css/new_href.css">
 </head>
 
 <body class="mui-fullscreen ">
@@ -96,7 +96,7 @@
                 }else if(result.state=='false'){
                     if(result.data.isLogin==1){
                         $.alert(result.message,function(){
-                            window.location.href='./index.html';
+                            window.location.href='../index.html';
                         })
                     }else{
                         $.alert(result.message);
@@ -159,7 +159,7 @@
                 }else if(result.state=='false'){
                     if(result.data.isLogin==1){
                         mui.alert(result.message,function(){
-                            window.location.href='./index.html';
+                            window.location.href='../index.html';
                         });
                     }else{
                         mui.alert(result.message);

@@ -96,19 +96,6 @@ else if ($_REQUEST['act'] == 'edit' || $_REQUEST['act'] == 'add'){
 	//var_dump($arr_cardInfo);
 	$arr_nav = $db->getAll('SELECT * FROM '.$ecs->table('nav')." WHERE ifshow = 1 AND type = 'middle' ORDER BY type DESC, vieworder ASC");
 	$smarty->assign('navlist', $arr_nav);
-
-
-
-	/* 创建 html editor */
-	include_once(ROOT_PATH . 'includes/fckeditor/fckeditor.php'); // 包含 html editor 类文件
-	$editor = new FCKeditor('home_desc');
-	$editor->BasePath   = '../includes/fckeditor/';
-	$editor->ToolbarSet = 'Normal';
-	$editor->Width      = '100%';
-	$editor->Height     = '320';
-	$editor->Value      = $arr_cardInfo['home_desc'];
-	$FCKeditor = $editor->CreateHtml();
-	$smarty->assign('FCKeditor', $FCKeditor);
 	
 	$region_list = get_region();
 	$smarty->assign('region_list',$region_list);

@@ -56,13 +56,13 @@
 				}else if(result.state=='true'){
 					if(jQuery('.index_address .city').length!=0||jQuery('.mui-content').length!=0) {
 						jQuery('.index_address .city').text(result.data.city_cn);
-						jQuery('.mui-content').css('background-image', 'url(' + web_url + '/jyflapi/Public/company/upload/' + result.data.company.back_img + ')');
+						jQuery('.mui-content').css('background-image', 'url(' + web_url + '/jyflapi/Public/company/upload/' + result.data.user_info.back_img + ')');
 					}
 					replaceHtml('.mui-draggable > .mui-inner-wrap', template('public/footer', result.data));
 				}
 			});
 			jQuery('.index_address')[0].addEventListener('tap',function(){
-				jQuery.jumpTo('../address.html');
+				jQuery.jumpTo('../address/address.html');
 			})
 		</script>
 	</body>

@@ -74,7 +74,7 @@
 						jQuery('#person_name').text(userInfo.nickname);
 						jQuery('#person_sex').text(userInfo.sexcn);
 						jQuery('#birthday').text(userInfo.birthday);
-						document.getElementById('page-container').innerHTML = template('tmp_person', userInfo);
+						document.getElementById('page-container').innerHTML = template('personal/tmp_person', userInfo);
 						if (data.business.xingqu != '' || data.business.xingqu != null || data.business.xingqu != undefined) {
 							var xingqu_ex = data.business.xingqu.split(',');
 							for (var i = 0; i < xingqu_ex.length; i++) {

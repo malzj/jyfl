@@ -1,4 +1,4 @@
-/*TMODJS:{"version":111,"md5":"33b6c5bd547233c4eac452494450a65d"}*/
+/*TMODJS:{"version":112,"md5":"33b6c5bd547233c4eac452494450a65d"}*/
 template('public/footer',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,user_info=$data.user_info,$each=$utils.$each,nav_list=$data.nav_list,nav=$data.nav,$index=$data.$index,$out='';$out+='<script> var app_path = \'../\'; </script> <aside id="offCanvasSide" class="mui-off-canvas-right"> <div id="offCanvasSideScroll" class="mui-scroll-wrapper"> <div class="mui-scroll">  <ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted"> <li class="mui-table-view-cell index_touxiang"><img src="';

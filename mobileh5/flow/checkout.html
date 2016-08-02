@@ -51,5 +51,12 @@
 				}
 			});
 //		});
+		if(mui.os.plus){
+				//自定义刷新时间
+			document.addEventListener('refresh',function(){
+				plus.webview.currentWebview().reload();
+			})
+
+		}
 	</script>
 </html>

@@ -65,8 +65,8 @@
 				});
 			});
 			
-			jQuery.ajaxJsonp(web_url+"/mobile/basic.php",{act:'navList'},function(data){				
-				replaceHtml('.mui-draggable > .mui-inner-wrap', template('public/footer', data));
+			jQuery.ajaxJsonp(web_url+"/mobile/basic.php",{act:'navList'},function(result){				
+				replaceHtml('.mui-draggable > .mui-inner-wrap', template('public/footer', result.data));
 			});
 
 		</script>

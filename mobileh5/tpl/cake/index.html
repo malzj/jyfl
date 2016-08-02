@@ -49,13 +49,15 @@
 		<div class="mui-row floor_list">
 			{{each attr.goods as good}}
 			<div class="mui-col-xs-6 floor_listBox">
+			<a data-href="details.html?id={{good.goods_id}}" class="href_click floor_list_a">
 				<div class="mui-pull-left floor_listLeft">
-					<div class="floor_list_name">{{good.goods_name}}</div>
-					<div class="floor_list_price"><em>{{good.shop_price}}</em></div>
+					<div class="floor_list_name mui-ellipsis-2">{{good.goods_name}}</div>
+					<div class="floor_list_price"><em>{{good.shop_price}}</em>点</div>
 				</div>
 				<div class="mui-pull-right">
-					<a data-href="details.html?id={{good.goods_id}}" class="href_click"><img src="{{good.goods_thumb}}" alt=""/></a>
+					<img src="{{good.goods_thumb}}" alt=""/>
 				</div>
+			</a>
 			</div>
 			{{/each}}
 		</div>

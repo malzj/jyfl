@@ -2057,16 +2057,25 @@ function get_navigator($ctype = '', $catlist = array())
 	//卡权限规则
 	$int_cityId   = $_SESSION['cityid'];//当前城市
 	$int_userName = $_SESSION['user_name'];//当前登录用户
-
-	$arr_cardRules = $GLOBALS['db']->getAll('SELECT id,navinfo,card,home_desc,time FROM '.$GLOBALS['ecs']->table('card_rule'));
 	
+	$arr_cardRules = $GLOBALS['db']->getAll('SELECT title,id,navinfo,card,home_desc,time FROM '.$GLOBALS['ecs']->table('card_rule'));
+	
+	//默认的卡规则
+	$defaultCard = array();
+	//显示的导航信息
+	$arr_showNav = array();
+	// 卡规则标示，true 存在卡规则，false 不存在卡规则
 	$user_card_status = false;
 	
 	$arr_homeInfo = array();
 	if (!empty($arr_cardRules)){
-		$arr_showNav = array();
 		foreach ($arr_cardRules as $key=>$var){
-			//print_r($var);
+		    // 默认卡规则
+		    if( strpos($var['title'], 'default') !==false )
+		    {
+		        $defaultCard[$key] = $var;
+		        
+		    }
 			if (!empty($var['card'])){
 				$arr_card = unserialize($var['card']);				
 			    if (in_array($int_userName, $arr_card)){
@@ -2089,7 +2098,34 @@ function get_navigator($ctype = '', $catlist = array())
 			}
 		}
 	}	
-	
+	// 如果不存在于卡规则里，就找默认的卡规则设置
+	if ( $user_card_status == false)
+	{
+	    foreach ( (array)$defaultCard as $value )
+	    {
+	       $cardBin = explode(',',$value['home_desc']); 
+	       if (in_array(substr($int_userName, 0,6),$cardBin))
+	       {
+	           $user_card_status = true;
+	           if (!empty($value['navinfo'])){
+	               $arr_cardRule = unserialize($value['navinfo']);
+	               foreach ($arr_cardRule as $k=>$v){
+	                   if (!empty($v['region'])){
+	                       $arr_region = explode(',', $v['region']);
+	                       if (in_array($int_cityId, $arr_region)){
+	                           $arr_showNav[$v['nav_id']] = $v['nav_id'];
+	                       }
+	                   }
+	               }
+	           }
+	           
+	           $arr_homeInfo['card_id'] = $value['id'];
+	       }
+	       
+	    }
+	}
+	//error_log(var_export($arr_homeInfo['card_id'],true),3,'error.log');
+	// 
 	$arr_middleNav = array();
 	foreach($navlist['middle'] as $k=>$v){
 		unset($navlist['middle'][$k]);

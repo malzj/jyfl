@@ -88,7 +88,7 @@
 	});
 	
 	jQuery('.public_footer').on('tap','.public_gongneng',function(){
-		jQuery('.public_popUp').css({'z-index':'1','visibility':'visible','transition-delay':'0s'});
+		jQuery('.public_popUp').css({'z-index':'10','visibility':'visible','transition-delay':'0s'});
 		jQuery('.popUp_item').addClass('active');
 		jQuery('.popUp_row').css({'transform':'translateY(0)','transition-delay':'0s'});
 		jQuery('.popUp_item:nth-child(1),.popUp_item:nth-child(2),.popUp_item:nth-child(3),.popUp_item:nth-child(4)').css('transition-delay','.05s');
@@ -105,8 +105,10 @@
 		jQuery('.popUp_item:nth-child(9),.popUp_item:nth-child(10),.popUp_item:nth-child(11),.popUp_item:nth-child(12)').css('transition-delay','.06s');
 		jQuery('.popUp_item:nth-child(13),.popUp_item:nth-child(14),.popUp_item:nth-child(15),.popUp_item:nth-child(16)').css('transition-delay','.03s');
 	});
-	
 	jQuery('.popUp_content').on('tap', 'a', function(){
+		jQuery('.public_popUp').css({'z-index':'-1','visibility':'hidden','transition-delay':'.2s'});
+		jQuery('.popUp_item').removeClass('active');
+		jQuery('.popUp_row').css({'transform':'translateY(100%)','transition-delay':'.4s','opcity':'0'});
 		var navid = jQuery(this).attr('data-id');
 		var jumpTohref = '';
 		switch(navid){

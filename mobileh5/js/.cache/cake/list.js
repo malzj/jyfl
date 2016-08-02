@@ -1,4 +1,4 @@
-/*TMODJS:{"version":44,"md5":"c6165f6b118ebf129d877d4170e02fac"}*/
+/*TMODJS:{"version":47,"md5":"6ed832fb9b4d91768259efa2f8e76501"}*/
 template('cake/list',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,data=$data.data,$each=$utils.$each,navigator=$data.navigator,$index=$data.$index,$escape=$utils.$escape,attr=$data.attr,alist=$data.alist,list=$data.list,$out='';$out+=' <div class="select_scroll">  ';
@@ -43,13 +43,13 @@ $out+=' <li class="mui-table-view-cell mui-media"> <a data-href="details.html?id
 $out+=$escape(list.goods_id);
 $out+='" class="href_click"> <img class="mui-media-object mui-pull-left" src="';
 $out+=$escape(list.goods_thumb);
-$out+='"> <div class="mui-media-body"> <h4 class="goods_name">';
+$out+='"> <div class="mui-media-body"> <h4 class="goods_name mui-ellipsis">';
 $out+=$escape(list.goods_name);
-$out+='</h4> <p class="goods_font">';
+$out+='</h4> <p class="goods_font mui-ellipsis-2">';
 $out+=$escape(list.goods_brief);
 $out+='</p> <div class="goods_price"><span>';
 $out+=$escape(list.shop_price);
-$out+='</span><span class="mui-icon iconfont icon-gouwuche" data-id="';
+$out+='点</span><span class="mui-icon iconfont icon-gouwuche" data-id="';
 $out+=$escape(list.goods_id);
 $out+='"></span></div> </div> </a> </li> ';
 });

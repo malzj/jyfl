@@ -1,7 +1,0 @@
-<div class="swiper-wrapper">
-{foreach from=$movies item=movie}
-	<div class="swiper-slide {if $movie.movieId eq $movieid } select {/if}">
-		<img src="{$movie.thumb}" class="img-responsive movieplan" data-movieid="{$movie.movieId}">
-	</div>					
-{/foreach}
-</div>

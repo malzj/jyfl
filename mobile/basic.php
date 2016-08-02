@@ -21,7 +21,16 @@ if ($_REQUEST['act'] == 'navList')
 {
     $navList = get_navigator();
     init_wap_middle($navList['middle']);
-    $jsonArray['data'] = $navList['middle'];
+
+    $sql = "SELECT region_name FROM ".$GLOBALS['ecs']->table('region')." WHERE region_id = '".$_SESSION['cityid']."'";
+    $city_cn = $GLOBALS['db']->getOne($sql);
+    $user_sql = 'SELECT u.nickname,u.pic,u.company_id,c.grade_id,c.company_name,c.logo_img,c.back_img FROM '.$GLOBALS['ecs']->table('users').' AS u LEFT JOIN '.$GLOBALS['ecs']->table('company').
+        ' AS c ON u.company_id = c.card_company_id WHERE user_id='.$_SESSION['user_id'];
+    $user_info = $GLOBALS['db']->getRow($user_sql);
+
+    $jsonArray['data']['nav_list'] = $navList['middle'];
+    $jsonArray['data']['user_info'] = $user_info;
+    $jsonArray['data']['city_cn'] = $city_cn;
     JsonpEncode($jsonArray); 
 }
 
@@ -46,19 +55,6 @@ elseif ($_REQUEST['act'] == 'getCityList')
 /*手机城市列表*/
 elseif($_REQUEST['act'] == 'getMobileCities'){
     $jsonArray['data'] = getMobileCities($_REQUEST['only_country']);
-    JsonpEncode($jsonArray);
-}
-/*首页背景图片及当前城市*/
-elseif($_REQUEST['act'] == 'indexShow'){
-    $sql = "SELECT region_name FROM ".$GLOBALS['ecs']->table('region')." WHERE region_id = '".$_SESSION['cityid']."'";
-    $city_cn = $GLOBALS['db']->getOne($sql);
-    $user_sql = 'SELECT company_id FROM '.$GLOBALS['ecs']->table('users').' where user_id='.$_SESSION['user_id'];
-    $company_id = $GLOBALS['db']->getOne($user_sql);
-    $sql1 = 'SELECT * FROM '.$GLOBALS['ecs']->table('company').' WHERE card_company_id = '.$company_id;
-    $company = $GLOBALS['db']->getRow($sql1);
-
-    $jsonArray['data'] = $company;
-    $jsonArray['data']['city_cn'] = $city_cn;
     JsonpEncode($jsonArray);
 }
 

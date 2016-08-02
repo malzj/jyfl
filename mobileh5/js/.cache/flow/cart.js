@@ -1,4 +1,4 @@
-/*TMODJS:{"version":165,"md5":"3c71b1cb16f150cad3cd0b07eacc7858"}*/
+/*TMODJS:{"version":166,"md5":"b61fee098840029b6b8b65d5259df8fa"}*/
 template('flow/cart',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,data=$data.data,$each=$utils.$each,supplier=$data.supplier,$index=$data.$index,goods=$data.goods,$out='';$out+='<nav class="mui-bar mui-bar-tab mui-row"> <div class="mui-col-xs-7"><a class="mui-tab-item">合计：<span class="color_2fd0b5 total-price">';
@@ -21,7 +21,7 @@ $out+='点</span> </div> <div class="mui-col-xs-3"> <span class="mui-icon mui-ic
 $out+=$escape(goods.rec_id);
 $out+='"></span> <div class="mui-numbox mui-pull-right" data-numbox-min=\'1\'> <button class="mui-btn-numbox-minus" type="button">-</button> <input class="mui-input-numbox" type="number" value="';
 $out+=$escape(goods.goods_number);
-$out+='" style="border: none!important;"/> <button class="mui-btn-numbox-plus" type="button">+</button> </div> </div> </div> </li> ';
+$out+='" style="border: none!important;font-size: 12px;"/> <button class="mui-btn-numbox-plus" type="button">+</button> </div> </div> </div> </li> ';
 });
 $out+=' </ul> </div> ';
 });

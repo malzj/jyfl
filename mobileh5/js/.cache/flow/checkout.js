@@ -1,11 +1,11 @@
-/*TMODJS:{"version":385,"md5":"add39da80b0989fb1936b3e166fa3aeb"}*/
+/*TMODJS:{"version":386,"md5":"fcbcb9b13ff5ec922506f3a7d5a986da"}*/
 template('flow/checkout',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,data=$data.data,$each=$utils.$each,supplier=$data.supplier,$index=$data.$index,goods=$data.goods,$out='';$out+='<nav class="mui-bar mui-bar-tab mui-row"> <div class="mui-col-xs-7"><a class="mui-tab-item">合计：<span class="color_2fd0b5 orderTotal" data-total="';
 $out+=$escape(data.total.goods_price_formated);
 $out+='">';
 $out+=$escape(data.total.goods_price_formated);
-$out+='</span>点</a></div> <div class="mui-col-xs-5"> <a class="mui-tab-item footer_jiaru" href="#"><span class="mui-tab-label">去结算</span></a></div> </nav> <div id="showmap" style="display:block;"></div> <div class="mui-content"> <div class="mui-table-view"> <div class="mui-table-view-cell"> <a class="mui-navigate-right href_click" data-href="../shouhuoxinxi.html?onlyCountry=1"> <h4>';
+$out+='</span>点</a></div> <div class="mui-col-xs-5"> <a class="mui-tab-item footer_jiaru" href="#"><span class="mui-tab-label">去结算</span></a></div> </nav> <div id="showmap" style="display:block;"></div> <div class="mui-content"> <div class="mui-table-view"> <div class="mui-table-view-cell"> <a class="mui-navigate-right href_click" data-href="../personal/shouhuoxinxi.html?onlyCountry=1"> <h4>';
 $out+=$escape(data.consignee.consignee);
 $out+=' ';
 $out+=$escape(data.consignee.mobile);

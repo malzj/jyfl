@@ -25,7 +25,6 @@
 		</script>
 	</head>
 	<body>
-		
 		<div class="mui-off-canvas-wrap mui-draggable">			    
 			<!-- 主页面容器 -->
 			<div class="mui-inner-wrap">
@@ -43,14 +42,8 @@
 				</div>
 				<div class="mui-off-canvas-backdrop"></div>
 			</div>
-			
-			
 		</div>
-		
-		
 		<script type="text/javascript">
-			
-			
 			// ajax调取数据
 			jQuery.ajaxJsonp(web_url+"/mobile/life.php",{act:'getNSIndex'},function(data){
 				if(data.state == 'false'){
@@ -71,7 +64,6 @@
 			jQuery.ajaxJsonp(web_url+"/mobile/basic.php",{act:'navList'},function(result){				
 				replaceHtml('.mui-draggable > .mui-inner-wrap header', template('public/footer', result.data));
 			});
-
 		</script>
 	</body>
 </html>

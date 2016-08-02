@@ -1,4 +1,4 @@
-/*TMODJS:{"version":161,"md5":"3c7984e89090a376287cab27eaf224be"}*/
+/*TMODJS:{"version":164,"md5":"3c71b1cb16f150cad3cd0b07eacc7858"}*/
 template('flow/cart',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,data=$data.data,$each=$utils.$each,supplier=$data.supplier,$index=$data.$index,goods=$data.goods,$out='';$out+='<nav class="mui-bar mui-bar-tab mui-row"> <div class="mui-col-xs-7"><a class="mui-tab-item">合计：<span class="color_2fd0b5 total-price">';
@@ -11,13 +11,13 @@ $out+='</div> <ul class="mui-table-view"> ';
 $each(supplier.goods_list,function(goods,$index){
 $out+=' <li class="mui-table-view-cell mui-media"> <div class="mui-row"> <div class="mui-col-xs-4"> <img class="mui-media-object mui-pull-left" src="';
 $out+=$escape(goods.goods_thumb);
-$out+='"> </div> <div class="mui-media-body mui-col-xs-5"> <h5>';
+$out+='"> </div> <div class="mui-media-body mui-col-xs-5"> <h5 class="mui-ellipsis">';
 $out+=$escape(goods.goods_name);
 $out+='</h5> <p class="gys_guige">';
 $out+=$escape(goods.goods_attr);
 $out+='</p> <span class="color_dd4223">';
 $out+=$escape(goods.goods_price);
-$out+='</span> </div> <div class="mui-col-xs-3"> <span class="mui-icon mui-icon-trash mui-pull-right cart-delete" data-id="';
+$out+='点</span> </div> <div class="mui-col-xs-3"> <span class="mui-icon mui-icon-trash mui-pull-right cart-delete" data-id="';
 $out+=$escape(goods.rec_id);
 $out+='"></span> <div class="mui-numbox mui-pull-right" data-numbox-min=\'1\'> <button class="mui-btn-numbox-minus" type="button">-</button> <input class="mui-input-numbox" type="number" value="';
 $out+=$escape(goods.goods_number);

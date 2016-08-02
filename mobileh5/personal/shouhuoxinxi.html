@@ -164,7 +164,7 @@
 									selectword = '设为默认';
 									selected = '';
 								}
-								html += '<li class="mui-table-view-cell"><div class="mui-slider-right mui-disabled">' +
+								html += '<li class="mui-table-view-cell address"><div class="mui-slider-right mui-disabled">' +
 										'<a class="mui-btn mui-btn-yellow shouhuo_edit" data-address-id="' + val.address_id + '" href="#change_adress">编辑</a>' +
 										'<a class="mui-btn mui-btn-red shouhuo_remove" data-address-id="' + val.address_id + '">删除</a>' +
 										'</div><div class="mui-slider-handle"><div class="mui-table"><div class="mui-table-cell">' +
@@ -196,7 +196,7 @@
 									selectword = '设为默认';
 									selected = '';
 								}
-								html += '<li class="mui-table-view-cell"><div class="mui-slider-right mui-disabled">' +
+								html += '<li class="mui-table-view-cell address"><div class="mui-slider-right mui-disabled">' +
 										'<a class="mui-btn mui-btn-yellow shouhuo_edit" data-address-id="' + val.address_id + '" href="#change_adress">编辑</a>' +
 										'<a class="mui-btn mui-btn-red shouhuo_remove" data-address-id="' + val.address_id + '">删除</a>' +
 										'</div><div class="mui-slider-handle"><div class="mui-table"><div class="mui-table-cell">' +
@@ -333,32 +333,27 @@
 				//				}, 1000);
 
 				//点击设为默认地址操作
-				$('#shouhuo_list').on('tap','.mui-input-row.mui-radio',function(){
+				$('#shouhuo_list').on('tap','.mui-table-view-cell.address',function(){
 					var address_id =this.getElementsByTagName('input')[0].value;
 					jQuery.ajaxJsonp(web_url+'/mobile/address.php',{act:'AjaxAddressDefault',address_id:address_id},function(result){
 						if(result.state=='true'){
-							$.alert(result.message,function(){
 //								如果是下单页面选默认地址，则选择默认后返回
-								if(onlyCountry==1){
-									if(!mui.os.plus) {
-										$.back();
-									}else{
-										mui.plusReady(function() {
-											var self = plus.webview.currentWebview();
-											var opener = self.opener();
-											mui.fire(opener,'refresh');
-											self.close();
-											opener.show();
-										});
-									}
-									return false;
-								}
-								if(onlyCountry==1){
-									cityAddressList();
+							if(onlyCountry==1){
+								if(!mui.os.plus) {
+									$.back();
 								}else{
-									showAdressList();
+									mui.plusReady(function() {
+										var self = plus.webview.currentWebview();
+										var opener = self.opener();
+										mui.fire(opener,'refresh');
+										self.close();
+										opener.show();
+									});
 								}
-							})
+								return false;
+							}else{
+								showAdressList();
+							}
 						}else if(result.state=='false'){
 							jQuery.errorJudge(result.data,result.message);
 						}

@@ -50,7 +50,7 @@
 			mui.init();
 			jQuery.ajaxJsonp(web_url+"/mobile/basic.php",{act:'navList'},function(result){
 				if(result.state == 'false'){
-					jQuery.errorJudge(result,data,result.message,function(){
+					jQuery.errorJudge(result.data,result.message,function(){
 						mui.back();	
 					});					
 				}else if(result.state=='true'){

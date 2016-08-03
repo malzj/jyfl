@@ -12,12 +12,14 @@ include_once(ROOT_PATH . 'includes/lib_basic.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_dongsport.php');
 
-if ((DEBUG_MODE & 2) != 2)
-{
-	$smarty->caching = false;
-}
+// 返回的数据
+$jsonArray = array(
+    'state'=>'true',
+    'data'=>'',
+    'message'=>''
+);
 
-assign_template();
+//assign_template();
 
 // 分页
 $int_page     = (isset($_GET['page']) && $_GET['page'] > 1) ? intval($_GET['page']) : 1;
@@ -94,17 +96,18 @@ $where.= ' AND is_sale = 0';
 // 统计数据
 $count = get_venues_count($where);
 $data  = get_venues($where, $int_start, $int_pageSize);
-$pager = get_pager('venues.php', $pageParam, $count, $int_page, $int_pageSize);
+$pager = get_wap_pager($count, $int_pageSize, $int_page, 'venues.php');
 
-$smarty->assign('typeId', $type);
-$smarty->assign('areaId', $area);
-$smarty->assign('area_list', $areaList);
-$smarty->assign('venues_type', $venues);
-$smarty->assign('list', $data);
-$smarty->assign('pager', $pager);
-$smarty->assign('keyword', $keyWord);
-$smarty->assign('backHtml',           getBackHtml('venuesindex.php'));
-$smarty->display('venues/venuesList.dwt');
+$jsonArray['data'] = array(
+    'typeId'=>$type,
+    'areaId'=>$area,
+    'area_list'=>$areaList,
+    'venues_type'=>$venues,
+    'list'=>$data,
+    'pager'=>$pager,
+    'keyword'=>$keyWord
+);
+JsonpEncode($jsonArray);
 
 // 获得场馆项目
 function venuesType()

@@ -43,7 +43,7 @@
 			mui('body').on('tap','#shipping',function(){
 				jQuery.jumpTo('../personal/shouhuoxinxi.html?onlyCountry=1');
 			});
-			mui.init()
+			mui.init();
 			if(mui.os.plus){
 				document.addEventListener('refresh',function(){
 					plus.webview.currentWebview().reload();

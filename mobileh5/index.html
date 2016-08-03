@@ -7,15 +7,14 @@
     <link rel="stylesheet" href="css/mui.min.css"/>
     <link rel="stylesheet" href="css/jy_index.css">
     <link rel="stylesheet" href="css/new_href.css"/>
+    <link rel="stylesheet" href="css/public.css" />
     <script src="js/connection.js"></script>
     <script src="js/rem.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jqueryExtend.js"></script>
     <script src="js/mui.min.js"></script>
     <style>
-        .mui-pages {
-            top:0;
-        }
+        .mui-pages {top:0;}
     </style>
 </head>
 <body class="mui-fullscreen">
@@ -174,6 +173,7 @@
                         localStorage.user_id = result.data.user_id;
                         localStorage.user_name = result.data.user_name;
                         jQuery.jumpTo('./index/jy_index.html');
+						
                     } else {
                         mui.alert(result.message);
                     }

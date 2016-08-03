@@ -5,7 +5,8 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../../mobileh5/css/mui.css" rel="stylesheet" />
+		<link href="../../mobileh5/css/public.css" rel="stylesheet" />
 	</head>
 
 	<body>
@@ -14,11 +15,85 @@
 		    <h1 class="mui-title">运动健身</h1>
 		</header>
 		<div class="mui-content">
-		    <div></div>
+		    <div class="sports_top mui-clearfix">
+		    	<div class="sports_item">
+		    		<a href="#"><img src="../../mobileh5/images/sports/yumaoqiu.svg" alt="" />羽毛球</a>
+		    	</div>
+		    	<div class="sports_item">
+		    		<a href="#"><img src="../../mobileh5/images/sports/pinpangqiu.svg" alt="" />乒乓球</a>
+		    	</div>
+		    	<div class="sports_item">
+		    		<a href="#"><img src="../../mobileh5/images/sports/wangqiu.svg" alt="" />网球</a>
+		    	</div>
+		    	<div class="sports_item">
+		    		<a href="#"><img src="../../mobileh5/images/sports/lanqiu.svg" alt="" />篮球</a>
+		    	</div>
+		    	<div class="sports_item">
+		    		<a href="#"><img src="../../mobileh5/images/sports/zuqiu.svg" alt="" />足球</a>
+		    	</div>
+		    	<div class="sports_item">
+		    		<a href="#"><img src="../../mobileh5/images/sports/taiqiu.svg" alt="" />台球</a>
+		    	</div>
+		    	<div class="sports_item">
+		    		<a href="#"><img src="../../mobileh5/images/sports/gaoerfu.svg" alt="" />高尔夫</a>
+		    	</div>
+		    	<div class="sports_item">
+		    		<a href="#"><img src="../../mobileh5/images/sports/youyong.svg" alt="" />游泳</a>
+		    	</div>
+		    	<div class="sports_item">
+		    		<a href="#"><img src="../../mobileh5/images/sports/jianshen.svg" alt="" />有氧健身</a>
+		    	</div>
+		    	<div class="sports_item">
+		    		<a href="#"><img src="../../mobileh5/images/sports/yujia.svg" alt="" />瑜伽</a>
+		    	</div>
+		    </div>
+		    <div class="mui-table-view margin_top_20 sports_area_btn">
+		    	<div class="mui-table-view-cell mui-text-center">
+		    	<span>区域</span><span class="mui-icon mui-icon-arrowdown"></span>
+		    	</div>
+		    </div>
+		    <!--区域下拉-->
+		    <div class="sports_area mui-row mui-text-center" style="display: none;">
+		    		<div class="mui-col-xs-3 sports_area_item"><a href="#">朝阳区</a></div>
+		    		<div class="mui-col-xs-3 sports_area_item"><a href="#">朝阳区</a></div>
+		    		<div class="mui-col-xs-3 sports_area_item"><a href="#">朝阳区</a></div>
+		    		<div class="mui-col-xs-3 sports_area_item"><a href="#">朝阳区</a></div>
+		    		<div class="mui-col-xs-3 sports_area_item"><a href="#">朝阳区</a></div>
+		    		<div class="mui-col-xs-3 sports_area_item"><a href="#">朝阳区</a></div>
+		    		<div class="mui-col-xs-3 sports_area_item"><a href="#">朝阳区</a></div>
+		    </div>
+		    <!--列表-->
+		    <div class="mui-table-view sports_list">
+		    	<div class="mui-table-view-cell">
+		    		<div class="sports_list_img mui-pull-left">
+		    			<img src="../../mobileh5/images/cake_index.png" alt="" />
+		    		</div>
+		    		<div class="sports_list_center mui-pull-left">
+		    			<h4 class="mui-ellipsis">忘不了羽毛球俱乐部fsgfdafdaa</h4>
+		    			<div class="mui-ellipsis color_8f8f94">羽毛球</div>
+		    			<div class="color_8f8f94">400-888888</div>
+		    			<div class="mui-ellipsis color_8f8f94">北京市北京市fdasfsdafsad</div>
+		    		</div>
+		    		<div class="sports_list_right mui-pull-right">
+		    			<div class="sports_list_price"><span class="color_coral">72</span>点起</div>
+		    			<button type="button" class="sports_list_btn">查看场馆</button>
+		    		</div>
+		    	</div>
+		    </div>
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="../../mobileh5/js/jquery-1.9.1.min.js"></script>
+		<script src="../../mobileh5/js/rem.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			var mask = mui.createMask();//创建蒙版
+			jQuery('.sports_area_btn')[0].addEventListener('tap',function(){
+				jQuery('.sports_area').css('display','block');
+				mask.show();
+			})
+			jQuery(document).on('tap','.mui-backdrop',function(){
+				jQuery('.sports_area').css('display','none');
+			})
 		</script>
 	</body>
 

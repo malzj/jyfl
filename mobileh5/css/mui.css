@@ -1921,13 +1921,10 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
 .mui-table-view
 {
     position: relative;
-
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 0;
-
     list-style: none;
-
     background-color: #fff;
 }
 .mui-table-view:after
@@ -2073,11 +2070,8 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
 .mui-table-view-cell
 {
     position: relative;
-
     overflow: hidden;
-
     padding: 11px 15px;
-
     -webkit-touch-callout: none;
 }
 .mui-table-view-cell:after
@@ -3568,11 +3562,10 @@ select:focus
 {
     position: fixed;
     z-index: 998;
-    top: 0;
+    top: 282px;
     right: 0;
     bottom: 0;
     left: 0;
-
     background-color: rgba(0, 0, 0, .3);
 }
 

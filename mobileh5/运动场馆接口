@@ -1,0 +1,69 @@
+数据类型：
+	state   状态
+	data	返回的json数据
+	message 当状态是 false时，对应的错误提示
+
+所有数据使用，请参考华影手机端对应的html页面。
+
+===============================================================================================
+
+	说明：运动场馆首页接口
+	地址：mobile/venues.php
+	参数：page=下一页面, type = 运动场馆code， area = 运动场馆区域dongwang_id，
+	备注：无
+
+	说明：运动场馆详情接口
+	地址：venues_detail.php
+	参数：venueId=场馆id
+	备注：无
+
+	说明：场地选择页接口
+	地址：venues_show.php
+	参数：venueId=场馆id， infoId=信息id， orderDate=预定时间
+	备注：无
+
+	说明：提交场地选择接口
+	地址：venues_order.php?act=saveOrder
+	参数：好多
+	备注：返回order_id,venue_id
+
+	说明：获取场馆信息及订单接口
+	地址：venues_order.php?act=getOrder
+	参数：提交场地选择接口返回的orderid,venueid
+	备注：无
+
+	说明：场馆订单支付接口
+	地址：venues_order.php?act=pay
+	参数：orderid订单id,password支付密码
+	备注：无
+
+	说明：场馆门票选择页面接口
+	地址：ticket_show.php
+	参数：productno=产品id
+	备注：无
+
+	说明：场馆门票价格日历接口
+	地址：ticket_show.php?step=price
+	参数：orderid订单id,password支付密码
+	备注：无
+
+	说明：场馆门票核对订单接口
+	地址：ticket_show.php?step=cart
+	参数：product=产品id， date=门票日期
+	备注：无
+
+	说明：场馆门票下单接口
+	地址：ticket_order.php?step=done
+	参数：太多
+	备注：返回orderid订单id
+
+	说明：场馆门票订单获取接口
+	地址：ticket_order.php?step=upay
+	参数：orderid订单id
+	备注：无
+
+	说明：场馆门票订单支付接口
+	地址：ticket_order.php?step=pay
+	参数：order_id订单id, order_amount订单总价
+	备注：无
+

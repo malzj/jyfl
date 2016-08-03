@@ -48,7 +48,11 @@
 					}
 				});
 			});
-			mui.init()
+			mui.init();
+			//重定义back函数
+			mui.back = function(){
+				window.history.go(-2);
+			}
 		</script>
 	</body>
 

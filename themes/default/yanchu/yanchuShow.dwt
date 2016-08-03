@@ -6,7 +6,9 @@
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
 		<script src="{$app_path}js/juyoufuli/stickUp.js"></script>
-        
+        <style type="text/css">
+        	.yanchu_tips{margin: 10px;color: orange;}
+        </style>
 	</head>
 	<body>
         <!-- 头部 -->

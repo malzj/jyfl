@@ -62,8 +62,8 @@
                     <h1><a href="venues_detail.php?venueId={$row.venue.venueId}" target="_blank">{$row.venue.venueName}</a></h1>
                     <ul class="sport1_li_margin">
                         <li class="adress">详细地址：{$row.venue.place}</li>
-                        <li>联系电话：<b>00-662-5170</b>{if $row.venue.tel400} 转 <span style="color: #ff610b;">{$row.venue.tel400}</span>{/if}</li>
-                        <li>场馆标签： 羽毛球</li>
+                        <li>联系电话：<b>400-662-5170</b>{if $row.venue.tel400} 转 <span style="color: #ff610b;">{$row.venue.tel400}</span>{/if}</li>
+                        <li>场馆标签： {$row.venue.sportName}</li>
                         <li>
                             <div class="list-tab">
                             {if $row.venueSite}

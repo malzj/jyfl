@@ -36,6 +36,7 @@ if ($_REQUEST['step'] == 'cart')
 	$detail = get_detail($product);
 	
 	// 没有产品详细，跳转到门票列表
+	$detail_filter = array_filter($detail);
 	if (empty($detail))
 	{
 		ecs_header("location:venues.php");
@@ -422,7 +423,8 @@ else if($_REQUEST['step'] == 'respond'){
 function get_detail($product){	
 	$detailName = 'dongpiao-detail-'.$product;
 	$detail = F($detailName, '', 1800, 'dongpiao/');
-	if (empty($detail))
+	$detail_filter = array_filter($detail);
+	if (empty($detail_filter))
 	{
 		$arr_param = array( 'productNo' => $product	);
 		$detail_tmp = getDongapi('detail', $arr_param );

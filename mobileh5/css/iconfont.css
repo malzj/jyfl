@@ -12,7 +12,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 .icon-order:before { content: "\e600"; }
+.icon-dianhua:before { content: "\e605"; }
 .icon-gouwuche:before { content: "\e601"; }
+.icon-dizhi:before { content: "\e606"; }
 .icon-site-copy:before { content: "\e604"; }
 .icon-zhuye:before { content: "\e602"; }
 .icon-wode:before { content: "\e603"; }

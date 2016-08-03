@@ -216,8 +216,13 @@ a{color: black;}
 .order_shiwu_item_bottom{font-size: 12px;padding: 10px 15px;background: white;border-bottom: 1px solid #ddd;}
 .shiwu_item_bottom_btn a{color: #2fd0b5;padding: 5px;border: 1px solid #2fd0b5;border-radius: 2px;}
 .order_shiwu_box{background: white;}
-.order_shiwu_item{background: #efeff4;}
+.order_shiwu_item{background: #f8f8f8;}
 .shiwu_item_middle_foodsNum{margin-right: 10px;}
+.order_shiwu_address{background: white;padding: 10px 15px;border-bottom: 1px solid #ddd;}
+.order_shiwu_address p{margin-bottom: 0;}
+.order_shiwu_fukuan{width: 80%;background: #2fd0b5;color: white;margin: 15px 0;}
+.question_box{padding: 20px;font-size: 16px;background: white;}
+.question_item{margin: 10px 0;}
 /*iphone5字体适配*/
 @media only screen and (max-width: 320px) {
 	body{font-size: 12px;}
@@ -233,3 +238,40 @@ a{color: black;}
 .empty_cart_box{width: 60%;text-align: center;margin: 0 auto;position: absolute;left: 50%;top: 50%;transform: translate(-50%,-100%);-webkit-transform: translate(-50%,-100%);}
 .empty_cart_box img{width: 25%;}
 .empty_cart_box button{background: #2fd0b5;color: white;width: 6rem;}
+/*通用ajax请求前动画*/
+#mui-loading-box{position: absolute;height: 100%;top: 0;width: 100%;color: white;font-size: 12px;text-align: center;background:transparent;}
+#mui-loading-box .mui-loading{position:absolute;top: 50%;width: 90px;height:70px;background: rgba(1,1,1,.8);left: 50%;transform: translate(-50%,-50%);border-radius: 10px;}
+#mui-loading-box .mui-spinner{margin-top: 10px;margin-bottom: 5px;}
+/*sports*/
+.sports_top{
+    background: white;
+    padding-bottom: 10px;
+    }
+.sports_item{
+	text-align: center;
+	float: left;
+	width: 20%;
+	font-size: 12px;
+	}
+.sports_item img{display: block;width: 30px;margin: 15px auto;}
+.sports_list_img img{
+    width: 100%;
+    max-width: 114px;
+}
+.sports_list_img{line-height: 1;width: 103px;width: 5.15rem;}
+.sports_list_center{padding-left: 5px;width: 172px;width: 8.3rem;line-height: 1.25rem;}
+.sports_list_right {/* position: absolute; */width: 70px;width: 3.5rem;/* right: 10px; *//* transform: translateY(-50%); *//* top: 50%; */text-align: center;}
+.sports_list_btn{font-size: 12px;background: #2fd0b5;color: white;border: 0;margin-top: 10px;padding: 5px 8px;border-radius: 8px;}
+.sports_list_price .color_coral{font-size: 18px;}
+.sports_list_price{margin-top: 20px;}
+.sports_list{background: transparent;}
+.sports_list_center{font-size: 12px;}
+.sports_list_center h4{font-size: 14px;margin-top: 1px;}
+.sports_area_item{padding: 10px 0;}
+.sports_area{background: #f0f0f0;position: relative;z-index: 999;}
+.sports_top_img img {width: 100%;height:100%;}
+.sports_top_img{width: 100px;height: 70px;}
+.sports_top_imgNum{padding-left: 10px;position: absolute;color: white;font-size: 12px;width: 100%;background: rgba(1,1,1,.4);bottom: 0;}
+.sports_top_right{margin: 10px;}
+.sports_top_right p{font-size: 12px;margin-top: 10px;}
+.sports_top_right h4{margin-top: 13px;}

@@ -29,9 +29,10 @@ ul li{list-style: none;}
 /*复写Mui部分样式*/
 a{color: black;}
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
-	color: #2fd0b5;
-    border-bottom: 2px solid #2fd0b5;
-    background: 0 0;}
+	color: #2fd0b5!important;
+	border-bottom: 2px solid #2fd0b5;
+	background: 0 0;
+	}
 .mui-h4, h4{font-size: 16px;}  
 .mui-bar-tab .mui-tab-item.mui-active{color: #2fd0b5;}  
 /*jy_index*/
@@ -275,3 +276,10 @@ a{color: black;}
 .sports_top_right{margin: 10px;}
 .sports_top_right p{font-size: 12px;margin-top: 10px;}
 .sports_top_right h4{margin-top: 13px;}
+.sports_details_date{margin-right: 5px;}
+.sports_details_item2 i{font-size: 16px;}
+.sports_details_ticket{position: absolute;padding: 5px 10px;right: 0;top: -3px;border-radius: 5px;background: #2fd0b5;color: white;border: none;font-size: 12px;}
+.sports_details_item2 li{padding: 15px;}
+.sports_details_item2 .mui-col-xs-4{position: relative;}
+/*运动门票日历*/
+.calendar_title{text-align: center;color: #2fd0b5;}

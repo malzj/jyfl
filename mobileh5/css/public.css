@@ -282,4 +282,14 @@ a{color: black;}
 .sports_details_item2 li{padding: 15px;}
 .sports_details_item2 .mui-col-xs-4{position: relative;}
 /*运动门票日历*/
-.calendar_title{text-align: center;color: #2fd0b5;}
+.calendar_title{padding: 10px 0;text-align: center;color: #2fd0b5;}
+.calendar_price{display: block;font-size: 12px;}
+.calendarBox table{width: 100%;}
+.calendarBox table tr{border-bottom: 1px solid #ddd;}
+.calendarBox table tr td{text-align: center;font-size: 18px;padding: 5px 0px;}
+.calendarBox table tr td div{height: 45px;width: 45px;margin: 0 auto;padding-top: 1px;}
+.calendarBox table tr th{font-size: 12px;}
+.calendar_buy div{border-radius: 50%;background: #cccccc;color: white;}
+.calendar_buy.active div{background: #2fd0b5;}
+.ticket_buy_btn{background: #2fd0b5;}
+.ticket_buy_btn a{color: white!important;font-size: 16px;}

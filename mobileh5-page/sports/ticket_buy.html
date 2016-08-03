@@ -17,6 +17,9 @@
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">立即购买</h1>
 		</header>
+		<nav class="mui-bar mui-bar-tab ticket_buy_btn">
+		    <a class="mui-tab-item">立即购买</a>
+		</nav>
 		<div class="mui-content">
 		    <div class="sports_details_top bg_white mui-clearfix">
 		    	<div class="mui-content-padded mui-pull-left">
@@ -44,18 +47,57 @@
 			<!--日历选择控件-->
 			<div class="margin_top_10 calendarBox bg_white">
 				<div class="calendar_title">2016年五月价格日历（选择游玩日期预定）</div>
-				<table border="" cellspacing="" cellpadding="">
+				<table border="0">
 					<tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr>
-					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+					<tr>
+						<td><div>1<span class="calendar_price"></span></div></td>
+						<td><div>2<span class="calendar_price">72点</span></div></td>
+						<td><div>3<span class="calendar_price">72点</span></div></td>
+						<td class="calendar_buy"><div>4<span class="calendar_price">72点</span></div></td>
+						<td><div>5<span class="calendar_price">72点</span></div></td>
+						<td><div>6<span class="calendar_price">72点</span></div></td>
+						<td class="calendar_buy"><div>7<span class="calendar_price">172点</span></div></td>
+					</tr>
+					<tr>
+						<td><div>1<span class="calendar_price">72点</span></div></td>
+						<td><div>2<span class="calendar_price">72点</span></div></td>
+						<td><div>3<span class="calendar_price"></span></div></td>
+						<td class="calendar_buy"><div>4<span class="calendar_price"></span></div></td>
+						<td class="calendar_buy"><div>5<span class="calendar_price"></span></div></td>
+						<td class="calendar_buy"><div>6<span class="calendar_price"></span></div></td>
+						<td class="calendar_buy"><div>7<span class="calendar_price"></span></div></td>
+					</tr>
+					<tr>
+						<td class="calendar_buy active"><div>1<span class="calendar_price">72点</span></div></td>
+						<td class="calendar_buy"><div>2<span class="calendar_price">72点</span></div></td>
+						<td><div>3<span class="calendar_price"></span></div></td>
+						<td><div>4<span class="calendar_price"></span></div></td>
+						<td><div>5<span class="calendar_price"></span></div></td>
+						<td><div>6<span class="calendar_price"></span></div></td>
+						<td><div>7<span class="calendar_price"></span></div></td>
+					</tr>
+					<tr>
+						<td><div>1<span class="calendar_price">72点</span></div></td>
+						<td><div>2<span class="calendar_price">72点</span></div></td>
+						<td><div>3<span class="calendar_price"></span></div></td>
+						<td><div>4<span class="calendar_price"></span></div></td>
+						<td><div>5<span class="calendar_price"></span></div></td>
+						<td><div>6<span class="calendar_price"></span></div></td>
+						<td><div>7<span class="calendar_price"></span></div></td>
+					</tr>
 				</table>
 			</div>
 		</div>
 		<script src="../../mobileh5/js/mui.min.js"></script>
+		<script src="../../mobileh5/js/jquery-1.9.1.min.js"></script>
 		<script src="../../mobileh5/js/mui.zoom.js"></script>
 		<script src="../../mobileh5/js/mui.previewimage.js"></script>
 		<script type="text/javascript">
 			mui.init();
 			mui.previewImage();
+			jQuery('body').on('tap','.calendar_buy',function(){
+				$(this).addClass('active').siblings().removeClass('active').parents('tr').siblings().find('.calendar_buy').removeClass('active')
+			})
 		</script>
 	</body>
 </html>

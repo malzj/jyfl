@@ -42,7 +42,6 @@ if ($_REQUEST['step'] == 'show')
 		
 	$dongpiaoName = 'dongpiao-detail-'.$product;
 	$dongpiao = F($dongpiaoName, '', 1800, 'dongpiao/');
-
 	$dongpiao_filter = array_filter($dongpiao);
 	if (empty($dongpiao_filter))
 	{
@@ -111,7 +110,7 @@ if ($_REQUEST['step'] == 'show')
 // ajax 价格日历
 else if($_REQUEST['step'] == 'price'){
 	// 引入日历类（只适合动网）
-	include_once(ROOT_PATH . 'includes/calendar.php');
+	include_once(dirname(__FILE__)  . '/includes/calendar.php');
 	
 	$date = date('Y-m-d',strtotime(local_date('Y-m-d')));
 	

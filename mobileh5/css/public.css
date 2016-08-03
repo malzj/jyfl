@@ -293,3 +293,6 @@ a{color: black;}
 .calendar_buy.active div{background: #2fd0b5;}
 .ticket_buy_btn{background: #2fd0b5;}
 .ticket_buy_btn a{color: white!important;font-size: 16px;}
+/*运动门票订单*/
+.ticket_order_tips{background: #fdf4d9;padding: 10px 0;}
+.ticket_buy_tips{padding: 0 10px 0 15px;font-size: 12px;}

@@ -3,6 +3,7 @@
 define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
+require(dirname(__FILE__) . '/includes/lib_venues.php');
 include_once(ROOT_PATH . 'includes/lib_basic.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_dongsport.php');
@@ -13,6 +14,8 @@ $jsonArray = array(
 	'data'=>'',
 	'message'=>''
 );
+
+set_card_rules();
 
 if (!isset($_REQUEST['step']))
 {

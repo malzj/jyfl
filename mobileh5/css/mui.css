@@ -3562,7 +3562,7 @@ select:focus
 {
     position: fixed;
     z-index: 998;
-    top: 282px;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;

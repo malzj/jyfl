@@ -268,3 +268,10 @@ a{color: black;}
 .sports_list_center{font-size: 12px;}
 .sports_list_center h4{font-size: 14px;margin-top: 1px;}
 .sports_area_item{padding: 10px 0;}
+.sports_area{background: #f0f0f0;position: relative;z-index: 999;}
+.sports_top_img img {width: 100%;height:100%;}
+.sports_top_img{width: 100px;height: 70px;}
+.sports_top_imgNum{padding-left: 10px;position: absolute;color: white;font-size: 12px;width: 100%;background: rgba(1,1,1,.4);bottom: 0;}
+.sports_top_right{margin: 10px;}
+.sports_top_right p{font-size: 12px;margin-top: 10px;}
+.sports_top_right h4{margin-top: 13px;}

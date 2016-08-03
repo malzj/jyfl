@@ -8,6 +8,7 @@ define('IN_ECS', true);
  */
 define('SHOW_TYPE', 'VENUES');
 require(dirname(__FILE__) . '/includes/init.php');
+require(dirname(__FILE__) . '/includes/lib_venues.php');
 include_once(ROOT_PATH . 'includes/lib_basic.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_dongsport.php');
@@ -19,7 +20,7 @@ $jsonArray = array(
     'message'=>''
 );
 
-//assign_template();
+set_card_rules();
 
 // 分页
 $int_page     = (isset($_GET['page']) && $_GET['page'] > 1) ? intval($_GET['page']) : 1;

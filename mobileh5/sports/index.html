@@ -29,7 +29,7 @@
 			jQuery.hrefClick();
 			jQuery.ajaxJsonp(web_url+'/mobile/venues.php','',function(result){
 				if(result.state=='true'){
-//					console.log(result);
+					console.log(result);
 					replaceHtml('header',template('sports/tmp_index',result.data));
 				}else if(result.state=='false'){
 					jQuery.errorJudge(result.data,result.message);
@@ -57,6 +57,7 @@
 			mui('body').on('tap','.sports_top .sports_item a',function(){
 				venue_type = this.getAttribute('data-code');
 				jQuery.ajaxJsonp(web_url+'/mobile/venues.php',{type:venue_type,area:area_id},function(result){
+					console.log(result);
 					showArea(result.data.area_list);
 					venueList(result.data.list);
 				});
@@ -66,6 +67,7 @@
 			mui('body').on('tap','.sports_area .sports_area_item',function(){
 				area_id = this.getAttribute('data-dongwang-id');
 				jQuery.ajaxJsonp(web_url+'/mobile/venues.php',{type:venue_type,area:area_id},function(result) {
+					console.log(result);
 					venueList(result.data.list);
 				});
 			});

@@ -46,9 +46,9 @@
 	<div class="cake_details_title mui-row bg_white">
 		<div class="mui-col-xs-8">
 			<h4>{{data.goods.goods_name}}</h4>
-			<span id='price-total'>--</span>
+			<span class="color_coral" id='price-total'>--</span>
 		</div>
-		<div class="mui-col-xs-4">
+		<div class="mui-col-xs-4 mui-text-right">
 			<div class="mui-numbox" data-numbox-min='1'>
 					<button class="mui-btn-numbox-minus" type="button">-</button>
 					<input class="mui-input-numbox" type="number" name="number" id="number" />
@@ -122,7 +122,7 @@
 		var attr = getSelectedAttributes(document.forms['ECS_FORMBUY']);		
 		var qty = jQuery('input[type=number]').val();
 		jQuery.ajaxJsonp(web_url+"/mobile/goods.php",{act:'price',id:goods_id, attr:attr, number:qty},function(result){
-			$('#price-total').html(result.data.shopPrice);
+			$('#price-total').html(result.data.shopPrice+'点');
 		});
 	}
 	 

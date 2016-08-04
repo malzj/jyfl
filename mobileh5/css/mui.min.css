@@ -223,7 +223,7 @@ body {
 	font-family: 'Helvetica Neue', Helvetica, sans-serif;
 	font-size: 17px;
 	line-height: 21px;
-	color: #000;
+	color: #333;
 	background-color: #efeff4;
 	-webkit-overflow-scrolling: touch;
 }

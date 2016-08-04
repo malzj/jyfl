@@ -192,7 +192,7 @@
                     <div class="sport_item_content">
                         <a href="venues.php?type=0P02">
                             <div class="sport_pic pic_10"></div>
-                            <div class="sport_title1">游泳健身</div>
+                            <div class="sport_title1">有氧健身</div>
                             <div class="sport_title2">
                                 {if $data.0P02.venuesTotal}<span class="font_1">{$data.0P02.venuesTotal}</span>场馆{/if}
                                 {if $data.0P02.venueTotal}<span class="font_2">{$data.0P02.venueTotal}</span>场地{/if}

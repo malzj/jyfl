@@ -17,7 +17,7 @@
                }
            }
            prev = (typeof prev === "function")?prev:function(){
-               var html ='<div id="mui-loading-box" class="mui-scroll"><div class="mui-loading"><div class="mui-spinner"></div></div></div>';
+               var html ='<div id="mui-loading-box" class="mui-scroll"><div class="mui-loading"><div class="mui-spinner"></div>正在加载</div></div>';
                $('body').append(html);
            }
            after = (typeof after === "function")?after:function(){

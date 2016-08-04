@@ -9,7 +9,7 @@
 <div class="mui-content">
     <div class="mui-table-view">
 		<div class="mui-table-view-cell">
-			<a class="mui-navigate-right href_click" data-href="../shouhuoxinxi.html?onlyCountry=1">
+			<a class="mui-navigate-right href_click" data-href="../personal/shouhuoxinxi.html?onlyCountry=1">
 				<h4>{{data.consignee.consignee}} {{data.consignee.mobile}}</h4>
 				<p>{{data.consignee.country_cn}} {{data.consignee.province_cn}} {{data.consignee.address}}</p>
 			</a>
@@ -100,7 +100,6 @@
 <!--选择修改配送地址 end-->
 
 <script type="text/javascript">
-
 	/* 当检测不通过时，是否显示提示信息*/
 	var is_show_error = true;
 	/*动态导入js*/
@@ -130,7 +129,6 @@
 			if(data.state == 'false'){
 				jQuery.errorJudge(data,data.message);
 			}else{
-				console.log(data);
 				mui.openWindow({
 					url:'./pay.html?order_id='+data.data[0].order_id
 				});

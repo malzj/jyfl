@@ -1,4 +1,4 @@
-/*TMODJS:{"version":24,"md5":"904326455ecd445c173d8cd6f5b18790"}*/
+/*TMODJS:{"version":31,"md5":"6dca2742cdc3e19e276b9e14a743a475"}*/
 template('yanchu/tmp_yanchu_detail',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,iteminfo=$data.iteminfo,$each=$utils.$each,showtime=$data.showtime,time=$data.time,key=$data.key,val=$data.val,k=$data.k,$string=$utils.$string,$out='';$out+='<div id="yuanchu_detail" class="mui-content"> <ul class="mui-table-view yanchu_list yanchu_details_top" style="background-image: url(';
@@ -77,7 +77,7 @@ $out+='"/> <input type="hidden" name="storeId" value="';
 $out+=$escape(iteminfo['store']['@attributes']['storeId']);
 $out+='"/> <input type="hidden" name="storeName" value="';
 $out+=$escape(iteminfo['store']['@attributes']['storeName']);
-$out+='"/> </form> </div>  <div id="item2" class="mui-control-content"> <p> ';
+$out+='"/> </form> </div>  <div id="item2" class="mui-control-content public_xiangqing_img"> <p> ';
 $out+=$string(iteminfo.description);
 $out+=' </p> <p></p> </div> </div>';
 return new String($out);

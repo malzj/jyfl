@@ -37,7 +37,8 @@ if ($_REQUEST['step'] == 'show')
 		
 	$dongpiaoName = 'dongpiao-detail-'.$product;
 	$dongpiao = F($dongpiaoName, '', 1800, 'dongpiao/');
-	if (empty($dongpiao))
+	$dongpiao_filter = array_filter($dongpiao);
+	if (empty($dongpiao_filter))
 	{
 		$dongpiao_temp = getDongapi('detail', $arr_param );
 		$dongpiao = $dongpiao_temp['product'];
@@ -47,7 +48,8 @@ if ($_REQUEST['step'] == 'show')
 	}
 
 	// 如果没有数据，跳转到场馆列表
-	if (empty($dongpiao))
+	$dongpiao_filter = array_filter($dongpiao);
+	if (empty($dongpiao_filter))
 	{
 		ecs_header('Location:venues.php');
 	}

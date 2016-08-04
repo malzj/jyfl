@@ -1,4 +1,4 @@
-/*TMODJS:{"version":46,"md5":"4f8d6745281ee5782845149f79efbb55"}*/
+/*TMODJS:{"version":54,"md5":"4f8d6745281ee5782845149f79efbb55"}*/
 template('order/tmp_order_shiwu_detail',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,order=$data.order,$each=$utils.$each,goods_list=$data.goods_list,goods=$data.goods,$index=$data.$index,web_url=$data.web_url,user_name=$data.user_name,$out='';$out+=' <div class="mui-page-content"> <div class="mui-scroll-wrapper"> <div class="mui-scroll"> <div class="order_shiwu_address"> <h4>';

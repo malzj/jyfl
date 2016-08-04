@@ -230,8 +230,8 @@
 			})(mui);
 			var mask = mui.createMask();//创建蒙版
 			jQuery('.select_shouhuoAdress')[0].addEventListener('tap',function(){
-				jQuery('.adress_select').css('display','block');
 				mask.show();
+				jQuery('.adress_select').css('display','block');
 			})
 			jQuery(document).on('tap','.mui-backdrop',function(){
 				jQuery('.adress_select').css('display','none');

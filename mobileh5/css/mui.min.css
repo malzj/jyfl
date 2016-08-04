@@ -223,7 +223,7 @@ body {
 	font-family: 'Helvetica Neue', Helvetica, sans-serif;
 	font-size: 17px;
 	line-height: 21px;
-	color: #000;
+	color: #333;
 	background-color: #efeff4;
 	-webkit-overflow-scrolling: touch;
 }
@@ -420,7 +420,7 @@ h5,
 h6 {
 	line-height: 1;
 	margin-top: 5px;
-	margin-bottom: 5px
+	margin-bottom: 5px;
 }
 
 .mui-h1,
@@ -1164,10 +1164,10 @@ input[type=submit]:enabled:active {
 
 .mui-btn-block {
 	font-size: 18px;
-	display: block;
+	/* display: block; */
 	width: 100%;
 	margin-bottom: 10px;
-	padding: 15px 0
+	padding: 15px 0;
 }
 
 .mui-btn .mui-badge {
@@ -1766,7 +1766,7 @@ input[type=submit]:enabled:active {
 	content: '';
 	-webkit-transform: scaleY(.5);
 	transform: scaleY(.5);
-	background-color: #c8c7cc
+	background-color: #c8c7cc;
 }
 
 .mui-table-view-cell.mui-checkbox input[type=checkbox],
@@ -2753,7 +2753,7 @@ select:focus {
 	border: 1px solid #007aff;
 	border-radius: 3px;
 	background-color: transparent;
-	-webkit-touch-callout: none
+	-webkit-touch-callout: none;
 }
 
 .mui-segmented-control.mui-segmented-control-vertical {

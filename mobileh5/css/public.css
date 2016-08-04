@@ -172,7 +172,7 @@ a{color: black;}
 .goods_name{font-size: 14px;}
 .goods_price{display: inline-block;color: #dd4223;width: 100%;margin-top: .5rem;}
 .public_xiangqing_img *{width: 100%!important;height: auto!important;}
-
+.cake_details_title .color_coral{font-size: 18px;}
 .floor_list_a{display: block;overflow: hidden;position:relative;}
 /*订单确认支付*/
 .confirm_img{background: url(../images/cake_pay.png) no-repeat;height:8.75rem;background-size: 100% 100%;z-index: 11;position: relative;}

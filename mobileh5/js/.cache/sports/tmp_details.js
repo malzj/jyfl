@@ -1,4 +1,4 @@
-/*TMODJS:{"version":39,"md5":"523259d5b8bc38a8c4c39fe924131b46"}*/
+/*TMODJS:{"version":40,"md5":"523259d5b8bc38a8c4c39fe924131b46"}*/
 template('sports/tmp_details',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,imgList=$data.imgList,img=$data.img,key=$data.key,$escape=$utils.$escape,detail=$data.detail,venues=$data.venues,venue=$data.venue,$index=$data.$index,venueId=$data.venueId,ticket=$data.ticket,tic=$data.tic,$out='';$out+='<div class="mui-content"> <div class="sports_details_top bg_white mui-clearfix"> <div class="mui-content-padded mui-pull-left"> ';

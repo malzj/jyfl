@@ -37,7 +37,7 @@ if ($_REQUEST['step'] == 'cart')
 	
 	// 没有产品详细，跳转到门票列表
 	$detail_filter = array_filter($detail);
-	if (empty($detail))
+	if (empty($detail_filter))
 	{
 		ecs_header("location:venues.php");
 		exit;

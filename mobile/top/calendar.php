@@ -72,21 +72,19 @@ class calendar {
 	//daylist天列表
 	private function daylist(){
 		// 头
-		$out  = '<div class="calendar_title">';
-		if(mktime(0,0,0,$this->month,1,$this->year)>time()) {
-			$out .= '<span class="mui-icon mui-icon-arrowleft mui-pull-left" data-time="'.$this->year.'-'.(intval($this->month)-1).'-1"></span>';
-		}
-		$out .= $this->year.'年'.$this->month.'月价格日历（选择游玩日期预定）';
-		$out .= '<span class="mui-icon mui-icon-arrowright mui-pull-right" data-time="'.$this->year.'-'.(intval($this->month)+1).'-1"></span>';
-		$out .= '</div>';
-
+		$out  = '<div><table class="h-table"><tr><td><a href="javascript:calendar(2);" class="h-left"><img src="images/l8.gif"/></a></td>';
+		$out .=	'<td class="h-tr">'.$this->year.'年'.$this->month.'月价格日历 (选择游玩日期预订) </td><td><a href="javascript:calendar(1);"><img src="images/r8.gif"/></a></td>';
+		$out .= '</tr></table></div>';
+		
 		// 星期
-		$out .= '<table border="0">';
-		$out .= '<tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr>';
+		$out .= '<div class="h-table1"><table><tr><td>星期日</td> <td>星期一</td> <td>星期二</td> <td>星期三</td> <td>星期四</td> <td>星期五</td> <td>星期六</td>';
+		$out .= '</tr></table></div>';
+		$out .= '<div class="h-table2" id="td"><table>';
+		
 		$out .= '<tr>';
 		//输出空格（当前一个月第一天前面要空出来的）
 		for($i = 0; $i < $this->start_weekday; $i++) {
-			$out .= '<td><div></div></td>';
+			$out .= '<td>&nbsp;</td>';
 		}
 		for ($k = 1; $k <= $this->days; $k++) {
 			$i++;
@@ -100,20 +98,20 @@ class calendar {
 				$price = $this->dayContent[$k].'点';
 				$riqi = $this->year.'-'.$this->month.'-'.$k;
 			}
-
+			
 			if ($k == date('d')) {
-				$out .= '<td '.($price!='&nbsp;'?'class="calendar_buy" date="'.$riqi.'"':'').'><div>'.$k.'<span class="calendar_price">'.$price.'</span></div></td>';
+				$out .= '<td class="t1" date="'.$riqi.'"><p>'.$k.'</p> <p class="h-p1">'.$price.'</p></td>';
 			}else {
-				$out .= '<td '.($price!='&nbsp;'?'class="calendar_buy" date="'.$riqi.'"':'').'><div>'.$k.'<span class="calendar_price">'.$price.'</span></div></td>';
+				$out .='<td class="t1" date="'.$riqi.'"><p>'.$k.'</p> <p class="h-p1">'.$price.'</p></td>';
 			}
 			if ($i % 7 == 0) {
 				if ($k != $this->days) {
-					$out .= '</tr><tr>';
+					$out .= '</tr><tr class="t1"><p>';
 				}
 			}
 		}
-		$out .= '</tr></table>';
-
+		$out .= '</p></tr></table></div>';
+		
 		return $out;
 	}
 }

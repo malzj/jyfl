@@ -44,7 +44,7 @@
 
 	说明：场馆门票价格日历接口
 	地址：ticket_show.php?step=price
-	参数：orderid订单id,password支付密码
+	参数：productno=产品id,date日期
 	备注：无
 
 	说明：场馆门票核对订单接口

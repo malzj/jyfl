@@ -1,0 +1,629 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../mobileh5/css/mui.min.css" rel="stylesheet" />
+		<link href="../../mobileh5/css/public.css" rel="stylesheet" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.selectnom em {
+				display: block;
+				height: 51px;
+				line-height: 0;
+				color: #666;
+				text-align: center;
+				position: relative;
+				font-style: normal;
+			}
+			.selectnom em:before {
+				position: absolute;
+				content: "";
+				display: block;
+				width: 0;
+				height: 0;
+				border-top: 3px solid transparent;
+				border-left: 6px solid #999;
+				border-bottom: 3px solid transparent;
+				right: 5px;
+				bottom: 47px;
+			}
+			.selectday {
+				background: white;
+				width: 100%;
+				-webkit-overflow-scrolling: touch;
+				position: relative;
+			}
+			.seletimes {
+				text-align: center;
+				line-height: 1.5em;
+				overflow-x: scroll;
+				-webkit-overflow-scrolling: touch;
+			}
+			.selectnom {
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: #fff;
+				width: 80px;
+			}
+			.seletimes dl {
+				width: 80px;
+				float: left;
+				margin-left: 2px;
+			}
+			.seletimes dl dt {
+				line-height: 49px;
+			}
+			.seletimes dl dd {
+				width: 80px;
+				height: 49px;
+				background: #0fd0b5;
+				line-height: 49px;
+				margin-bottom: 2px;
+				color: #fff;
+				border-radius: 5px;
+			}
+			.seletimes dl dd.cur {
+				background: #ff781e;
+			}
+			.seletimes dl dd.not {
+				background: #f2f2f2;
+				color: #ccc;
+			}
+			.body-w {
+				background: #fff;
+			}
+			.selestatus {
+				text-align: center;
+				margin-bottom: 80px;
+				margin-top: 15px;
+			}
+			.selestatus span {
+				display: inline-block;
+				position: relative;
+				font-size: 12px;
+				padding-left: 40px;
+				margin: 0 9px;
+			}
+			.selestatus font {
+				display: inline-block;
+				width: 32px;
+				height: 17px;
+				background: #ff781e;
+				margin-right: 10px;
+				border: 1px solid #e5e5e5;
+				position: absolute;
+				left: 0;
+			}
+			.selestatus i {
+				display: inline-block;
+				width: 32px;
+				height: 17px;
+				background: #0fd0b5;
+				margin-right: 10px;
+				border: 1px solid #e5e5e5;
+				position: absolute;
+				left: 0;
+			}
+			.selestatus em {
+				display: inline-block;
+				width: 32px;
+				height: 17px;
+				background: #f2f2f2;
+				margin-right: 10px;
+				border: 1px solid #e5e5e5;
+				position: absolute;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">场次选择</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab mui-row">
+			<div class="mui-col-xs-7"><a class="mui-tab-item">合计：<span class="color_2fd0b5">0</span>点</a></div>
+			<div class="mui-col-xs-5">
+				<a class="mui-tab-item footer_jiaru" href="#"><span class="mui-tab-label">下一步</span></a></div>
+		</nav>	
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted sports_venue_scroll margin_top_15 bg_white">
+				<div class="mui-scroll">
+					<a class="mui-control-item mui-active">
+						<span>今天</span>
+						<span class="color_8f8f94">08月04日</span>
+					</a>
+					<a class="mui-control-item">
+						<span>今天</span>
+						<span class="color_8f8f94">08月04日</span>
+					</a>
+					<a class="mui-control-item">
+						<span>今天</span>
+						<span class="color_8f8f94">08月04日</span>
+					</a>
+					<a class="mui-control-item">
+						<span>今天</span>
+						<span class="color_8f8f94">08月04日</span>
+					</a>
+					<a class="mui-control-item">
+						<span>今天</span>
+						<span class="color_8f8f94">08月04日</span>
+					</a>
+					<a class="mui-control-item">
+						<span>今天</span>
+						<span class="color_8f8f94">08月04日</span>
+					</a>
+				</div>
+			</div>
+			<div class="selectday margin_top_15">
+				<div class="seletimes" id="seletimes">
+					<div style="width: 10000px; padding-left: 5rem;">
+						<dl>
+							<dt id="changdi">1号场</dt>
+							<dd class="vv_sel" time="9" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="10" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="11" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="12" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="13" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="14" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="15" price="59.0">59.0点</dd>
+
+							<dd class="not">
+								￥59.0</dd>
+
+							<dd class="vv_sel" time="17" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="18" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="19" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="20" price="59.0">59.0点</dd>
+
+						</dl>
+
+						<dl>
+							<dt id="changdi">2号场</dt>
+
+							<dd class="vv_sel" time="9" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="10" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="11" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="12" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="13" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="14" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="15" price="59.0">59.0点</dd>
+
+							<dd class="not">
+								￥59.0</dd>
+
+							<dd class="vv_sel" time="17" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="18" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="19" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="20" price="59.0">59.0点</dd>
+
+						</dl>
+
+						<dl>
+							<dt id="changdi">3号场</dt>
+
+							<dd class="vv_sel" time="9" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="10" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="11" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="12" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="13" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="14" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="15" price="59.0">59.0点</dd>
+
+							<dd class="not">
+								￥59.0</dd>
+
+							<dd class="vv_sel" time="17" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="18" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="19" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="20" price="59.0">59.0点</dd>
+
+						</dl>
+
+						<dl>
+							<dt id="changdi">4号场</dt>
+
+							<dd class="vv_sel" time="9" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="10" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="11" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="12" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="13" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="14" price="59.0">￥59.0</dd>
+
+							<dd class="vv_sel" time="15" price="59.0">59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="vv_sel" time="17" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="18" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="19" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="20" price="59.0">59.0点</dd>
+
+						</dl>
+
+						<dl>
+							<dt id="changdi">5号场</dt>
+
+							<dd class="vv_sel" time="9" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="10" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="11" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="12" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="13" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="14" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="15" price="59.0">59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="vv_sel" time="17" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="18" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="19" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="20" price="59.0">59.0点</dd>
+
+						</dl>
+
+						<dl>
+							<dt id="changdi">6号场</dt>
+
+							<dd class="vv_sel" time="9" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="10" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="11" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="12" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="13" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="14" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="15" price="59.0">59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="vv_sel" time="17" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="18" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="19" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="20" price="59.0">59.0点</dd>
+
+						</dl>
+
+						<dl>
+							<dt id="changdi">7号场</dt>
+
+							<dd class="vv_sel" time="9" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="10" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="11" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="12" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="13" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="14" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="15" price="59.0">59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="vv_sel" time="17" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="18" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="19" price="59.0">59.0点</dd>
+
+							<dd class="vv_sel" time="20" price="59.0">59.0点</dd>
+
+						</dl>
+
+						<dl>
+							<dt id="changdi">8号场</dt>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+						</dl>
+
+						<dl>
+							<dt id="changdi">9号场</dt>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+						</dl>
+
+						<dl>
+							<dt id="changdi">10号场</dt>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+						</dl>
+
+						<dl>
+							<dt id="changdi">11号场</dt>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+						</dl>
+
+						<dl>
+							<dt id="changdi">12号场</dt>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+							<dd class="not">
+								59.0点</dd>
+
+						</dl>
+
+					</div>
+				</div>
+				<div class="selectnom">
+					<div style="height: 50px;"></div>
+
+					<em>09:00</em>
+
+					<em>10:00</em>
+
+					<em>11:00</em>
+
+					<em>12:00</em>
+
+					<em>13:00</em>
+
+					<em>14:00</em>
+
+					<em>15:00</em>
+
+					<em>16:00</em>
+
+					<em>17:00</em>
+
+					<em>18:00</em>
+
+					<em>19:00</em>
+
+					<em>20:00</em>
+				</div>
+			</div>
+			<div class="selestatus">
+				<span><font></font>已选择</span> <span><i></i>可订</span> <span><em></em>不可订</span>
+			</div>
+		</div>
+		<script src="../../mobileh5/js/mui.min.js"></script>
+		<script src="../../mobileh5/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			jQuery(".vv_sel").click(function(){
+            if(jQuery(this).attr("class").indexOf("cur") == -1) {
+                jQuery(this).addClass("cur");
+            }else{
+                jQuery(this).removeClass("cur");
+            }
+            });
+		</script>
+	</body>
+
+</html>

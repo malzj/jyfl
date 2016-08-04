@@ -33,7 +33,7 @@ a{color: black;}
 	border-bottom: 2px solid #2fd0b5;
 	background: 0 0;
 	}
-.mui-h4, h4{font-size: 16px;}  
+.mui-h4, h4{font-weight: normal;font-size: 16px;}  
 .mui-bar-tab .mui-tab-item.mui-active{color: #2fd0b5;}  
 /*jy_index*/
 .icon-gongneng{width: 56px!important;background: url(../images/public_footer_icon.png) no-repeat 0px!important;display: inline-block;background-size: 100% 100%!important;height: 60px!important;position: absolute!important;top: -28px!important;left: 50%;transform: translateX(-50%);
@@ -297,3 +297,8 @@ a{color: black;}
 .ticket_order_tips{background: #fdf4d9;padding: 10px 0;}
 .ticket_buy_tips{padding: 0 10px 0 15px;font-size: 12px;}
 .ticket_submit_tips{padding: 10px;}
+/*运动场馆选择场地*/
+.sports_venue_scroll{border-top: 1px solid #ddd!important;height: 55px!important;border-bottom: 1px solid #ddd!important;}
+.sports_venue_scroll a span{display: block;}
+.sports_venue_scroll a{height: 53px;line-height: 1.5!important;padding: 5px 20px!important;border-right: .5px solid #ddd!important;}
+.mui-active .color_8f8f94{color: #2fd0b5;}

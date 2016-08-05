@@ -1,4 +1,4 @@
-/*TMODJS:{"version":41,"md5":"523259d5b8bc38a8c4c39fe924131b46"}*/
+/*TMODJS:{"version":43,"md5":"679819bcedda3b6a3ac631ef60b39d0c"}*/
 template('sports/tmp_details',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,imgList=$data.imgList,img=$data.img,key=$data.key,$escape=$utils.$escape,detail=$data.detail,venues=$data.venues,venue=$data.venue,$index=$data.$index,venueId=$data.venueId,ticket=$data.ticket,tic=$data.tic,$out='';$out+='<div class="mui-content"> <div class="sports_details_top bg_white mui-clearfix"> <div class="mui-content-padded mui-pull-left"> ';
@@ -13,7 +13,7 @@ $out+='" data-preview-src="" data-preview-group="1" /> </div> ';
 });
 $out+='  <div class="sports_top_imgNum">相册(<span>';
 $out+=$escape(imgList.length);
-$out+='</span>)</div> </div> <div class="mui-pull-left sports_top_right"> <h4 class="mui-ellipsis">';
+$out+='</span>)</div> </div> <div class="mui-pull-left sports_top_right mui-ellipsis"> <h4 class="mui-ellipsis">';
 $out+=$escape(detail.venueName);
 $out+='</h4> <p>营业时间：<span>';
 $out+=$escape(detail.stime);
@@ -28,7 +28,7 @@ $out+=$escape(detail.tel400);
 }
 $out+='</a></div> </div> <div class="margin_top_10"> <div class="bg_white"> <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted"> <a class="mui-control-item mui-active" href="#item1">羽毛球</a> <a class="mui-control-item" href="#item2">门票</a> </div> </div> <div id="item1" class="mui-control-content sports_details_item1 mui-active bg_white"> <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"> <div class="mui-scroll"> ';
 $each(venues,function(venue,$index){
-$out+=' <a class="mui-control-item" href="?venueId=';
+$out+=' <a class="mui-control-item href_click" data-href="./sports_venue.html?venueId=';
 $out+=$escape(venueId);
 $out+='&infoId=';
 $out+=$escape(venue.infoId);
@@ -59,7 +59,7 @@ $out+=' ';
 $out+=' <li class="mui-table-view-cell"> <div class="mui-row"> 亲，这里没有门票！ </div> </li> ';
 }
 $out+=' </ul> </div> </div> <div class="margin_top_10 mui-table-view"> <div class="mui-table-view-cell"> <h4>场馆信息</h4> </div> <div class="mui-table-view-cell">';
-$out+=$escape(detail.qdName);
+$out+=$escape(detail.feature);
 $out+='</div> </div> <div class="sports_details_middle"></div> <div class="sports_details_bottom"></div> </div> ';
 return new String($out);
 });

@@ -1,9 +1,9 @@
-/*TMODJS:{"version":30,"md5":"e7938dd9bff72b14947d10b1c85bc697"}*/
+/*TMODJS:{"version":34,"md5":"e14ef8858f5d6e549d3a27d48ea7c824"}*/
 template('sports/tmp_ticket_order',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,validity=$data.validity,detail=$data.detail,$each=$utils.$each,fields=$data.fields,field=$data.field,$index=$data.$index,select=$data.select,key=$data.key,tip=$data.tip,travelDate=$data.travelDate,$out='';$out+='<div class="mui-content"> <div class="ticket_order_tips mui-text-center color_coral"> ';
 $out+=$escape(validity);
-$out+='。 </div> <form id="subOrder" onsubmit="return false"> <div class="margin_top_15 mui-table-view"> <div class="mui-table-view-cell"> <h4 class="mui-pull-left">产品名称</h4> <p class="mui-pull-right">';
+$out+='。 </div> <form id="subOrder" onsubmit="return false"> <div class="margin_top_15 mui-table-view"> <div class="mui-table-view-cell"> <h4 class="mui-pull-left">产品名称</h4> <p class="mui-pull-right width_60">';
 $out+=$escape(detail.productName);
 $out+='</p> </div> <div class="mui-table-view-cell"> <h4 class="mui-pull-left">购买数量</h4> <div class="mui-numbox mui-pull-right" data-numbox-min=\'1\'> <button class="mui-btn mui-btn-numbox-minus" type="button">-</button> <input name="goods_number" class="mui-input-numbox" type="number" value="" /> <button class="mui-btn mui-btn-numbox-plus" type="button">+</button> </div> </div> <div class="mui-table-view-cell"> <h4 class="mui-pull-left">单价</h4> <p class="mui-pull-right color_2fd0b5">';
 $out+=$escape(detail.salePrice);

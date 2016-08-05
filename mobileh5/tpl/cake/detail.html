@@ -1,25 +1,25 @@
 <!--底部固定导航-->
 <nav class="mui-bar mui-bar-tab mui-row">
 	<div class="mui-col-xs-5">
-	    <a class="mui-tab-item mui-active border_right_ddd" href="#">
+	    <a class="mui-tab-item border_right_ddd jump-home" href="#">
 			<span class="mui-icon mui-icon-home"></span>
 			<span class="mui-tab-label">首页</span>
 		</a>
 		<a class="mui-tab-item border_right_ddd jump-cart" href="#">
-			<span class="mui-icon mui-icon-chat"></span>
+			<span class="mui-icon iconfont icon-gouwuche"></span>
 			<span class="mui-tab-label">购物车</span>
 		</a>
-		<a class="mui-tab-item" href="#">
+		<!--<a class="mui-tab-item" href="#">
 			<span class="mui-icon mui-icon-contact"></span>
 			<span class="mui-tab-label">我的</span>
-		</a>
+		</a>-->
 	</div>
 	<div class="mui-col-xs-7">
-		<a class="mui-tab-item footer_liji" href="#">
-			<span class="mui-tab-label act-done">立即结算</span>
+		<a class="mui-tab-item footer_liji act-done" href="#">
+			<span class="mui-tab-label">立即结算</span>
 		</a>
-		<a class="mui-tab-item footer_jiaru" href="#">
-			<span class="mui-tab-label act-cart">加入购物车</span>
+		<a class="mui-tab-item footer_jiaru act-cart" href="#">
+			<span class="mui-tab-label">加入购物车</span>
 		</a>
 	</div>
 </nav>
@@ -159,6 +159,13 @@
 		mui.openWindow({
 			url:'../flow/cart.html',
 			id:'cart.html'
+		});
+	});
+	/* 跳转到首页 */
+	mui('.jump-home')[0].addEventListener('tap',function(){
+		mui.openWindow({
+			url:'../index/jy_index.html',
+			id:'jy_index.html'
 		});
 	});
 	/* 立即购物 */

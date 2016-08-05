@@ -1,4 +1,4 @@
-body{font-size: 14px;}
+body{margin: 0 auto;font-size: 14px;}
 .f_l{float: left;}
 .f_r{float: right;}
 .clearfix:after{content:"";clear: both;font-size: 0;display: block;height: 0;}
@@ -41,8 +41,7 @@ a{color: black;}
 }
 .public_gongneng{/* overflow: auto!important; */}
 .public_gongneng_title{margin-top: 27px;}
-.public_gongneng{}
-
+.offside_icon{margin-right: 20px;vertical-align: middle;}
 /*public popUp*/
 .public_popUp{left: 0;top: 0;position: absolute;width: 100%;height: 100%;background:rgba(255,255,255,.9);z-index: -1;/* transition:all .5s ease-out; */}
 .popUp_row{position: absolute;top: 0px;width: 100%;left: 0;z-index: 1;height: 100%;overflow: hidden;transform: translateY(100%);}
@@ -124,6 +123,7 @@ a{color: black;}
 .star_pinfenNum{font-size: 14px;float: left;margin-top: 3px;margin-left: 5px;color: #a5a2a2;}
 .star_pinfen_box{margin: 0 auto;width: 130px;overflow: hidden;}
 .btn_ticket_no{width: 64px;background: #D1D1D1;}
+.pay_time_icon{vertical-align: middle;display: inline-block;width: 20px;height: 20px;background: url(../images/time.svg) no-repeat 0px 2px;background-size: 15px 15px;}
 /*cake*/
 .xiangqing h6 {border: 1px solid #dfdfdf;padding: 5px 10px;color: #888585;/* margin: 6px 5px 0 0; */display: inline-block;border-radius: 5px;}
 .xiangqing h6.checked{border: 1px solid #2fd0b5;}
@@ -158,8 +158,8 @@ a{color: black;}
 .floor_more{font-size: 15px;display: inline-block;margin-top: 0px;}
 .floor_list_price{color: #ff6666;margin-top: 5px;bottom: 5px;position: absolute;}
 .floor_listLeft{width: 4rem;}
-.floor_listBox{padding: .75rem;}
-.floor_list_name{color: #666666;/*height: 2.3rem;*/font-size: 12px;overflow: hidden;font-weight: bold;}
+.floor_listBox{height: 5.65rem;padding: .75rem;}
+.floor_list_name{color: #666666;font-size: 12px;overflow: hidden;font-weight: bold;}
 .floor_list .floor_listBox:nth-child(odd){border-right: 1px solid #ddd;border-bottom: 1px solid #ddd;}
 .floor_list .floor_listBox:nth-child(even){border-bottom: 1px solid #ddd;}
 .floor_listBox img{width: 3.8rem;height: 3.8rem;}
@@ -240,8 +240,8 @@ a{color: black;}
 .empty_cart_box img{width: 25%;}
 .empty_cart_box button{background: #2fd0b5;color: white;width: 6rem;}
 /*通用ajax请求前动画*/
-#mui-loading-box{position: absolute;height: 100%;top: 0;width: 100%;color: white;font-size: 12px;text-align: center;background:transparent;}
-#mui-loading-box .mui-loading{position:absolute;top: 50%;width: 90px;height:70px;background: rgba(1,1,1,.8);left: 50%;transform: translate(-50%,-50%);border-radius: 10px;}
+#mui-loading-box{position: fixed;height: 100%;top: 0;width: 100%;color: white;font-size: 12px;text-align: center;background:transparent;z-index: 11;}
+#mui-loading-box .mui-loading{position: fixed;top: 50%;width: 90px;height:70px;background: rgba(1,1,1,.8);left: 50%;transform: translate(-50%,-50%);border-radius: 10px;}
 #mui-loading-box .mui-spinner{margin-top: 10px;margin-bottom: 5px;}
 /*sports*/
 .sports_top{

@@ -1,4 +1,4 @@
-/*TMODJS:{"version":29,"md5":"e7938dd9bff72b14947d10b1c85bc697"}*/
+/*TMODJS:{"version":30,"md5":"e7938dd9bff72b14947d10b1c85bc697"}*/
 template('sports/tmp_ticket_order',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,validity=$data.validity,detail=$data.detail,$each=$utils.$each,fields=$data.fields,field=$data.field,$index=$data.$index,select=$data.select,key=$data.key,tip=$data.tip,travelDate=$data.travelDate,$out='';$out+='<div class="mui-content"> <div class="ticket_order_tips mui-text-center color_coral"> ';

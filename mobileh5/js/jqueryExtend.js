@@ -17,7 +17,7 @@
                    $.noop();
                }
            }
-           isload = isload?isload:false;
+           isload = isload?true:false;
            prev = (typeof prev === "function")?prev:function(){
                var html ='<div id="mui-loading-box" class="mui-scroll"><div class="mui-loading"><div class="mui-spinner"></div>正在加载</div></div>';
                $('body').append(html);

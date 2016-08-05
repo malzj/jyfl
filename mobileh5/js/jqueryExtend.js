@@ -5,10 +5,11 @@
         * @param u  url
         * @param d  data参数
         * @param b  回调函数
+        * @param isload  判断是否使用动画默认false
         * @param prev  执行ajax前调用函数
         * @param after  执行ajax完成时调用函数
         */
-       ajaxJsonp:function(u,d,b,prev,after){
+       ajaxJsonp:function(u,d,b,isload,prev,after){
            var defaults = {
                url:u||'',
                data:d||'',
@@ -16,6 +17,7 @@
                    $.noop();
                }
            }
+           isload = isload?isload:false;
            prev = (typeof prev === "function")?prev:function(){
                var html ='<div id="mui-loading-box" class="mui-scroll"><div class="mui-loading"><div class="mui-spinner"></div>正在加载</div></div>';
                $('body').append(html);
@@ -24,7 +26,7 @@
                $('#mui-loading-box').remove();
            }
            defaults.success=b;
-           if(!mui.os.plus){
+           if(isload || !mui.os.plus){
                 prev();
            }
            $.ajax({
@@ -35,7 +37,7 @@
                jsonp:'jsoncallback',
                success:function(result){
                    defaults.success(result);
-                   if(!mui.os.plus){
+                   if(isload || !mui.os.plus){
                        after();
                    }
                }
@@ -70,7 +72,13 @@
                    });
                });
            }else{
-               mui.alert(message,func);
+               mui.alert(message,function(){
+                   if(typeof data.go!='undefined'&&!isNaN(data.go)){
+                       window.history.go(data.go);
+                   }else{
+                       if(typeof func == "function") func();
+                   }
+               });
            }
        },
        /**

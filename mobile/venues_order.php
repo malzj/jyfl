@@ -119,6 +119,7 @@ else if($action == 'getOrder'){
     if($order_id==null||$venue_id==null){
         $jsonArray['state'] = 'false';
         $jsonArray['message'] = '非法请求！';
+        $jsonArray['data']['go'] = -1;
         JsonpEncode($jsonArray);
     }
 

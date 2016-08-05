@@ -1,0 +1,2 @@
+/*TMODJS:{"version":2,"md5":"40d61bc9367af140b10abe30a11df01c"}*/
+template('sports/tmp_venues_order','<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>Title</title> </head> <body> </body> </html>');

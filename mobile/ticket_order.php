@@ -176,7 +176,7 @@ else if ($_REQUEST['step'] == 'done')
 	$link_credit_type 	=  !empty($_REQUEST['links']['link_credit_type']) ? intval($_REQUEST['links']['link_credit_type']) : '';
 	$link_credit_no		=  !empty($_REQUEST['links']['link_credit_no']) ? addslashes_deep($_REQUEST['links']['link_credit_no']) : '';
 	$secret             =  !empty($_REQUEST['secret']) ? $_REQUEST['secret'].md5($productNo) : null ;
-	
+
 	if ($productNo == 0)
 	{
 		$jsonArray['state'] = 'false';
@@ -357,6 +357,7 @@ else if ($_REQUEST['step'] == 'upay'){
 		'validit'=>$validity,
 		'list'=>$lists
 	);
+	JsonpEncode($jsonArray);
 }
 // 支付
 else if ($_REQUEST['step'] == 'pay')

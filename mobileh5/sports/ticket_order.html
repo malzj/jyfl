@@ -41,10 +41,22 @@
 					jQuery.errorJudge(result.data, result.message);
 				}
 			});
-			mui("body").on('change','input[name="number"]',function(){
-				var number = jQuery('input[name="number"]').val();
+			mui("body").on('change','input[name="goods_number"]',function(){
+				var number = jQuery('input[name="goods_number"]').val();
 				var total = ((number*salePrice)+expressPrice).toFixed(1);
 				jQuery('.dongPrice').text(total+'点');
+			});
+
+			//提交订单
+			mui('body').on('tap','.ticket_buy_btn',function(){
+				var data = jQuery('#subOrder').serialize();
+				jQuery.ajaxJsonp(web_url+ '/mobile/ticket_order.php?step=done',data,function(result){
+					if (result.state == 'true') {
+						jQuery.jumpTo('./ticket_submit.html?orderid='+result.data.orderid);
+					} else if (result.state == 'false') {
+						jQuery.errorJudge(result.data, result.message);
+					}
+				});
 			});
 			mui.init()
 		</script>

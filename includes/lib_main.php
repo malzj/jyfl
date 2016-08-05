@@ -2058,14 +2058,17 @@ function get_navigator($ctype = '', $catlist = array())
 	$int_cityId   = $_SESSION['cityid'];//当前城市
 	$int_userName = $_SESSION['user_name'];//当前登录用户
 	
-	$arr_cardRules = $GLOBALS['db']->getAll('SELECT title,id,navinfo,card,home_desc,time FROM '.$GLOBALS['ecs']->table('card_rule'));
+	$arr_cardRules = $GLOBALS['db']->getAll('SELECT title,id,navinfo,card,ext,time FROM '.$GLOBALS['ecs']->table('card_rule'));
 	
 	//默认的卡规则
 	$defaultCard = array();
 	//显示的导航信息
 	$arr_showNav = array();
 	// 卡规则标示，true 存在卡规则，false 不存在卡规则
-	$user_card_status = false;
+	$user_card_status = false;	
+	// 卡类型信息
+	$cardBin = substr($int_userName, 0,6);
+	$ext = current(findData('cardBIN','cardBin="'.$cardBin.'"'));
 	
 	$arr_homeInfo = array();
 	if (!empty($arr_cardRules)){
@@ -2103,8 +2106,7 @@ function get_navigator($ctype = '', $catlist = array())
 	{
 	    foreach ( (array)$defaultCard as $value )
 	    {
-	       $cardBin = explode(',',$value['home_desc']); 
-	       if (in_array(substr($int_userName, 0,6),$cardBin))
+	       if($ext['ext'] == $value['ext'])
 	       {
 	           $user_card_status = true;
 	           if (!empty($value['navinfo'])){
@@ -2124,8 +2126,7 @@ function get_navigator($ctype = '', $catlist = array())
 	       
 	    }
 	}
-	//error_log(var_export($arr_homeInfo['card_id'],true),3,'error.log');
-	// 
+	
 	$arr_middleNav = array();
 	foreach($navlist['middle'] as $k=>$v){
 		unset($navlist['middle'][$k]);

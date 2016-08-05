@@ -37,7 +37,7 @@ if ($_REQUEST['step'] == 'cart')
 	
 	// 没有产品详细，跳转到门票列表
 	$detail_filter = array_filter($detail);
-	if (empty($detail))
+	if (empty($detail_filter))
 	{
 		ecs_header("location:venues.php");
 		exit;
@@ -226,13 +226,7 @@ else if ($_REQUEST['step'] == 'done')
  		show_message($orders['msg']);
  		exit;
  	} 
-	
- 	// 下单成功 ，保存
- 	/* $sql = 'INSERT INTO '. $GLOBALS['ecs']->table('piao_order') .
- 			"(order_id, product_no, product_name, ticket_type_name, view_name, view_address, unit_price, sale_price, order_money, shipping_price, business_hours, link_man, link_phone, link_email, link_address, link_code, link_credit_type, link_credit_no, add_time, order_state, card_state, number, traveldate, user_id)".
- 			" VALUES('".$orders['order_id']."', '".$detail['productNo']."', '".$detail['productName']."', '".$detail['ticketTypeName']."', '".$detail['viewName']."', '".$detail['viewAddress']."', '".$detail['SettlementPrice']."', '".$cardPrice."', '".$orders['order_money']."', '".$detail['expressPrice']."', '".$detail['businessHours']."', 
- 			'".$link_man."', '".$link_phone."', '".$link_email."', '".$link_address."', '".$linkCode."', '".$link_credit_type."', '".$link_credit_no."', '".strtotime(local_date('Y-m-d H:i:s'))."', '".$orders['order_state']."', 0, '".$num."', '".$traveldate."', '".$_SESSION['user_id']."')";
- 	 */
+
  	$default = array(
  	    'is_pay'    => 0,
  	    'state'     => 0,
@@ -252,6 +246,7 @@ else if ($_REQUEST['step'] == 'done')
  	    'api_order_id' =>$orders['order_id'],
  	    'secret'    => $secret,
  	    'source'    => 1,
+ 	    'market_price' => check_price($price,$traveldate,true),
  	    'unit_price'=> $detail['salePrice'],
  	    'shop_ratio'  => $customRatio['shop_ratio'],
         'card_ratio'  => $customRatio['card_ratio'],
@@ -394,8 +389,7 @@ else if ($_REQUEST['step'] == 'pay')
 		
 		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('users')." SET card_money = card_money - (".$orders[0]['money'].") WHERE user_id = '".intval($_SESSION['user_id'])."'");
 		// 动网支付
-		//$dongPay = getDongapi('pay',array('orderId'=>$orders[0]['api_order_id']));
-		$dongPay['status'] = '1';
+		$dongPay = getDongapi('pay',array('orderId'=>$orders[0]['api_order_id']));
 		if ($dongPay['status'] == '1')
 		{
 			$arr_result['error'] = 0;
@@ -440,14 +434,18 @@ function get_detail($product){
 
 
 // 日期的合法性，根据选择的日期，遍历价格日历，如果不存在返回false ，否则 true
-function check_price($price, $date){
+function check_price($price, $date, $is_api_price=false){
     $customRatio = get_card_rule_ratio(10003);
+    // 售价
 	$salePrice = 0;
+	// 接口价
+	$apiPrice = 0;
 	// 如果只有一个时间
 	if ($price['date'] == $date)
 	{
 		// 计算扣点基础价格
 		$salePrice = initSalePrice($price['salePrice'], $customRatio);
+		$apiPrice = $price['salePrice'];
 	}
 	// 多个时间的时候
 	foreach ($price as $pk=>$ps)
@@ -455,7 +453,11 @@ function check_price($price, $date){
 		if ($ps['date'] == $date )
 		{
 			$salePrice = initSalePrice($ps['salePrice'], $customRatio);
+			$apiPrice = $ps['salePrice'];
 		}
 	}
-	return $salePrice;
+	if ($is_api_price == true)
+	    return $apiPrice;
+	else 
+	    return $salePrice;
 }

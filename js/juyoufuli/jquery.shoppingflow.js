@@ -65,7 +65,7 @@ function saveConsignee(id, from){
 	var email     = $("#email").val();		// 电话
 	
 	var address_id = id;
-	var partten    = /^1[3,5,8]\d{9}$/;
+	var partten    = /^1[3,5,7,8]\d{9}$/;
 	var msg        = new Array();
 	var err        = false;	
 	

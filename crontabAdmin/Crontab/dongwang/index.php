@@ -137,35 +137,36 @@ foreach ($region as $regs)
                  else 
                      $venuess[] = $price;
             }
+                                     
+            // 数据库里面的infoid 
+            $dataTicket = getIds($ticket, 'infoId');
+            // 接口过来的门票数据的infoId              
+            $apiTicket = getIds($ticketData, 'infoId');               
+            // 得到新增的产品
+            $updateTicket = array_diff($apiTicket, $dataTicket);
+            // 得到已经删除的产品
+            $deleteTicket = array_diff($dataTicket, $apiTicket);
+           
+            // 如果有新增的产品，执行新增操作
+            if ( !empty($updateTicket))
+            {
+               $__ticketData = array();
+               foreach ($ticketData as $ticketKey=>$ticketRow)
+               {
+                   $__ticketData[$ticketKey] = array_merge($cols, $ticketRow);
+                   $__ticketData[$ticketKey] ['type'] = TYPE_TICKET;
+               }
+               updateRows($__ticketData, $updateTicket, 'infoId', 'saveVenueData');
+            }
+            // 如果还有删除的产品，执行删除操作
+            if ( !empty($deleteTicket))
+            {
+               dropRows( $deleteTicket, 'infoId', 'venues_ticket');
+            }
+            
             // 处理门票数据
             if (!empty($ticketData))
-            {               
-               // 数据库里面的infoid 
-               $dataTicket = getIds($ticket, 'infoId');
-               // 接口过来的门票数据的infoId              
-               $apiTicket = getIds($ticketData, 'infoId');               
-               // 得到新增的产品
-               $updateTicket = array_diff($apiTicket, $dataTicket);
-               // 得到已经删除的产品
-               $deleteTicket = array_diff($dataTicket, $apiTicket);
-               
-               // 如果有新增的产品，执行新增操作
-               if ( !empty($updateTicket))
-               {
-                   $__ticketData = array();
-                   foreach ($ticketData as $ticketKey=>$ticketRow)
-                   {
-                       $__ticketData[$ticketKey] = array_merge($cols, $ticketRow);
-                       $__ticketData[$ticketKey] ['type'] = TYPE_TICKET;
-                   }
-                   updateRows($__ticketData, $updateTicket, 'infoId', 'saveVenueData');
-               }
-               // 如果还有删除的产品，执行删除操作
-               if ( !empty($deleteTicket))
-               {
-                   dropRows( $deleteTicket, 'infoId', 'venues_ticket');
-               }
-               
+            {
                // 去掉新增的产品，剩下的产品更新价格和星期信息。               
                $editData = initDUData($ticketData, $updateTicket, 'infoId');
                // 更新数据

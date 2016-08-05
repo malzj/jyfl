@@ -1,0 +1,68 @@
+<!-- $Id: tag_edit.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="validator.js,../js/transport.js}
+<div class="main-div">
+<form method="post" action="cardBIN.php" name="theForm" enctype="multipart/form-data" onSubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">名称</td>
+    <td><input name="name" type="text" id="name" value="{$data.name}" maxlength="120" />
+    </td>
+  </tr>
+  <tr>
+    <td class="label">卡BIN</td>
+    <td><input name="cardBin" type="text" id="cardBin" value="{$data.cardBin}" maxlength="60" />
+    </td>
+  </tr>
+  <tr>
+    <td class="label">卡类型</td>
+    <td>
+    	<select name="card_type">
+    		<option value="1" {if $data.card_type eq 1}selected{/if}>聚优文化卡</option>
+    		<option value="2" {if $data.card_type eq 2}selected{/if}>聚优生日卡</option>
+    		<option value="3" {if $data.card_type eq 3}selected{/if}>聚优生活卡</option>
+    		<option value="4" {if $data.card_type eq 4}selected{/if}>聚优运动卡</option>
+    		<option value="5" {if $data.card_type eq 5}selected{/if}>聚优通卡</option>
+    	</select>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">商城售价策略</td>
+    <td>
+    	<input type="radio" name="ext" value="1" {if $data.ext eq 1} checked {/if}> 1.19公式
+    	<input type="radio" name="ext" value="2" {if $data.ext eq 2} checked {/if}> 0.97公式
+    	&nbsp;&nbsp;<font color="red"> 两种公式都是由添加供应商的设置的的，商城比例(1.19)、商城比例(0.97)</font>
+    </td>
+  </tr>
+  
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="id" value="{$data.id}" /></td>
+      <input type="hidden" name="act" value="{$insert_or_update}" />
+  </tr>
+</table>
+</form>
+</div>
+
+{literal}
+<script language="JavaScript">
+<!--
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+/**
+ * 检查表单输入的数据
+ */
+function validate()
+{
+   return true;
+}
+
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

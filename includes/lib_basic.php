@@ -7,14 +7,27 @@
 /** 卡类型检查
  *  @param      $username   string      卡号
  *  @param      $type       intval      登录类型
+ *  @param      $source     string      来源（0 聚优，1 华影）
  */
-function checkCardType( $username, $type)
+function checkCardType( $username, $type, $source=0)
 {
     // 卡规则信息
     $cardRule = array();
     // 默认卡规则信息
     $defaults = array();
-   
+    
+    // 卡类型信息
+    $cardBin = substr($username, 0,6);
+    $ext = current(findData('cardBIN','cardBin="'.$cardBin.'"'));
+    
+    // 卡类型判断，
+    // 当来源是聚优的时候，才判断，华影过来的不需要判断
+    if ($ext['card_type'] != $type && $source == 0)
+    {
+        return false;
+    }
+    
+    
     // 直接查找卡规则，而不是从用户表里查找，card_id ,因为如果这张卡修改了卡规则，那么验证就出错了
     $cardRules = $GLOBALS['db']->getAll('SELECT * FROM '.$GLOBALS['ecs']->table('card_rule'));
     if ( !empty($cardRules) )
@@ -34,27 +47,20 @@ function checkCardType( $username, $type)
         }
     }    
     
-    // 如果不存在于卡规则里，就找默认的卡规则设置
+    // 如果不存在于卡规则里，就找默认的卡规则设置    
     if ( empty($cardRule))
     {
         foreach ( (array)$defaults as $value )
-        {
-            $cardBin = explode(',',$value['home_desc']);
-            if (in_array(substr($username, 0,6),$cardBin))
+        {            
+            if($ext['ext'] == $value['ext'])
             {
                 $cardRule = $value;
             }
         }
     }
-    
+
     // 必须存在卡规则里，否则返回 false
     if (empty($cardRule))
-    {
-        return false;
-    }
-    
-    // 卡类型判断
-    if ($cardRule['type'] != $type)
     {
         return false;
     }

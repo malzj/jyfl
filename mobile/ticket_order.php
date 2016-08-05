@@ -28,7 +28,6 @@ if ($_REQUEST['step'] == 'cart')
 {	
 	// 产品id
 	$product = intval($_REQUEST['product']);
-
 	// 游玩日期
 	$travelDate = trim($_REQUEST['date']);
 	if ($product == 0)
@@ -41,7 +40,6 @@ if ($_REQUEST['step'] == 'cart')
 	
 	// 产品详细	
 	$detail = get_detail($product);
-
 	$detail_filter = array_filter($detail);
 	// 没有产品详细，跳转到门票列表
 	if (empty($detail_filter))
@@ -102,7 +100,7 @@ if ($_REQUEST['step'] == 'cart')
 		
 	// 得到当前日期对应的价格信息
 	$salePrice = check_price($price,$travelDate);
-	
+
 	if ($salePrice == 0)
 	{
 		$jsonArray['state'] = 'false';
@@ -142,7 +140,7 @@ if ($_REQUEST['step'] == 'cart')
 		$fields[$keys] 	= link_info($link);
 	
 	}
-	
+
 	// 运费处理
 	$expressPrice = 0;
 	if ($detail['isExpress'] == 1)
@@ -158,6 +156,7 @@ if ($_REQUEST['step'] == 'cart')
 		'validity'=>$validity,
 		'detail'=>$detail
 	);
+	JsonpEncode($jsonArray);
 }
 // 下单
 else if ($_REQUEST['step'] == 'done')
@@ -177,7 +176,7 @@ else if ($_REQUEST['step'] == 'done')
 	$link_credit_type 	=  !empty($_REQUEST['links']['link_credit_type']) ? intval($_REQUEST['links']['link_credit_type']) : '';
 	$link_credit_no		=  !empty($_REQUEST['links']['link_credit_no']) ? addslashes_deep($_REQUEST['links']['link_credit_no']) : '';
 	$secret             =  !empty($_REQUEST['secret']) ? $_REQUEST['secret'].md5($productNo) : null ;
-	
+
 	if ($productNo == 0)
 	{
 		$jsonArray['state'] = 'false';
@@ -358,6 +357,7 @@ else if ($_REQUEST['step'] == 'upay'){
 		'validit'=>$validity,
 		'list'=>$lists
 	);
+	JsonpEncode($jsonArray);
 }
 // 支付
 else if ($_REQUEST['step'] == 'pay')

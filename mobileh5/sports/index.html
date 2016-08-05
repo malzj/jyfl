@@ -60,7 +60,7 @@
 					console.log(result);
 					showArea(result.data.area_list);
 					venueList(result.data.list);
-				});
+				},true);
 			});
 
 			//点击选择区域
@@ -69,7 +69,7 @@
 				jQuery.ajaxJsonp(web_url+'/mobile/venues.php',{type:venue_type,area:area_id},function(result) {
 					console.log(result);
 					venueList(result.data.list);
-				});
+				},true);
 			});
 
 			//场馆区域渲染

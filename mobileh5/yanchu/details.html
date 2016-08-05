@@ -62,8 +62,8 @@
 				}
 			});
 			mui('body').on('tap','.mui-btn-numbox-plus',function(e){
-				var price = document.yanchu_form.price.value;
-				var stock = document.yanchu_form.stock.value;
+				var price = jQuery('#yanchu_form').find('input[name=price]:checked').val();
+				var stock = jQuery('#yanchu_form').find('input[name=stock]:checked').val();
 
 				if(!price){
 					mui.alert('请选择价格！');
@@ -78,16 +78,16 @@
 			});
 			//点击下一步提交订单
 			mui('body').on('tap','.btn_next',function(){
-				var price = document.yanchu_form.price.value;
-				var time = document.yanchu_form.time.value;
-				var market_price = document.yanchu_form.market_price.value;
-				var specid = document.yanchu_form.specid.value;
-				var number = document.yanchu_form.number.value;
-				var status = document.yanchu_form.status.value;
-				var itermid = document.yanchu_form.id.value;
+				var price = jQuery('#yanchu_form').find('input[name=price]:checked').val();
+				var time = jQuery('#yanchu_form').find('input[name=time]:checked').val();
+				var market_price = jQuery('#yanchu_form').find('input[name=market_price]:checked').val();
+				var specid = jQuery('#yanchu_form').find('input[name=specid]:checked').val();
+				var number = jQuery('#yanchu_form').find('input[name=number]').val();
+				var status = jQuery('#yanchu_form').find('input[name=status]:checked').val();
+				var itermid = jQuery('#yanchu_form').find('input[name=id]').val();
 				var cateid = id;
-				var storeId = document.yanchu_form.storeId.value;
-				var storeName = document.yanchu_form.storeName.value;
+				var storeId = jQuery('#yanchu_form').find('input[name=storeId]').val();
+				var storeName = jQuery('#yanchu_form').find('input[name=storeName]').val();
 //				alert(price+'-'+time+'-'+market_price+'-'+specid+'-'+number+'-'+status);
 				if (!price){
 					mui.alert('请选择价格');
@@ -120,12 +120,8 @@
 
 			//切换选项卡时设置input值
 			function changeAttr(obj, id, type){
-				var input = obj.getElementsByTagName('input');
-				for(i=0;i<input.length;i++){
-					input[i].checked=true;
-				}
+				jQuery(obj).find('input').prop('checked',true);
 				document.yanchu_form.number.value=1;
-
 				if (type == 'time'){
 					var objShowTime = eval(showtime);
 					for (var i=0; i<objShowTime.length; i++){

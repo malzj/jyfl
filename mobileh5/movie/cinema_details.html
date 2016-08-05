@@ -156,7 +156,7 @@
 						//放映厅列表
 						var planList = jQuery.planList(result.data.plan);
 						jQuery('.movie_item').html(planList);
-					});
+					},true);
 				});
 				//放映厅列表切换
 				$('.movie_date .mui-scroll').on('tap','.mui-control-item',function(){
@@ -166,7 +166,7 @@
 					jQuery.ajaxJsonp(web_url + '/mobile/cinema.php?step=planList', {cinemaid:cinema_id,movieid:movie_id,currentTime:time},function(result){
 						var planList = jQuery.planList(result.data.plan);
 						jQuery('.movie_item').html(planList);
-					});
+					},true);
 				});
 				//选择电子券
 				$('#item2').on('tap','.dianziquan',function(e){

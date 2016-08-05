@@ -34,7 +34,6 @@
 			var venueId = jQuery.getUrlParam('venueId');
 			jQuery.hrefClick();
 			jQuery.ajaxJsonp(web_url+'/mobile/venues_detail.php',{venueId:venueId},function(result){
-				console.log(result);
 				if(result.state=='true'){
 					replaceHtml('header',template('sports/tmp_details',result.data));
 					mui('.mui-scroll-wrapper').scroll();

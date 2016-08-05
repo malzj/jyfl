@@ -26,6 +26,7 @@ if ( empty($venueId) )
 {
     $jsonArray['state'] = 'false';
     $jsonArray['message'] = '无效的操作！';
+    $jsonArray['data']['go'] = -1;
     JsonpEncode($jsonArray);
 }
 

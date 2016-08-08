@@ -265,7 +265,7 @@ a{color: black;}
 .sports_top_img img {width: 100%;height:100%;}
 .sports_top_img{min-width: 100px;width: 5rem;height: 3.5rem;min-height: 70px;}
 .sports_top_imgNum{padding-left: 10px;position: absolute;color: white;font-size: 12px;width: 100%;background: rgba(1,1,1,.4);bottom: 0;}
-.sports_top_right{margin: 10px;width: 10.75rem;}
+.sports_top_right{margin: 10px;width: 9.75rem;}
 .sports_top_right p{font-size: 12px;margin-top: 10px;margin-bottom: 0;line-height: 1.5;}
 .sports_top_right h4{margin-top: 10px;}
 .sports_details_date{margin-right: 5px;}

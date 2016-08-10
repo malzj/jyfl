@@ -188,6 +188,12 @@
     });
     //初始化单页的区域滚动
     mui('.mui-scroll-wrapper').scroll();
+	if(mui.os.plus){
+		document.addEventListener('refresh',function(){
+			plus.webview.currentWebview().reload();
+		});
+	}
+
 </script>
 </body>
 </html>

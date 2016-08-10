@@ -66,15 +66,9 @@
 		
 	mui('#logout')[0].addEventListener('tap',function(){
 
-		jQuery.ajax({
-			url: web_url +'/mobile/userAuth.php',
-			data: {
+		jQuery.ajaxJsonp(web_url +'/mobile/userAuth.php',{
 				'act': 'logout',
-			},
-			type: 'get',
-			dataType: 'jsonp',
-			jsonp: 'jsoncallback',
-			success: function (result) {
+			},function (result) {
 				console.log(result);
 				if (result.state == 'true') {
 					mui.alert("退出登录成功！",function(){
@@ -84,7 +78,7 @@
 					mui.alert("退出登录失败！");
 				}
 			}
-		});
+		);
 		return false;
 	});
 	

@@ -85,7 +85,20 @@
 					var id = this.getAttribute('data-id');
 					jQuery.ajaxJsonp(web_url+'/mobile/basic.php?act=city',{cityid:id},function(result){
 						if(result.state=='true'){
-							mui.back();
+							if(!mui.os.plus) {
+									mui.back();
+							}else{
+								mui.plusReady(function() {
+//									var self = plus.webview.currentWebview();
+//									var opener = self.opener();
+//									mui.fire(opener,'refresh');
+//									self.close();
+//									opener.show();
+									var opener = plus.webview.currentWebview().opener();
+                   	 				opener.reload()
+                    				mui.back();
+								});
+							}
 						}else if(result.state=='false'){
 							jQuery.errorJudge(result.data,result.message);
 						}

@@ -43,7 +43,7 @@ a{color: black;}
 .public_gongneng{/* overflow: auto!important; */}
 .public_gongneng_title{margin-top: 27px;}
 .offside_icon{margin-right: 20px;vertical-align: middle;}
-.index_address{background: rgba(1,1,1,.5);width: 100px;border-radius: 15px;margin-top: 3px;color: white;}
+.index_address{background: rgba(1,1,1,.5);width: 120px;border-radius: 15px;margin-top: 3px;color: white;}
 /*public popUp*/
 .public_popUp{left: 0;top: 0;position: absolute;width: 100%;height: 100%;background:rgba(255,255,255,.9);z-index: -1;/* transition:all .5s ease-out; */}
 .popUp_row{position: absolute;top: 0px;width: 100%;left: 0;z-index: 1;height: 100%;overflow: hidden;transform: translateY(100%);}

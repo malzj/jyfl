@@ -89,11 +89,14 @@
 									mui.back();
 							}else{
 								mui.plusReady(function() {
-									var self = plus.webview.currentWebview();
-									var opener = self.opener();
-									mui.fire(opener,'refresh');
-									self.close();
-									opener.show();
+//									var self = plus.webview.currentWebview();
+//									var opener = self.opener();
+//									mui.fire(opener,'refresh');
+//									self.close();
+//									opener.show();
+									var opener = plus.webview.currentWebview().opener();
+                   	 				opener.reload()
+                    				mui.back();
 								});
 							}
 						}else if(result.state=='false'){

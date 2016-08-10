@@ -1,4 +1,4 @@
-/*TMODJS:{"version":89,"md5":"fcd557a01ba7aa6807a125891fa628a9"}*/
+/*TMODJS:{"version":90,"md5":"fcd557a01ba7aa6807a125891fa628a9"}*/
 template('cake/index',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,data=$data.data,banner=$data.banner,$index=$data.$index,$escape=$utils.$escape,i=$data.i,cate=$data.cate,attr=$data.attr,good=$data.good,$out='';$out+='<div class="mui-content">  <div id="slider" class="mui-slider" > <div class="mui-slider-group mui-slider-loop"> <div class="mui-slider-item mui-slider-item-duplicate slide-a"> <a href=""> <img src=""> </a> </div> ';

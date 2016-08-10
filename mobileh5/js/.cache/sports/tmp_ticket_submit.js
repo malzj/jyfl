@@ -1,4 +1,4 @@
-/*TMODJS:{"version":22,"md5":"1c56f93ce6c655af1f06cbdac5689ef5"}*/
+/*TMODJS:{"version":23,"md5":"1c56f93ce6c655af1f06cbdac5689ef5"}*/
 template('sports/tmp_ticket_submit',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,list=$data.list,validit=$data.validit,user_name=$data.user_name,$out='';$out+='<div class="mui-content"> <div class="margin_top_15 mui-table-view"> <div class="mui-table-view-cell"> <h4 class="mui-pull-left">订单编号</h4> <p class="mui-pull-right">';

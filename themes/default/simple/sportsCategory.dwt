@@ -89,8 +89,10 @@
 						<span>{$goods.shop_price}点 / {$goods.goods_num}</span>
 					</div>
 					<div class="cake_btn f_r">
-						<a href="{$goods.url}"><span class="cake_btn_look"></span>查看详情</a>
+						<a href="{if $cat_id eq 28}code.php?id={$goods.goods_id}{else}{$goods.url}{/if}"><span class="cake_btn_look"></span>查看详情</a>
+						<!--{if $cat_id ne 28}-->
 						<a href="javascript:;" onclick="MoveBox1(this,'{$goods.goods_id}')"><span class="cake_btn_add"></span>加入购物车</a>
+						<!--{/if}
 					</div>
 				</div>
                 {/if}

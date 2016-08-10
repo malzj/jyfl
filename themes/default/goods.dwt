@@ -84,12 +84,19 @@
 									<a id="increment" class="increment" onclick="add()">+</a>				
 							</div>
 						<li>
+                            <!--{if $goods.cat_id eq 28}-->
+                            <button class="sport4_btn input_submit bg_ff781e btn" type="button" onclick="addToCart({$goods.goods_id},'',5)" value="立即购买">
+                            <span class="lijigoumai"></span>
+                          			  立即购买
+                           </button>
+                           <!--{else}-->
                             <button class="sport4_btn input_submit bg_ff781e btn" type="button" onclick="addToCart({$goods.goods_id},'',5)" value="立即购买">
                             <span class="lijigoumai"></span>
                           			  立即购买
                            </button>
                             <button type="submit" class="sport4_btn input_submit bg_color btn zhuti_a_hover" onclick="MoveBox()" value="加入购物车" >
                             <span class="lijigoumai_1"></span>加入购物车</button>
+                            <!--{/if}-->
                         </li>
 					</ul>
 				</div>

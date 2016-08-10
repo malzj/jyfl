@@ -16,52 +16,23 @@
         <!-- 头部结束 --> 
         
         <div class="w_1200">       	
-            
-        
-			<div class="movie_big">
-				<div class="box">
-					<div class="img_left">
-						<img src="{$dzqyy.CinemaImages.0}" width="250" height="250">
-					</div>
-					<div class="yingyuan_details">
-						<ul>
-							<li>
-								<h3>{$dzqyy.CinemaName}</h3>
-								<span class="pingfen">{if $dzqyy.AverageDegree gt 0} {$dzqyy.intComment}.{$dzqyy.floComment} {else} 暂无评分 {/if}</span>
-								<div class="myxin">
-									<div class="myxin2" style="width: {$dzqyy.AverageDegreeFormat}%">
-									</div>
-								</div>
-							</li>
-							<li>地址：<span>{$dzqyy.Address} </span></li>
-							<li>电话：<span>{if $dzqyy.PhoneNo}{$dzqyy.PhoneNo}{else}暂无{/if}</span></li>
-							<li>交通：<span>{$dzqyy.Traffic}</span></li>
-							<li class="jieshao"><i>影院介绍：</i><span>{$dzqyy.Introduction}</span></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-          
 			<div class="buy">
 				<div class="details_all" style="overflow: hidden;">
 				<div class="buy_details f_l">
-					<div class="leixing">类型：</div>
                         <ul>
-                            {foreach from=$dzq item=item name=dzq}
-                                <li style="color: #2fd0b5;border-radius: 3px;" class="border_1 {if $smarty.foreach.dzq.first} active {/if}" onclick="changeAttr(this, '{$item.TicketNo}');"><span>{$item.TicketName}</span><span>{$item.SalePriceFormat}</span>点</li>
-                                <input type="radio" name="ticketNo" id="TicketNo_{$item.TicketNo}" price="{$item.SalePrice}" shijiprice="{$item.CinemaPriceFormat}" value="{$item.TicketNo}" {if $smarty.foreach.dzq.first} checked {/if} style="display:none;"/>
-                            {/foreach}
-                            
+                            <li class="shuliang">
+                            名称：{$goods.goods_name}
+                       		</li>
                             <li class="shuliang">数量：
                             	<div class="quantity ver_bottom">
 									<a id="decrement" class="decrement" onclick="del()">-</a>
 									<input name="number" id="number" class="itxt" value="1" type="text">
-									<a id="increment" class="increment" onclick="add()">+</a>				
+									<a id="increment" class="increment" onclick="add()">+</a>
 					    		</div>
                        		</li>
                             <li class="tel">
                                 <img src="/images/index/img_login/tel_img.png">
-                                <input type="text" name="mobble" id="mobile" class="judgeBound" value="{$usernames.mobile_phone}" placeholder="请输入手机号码">
+                                <input type="text" name="mobile" id="mobile" class="judgeBound" value="{$usernames.mobile_phone}" placeholder="请输入手机号码">
                             </li>
                         </ul>
                     </div>
@@ -78,13 +49,9 @@
 				<div style="text-align: center;"><span class="buy_btn"><span  class="dzq_lijigoumai"></span>立即购买</span></div>
 			</div>
             
-            <input type="hidden" name="areaNo" value="{$dzqyy.AreaNo}" />
-            <input type="hidden" name="areaName" value="{$dzqyy.AreaName}" />
-            <input type="hidden" name="cinemaNo" value="{$cinemaNo}" />
-            <input type="hidden" name="cinemaName" value="{$dzqyy.CinemaName}" />
-            <input type="hidden" name="act" value="orderDzq" />
-            <input type="hidden" name="price" id="price" value="" />
-            <input type="hidden" name="sjprice" id="sjprice" value="" />
+            <input type="hidden" name="act" value="orderCode" />
+            <input type="hidden" name="price" id="price" value="{$goods.market_price}" />
+            <input type="hidden" name="real_price" id="real_price" value="{$goods.shop_price}" />
             
 		</div>
         
@@ -121,16 +88,11 @@
 		}
 		
 		$('.buy_btn').click(function(){
-			var ticketNo 	= $('input:checked').val();
-			var areaNo   	= $('input[name=areaNo]').val();
-			var areaName 	= $('input[name=areaName]').val();
-			var cinemaNo 	= $('input[name=cinemaNo]').val();
-			var cinemaName  = $('input[name=cinemaName]').val();
 			var number  	= $('input[name=number]').val();
-			var price   	= $('input:checked').attr('price');
-			var sjprice   	= $('input:checked').attr('sjprice');
-			var mobble 		= $('input[name=mobble]').val();
-			
+			var price   	= $('#price').val();
+			var real_price   	= $('#real_price').val();
+			var mobile 		= $('input[name=mobile]').val();
+
 			if(checkSubmitFlg == true){ 
 				alert('提交中，请耐心等待！');
 				return false;
@@ -140,18 +102,18 @@
 				alert('手机号码不能为空!');
 				return false;
 			}
-			if( areaNo == '' || areaName == '' || cinemaNo == '' || cinemaName == '' || price == '' || sjprice == '' ){
+			if( price == '' || real_price == '' ){
 				alert('无法提交！');
 				return false;
 			}
 			
-			var params = {areaNo:areaNo,areaName:areaName,cinemaNo:cinemaNo,cinemaName:cinemaName,ticketNo:ticketNo,mobile:mobble,price:price,number:number};
+			var params = {mobile:mobble,price:price,number:number};
 		
 			checkSubmitFlg = true;
 		
 			$.ajax({
 					type:'POST',
-					url:'movie_order.php?act=orderDzq',
+					url:'code_order.php?act=orderCode',
 					data:params,
 					beforeSend:function(){
 						$('.buy_btn').text('提交中...');
@@ -167,7 +129,7 @@
 						}
 					}
 				});
-				
+
 			
 		});
 	

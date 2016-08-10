@@ -37,8 +37,8 @@ class CompanyController extends Controller
         $dataList = $Card -> getDataList();
         $time = strtotime($result['Time']);
         $time = date('Y-m-d H:i:s',$time);
-        $company_logo = 'logo.png';
-        $company_bg = 'C-_Users_user_Desktop_01.png';
+        $company_logo = 'Public/company/upload/logo.png';
+        $company_bg = 'Public/company/upload/C-_Users_user_Desktop_01.png';
         if($no == 0){
             $companyList = array();
             foreach($dataList['Info'] as $key=>$val){
@@ -83,11 +83,14 @@ class CompanyController extends Controller
      */
     public function companyEdit(){
         $CompanyModel = M('Company');
+
+
         if(IS_POST){
             $cid = I('request.id');
             $data = array();
             $data['grade_id'] = I('post.grade_id');
-            if($_FILES['logo']['name']||$_FILES['background']['name']){
+
+            if($_FILES['logo_img']['name']||$_FILES['back_img']['name']||$_FILES['m_back_img']['name']){
                 //图片上传设置
 
                 $config = array(
@@ -95,19 +98,21 @@ class CompanyController extends Controller
                     'savePath' => 'Public/company/upload/',
                     'rootPath' => './',
                     'exts' => array('jpg','gif','png','jpeg'),
-                    'autoSub' => false,
+                    'autoSub' => true,
+                    'subName' => $cid
                 );
 
                 $Upload = new Upload($config);
                 $images = $Upload -> upload($_FILES);
                 //判断是否有图
                 if($images){
-                    if($images['logo']['savename']){
-                        $data['logo_img'] = $images['logo']['savename'];
+                    foreach($images as $key=>$file) {
+                        if ($file['savename']) {
+                            $data[$key] = $file['savepath'].$file['savename'];
+                        }
                     }
-                    if($images['background']['savename']){
-                        $data['back_img'] = $images['background']['savename'];
-                    }
+//                    var_dump($data);
+//                    exit;
                 }else{
                     $this -> error($Upload->getError());//获取失败信息
                 }

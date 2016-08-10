@@ -33,7 +33,7 @@
                url:defaults.url,
                type:'get',
                data:defaults.data,
-               datatype:'json',
+               dataType:'json',
 //             dataType:'jsonp',
 //             jsonp:'jsoncallback',
                success:function(result){

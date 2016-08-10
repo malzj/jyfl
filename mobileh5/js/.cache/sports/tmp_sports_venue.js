@@ -1,4 +1,4 @@
-/*TMODJS:{"version":35,"md5":"a424a4f3cb1d403001c9891369a190e5"}*/
+/*TMODJS:{"version":40,"md5":"28710fd2828e59377bd6e7670a25a093"}*/
 template('sports/tmp_sports_venue',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,venues=$data.venues,venue=$data.venue,$index=$data.$index,$escape=$utils.$escape,venueId=$data.venueId,priceData=$data.priceData,price=$data.price,date=$data.date,list=$data.list,timeData=$data.timeData,time=$data.time,infoId=$data.infoId,secret=$data.secret,$out='';$out+='<div class="mui-content"> <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted sports_venue_scroll margin_top_15 bg_white"> <div class="mui-scroll"> ';
@@ -49,8 +49,13 @@ $out+=$escape(list.sTime);
 $out+='" data-e="';
 $out+=$escape(list.eTime);
 $out+='">';
+if(list.num == 0){
+$out+='已预订';
+}else{
 $out+=$escape(list.salePrice);
-$out+='点</dd> ';
+$out+='点';
+}
+$out+='</dd> ';
 });
 $out+=' </dl> ';
 });

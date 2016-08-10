@@ -1,4 +1,4 @@
-/*TMODJS:{"version":17,"md5":"59f0ed4b1fa560f2a6a1a15b907aa420"}*/
+/*TMODJS:{"version":19,"md5":"59f0ed4b1fa560f2a6a1a15b907aa420"}*/
 template('sports/tmp_venue_pay',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,order=$data.order,detail=$data.detail,$each=$utils.$each,time=$data.time,$index=$data.$index,$out='';$out+='<div class="mui-content"> <div class="margin_top_15 mui-table-view"> <div class="mui-table-view-cell"> <h4 class="mui-pull-left">总价</h4> <p class="mui-pull-right color_2fd0b5">';

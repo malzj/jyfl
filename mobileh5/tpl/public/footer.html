@@ -4,7 +4,7 @@
 <nav class="mui-bar mui-bar-tab bg_white public_footer">
      <a class="mui-tab-item href_click" data-href="../index/jy_index.html">
          <span class="mui-icon iconfont icon-zhuye"></span>
-         <span class="mui-tab-label">聚优</span>
+         <span class="mui-tab-label">首页</span>
      </a>
      <a class="mui-tab-item href_click" data-href="../order/my_order.html">
          <span class="mui-icon iconfont icon-order"></span>
@@ -78,7 +78,7 @@
 				console.log(result);
 				if (result.state == 'true') {
 					mui.alert("退出登录成功！",function(){
-						window.location.href='../index.html';
+						jQuery.jumpTo('../index.html');
 					});
 				} else {
 					mui.alert("退出登录失败！");

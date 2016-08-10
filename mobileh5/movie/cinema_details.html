@@ -9,20 +9,19 @@
 		<link rel="stylesheet" href="../css/public.css" />
 		<style>
 			#icon-phone{
-			    color: #8F8F94;
-			}
-			#icon-phone{
+				color: #8F8F94;
 			    margin: 3px;
 			    width: 40px;
 			    height: 40px;
-			    display: inline-block;
+			    display:inline-block;
 			    text-align: center;
 			    background-color: #fff;
 			    border: 1px solid #ddd;
 			    border-radius: 25px;
 			    background-clip: padding-box;
 			}
-			#icon-phone .mui-icon {
+			.mui-icon-phone-filled:before {
+				display: inline-block;
 			    margin-top: 7px;
 			}
 			.mui-segmented-control.mui-scroll-wrapper .mui-scroll{height:auto;}
@@ -92,6 +91,7 @@
 		<script type="text/javascript">
 			(function($) {
 				//初始化点击
+				$.init();
 				jQuery.hrefClick();
 				var cinemaid = jQuery.getUrlParam('cinemaid');
 				var movieid = jQuery.getUrlParam('movieid');
@@ -107,9 +107,24 @@
 							'<p class="mui-ellipsis">' + result.data.cinemaDetail.cinema_address + '</p>' +
 							'</div>' +
 							'<div class="mui-col-xs-3 tel_movie_details1">' +
-							'<a id="icon-phone" href="tel:'+result.data.cinemaDetail.cinema_tel+'"><span class="mui-icon mui-icon-phone-filled"></span></a>' +
+							'<a id="icon-phone" class="mui-icon mui-icon-phone-filled"></a>' +
 							'</div>'
 						);
+						//拨打电话
+						if(mui.os.plus){
+						jQuery('body').on('tap','#icon-phone',function(){
+								var btnArray=['拨打','取消'];
+								var phone=result.data.cinemaDetail.cinema_tel ;
+								mui.confirm('是否拨打'+phone+'?','提示',btnArray,function(e){
+									if(e.index==0){
+										plus.device.dial(phone,true);
+									}
+								})
+							})
+						}else{
+								jQuery('#icon-phone').attr('href','tel:'+result.data.cinemaDetail.cinema_tel);
+							}
+						
 						//电影列表
 						var movieList = '';
 						jQuery.each(result.data.movies, function (key, value) {
@@ -141,7 +156,6 @@
 					}
 				});
 
-				$.init();
 				//电影切换
 				$('#item1 .movie_select .mui-scroll').on('tap','.mui-control-item',function(){
 					var movie_id = this.getAttribute('data-movieid');

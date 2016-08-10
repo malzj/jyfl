@@ -16,7 +16,7 @@
                 <dl data-date="{{date}}" venue-no="{{price.rows}}">
                     <dt>{{price.rows}}号场</dt>
                     {{each price.list as list}}
-                    <dd class="{{if list.num == 0}}not{{else}}vv_sel{{/if}}" data-price="{{list.salePrice}}" data-fee="0" data-sale-price="{{list.salePrice}}" data-id="{{price.rows}}{{list.sTime}}" data-clock="{{list.sTime_mt}}" data-s="{{list.sTime}}" data-e="{{list.eTime}}">{{list.salePrice}}点</dd>
+                    <dd class="{{if list.num == 0}}not{{else}}vv_sel{{/if}}" data-price="{{list.salePrice}}" data-fee="0" data-sale-price="{{list.salePrice}}" data-id="{{price.rows}}{{list.sTime}}" data-clock="{{list.sTime_mt}}" data-s="{{list.sTime}}" data-e="{{list.eTime}}">{{if list.num == 0}}已预订{{else}}{{list.salePrice}}点{{/if}}</dd>
                     {{/each}}
                 </dl>
                 {{/each}}

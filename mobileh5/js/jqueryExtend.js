@@ -33,9 +33,9 @@
                url:defaults.url,
                type:'get',
                data:defaults.data,
-               dataType:'json',
-               // dataType:'jsonp',
-               // jsonp:'jsoncallback',
+               datatype:'json',
+//             dataType:'jsonp',
+//             jsonp:'jsoncallback',
                success:function(result){
                    defaults.success(result);
                    if(isload || !mui.os.plus){

@@ -43,6 +43,7 @@ a{color: black;}
 .public_gongneng{/* overflow: auto!important; */}
 .public_gongneng_title{margin-top: 27px;}
 .offside_icon{margin-right: 20px;vertical-align: middle;}
+.index_address{background: rgba(1,1,1,.5);width: 100px;border-radius: 15px;margin-top: 3px;color: white;}
 /*public popUp*/
 .public_popUp{left: 0;top: 0;position: absolute;width: 100%;height: 100%;background:rgba(255,255,255,.9);z-index: -1;/* transition:all .5s ease-out; */}
 .popUp_row{position: absolute;top: 0px;width: 100%;left: 0;z-index: 1;height: 100%;overflow: hidden;transform: translateY(100%);}
@@ -231,7 +232,7 @@ a{color: black;}
 .empty_cart_box img{width: 25%;}
 .empty_cart_box button{background: #2fd0b5;color: white;width: 6rem;}
 /*通用ajax请求前动画*/
-#mui-loading-box{position: fixed;height: 100%;top: 0;width: 100%;color: white;font-size: 12px;text-align: center;background:transparent;z-index: 11;}
+#mui-loading-box{position: fixed;height: 100%;top: 0;width: 100%;color: white;font-size: 12px;text-align: center;background:transparent;z-index: 111111;}
 #mui-loading-box .mui-loading{position: fixed;top: 50%;width: 90px;height:70px;background: rgba(1,1,1,.8);left: 50%;transform: translate(-50%,-50%);border-radius: 10px;}
 #mui-loading-box .mui-spinner{margin-top: 10px;margin-bottom: 5px;}
 /*sports*/
@@ -265,7 +266,7 @@ a{color: black;}
 .sports_top_img img {width: 100%;height:100%;}
 .sports_top_img{min-width: 100px;width: 5rem;height: 3.5rem;min-height: 70px;}
 .sports_top_imgNum{padding-left: 10px;position: absolute;color: white;font-size: 12px;width: 100%;background: rgba(1,1,1,.4);bottom: 0;}
-.sports_top_right{margin: 10px;width: 10.75rem;}
+.sports_top_right{margin: 10px;width: 9.75rem;}
 .sports_top_right p{font-size: 12px;margin-top: 10px;margin-bottom: 0;line-height: 1.5;}
 .sports_top_right h4{margin-top: 10px;}
 .sports_details_date{margin-right: 5px;}
@@ -273,6 +274,8 @@ a{color: black;}
 .sports_details_ticket{position: absolute;padding: 5px 10px;right: 0;top: -3px;border-radius: 5px;background: #2fd0b5;color: white;border: none;font-size: 12px;}
 .sports_details_item2 li{padding: 15px;}
 .sports_details_item2 .mui-col-xs-4{position: relative;}
+.sports_top .sports_item.active a{color: #2fd0b5!important;}
+.sports_venue_next{background: #ff781e;color: white!important;}
 /*运动门票日历*/
 .calendar_title{padding: 10px 0;text-align: center;color: #2fd0b5;}
 .calendar_price{display: block;font-size: 12px;}
@@ -295,6 +298,68 @@ a{color: black;}
 .sports_venue_scroll a{height: 53px;line-height: 1.5!important;padding: 5px 20px!important;border-right: .5px solid #ddd!important;}
 .mui-active .color_8f8f94{color: #2fd0b5;}
 .sport_venue_reserve span{display: block;}
+/*购物车角标*/
+.buy_car_count{
+	padding: 1px 5px;
+    top: 3px;
+    position: absolute;
+    right: 2px;
+    z-index: 111;}
+
+@-webkit-keyframes rubberBand {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1)
+	}
+	30% {
+		-webkit-transform: scaleX(1.25) scaleY(0.75);
+		transform: scaleX(1.25) scaleY(0.75)
+	}
+	40% {
+		-webkit-transform: scaleX(0.75) scaleY(1.25);
+		transform: scaleX(0.75) scaleY(1.25)
+	}
+	60% {
+		-webkit-transform: scaleX(1.15) scaleY(0.85);
+		transform: scaleX(1.15) scaleY(0.85)
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1)
+	}
+}
+
+@keyframes rubberBand {
+	0% {
+		-webkit-transform: scale(1);
+		-ms-transform: scale(1);
+		transform: scale(1)
+	}
+	30% {
+		-webkit-transform: scaleX(1.25) scaleY(0.75);
+		-ms-transform: scaleX(1.25) scaleY(0.75);
+		transform: scaleX(1.25) scaleY(0.75)
+	}
+	40% {
+		-webkit-transform: scaleX(0.75) scaleY(1.25);
+		-ms-transform: scaleX(0.75) scaleY(1.25);
+		transform: scaleX(0.75) scaleY(1.25)
+	}
+	60% {
+		-webkit-transform: scaleX(1.15) scaleY(0.85);
+		-ms-transform: scaleX(1.15) scaleY(0.85);
+		transform: scaleX(1.15) scaleY(0.85)
+	}
+	100% {
+		-webkit-transform: scale(1);
+		-ms-transform: scale(1);
+		transform: scale(1)
+	}
+}
+
+.rubberBand {
+	animation: rubberBand .5s ease-in-out;
+}    
 /*iphone5适配*/
 @media only screen and (max-width: 320px) {
 	body{font-size: 12px;}

@@ -14,8 +14,12 @@
 		<script src="../js/template.js"></script>
 		<script src="../js/jqueryExtend.js"></script>
 		<script src="../js/mui.mian.js"></script>
+		<script src="../js/fly.js"></script>
 		<style>
-			.mui-numbox{margin-top: 10px;}			
+			.mui-numbox{margin-top: 10px;}	
+			.flyer-img{z-index: 999; position:fixed; 
+              width: 30px;
+              height: 30px;    }		
 		</style>
 		<script>
 			// 商品id
@@ -44,6 +48,8 @@
 				// 重新触发计数插件
 				mui('.mui-numbox').numbox();
 			});
+			
+			
 		</script>
 	</body>
 

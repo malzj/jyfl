@@ -1329,7 +1329,7 @@ input[type=submit]:enabled:active {
 	table-layout: fixed;
 	border-top: 0;
 	border-bottom: 0;
-	-webkit-touch-callout: none
+	-webkit-touch-callout: none;
 }
 
 .mui-bar-tab .mui-tab-item {
@@ -1504,7 +1504,7 @@ input[type=submit]:enabled:active {
 	padding: 3px 6px;
 	color: #333;
 	border-radius: 100px;
-	background-color: rgba(0, 0, 0, .15)
+	background-color: rgba(0, 0, 0, .15);
 }
 
 .mui-badge.mui-badge-inverted {
@@ -4067,7 +4067,7 @@ body>.mui-progressbar {
 	line-height: 1;
 	display: inline-block;
 	text-decoration: none;
-	-webkit-font-smoothing: antialiased
+	-webkit-font-smoothing: antialiased;
 }
 
 .mui-icon.mui-active {

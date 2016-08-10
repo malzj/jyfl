@@ -81,7 +81,7 @@ function getCityList(){
  * 手机获取城市列表
  * @return array
  */
-function getMobileCities($onlyCountry=0){
+function getMobileCities(){
 	$array_cityList = Cache('mobile_cities','',1800);
 	if(empty($array_cityList)){
 		$array_cityList = array();
@@ -112,20 +112,7 @@ function getMobileCities($onlyCountry=0){
 			Cache('mobile_cities',$array_cityList);
 		}
 	}
-	
-	$_temp_cityList = $array_cityList;
-	
-	if ($onlyCountry == 1){
-    	foreach ($array_cityList as $t_k=>$t_v){
-    	    if( $t_v['value'] == $_SESSION['cityid'])
-    	    {
-    	        $_temp_cityList = array();
-    	        $_temp_cityList[$t_k] = $t_v;
-    	        break;
-    	    }
-    	}
-	}
-	return $_temp_cityList;
+	return $array_cityList;
 }
 /**
  * @param $name

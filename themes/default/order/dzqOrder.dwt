@@ -42,7 +42,8 @@
 								<div class="my_order_details_box">有效期：{$order.TicketYXQ}</div>
 							</div>
 						</div>
-						<div class="my_order_price f_l line_h_90">{$order.formated_price}点</div>
+						<!--<div class="my_order_price f_l line_h_90">{$order.formated_price}点</div>-->
+						<div class="my_order_price f_l line_h_90">{$order.sjprice}点</div>
 						<div class="my_order_num f_l line_h_90">x<span>{$order.number}</span></div>
 						<div class="my_order_price_all f_l line_h_90">{$order.total_fee}点</div>
 						<div class="my_order_zhuangtai f_l zhuangtai_margin_top">

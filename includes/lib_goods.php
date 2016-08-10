@@ -1516,11 +1516,7 @@ function get_card_rule_ratio($catid=0, $returnRatio=false)
     // 导航设置的销售比例
     $ratios  = unserialize($arr_cardRules['shop_ratio']);
     
-    // 城售价策略
-    $cardBin = substr($_SESSION['user_name'], 0,6);
-    $exts = current(findData('cardBIN','cardBin="'.$cardBin.'"'));
-    
-	$ratio['shop_ratio'] = get_interface_shop_ratio($catid,$exts);
+	$ratio['shop_ratio'] = get_interface_shop_ratio($catid,$arr_cardRules);
 	
 	$ratio['raise'] = $arr_cardRules['raise'];			
 	
@@ -1652,7 +1648,7 @@ function get_card_rule_ratio($catid=0, $returnRatio=false)
 	        'shop_ratio' => $ratio['shop_ratio'],
 	        'raise' => $ratio['raise'],
 	        'card_ratio' => $ratios[$new_catid],
-	        'ext'  => $exts['ext']
+	        'ext'  => $arr_cardRules['ext']
 	    );
 	}
 	
@@ -1660,8 +1656,8 @@ function get_card_rule_ratio($catid=0, $returnRatio=false)
 	
 }
 
-function get_interface_shop_ratio($cid,$rule)
-{   
+function get_interface_shop_ratio($cid, $rule)
+{
     $array = array(
         // 1.19公式比例
         'base'  => array(
@@ -1796,9 +1792,7 @@ function get_spec_ratio_price($spec, $returnRatio=false)
 	       $raise = floatval($card_rule['raise']);
 	       
 	       // 城售价策略
-	       $cardBin = substr($_SESSION['user_name'], 0,6);
-	       $exts = current(findData('cardBIN','cardBin="'.$cardBin.'"'));
-	       $ext = intval($exts['ext']);	  
+	       $ext = intval($card_rule['ext']);	  
 	       
 	       // 设置商城销售比例
 	       if (!empty($card_rule))
@@ -1809,6 +1803,16 @@ function get_spec_ratio_price($spec, $returnRatio=false)
 	               $ratios['shop_ratio'] = $shop_ratio['shop_ratio'];
 	           else
 	               $ratios['shop_ratio'] = $shop_ratio['shop_ratio_ext'];
+	           
+               // 实际卡售价在线上时，商城销售比例 = shop_ratio + 上调浮比
+               /* if ( floatval($card_rule['price']) > getExt( $ext ))
+               {
+                   $ratios['shop_ratio'] = $ext == 1 ? $shop_ratio['shop_ratio']+$raise : $shop_ratio['shop_ratio_ext']+$raise;
+               }
+               // 实际卡售价在线下时，
+               else {
+                   $ratios['shop_ratio'] = $ext == 1 ? $shop_ratio['shop_ratio']+$raise : $shop_ratio['shop_ratio_ext']+$raise;
+               }	 */           
 	       }
 	   }
 	   

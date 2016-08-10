@@ -107,7 +107,7 @@ function shipping_area_info($shipping_id, $region_id_list)
             ' AND re.region_id = r.region_id AND r.region_id ' . db_create_in($region_id_list) .
             ' AND r.shipping_area_id = a.shipping_area_id AND a.shipping_id = s.shipping_id AND s.enabled = 1 ORDER BY re.region_type DESC';
     $row = $GLOBALS['db']->getRow($sql);
-    
+
     if (!empty($row))
     {
         $shipping_config = unserialize_config($row['configure']);
@@ -3614,7 +3614,6 @@ function split_order($new_order_id){
 		    $split_orders[$row['supplier_id']]['unit_ratio'] = $ratios['unit_ratio'];
 		    $split_orders[$row['supplier_id']]['raise'] = $ratios['raise'];
 		    $split_orders[$row['supplier_id']]['ext'] = $ratios['ext'];
-		    $split_orders[$row['supplier_id']]['cardid'] = $_SESSION['card_id'];
 		}
 		$all_amount += $split_orders[$row['supplier_id']]['order_amount'];
 	}
@@ -3637,7 +3636,6 @@ function split_order($new_order_id){
 					" unit_ratio='".$split['unit_ratio']."',  ".
 					" raise='".$split['raise']."',  ".
 					" ext='".$split['ext']."',  ".
-					" cardid='".$split['cardid']."',  ".
 					" supplier_id='$spkey', ".
 					" parent_order_id='0', ".
 					" best_time='". $split['best_time']. "', ".

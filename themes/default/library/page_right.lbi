@@ -157,7 +157,7 @@
             						'</div>';
             				}
             				var com_html = '<div class="border_radio">'+
-            					'<img src="{$app_path}jyflapi/Public/company/upload/'+data.company_info.logo_img+'" alt="'+data.company_info.company_name+'" class="img-responsive"></div>'+
+            					'<img src="{$app_path}jyflapi/'+data.company_info.logo_img+'" alt="'+data.company_info.company_name+'" class="img-responsive"></div>'+
             					'<div class="text-center">'+data.company_info.company_name+'</div>';
             				$('.pop_right .message').html(com_html);
             				$('.pop_right .scroll_msg').html(game_list_html);

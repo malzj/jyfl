@@ -24,7 +24,7 @@ if ($_REQUEST['act'] == 'navList')
 
     $sql = "SELECT region_name FROM ".$GLOBALS['ecs']->table('region')." WHERE region_id = '".$_SESSION['cityid']."'";
     $city_cn = $GLOBALS['db']->getOne($sql);
-    $user_sql = 'SELECT u.nickname,u.pic,u.company_id,c.grade_id,c.company_name,c.logo_img,c.back_img FROM '.$GLOBALS['ecs']->table('users').' AS u LEFT JOIN '.$GLOBALS['ecs']->table('company').
+    $user_sql = 'SELECT u.nickname,u.pic,u.company_id,c.grade_id,c.company_name,c.logo_img,c.back_img,c.m_back_img FROM '.$GLOBALS['ecs']->table('users').' AS u LEFT JOIN '.$GLOBALS['ecs']->table('company').
         ' AS c ON u.company_id = c.card_company_id WHERE user_id='.$_SESSION['user_id'];
     $user_info = $GLOBALS['db']->getRow($user_sql);
 

@@ -15,8 +15,6 @@
 
 <span class="check">登录验证</span>
 
-<span class="logout">退出登录</span>
-
 <script>
 
 $('.action').click(function(){
@@ -27,7 +25,7 @@ $('.action').click(function(){
 	$.ajax(  
 		    {  
 		        type:'get',  
-		        url : 'http://192.168.0.54/mobile/userAuth.php?act=actLogin',  
+		        url : 'http://juyoufuli.com/mobile/userAuth.php?act=actLogin',  
 		        data:{username:u,password:p,type:t},
 		        dataType : 'jsonp',  
 		        jsonp:"jsoncallback",  
@@ -44,33 +42,12 @@ $('.action').click(function(){
 	$.ajax(  
 		    {  
 		        type:'get',  
-		        url : 'http://192.168.0.54/mobile/userAuth.php?act=checkLogin',  
-		        data:{userid:24863},
+		        url : 'http://juyoufuli.com/mobile/userAuth.php?act=checkLogin',  
+		        //data:{username:u,password:p,type:t},
 		        dataType : 'jsonp',  
 		        jsonp:"jsoncallback",  
 		        success  : function(data) {  
-		        	console.log(data);
-		            //alert("用户名"+data.state+',message:'+data.message);  
-		        }
-		       
-		    }  
-		)
-	
-});
- 
-
- $('.logout').click(function(){
-	$.ajax(  
-		    {  
-		        type:'get',  
-		        url : 'http://192.168.0.54/mobile/userAuth.php?act=logout',  
-		        data:{userid:24863},
-		        dataType : 'jsonp',  
-		        jsonp:"jsoncallback",  
-		        success  : function(data) {  
-		        	console.log(data);
-		            alert(data.state);
-		        	//alert("用户名"+data.state+',message:'+data.message);  
+		            alert("用户名"+data.state+',message:'+data.message);  
 		        }
 		       
 		    }  

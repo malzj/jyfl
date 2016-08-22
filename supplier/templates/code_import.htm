@@ -1,0 +1,20 @@
+<!-- $Id: order_query.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+<div class="main-div">
+<form action="import.php?act=done_import" method="post" enctype="multipart/form-data" name="searchForm">
+  <table cellspacing="1" cellpadding="3" width="100%">
+    <tr>
+      <td><div align="right"><strong>商品码文件：</strong></div></td>
+      <td colspan="3">
+        <input name="code_file" type="file" />
+       </td>
+    </tr>
+    <tr>
+      <td colspan="4"><div align="center">
+        <input name="query" type="submit" class="button" id="query" value="开始导入" />
+      </div></td>
+      </tr>
+  </table>
+</form>
+</div>
+{include file="pagefooter.htm"}

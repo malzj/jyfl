@@ -18,7 +18,7 @@
 		<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 -->        
    
-        <div class="wrap" id="back_img" style="background: url({$app_path}jyflapi/Public/company/upload/{$company.back_img}) no-repeat;background-size: 100% 100%;">
+        <div class="wrap" id="back_img" style="background: url({$app_path}jyflapi/{$company.back_img}) no-repeat;background-size: 100% 100%;">
 		</div>	
         
         <!-- 公共左边 -->

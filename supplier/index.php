@@ -151,6 +151,11 @@ elseif ($_REQUEST['act'] == 'main')
     if($res_supplier_id['is_entity']==1){
         $inventory=1;
     }
+
+    /*供货商商品码统计*/
+    //全部商品码
+    $sql = "SELECT price,status FROM ".$ecs->table('code')." WHERE 1";
+    $sql = "SELECT * FROM ".$ecs->table('code')." WHERE 1 GROUP BY price";
     $smarty->assign('inventory',  $inventory);
  	$smarty->assign('supplier_article',  $supplier_article);
     $smarty->assign('supplier_notice',  nl2br($_CFG['supplier_notice']));

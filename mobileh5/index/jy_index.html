@@ -24,7 +24,7 @@
 		.city{font-size: 14px;display: inline-block;width: 75px;}
 		.mui-icon-arrowright{font-size: 18px!important;padding: 3px 0 6px 0px!important;}
 		/*临时首页公司图片*/
-		.mui-content{background-image: url(../images/jy_index/person_bg.jpg);background-size: 100% 100%;}
+		.mui-content{background-size: 100%;background-position-y: center;background-repeat: no-repeat;}
 		</style>
 	</head>
 	<body>
@@ -63,7 +63,7 @@
 				}else if(result.state=='true'){
 					if(jQuery('.index_address .city').length!=0||jQuery('.mui-content').length!=0) {
 						jQuery('.index_address .city').text(result.data.city_cn);
-//						jQuery('.mui-content').css('background-image', 'url(' + web_url + '/jyflapi/Public/company/upload/' + result.data.user_info.back_img + ')');
+						jQuery('.mui-content').css('background-image', 'url(' + web_url + '/jyflapi/' + result.data.user_info.m_back_img + ')');
 					}
 					replaceHtml('.mui-draggable > .mui-inner-wrap header', template('public/footer', result.data));
 				}

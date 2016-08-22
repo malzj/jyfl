@@ -1440,6 +1440,41 @@ function get_user_dzq_orders($user_id, $num = 10, $start = 0)
 
     return $arr;
 }
+//电子券用户订单
+function get_user_code_orders($user_id, $num = 10, $start = 0)
+{
+    /* 取得订单列表 */
+    $arr    = array();
+    $sql = "SELECT id, order_sn, add_time, order_status, order_amount, money_paid," .
+        " mobile, goods_amount AS total_fee, price, sjprice, goods_name,goods_number, user_name,goods_attr,send_msg" .
+        " FROM " . $GLOBALS['ecs']->table('code_order') . " WHERE user_id = '".$user_id."' ORDER BY add_time DESC";
+
+    $res = $GLOBALS['db']->SelectLimit($sql, $num, $start);
+
+    while ($row = $GLOBALS['db']->fetchRow($res))
+    {
+
+        if ($row['order_status'] == 1){
+            $row['order_status_cn'] = '未付款';
+        }elseif($row['order_status'] == 2){
+            $row['order_status_cn'] = '已取消';
+        }elseif($row['order_status'] ==3&&$row['send_msg'] == 0){
+            $row['order_status_cn'] = '已付款，未发送短信';
+        }elseif($row['order_status'] ==3&&$row['send_msg'] == 1){
+            $row['order_status_cn'] = '已付款，已发送短信';
+        }
+
+		$row['formated_order_amount'] = price_format($row['order_amount']);
+		$row['formated_goods_amount'] = price_format($row['goods_amount']);
+		$row['formated_money_paid']   = price_format($row['money_paid']);
+		$row['short_order_time']      = local_date('Y-m-d H:i', $row['add_time']);
+		$row['formated_price']        = price_format(ceil($row['price']));
+
+        $arr[] = $row;
+    }
+
+    return $arr;
+}
 
 
 //演出用户订单

@@ -84,8 +84,8 @@
 									<a id="increment" class="increment" onclick="add()">+</a>				
 							</div>
 						<li>
-                            <!--{if $goods.cat_id eq 28}-->
-                            <button class="sport4_btn input_submit bg_ff781e btn" type="button" onclick="addToCart({$goods.goods_id},'',5)" value="立即购买">
+                            <!--{if $goods.extension_code=='virtual_card'}-->
+                            <button class="sport4_btn input_submit bg_ff781e btn" type="button" onclick="confirm_order({$goods.goods_id})" value="立即购买">
                             <span class="lijigoumai"></span>
                           			  立即购买
                            </button>
@@ -248,7 +248,45 @@
 				$(dom).attr('src', newsrc);
 				
 			});*/
-			
+
+			<!--{if $goods.extension_code=='virtual_card'}-->
+			function confirm_order(goodsId){
+			    	var goods        = new Object();
+                	var spec_arr     = new Array();
+                	var fittings_arr = new Array();
+                	var number       = 1;
+                	var formBuy      = document.forms['ECS_FORMBUY'];
+                	var quick		   = 0;
+
+                	// 检查是否有商品规格
+                	if (formBuy){
+                		spec_arr = getSelectedAttributes(formBuy);
+
+                		if (formBuy.elements['number']){
+                			number = formBuy.elements['number'].value;
+                		}
+                		quick = 1;
+                	}/*else{
+                		quick = 1;
+                	}*/
+
+                	goods.quick    = quick;
+                	goods.spec     = spec_arr;
+                	goods.goods_id = goodsId;
+                	goods.number   = number;
+                	goods.parent   = (typeof(parentId) == "undefined") ? 0 : parseInt(parentId);
+
+                	goods.carttype = (typeof(carttype) == "undefined") ? 0 : parseInt(carttype);
+
+                	jQuery.post("code_order.php",{step:"confirm_order", goods:JSON.stringify(goods), t:Math.random()}, function(data){
+                        if(data.error>0){
+                            alert(data.message);
+                        }else{
+                            location.href = "code_order.php?step=pay&order_id="+data.content.order_id;
+                        }
+                	}, 'json');
+			}
+			<!--{/if}-->
 		</script>
         
     </body>

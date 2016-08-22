@@ -38,7 +38,8 @@ class CompanyController extends Controller
         $time = strtotime($result['Time']);
         $time = date('Y-m-d H:i:s',$time);
         $company_logo = 'Public/company/upload/logo.png';
-        $company_bg = 'Public/company/upload/C-_Users_user_Desktop_01.png';
+        $company_bg = 'Public/company/upload/pc_background.jpg';
+		$mobile_bg = 'Public/company/upload/m_background.jpg';
         if($no == 0){
             $companyList = array();
             foreach($dataList['Info'] as $key=>$val){
@@ -88,6 +89,7 @@ class CompanyController extends Controller
         if(IS_POST){
             $cid = I('request.id');
             $data = array();
+            $data['company_name'] = I('post.company_name');
             $data['grade_id'] = I('post.grade_id');
 
             if($_FILES['logo_img']['name']||$_FILES['back_img']['name']||$_FILES['m_back_img']['name']){
@@ -111,8 +113,6 @@ class CompanyController extends Controller
                             $data[$key] = $file['savepath'].$file['savename'];
                         }
                     }
-//                    var_dump($data);
-//                    exit;
                 }else{
                     $this -> error($Upload->getError());//获取失败信息
                 }

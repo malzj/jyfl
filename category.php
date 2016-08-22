@@ -419,8 +419,8 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
             $goodslist[] = array();
         }
     }
-    
-    // banner图 和 text广播    
+
+    // banner图 和 text广播
     $adving = getAdid($cat_id);  
     if ($adving === null)
         show_message('无法处理您的请求！');
@@ -514,7 +514,7 @@ function category_get_goods($children, $brand, $min, $max, $ext, $size, $page, $
 			'LEFT JOIN '.$GLOBALS['ecs']->table('goods_huohao').' as ga ON ga.goods_id = g.goods_id '.
 			"WHERE $where $ext ORDER BY $sort $order"; */
             //"WHERE $where $ext AND CASE WHEN region_ids is null THEN 1 ELSE FIND_IN_SET(".intval($GLOBALS['int_cityId']).", ga.region_ids) END ORDER BY $sort $order";
-	$sql = 'SELECT g.goods_id, g.goods_name,g.region_ids, g.rule_ids, g.goods_name_style, g.market_price, g.is_new, g.is_best, g.is_hot,g.goods_num, g.shop_price, ' .
+	$sql = 'SELECT g.goods_id, g.goods_name, g.extension_code,g.region_ids, g.rule_ids, g.goods_name_style, g.market_price, g.is_new, g.is_best, g.is_hot,g.goods_num, g.shop_price, ' .
 			"g.promote_price, g.goods_type, g.promote_start_date, g.promote_end_date, g.goods_brief, g.goods_thumb , g.goods_img, " .
 			'gs.* ' .
 			'FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' .
@@ -588,6 +588,7 @@ function category_get_goods($children, $brand, $min, $max, $ext, $size, $page, $
                 
         $arr[$row['goods_id']]['type']             = $row['goods_type'];
 		$arr[$row['goods_id']]['goods_num']        = $row['goods_num'];
+		$arr[$row['goods_id']]['extension_code']        = $row['extension_code'];
         $arr[$row['goods_id']]['promote_price']    = ($promote_price > 0) ? price_format($promote_price) : '';
         $arr[$row['goods_id']]['goods_thumb']      = get_image_path($row['goods_id'], $row['goods_thumb'], true);
         $arr[$row['goods_id']]['goods_img']        = get_image_path($row['goods_id'], $row['goods_img']);

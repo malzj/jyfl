@@ -1,12 +1,7 @@
 <?php
 
 define('IN_ECS', true);
-/** 显示类型
- *  ALL     （门票和场地都显示）
- *  TICKET  （只显示门票）
- *  VENUES  （只显示场地）
- */
-define('SHOW_TYPE', 'VENUES');
+
 require(dirname(__FILE__) . '/includes/init.php');
 include_once(ROOT_PATH . 'includes/lib_basic.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');

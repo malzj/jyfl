@@ -310,6 +310,19 @@ elseif($_REQUEST['step'] == 'respond'){
     $smarty->display('code/codeRespond.dwt');
 }
 
+//取消订单
+elseif($_REQUEST['delorder'])
+{
+    $orderid = $_REQUEST['order_id'];
+    //获取已超时的订单
+    $order = $db->getRow("SELECT * FROM ".$ecs->table('code_order')." WHERE order_id = '".$orderid."' AND add_time+".(15*60-5)."<unix_timestamp(now())");
+    //取消未付款已超时的订单，解锁已锁定商品码
+    if(!empty($order)) {
+        $db->query("UPDATE " . $ecs->table('code_order') . "SET order_status = 2 WHERE id = " . $order['id']);
+        $db->query("UPDATE " . $ecs->table('code') . "SET status = 0,order_sn='' WHERE id IN (" . $order['code_id'].")");
+    }
+}
+
 function check_goods($goods_id, $num = 1, $spec = array()){
 
     // 得到规格编号

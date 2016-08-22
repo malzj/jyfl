@@ -11,9 +11,8 @@ include_once(dirname(__FILE__) . '/lib/_init.php');
 require(ROOT_PATH . 'includes/lib_smsvrerify.php');
 
 //获取未付款已超时的订单
-$order_unpaied = $db->getAll("SELECT * FROM ".$ecs->table('code_order')." WHERE order_status = 1 AND add_time+".(1*60)."<unix_timestamp(now())");
+$order_unpaied = $db->getAll("SELECT * FROM ".$ecs->table('code_order')." WHERE order_status = 1 AND add_time+".(15*60)."<unix_timestamp(now())");
 //取消未付款已超时的订单，解锁已锁定商品码
-var_dump($order_unpaied);
 if(!empty($order_unpaied)) {
     foreach ($order_unpaied as $order) {
         $db->query("UPDATE " . $ecs->table('code_order') . "SET order_status = 2 WHERE id = " . $order['id']);

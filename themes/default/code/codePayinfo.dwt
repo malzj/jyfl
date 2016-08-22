@@ -25,7 +25,7 @@
                         <div class="img_left">
                             <img src="{$orders.goods_thumb}" width="180">
                         </div>
-                        <div class="box_left">
+                        <div class="box_left" style="height:322px;">
                             <ul>
                                 <li><h3>{$orders.goods_name}</h3></li>
                                 <li><span>{$orders.goods_attr}</span></li>
@@ -53,7 +53,8 @@
                         </div>
                         <div class="tips">
                             <ul>
-                                <li>温馨提示：1、支付成功后您将收到取商品码短信</li>
+                                <li>温馨提示：1、支付成功后您将收到商品码短信</li>
+                                <li>2、如一小时内未收到短信，请咨询客服电话</li>
                             </ul>
                         </div>
                     </div>
@@ -89,7 +90,7 @@
 						document.getElementById(htmlId).innerHTML = (minute ? minute + '<span style="color:#666;font-size:14px;font-weight:normal">分</span>' : '') + second + '<span style="color:#666;font-size:14px;font-weight:normal;">秒</span>';
 					} else {
 						clearInterval(timer);
-						//delOrder();//未在规定时间内完成支付删除订单
+						delOrder();//未在规定时间内完成支付取消订单
 						
 					}
 				}, 1000);
@@ -112,8 +113,8 @@
 			function delOrder(){
 				var orderid = '{$order.id}';				
 				$.get('code_order.php', {act:'delorder', 'order_id':orderid}, function (result){
-					alert('抱歉，您未在规定时间内完成支付，该订单已删除！');
-					window.location.href="movie.php"
+					alert('抱歉，您未在规定时间内完成支付，该订单已取消！');
+					window.location.href="category.php?id={$category}";
 				});
 			}
 			

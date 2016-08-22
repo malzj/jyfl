@@ -1,0 +1,2 @@
+﻿# 微信支付成功后，对卡充值的操作
+* * * * * D:\wamp\bin\php\php5.3.10\php Crontab/weixin/index.php

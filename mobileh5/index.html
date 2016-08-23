@@ -169,7 +169,8 @@
             var password = form.find("input[name='password']").val();
             var type = form.find("input[name='type']").val();
             jQuery.ajaxJsonp(web_url + '/mobile/userAuth.php?act=actLogin',{username: username, password: password, type: type},function (result) {
-                    if (result.state == "true") {
+                console.log(result);
+                if (result.state == "true") {
                         localStorage.user_id = result.data.user_id;
                         localStorage.user_name = result.data.user_name;
                         jQuery.jumpTo('./index/jy_index.html');

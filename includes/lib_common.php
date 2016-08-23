@@ -1354,7 +1354,7 @@ function clear_tpl_files($is_cache = true, $ext = '')
 
 
 function delDir($directory, $subdir = true) {
-	if (is_dir($directory) == false) {
+    if (is_dir($directory) == false) {
 		return false;
 	}
 	$handle = opendir($directory);

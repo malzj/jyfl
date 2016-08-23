@@ -69,7 +69,7 @@
 		<script src="../js/indexList.js"></script>
 		<script type="text/javascript">
 			mui.init();
-			mui.ready(function() {
+			mui.ready(function(){
 				var header = document.querySelector('header.mui-bar');
 				var list = document.getElementById('list');
 				jQuery.ajaxJsonp(web_url+'/mobile/basic.php?act=getCityList','',function(result){
@@ -86,7 +86,8 @@
 					jQuery.ajaxJsonp(web_url+'/mobile/basic.php?act=city',{cityid:id},function(result){
 						if(result.state=='true'){
 							if(!mui.os.plus) {
-									mui.back();
+									//mui.back();
+									window.location.href='../index/jy_index.html';
 							}else{
 								mui.plusReady(function() {
 //									var self = plus.webview.currentWebview();

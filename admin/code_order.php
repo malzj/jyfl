@@ -52,7 +52,7 @@ elseif($_REQUEST['act'] == 'resend')
 	$order_sql = "SELECT * FROM ".$ecs->table('code_order')." WHERE id = ".$orderid;
 	$order_info = $db -> getRow($order_sql);
 
-	$code_sql = "SELECT c.*,s.supplier_name FROM ".$ecs->table('code')." AS c LEFT JOIN ".$ecs->table('supplier')." AS s ON c.supplier_id = s.supplier_id WHERE c.id IN(".$order_info['code_id'].")";
+	$code_sql = "SELECT c.*,s.supplier_name,m.content FROM ".$ecs->table('code')." AS c , ".$ecs->table('supplier')." AS s LEFT JOIN ".$ecs->table('supplier_message')." AS m ON s.supplier_id = m.supplier_id WHERE c.supplier_id = s.supplier_id AND c.id IN(".$order_info['code_id'].")";
 	$code_info = $db -> getAll($code_sql);
 
 	//支付成功短信发放电子码
@@ -61,17 +61,22 @@ elseif($_REQUEST['act'] == 'resend')
 		'nickname'=>$userInfo['nickname'],
 		'mobile'=>$order_info['mobile']
 	);
-	$content = "%s先生（女士）感谢你购买%s商品码，账号：%s，密码：%s。";
 	require(ROOT_PATH . 'includes/lib_smsvrerify.php');
 	$Smsvrerify = new smsvrerifyApi();
-
+	$error = 0;
 	foreach($code_info as $code){
+		$code['content'] = empty($code['content'])?'您好{$nickname}先生（女士）,感谢你购买{$supplier_name}商品码，账号：{$account},密码：{$password}':$code['content'];
 		$msgInfo = array_merge($msgInfo,$code);
-		$message = sprintf($content,$msgInfo['nickname'],$msgInfo['supplier_name'],$msgInfo['account'],$msgInfo['password']);
+		$smarty->assign($msgInfo);
+		$message = $smarty->fetch("str:" . $code['content']);
 		$result = $Smsvrerify->smsvrerify($msgInfo['mobile'],$message,'','聚优福利');
-		//修改商品码信息为已发送
-		$db->query("UPDATE ".$ecs->table('code_order')." SET send_msg = 1 WHERE id = ".$orderid);
+		if($result != 0)
+			$error ++;
 	}
+	//修改商品码信息为已发送
+	if($error == 0)
+		$db->query("UPDATE ".$ecs->table('code_order')." SET send_msg = 1 WHERE id = ".$orderid);
+
 	$ajaxArray['error'] = 0;
 	die(json_encode($ajaxArray));
 }

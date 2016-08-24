@@ -25,8 +25,3 @@ if($_REQUEST['act'] == 'get_code_str')
     $jsonArray['data']['code'] = !empty($code)?$code:$_SESSION['user_name'];
     JsonpEncode($jsonArray);
 }
-/*余额刷新*/
-elseif($_REQUEST['act'] == 'refresh_cash')
-{
-    
-}

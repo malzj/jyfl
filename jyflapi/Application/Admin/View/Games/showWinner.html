@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+    <title>微宝</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="__PUBLIC__/games/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/games/css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+    <link href="__PUBLIC__/games/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <!--right slidebar-->
+    <link href="__PUBLIC__/games/css/slidebars.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="__PUBLIC__/games/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/games/css/style-responsive.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/js/html5shiv.js"></script>
+    <script src="__PUBLIC__/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<section id="container" class="">
+    <!--header start-->
+    <include file="Common:header" />
+    <!--header end-->
+    <!--sidebar start-->
+    <include file="Common:side" />
+    <!--sidebar end-->
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper site-min-height" >
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <!-- page start-->
+                        <header class="panel-heading">
+                            游戏中奖列表
+                        </header>
+                        <div class="panel-body">
+                            <table class="table table-striped" cellpadding=3 cellspacing=5>
+                                <thead>
+                                <tr>
+                                    <!--<th>#</th>-->
+                                    <th>图像</th>
+                                    <th>游戏名称</th>
+                                    <th>中奖卡号</th>
+                                    <th>中奖人</th>
+                                    <th>中奖人公司</th>
+                                    <th>手机</th>
+                                    <th>中奖号</th>
+                                    <th>中奖时间</th>
+                                </tr>
+                                </thead>
+                                <volist name="winner_info" id="vo">
+                                    <tr>
+                                        <td><img src="__PUBLIC__/games/upload/{$vo.thumbnail}"/> </td>
+                                        <td>{$vo.game_name}</td>
+                                        <td>{$vo.card_num}</td>
+                                        <td>{$vo.nickname}</td>
+                                        <td>{$vo.company_name}</td>
+                                        <td>{$vo.mobile_phone}</td>
+                                        <td>{$vo.lottery}</td>
+                                        <td>{$vo.create_time}</td>
+                                    </tr>
+                                </volist>
+                            </table>
+                            <div class="dataTables_paginate paging_bootstrap">{$pages}</div>
+                        </div>
+                    </section>
+                </div></div>
+            <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
+
+    <!-- Right Slidebar start -->
+    <div class="sb-slidebar sb-right sb-style-overlay">
+
+
+    </div>
+    <!-- Right Slidebar end -->
+
+    <!--footer start-->
+    <footer class="site-footer">
+        <div class="text-center">
+            2014 &copy; vkadmin by Kairos.
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up"></i>
+            </a>
+        </div>
+    </footer>
+    <!--footer end-->
+</section>
+
+
+<!--<div class="result page">{$page}</div>-->
+
+
+
+
+
+<script src="__PUBLIC__/games/js/jquery.js"></script>
+<script src="__PUBLIC__/games/js/bootstrap.min.js"></script>
+<script class="include" type="text/javascript" src="__PUBLIC__/games/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="__PUBLIC__/games/js/jquery.scrollTo.min.js"></script>
+<script src="__PUBLIC__/games/js/slidebars.min.js"></script>
+<script src="__PUBLIC__/games/js/jquery.nicescroll.js" type="text/javascript"></script>
+<script src="__PUBLIC__/games/js/respond.min.js" ></script>
+
+<!--common script for all pages-->
+<script src="__PUBLIC__/games/js/common-scripts.js"></script>
+<script type="text/javascript">
+$(document).on('click','#btn_status',function () {
+    var id = $(this).attr('data-id');
+    var status = $(this).attr('data-status');
+    var url = '{:U("Games/ajaxStatusChange")}';
+//    alert(id+'-'+status);
+    $.ajax({
+        type:"post",
+        url:url,
+        data:{
+            id:id,
+            status:status,
+        },
+        dataType:"json",
+        success:function(data){
+            if(data.result == 'true'){
+                alert(data.msg);
+                location.reload();
+            }else{
+                alert(data.msg);
+                location.reload();
+            }
+        }
+    });
+});
+    $(document).on('click','#btn_update',function () {
+        var id = $(this).attr('data-id');
+        var url = '{:U("Games/ajaxUpdateLottery")}';
+        $.ajax({
+            type:'post',
+            url:url,
+            data:{id:id},
+            dataType:'json',
+            beforeSend:function(){
+              $('body').append(
+                      '<div id="popmsg" style="position:absolute;top:50%;left:50%;padding: 20px;border: 1px solid #333;background-color: #FFF;">' +
+                      '更新中，请等待...' +
+                      '</div>'
+              )
+            },
+            success:function(data){
+                $("#popmsg").remove();
+                if(data.result == 'true'){
+                    alert(data.msg);
+                    location.reload();
+                }else{
+                    alert(data.msg);
+                    location.reload();
+                }
+            }
+        })
+    });
+</script>
+</body>
+</html>

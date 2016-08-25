@@ -5,8 +5,8 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../../mobileh5/css/mui.css" rel="stylesheet" />
-		<link href="../../mobileh5/css/public.css" rel="stylesheet" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet" />
 		<style type="text/css">
 			.mui-backdrop{top: 283px;height: 1000%;position: absolute;}
 		</style>
@@ -54,22 +54,27 @@
 				mask.close();
 			});
 			//点击选择运动类型
-			mui('body').on('tap','.sports_top .sports_item a',function(){
+			mui('body').on('tap','.sports_top .sports_item',function(){
 				venue_type = this.getAttribute('data-code');
 				jQuery.ajaxJsonp(web_url+'/mobile/venues.php',{type:venue_type,area:area_id},function(result){
-					console.log(result);
+//					console.log(result);
 					showArea(result.data.area_list);
 					venueList(result.data.list);
-				});
+				},true);
+				//点击选择运动类型增加选中效果
+				jQuery(this).addClass('active').siblings().removeClass('active');
 			});
-
+			
 			//点击选择区域
 			mui('body').on('tap','.sports_area .sports_area_item',function(){
 				area_id = this.getAttribute('data-dongwang-id');
 				jQuery.ajaxJsonp(web_url+'/mobile/venues.php',{type:venue_type,area:area_id},function(result) {
 					console.log(result);
 					venueList(result.data.list);
-				});
+				},true);
+				//所选区域文字提示
+				var areaText= jQuery(this).text();
+				jQuery('.sports_area_btn').find('span:first-child').text(areaText);
 			});
 
 			//场馆区域渲染
@@ -103,6 +108,8 @@
 				}
 				jQuery('.sports_list').html(html);
 			}
+			//区域选择增加所选区域文字提示
+//			jQuery('body').on('tap','')
 		</script>
 	</body>
 

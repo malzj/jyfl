@@ -7,7 +7,7 @@ function addToCart(goodsId, parentId, carttype){
 	var fittings_arr = new Array();
 	var number       = 1;
 	var formBuy      = document.forms['ECS_FORMBUY'];
-	var quick		   = 0;
+	var quick		 = 0;
 
 	// 检查是否有商品规格 
 	if (formBuy){

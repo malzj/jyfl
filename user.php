@@ -36,7 +36,7 @@ array('login','act_login','register','act_register','reyanzheng','act_edit_passw
 /* 显示页面的action列表 */
 $ui_arr = array('register', 'login', 'profile','reyanzheng', 'order_list', 'order_detail', 'address_list', 'collection_list',
 'message_list', 'tag_list', 'get_password', 'reset_password', 'booking_list', 'add_booking', 'account_raply',
-'account_deposit', 'account_log', 'account_detail', 'act_account', 'pay', 'default', 'bonus', 'group_buy', 'group_buy_detail', 'affiliate', 'comment_list','validate_email','track_packages', 'transform_points','qpassword_name', 'get_passwd_question', 'check_answer', 'card_merge', 'act_card_merge', 'film_order', 'dzq_order', 'dongpiao_order', 'yanchu_order','bangding_tel','coupons_order','piaoduoduo_order','venues_order');
+'account_deposit', 'account_log', 'account_detail', 'act_account', 'pay', 'default', 'bonus', 'group_buy', 'group_buy_detail', 'affiliate', 'comment_list','validate_email','track_packages', 'transform_points','qpassword_name', 'get_passwd_question', 'check_answer', 'card_merge', 'act_card_merge', 'film_order', 'dzq_order', 'dongpiao_order', 'yanchu_order','bangding_tel','coupons_order','piaoduoduo_order','venues_order','code_order');
 
 /* 未登录处理 */
 if (empty($_SESSION['user_id']))
@@ -248,7 +248,7 @@ elseif ($action == 'act_login')
 			$cardMoney = $card_result['BalanceCash'];
 			// 卡有效期
 			$cardOutTime = date('Y-m-d',strtotime($card_result['ExpDate']));
-            $company_id = 1;//现无公司字段，防止出错，默认1
+            $company_id = 1601050002;//现无公司字段，防止出错，默认(聚优福利）
 			if ($card_result['Status'] != '正常')
 			{
 				exit($card_result['Status']);
@@ -3271,6 +3271,21 @@ else if ($action == 'dzq_order'){
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
     $smarty->display('order/dzqOrder.dwt');
+}
+//商品码订单
+else if ($action == 'code_order'){
+	include_once(ROOT_PATH . 'includes/lib_transaction.php');
+
+    $page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
+
+    $record_count = $db->getOne("SELECT COUNT(*) FROM " .$ecs->table('code_order'). " WHERE user_id = '$user_id'");
+
+    $pager  = get_pager('user.php', array('act' => $action), $record_count, $page);
+
+    $orders = get_user_code_orders($user_id, $pager['size'], $pager['start']);
+    $smarty->assign('pager',  $pager);
+    $smarty->assign('orders', $orders);
+    $smarty->display('order/codeOrder.dwt');
 }
 
 

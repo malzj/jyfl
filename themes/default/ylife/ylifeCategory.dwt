@@ -91,7 +91,7 @@
                 {if $goods.goods_id}
 				<div class="cake_box_item o_hidden">
 					<div class="cake_img f_l">
-						<a href="$goods.url"><img src="{$goods.goods_thumb|pathimages}" width="210" height="210" alt="{$goods.goods_name}"></a>
+						<a href="{$goods.url}"><img src="{$goods.goods_thumb|pathimages}" width="210" height="210" alt="{$goods.goods_name}"></a>
 					</div>
 					<div class="cake_content f_l">
 						<p class="cake_content_title"><a href="{$goods.url}" class="font-16">{$goods.goods_name}</a></p>

@@ -54,7 +54,7 @@ if ($_REQUEST['act'] == 'actLogin')
             $cardMoney = $card_result['BalanceCash'];
             // 卡有效期
             $cardOutTime = date('Y-m-d',strtotime($card_result['ExpDate']));
-            $company_id = 1;//现无公司字段，防止出错，默认1
+            $company_id = 1601050002;//现无公司字段，防止出错，默认1
             if ($card_result['Status'] != '正常')
             {
                 $jsonArray['state'] = 'false';
@@ -98,11 +98,7 @@ if ($_REQUEST['act'] == 'actLogin')
         $jsonArray['data'] = $int_user;
         $jsonArray['data']['cityid'] = $_SESSION['cityid'];
 
-        //登录成功请求获取加密卡号
-        $code = getCode($username);
-        $jsonArray['data']['code'] = !empty($code)?$code:$username;
-
-        JsonpEncode($jsonArray); 
+        JsonpEncode($jsonArray);
     }
     else
     {

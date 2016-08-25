@@ -63,6 +63,7 @@ $modules['04_order']['03_ticket_order']             = 'dzqdh_order.php?act=list'
 $modules['04_order']['03_yanchu_order']             = 'yanchu_order.php?act=list';
 $modules['04_order']['03_dongpiao_order']           = 'dongpiao_order.php?act=list';//动网票
 $modules['04_order']['03_venues_order']             = 'venues_order.php?act=list';  // 场馆订单
+$modules['04_order']['03_code_order']             = 'code_order.php?act=list';  // 电子码订单
 
 
 $modules['04_order']['04_order_query']              = 'order.php?act=order_query';
@@ -184,8 +185,11 @@ $modules['16_email_manage']['view_sendlist']        = 'view_sendlist.php?act=lis
 /* 代码增加_start  By  www.68ecshop.com */
 $modules['02_supplier']['05_supplier_rank']       = 'supplier_rank.php?act=list'; 
 $modules['02_supplier']['01_supplier_reg']       = 'supplier.php?act=list'; 
-$modules['02_supplier']['02_supplier_list']       = 'supplier.php?act=list&status=1'; 
-//$modules['02_supplier']['03_rebate_nopay']       = 'supplier_rebate.php?act=list&is_pay_ok=0'; 
+$modules['02_supplier']['02_supplier_list']       = 'supplier.php?act=list&status=1';
+$modules['02_supplier']['06_supplier_message']       = 'supplier_message.php?act=list';
+//$modules['02_supplier']['03_rebate_nopay']       = 'supplier_rebate.php?act=list&is_pay_ok=0';
 //$modules['02_supplier']['03_rebate_pay']       = 'supplier_rebate.php?act=list&is_pay_ok=1'; 
 /* 代码增加_end  By  www.68ecshop.com */
+$modules['02_card']['01_sale_card_import']       = 'sale_card.php?act=import';
+
 ?>

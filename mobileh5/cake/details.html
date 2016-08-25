@@ -7,14 +7,19 @@
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/public.css" rel="stylesheet"/>
 		<link href="../css/mui.mian.css" rel="stylesheet"/>
+		<link href="../css/iconfont.css" rel="stylesheet"/>
 		<script src="../js/connection.js"></script>
 		<script src="../js/jquery-1.9.1.min.js"></script>
 		<script src="../js/mui.min.js"></script>		
 		<script src="../js/template.js"></script>
 		<script src="../js/jqueryExtend.js"></script>
 		<script src="../js/mui.mian.js"></script>
+		<script src="../js/fly.js"></script>
 		<style>
-			.mui-numbox{margin-top: 10px;}			
+			.mui-numbox{margin-top: 10px;}	
+			.flyer-img{z-index: 999; position:fixed; 
+              width: 30px;
+              height: 30px;    }		
 		</style>
 		<script>
 			// 商品id
@@ -43,6 +48,8 @@
 				// 重新触发计数插件
 				mui('.mui-numbox').numbox();
 			});
+			
+			
 		</script>
 	</body>
 

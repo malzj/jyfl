@@ -38,9 +38,11 @@ $modules['02_cat_and_goods']['11_goods_trash']      = 'goods.php?act=trash';    
 //$modules['02_cat_and_goods']['14_goods_export']     = 'goods_export.php?act=goods_export';
 //$modules['02_cat_and_goods']['15_batch_edit']       = 'goods_batch.php?act=select'; // 商品批量修改
 
-//$modules['02_cat_and_goods']['50_virtual_card_list']   = 'goods.php?act=list&extension_code=virtual_card';
-//$modules['02_cat_and_goods']['51_virtual_card_add']    = 'goods.php?act=add&extension_code=virtual_card';
+$modules['02_cat_and_goods']['50_virtual_card_list']   = 'goods.php?act=list&extension_code=virtual_card';
+$modules['02_cat_and_goods']['51_virtual_card_add']    = 'goods.php?act=add&extension_code=virtual_card';
 //$modules['02_cat_and_goods']['52_virtual_card_change'] = 'virtual_card.php?act=change';
+$modules['02_cat_and_goods']['53_code_import'] = 'import.php?act=code_import';
+$modules['02_cat_and_goods']['54_code_list'] = 'code.php?act=code_list';
 //$modules['02_cat_and_goods']['goods_auto']             = 'goods_auto.php?act=list';
 
 //$modules['02_rebate_manage']['03_rebate_nopay']       = 'supplier_rebate.php?act=list&is_pay_ok=0'; 
@@ -88,5 +90,6 @@ $_LANG['04_article'] 			= '店铺文章';
 $_LANG['05_header'] 			= '店铺头部自定义';
 $_LANG['06_templates'] 			= '店铺模板选择';
 
-
+$_LANG['53_code_import']        = '导入商品码';
+$_LANG['54_code_list']        = '商品码管理';
 ?>

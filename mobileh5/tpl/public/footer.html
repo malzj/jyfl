@@ -1,27 +1,10 @@
 <script>
 	var app_path = '../';
 </script>
-<aside id="offCanvasSide"  class="mui-off-canvas-right">
-	<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-		<div class="mui-scroll">
-			<!-- 菜单具体展示内容 -->
-			<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
-				<li class="mui-table-view-cell index_touxiang"><img src="{{user_info.pic}}" alt="头像"/></li>
-				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../personal/person.html" open-type="common">个人信息</a></li>
-				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../personal/safe_center.html">安全中心</a></li>
-				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../order/my_order.html">我的订单</a></li>
-				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../personal/shouhuoxinxi.html">收货信息</a></li>
-				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../personal/account_deposit.html">卡充值</a></li>
-				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../personal/card_merge.html">卡合并</a></li>
-				<li class="mui-table-view-cell"><a id="logout" href="javascript:void(0);">退出登录</a></li>
-			</ul>
-		</div>
-	</div>
-</aside>
 <nav class="mui-bar mui-bar-tab bg_white public_footer">
      <a class="mui-tab-item href_click" data-href="../index/jy_index.html">
          <span class="mui-icon iconfont icon-zhuye"></span>
-         <span class="mui-tab-label">聚优</span>
+         <span class="mui-tab-label">首页</span>
      </a>
      <a class="mui-tab-item href_click" data-href="../order/my_order.html">
          <span class="mui-icon iconfont icon-order"></span>
@@ -40,6 +23,24 @@
          <span class="mui-tab-label">我的</span>
      </a>
 </nav>
+<aside id="offCanvasSide"  class="mui-off-canvas-right">
+	<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+		<div class="mui-scroll">
+			<!-- 菜单具体展示内容 -->
+			<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+				<li class="mui-table-view-cell index_touxiang"><img src="{{user_info.pic}}" alt="头像"/></li>
+				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../personal/person.html" open-type="common"><img src="../images/person_message.svg" width="20" class="offside_icon">个人信息</a></li>
+				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../personal/safe_center.html"><img src="../images/safe.svg" width="20" class="offside_icon">安全中心</a></li>
+				<!--<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../order/my_order.html"><img src="../images/person_message.svg" width="20" class="offside_icon">我的订单</a></li>-->
+				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../personal/shouhuoxinxi.html"><img src="../images/shouhuo.svg" width="20" class="offside_icon">收货信息</a></li>
+				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../personal/account_deposit.html"><img src="../images/chongzhi.svg" width="20" class="offside_icon">卡充值</a></li>
+				<li class="mui-table-view-cell"><a class="mui-navigate-right href_click"  data-href="../personal/card_merge.html"><img src="../images/hebing.svg" width="20" class="offside_icon">卡合并</a></li>
+				<li class="mui-table-view-cell"><a class="mui-navigate-right mui-text-center" id="logout" href="javascript:void(0);">退出登录</a></li>
+			</ul>
+		</div>
+	</div>
+</aside>
+
 <!--功能弹层-->
 <div class="public_popUp"></div>
 <!--弹层蒙版-->
@@ -52,8 +53,13 @@
 			</a>
 			<p class="mui-text-center">{{nav.name}}</p>
 		</div>
-		{{/each}} 
-		
+		{{/each}}
+		<div class="mui-col-xs-3 popUp_item">
+			<a class="popUp_item_bg" style="background-color: #f15a4a" data-id="haolil">
+				<img src="../images/icon/nav/nav-16.svg"/>
+			</a>
+			<p class="mui-text-center">好利来</p>
+		</div>
 	</div>
 	<div class="popUp_close">
 		<img src="../images/icon/nav/popUp_close.svg"/>
@@ -65,25 +71,19 @@
 		
 	mui('#logout')[0].addEventListener('tap',function(){
 
-		jQuery.ajax({
-			url: web_url +'/mobile/userAuth.php',
-			data: {
+		jQuery.ajaxJsonp(web_url +'/mobile/userAuth.php',{
 				'act': 'logout',
-			},
-			type: 'get',
-			dataType: 'jsonp',
-			jsonp: 'jsoncallback',
-			success: function (result) {
+			},function (result) {
 				console.log(result);
 				if (result.state == 'true') {
 					mui.alert("退出登录成功！",function(){
-						window.location.href='../index.html';
+						jQuery.jumpTo('../index.html');
 					});
 				} else {
 					mui.alert("退出登录失败！");
 				}
 			}
-		});
+		);
 		return false;
 	});
 	
@@ -142,6 +142,8 @@
 			case '40':	jumpTohref = app_path+'life/yindex.html'; break;
 			/* 味多美 */
 			case '41':	jumpTohref = app_path+'cake/list.html?id=27'; break;
+			/*好利来*/
+			case 'haolil':	jumpTohref = app_path+'tdcode/two_d_code.html'; break;
 		}
 		if(jQuery.trim(jumpTohref)){
 			mui.openWindow({

@@ -1,0 +1,2 @@
+# 商品码订单状态
+15 * * * * D:\wamp\bin\php\php5.3.10\php Crontab/code/index.php

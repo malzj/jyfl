@@ -392,6 +392,7 @@ $_LANG['02_supplier'] = '供货商管理';
 $_LANG['05_supplier_rank'] = '供货商等级';
 $_LANG['01_supplier_reg'] = '供货商申请列表';
 $_LANG['02_supplier_list'] = '供货商列表';
+$_LANG['06_supplier_message'] = '供货商短信列表';
 $_LANG['03_rebate_nopay'] = '未处理佣金列表';
 $_LANG['03_rebate_pay'] = '已完结佣金列表';
 $_LANG['cfg_name']['company_type'] = '供货商企业类型';
@@ -459,7 +460,10 @@ $_LANG['sendmail'] = '发送邮件';
 $_LANG['03_film_order']  = '电影选座订单';
 $_LANG['03_ticket_order'] = '电子券兑换订单';
 $_LANG['03_yanchu_order'] = '演出订单';
+$_LANG['03_code_order'] = '商品码订单';
 
+$_LANG['02_card'] = '售出卡信息';
+$_LANG['01_sale_card_import'] = '信息导入';
 
 
 $_LANG['city_template_manage'] = '城市模板管理';

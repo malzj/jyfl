@@ -31,6 +31,32 @@
 <div class="list-div">
 <table cellspacing='1' cellpadding='3'>
   <tr>
+      <th class="group-title">商品码统计：</th>
+  </tr>
+    <tr>
+        <td>
+            <table cellpadding=1 cellspacing=1 width="100%" bgcolor="#f9fdff">
+                <tr>
+                    <th style="background:#f4f9fc;font-weight:bold;">单价</th>
+                    <th style="background:#f4f9fc;font-weight:bold;">总数</th>
+                    <th style="background:#f4f9fc;font-weight:bold;">未售出</th>
+                    <th style="background:#f4f9fc;font-weight:bold;">锁定</th>
+                    <th style="background:#f4f9fc;font-weight:bold;">已售出</th>
+                </tr>
+                {foreach from=$code_count item=count key=k}
+                <tr>
+                    <td align=center> {$k}</td>
+                    <td align=center> {if empty($count.total)}0{else}{$count.total}{/if}</td>
+                    <td align=center> {if empty($count.not_sale)}0{else}{$count.not_sale}{/if}</td>
+                    <td align=center> {if empty($count.lock_sale)}0{else}{$count.lock_sale}{/if}</td>
+                    <td align=center> {if empty($count.is_sale)}0{else}{$count.is_sale}{/if}</td>
+                </tr>
+                {/foreach}
+            </table>
+
+        </td>
+    </tr>
+    <tr>
     <th class="group-title">供应商公告：</th>
   </tr>
   <tr>

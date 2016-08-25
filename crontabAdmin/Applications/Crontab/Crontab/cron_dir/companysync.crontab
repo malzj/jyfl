@@ -1,2 +1,2 @@
 # 公司数据定时抓取
-0 0 * * * C:\wamp\bin\php\php5.3.10\php Crontab/companysync/index.php
+10 0 * * * D:\wamp\bin\php\php5.3.10\php Crontab/companysync/index.php

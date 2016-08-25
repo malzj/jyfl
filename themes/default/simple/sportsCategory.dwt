@@ -90,7 +90,9 @@
 					</div>
 					<div class="cake_btn f_r">
 						<a href="{$goods.url}"><span class="cake_btn_look"></span>查看详情</a>
+						<!--{if $goods.extension_code ne 'virtual_card'}-->
 						<a href="javascript:;" onclick="MoveBox1(this,'{$goods.goods_id}')"><span class="cake_btn_add"></span>加入购物车</a>
+						<!--{/if}-->
 					</div>
 				</div>
                 {/if}

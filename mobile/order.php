@@ -224,7 +224,7 @@ else if ($_REQUEST['act'] == 'venues_order')
             $orders[$row['id']]['times_mt'][] =urldecode($time);
         }
     }
-
+    $orders = array_merge($orders);
     $jsonArray['data'] = array(
         'pages' => array(
             'count' => $record_count,

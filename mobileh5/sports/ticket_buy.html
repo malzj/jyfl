@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/public.css" rel="stylesheet" />
-		<link rel="stylesheet" href="../../mobileh5/css/iconfont.css" />
-		<link rel="stylesheet" href="../../mobileh5/css/app.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+		<link rel="stylesheet" href="../css/app.css" />
 		<script src="../js/connection.js"></script>
 		<script src="../js/template.js"></script>
 		<script src="../js/mui.min.js"></script>
@@ -39,7 +39,7 @@
 				}else if(result.state=='false'){
 					jQuery.errorJudge(result.data,result.message);
 				}
-			});
+			},true);
 			mui.init();
 			mui.previewImage();
 			//切换日历

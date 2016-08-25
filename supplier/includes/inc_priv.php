@@ -36,6 +36,8 @@ if (!defined('IN_ECS'))
     $purview['51_virtual_card_add']  = 'virualcard';
     $purview['52_virtual_card_change'] = 'virualcard';
     $purview['goods_auto']           = 'goods_auto';
+    $purview['54_code_list']           = 'code';
+
 
 //促销管理权限
     $purview['02_snatch_list']       = 'snatch_manage';

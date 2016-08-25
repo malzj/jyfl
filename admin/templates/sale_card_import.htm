@@ -1,0 +1,26 @@
+<!-- $Id: order_query.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+<div class="main-div">
+<form action="sale_card.php?act=done_import" method="post" enctype="multipart/form-data" name="searchForm">
+  <table cellspacing="1" cellpadding="3" width="100%">
+    <tr>
+      <td><div align="right"><strong>售出卡信息文件：</strong></div></td>
+      <td colspan="3">
+        <input name="sale_card_file" type="file" />
+       </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td colspan="3">
+        <a href="../data/sale_card_list.xlsx">下载导入模板</a>
+       </td>
+    </tr>
+    <tr>
+      <td colspan="4"><div align="center">
+        <input name="query" type="submit" class="button" id="query" value="开始导入" />
+      </div></td>
+      </tr>
+  </table>
+</form>
+</div>
+{include file="pagefooter.htm"}

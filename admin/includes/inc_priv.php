@@ -123,6 +123,7 @@ if (!defined('IN_ECS'))
     $purview['03_film_order']        = 'film_order';//TODO djs
     $purview['03_ticket_order']      = 'ticket_order';//TODO djs
     $purview['03_yanchu_order']      = 'yanchu_order';//TODO djs
+    $purview['03_code_order']      = 'code_order';//TODO djs
     $purview['10_card_order']        = 'card_order';//TODO　djs
     $purview['04_order_query']       = 'order_query';//TODO djs
     $purview['11_supplier_back_order'] = 'supplier_back_order';//TODO djs

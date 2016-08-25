@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/indexList.css" />
+		<link rel="stylesheet" href="../css/public.css" />
 		<style>
 			html,
 			body {
@@ -68,7 +69,7 @@
 		<script src="../js/indexList.js"></script>
 		<script type="text/javascript">
 			mui.init();
-			mui.ready(function() {
+			mui.ready(function(){
 				var header = document.querySelector('header.mui-bar');
 				var list = document.getElementById('list');
 				jQuery.ajaxJsonp(web_url+'/mobile/basic.php?act=getCityList','',function(result){
@@ -84,7 +85,21 @@
 					var id = this.getAttribute('data-id');
 					jQuery.ajaxJsonp(web_url+'/mobile/basic.php?act=city',{cityid:id},function(result){
 						if(result.state=='true'){
-							mui.back();
+							if(!mui.os.plus) {
+									//mui.back();
+									window.location.href='../index/jy_index.html';
+							}else{
+								mui.plusReady(function() {
+//									var self = plus.webview.currentWebview();
+//									var opener = self.opener();
+//									mui.fire(opener,'refresh');
+//									self.close();
+//									opener.show();
+									var opener = plus.webview.currentWebview().opener();
+                   	 				opener.reload()
+                    				mui.back();
+								});
+							}
 						}else if(result.state=='false'){
 							jQuery.errorJudge(result.data,result.message);
 						}

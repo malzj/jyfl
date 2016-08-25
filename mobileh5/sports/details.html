@@ -4,10 +4,11 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../../mobileh5/css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="../../mobileh5/css/public.css" />
-		<link rel="stylesheet" href="../../mobileh5/css/iconfont.css" />
-		<link rel="stylesheet" href="../../mobileh5/css/app.css" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/public.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+		<link rel="stylesheet" href="../css/app.css" />
+		<script src="../js/rem.js"></script>
 		<style type="text/css">
 			.iconfont{color: #808080;margin-right: 10px;font-size: 18px;}
 			.mui-segmented-control.mui-scroll-wrapper{height: 70px;padding: 10px;}
@@ -34,7 +35,6 @@
 			var venueId = jQuery.getUrlParam('venueId');
 			jQuery.hrefClick();
 			jQuery.ajaxJsonp(web_url+'/mobile/venues_detail.php',{venueId:venueId},function(result){
-				console.log(result);
 				if(result.state=='true'){
 					replaceHtml('header',template('sports/tmp_details',result.data));
 					mui('.mui-scroll-wrapper').scroll();

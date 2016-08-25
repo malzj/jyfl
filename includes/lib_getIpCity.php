@@ -8,26 +8,27 @@ function getIpCity($int_cityid = 0){
 	$is_first = 1;//是否为第一次访问
 	$str_card = $_SESSION['user_name'];
 	if (!empty($int_cityid)){
-		//$arr_cityInfo = $GLOBALS['db']->getRow('SELECT r.*, IFNULL(c.city_sort, 0) as city_sort, c.is_hot, c.is_home, c.city_desc, c.time FROM '.$GLOBALS['ecs']->table('region').' r LEFT JOIN '. $GLOBALS['ecs']->table('city_template')." c ON c.area_id = r.region_id WHERE region_id = '$int_cityid'");
 		$arr_cityInfo = $GLOBALS['db']->getRow('SELECT * FROM '.$GLOBALS['ecs']->table('region')." WHERE region_id = '$int_cityid'");
 		$is_first = 0;
 	}else{
 		$str_realIp = real_ip();
-		//$str_realIp = '114.80.166.240';//上海
+		//$str_realIp = '101.81.71.118';//上海
+	
+        $res = file_get_contents('http://ip.taobao.com/service/getIpInfo.php?ip='.$str_realIp);
+    	$json_res = json_decode($res);
+    	if(empty($json_res->data->city_id))
+    	{
+    	    $int_cityid = 110100;//默认北京
+    	}
+    	else {
+    	   $tmp_data = $json_res->data;
+    	   $int_cityid = $tmp_data->city_id;
+    	}	
+        $arr_cityInfo = $GLOBALS['db']->getRow('SELECT * FROM '.$GLOBALS['ecs']->table('region')." WHERE dianying_id = '$int_cityid'");
 
-		list($ip1, $ip2, $ip3, $ip4) = explode(".", $str_realIp); 
-		$str_ips  = $ip1 * pow(256, 3) + $ip2 * pow(256, 2) + $ip3 * 256 + $ip4;
-		$str_sql  = "SELECT city FROM ".$GLOBALS['ecs']->table('ip')." WHERE start <= $str_ips AND end >= $str_ips ORDER BY start DESC LIMIT 1";
-		$str_cityName = $GLOBALS['db']->getOne($str_sql);
-		$int_cityid = $GLOBALS['db']->getOne('SELECT region_id FROM '.$GLOBALS['ecs']->table('region')." WHERE region_name = '$str_cityName'");
-		if (empty($int_cityid)){
-			$int_cityid = $GLOBALS['db']->getOne('SELECT region_id FROM '.$GLOBALS['ecs']->table('region')." WHERE region_name = '北京'");//默认北京
-		}
-		//$arr_cityInfo = $GLOBALS['db']->getRow('SELECT r.*, IFNULL(c.city_sort, 0) as city_sort, c.is_hot, c.is_home, c.city_desc, c.time FROM '.$GLOBALS['ecs']->table('region').' r LEFT JOIN '. $GLOBALS['ecs']->table('city_template')." c ON c.area_id = r.region_id WHERE region_id = '$int_cityid'");
-		$arr_cityInfo = $GLOBALS['db']->getRow('SELECT * FROM '.$GLOBALS['ecs']->table('region')." WHERE region_id = '$int_cityid'");
 	}
-	$arr_cityInfo['isFirst'] = $is_first;
-
+	
+    $arr_cityInfo['isFirst'] = $is_first;
 	return $arr_cityInfo;
 }
 
@@ -81,7 +82,7 @@ function getCityList(){
  * 手机获取城市列表
  * @return array
  */
-function getMobileCities($onlyCountry=0){
+function getMobileCities(){
 	$array_cityList = Cache('mobile_cities','',1800);
 	if(empty($array_cityList)){
 		$array_cityList = array();
@@ -112,20 +113,7 @@ function getMobileCities($onlyCountry=0){
 			Cache('mobile_cities',$array_cityList);
 		}
 	}
-	
-	$_temp_cityList = $array_cityList;
-	
-	if ($onlyCountry == 1){
-    	foreach ($array_cityList as $t_k=>$t_v){
-    	    if( $t_v['value'] == $_SESSION['cityid'])
-    	    {
-    	        $_temp_cityList = array();
-    	        $_temp_cityList[$t_k] = $t_v;
-    	        break;
-    	    }
-    	}
-	}
-	return $_temp_cityList;
+	return $array_cityList;
 }
 /**
  * @param $name

@@ -9,9 +9,7 @@
  *  
  * @var unknown
  */
- 
-$abc = array_diff(array(1,2,345),array());
-var_dump($abc);
+phpinfo();
 exit;
 
 require(dirname(__FILE__) . '/includes/init.php');

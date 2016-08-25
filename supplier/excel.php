@@ -176,11 +176,11 @@ elseif($_REQUEST['act'] == 'excel')
 		            'J' . $row => $goods ['goods_name'],
 		            'K' . $row => $goods ['market_price'],
 		            'L' . $row => $goods ['goods_number'],
-		            'M' . $row => $goods ['money'],
+		         
 		
-		            'N' . $row => $goods ['spec_price'], // 配件价格
-		            'O' . $row => $shipping_fee, // 配送费用
-		            'P' . $row => $val['order_state_sn']
+		            'M' . $row => $goods ['spec_price'], // 配件价格
+		            'N' . $row => $shipping_fee, // 配送费用
+		            'O' . $row => $val['order_state_sn']
 		        );
 		        $g ++;
 		        $row ++;
@@ -225,13 +225,12 @@ elseif($_REQUEST['act'] == 'excel')
                 'title' => array (
                     'A1' => '订单号',      'B1' => '卡号',       'C1' => '收货人',      'D1' => '联系电话',     'E1' => '城市',
                     'F1' => '区县',        'G1' => '详细地址',    'H1' => '下单时间',     'I1' => '商品代码',     'J1' => '商品名称',
-                    'K1' => '商品原价',     'L1' => '数量',       'M1' => '总售点',      'N1' => '配件价格',     'O1' => '配送费用',        
-                    'P1' => '订单状态',                    
+                    'K1' => '商品原价',     'L1' => '数量',       'M1' => '配件价格',      'N1' => '配送费用',     'O1' => '订单状态',        
                 ),
                  
                 'widths' => array ( 'A' => '20',  'B' => '20', 'C' => '10',  'D' => '15', 'E' => '15', 'F' => '10',
                     'G' => '25',   'H' => '7',  'I' => '7',   'J' => '40', 'K' => '13', 'L' => '13',
-                    'M' => '13',  'N' => '13', 'O' => '13', 'p' => '10'
+                    'M' => '13',  'N' => '13', 'O' => '13'
                 )
             )
         );

@@ -140,8 +140,7 @@ if ($_REQUEST['step'] == 'add_to_cart')
         unset($_SESSION['flow_type']);
     }
 
-    /* error_log(var_export($goods,true),"3",'error.log');
-     exit; */
+    
     /* 检查：商品数量是否合法 */
     if (!is_numeric($goods->number) || intval($goods->number) <= 0)
     {
@@ -168,6 +167,7 @@ if ($_REQUEST['step'] == 'add_to_cart')
         }
         else
         {
+            
             $result['message']  = $err->last_message();
             $result['error']    = $err->error_no;
             $result['goods_id'] = stripslashes($goods->goods_id);

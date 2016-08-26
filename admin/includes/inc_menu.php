@@ -190,4 +190,6 @@ $modules['02_supplier']['06_supplier_message']       = 'supplier_message.php?act
 //$modules['02_supplier']['03_rebate_nopay']       = 'supplier_rebate.php?act=list&is_pay_ok=0';
 //$modules['02_supplier']['03_rebate_pay']       = 'supplier_rebate.php?act=list&is_pay_ok=1'; 
 /* 代码增加_end  By  www.68ecshop.com */
+$modules['02_card']['01_sale_card_import']       = 'sale_card.php?act=import';
+
 ?>

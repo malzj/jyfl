@@ -6,7 +6,7 @@
         <table border="0" width="100%">
             <tr>
                 <td>信息标题:</td>
-                <td><input name="title" id="title"  type="text" value="" /></td>
+                <td><input name="title" id="title"  type="text" value="{$msg_info.title}" /></td>
             </tr>
             <tr>
                 <td>信息标题:</td>
@@ -14,14 +14,14 @@
                     <select name="supplier_id">
                         <option value="">请选择供应商</option>
                         {foreach from=$supplier_list item=supplier}
-                        <option value="{$supplier.supplier_id}">{$supplier.supplier_name}</option>
+                        <option value="{$supplier.supplier_id}" {if $supplier.supplier_id eq $msg_info.supplier_id}selected{/if}>{$supplier.supplier_name}</option>
                         {/foreach}
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>信息内容:</td>
-                <td><textarea name="content" cols="50" rows="4" wrap="VIRTUAL" id="content"></textarea></td>
+                <td><textarea name="content" cols="50" rows="4" wrap="VIRTUAL" id="content">{$msg_info.content}</textarea></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -31,6 +31,7 @@
                 <td>&nbsp;</td>
                 <td>
                     <input name="Submit" value="{$lang.button_submit}" type="submit" class="button" />
+                    <input name="id" type="hidden" value="{$msg_info.id}" />
                 </td>
             </tr>
         </table>

@@ -35,6 +35,7 @@ elseif($_REQUEST['act'] == 'done_import'){
         $code_array[] = $code['account'];
     }
     $str_array = array();
+
     foreach($list as $key => $value){
         if(in_array($value['account'],$code_array)){
             echo '商品码'.$value['account'].'已存在请勿重复导入！</br>';
@@ -44,11 +45,13 @@ elseif($_REQUEST['act'] == 'done_import'){
         $value['supplier_id'] = $_SESSION['supplier_id'];
         $str_array[]="('".implode("','",$value)."')";
     }
+
     if(!empty($str_array)){
         $insert_sql = "INSERT INTO ".$ecs->table('code')." (`price`,`code`,`account`,`password`,`validity`,`status`,`supplier_id`) VALUE "
             .implode(',',$str_array);
         $result = $db->query($insert_sql);
     }
+
     if(isset($result)&&$result==1){
         echo "<p style='color:green'>导入商品码成功！</p>";
         delDir(ROOT_PATH .'temp/upload/');

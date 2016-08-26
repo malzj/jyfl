@@ -333,4 +333,12 @@ class GamesController extends Controller
             $this -> ajaxReturn($redata);
         }
     }
+
+    public function showWinner(){
+        $Model = new Model();
+        $sql = "SELECT w.card_num,w.lottery,w.create_time,c.company_name,g.game_name,g.thumbnail FROM __PREFIX__games g,__PREFIX__winners_list w LEFT JOIN __PREFIX__company c ON w.company_id =
+            c.card_company_id WHERE g.id = w.game_id";
+        $winner_info = $Model -> query($sql);
+        var_dump($winner_info);
+    }
 }

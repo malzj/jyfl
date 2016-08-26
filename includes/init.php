@@ -327,6 +327,7 @@ if (empty($_SESSION['user_id']) && !in_array($str_scriptName, $arr_noLogin)){
 	ecs_header("Location: $Loaction\n");
 	exit;
 }else{
+    
 	//城市id
 	if ($_SESSION['user_id']){
 
@@ -349,6 +350,7 @@ if (empty($_SESSION['user_id']) && !in_array($str_scriptName, $arr_noLogin)){
 
 		setcookie("ECS[cityid]", intval($arr_cityInfo['region_id']), gmtime() + 86400 * 7, '/');
 		$_SESSION['cityid'] = intval($arr_cityInfo['region_id']);
+		
 		
 		//如果重新选择城市或第一次访问
 		if (isset($_REQUEST['cityid']) || $arr_cityInfo['isFirst']){

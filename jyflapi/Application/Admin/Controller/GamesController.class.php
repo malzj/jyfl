@@ -343,4 +343,20 @@ class GamesController extends PublicController
             $this -> ajaxReturn($redata);
         }
     }
+
+    public function showWinner(){
+        $Model = new Model();
+        $count = $Model -> table('__WINNERS_LIST__') ->count();
+        $Page = new Page($count,10);
+        $pages = $Page ->show();
+        $sql = "SELECT w.card_num,w.lottery,w.create_time,c.company_name,g.game_name,g.thumbnail,u.nickname,u.mobile_phone
+                 FROM __PREFIX__games g,__PREFIX__winners_list w ,__PREFIX__company c,__PREFIX__users u
+                 WHERE g.id = w.game_id AND w.company_id = c.card_company_id
+                 AND w.card_num = u.user_name ORDER BY w.create_time DESC LIMIT ".$Page->firstRow.",".$Page->listRows;
+        $winner_info = $Model -> query($sql);
+        
+        $this -> assign('winner_info',$winner_info);
+        $this -> assign('pages',$pages);
+        $this -> display();
+    }
 }

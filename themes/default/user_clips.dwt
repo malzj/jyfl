@@ -10,6 +10,60 @@
     <link rel="stylesheet" href="{$app_path}css/juyoufuli/hy_master.css">
     <script src="{$app_path}js/juyoufuli/jquery.min.js"></script>	
     <script src="{$app_path}js/juyoufuli/jquery.nicescroll.js"></script>
+    <style>
+    	.fixed-footer{ 			
+			position:absolute; 			 
+			margin:0 auto;
+			bottom:10px;
+			left:24%;
+		}
+
+		.pop_left2 ul li {
+			text-align: center;
+			padding: 10px;
+			background: #111;
+			/* opacity: .7; */
+		}
+		
+		.pop_left2 .gn_1{
+			background: #111;
+			width: 700px;
+			background: transparent;
+		}
+		.pop_left2 .gn_1 i{line-height: 1;display: block;font-size:12px;}
+		.pop_left2 .per_1 {
+			background: #1B1A1A;
+			width: 180px;
+			border-top-right-radius: 15px;
+			border-bottom-right-radius: 15px;
+		}
+		
+		.pop_left2 .gn_1 ul li {
+			float: left;
+			background: #1B1A1A;
+			/* opacity: .7; */
+		}
+		
+		.pop_left2 .per_1 ul li {
+			float: left;
+			width: 50px;
+			background: #1B1A1A;
+			/* opacity: .7; */
+		}
+		
+		.pop_left2 .car_1 ul li {
+			float: left;
+			width: 50px;
+			background: #211c1b;
+		}
+		
+		.pop_left2 .order_1 ul li {
+			float: left;
+			width: 60px;
+			background: #211c1b;
+		}
+
+    </style>
 
 </head>
 <body>
@@ -20,6 +74,25 @@
    
         <div class="wrap" id="back_img" style="background: url({$app_path}jyflapi/{$company.back_img}) no-repeat;background-size: 100% 100%;">
 		</div>	
+        
+        {if $usernames.card_id eq 313}
+        <div class="fixed-footer pop_left2">
+        	<div class="gn">
+        	<div class="gn_1">
+                <ul class="list_1">
+                {foreach from=$navigator_list.middle item=nav name=foo}
+                <li class="movie" onClick="window.location='{$nav.url}'">
+                	<div>
+                    	<span class="movie_1" style="background: url({$app_path}images/juyoufuli/icon/nav-{$nav.id}.png) no-repeat 0px 0px;"></span>
+                		<i>{$nav.name}</i>
+                	</div>
+                </li>
+                {/foreach}  
+                </ul>
+            </div>
+            </div>
+        </div>
+        {/if}
         
         <!-- 公共左边 -->
 		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->

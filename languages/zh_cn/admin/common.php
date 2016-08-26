@@ -462,6 +462,8 @@ $_LANG['03_ticket_order'] = '电子券兑换订单';
 $_LANG['03_yanchu_order'] = '演出订单';
 $_LANG['03_code_order'] = '商品码订单';
 
+$_LANG['02_card'] = '售出卡信息';
+$_LANG['01_sale_card_import'] = '信息导入';
 
 
 $_LANG['city_template_manage'] = '城市模板管理';

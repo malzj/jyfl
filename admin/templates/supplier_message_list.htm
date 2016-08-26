@@ -7,7 +7,7 @@
   <form action="javascript:searchSnatch()" name="searchForm">
     <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
     供应商：
-    <input type="text" name="supplier_name" /> <input type="submit" value="{$lang.button_search}" class="button" />
+    <input type="text" name="supplier_name" id="supplier_name" /> <input type="submit" value="{$lang.button_search}" class="button" />
   </form>
 </div>
 
@@ -34,8 +34,8 @@
       <td><span>{$message.content}</span></td>
       <td><span>{$message.supplier_name}</span></td>
       <td align="center">
-        <a href="code.php?act=edit_code&amp;id={$card.card_id}" title="{$lang.edit}"><img src="images/icon_edit.gif" border="0" height="16" width="16" /></a>
-        <a href="javascript:;" onclick="listTable.remove({$card.id}, '{$lang.drop_confirm}', 'remove_card')" title="{$lang.drop}"><img src="images/icon_drop.gif" border="0" height="16" width="16" /></a>
+        <a href="supplier_message.php?act=edit&amp;id={$message.id}" title="{$lang.edit}"><img src="images/icon_edit.gif" border="0" height="16" width="16" /></a>
+        <a href="javascript:;" onclick="listTable.remove({$message.id}, '{$lang.drop_confirm}', 'delete')" title="{$lang.drop}"><img src="images/icon_drop.gif" border="0" height="16" width="16" /></a>
       </td>
     </tr>
     {foreachelse}
@@ -60,39 +60,29 @@
 
   listTable.recordCount = {$record_count};
   listTable.pageCount = {$page_count};
-  listTable.query = "query_card";
 
   {foreach from=$filter item=item key=key}
   listTable.filter.{$key} = '{$item}';
   {/foreach}
 
 {literal}
-  onload = function()
-  {
-    document.forms['searchForm'].elements['keyword'].focus();
-    startCheckOrder();
-  }
+
+onload = function()
+{
+  // 开始检查订单
+  startCheckOrder();
+}
 
 /**
- * 搜索团购商品
+ * 搜索订单
  */
 function searchSnatch()
 {
-  var keyword = Utils.trim(document.forms['searchForm'].elements['keyword'].value);
-  var type = document.forms['searchForm'].elements['searchType'].value;
-
-  if (keyword.length > 0)
-  {
-    listTable.filter['search_type'] = type;
-    listTable.filter['keyword']     = keyword;
-    console.log(listTable.filter);
-    listTable.loadList();
-  }
-  else
-  {
-    document.forms['searchForm'].elements['keyword'].focus();
-  }
+  listTable.filter['supplier_name'] = Utils.trim(document.forms['searchForm'].elements['supplier_name'].value);
+  listTable.filter['page'] = 1;
+  listTable.loadList();
 }
+
 //-->
 </script>
 {/literal}

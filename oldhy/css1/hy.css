@@ -1,0 +1,313 @@
+body {
+	font-family: "微软雅黑";
+	min-width: 1200px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.fixed {
+	z-index: 999;
+	height: 65px;
+	background-image: url(../img/daohangbeijing.png);
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
+}
+
+.main,
+.header {
+	margin: 0 auto;
+	overflow: hidden;
+	width: 1200px;
+}
+
+.header a {
+	color: white;
+}
+
+.header a:hover {
+	color: #269BB7
+}
+
+.fixed ul li {
+	margin-top: 30px;
+	font-size: 18px;
+	margin-right: 50px;
+	list-style: none;
+	float: left;
+	color: white;
+}
+
+ul {
+	float: left;
+}
+
+.logo {
+	margin-top: 10px;
+	padding-left: 60px;
+	float: left;
+	width: 185px;
+}
+
+.bg-1 {
+	height: 650px;
+	background-image: url(../img/toubu.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.tel {
+	margin-top: 30px;
+}
+
+.main1 {
+	height: 630px;
+	background-color: #f9f9f9;
+	width: 1072px;
+	margin: 0 auto;
+}
+
+.bg-2 {
+	background-color: #f9f9f9;
+}
+
+.xuqiu li {
+	text-align: center;
+	padding: 15px;
+	float: left;
+	width: 300px;
+	height: 305px;
+	border: 1px solid #ccc;
+	list-style: none;
+	margin-left: 25px;
+}
+
+.main2 li img,
+.xuqiu li img {
+	max-width: 100%;
+}
+
+.wenzi {
+	margin-top: 25px;
+}
+
+.wenzi h4 {
+	color: #999;
+	margin-bottom: 12px;
+}
+
+.wenzi h6 {
+	color: #ccc;
+}
+
+.bg-3 {
+	background-color: #2c2c2c;
+}
+
+.main2 {
+	height: 530px;
+	width: 1300px;
+	margin: 0 auto;
+}
+
+.main2 li {
+	float: left;
+	list-style: none;
+	width: 613px;
+	height: 265px;
+}
+
+.xiangqing {
+	margin-top: 60px;
+	margin-left: 570px;
+	color: white;
+	border: 1px solid #ccc;
+	float: left;
+	padding: 10px 45px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.main3 {
+	height: 830px;
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.bg-4 {
+	background-color: #F9F9F9;
+}
+
+.fuli {
+	overflow: hidden;
+	margin-top: 60px;
+}
+
+.fuli li {
+	width: 330px;
+	height: 315px;
+	list-style: none;
+	float: left;
+}
+
+.fuli li img {
+	max-width: 100%;
+	height: 199px;
+}
+
+.center {
+	text-align: center;
+}
+
+.center h5,
+.center h6 {
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.swiper-container img {
+	max-width: 100%;
+}
+
+.center h6 {
+	padding: 5px;
+	line-height: 22px;
+}
+
+.swiper-slide {
+	background-color: white;
+	border: 1px solid #ccc;
+}
+
+.swiper-slide h5,
+.swiper-slide h6 {
+	color: #848484;
+}
+
+.fuli h5 {
+	color: #BEBEBE;
+}
+
+.fuli h4 {
+	margin-bottom: 20px;
+}
+
+.kouhao {
+	margin-top: 295px;
+	margin-left: 295px;
+}
+
+.hello {
+	padding-top: 70px;
+	text-align: center;
+}
+
+.xuqiu {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.yanchu {
+	margin-bottom: 10px;
+	text-align: center;
+	padding-top: 50px;
+}
+
+.dingzhi {
+	padding-top: 30px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.bg-5 {
+	overflow: hidden;
+	background-color: #373737;
+}
+
+.main4 {
+	overflow: hidden;
+	width: 1250px;
+	margin: 0 auto;
+	padding-bottom: 40px;
+}
+.main4-1{
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.icon li {
+	list-style: none;
+	float: left;
+}
+
+.icon img {
+	display: block;
+}
+
+.icon {
+	margin-top: 40px;
+}
+
+.icon-2 img {
+	margin-bottom: 35px;
+}
+
+.icon-3 img {
+	height: 50px;
+	width: 150px;
+	margin-bottom: 20px;
+}
+
+.icon {
+	padding: 40px;
+	background-color: white;
+}
+
+.icon-4 img {
+	margin-bottom: 35px;
+	height: 40px;
+	width: 165px;
+}
+
+.icon-6 img {
+	width: 170px;
+	margin-bottom: 20px;
+}
+
+.icon-2 img {
+	width: 200px;
+}
+
+footer {
+	line-height: 60px;
+	height: 60px;
+	background-color: #333333;
+}
+
+.btn {
+	cursor: pointer;
+	border-radius: 5px;
+	padding: 15px;
+	background-color: #C84807;
+	color: white;
+	float: right;
+	margin-top: -20px;
+}
+
+ul li {
+	float: left;
+	list-style: none;
+}
+
+.clear {
+	clear: both;
+}

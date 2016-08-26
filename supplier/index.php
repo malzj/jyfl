@@ -154,8 +154,24 @@ elseif ($_REQUEST['act'] == 'main')
 
     /*供货商商品码统计*/
     //全部商品码
-    $sql = "SELECT price,status FROM ".$ecs->table('code')." WHERE 1";
-    $sql = "SELECT * FROM ".$ecs->table('code')." WHERE 1 GROUP BY price";
+    $count = array();
+    $code_count = $db->getAll('SELECT price,`status`,COUNT(*) AS count FROM '.$ecs->table('code').' GROUP BY price,`status`');
+    foreach ($code_count as $key=>$code){
+        switch ($code['status'])
+        {
+            case 0:
+                $count[$code['price']]['not_sale'] = $code['count'];
+                break;
+            case 1:
+                $count[$code['price']]['lock_sale'] = $code['count'];
+                break;
+            case 2:
+                $count[$code['price']]['is_sale'] = $code['count'];
+                break;
+        }
+        $count[$code['price']]['total'] += $code['count'];
+    }
+    $smarty->assign('code_count',$count);
     $smarty->assign('inventory',  $inventory);
  	$smarty->assign('supplier_article',  $supplier_article);
     $smarty->assign('supplier_notice',  nl2br($_CFG['supplier_notice']));

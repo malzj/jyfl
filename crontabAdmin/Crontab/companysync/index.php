@@ -21,9 +21,9 @@ $result = $Card -> getResult();
 $dataList = $Card -> getDataList();
 $time = strtotime($result['Time']);
 $time = date('Y-m-d H:i:s',$time);
-$company_logo = 'logo.png';
-$company_bg = 'C-_Users_user_Desktop_01.png';
-
+$company_logo = 'Public/company/upload/logo.png';
+$company_bg = 'Public/company/upload/pc_background.jpg';
+$mobile_bg = 'Public/company/upload/m_background.jpg';
 $sqlval = '';
 if($no == 0){
     $companyList = array();

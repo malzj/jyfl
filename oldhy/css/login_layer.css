@@ -1,0 +1,176 @@
+@charset "utf-8";
+.layui-layer-content{font-size: 12px;border-radius: 5px;background: #111;opacity: .8;color: white;}
+.layui-layer-content input{background: transparent;border: none;outline: none;}
+.layui-layer-content h3{font-size:18px;text-align: center;margin: 10px 30px;color: #ce611e;font-weight: 600;border-bottom: 1px solid white;padding: 10px;}
+/*个人资料*/
+.layui-layer-content .per .wrap_1{overflow: hidden;margin: 10px;color: white;overflow: hidden;}
+.layui-layer-content .per .wrap_1 .left{overflow: hidden;float: left;}
+.layui-layer-content .per .wrap_1 .right{float: right;width: 170px;}
+.layui-layer-content .per .wrap_1 .right .right_img{width: 120px;text-align: center;margin: 0 auto;margin-top: 29px;}
+.layui-layer-content .per .left .form-group .username{padding: 2px;border-radius: 5px;}
+.layui-layer-content .per .left .form-group .xiugai{cursor: pointer;color: #37e2c3;margin-left: 20px;}
+.layui-layer-content .per .left .card_num{padding-left: 13px;}
+.layui-layer-content .per button{background: #ffa116;border: 0;padding: 2px 15px;border-radius: 5px;}
+.layui-layer-content .per{padding-bottom: 20px;}
+.layui-layer-content .per .radio_img{width: 20px;background: url(../images/img_login/radio_1.png) -30px 2px no-repeat;margin-right: 5px;}
+.layui-layer-content .per .radio_img input{opacity: 0;}
+.layui-layer-content .per .checkbox_img.on_check{width: 20px;background: url(../images/img_login/radio_1.png) -60px 2px no-repeat;margin-right: 5px;}
+.layui-layer-content .per .checkbox_img input{opacity: 0;}
+.layui-layer-content .per .checkbox_img{margin-right: 5px;background: url(../images/img_login/radio_1.png) no-repeat -30px;}
+.layui-layer-content .per .on{background-position: 0px 2px;}
+.layui-layer-content .per .radio_left{margin-left: 13px;}
+.layui-layer-content .per .file{background: url(../images/img_login/file.png) no-repeat -81px 0px;margin-top: 23px;display: inline-block;height: 25px;margin-left: 30px;/* width: 54px; */cursor: pointer;}
+.layui-layer-content .per .file input{height: 25px;opacity: 0;width: 55px;cursor: pointer;}
+.layui-layer-content .per .birth{border: 1px solid;border-radius: 5px;margin-left: 8px;padding: 0 2px;}
+.layui-layer-content .per .date_ico{position: absolute;left: 156px;}
+.layui-layer-content .per .file_yes input{height: 25px;width: 55px;opacity: 0;}
+.layui-layer-content .per .file_yes {/* z-index: -1; */background: url(../images/img_login/file_yes.png) no-repeat 0px 1px;display: inline-block;height: 32px;cursor: pointer;}
+
+
+
+._citys { width: 450px; display: inline-block; border: 2px solid #eee; padding: 5px; position: relative;background: white; }
+._citys span { color: #56b4f8; height: 15px; width: 15px; line-height: 15px; text-align: center; border-radius: 3px; position: absolute; right: 10px; top: 10px; border: 1px solid #56b4f8; cursor: pointer; }
+._citys0 { width: 100%; height: 34px; display: inline-block; border-bottom: 2px solid #56b4f8; padding: 0; margin: 0; }
+._citys0 li { display: inline-block; line-height: 34px; font-size: 15px; color: #888; width: 80px; text-align: center; cursor: pointer; }
+.citySel { background-color: #56b4f8; color: #fff !important; }
+._citys1 { width: 100%; display: inline-block; padding: 10px 0; }
+._citys1 a { width: 83px; height: 35px; display: inline-block; background-color: #f5f5f5; color: #666; margin-left: 6px; margin-top: 3px; line-height: 35px; text-align: center; cursor: pointer; font-size: 13px; overflow: hidden; }
+._citys1 a:hover { color: #fff; background-color: #56b4f8; }
+.AreaS { background-color: #56b4f8 !important; color: #fff !important; }
+/*安全中心*/
+.layui-layer-content .saf table tr td{padding: 15px;}
+.layui-layer-content .saf{color: white;margin: 0px 10px;padding-bottom: 10px;}
+.layui-layer-content .saf table tr td.td_2{color: #ff781e;}
+.layui-layer-content .saf table tr td.td_3{color: #777272;}
+.layui-layer-content .saf table tr td.td_4{color: #37e2c3;}
+
+/*我的红包*/
+.layui-layer-content .red_packet .table thead{background: #828385;opacity: .5;}
+.layui-layer-content .red_packet{padding-bottom: 10px;}
+.layui-layer-content .red_packet .add{background: #828385;opacity: .5;padding: 5px 8px;margin-bottom: 10px;}
+.layui-layer-content .red_packet .red_card{margin-right: 10px;padding: 2px;border: 1px solid;border-radius: 5px;}
+.layui-layer-content .red_packet .red_num{margin-right: 10px;border: 1px solid;border-radius: 5px;padding: 2px;}
+.layui-layer-content .red_packet .btn_add{background: #ffa116;/* border: 1px solid; *//* color: black; */border-radius: 5px;padding: 0 10px;border: 0;}
+
+/*卡合并*/
+.layui-layer-content .merge{padding-bottom: 10px;margin: 0px 25px;}
+.layui-layer-content .merge .qk{
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 2px;
+    margin-right: 20px;
+}
+.layui-layer-content .merge .btn_merge{text-align: center;}
+.layui-layer-content .merge .btn_merge button{border: 0;border-radius: 5px;padding: 2px 5px;background: #ffa116;}
+.layui-layer-content .merge .tip p{color: #37e2c3;}
+.layui-layer-content .merge .tip span{color: #d5651e;display: inline-block;}
+.layui-layer-content .merge .tip span.tip_1{display: inline-block;width: 300px;}
+.layui-layer-content .merge .form-group label:nth-child(2){margin-left: 20px;}
+
+/*卡充值*/
+.layui-layer-content .reg{margin: 0 20px;padding-bottom: 20px;}
+.layui-layer-content .reg .reg_title{float: left;}
+.layui-layer-content .reg .reg_num{float: left;}
+.layui-layer-content .reg table thead td{text-align: center;}
+.layui-layer-content .reg table thead{background: #828385;opacity: .5;}
+.layui-layer-content .reg .reg_num span{width: 200px;margin-left: 30px;}
+.layui-layer-content .reg .btn_all button{border-radius: 5px;margin: 0 50px;border: none;padding: 3px 10px;background: #ffa116;}
+.layui-layer-content .reg .reg_num .radio_img{margin-right: 10px;}
+.layui-layer-content .reg .radio_img{width: 20px;background: url(../images/img_login/radio_1.png) -30px 2px no-repeat;margin-right: 5px;}
+.layui-layer-content .reg .radio_img input{opacity: 0;}
+.layui-layer-content .reg .radio_img1{width: 20px;background: url(../images/img_login/radio_1.png) -30px 2px no-repeat;margin-right: 5px;}
+.layui-layer-content .reg .radio_img1 input{opacity: 0;}
+.layui-layer-content .reg .on{background-position: 0px 2px;}
+.layui-layer-content .reg .rmb{margin-left: 23px!important;}
+/*设置密码*/
+.layui-layer-content .set .password{
+    display: inline-block;
+    width: 200px;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 0px 10px;
+}
+.layui-layer-content .set .ps{text-align: center;}
+.layui-layer-content .set .ps .dengji span{
+    display: inline-block;
+    background: white;
+    color: black;
+    width: 50px;
+    margin: 15px 10px;
+    border-radius: 5px;
+}
+.layui-layer-content .set .set_btn button{margin: 0 10px;text-align: center;background: #ff9a12;border: 0;border-radius: 5px;padding: 0 20px;}
+.layui-layer-content .set .set_btn{text-align: center;}
+.layui-layer-content .set{padding-bottom: 20px;}
+.ywz_zhucexiaobo{overflow: hidden;width: 385px;margin: 0 auto;}
+				.ywz_zhuce_youjian{float:left;width:100px;font-size:14px;text-align:right;}
+				.ywz_zhuce_xiaoxiaobao{float:left;width:226px;}
+				.ywz_zhuce_kuangzi{float:left;width:222px;color:#171717;border: 1px solid white; border-radius: 5px;}
+				.ywz_zhuce_huixian{float:left;background:#d6d3d3;width:62px;height:4px;margin-top:5px;_margin-top:0px;margin-left:10px;_height:2px;font-size:0px;}
+				.ywz_zhuce_hongxianwenzi{float:left;width:62px;margin-left:10px;text-align:center;color:#b0adad;font-size:12px;}
+				
+				.ywz_zhuce_kuangwenzi1{float:left;border:0;color:white;width:210px;padding-left:10px;_padding-left:20px;outline:medium;}/*框*/
+				
+				.ywz_zhuce_hongxian{float:left;background:#ff3300;width:62px;height:4px;margin-top:5px;margin-left: 10px;_margin-top:0px;_height:2px;font-size:0px;}
+				.ywz_zhuce_hongxian2{float:left;background: #099;width:62px;height:4px;margin-top:5px;margin-left:10px;_margin-top:0px;_height:2px;font-size:0px;}
+				.ywz_zhuce_hongxian3{float:left;background: #060;width:62px;height:4px;margin-top:5px;margin-left:10px;_margin-top:0px;_height:2px;font-size:0px;}
+				
+				.ywz_zhuce_yongyu1{float:left;color: #C00;font-size:12px;padding-left:10px;margin-top:10px;_padding-left:0px;}/*后面的文字*/
+				.ywz_zhuce_yongyu1 a{ color:#C00;text-decoration:none;}
+				.ywz_zhuce_yongyu1 a:hover{ color:#C00;}
+
+/*添加地址*/
+.layui-layer-content .set_add label{width: 80px;text-align: right;}
+.layui-layer-content .set_add input{border: 1px solid;width: 200px;border-radius: 5px;padding: 0 2px;}
+.layui-layer-content .set_add .form-group{text-align: center;}
+.layui-layer-content .set_add .form-group .xing{color: #ff9711;}
+.layui-layer-content .set_add .set_add_btn{text-align: center;}
+.layui-layer-content .set_add .set_add_btn button{
+    border: 0;
+    background: #ff9711;
+    padding: 0 20px;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+.layui-layer-content .set_add{padding-bottom: 20px;}
+/*充值记录*/
+.layui-layer-content .log table thead{background: #828385;opacity: .5;}
+
+/*收货信息*/
+.layui-layer-content .shouhuo .add_new{margin-left: 10px;color: #37e2c3;}
+.layui-layer-content .shouhuo table thead{background: #828385;opacity: .5;}
+.layui-layer-content .shouhuo table td{text-align: center;}
+.layui-layer-content .shouhuo .gn_btn span{
+    color: #37e2c3;
+    margin: 0 5px;
+}
+.layui-layer-content .shouhuo{padding-bottom: 20px;}
+.layui-layer-content .shouhuo table td.td_1{width: 60px;}
+.layui-layer-content .shouhuo table td.gn_btn{width: 65px;}
+
+
+/*绑定手机号*/
+.layui-layer-content .tel{padding-bottom:20px ;}
+.layui-layer-content .tel .form-group{text-align: center;}
+.layui-layer-content .tel .form-group input{border: 1px solid; border-radius: 5px;padding: 2px;width: 200px;}
+.layui-layer-content .tel .btn_tel{text-align: center;}
+.layui-layer-content .tel .btn_tel button{background: #ff9f14;padding: 0 15px;border: 0;border-radius: 5px;margin: 0px 5px;}
+.layui-layer-content .tel .form-group .ach span{
+    display: inline-block;
+    color: black;
+    margin-left: -75px;
+    background: #f2f2f2;
+    padding: 2px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+/*设置安全保护问题*/
+.layui-layer-content .question{padding-bottom: 20px;}
+.layui-layer-content .question .form-group{text-align: center;}
+.layui-layer-content .question .form-group input{border: 1px solid;border-radius: 5px;width: 200px;}
+.layui-layer-content .question .btn_question{text-align: center;}
+.layui-layer-content .question .btn_question button{background: #ff9f14;padding: 0 15px;border: 0;border-radius: 5px;margin: 0px 5px;}
+.layui-layer-content .question .form-group select{outline: none;background: transparent;border: 1px solid;border-radius: 5px;padding: 2px;width: 200px;}
+.layui-layer-content .question label{width: 80px;text-align: right;}
+.layui-layer-content .question .form-group div{margin: 10px 0;}
+

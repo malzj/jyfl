@@ -33,9 +33,14 @@ if($_REQUEST['act'] == 'list'){
 /*
  * 新增信息
  */
-elseif ($_REQUEST['act'] == 'add'){
+elseif ($_REQUEST['act'] == 'add'||$_REQUEST['act'] == 'edit'){
     $supplier_list = get_supplier_list();
+    $msg_info = array();
 
+    if(!empty($_REQUEST['id'])){
+        $msg_info = $db -> getRow("SELECT * FROM ".$ecs -> table('supplier_message')." WHERE id = ".intval($_REQUEST['id']));
+    }
+    $smarty->assign('msg_info',$msg_info);
     $smarty->assign('supplier_list',$supplier_list);
     $smarty->assign('action_link', array('text'=>$_LANG['go_back'], 'href'=>'supplier_message.php?act=list'));
     $smarty->display('supplier_add_message.htm');
@@ -44,16 +49,50 @@ elseif ($_REQUEST['act'] == 'add'){
  * 保存短信
  */
 elseif ($_REQUEST['act'] == 'save'){
+    $id = empty($_POST['id'])?'':intval($_POST['id']);
     $data = array();
     $data['title'] = empty($_POST['title']) ? sys_msg("标题不能为空！",1) : trim($_POST['title']);
     $data['content'] = empty($_POST['content']) ? sys_msg("内容不能为空！",1)  : trim($_POST['content']);
     $data['supplier_id'] = empty($_POST['supplier_id']) ? sys_msg("请选择供应商！",1)  : trim($_POST['supplier_id']);
     $data['add_time'] = gmtime();
-    $sql = "INSERT INTO ".$ecs->table('supplier_message')."(".implode(',',array_keys($data)).") VALUE('".implode("','",$data)."')";
-    $db->query($sql);
+    if(empty($id)) {
+        $sql = "INSERT INTO " . $ecs->table('supplier_message') . "(" . implode(',', array_keys($data)) . ") VALUE('" . implode("','", $data) . "')";
+        $db->query($sql);
+    }else{
+        $str = '';
+        foreach($data as $key=>$val){
+            $str .= empty($str)?$key."='".$val."'":",".$key."='".$val."'";
+        }
+        $sql = "UPDATE ".$ecs->table('supplier_message')." SET ".$str." WHERE id = ".$id;
+        $db->query($sql);
+    }
 
     $link[] = array('text'=>$_LANG['go_back'], 'href'=>'supplier_message.php?act=list');
     sys_msg("添加信息成功！",0,$link);
+}
+/*删除信息*/
+elseif ($_REQUEST['act'] == 'delete'){
+    $id = intval($_REQUEST['id']);
+    $sql = "DELETE FROM ".$ecs->table('supplier_message')." WHERE id = ".$id;
+    $db -> query($sql);
+    $url = 'supplier_message.php?act=query&' . str_replace('act=delete', '', $_SERVER['QUERY_STRING']);
+    ecs_header("Location: $url\n");
+    exit;
+}
+/*------------------------------------------------------ */
+//-- 排序、分页、查询
+/*------------------------------------------------------ */
+elseif ($_REQUEST['act'] == 'query')
+{
+    $list = message_list();
+
+    $smarty->assign('message_list',    $list['item']);
+    $smarty->assign('filter',       $list['filter']);
+    $smarty->assign('record_count', $list['record_count']);
+    $smarty->assign('page_count',   $list['page_count']);
+
+    make_json_result($smarty->fetch('supplier_message_list.htm'), '',
+        array('filter' => $list['filter'], 'page_count' => $list['page_count']));
 }
 
 function message_list()
@@ -93,8 +132,8 @@ function message_list()
         /* 记录总数 */
         if ($filter['supplier_name'])
         {
-            $sql = "SELECT COUNT(*) FROM " . $GLOBALS['ecs']->table('supplier_message') . " AS sm ,".
-                $GLOBALS['ecs']->table('supplier') . " AS s ON sm.supplier_is = s.supplier " . $where;
+            $sql = "SELECT COUNT(*) FROM " . $GLOBALS['ecs']->table('supplier_message') . " AS sm LEFT JOIN".
+                $GLOBALS['ecs']->table('supplier') . " AS s ON sm.supplier_id = s.supplier_id " . $where;
         }
         else
         {

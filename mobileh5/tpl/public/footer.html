@@ -53,8 +53,13 @@
 			</a>
 			<p class="mui-text-center">{{nav.name}}</p>
 		</div>
-		{{/each}} 
-		
+		{{/each}}
+		<div class="mui-col-xs-3 popUp_item">
+			<a class="popUp_item_bg" style="background-color: #f15a4a" data-id="haolil">
+				<img src="../images/icon/nav/nav-16.svg"/>
+			</a>
+			<p class="mui-text-center">好利来</p>
+		</div>
 	</div>
 	<div class="popUp_close">
 		<img src="../images/icon/nav/popUp_close.svg"/>
@@ -137,6 +142,8 @@
 			case '40':	jumpTohref = app_path+'life/yindex.html'; break;
 			/* 味多美 */
 			case '41':	jumpTohref = app_path+'cake/list.html?id=27'; break;
+			/*好利来*/
+			case 'haolil':	jumpTohref = app_path+'tdcode/two_d_code.html'; break;
 		}
 		if(jQuery.trim(jumpTohref)){
 			mui.openWindow({

@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{foreach from=$moviePlan item=plan}
+<li>
+    <i {if $plan.periods==1}class="evening" title="夜晚"{elseif $plan.periods==2}class="morning" title="上午"{elseif $plan.periods==3}class="afternoon" title="下午"{/if}></i>
+    <span class="span_1">{$plan.time}</span>
+    <span class="span_1">{$plan.screenType}/{$plan.language}</span>
+    <span class="span_1">{$plan.hallName|truncate:3:false}</span>
+    <span class="buy span_1">
+    {if $plan.is_cut eq 1}
+    	<span style="background:#CCC; cursor: default;">&nbsp;&nbsp;已过场&nbsp;&nbsp;</span>
+    {else}
+    	<span {if $plan.is_cut eq 0} onclick="location.href='movie_times.php?step=cinemaSeats&hallno={$plan.hallNo}&planid={$plan.planId}&movieid={$plan.movieId}&cinemaid={$plan.cinemaId}'"{/if} class="zhuti_a_hover">选座购票</span>
+    {/if}
+    </span>
+</li>
+{foreachelse}
+<center style="line-height: 487px;"><img src="/images/juyoufuli/img_login/zanwuchangci.png" width="150"></center>
+{/foreach}

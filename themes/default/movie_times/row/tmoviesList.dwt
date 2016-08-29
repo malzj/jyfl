@@ -1,0 +1,11 @@
+{foreach from=$movies item=mo}
+<li style="float: left;" data-id="{$mo.movieId}" data-name="{$mo.movieName}" data-thumb="{$mo.thumb}" data-type="{$mo.movieType}" data-director="{$mo.director}" data-actor="{$mo.actor}" data-intro="{$mo.intro}" data-length="{$mo.movieLength}" data-time="{$mo.publishTime}">
+    <div class="pic">
+        <a href="javascript:goMovie({$mo.movieId});" style="display: inline-block;height: 200px;margin-top: 10px;" target="_self"><img src="{$mo.thumb}" width="140" height="196"></a>
+    </div>
+    <div class="title">
+    	<a href="javascript:goMovie({$mo.movieId});" target="_self"><span>{$mo.movieName}</span>  </a>  	
+    	<a href="javascript:goMovie({$mo.movieId});" target="_self"><div class="buy zhuti_a_hover">选座购票</div></a>
+    </div>
+</li>
+{/foreach} 

@@ -1882,7 +1882,8 @@ elseif ($_REQUEST['act'] == 'query')
 {
     $is_delete = empty($_REQUEST['is_delete']) ? 0 : intval($_REQUEST['is_delete']);
     $code = empty($_REQUEST['extension_code']) ? '' : trim($_REQUEST['extension_code']);
-    $goods_list = goods_list($is_delete, ($code=='') ? 1 : 0);
+    $goods_list = goods_list($is_delete,-1);
+//    $goods_list = goods_list($is_delete, ($code=='') ? 1 : 0);
 
     $handler_list = array();
     $handler_list['virtual_card'][] = array('url'=>'virtual_card.php?act=card', 'title'=>$_LANG['card'], 'img'=>'icon_send_bonus.gif');

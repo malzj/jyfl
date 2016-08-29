@@ -53,7 +53,10 @@ elseif($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit')
             'name' => '',
             'cardBin' => '',
             'ext'=>'',
-            'cart_type'=>''
+            'cart_type'=>'',
+            'card_ext' => '',
+            'cordon_up' => '',
+            'cordon_dwon' => ''
         );
     }
     else
@@ -81,15 +84,18 @@ elseif($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
     $name = empty($_POST['name']) ? '' : trim($_POST['name']);
     $cardBin = empty($_POST['cardBin']) ? '' : trim($_POST['cardBin']);
     $ext = empty($_POST['ext']) ? '' : trim($_POST['ext']);
-    $card_type = empty($_POST['card_type']) ? '' : trim($_POST['card_type']);   
+    $card_type = empty($_POST['card_type']) ? '' : trim($_POST['card_type']);  
+    $card_ext = empty($_POST['card_ext']) ? '' : trim($_POST['card_ext']);
+    $cordon_up = empty($_POST['cordon_up']) ? '' : trim($_POST['cordon_up']);
+    $cordon_dwon = empty($_POST['cordon_dwon']) ? '' : trim($_POST['cordon_dwon']);
 
     $id = intval($_POST['id']);
 
 
     if($is_insert)
     {
-        $sql = 'INSERT INTO ' . $ecs->table('cardBIN') . '(name, cardBin, ext, card_type)' .
-            " VALUES('$name', '$cardBin', '$ext', '$card_type')";
+        $sql = 'INSERT INTO ' . $ecs->table('cardBIN') . '(name, cardBin, ext, card_type,card_ext,cordon_up,cordon_dwon)' .
+            " VALUES('$name', '$cardBin', '$ext', '$card_type','$card_ext','$cordon_up','$cordon_dwon')";
         $db->query($sql);
 
         $link[0]['text'] = '卡BIN管理';
@@ -104,7 +110,10 @@ elseif($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
         " SET name = '$name',
         cardBin = '$cardBin',
         ext = '$ext',
-        card_type = '$card_type'
+        card_type = '$card_type',
+        card_ext = '$card_ext',
+        cordon_up = '$cordon_up',
+        cordon_dwon = '$cordon_dwon'
         WHERE id = '$id'";
         $db->query($sql);
 

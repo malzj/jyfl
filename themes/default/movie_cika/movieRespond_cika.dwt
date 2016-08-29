@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="movie_4">
+	<head>
+		<meta charset="UTF-8">
+		<title>聚优福利</title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+    </head>
+  	<body>
+    	 <!-- 公用头部 -->
+		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 --> 
+        {if $flow eq 'movie'}
+        <div class="w_1200">
+			<div class="pay_del">
+			</div>
+			<div class="pay_success">
+				<h3><img src="/images/index/img_login/yes_icon.png">订单支付成功</h3>
+				<div class="btn1" style="display:block;"><a href="{$app_path}" class="return_index">返回首页</a><a href="user.php?act=film_order" class="my_order">我的订单</a></div>
+				<div class="tips">
+						<ul>
+							<li>温馨提示：1、支付成功后您将收到取票短信，建议您提前10分钟至影票终端机取票，以免排队耽误您的入场。</li>	
+							<li style="text-indent: 60px;">2、电影票一经售出概不退换，请在付款前确定无误，敬请谅解！祝您观影愉快！</li>
+						</ul>
+				</div>
+			</div>
+		</div>
+        {/if}
+        
+        {if $flow eq 'dzq'}
+        <div class="w_1200">
+			<div class="pay_del" style="background:url(/images/index/img_login/pay_del4.png) -25px -237px;">
+			</div>
+			<div class="pay_success">
+				<h3><img src="/images/index/img_login/yes_icon.png">订单支付成功</h3>
+				<div class="btn" style="display:block;"><a href="{$app_path}" class="return_index">返回首页</a><a href="user.php?act=dzq_order" class="my_order">我的订单</a></div>
+				<div class="tips">
+                    <ul>
+                        <li>温馨提示：1、支付成功后您将收到取票短信，建议您提前10分钟至影票终端机取票，以免排队耽误您的入场。</li>
+                        <li style="text-indent: 60px;">2、电影票一经售出概不退，敬请谅解！祝您观影愉快！</li>
+                    </ul>
+				</div>
+			</div>
+		</div>
+        {/if}
+        
+        <!-- 公用底部 -->
+		<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    	<!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+    </body>
+</html>

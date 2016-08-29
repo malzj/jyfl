@@ -36,6 +36,32 @@
   </tr>
   
   <tr>
+    <td class="label">销售卡类型（次卡/点卡）</td>
+    <td>
+    	<input type="radio" name="card_ext" value="1" {if $data.card_ext eq 1} checked {/if}> 点卡
+    	<input type="radio" name="card_ext" value="2" {if $data.card_ext eq 2} checked {/if}> 次卡
+    	&nbsp;&nbsp;<font color="red"> 次卡是以次为单位销售，只应用与在线选座</font>
+    </td>
+  </tr>
+  
+  <tr>
+    <td class="label">警戒线上限</td>
+    <td>    	
+    	<input name="cordon_up" type="text" id="cordon_up" value="{$data.cordon_up}" maxlength="60" />
+    	&nbsp;&nbsp;<font color="red"> 商城售价在警戒线上限之上，超出的点数按1:1比例，支付宝补差价，（扣点 = 警戒线上限）<font color="green">只有次卡才生效</font></font>
+    </td>
+  </tr>
+  
+  <tr>
+    <td class="label">警戒线下限</td>
+    <td>    	
+    	<input name="cordon_dwon" type="text" id="cordon_dwon" value="{$data.cordon_dwon}" maxlength="60" />
+    	&nbsp;&nbsp;<font color="red"> 商城售价在警戒线上限之下，直接扣除卡点，无需支付宝补差价操作，（扣点 = 警戒线下限）<font color="green">只有次卡才生效</font></font>
+    </td>
+  </tr>
+  
+  
+  <tr>
     <td colspan="2" align="center">
       <input type="submit" class="button" value="{$lang.button_submit}" />
       <input type="reset" class="button" value="{$lang.button_reset}" />

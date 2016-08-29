@@ -61,7 +61,7 @@
 				<img id="usertx" src="{$usernames.pic}" alt="用户头像">
 				<span>{$usernames.user_name}</span>
 			</li>
-			<li class="balance">余额：<span>{$usernames.card_money}</span>点</li>
+			<li class="balance">{if $is_times_card}次数：<span>{$usernames.card_money}</span>次{else}余额：<span>{$usernames.card_money}</span>点{/if}</li>
 			<li class="exit">【<a href="user.php?act=logout">退出</a>】</li>
 		</ul>
 	</ul>

@@ -37,7 +37,7 @@
       <td><input value="{$card.card_id}" name="checkboxes[]" type="checkbox">{$card.card_id}</td>
       <td><span>{$card.card_sn}</span></td>
       <td><span>{$card.card_password}</span></td>
-      <td align="right"><span>{$card.end_date}</span></td>
+      <td align="right"><span>{$card.end_date|time}</span></td>
       <td align="center"><img src="images/{if $card.is_saled eq 2}yes{elseif $card.is_saled eq 1}btn_close{else}no{/if}.gif" /></span>
       </td>
       <td>{$card.order_sn}</td>

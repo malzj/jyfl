@@ -96,10 +96,17 @@ if (in_array($action, $ui_arr))
 //用户中心欢迎页
 if ($action == 'default')
 {
+    include_once(ROOT_PATH .'includes/lib_movie_times.php');
+    if(is_times_card()){
+        //如果是次卡更新左侧导航链接
+        $nav = get_navigator();
+        $new_nav = get_times_nav($nav);
+        $smarty->assign('navigator_list',$new_nav);
+    }
+
     include_once(ROOT_PATH .'includes/lib_clips.php');
-    $sql = 'SELECT company_id FROM '.$GLOBALS['ecs']->table('users').' where user_id='.$user_id;
-    $company_id = $GLOBALS['db']->getOne($sql);
-    $sql1 = 'SELECT * FROM '.$GLOBALS['ecs']->table('company').' WHERE card_company_id = '.$company_id;
+    $sql1 = 'SELECT c.* FROM '.$GLOBALS['ecs']->table('company').' c LEFT JOIN '.$GLOBALS['ecs'] -> table('users')
+        .' u ON c.card_company_id = u.company_id WHERE user_id = '.$user_id;
     $company = $GLOBALS['db']->getRow($sql1);
     $smarty->assign('company',$company);
     $smarty->display('user_clips.dwt');

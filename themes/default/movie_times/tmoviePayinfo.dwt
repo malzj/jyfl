@@ -8,12 +8,16 @@
         <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
     </head>
   	<body>
-  	    	<!-- 公用头部 -->
-    		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
-            <!-- 头部结束 -->
-
+    	 <!-- 公用头部 -->
+		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 --> 
+        
         <div class="w_1200">
-			<div class="order_info" style="margin-top:100px;">
+        
+            
+			<div class="pay_del">
+			</div>
+			<div class="order_info">
                 <div class="order_xinxi">
                     <div class="order_title_left"><h3><span class="color_yellow"></span><span>确认订单信息</span></h3></div>
                     <div class="pay_title">
@@ -23,14 +27,15 @@
                 <div class="order_zhanshi">
                     <div class="order_left">
                         <div class="img_left">
-                            <img src="{$orders.goods_thumb}" width="180">
+                            <img src="{$detail.thumb}" width="180">
                         </div>
-                        <div class="box_left" style="height:322px;">
+                        <div class="box_left">
                             <ul>
-                                <li><h3>{$orders.goods_name}</h3></li>
-                                <li><span>{$orders.goods_attr}</span></li>
-                                <li class="num_tick"><span>{$orders.goods_number}个</span>
-                                <li>总价：<span class="order_yes_Allprice color_ff781e">{$orders.order_amount}</span>点</li>
+                                <li><h3>{$order.movie_name}</h3></li>
+                                <li><span>{$order.cinema_name}</span><span style="color:#ff781e;">&nbsp;&nbsp;&nbsp;&nbsp;{$order.hall_name}</span></li>
+                                <li><span>{$order.featuretime} </span><span>14:00</span></li>
+                                <li class="num_tick"><span>{$order.count}张票</span><span class="zuowei">({$order.seat_info})</span></li>
+                                <li>总价：<span class="order_yes_Allprice color_ff781e">{$order.money}</span>点</li>
                             </ul>
                         </div>
                     </div>
@@ -38,12 +43,10 @@
                         <div class="order_time">
                             <span>请在限定时间内完成支付，否则系统将自动取消您的订单    剩余时间  </span>
                             <span id="times" style="font-size: 16px;font-weight: 600;">14分59秒</span>
+                            <span>您也可以 <a href="movie.php?step=cinemaSeats&delid={$order.id}&{$order.param_url}">重新选座</a> 或<a href="{$app_path}movie.php"> 返回首页</a></span>
                         </div>
                         <div class="box_1">
-                            <span class="user_card">聚优卡号：<span style="font-weight: 600;">{$orders.user_name}</span></span>
-                        </div>
-                        <div class="box_1">
-                            <span>电话号码：<input name="mobile" id="mobile" type="mobile" value="{$usernames.mobile_phone}" class="judgeBound">
+                            <span class="user_card">聚优卡号：<span style="font-weight: 600;">{$usernames.user_name}</span></span>
                         </div>
                         <div class="box_1">
                             <span>聚优密码：<input name="password" id="password" type="password" autocomplete="off">
@@ -53,15 +56,15 @@
                         </div>
                         <div class="tips">
                             <ul>
-                                <li>温馨提示：1、支付成功后您将收到商品码短信</li>
-                                <li>2、如一小时内未收到短信，请咨询客服电话</li>
+                                <li>温馨提示：1、支付成功后您将收到取票短信，建议您提前10分钟至影票终端机取票，以免排队耽误您的入场。</li>
+                                <li style="text-indent: 60px;margin-top: 5px;">2、电影票一经售出概不退换，请在付款前确定无误，敬请谅解！祝您观影愉快！</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 			</div>
 		</div>
-        <input type="hidden" name="order_id" id="orderid" value="{$orders.id}" />
+        <input type="hidden" name="order_id" id="orderid" value="{$order.id}" />
         <script>
 		$(document).ready(function(){
 			
@@ -90,7 +93,7 @@
 						document.getElementById(htmlId).innerHTML = (minute ? minute + '<span style="color:#666;font-size:14px;font-weight:normal">分</span>' : '') + second + '<span style="color:#666;font-size:14px;font-weight:normal;">秒</span>';
 					} else {
 						clearInterval(timer);
-						delOrder();//未在规定时间内完成支付取消订单
+						//delOrder();//未在规定时间内完成支付删除订单
 						
 					}
 				}, 1000);
@@ -111,26 +114,24 @@
 //			});
 						
 			function delOrder(){
-				var orderid = '{$orders.id}';
-				$.get('code_order.php', {step:'delorder', 'order_id':orderid}, function (result){
-					alert('抱歉，您未在规定时间内完成支付，该订单已取消！');
-					window.location.href="category.php?id={$category}";
+				var orderid = '{$order.id}';				
+				$.get('movie_order.php', {act:'delorder', 'order_id':orderid}, function (result){				
+					alert('抱歉，您未在规定时间内完成支付，该订单已删除！');
+					window.location.href="movie.php"
 				});
 			}
 			
 			/* 支付操作 */
 			$('.jiesuan').click(function(){
-
+//				if(checkMobileIs === false){
+//					alert('请确认手机号填写是否正确！');
+//					return false;
+//				}
+				
 				var password = $('#password').val();
-				var mobile = $('#mobile').val();
 				var orderid = $('#orderid').val();
-                var preg = /^1[3,4,5,7,8]\d{9}$/;
-
-                if(!preg.test(mobile)){
-                    alert('请确认手机号填写是否正确！');
-                    return false;
-                }
-				if(checkSubmitFlg == true){
+	
+				if(checkSubmitFlg == true){ 
 					alert('已提交过，请耐心等待');
 					return false;
 				}
@@ -143,24 +144,25 @@
 					alert('这不是一个有效的订单');
 					return false;
 				}
+				
 				checkSubmitFlg = true;
 				
 				$.ajax({
 					type:'POST',
-					url:'code_order.php?step=act_pay',
-					data:{order_id:orderid,mobile:mobile,password:password},
-					dataType:'json',
+					url:'movie_order.php?act=doneMovie',
+					data:{order_id:orderid, password:password},
 					beforeSend:function(){
 						$('.jiesuan').addClass('clickEve').html('支付中...');
+//						layer.msg('支付中...');
 					},
-					success:function(data){
-						console.log(data);
+					success:function(info){
+						var data = jQuery.parseJSON(info);
 						if(data.error > 0){
 							alert(data.message);
 							checkSubmitFlg = false;
 							$('.jiesuan').html('结算');
 						}else{
-							window.location.href="code_order.php?step=respond";
+							window.location.href="movie_order.php?act=respond";
 						}
 					}
 				});

@@ -28,6 +28,8 @@ elseif($_REQUEST['act'] == 'done_import'){
 // print_r($list);
 // echo "</pre>";
 // die;
+    if(empty($list))
+        die("上传文件内容不能为空！");
     $sql="SELECT account FROM ".$ecs -> table('code')." WHERE supplier_id = '".$_SESSION['supplier_id']."'";
     $code_result = $db->getAll($sql);
     $code_array = array();
@@ -37,17 +39,29 @@ elseif($_REQUEST['act'] == 'done_import'){
     $str_array = array();
 
     foreach($list as $key => $value){
-        if(in_array($value['account'],$code_array)){
-            echo '商品码'.$value['account'].'已存在请勿重复导入！</br>';
-            continue;
+        if($_REQUEST['operate'] != 'update') {
+            if (in_array($value['account'], $code_array)) {
+                echo '商品码' . $value['account'] . '已存在请勿重复导入！</br>';
+                continue;
+            }
         }
+        $time = strtr($value['validity'],array('"'=>'','年'=>'-','月'=>'-','日'=>'','时'=>':','分'=>':','秒'=>''));
+        $value['validity'] = strtotime($time);
         $value['status'] = 0;
         $value['supplier_id'] = $_SESSION['supplier_id'];
-        $str_array[]="('".implode("','",$value)."')";
+        $value['add_time'] = time();
+        if($_REQUEST['operate'] == 'update'){
+            $sql = "UPDATE ".$ecs -> table('code')." SET `price`='".$value['price']."',`code`='".$value['code']."',`password`='".$value['password']."',`validity`='".$value['validity']."',`supplier_id`='".$value['supplier_id']."'
+             WHERE account = '".$value['account']."' AND supplier_id = '".$value['supplier_id']."' AND status = 0";
+            $result = $db -> query($sql);
+            echo '更新码'.$value['account'].','.($result==1?'成功！':'失败！').'</br>';
+        }else{
+            $str_array[]="('".implode("','",$value)."')";
+        }
     }
 
     if(!empty($str_array)){
-        $insert_sql = "INSERT INTO ".$ecs->table('code')." (`price`,`code`,`account`,`password`,`validity`,`status`,`supplier_id`) VALUE "
+        $insert_sql = "INSERT INTO ".$ecs->table('code')." (`price`,`code`,`account`,`password`,`validity`,`status`,`supplier_id`,`add_time`) VALUE "
             .implode(',',$str_array);
         $result = $db->query($insert_sql);
     }

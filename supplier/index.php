@@ -155,7 +155,7 @@ elseif ($_REQUEST['act'] == 'main')
     /*供货商商品码统计*/
     //全部商品码
     $count = array();
-    $code_count = $db->getAll('SELECT price,`status`,COUNT(*) AS count FROM '.$ecs->table('code').' GROUP BY price,`status`');
+    $code_count = $db->getAll('SELECT price,`status`,COUNT(*) AS count FROM '.$ecs->table('code').' WHERE supplier_id = '.$_SESSION['supplier_id'].' GROUP BY price,`status`');
     foreach ($code_count as $key=>$code){
         switch ($code['status'])
         {

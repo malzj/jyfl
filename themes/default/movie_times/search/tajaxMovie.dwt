@@ -1,0 +1,42 @@
+<div class="searcher movie_from">
+	<form class="filterform" action="#">
+    	<input id="movieSelectText_1461722661474" type="text" class="input c_a5 filterinput" placeholder="输入影片名称快速定位"><i class="sub"></i>
+	</form>
+</div>
+<ul class='movie_search'>
+{foreach from=$data item=row}
+    <!--<li><a href="javaScript:;" data-id="{$row.movieId}" data-type="movie"><b class="db_point">{$row.score}</b><span>{$row.movieName}</span></a></li>-->
+    <li value="{$row.movieName}"><a href="javaScript:;" data-id="{$row.movieId}" data-type="movie"><b class="db_point">{$row.score}</b><span>{$row.movieName}</span></a></li>
+	
+{/foreach}
+</ul>
+
+<script type="text/javascript">
+
+(function($) {
+    $.expr[":"].Contains = function(a, i, m) {
+        return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+    };
+    function filterList(header, list) {
+        //@header 头部元素
+        //@list 无需列表
+        //创建一个搜素表单       
+        $('#movieSelectText_1461722661474').change(function() {
+            var filter = $(this).val();
+            if (filter) {
+                $matches = $(list).find("a:Contains(" + filter + ")").parent();
+                $("li", list).not($matches).slideUp();
+                $matches.slideDown();
+            } else {
+                $(list).find("li").slideDown();
+            }
+            return false;
+        }).keyup(function() {
+            $(this).change();
+        });
+    }
+    $(function() {
+        filterList($(".movie_from"), $(".movie_search"));
+    });
+})(jQuery);	
+</script>

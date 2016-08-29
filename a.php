@@ -9,11 +9,8 @@
  *  
  * @var unknown
  */
- 
-echo strtotime('2016-06-23 16:00:00');
-echo '<br>';
-echo strtotime('2016-06-25 16:00:00');
-define('IN_ECS', true);
+phpinfo();
+exit;
 
 require(dirname(__FILE__) . '/includes/init.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');

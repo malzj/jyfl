@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/public.css">
+		<script src="js/jquery.min.js"></script>	
+	</head>
+	<body>		
+		<div class="content">
+		<div class="header">
+			<ul class="header_nav">
+				<li><img src="images/img_login/logo.png" alt="聚优福利"></li>
+				<ul>
+				<li class="username">
+					<img src="images/img_login/touxiang.png" alt="用户头像">
+					<span>9990111942832469</span>
+				</li>
+				<li class="balance">余额：<span>88.89</span>点</li>
+				<li class="exit">【退出】</li>
+				</ul>
+			</ul>			
+		</div>
+		<div class="wrap">			
+		<div class="pop_left">
+			<ul>
+				<li class="gn">
+					<span class="glyphicon glyphicon-credit-card"></span>
+					<p>功能</p>
+				</li>
+				<li class="per">
+					<span class="glyphicon glyphicon-user"></span>	
+					<p>个人信息</p>
+				</li>
+				<li class="car">
+					<span class="glyphicon glyphicon-shopping-cart"></span>
+					<p>购物车</p>
+				</li>
+				<li class="order">
+					<span class="glyphicon glyphicon-list-alt"></span>
+					<p>订单</p>
+				</li>
+			</ul>
+		</div>	
+		</div>
+		<div>
+		<div class="pop_right">
+			<div class="right"><span class="glyphicon glyphicon-chevron-right"></span></div>
+			<div class="message">
+				<div class="border_radio">
+					<img src="images/img_login/02.png" alt="可口可乐" width="80%">
+				</div>	
+				<div class="grade">公司等级：<span class="font_color">LV</span><span class="font_color">17</span></div>
+				<div class="chengzhang"><span style="float: left;">公司成长值：</span><span class="jindu"><span class="jindu1"></span></span><span class="font_color">30%</span></div>
+				<div class="pubic_fen">公司公共积分：<span class="font_color">300</span></div>
+			</div>
+			<hr></hr>
+			<div class="scroll_msg">
+			<div class="message_1">
+				<div class="message_1_content">
+					<div>
+						<strong>电影票抢购</strong>
+						<strong>共<span>1000</span>积分</strong>
+					</div>
+					<div>
+							<span class="jindu"><span class="jindu1"></span></span>
+							<span style="float: left;margin-top: 15px;">30%</span>
+							<span class="qianggou"></span>
+					</div>
+				</div>
+			</div>
+			<div class="message_1">
+				<div class="message_1_content">
+					<div>
+						<strong>电影票抢购</strong>
+						<strong>共<span>1000</span>积分</strong>
+					</div>
+					<div>
+							<span class="jindu"><span class="jindu1"></span></span>
+							<span style="float: left;margin-top: 15px;">30%</span>
+							<span class="qianggou"></span>
+					</div>
+				</div>
+			</div>
+			<div class="message_1">
+				<div class="message_1_content">
+					<div>
+						<strong>电影票抢购</strong>
+						<strong>共<span>1000</span>积分</strong>
+					</div>
+					<div>
+							<span class="jindu"><span class="jindu1"></span></span>
+							<span style="float: left;margin-top: 15px;">30%</span>
+							<span class="qianggou"></span>
+					</div>
+				</div>
+			</div>
+			<div class="message_1">
+				<div class="message_1_content">
+					<div>
+						<strong>电影票抢购</strong>
+						<strong>共<span>1000</span>积分</strong>
+					</div>
+					<div>
+							<span class="jindu"><span class="jindu1"></span></span>
+							<span style="float: left;margin-top: 15px;">30%</span>
+							<span class="qianggou"></span>
+					</div>
+				</div>
+			</div>
+			<div class="message_1">
+				<div class="message_1_content">
+					<div>
+						<strong>电影票抢购</strong>
+						<strong>共<span>1000</span>积分</strong>
+					</div>
+					<div>
+							<span class="jindu"><span class="jindu1"></span></span>
+							<span style="float: left;margin-top: 15px;">30%</span>
+							<span class="qianggou"></span>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		</div>
+		<script>
+			$(function(){
+				setInterval(function(){
+$('.pop_right .right span').click(function(){
+					$('.pop_right').css('transform','translateX(100%)');
+					$(this).attr('class','glyphicon glyphicon-chevron-left').click(function(){
+						$('.pop_right').css('transform','translateX(0)');
+						$(this).attr('class','glyphicon glyphicon-chevron-right')						
+					})
+				})
+},3000);
+				
+//				if($('.pop_right .right span').hasClass('glyphicon glyphicon-chevron-left')){
+//					$(this).click(function(){
+//						$('.pop_right').css('transform','translateX(0)');
+//					})
+//				}
+			})
+		</script>
+	</body>
+</html>

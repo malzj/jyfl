@@ -26,15 +26,10 @@ if (!isset($_REQUEST['step']))
 
 assign_template();
 
-//判断头部显示次数
-$usernames = $GLOBALS['db']->getRow('SELECT * FROM '.$GLOBALS['ecs']->table('users')." WHERE user_id = '".intval($_SESSION['user_id'])."'");
-$usernames['card_money'] = get_times($usernames['card_money']);
-$smarty->assign('usernames',$usernames);
-$smarty->assign('is_times_card',true);
+//头部显示次数
+$smarty->assign('maxCount', getMaxBuyCount());
 //如果是次卡更新左侧导航链接
-$nav = get_navigator();
-$new_nav = get_times_nav($nav);
-$smarty->assign('navigator_list',$new_nav);
+$smarty->assign('navigator_list', get_times_nav( get_navigator() ));
 
 // ajax影片列表
 if($_REQUEST['step'] == "ajaxMovieList")
@@ -592,185 +587,11 @@ else if ( $_REQUEST['step'] == "shuaka" )
 // 电子兑换券--影院列表
 elseif ($_REQUEST['step'] == "cinemaDzq")
 {
-    //根据城市id获取影院区域编号
-    $int_areaNo = getAreaNo();
-    
-    $int_page     = (isset($_GET['page']) && $_GET['page'] > 1) ? intval($_GET['page']) : 1;
-    $int_pageSize = 20;
-    $int_start    = ($int_page - 1) * $int_pageSize;
-    
-    $str_tradaId = 'getCinemas';//查询指定城市下的所有影院
-    $arr_param = array(
-        'AreaNo'   => $int_areaNo,//区域编号
-        'filmNo'   => ''//影院编号
-    );
-    
-    $str_cacheName = $str_tradaId.'_'.$int_areaNo;//缓存名称为接口ID与地区编号结合
-    $arr_data = F($str_cacheName, '', 1800, $arr_cityInfo['region_english'].'/');//缓存半小时
-    if (empty($arr_data)){
-        $arr_result = getYYApi($arr_param, $str_tradaId);
-        if (!empty($arr_result['body']['item'])){
-            $arr_data = $arr_result['body']['item'];
-            if (!empty($arr_data)){
-    
-                foreach ($arr_data as $key=>$var){
-                    unset($arr_data[$key]);
-                    if (in_array($var['SellFlag'], array(1,4))){
-                        //unset($arr_data[$key]);
-                        continue;
-                    }
-                    $var['AverageDegreeFormat'] = $var['AverageDegree'] * 10;
-                    $var['intComment']          = $var['AverageDegree'] > 0 ? substr($var['AverageDegree'], 0, strrpos($var['AverageDegree'], '.')) : 0;
-                    $var['floComment']          = $var['AverageDegree'] > 0 ? substr($var['AverageDegree'], -1) : 0;
-                    $arr_data['cinemas']['all'][$key]  = $var;
-                    $arr_data['cinemas']['area'][$var['AreaNo']][]  = $var;
-                    $arr_data['areas'][$var['AreaNo']]['areaNo']   = $var['AreaNo'];
-                    $arr_data['areas'][$var['AreaNo']]['areaName'] = $var['AreaName'];
-                    $arr_data['areas'][$var['AreaNo']]['count']    += 1;
-                }
-            }
-            F($str_cacheName, $arr_data, 0, $arr_cityInfo['region_english'].'/');//写入缓存
-        }
-    }
-    
-    $_GET['area'] = !empty($_GET['area']) ? $_GET['area'] : 'hot';
-    if (!empty($_GET['area']) && $_GET['area'] != 'hot' && $_GET['area'] != 'all'){
-        $arr_cinemas = $arr_data['cinemas']['area'][$_GET['area']];
-    }else{
-        $arr_cinemas = $arr_data['cinemas']['all'];
-    }
-    
-    if ($_GET['area'] == 'hot'){
-        foreach ($arr_cinemas as $key => $var) {
-            $volume[$key]  = $var['AverageDegree'];
-        }
-        array_multisort($volume, SORT_DESC, $arr_cinemas);//按综合评分降序排序
-    }
-    
-    if (!empty($_GET['cinemaKey']) && $_GET['cinemaKey'] != '搜索影院名称'){
-        $str_keyword = trim($_GET['cinemaKey']);
-        foreach ($arr_cinemas as $key=>$var){
-            if (strpos($var['CinemaName'], $str_keyword) === false){
-                unset($arr_cinemas[$key]);
-            }
-        }
-    }
-    
-    $int_count = count($arr_cinemas);
-    $arr_dzqdh = array_splice($arr_cinemas, $int_start, $int_pageSize);
-    
-//    var_dump($arr_dzqdh);
-    
-    // 得到电影banner图片
-    $banner = getMovieBanner();
-    $smarty->assign('banner',$banner);
-    $smarty->assign('category',getCinemaCate(4));
-    $smarty->assign('dzq',  $arr_dzqdh);
-    $pager  = get_pager('movie.php', array('step' => 'cinemaDzq', 'area'=>$_GET['area'], 'cinemaKey'=>$str_keyword), $int_count, $int_page, $int_pageSize);
-    $smarty->assign('pager',  $pager);
-    $smarty->assign('arealist',  $arr_data['areas']);
-    $smarty->assign('type',  $_GET['area']);
-    $smarty->assign('cinemaKey',  $_GET['cinemaKey']);
-    
-    $smarty->assign('backHtml',getBackHtml('movie.php'));
-    $smarty->display('movie_times/tcinemaDzq.dwt');
+    ecs_header("Location:movie.php?step=cinemaDzq");
 }
 // 兑换券详情
 elseif ($_REQUEST['step'] == "showDzq")
-{
-    //根据城市id获取影院区域编号
-    $int_areaNo = getAreaNo();
-    // 销售比例
-    $ratio = getDzqRatio();
-    // 影院id
-    $int_cinemaNo = $_GET['id'];
-    
-    // 影院id为空，跳转到电子兑换券列表
-    if (empty($int_cinemaNo)){
-        ecs_header("Location:movie.php?step=cinemaDzq");
-        exit;
-    }
-    
-    // 得到影院详情数据，并缓存
-    $arr_param = array( 'cinemaNo' => $int_cinemaNo );
-    $str_cacheName = 'getCinemaInfo' . '_' . $int_cinemaNo.'_'.$int_areaNo;//缓存名称为接口ID与地区编号结合
-    $arr_data = F($str_cacheName, '', 3600, $arr_cityInfo['region_english'].'/');//缓存半小时
-    if (empty($arr_data)){
-        $arr_result = getYYApi($arr_param, 'getCinemaInfo');
-        if (!empty($arr_result['body'])){
-            $arr_data = $arr_result['body'];
-            F($str_cacheName, $arr_data, 0, $arr_cityInfo['region_english'].'/');//写入缓存
-        }
-    }
-    
-    
-    // 如果没有数据，跳转到电子兑换券列表
-    if (empty($arr_data)){
-        ecs_header("Location:movie.php?step=cinemaDzq");
-        exit;
-    }
-    
-    $arr_data['CinemaImages'] = !empty($arr_data['CinemaImages']) ? explode(',', $arr_data['CinemaImages']) : '';
-    if ($arr_data['CinemaImages']){
-        foreach ($arr_data['CinemaImages'] as $key=>$var){
-            if (strpos($var, 'http') === false){
-                $var = 'http://douyou100.com:7000'.$var;
-            }
-            $arr_data['CinemaImages'][$key] = $var;
-        }
-    }
-    
-    if ($arr_data['AverageDegree'] > 0){
-        $arr_data['AverageDegreeFormat'] = $arr_data['AverageDegree'] * 10;
-        $arr_data['intComment']          = $arr_data['AverageDegree'] > 0 ? substr($arr_data['AverageDegree'], 0, strrpos($arr_data['AverageDegree'], '.')) : 0;
-        $arr_data['floComment']          = $arr_data['AverageDegree'] > 0 ? substr($arr_data['AverageDegree'], -1) : 0;
-    }
-    
-    $smarty->assign('dzqyy',          $arr_data);//电子券使用范围
-    
-
-    //获取电子券信息
-    $str_tradaId = 'getCommTickets';
-    $arr_param = array(
-        'AreaNo'   => $int_areaNo,//区域编号
-        'CinemaNo' => $int_cinemaNo//影院编号
-    );
-    $str_cacheName = $str_tradaId . '_' . $int_cinemaNo.'_'.$int_areaNo;//缓存名称
-    if (empty($arr_dzqData)){
-        $arr_result = getYYApi($arr_param, $str_tradaId);
-        if (!empty($arr_result['body']['item'])){
-            $arr_dzqData = $arr_result['body']['item'];
-            if (!empty($arr_dzqData)){
-                $arr_type = array(
-                    '1' => '2D',
-                    '2' => '3D',
-                    '3' => '4D',
-                    '4' => 'IMAX',
-                    '5' => '点卡',
-                );
-                	
-                foreach ($arr_dzqData as $key=>$var){
-                    unset($arr_dzqData[$key]);
-                    $var['ProductSizeZn'] = $arr_type[$var['ProductSize']];
-                    $var['CinemaPriceFormat'] = price_format($var['CinemaPrice']);
-                    $var['CinemaPriceFormat'] = $var['SalePrice'];
-    
-                    if ($ratio !== false){
-                        $var['SalePriceFormat'] = price_format(($var['SalePrice']/1.2*1.06)*$ratio);
-                    }else{
-                        $var['SalePriceFormat'] = price_format($var['SalePrice']/1.2*1.06);
-                    }    
-                    $arr_dzqData[$var['TicketNo']] = $var;
-                }
-            }
-        }
-    }
-    
-    $smarty->assign('cinemaNo',     $int_cinemaNo);
-    $smarty->assign('dzq',          $arr_dzqData);//电子券
-    
-    $smarty->assign('backHtml',getBackHtml('movie.php'));
-    $smarty->display('movie_times/tshowDzq.dwt');
-    
+{   
+    ecs_header("Location:movie.php?step=cinemaDzq");
 }
 

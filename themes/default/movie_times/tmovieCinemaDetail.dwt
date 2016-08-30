@@ -14,6 +14,11 @@
 	<!-- 公用头部 -->
 	<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
     <!-- 头部结束 --> 
+    
+    <style>
+    .cinema_del .cinema_del_title span{ width:158px;}
+	.movie_xiangqing .cinema_del .span_1{ width:160px;}
+    </style>
 	
     <!-- 电影内容 -->
     <!--影片详情背景-->

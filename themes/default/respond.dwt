@@ -1,56 +1,42 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="Keywords" content="{$keywords}" />
-<meta name="Description" content="{$description}" />
-<title>{$page_title}</title>
-<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
-<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript"  src="/js/nav.js"></script>
-{* 包含脚本文件 *}
-{insert_scripts files='common.js'}
-<style type="text/css">
-p a{color:#006acd; text-decoration:underline;}
-</style>
-</head>
-<body>
-<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!DOCTYPE html>
+<html class="movie_3">
+	<head>
+		<meta charset="UTF-8">
+		<title>聚优福利</title>
+       
+		
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+        <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
+    </head>
 
-<div class="main_tiaozhuan">
-  <div class="box">
-   <div class="box_1">
-    <h3><span>{$lang.system_info}</span></h3>
-    <div class="boxCenterList RelaArticle" align="center">
-      <div style="margin:20px auto;">
-      <p style="font-size: 14px; font-weight:bold; color: red;">{$message}</p>
-        <div class="blank"></div>
-        <!--{if $virtual_card}-->
-        <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
-        <!--{foreach from=$virtual_card item=vgoods}-->
-          <!--{foreach from=$vgoods.info item=card}-->
-            <tr>
-            <td bgcolor="#FFFFFF">{$vgoods.goods_name}</td>
-            <td bgcolor="#FFFFFF">
-            <!--{if $card.card_sn}--><strong>{$lang.card_sn}:</strong>{$card.card_sn}<!--{/if}-->
-            <!--{if $card.card_password}--><strong>{$lang.card_password}:</strong>{$card.card_password}<!--{/if}-->
-            <!--{if $card.end_date}--><strong>{$lang.end_date}:</strong>{$card.end_date}<!--{/if}-->
-            </td>
-            </tr>
-          <!--{/foreach}-->
-        <!--{/foreach}-->
-        </table>
-        <!--{/if}-->
-        <a href="{$shop_url}">{$lang.back_home}</a>
-      </div>
+<body>
+<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+
+<div class="w_1200">
+    <div class="pay_del" style="background:none;">
     </div>
-   </div>
-  </div>
-</div>
+    <div class="pay_success">
+        <h3 style="margin:20px auto; text-align:center;">
+        	<p style="font-size: 20px; font-weight:bold; color: red;">{$message}</p>
+        </h3>
+        <div class="btn1" style="display:block; padding:0px; text-align:center;">        
+        	<a href="{$shop_url}">{$lang.back_home}</a>        
+        </div>
+        
+    </div>
+</div>   
+
 <!--帮助-->
 <!--友情链接 start-->
 
+<!-- 公用底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+<!-- 公共左边 -->
+<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+<!-- 公共左边结束 -->        
+<!-- 公共右边 -->
 <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 </body>
 </html>

@@ -17,10 +17,10 @@
 			        <!-- 订单选择结束 -->
 				</div>
 				<div class="my_order_title o_hidden" style="background: #e6e6e6;">
-					<div class="my_order_details f_l">订单详情</div>
-					<div class="my_order_price f_l">单价（点）</div>
-					<div class="my_order_num f_l">数量</div>
-					<div class="my_order_price_all f_l">总金额（点）</div>
+					<div class="my_order_details f_l">订单详情</div>                    
+					<div class="my_order_price f_l">{if !$is_cika}单价（点）{else}&nbsp;{/if}</div>                    
+					<div class="my_order_num f_l">数量</div>                   
+					<div class="my_order_price_all f_l">{if !$is_cika}总金额（点）{else}&nbsp;{/if}</div>                    
 					<div class="my_order_zhuangtai f_l">状态</div>
 				</div>
                 <!-- {if !empty($orders)} -->
@@ -43,10 +43,11 @@
 								<div class="my_order_details_box">座位信息：{$order.hall_name}{$order.seat_info}</div>
 								<div class="my_order_details_box">手机号：{$order.mobile}</div>
 							</div>
-						</div>
-						<div class="my_order_price f_l line_h_90" style="line-height: 120px;">{$order.unit_price}点</div>
-						<div class="my_order_num f_l line_h_90" style="line-height: 120px;">x<span>{$order.count}</span></div>
-						<div class="my_order_price_all f_l line_h_90" style="line-height: 120px;">{$order.money}点</div>
+						</div>                
+						<div class="my_order_price f_l line_h_90" style="line-height: 120px;">{if !$is_cika}{$order.unit_price}点{else}&nbsp;{/if}</div>        
+						<div class="my_order_num f_l line_h_90" style="line-height: 120px;">x<span>{$order.count}</span></div>                        
+						<div class="my_order_price_all f_l line_h_90" style="line-height: 120px;">{if !$is_cika}{$order.money}点{else}&nbsp;{/if}</div>
+               
 						<div class="my_order_zhuangtai f_l zhuangtai_margin_top">
 							<div>{$order.order_status_cn}</div>
                             <!--<div class="active">未付款</div>-->

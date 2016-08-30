@@ -9,6 +9,7 @@ require(dirname(__FILE__) . '/mobile/includes/lib_cinema.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_clips.php');
 include_once(ROOT_PATH . 'includes/lib_order.php');
+include_once(ROOT_PATH . 'includes/lib_movie_times.php');
 
 //根据城市id获取影院区域编号
 $int_areaNo = getAreaNo(0,'komovie');
@@ -22,6 +23,10 @@ assign_template();
 
 $smarty->assign('act', $_REQUEST['act']);
 
+//头部显示次数
+$smarty->assign('maxCount', getMaxBuyCount());
+//如果是次卡更新左侧导航链接
+$smarty->assign('navigator_list', get_times_nav( get_navigator() ));
 
 // 删除在线选座订单
 if($_REQUEST['act'] == 'delorder')
@@ -70,10 +75,11 @@ else if ($_REQUEST['act'] == 'order'){
 	// 差额（需要支付宝补的差价）
 	$diffPrice = getDiffPrice($unitPrice, $seatCount);
 
+	// 剩余次数验证
 	if ($diffPrice == -1){
-	    show_message('卡BIN查询时，出现了错误！');
+	    show_message('您的剩余次数不足，请修改！');
 	}
-
+	
 	if (empty($mobile)){
 		show_message('请填写手机号码！');
 	}
@@ -93,12 +99,6 @@ else if ($_REQUEST['act'] == 'order'){
 		$seatsNameArr = explode('|',$seatsName);
 	}
 
-	//用户卡余额
-	$card_money = $GLOBALS['db']->getOne('SELECT card_money FROM '.$GLOBALS['ecs']->table('users')." WHERE user_id = '".intval($_SESSION['user_id'])."'");
-	if ($totalMoney > $card_money){
-		show_wap_message('抱歉您的卡余额不足！');
-	}
-
 	// 下单
 	$arr_param = array(
 			'action'        => 'order_Add',
@@ -112,7 +112,7 @@ else if ($_REQUEST['act'] == 'order'){
 		$arr_orderInfo = $arr_result['order'];		
 		$ratioMovie = getMovieRatio(true);
 		//插入订单信息
-		$str_sql = 'INSERT INTO '. $ecs->table('seats_order') ."(order_sn, user_id, user_name, order_status, mobile, city_id, activity_id, channel_id, count, agio, money, unit_price, seat_info, seat_no, hall_name, hall_id, language, screen_type, featuretime, pay_id,pay_name, add_time, payment_time, movie_name, cinema_name,param_url,source,movie_id,extInfo,card_ratio,shop_ratio,raise,ext,diff_price) VALUES('".$arr_orderInfo['orderId']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_orderInfo['orderStatus']."', '$mobile','".$int_cityId."', '".$arr_orderInfo['activityId']."', '".$arr_orderInfo['channelId']."', '".$seatCount."', '".$arr_orderInfo['agio']."', '".$money."', '".$unitPrice."', '".$seatsName."', '".$seatsNo."', '".$hallName."', '".$arr_orderInfo['plan']['hallNo']."', '".$arr_orderInfo['plan']['language']."', '".$arr_orderInfo['plan']['screenType']."', '".$featureTimeStr."', '2', '华影支付', '".gmtime()."', '0', '".$movieName."', '".$cinemaName."', '".$seatParamUrl."',0,'".$movieId."','".$extInfo."','".$ratioMovie['card_ratio']."','".$ratioMovie['shop_ratio']."', '".$ratioMovie['raise']."', '".$ratioMovie['ext']."','".$diffPrice."')";
+		$str_sql = 'INSERT INTO '. $ecs->table('seats_order') ."(order_sn, user_id, user_name, order_status, mobile, city_id, activity_id, channel_id, count, agio, money, unit_price, seat_info, seat_no, hall_name, hall_id, language, screen_type, featuretime, pay_id,pay_name, add_time, payment_time, movie_name, cinema_name,param_url,source,movie_id,extInfo,card_ratio,shop_ratio,raise,ext,diff_price,cika_agio) VALUES('".$arr_orderInfo['orderId']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_orderInfo['orderStatus']."', '$mobile','".$int_cityId."', '".$arr_orderInfo['activityId']."', '".$arr_orderInfo['channelId']."', '".$seatCount."', '".$arr_orderInfo['agio']."', '".$money."', '".$unitPrice."', '".$seatsName."', '".$seatsNo."', '".$hallName."', '".$arr_orderInfo['plan']['hallNo']."', '".$arr_orderInfo['plan']['language']."', '".$arr_orderInfo['plan']['screenType']."', '".$featureTimeStr."', '2', '华影支付', '".gmtime()."', '0', '".$movieName."', '".$cinemaName."', '".$seatParamUrl."',0,'".$movieId."','".$extInfo."','".$ratioMovie['card_ratio']."','".$ratioMovie['shop_ratio']."', '".$ratioMovie['raise']."', '".$ratioMovie['ext']."','".$diffPrice."','".getBuyPrice($unitPrice)."')";
 		$query = $db->query($str_sql);
 		$int_orderid = $db->insert_id();
 		
@@ -126,21 +126,12 @@ else if ($_REQUEST['act'] == 'order'){
 		$payment_info = payment_info(3);
 		
 		if($diffPrice > 0)
-		{
-		    $surplus = array(
-                    'user_id'      => $_SESSION['user_id'],
-                    'order_sn'       => !empty($_POST['rec_id'])      ? intval($_POST['rec_id'])       : 0,
-                    'process_type' =>  0,
-                    'user_note'    => '',
-		            'payment'      => $payment_info['pay_name']
-            );
-		    //记录用户操作信息
-		    $surplus['rec_id'] = insert_user_account($surplus, $diffPrice);
+		{		   
 		    //记录支付log
-            $log_id = insert_pay_log($surplus['rec_id'], $diffPrice, $type=PAY_MOVIE_ALIPAY, 0);
+            $log_id = insert_pay_log($int_orderid, $diffPrice, $type=PAY_MOVIE_ALIPAY, 0);
 	    }
 	    
-		ecs_header('location:movie_order.php?act=payinfoMovie&id='.$int_orderid.'&log_id='.$log_id);//跳到支付页面
+		ecs_header('location:movie_times_order.php?act=payinfoMovie&id='.$int_orderid.'&log_id='.$log_id);//跳到支付页面
 		exit;
 	}else{
 		show_message($arr_result['error']);
@@ -220,7 +211,7 @@ else if ($_REQUEST['act'] == 'payinfoMovie'){
 	$smarty->assign('backHtml',getBackHtml('movie.php'));
 	$smarty->assign('detail', $movieDetail);
 	$smarty->assign('order', $arr_order);
-	$smarty->display('movie_cika/moviePayinfo_cika.dwt');
+	$smarty->display('movie_times/tmoviePayinfo.dwt');
 }
 
 /* 支付电影票 */
@@ -236,7 +227,7 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 	// 需要支付的电影票的价格
 	$float_price = number_format(round($arr_orderInfo['agio'],1), 2, '.', '');
 	// 需要支付的卡点的价格
-	$card_price = number_format(round($arr_orderInfo['money'],1), 2, '.', '');
+	$card_price = number_format(round($arr_orderInfo['cika_agio'],1), 2, '.', '');
 
 	if (empty($arr_orderInfo)){
 		$ajaxArray['error'] = 1;
@@ -279,7 +270,8 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 				'order_id'   => $arr_orderInfo['order_sn'],
 				'balance'	 => $float_price
 		);
-		$arr_result = getCDYApi($arr_param);
+		$arr_result['status'] = 0;
+		//$arr_result = getCDYApi($arr_param);
 		if($arr_result['status'] == 0){
 			// 支付成功，更新订单状态
 			$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET order_status = '3', payment_time = '".gmtime()."' WHERE id = '$int_orderId'");
@@ -303,41 +295,7 @@ else if ($_REQUEST['act'] == 'respond')
 {
     $flowTab = !empty($_REQUEST['flow']) ? $_REQUEST['flow'] : 'movie'; 
     $smarty->assign('flow', $flowTab);
-    $smarty->display('movie_cika/movieRespond_cika.dwt');
-}
-
-// 差额计算
-function getDiffPrice($unitPrice, $seatCount)
-{
-    $deffPrice = 0;
-    // 卡BIN数据
-    $data = getCardBin(substr($_SESSION['user_name'], 0, 6));
-    // 最大购买次数
-    $maxCount = getMaxBuyCount($unitPrice, $data);
-    
-    if ($unitPrice > $data['cordon_up'])
-        $deffPrice = $unitPrice - $data['cordon_up'];
-    
-    return $deffPrice * $seatCount;
-}
-
-// 次卡最大的购买次数
-function getMaxBuyCount($unitPrice, $data=array())
-{    
-    if (empty($data))
-        $currentData = getCardBin(substr($_SESSION['user_name'], 0, 6));
-    else 
-        $currentData = $data;
-    
-    $userMoney = $GLOBALS['db']->getOne("SELECT card_money FROM ".$GLOBALS['ecs']->table('users').' WHERE user_id = '.$_SESSION['user_id']);
-   
-    return floor($userMoney / $currentData['cordon_dwon']);
-}
-
-// 得到卡BIN信息
-function getCardBin($cardBin){
-    $data = findData('cardbin','cardBin='.$cardBin.' AND card_ext = 2');
-    return current($data);
+    $smarty->display('movie_times/tmovieRespond.dwt');
 }
 
 

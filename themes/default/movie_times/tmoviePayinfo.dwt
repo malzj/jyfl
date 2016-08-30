@@ -12,6 +12,46 @@
 		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
         <!-- 头部结束 --> 
         
+        <style>
+			html.movie_3 .pay_way {width:620px;}
+			.alipay-ok, .alipay-no{
+				color: #fff;
+				border: 1px solid #ff781e;
+				background: #ff781e;
+				padding: 3px 10px;
+				font-size: 12px;
+				border-radius: 10%;
+			    cursor: pointer;
+			}
+			.alipay-no{
+				background: #ccc;
+    			border: 1px solid #ccc;		
+				margin-left:15px;
+			}
+			
+			html.movie_3 .pay_way .box_1{
+				width:350px;
+			}
+			.alipay-success-no {
+				margin-right: 15px;
+				width: 100px;
+				color: white;
+				background: #ff781e;
+				border-radius: 5px;
+				display: inline-block;
+				text-align: center;
+				line-height: 30px;
+			}
+			.alipay-success-ok {
+				width: 100px;
+				color: white;
+				background: #2fd0b5;
+				border-radius: 5px;
+				display: inline-block;
+				text-align: center;
+				line-height: 30px;
+			}
+        </style>
         <div class="w_1200">
         
             
@@ -35,7 +75,7 @@
                                 <li><span>{$order.cinema_name}</span><span style="color:#ff781e;">&nbsp;&nbsp;&nbsp;&nbsp;{$order.hall_name}</span></li>
                                 <li><span>{$order.featuretime} </span><span>14:00</span></li>
                                 <li class="num_tick"><span>{$order.count}张票</span><span class="zuowei">({$order.seat_info})</span></li>
-                                <li>总价：<span class="order_yes_Allprice color_ff781e">{$order.money}</span>点</li>
+                                <li>使用次数：<span class="order_yes_Allprice color_ff781e">{$order.count}</span>次</li>
                             </ul>
                         </div>
                     </div>
@@ -43,8 +83,23 @@
                         <div class="order_time">
                             <span>请在限定时间内完成支付，否则系统将自动取消您的订单    剩余时间  </span>
                             <span id="times" style="font-size: 16px;font-weight: 600;">14分59秒</span>
-                            <span>您也可以 <a href="movie.php?step=cinemaSeats&delid={$order.id}&{$order.param_url}">重新选座</a> 或<a href="{$app_path}movie.php"> 返回首页</a></span>
+                            <span>您也可以 <a href="movie_times.php?step=cinemaSeats&delid={$order.id}&{$order.param_url}">重新选座</a> 或<a href="{$app_path}movie.php"> 返回首页</a></span>
                         </div>
+                        
+                        {if $alipay_show eq 1}
+                        <div class="box_1" style="text-align:center; font-size:18px;">
+                            <span class="user_card">完成此次订单需要补差价&nbsp;&nbsp;<font style="font-size:24px; color:darkturquoise;">{$order.diff_price}</font>&nbsp;&nbsp;元</span>
+                        </div>
+                        <div class="box_1" style="text-align:center; font-size:18px; color:#ff781e;">
+                            <span class="user_card">是否用支付宝完成支付?</span>
+                        </div>
+                        <div class="box_1" style="text-align:center; font-size:18px; color:#ff781e;">
+                            <span class="alipay-ok" onClick="window.open('{$alipay_url}')">确认</span>
+                            <span class="alipay-no" onClick="if(confirm('您确定要放弃支付吗？')){window.location.href='movie_times.php?step=cinemaSeats&delid={$order.id}&{$order.param_url}'}">取消</span>
+                        </div>
+                        
+                        {else}
+                        
                         <div class="box_1">
                             <span class="user_card">聚优卡号：<span style="font-weight: 600;">{$usernames.user_name}</span></span>
                         </div>
@@ -54,6 +109,9 @@
                         <div class="box_1 center">
                             <span class="jiesuan zhuti_a_hover">结算</span>
                         </div>
+                        {/if}
+                        
+                        
                         <div class="tips">
                             <ul>
                                 <li>温馨提示：1、支付成功后您将收到取票短信，建议您提前10分钟至影票终端机取票，以免排队耽误您的入场。</li>
@@ -98,36 +156,18 @@
 					}
 				}, 1000);
 			}
-			
-//			$('.order_right .yes').click(function(){
-//				var mobile = $('#mobile').val();
-//				var oldMobile = '{$order.mobile}';
-//				if (mobile != oldMobile){
-//					alert('您输入的手机号码和选座时的手机号码不一致');
-//					checkMobileIs = false;
-//					return false;
-//				}else{
-//					alert('输入正确，现在可以支付了');
-//					checkMobileIs = true;
-//					return true;
-//				}
-//			});
-						
+					
 			function delOrder(){
 				var orderid = '{$order.id}';				
-				$.get('movie_order.php', {act:'delorder', 'order_id':orderid}, function (result){				
+				$.get('movie_times_order.php', {act:'delorder', 'order_id':orderid}, function (result){				
 					alert('抱歉，您未在规定时间内完成支付，该订单已删除！');
-					window.location.href="movie.php"
+					window.location.href="movie_times.php"
 				});
 			}
 			
 			/* 支付操作 */
 			$('.jiesuan').click(function(){
-//				if(checkMobileIs === false){
-//					alert('请确认手机号填写是否正确！');
-//					return false;
-//				}
-				
+			
 				var password = $('#password').val();
 				var orderid = $('#orderid').val();
 	
@@ -149,7 +189,7 @@
 				
 				$.ajax({
 					type:'POST',
-					url:'movie_order.php?act=doneMovie',
+					url:'movie_times_order.php?act=doneMovie',
 					data:{order_id:orderid, password:password},
 					beforeSend:function(){
 						$('.jiesuan').addClass('clickEve').html('支付中...');
@@ -162,16 +202,35 @@
 							checkSubmitFlg = false;
 							$('.jiesuan').html('结算');
 						}else{
-							window.location.href="movie_order.php?act=respond";
+							window.location.href="movie_times_order.php?act=respond";
 						}
 					}
 				});
 				
 			});
-			
-			
 		});
 		
+		
+		$(document).on('click','.alipay-ok',function(){
+			layer.closeAll();
+			layer.open({
+				type: 1,
+				title: false,
+				area: '470px',
+				shadeClose: false, //点击遮罩关闭
+				closeBtn:0,
+				content:'<div class="pay_tishi"><div class="pay_tishi_title">支付提示：</div><div class="pay_tishi_content"><div class="pay_tishiAll"><div class="pay_tishi_1"><span class="pay_title_img"><img src="/images/juyoufuli/img_login/pay_tishi.png" width="20"></span>支付完成前，请不要关闭此支付验证窗口</div><div class="pay_tishi_2">支付完成后，请根据您支付的情况点击下面按钮。</div></div><div class="pay_tishi_btnAll"><div class="pay_tishi_btn"><a href="javascript:;" class="alipay-success-no">支付遇到问题</a><a href="javascript:;" class="alipay-success-ok">支付完成</a></div></div></div></div>'
+			})
+		})
+	
+		$('.alipay-success-no').click(function(){
+			var orderid = $('#orderid').val();
+			window.location.href="user.php?act=film_order";
+		});
+		$('.alipay-success-ok').click(function(){
+			var orderid = $('#orderid').val();
+			window.location.href="user.php?act=film_order";
+		});
 		</script>
     
         

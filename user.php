@@ -97,7 +97,6 @@ if (in_array($action, $ui_arr))
 //用户中心欢迎页
 if ($action == 'default')
 {
-    include_once(ROOT_PATH .'includes/lib_movie_times.php');
     if(is_times_card()){
         //如果是次卡更新左侧导航链接
         $nav = get_navigator();

@@ -313,6 +313,7 @@ $_LANG['fckfile_manage'] = 'Fck上传文件管理';
 $_LANG['ucenter_setup'] = 'UCenter设置';
 $_LANG['file_check'] = '文件校验';
 $_LANG['021_reg_fields'] = '会员注册项设置';
+$_LANG['card_bin'] = '卡BIN管理';
 
 /* 模板管理 */
 $_LANG['02_template_select'] = '模板选择';

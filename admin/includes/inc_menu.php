@@ -147,6 +147,7 @@ $modules['11_system']['file_check']                 = 'filecheck.php';
 $modules['11_system']['021_reg_fields']             = 'reg_fields.php?act=list';
 
 $modules['11_system']['zcard_rule']                  = 'card_rule.php?act=list';
+$modules['11_system']['card_bin']                    = 'cardBIN.php?act=list';
 
 
 $modules['12_template']['02_template_select']       = 'template.php?act=list';

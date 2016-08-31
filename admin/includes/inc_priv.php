@@ -102,7 +102,8 @@ if (!defined('IN_ECS'))
     $purview['flashplay']            = 'flash_manage';
     $purview['ucenter_setup']        = 'integrate_users';
     $purview['021_reg_fields']       = 'reg_fields';
-    $purview['zcard_rule'] = 'zcard_rule';//TODO djs
+    $purview['zcard_rule']           = 'zcard_rule';//TODO djs
+    $purview['card_bin']             = 'card_bin';
 //广告管理
     $purview['z_clicks_stats']       = 'ad_manage';
     $purview['ad_position']          = 'ad_manage';

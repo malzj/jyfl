@@ -112,20 +112,17 @@
 					</div>
 					<ul class="yingyuan_del">
 						<li>影院：<span style="color: black;">{$planInfo.cinema.cinemaName}</span></li>
-						<li>影厅：<span style="color: black;">{$planInfo.hallName}</span></li>
-						<li>售价：<span style="color:#ff781e;font-size: 16px;">{$planInfo.price}</span><span style="color: black;">点</span></li>
+						<li>影厅：<span style="color: black;">{$planInfo.hallName}</span></li>						
 						<li>场次：<span style="color:#ff781e;font-size: 16px;">{$planInfo.featureTimeStr}</span></li>
 						<li class="zuowei_on2">所选座位：<div class="zuowei_on"></div></li>
 					</ul>
 					<div style="overflow: hidden;">
-					<div class="heji" style="line-height: 30px;">
-						合计：<span>{$planInfo.price}</span>点 * <span class="seatsCount">0</span>
-					</div>
-					<div class="zongjia" style="line-height: 30px;">总价：<span class="init-price" style="color:#ff781e;"> 0 </span>点</div>
+					<div class="heji" style="line-height: 30px;"></div>
+					<div class="zongjia" style="line-height: 30px;"></div>
 					</div>
 					<div class="tel_shuru">
 						<div style="color: black;">请输入取票手机号码</div>
-                        <form action="movie_order.php" method="post" name="orderForm" onsubmit="return checkOrderForm(this);">
+                        <form action="movie_times_order.php" method="post" name="orderForm" onsubmit="return checkOrderForm(this);">
 						<input type="text" class="form-control judgeBound" name="mobile" id="mobile" value="{$usernames.mobile_phone}" placeholder="请输入手机号，接收取票密码">
                         <input type="hidden" name="act" value="order" />
                         <input type="hidden" name="planId" value="{$planInfo.planId}" />					<!-- 场次ID -->			
@@ -165,7 +162,7 @@
 			var seatParam = $('#seatParam').val();
 			$.ajax({
 				type: "POST",
-				url: "movie.php?step=seatAjax",
+				url: "movie_times.php?step=seatAjax",
 				data: jQuery.param( jQuery.parseJSON(seatParam) ),		
 				success: function(info){
 					$('.seatmap').html(info);

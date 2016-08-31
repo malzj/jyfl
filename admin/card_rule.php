@@ -109,7 +109,7 @@ else if ($_REQUEST['act'] == 'edit' || $_REQUEST['act'] == 'add'){
 /*------------------------------------------------------ */
 else if ($_REQUEST['act'] == 'update'){
 	$int_cardid   = intval($_POST['id']);
-	$str_homedesc = $_POST['home_desc'];
+	$str_homedesc = '';
 	$time         = !empty($_POST['time']) ? $_POST['time'] : 3;
 	$int_id = (int) $db->getOne('SELECT id FROM '.$ecs->table('card_rule')." WHERE id = '$int_cardid'");
 	$str_title = $_POST['title'];
@@ -148,9 +148,9 @@ $str_Card = serialize($Card);
 	$zhekou = !empty($_REQUEST['zhekou']) ? trim($_REQUEST['zhekou']) : '0';
 	$shop = !empty($_REQUEST['shop']) ? trim($_REQUEST['shop']) : '0';
 	$pay_than = !empty($_REQUEST['pay_than']) ? trim($_REQUEST['pay_than']) : '0';
-	$type = !empty($_REQUEST['type']) ? trim($_REQUEST['type']) : '1';
+	$type = !empty($_REQUEST['type']) ? trim($_REQUEST['type']) : '0';
 	
-	$ext = !empty($_REQUEST['ext']) ? trim($_REQUEST['ext']) : '1';
+	$ext = !empty($_REQUEST['ext']) ? trim($_REQUEST['ext']) : '0';
 	$price = !empty($_REQUEST['price']) ? trim($_REQUEST['price']) : '0.0';  // 实际卡售价
 	$raise = !empty($_REQUEST['raise']) ? trim($_REQUEST['raise']) : '0.0';  // 上浮比例
 	$merge_limit = !empty($_REQUEST['merge_limit']) ? trim($_REQUEST['merge_limit']) : '1';

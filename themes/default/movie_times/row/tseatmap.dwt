@@ -198,9 +198,7 @@ function changeSeatImg(obj){
 	if ($(obj).hasClass('select')){
 		var _span_html = '<span class="select-seat" id="span_'+$(obj).attr("seatno")+'" locno="'+$(obj).attr('locno')+'">'+$(obj).attr("title")+'</span>';
 		$(".zuowei_on").append(_span_html);
-	}
-	//$('#price').html('<span class="hy2_yingyuan">合计：</span><span class="f14" id="total_praice">'+$("#vipPrice").val() + '点 * ' + $("#seatSelectedList span").length + '</span>');
-	$('.init-price').html(parseFloat($(".zuowei_on span").length * $("#vipPrice").val()).toFixed(2));
+	}	
 	var selectedVal = "";
 	var selectedName = '';
 	
@@ -216,8 +214,6 @@ function changeSeatImg(obj){
 	$('#seatsNo').val(selectedVal);	
 	$('#seatsName').val(selectedName);
 	$('#seatsCount').val($(".zuowei_on span").length);
-	$('.seatsCount').html($(".zuowei_on span").length);
-	
 }
 -->
 </script>

@@ -77,6 +77,7 @@ define('OS_RETURNED_PART',          7); // 部分退货
 /* 支付类型 */
 define('PAY_ORDER',                 0); // 订单支付
 define('PAY_SURPLUS',               1); // 会员预付款
+define('PAY_MOVIE_ALIPAY',          2); // 在线选座支付宝是否支付
 
 /* 配送状态 */
 define('SS_UNSHIPPED',              0); // 未发货

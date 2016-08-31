@@ -12,6 +12,8 @@ if (!isset($_REQUEST['act']))
 	$_REQUEST['act'] = "index";
 }
 
+assign_template();
+
 // 返回的数据
 $jsonArray = array(
     'state'=>'true',

@@ -2448,7 +2448,7 @@ section.marketing {
 	left: 0px;
 	width: 80px !important;
 	height: 210px !important;
-	background: #9E9595;
+	/*background: #9E9595;*/
 	-moz-opacity: 0.15;
 	opacity: 0.15;
 	filter: alpha(opacity=15);

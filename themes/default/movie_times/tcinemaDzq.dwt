@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="dianziquan">
+	<head>
+		<meta charset="UTF-8">
+		<title>聚优福利</title>
+		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+		<script src="{$app_path}js/juyoufuli/stickUp.js"></script>
+	</head>
+
+	<body>
+		
+        <!-- 公用头部 -->
+		<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+        <!-- 头部结束 --> 
+        
+        <!-- 头部结束 --> 
+        <div class="newsimg">
+			<div class="fullSlide">
+				<div class="bd">
+					<ul>
+                    {foreach from=$banner item=moviebanner}
+						<li _src="url(/data/afficheimg/{$moviebanner.ad_code})" style="background:#{$moviebanner.bgcolor} center 0 no-repeat;">
+							<a target="_blank" href="{$moviebanner.ad_link}"></a>
+						</li>
+					{/foreach}	
+					</ul>
+				</div>
+				<div class="hd">
+					<ul></ul>
+				</div>
+				<span class="prev"></span>
+				<span class="next"></span>
+			</div>
+		</div>
+		<!--搜索栏-->
+		<div id="ticketSearchFixDiv" class="onlineticket" style="width: 100%;">
+			<div class="midbox">
+				<div class="nav_main">
+					<ul class="header_left">
+                    	{foreach from=$category item=cate}
+						<li><a href="{$cate.url}">{$cate.name}</a></li>
+                        {/foreach}
+					</ul>
+				</div>
+				<div id="ticketSearchDiv" class="movieselectbox clearfix">
+					<div class="moviemid m_movie __r_c_"><span>选影片</span>
+						<a href="javaScript:;" class="ico_select"></a>
+					</div>
+					<div class="moviemid m_film __r_c_"><span>选影院</span>
+						<a href="javaScript:;" class="ico_select"></a>
+					</div>
+					<div class="moviemid m_time nottime __r_c_"><span>选时间</span>
+						<a href="javaScript:;" class="ico_select"></a>
+					</div>
+					
+					<div class="moviestip __r_c_" style="display: none;" id="ajaxMovieList"> <center> LOADING ... </center> </div>
+                    <div class="cinematip __r_c_" style="display: none;" id="ajaxCinemaList">
+                    	<center>请选择影片</br>
+                    		<img src="/images/juyoufuli/img_login/wuya.png">
+                    	</center></div>
+					<div class="i_date __r_c_" style="display: none;" id="ajaxPlanList"> <center> 请选择影院<br/>
+						<img src="/images/juyoufuli/img_login/wuya.png">
+					</center> </div>
+				</div>
+			</div>
+		</div>
+        
+        <div class="w_1200">        
+        	
+        
+			<div class="select_area">
+				<div class="title">选择城区：</div>
+				<ul>
+					<li><a href="movie.php?step=cinemaDzq&area=hot" {if $type eq 'hot'}class="active"{/if}>热门影院</a></li>
+					<li><a href="movie.php?step=cinemaDzq&area=all" {if $type eq 'all'}class="active"{/if}>全部影院</a></li>
+					{foreach from=$arealist item=area}
+					<li><a href="movie_times.php?step=cinemaDzq&area={$area.areaNo}"{if $type eq $area.areaNo} class="active"{/if}>{$area.areaName}（{$area.count}）</a></li>
+                    {/foreach}
+				</ul>
+			</div>
+			<div class="reying_bg"></div>
+			<div class="select_buy">
+            
+            {foreach from=$dzq item=item}
+				<div class="box">
+					<div class="img_left">
+						<img src="{$item.CinemaLogo}" width="170">
+					</div>
+					<div class="yingyuan_details">
+						<ul>
+							<li>
+								<h3>{$item.CinemaName}</h3>
+								<span class="pingfen">{$item.intComment}.{$item.floComment}</span>
+								<div class="myxin">
+									<div class="myxin2" style="width: {$item.AverageDegreeFormat}%">
+									</div>
+								</div>
+							</li>
+							<li>地址：<span>{$item.Address} </span></li>
+							<li>电话：<span>{if $item.PhoneNo}{$item.PhoneNo}{else}暂无{/if}</span></li>
+							<li>交通：<span>{$item.Traffic}</span></li>
+							<li>
+								<div class="renshu">关注人数：<span>{$item.FouseAmount}</span></div>
+								<div class="xuanzuo_buy">
+									<span><a href="movie_times.php?step=showDzq&id={$item.CinemaNo}">查看详情</a></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+          	{/foreach}
+               
+				
+			</div>
+			<div class="clear"></div>
+            <div class="flickr" style="text-align:center; margin:10px 0;">
+                <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+            </div>
+            <div class="clear"></div>
+		</div>
+        <!-- 公用底部 -->
+		<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+        <!-- 底部结束 -->
+        <!-- 公共左边 -->
+		<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共左边结束 -->        
+        <!-- 公共右边 -->
+		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        <!-- 公共右边结束 -->
+        
+        <script>
+            //动态修改链接地址
+            window.onload = function(){
+                var tag_a = document.getElementsByTagName('a');
+                var len = tag_a.length;
+                for(var i=0;i<len;i++){
+                    if(tag_a[i].href.indexOf('movie.php')>0){
+                        tag_a[i].href = tag_a[i].href.replace('movie.php','movie_times.php');
+                    }
+                }
+            }
+			$('.select_area ul li a').click(function(){
+				$(this).addClass('active').parent('li').siblings().children('a').removeClass('active');
+			})
+			
+			$('.header_left li:nth-child(4) a').css('color','#27c7ac');	
+		</script>
+
+        <script src="{$app_path}js/juyoufuli/movieTimesSearch.js"></script>
+        
+     </body>
+     
+</html>

@@ -131,6 +131,7 @@ if($_REQUEST['step'] == 'confirm_order'){
         'goods_number'=>  $goods_info['goods_number'],
         'add_time'        => gmtime(),
         'order_status'    => 1,
+        'supplier_id'    => $supplier_id,
     );
 
     /*商品总价*/
@@ -146,6 +147,21 @@ if($_REQUEST['step'] == 'confirm_order'){
         $order['pay_name'] = addslashes($payment['pay_name']);
     }
 
+//    获取商城售比、卡规则比例、浮比、单价比
+    $customSpec = null;
+    $specAttr = strpos($goods_info['goods_attr_id'], ',') !== false ? explode(',', $goods_info['goods_attr_id']) : array($goods_info['goods_attr_id']);
+    foreach ($specAttr as $spec) {
+        if (strpos($spec, 'S_') !== false)
+        {
+            $customSpec = substr($spec, 2);
+        }
+    }
+    $ratios = get_spec_ratio_price( array('spec_nember'=>$customSpec, 'goods_id'=>$goods_info['goods_id']) , true);
+    $order['shop_ratio'] = $ratios['shop_ratio'];
+    $order['card_ratio'] = $ratios['card_ratio'];
+    $order['unit_ratio'] = $ratios['unit_ratio'];
+    $order['raise'] = $ratios['raise'];
+    $order['ext'] = $ratios['ext'];
     /* 插入订单表 */
     $error_no = 0;
     do
@@ -290,7 +306,7 @@ elseif($_REQUEST['step'] == 'act_pay')
         $Smsvrerify = new smsvrerifyApi();
         $error = 0;
         foreach($code_info as $code){
-            $code['content'] = empty($code['content'])?'您好{$nickname}先生（女士）,感谢你购买{$supplier_name}商品码，账号：{$account},密码：{$password}':$code['content'];
+            $code['content'] = empty($code['content'])?'尊敬的聚优客户您好，您在我司官网订购的{$supplier_name}电子码券号：{$account}密码：{$password}请持电子码到合作的门店使用，谢谢！':$code['content'];
             $msgInfo = array_merge($msgInfo,$code);
             $smarty->assign($msgInfo);
             $message = $smarty->fetch("str:" . $code['content']);
@@ -316,11 +332,11 @@ elseif($_REQUEST['step'] == 'respond'){
 }
 
 //取消订单
-elseif($_REQUEST['delorder'])
+elseif($_REQUEST['step'] == 'delorder')
 {
     $orderid = $_REQUEST['order_id'];
     //获取已超时的订单
-    $order = $db->getRow("SELECT * FROM ".$ecs->table('code_order')." WHERE order_id = '".$orderid."' AND add_time+".(15*60-5)."<unix_timestamp(now())");
+    $order = $db->getRow("SELECT * FROM ".$ecs->table('code_order')." WHERE id = '".$orderid."' AND add_time+".(15*60-10)."<unix_timestamp(now())");
     //取消未付款已超时的订单，解锁已锁定商品码
     if(!empty($order)) {
         $db->query("UPDATE " . $ecs->table('code_order') . "SET order_status = 2 WHERE id = " . $order['id']);

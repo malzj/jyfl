@@ -233,6 +233,68 @@ function order_paid($log_id, $pay_status = PS_PAYED, $note = '', $pay_no = '', $
                     log_account_change($arr['user_id'], $arr['amount'], 0, 0, 0, $_LANG['surplus_type_0'], ACT_SAVING, 1, $arr);
                 }
             }
+            // 在线选座，支付宝补差价后支付订单
+            elseif ($pay_log['order_type'] == PAY_MOVIE_ALIPAY)
+            {
+                require_once (ROOT_PATH . 'includes/lib_huayingcard.php');
+                $cardPay = new huayingcard();
+                
+                $users = $GLOBALS['db']->getRow('SELECT * FROM '.$GLOBALS['ecs']->table('users')." WHERE user_id = '$_SESSION[user_id]'");
+                $arr_orderInfo = $GLOBALS['db']->getRow('SELECT * FROM '.$GLOBALS['ecs']->table('seats_order')." WHERE id = '$pay_log[order_id]'");	
+            	// 需要支付的电影票的价格
+            	$float_price = number_format(round($arr_orderInfo['agio'],1), 2, '.', '');
+            	// 需要支付的卡点的价格
+            	$card_price = number_format(round($arr_orderInfo['cika_agio'],1), 2, '.', '');
+            
+            	if (empty($arr_orderInfo))
+            		return false;
+            
+            	// 检查订单是否在支付中，如果在支付中返回错误消息
+            	if ($arr_orderInfo['card_pay'] > 0)
+            	   return false;
+            	
+            	$cardOrderId = local_date('ymdHis').mt_rand(1,1000);
+            	/** TODO 支付 （双卡版） */
+            	$arr_param = array(
+            	    'CardInfo' => array( 'CardNo'=> $users['user_name'], 'CardPwd' => $users['card_password']),
+            	    'TransationInfo' => array( 'TransRequestPoints'=>$card_price, 'TransSupplier'=>setCharset('在线选座'))
+            	);
+            	$state = $cardPay->action($arr_param, 1, $cardOrderId);
+            	if ($state == 0){
+            	    $cardResult = $cardPay->getResult();            	    
+            	    $_SESSION['BalanceCash'] -= $card_price; //重新计算用户卡余额
+            	    //更新卡金额
+            	    $GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('users')." SET card_money = card_money - ('$card_price') WHERE user_id = '".intval($_SESSION['user_id'])."'");
+            	    //更新卡支付状态
+            	    $GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET card_pay = '1', api_order_id = '".$cardResult."', card_order_id= '".$cardOrderId."' WHERE id = $pay_log[order_id]");
+            	    // 电影票支付
+            	    $arr_param = array(
+            	        'action'     => 'order_Confirm',
+            	        'order_id'   => $arr_orderInfo['order_sn'],
+            	        'balance'	 => $float_price
+            	    );
+            	    //$arr_result = getCDYApi($arr_param);
+            	    $arr_result['status'] = 0;
+            	    if($arr_result['status'] == 0){
+            	        // 支付成功，更新订单状态
+            	        $GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET order_status = '3', payment_time = '".gmtime()."', trade_no='".$pay_no."' WHERE id = '$pay_log[order_id]'");
+            	    }else{       
+            	        // 电影票支付失败，接口退款
+            	        $params = array(
+                    			'CardInfo' => array( 'CardNo'=> $users['user_name'], 'TransId'=> $cardResult),
+                    			'TransationInfo' => array( 'TransRequestPoints'=>$card_price)
+                    	);
+            	        $state = $cardPay->action($params, 9);
+            	        if ($state == 0)
+            	        {
+            	            $GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET order_status = '6', message = '".$arr_result['error']."', trade_no='".$pay_no."' WHERE id = '$pay_log[order_id]'");
+            	        }
+            	        else {
+            	            $GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET message = '".$arr_result['error']."', trade_no='".$pay_no."' WHERE id = '$pay_log[order_id]'");
+            	        }
+            	    }
+            	}
+            }
         }
         else
         {

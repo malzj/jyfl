@@ -34,7 +34,7 @@
   <tr>
     <td valign="top" nowrap="nowrap"><input type="checkbox" name="checkboxes" value="{$order.order_sn}" />{$order.order_sn}</td>
     <td valign="top">{$order.short_order_time}</td>
-    <td align="left" valign="top"><a href="mailto:{$order.email}"> {$order.user_name|escape}</a>{if $order.mobile} [Mobile: {$order.mobile|escape}]{/if}<br/> {$order.goods_attr}</td>
+    <td align="left" valign="top"><a href="mailto:{$order.email}"> {$order.user_name|escape}</a>{if $order.mobile} [Mobile: {$order.mobile|escape}]{/if}<br/> 商品名称：{$order.goods_name}</td>
 	<td align="right" valign="top" nowrap="nowrap">{$order.formated_price}</td>
     <td align="center" valign="top" nowrap="nowrap">{$order.sjprice}</td>
 	<td align="center" valign="top" nowrap="nowrap">{$order.goods_number}</td>

@@ -1671,7 +1671,7 @@ function assign_template($ctype = '', $catlist = array())
     $smarty->assign('usernames',        $usernames);
     $smarty->assign('category_list', cat_list(0, 0, true,  2, false));
     $smarty->assign('catalog_list',  cat_list(0, 0, false, 1, false));
-	//var_dump(get_navigator($ctype, $catlist));exit;
+//	var_dump(get_navigator($ctype, $catlist));exit;
 	$arr_nav =  get_navigator($ctype, $catlist);
 	$_SESSION['card_id'] = $arr_nav['home']['card_id']; // TODO 当前用户的卡规则id
 	// todo guoyunpeng 登录的时候设置卡规则id

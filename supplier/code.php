@@ -127,7 +127,7 @@ function get_code_list()
     $filter['sort_by']     = empty($_REQUEST['sort_by'])     ? 'id' : trim($_REQUEST['sort_by']);
     $filter['sort_order']  = empty($_REQUEST['sort_order'])  ? 'DESC' : trim($_REQUEST['sort_order']);
 
-    $where  = (!empty($filter['supplier_id'])) ? " AND supplier_id = '" . $filter['supplier_id'] . "' " : '';
+    $where  = " AND supplier_id = '" . $_SESSION['supplier_id'] . "' ";
     $where .= (!empty($filter['order_sn'])) ? " AND order_sn LIKE '%" . mysql_like_quote($filter['order_sn']) . "%' " : '';
 
     if (!empty($filter['keyword']))
@@ -150,7 +150,7 @@ function get_code_list()
     $start  = ($filter['page'] - 1) * $filter['page_size'];
 
     /* 查询 */
-    $sql = "SELECT id AS card_id,account AS card_sn, supplier_id,password AS card_password,status AS is_saled, order_sn".
+    $sql = "SELECT id AS card_id,account AS card_sn, supplier_id,password AS card_password,status AS is_saled, order_sn,validity AS end_date".
         " FROM ".$GLOBALS['ecs']->table('code').
         " WHERE 1 ".$where.
         " ORDER BY ".$filter['sort_by']." ".$filter['sort_order']." ".

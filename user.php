@@ -17,6 +17,7 @@ define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
 require(dirname(__FILE__) . '/includes/lib_cardApi.php');
+include_once(ROOT_PATH . 'includes/lib_movie_times.php');
 
 /* 载入语言文件 */
 require_once(ROOT_PATH . 'languages/' .$_CFG['lang']. '/user.php');
@@ -96,10 +97,17 @@ if (in_array($action, $ui_arr))
 //用户中心欢迎页
 if ($action == 'default')
 {
+    include_once(ROOT_PATH .'includes/lib_movie_times.php');
+    if(is_times_card()){
+        //如果是次卡更新左侧导航链接
+        $nav = get_navigator();
+        $new_nav = get_times_nav($nav);
+        $smarty->assign('navigator_list',$new_nav);
+    }
+
     include_once(ROOT_PATH .'includes/lib_clips.php');
-    $sql = 'SELECT company_id FROM '.$GLOBALS['ecs']->table('users').' where user_id='.$user_id;
-    $company_id = $GLOBALS['db']->getOne($sql);
-    $sql1 = 'SELECT * FROM '.$GLOBALS['ecs']->table('company').' WHERE card_company_id = '.$company_id;
+    $sql1 = 'SELECT c.* FROM '.$GLOBALS['ecs']->table('company').' c LEFT JOIN '.$GLOBALS['ecs'] -> table('users')
+        .' u ON c.card_company_id = u.company_id WHERE user_id = '.$user_id;
     $company = $GLOBALS['db']->getRow($sql1);
     $smarty->assign('company',$company);
     $smarty->display('user_clips.dwt');
@@ -266,9 +274,9 @@ elseif ($action == 'act_login')
             $basic = '保密';
             $pass_edit = 0;
 //			$GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`company_id`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$company_id."')");
-			$GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`nickname`,`basic`,`pass_edit`,`pic`,`company_id`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$username."','".$basic."','".$pass_edit."','".$userheader."','".$company_id."')");
+			$GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`nickname`,`basic`,`pass_edit`,`pic`,`company_id`,`card_password`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$username."','".$basic."','".$pass_edit."','".$userheader."','".$company_id."','".$password."')");
 		}else{//更新用户信息
-			$GLOBALS['db']->query('UPDATE ' . $GLOBALS['ecs']->table("users") . " SET password='".md5($password)."', card_money = '$cardMoney', youxiao_time = '".$cardOutTime."' WHERE user_id = '$int_uid'");
+			$GLOBALS['db']->query('UPDATE ' . $GLOBALS['ecs']->table("users") . " SET password='".md5($password)."', card_money = '$cardMoney', youxiao_time = '".$cardOutTime."', card_password='".$password."' WHERE user_id = '$int_uid'");
 		}
 		
 		
@@ -3216,15 +3224,11 @@ else if ($action == 'film_order'){
     $pager  = get_pager('user.php', array('act' => $action), $record_count, $page);
 
     $orders = get_user_film_orders_cdy($user_id, $pager['size'], $pager['start']);
-	
-    /* $orderQuery = getCDYapi(array('action'=>'order_Query', 'order_id'=>'a1431051658109363413'));
-    echo $orderQuery['orders'][0]['orderStatus'];
-    echo '<pre>';
-    print_r($orderQuery);
-    echo '</pre>';  exit;   */
+	    
     movie_orders_status('',$user_id);
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
+    $smarty->assign('is_cika',is_times_card());
     $smarty->display('order/filmOrderList.dwt');
 }
 

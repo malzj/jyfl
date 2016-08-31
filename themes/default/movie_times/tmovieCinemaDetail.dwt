@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="movie_1">
+<head>
+    <meta charset="UTF-8">
+    <title>聚优福利</title>
+    <link rel="stylesheet" href="{$app_path}css/juyoufuli/reset.css">
+    <link rel="stylesheet" href="{$app_path}css/juyoufuli/public.css">
+    <script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
+    <script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
+    <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
+    {insert_scripts files='utils.js'}
+</head>
+<body>
+	<!-- 公用头部 -->
+	<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+    <!-- 头部结束 --> 
+    
+    <style>
+    .cinema_del .cinema_del_title span{ width:158px;}
+	.movie_xiangqing .cinema_del .span_1{ width:160px;}
+    </style>
+	
+    <!-- 电影内容 -->
+    <!--影片详情背景-->
+    <div class="movieTop_bg" style="width: 100%;height: 350px;background: url({$movieDetail.thumbH}) no-repeat center top #333;margin-top: 49px;">
+     <div class="reying_show">
+                <div class="reying_img">
+                    <img src="{$movieDetail.thumb}" width="145">
+                </div>
+                <div class="reying_show1">
+                    <ul>
+                        <li class="title">{$movieDetail.movieName}</li>
+                        <li>片长：<span>{$movieDetail.movieLength}分钟</span></li>
+                        <li>上映时间：<span>{$movieDetail.publishTime}</span></li>
+                        <!--<li class="border_bottom"></li>-->
+                        <li>类型：<span>{$movieDetail.movieType}</span></li>
+                        <li>导演：<span>{$movieDetail.director}</span></li>
+                        <li>主演：<span>{$movieDetail.actor}</span></li>
+                        <li>剧情：<span class="juqing_left juqingA">{$movieDetail.intro}</span></li>
+                        <!--<li class="reying_icon"></li>-->
+                    </ul>
+                </div>
+                <div class="reying_show2">
+                    <div class="mark"><i>{$movieDetail.left_score}<span class="point">.{$movieDetail.right_score}</span></i></div>
+                </div>
+                
+        </div>	
+       </div>
+       <!--搜索栏-->
+		<div id="ticketSearchFixDiv" class="onlineticket" style="width: 100%;">
+			<div class="midbox">
+				<div class="nav_main">
+					<ul class="header_left">
+                    	{foreach from=$category item=cate}
+						<li><a href="{$cate.url}">{$cate.name}</a></li>
+                        {/foreach}
+					</ul>
+				</div>
+				<div id="ticketSearchDiv" class="movieselectbox clearfix">
+					<div class="moviemid m_movie __r_c_"><span>选影片</span>
+						<a href="javaScript:;" class="ico_select"></a>
+					</div>
+					<div class="moviemid m_film __r_c_"><span>选影院</span>
+						<a href="javaScript:;" class="ico_select"></a>
+					</div>
+					<div class="moviemid m_time nottime __r_c_"><span>选时间</span>
+						<a href="javaScript:;" class="ico_select"></a>
+					</div>
+					
+					<div class="moviestip __r_c_" style="display: none;" id="ajaxMovieList"> <center> LOADING ... </center> </div>
+                    <div class="cinematip __r_c_" style="display: none;" id="ajaxCinemaList">
+                    	<center>请选择影片</br>
+                    		<img src="/images/juyoufuli/img_login/wuya.png">
+                    	</center></div>
+					<div class="i_date __r_c_" style="display: none;" id="ajaxPlanList"> <center> 请选择影院<br/>
+						<img src="/images/juyoufuli/img_login/wuya.png">
+					</center> </div>
+				</div>
+			</div>
+		</div>
+    <div class="w_1200">
+    	
+        <div class="xuanzuo">
+            <div class="reying_title">
+                <div class="reying_bg"></div>
+            </div>
+            <div class="movie_list">
+                <div class="hd">
+                    <span class="prev"></span>
+                    <span class="next"></span>
+                </div>
+                <div class="bd">
+                    <ul class="picList">
+                        <center style="line-height:220px;"></center>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="movie_xiangqing">
+            <div class="date_select" style="height:47px; line-height:47px;"></div>
+            <div class="cinema_all">
+                <!--选择城区-->
+                <div class="town">
+                    <h3>选择城区</h3>
+                    <ul>
+                        {foreach from=$districts item=dis name=dis}
+                        <li data-id="{$dis.id}" class="{if $smarty.foreach.dis.index eq 0}active{/if}">{$dis.name}</li>
+                        {/foreach}                   
+                    </ul>
+                </div>
+                <!--选择影院-->
+                <div class="select_cinema">
+                    <h3>选择影院</h3>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+                <!--影院详情-->
+                <div class="cinema_del">
+                	<div class="cinema_del_title">
+                    	<span>放映时间</span>
+                        <span>语言版本</span>
+                        <span>放映厅</span>
+                        <span>选座购票</span>
+                    </div>
+                    <ul id="planList">
+                        <center></center>
+                    </ul>
+                </div>
+            </div>
+            <!--影城介绍-->
+            <div class="reying_title">
+                <div class="reying_bg"></div>
+            </div>
+            <div class="jieshao_img">
+                <img src="{$app_path}images/dongwang/null.jpg" width="200" height="150" class="cinemaThumb">
+            </div>
+            <div class="jieshao_details" style="margin-top:35px;">
+                <ul>
+                    <li>
+                        <h3 class="cinemaName"> --- </h3>                        
+                    </li>
+                    <li>地址：<span class="cinemaAddress"> ---- </span></li>
+                    <li style="display:none;">电话：<span class="cinemaTel"> ---- </span></li>
+                    <li style="display:none;">营业时间：<span class="opentime"> ---- </span></li>                   
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 内容结束-->
+    
+    <!-- 公用底部 -->
+	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    <!-- 底部结束 -->
+    <!-- 公共左边 -->
+	<!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+    <!-- 公共左边结束 -->        
+    <!-- 公共右边 -->
+    <!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+    <!-- 公共右边结束 -->
+        
+    <script>
+        //动态修改链接地址
+        window.onload = function(){
+            var tag_a = document.getElementsByTagName('a');
+            var len = tag_a.length;
+            for(var i=0;i<len;i++){
+                if(tag_a[i].href.indexOf('movie.php')>0){
+                    tag_a[i].href = tag_a[i].href.replace('movie.php','movie_times.php');
+                }
+            }
+        }
+		function initMovieList(){
+			jQuery(".movie_list").slide({
+				titCell: ".hd ul",
+				mainCell: ".bd ul",
+				autoPage: true,
+				effect: "left",
+				autoPlay: false,
+				vis: 5,
+				pnLoop: false				
+			});
+		}
+		
+		var movieid = "{$movieid}";
+		var thisCinemaid = "{$cinemaid}";
+		var thisCityid = "{$cityid}";
+		
+		// 加载影院
+		var currentDistricts = $('.town').find('.active').attr('data-id');
+		if(!Utils.isEmpty(currentDistricts) && thisCityid == '0'){
+			loadCinema( movieid, currentDistricts, 0);
+		}
+		// 影片跳转过来的
+		if(!Utils.isEmpty(thisCityid)){
+			$('.town ul li').each(function(index,dom){		
+				if(parseInt($(dom).attr('data-id')) == parseInt(thisCityid)){									
+					loadCinema( movieid, thisCityid, thisCinemaid);
+					$('.town ul').find('li').removeClass('active');
+					$(this).addClass('active');
+				}
+			});
+		}
+
+		// 选择区域
+		$('.town ul li').click(function(){
+			var disId = $(this).attr('data-id');
+			$('.town ul').find('li').removeClass('active');
+			$(this).addClass('active');
+			loadCinema( movieid, disId, 0);			
+		});
+		
+		// 选择影院		
+		$(document).delegate('.select_cinema ul li', 'click', function(){
+			var cinemaId = $(this).attr('data-id');
+			var cinemaName = $(this).attr('data-name');
+			var cinemaAddress = $(this).attr('data-address');
+			var cinemaTel = $(this).attr('data-tel');
+			var openTime = $(this).attr('data-opentime');	
+			var thumb = $(this).attr('data-thumb');	
+			
+			$('.select_cinema ul').find('li').removeClass('active');
+			$(this).addClass('active');
+			
+			// 设置影院信息
+			setCinemaInfo(cinemaId, cinemaName, cinemaAddress, cinemaTel, openTime, thumb);
+			// 加载影院的影片列表
+			loadMovies(cinemaId);	
+			// 加载排期和时间
+			loadPlan(cinemaId, movieid, null, '#planList');
+						
+		});
+		
+		// 选择排期时间
+		$(document).delegate('.date_select div', 'click', function(){
+			$('.date_select').find('div').removeClass('active');
+			$(this).addClass('active');
+			var featuretime = $(this).find('span').attr('data-strtotime');
+			var cinemaid = $(this).find('span').attr('data-cinemaid');
+			loadPlan( cinemaid, movieid, featuretime, '#planList');
+			
+		});		
+
+		// 加载影院列表， movieid、dis 必填， cinemaid为0的话，默认选中第一个
+		function loadCinema( movieid, dis, cinemaid){
+			$.ajax({
+				url:'movie_times.php',
+				type:'POST',
+				data:'step=cinemaList&movieid='+movieid+'&dis='+dis+'&cinemaid='+cinemaid,
+				beforeSend:function(){
+					//$('.select_cinema ul').html("<center></center>");
+				},
+				success:function( data ){
+					var obj = jQuery.parseJSON(data);
+					if(obj.error > 0){
+						$('.select_cinema ul').html('<li>'+obj.message+'</li>');
+					}else{						
+						$('.select_cinema ul').html(obj.html);
+						
+						var cinemaInfo = $('.select_cinema').find('.active');
+						var cinemaId = cinemaInfo.attr('data-id');
+						var cinemaName = cinemaInfo.attr('data-name');
+						var cinemaAddress = cinemaInfo.attr('data-address');
+						var cinemaTel = cinemaInfo.attr('data-tel');
+						var openTime = cinemaInfo.attr('data-opentime');	
+						var thumb = cinemaInfo.attr('data-thumb');							
+						
+						// 设置影院信息
+						setCinemaInfo(cinemaId, cinemaName, cinemaAddress, cinemaTel, openTime, thumb);	
+						// 加载影院的影片列表
+						loadMovies(obj.cinemaId);	
+						// 加载排期和时间
+						loadPlan(obj.cinemaId, movieid, null, '#planList');
+					}
+				}
+			});
+		}
+		// 影片列表
+		function loadMovies(cinemaId){
+			$.ajax({
+				url:'movie_times.php',
+				type:'POST',
+				data:'step=movieList&cinemaid='+cinemaId,
+				beforeSend:function(){
+					//$('.picList').html("<center style='line-height:220px; width:1150px;'>LOADING ...</center>");
+					$('.movie_list').append("<div class='movie_ceng' style='background: #333;opacity: .2;width:100%;height: 400px;position: absolute;top:0;left: 0;z-index: 99;border-radius: 10px;'></div>");
+				},
+				success:function( data ){
+					var obj = jQuery.parseJSON(data);
+					if(obj.error > 0){
+						$('.picList').html(obj.message);
+						$('.movie_ceng').remove();//去掉蒙层
+					}else{
+						$('.picList').html(obj.html);
+						initMovieList();
+						setMovieActive();
+						$('.movie_ceng').remove();//去掉蒙层
+						
+					}
+				}
+			});
+		}
+		
+		// 加载影院指定影片排期
+		function loadPlan(cinemaid, movieid, currentTime, idClass){
+			if(Utils.isEmpty(currentTime)){
+				currentTime = 0;
+			}
+			if(Utils.isEmpty(idClass)){
+				idClass = '#plan';
+			}
+			$.ajax({
+				url:'movie_times.php',
+				type:'POST',
+				data:'step=planList&cinemaid='+cinemaid+'&movieid='+movieid+'&currentTime='+currentTime,
+				beforeSend:function(){
+					$(idClass).html("<center  style='line-height: 487px;'><img src='/images/juyoufuli/img_login/loading.gif'></center>");
+					if(currentTime == 0){
+						//$('.date_select').html('LOADING ...');
+						//$('.date_select').append("<div style='background: #333;opacity:.3;width: 100%;position: absolute;top: 0;left: 0;height: 100px;'></div>");
+						
+					}
+				},
+				success:function( data ){
+					var obj = jQuery.parseJSON(data);
+					if(obj.error > 0){
+						$(idClass).html(obj.message);
+					}else{
+						$(idClass).html(obj.html);
+					}
+					// 时间
+					if(currentTime == 0){
+						$('.date_select').html(obj.date);
+					}
+				}
+			})
+		}
+		
+		function setCinemaInfo(cinemaId, cinemaName, cinemaAddress, cinemaTel, openTime, thumb){
+			$('.cinemaThumb').attr('src',thumb);
+			$('.cinemaName').html(cinemaName);
+			$('.cinemaAddress').html(cinemaAddress);
+			if(!Utils.isEmpty(cinemaTel)){
+				$('.cinemaTel').html(cinemaTel);
+			}else{
+				$('.cinemaTel').html('无');
+			}
+			if(!Utils.isEmpty(openTime)){
+				$('.opentime').html(openTime);
+			}else{
+				$('.opentime').html('无');
+			}
+		}
+
+		// 影片跳转
+		function goMovie(movie){
+
+			var currentCityid = $('.town').find('.active').attr('data-id');
+			var currentCinema = $('.select_cinema').find('.active').attr('data-id');
+			window.location.href="movie_times.php?step=planCinema&movieid="+movie+"&city="+currentCityid+'&cinemaid='+currentCinema;
+		}
+		//影院滚动条美化
+		$(".cinema_all ul").niceScroll({
+			cursorcolor:"#d1d1d1",
+			cursoropacitymax:1,
+			touchbehavior:false,
+			cursorwidth:"5px",
+			cursorborder:"0",
+			cursorborderradius:"5px"
+		});
+		
+		// 处理选中的影片
+		function setMovieActive(){
+			if(!Utils.isEmpty(movieid)){
+				var movieList = $('.movie_list').find('li');			
+				movieList.each(function(index,domLi){				
+					if($(domLi).attr('data-id') == parseInt(movieid)){
+						$(domLi).find('img').addClass('active');
+					}else{
+						$(domLi).find('img').removeClass('active');
+					}
+				});
+			}
+		}
+		
+		
+		jQuery(function($) {
+			$(document).ready(function() {
+				$('#ticketSearchFixDiv').stickUp();
+			});
+		});
+		
+		
+		$('.header_left li:nth-child(1) a').css('color','#27c7ac');
+	</script>
+    <script src="{$app_path}js/juyoufuli/movieTimesSearch.js"></script>
+        
+</body>    
+    

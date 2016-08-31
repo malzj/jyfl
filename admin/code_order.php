@@ -65,7 +65,7 @@ elseif($_REQUEST['act'] == 'resend')
 	$Smsvrerify = new smsvrerifyApi();
 	$error = 0;
 	foreach($code_info as $code){
-		$code['content'] = empty($code['content'])?'您好{$nickname}先生（女士）,感谢你购买{$supplier_name}商品码，账号：{$account},密码：{$password}':$code['content'];
+		$code['content'] = empty($code['content'])?'尊敬的聚优客户您好，您在我司官网订购的{$supplier_name}电子码券号：{$account}密码：{$password}请持电子码到合作的门店使用，谢谢！':$code['content'];
 		$msgInfo = array_merge($msgInfo,$code);
 		$smarty->assign($msgInfo);
 		$message = $smarty->fetch("str:" . $code['content']);
@@ -190,7 +190,7 @@ function order_list()
 
 		/* 查询 */
 		$sql = "SELECT o.id, o.order_sn, o.add_time, o.order_status, o.order_amount, o.money_paid," .
-					" o.mobile, o.goods_amount, o.price, o.sjprice, o.goods_number, o.user_name,o.goods_attr,o.send_msg" .
+					" o.mobile, o.goods_amount, o.price, o.sjprice, o.goods_name, o.goods_number, o.user_name,o.goods_attr,o.send_msg" .
 				" FROM " . $GLOBALS['ecs']->table('code_order') . " AS o " .
 				" LEFT JOIN " .$GLOBALS['ecs']->table('users'). " AS u ON u.user_id=o.user_id ". $where .
 				" ORDER BY ".$filter['sort_by']." ".$filter['sort_order'].

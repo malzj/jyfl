@@ -222,6 +222,7 @@ $_LANG['10_card_order'] 		= '卡合并列表';
 $_LANG['11_supplier_back_order'] = '供货商退换货列表';
 //ecshop add start 2013-08-06
 $_LANG['13_entity_goods_order']  = '实体店订单';
+$_LANG['12_code_order_out']      = '商品码订单导出';
 $_LANG['12_supplier_order_out']  = '经销商订单导出';
 $_LANG['piaoduoduo_order']  	= '票工厂订单';
 $_LANG['12_film_order']  		= '电影选座订单导出';

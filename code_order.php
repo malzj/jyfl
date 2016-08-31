@@ -131,6 +131,7 @@ if($_REQUEST['step'] == 'confirm_order'){
         'goods_number'=>  $goods_info['goods_number'],
         'add_time'        => gmtime(),
         'order_status'    => 1,
+        'supplier_id'    => $supplier_id,
     );
 
     /*商品总价*/
@@ -146,6 +147,21 @@ if($_REQUEST['step'] == 'confirm_order'){
         $order['pay_name'] = addslashes($payment['pay_name']);
     }
 
+//    获取商城售比、卡规则比例、浮比、单价比
+    $customSpec = null;
+    $specAttr = strpos($goods_info['goods_attr_id'], ',') !== false ? explode(',', $goods_info['goods_attr_id']) : array($goods_info['goods_attr_id']);
+    foreach ($specAttr as $spec) {
+        if (strpos($spec, 'S_') !== false)
+        {
+            $customSpec = substr($spec, 2);
+        }
+    }
+    $ratios = get_spec_ratio_price( array('spec_nember'=>$customSpec, 'goods_id'=>$goods_info['goods_id']) , true);
+    $order['shop_ratio'] = $ratios['shop_ratio'];
+    $order['card_ratio'] = $ratios['card_ratio'];
+    $order['unit_ratio'] = $ratios['unit_ratio'];
+    $order['raise'] = $ratios['raise'];
+    $order['ext'] = $ratios['ext'];
     /* 插入订单表 */
     $error_no = 0;
     do

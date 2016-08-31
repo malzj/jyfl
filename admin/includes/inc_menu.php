@@ -77,6 +77,7 @@ $modules['04_order']['10_back_order']               = 'order.php?act=back_list';
 $modules['04_order']['10_card_order']               = 'order.php?act=card_list';
 $modules['04_order']['12_card_order_out']           = 'excel.php?act=card_excel_out';
 $modules['04_order']['11_supplier_back_order']      = 'order.php?act=back_list&supp=1';
+$modules['04_order']['12_code_order_out']           = 'excel.php?act=code_order_excel';//商品码订单导出
 $modules['04_order']['12_supplier_order_out']       = 'excel.php?act=order_excel';
 $modules['04_order']['piaoduoduo_order']       		= 'piaoduoduo_order.php?act=list';//票工厂
 $modules['04_order']['13_entity_goods_order']       = 'entity.php?act=list';

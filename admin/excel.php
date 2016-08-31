@@ -26,10 +26,23 @@ if ($_REQUEST ['act'] == 'order_excel') {
 			);
 		}
 	}
-	$smarty->assign ( 'ur_here', '经销商订单导出' );	
+	$smarty->assign ( 'ur_here', '经销商订单导出' );
 	$smarty->assign ( 'act', $_REQUEST ['act'] );
 	$smarty->assign ( 'supplier', $supplier );
 	$smarty->display ( 'order_excel.htm' );
+}
+// 商品码列表导出
+elseif ($_REQUEST ['act'] == 'code_order_excel') {
+	require dirname ( __FILE__ ) . DIRECTORY_SEPARATOR . 'supplier.php';
+	$suppliers = suppliers_list ( 1 );
+	$supplier = array ();
+	if (! empty ( $suppliers ['result'] )) {
+		$supplier = $suppliers ['result'];
+	}
+	$smarty->assign ( 'ur_here', '商品码订单导出' );
+	$smarty->assign ( 'act', $_REQUEST ['act'] );
+	$smarty->assign ( 'supplier', $supplier );
+	$smarty->display ( 'code_order_excel.htm' );
 }
 // 卡合并列表导出
 if ($_REQUEST ['act'] == 'back_list') {
@@ -351,26 +364,26 @@ elseif ($_REQUEST ['act'] == 'order') {
 					    'K' . $row => $goods ['goods_price'],
 					    'L' . $row => $goods ['goods_number'],
 					    'M' . $row => $goods ['money'],
-					    	
+
 					    'N' . $row => $val ['card_ratio'], // 卡规则比例
 					    'O' . $row => $val ['shop_ratio'], // 商城售比
-					    	
+
 					    'P' . $row => $val ['raise'],
 					    'Q' . $row => $val ['unit_ratio'],
-					    'R' . $row => $goods ['market_cost_price'],					    	
+					    'R' . $row => $goods ['market_cost_price'],
 					    'S' . $row => $goods ['spec_price'],
 					    'T' . $row => $goods ['cost_price'],
 					    'U' . $row => $goods ['cost_ratio'],
-					    
+
 					    'V' . $row => $val ['order_status'],
 					    'W' . $row => $supplier_ids [$val ['supplier_id']],
 					    'X' . $row => ' '.$shipping_fee,
 					    'Y' . $row => ' '.$val['order_action'],
 					    'Z' . $row => $val['ext'] == 1 ? "1.19" : '0.97',
 					    'AA'. $row => ' '.$val['invoice_no']
-					    
-					    
-					);					
+
+
+					);
 					$g ++;
 					$row ++;
 				}
@@ -632,7 +645,167 @@ elseif ($_REQUEST ['act'] == 'order') {
 	$autoExcels->setTitle ( $exportContent );
 	$autoExcels->execExcel ( 'export' );
 
-} elseif ($_REQUEST ['act'] == 'filmorder') {
+}elseif($_REQUEST['act'] == 'code_order'){
+	set_time_limit(0);
+	ini_set ( "memory_limit", '512M' );
+	// 订单状态
+	$order_status = isset ( $_REQUEST ['order_status'] ) ? intval ( $_REQUEST ['order_status'] ) : - 1;
+	// 供货商id
+	$supplier_id = isset ( $_REQUEST ['supplier_id'] ) ? intval ( $_REQUEST ['supplier_id'] ) : 0;
+	// 订单时间
+	$start_time = empty ( $_REQUEST ['start_time'] ) ? '' : (strpos ( $_REQUEST ['start_time'], '-' ) > 0 ? local_strtotime ( $_REQUEST ['start_time'] ) : $_REQUEST ['start_time']);
+	$end_time = empty ( $_REQUEST ['end_time'] ) ? '' : (strpos ( $_REQUEST ['end_time'], '-' ) > 0 ? local_strtotime ( $_REQUEST ['end_time'] ) : $_REQUEST ['end_time']);
+
+	// 供应商列表
+	$supplier_ids = $filter_supplier = array ();
+	require dirname ( __FILE__ ) . DIRECTORY_SEPARATOR . 'supplier.php';
+	$suppliers = suppliers_list ();
+	if (! empty ( $suppliers ['result'] )) {
+		foreach ( $suppliers ['result'] as $supplier ) {
+			$supplier_ids [$supplier ['supplier_id']] = $supplier ['user_name'];
+			if ($supplier_id == $supplier ['supplier_id']) {
+				$filter_supplier [] = $supplier;
+			}
+		}
+	}
+	// 如果没有选择供应商，就得到所有供应的信息
+	if ($supplier_id == 0) {
+		$filter_supplier = $suppliers ['result'];
+	}
+	// 组合条件语句
+	$filter = array (
+		'supplier_id' => $supplier_id,
+		'start_time' => $start_time,
+		'end_time' => $end_time,
+		'order_status' => $order_status,
+		'suppliers' => $filter_supplier
+	);
+	// 数据集合
+	$order_list = array ();
+
+	// 如果是供应商的话，根据供应商导出信息
+	if ($supplier_id > 0 && array_key_exists ( $supplier_id, $supplier_ids )) {
+		$order_list = code_order ( $filter );
+	}
+	// 没选中供应商，导出所有的供应商订单，和接口订单
+	if ($supplier_id === 0) {
+		$order_list = code_order ( $filter );
+	}
+
+//	echo '<pre>'; print_r($order_list); echo '</pre>'; exit;
+
+	// 所有数据
+	$exportInfo = array ();
+	$row = 2; // 从第二行开始是数据，第一行是标题
+
+	foreach ( $order_list as $val ) {
+		$g = 0;
+		foreach ( $val ['goods'] as $goods ) {
+			if ($g == 0) {
+				$shipping_fee = $val ['shipping_fee'];
+			} else {
+				$shipping_fee = 0;
+			}
+			$exportInfo[] = array(
+				'A' . $row => ' ' . $val ['order_sn'], //订单号
+				'B' . $row => ' ' . $val ['user_name'], //卡号
+				'C' . $row => $val ['consignee'],	//用户名
+				'D' . $row => $val ['tel'],		//联系电话
+				'E' . $row => local_date ( 'Y', $val ['add_time'] ),//年
+				'F' . $row => local_date ( 'm', $val ['add_time'] ),//月
+				'G' . $row => local_date ( 'd', $val ['add_time'] ),//日
+				'H' . $row => local_date ( 'H:i', $val ['add_time'] ),//时间
+				'I' . $row => $goods ['goods_name'],//商品名称】【
+				'J' . $row => $goods ['goods_price'],//商城售点
+				'K' . $row => $goods ['goods_number'],//数量
+				'L' . $row => $goods ['money'],//总售点
+
+				'M' . $row => $val ['card_ratio'], // 卡规则比例
+				'N' . $row => $val ['shop_ratio'], // 商城售比
+
+				'O' . $row => $val ['raise'],//浮比
+				'P' . $row => $val ['unit_ratio'],//单品比
+				'Q' . $row => $goods ['market_cost_price'],//商品原价
+				'R' . $row => $goods ['spec_price'],//配件价格
+				'S' . $row => $goods ['cost_price'],//成本价
+				'T' . $row => $goods ['cost_ratio'],//成本比例
+
+				'U' . $row => $val ['order_status'],//订单状态
+				'V' . $row => $supplier_ids [$val ['supplier_id']],//供应商
+				'W' . $row => $val['ext'] == 1 ? "1.19" : '0.97',//卡单价
+			);
+			$g ++;
+			$row ++;
+		}
+	}
+	// 导入excel类
+	require (dirname ( __FILE__ ) . DIRECTORY_SEPARATOR . 'includes/lib_autoExcels.php');
+	$autoExcels = new autoExcels ( 'Excel2007' );
+	$filename = 'ORDER-' . date ( 'mdHis', time () ) . '.xlsx';
+	$autoExcels->setSaveName (iconv('utf-8', "gb2312", $filename) );
+
+	$exportContent = array (
+		array (
+			'sheetName' => '当单信息',
+			'title' => array (
+				'A1' => '订单号',
+				'B1' => '卡号',
+				'C1' => '收货人',
+				'D1' => '联系电话',
+				'E1' => '年',
+				'F1' => '月',
+				'G1' => '日',
+				'H1' => '时间',
+				'I1' => '商品名称',
+				'J1' => '商城售点',
+				'K1' => '数量',
+				'L1' => '总售点',
+				'M1' => '卡规则比例',
+
+				'N1' => '商城售比',
+				'O1' => '浮比',
+
+				'P1' => '单品比',
+				'Q1' => '商品原价',
+				'R1' => '配件价格',
+
+				'S1' => '成本价',
+				'T1' => '成本比例',
+				'U1' => '订单状态',
+				'V1' => '供应商',
+				'W1' => '卡单价',
+			),
+
+			'widths' => array ( 'A' => '20',  'B' => '20', 'C' => '10',  'D' => '40', 'E' => '15', 'F' => '10',
+				'G' => '7',   'H' => '7',  'I' => '7',   'J' => '40', 'K' => '13', 'L' => '13',
+				'M' => '13',  'N' => '13', 'O' => '13',  'P' => '13', 'Q' => '13', 'R' => '13',
+				'S' => '13',  'T' => '13', 'U' => '13',  'V' => '25', 'W' => '10'
+			)
+		)
+	);
+
+	// 计数器
+	$cnt = 0;
+	// 每隔$limit行，刷新一下输出buffer，不要太大，也不要太小
+	$limit = 10000;
+	// 逐行取出数据，不浪费内存
+	$count = count($exportInfo);
+	for($t=0;$t<$count;$t++) {
+		$cnt ++;
+		if ($limit == $cnt) { //刷新一下输出buffer，防止由于数据过多造成问题
+			ob_flush();
+			flush();
+			$cnt = 0;
+			sleep(3);
+		}
+		$value='';
+		foreach ($exportInfo[$t] as $key => $value) {
+			$exportContent[0]['content'][$t][$key] =$value;
+		}
+	}
+	$autoExcels->setTitle ( $exportContent );
+	$autoExcels->execExcel ( 'export' );
+}elseif ($_REQUEST ['act'] == 'filmorder') {
 	$filename = 'filmorderexcel';
 	header ( "Content-type: application/vnd.ms-excel; charset=gbk" );
 	header ( "Content-Disposition: attachment; filename=$filename.xls" );
@@ -858,6 +1031,87 @@ function suppliers_order($filter) {
 		$list [$rows ['order_sn']] ['order_action'] = $order_action;
 	}
 	
+	unset($_SESSION['_card_user_info']);
+	/*
+	 * 已完成 102 order_status in(1,5) shipping_status in(1,2) pay_status in(1,2)
+	 * 未付款 	0 		pay_status 	0 退货 	4 		order_status	4 部分退货	7 		order_status	7
+	 * 部分发货	6 	order_status	6 收货确认	2		shipping_status 2
+	 */
+	// return array();
+	return $list;
+}
+function code_order($filter){
+	$where = ' WHERE 1 ';
+	if($filter['order_status']>-1){
+		$where .= ' AND order_status = '.$filter['order_status'];
+	}
+	if(!empty($filter['start_time'])&&!empty($filter['end_time'])){
+		$where .= " AND o.add_time >= ".$filter['start_time']." AND o.add_time <= ".$filter['end_time'];
+	}
+	if($filter['supplier_id']>0){
+		$where .= " AND o.supplier_id = ".$filter['supplier_id'];
+	}
+	$sql = "SELECT o.*,o.sjprice*o.goods_number as money,u.nickname FROM ".$GLOBALS['ecs']->table('code_order')." o LEFT JOIN ".$GLOBALS['ecs']->table('users')." u ON o.user_id = u.user_id 
+		".$where." ORDER BY o.add_time ASC";
+	$res = $GLOBALS ['db']->getAll ( $sql );
+	$list = array ();
+	foreach ( $res as $key => $rows ) {
+		$list [$rows ['order_sn']] ['order_sn'] = $rows ['order_sn'];
+		$list [$rows ['order_sn']] ['user_name'] = $rows ['user_name'];
+		$list [$rows ['order_sn']] ['consignee'] = $rows ['nickname'];
+		$list [$rows ['order_sn']] ['tel'] = $rows ['mobile'] . ($rows ['tel'] ? '(' . $rows ['tel'] . ')' : '');
+		$list [$rows ['order_sn']] ['add_time'] = $rows ['add_time'];
+		$list [$rows ['order_sn']] ['supplier_id'] = $rows ['supplier_id'];
+		$list [$rows ['order_sn']] ['ext'] = $rows ['ext'];
+		$list [$rows ['order_sn']] ['raise'] = $rows ['raise'];
+		$list [$rows ['order_sn']] ['unit_ratio'] = $rows ['unit_ratio'];
+		$list [$rows ['order_sn']] ['card_ratio'] = $rows ['card_ratio'];
+		$list [$rows ['order_sn']] ['shop_ratio'] = $rows ['shop_ratio'];
+		// 订单状态
+		if ($rows ['order_status'] == 1) {
+			$order_status = '未付款';
+		}
+		if ($rows ['order_status'] == 2) {
+			$order_status = '已取消';
+		}
+		if ($rows ['order_status'] == 3) {
+			$order_status = '已付款';
+		}
+
+		$goods_attrs = array();
+		// 销售比例
+		if (strpos($rows['goods_attr_id'], ',') !== false)
+		{
+			$goods_attrs = explode(',', $rows['goods_attr_id']);
+		}
+		else
+		{
+			$goods_sn = $rows['goods_attr_id'];
+		}
+
+
+		$list [$rows ['order_sn']] ['order_status'] = $order_status;
+		$list [$rows ['order_sn']] ['goods'] [$key] ['goods_name'] = $rows ['goods_name'];
+		$list [$rows ['order_sn']] ['goods'] [$key] ['goods_price'] = $rows ['sjprice'];
+		$list [$rows ['order_sn']] ['goods'] [$key] ['goods_number'] = $rows ['goods_number'];
+		$list [$rows ['order_sn']] ['goods'] [$key] ['money'] = $rows ['money'];
+
+		$list [$rows ['order_sn']] ['goods'] [$key] ['market_cost_price'] = $rows['price'];		// 商品原价
+
+		// 属性价格
+		$list [$rows ['order_sn']] ['goods'] [$key] ['spec_price'] = spec_price ( $goods_attrs );
+
+		// 供应商折扣比例
+		foreach ( $filter ['suppliers'] as $supplier ) {
+			if ($supplier ['supplier_id'] == $rows ['supplier_id']) {
+				$filter_supplier = $supplier;
+			}
+		}
+		$cost = supplier_cost ( $list [$rows ['order_sn']] ['goods'] [$key], $filter_supplier );
+		$list [$rows ['order_sn']] ['goods'] [$key] ['cost_price'] = $cost ['cost_price'];
+		$list [$rows ['order_sn']] ['goods'] [$key] ['cost_ratio'] = $cost ['cost_ratio'];
+	}
+
 	unset($_SESSION['_card_user_info']);
 	/*
 	 * 已完成 102 order_status in(1,5) shipping_status in(1,2) pay_status in(1,2)

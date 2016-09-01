@@ -62,7 +62,7 @@
 				<span>{$usernames.user_name}</span>
 			</li>
 			<li class="balance">
-            	{if $maxCount}
+            	{if $is_cika eq 1}
                 	次数：<span>{$maxCount}</span> 次
                 {else}
                 	余额：<span>{$usernames.card_money}</span> 点

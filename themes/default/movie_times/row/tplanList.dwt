@@ -5,6 +5,7 @@
     <span class="span_1">{$plan.time}</span>
     <span class="span_1">{$plan.screenType}/{$plan.language}</span>
     <span class="span_1">{$plan.hallName|truncate:3:false}</span>
+    <span class="span_1"><span class="color_ff781e">{$plan.price}</span>点</span>
     <span class="buy span_1">
     {if $plan.is_cut eq 1}
     	<span style="background:#CCC; cursor: default;">&nbsp;&nbsp;已过场&nbsp;&nbsp;</span>

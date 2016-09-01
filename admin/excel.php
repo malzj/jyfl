@@ -377,7 +377,7 @@ elseif ($_REQUEST ['act'] == 'order') {
 
 					    'V' . $row => $val ['order_status'],
 					    'W' . $row => $supplier_ids [$val ['supplier_id']],
-					    'X' . $row => ' '.$shipping_fee,
+					    'X' . $row => $shipping_fee,
 					    'Y' . $row => ' '.$val['order_action'],
 					    'Z' . $row => $val['ext'] == 1 ? "1.19" : '0.97',
 					    'AA'. $row => ' '.$val['invoice_no']
@@ -919,6 +919,8 @@ function suppliers_order($filter) {
 		$list [$rows ['order_sn']] ['unit_ratio'] = $rows ['unit_ratio'];
 		$list [$rows ['order_sn']] ['card_ratio'] = $rows ['card_ratio'];
 		$list [$rows ['order_sn']] ['shop_ratio'] = $rows ['shop_ratio'];
+		$list [$rows ['order_sn']] ['invoice_no'] = $rows ['invoice_no'];
+		
 		// 订单状态
 		$order_status = null;
 		$o = $s = $p = $t = false;

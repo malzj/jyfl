@@ -26,6 +26,7 @@ if (!isset($_REQUEST['step']))
 
 assign_template();
 
+$smarty->assign('is_cika', '1');
 //头部显示次数
 $smarty->assign('maxCount', getMaxBuyCount());
 //如果是次卡更新左侧导航链接

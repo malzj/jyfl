@@ -69,8 +69,7 @@
 			!country.trim()|| 
 			!province.trim()|| 
 			!province.trim() || 
-			!address.trim() ||
-			!zipcode.trim()
+			!address.trim()
 		){
 			mui.alert('信息填写不完整');
 			return false;
@@ -91,10 +90,10 @@
 					if(data.state == 'true'){
 						mui.alert('保存成功！','提示',function(){
 							/* 保存成功跳转到下单页面 */
-							mui.back();
+							window.history.go(-1);
 						});
 					}
-				});
+				}, true);
 		
 	})
 

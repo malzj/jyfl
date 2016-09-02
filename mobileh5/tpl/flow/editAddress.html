@@ -30,6 +30,7 @@
 	</div>
 </div>
 
+
 <script>
 
 	/* 启用选择器插件 */
@@ -68,8 +69,7 @@
 			!country.trim()|| 
 			!province.trim()|| 
 			!province.trim() || 
-			!address.trim() ||
-			!zipcode.trim()
+			!address.trim()
 		){
 			mui.alert('信息填写不完整');
 			return false;
@@ -94,7 +94,7 @@
 							mui.back();
 						});
 					}
-				});
+				},true);
 		
 	})
 

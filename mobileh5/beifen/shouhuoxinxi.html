@@ -201,7 +201,9 @@
 										'<a class="mui-btn mui-btn-red shouhuo_remove" data-address-id="' + val.address_id + '">删除</a>' +
 										'</div><div class="mui-slider-handle"><div class="mui-table"><div class="mui-table-cell">' +
 										'<h4 class="mui-ellipsis margin_bottom_10"><span class="shouhuo_name">' + val.consignee + '</span><span>' + val.mobile + '</span>' +
-										'</h4><h5>' + val.country_cn + val.province_cn + val.address + '</h5>' +
+										'<div class="mui-input-row mui-radio def_radio">' +
+										'<label>' + selectword + '</label><input name="radio1" type="radio" value="' + val.address_id + '" ' + selected + '>' +
+										'</div></h4><h5>' + val.country_cn + val.province_cn + val.address + '</h5>' +
 										'</div></div></div></li>'
 							});
 						}
@@ -210,6 +212,7 @@
 				}
 				if(onlyCountry==1){
 					cityAddressList();
+					jQuery('.def_radio').css('display','none');
 				}else{
 					showAdressList();
 				}
@@ -359,7 +362,6 @@
 				});
 
 				//添加收货地址保存
-				var on_submit = 0;
 				$('#add_adress').on('tap','.add_btn',function(){
 					var hcountryid = document.getElementById('adhcountry').value;
 					var hprovinceid = document.getElementById('adhprovince').value;
@@ -367,10 +369,6 @@
 					var zipcode = document.getElementById('adzipcode').value;
 					var consignee = document.getElementById('adconsignee').value;
 					var mobile = document.getElementById('admobile').value;
-					if(on_submit==1){
-						return false;
-					}
-					on_submit = 1;
 					jQuery.ajaxJsonp(web_url+'/jyflapi/index.php/Users/UserJsonp/addAddress',{
 						user_id:localStorage.user_id,
 						hcountryid:hcountryid,
@@ -380,7 +378,6 @@
 						consignee:consignee,
 						mobile:mobile
 					},function(result){
-						on_submit = 0;
 						if(result.result=='true'){
 							$.alert(result.msg,function(){
 								$.back();
@@ -391,7 +388,6 @@
 					})
 				});
 				//修改收货地址保存
-				var on_update = 0;
 				$('#change_adress').on('tap','.edit_btn',function(){
 					var hcountryid = document.getElementById('hcountry').value;
 					var hprovinceid = document.getElementById('hprovince').value;
@@ -400,10 +396,6 @@
 					var consignee = document.getElementById('consignee').value;
 					var mobile = document.getElementById('mobile').value;
 //					alert(hcountryid+'-'+hprovinceid+'-'+hstreet+'-'+consignee+'-'+mobile+'-'+zipcode);
-					if(on_update == 1){
-						return false;
-					}
-					on_update = 1;
 					jQuery.ajaxJsonp(web_url+'/jyflapi/index.php/Users/UserJsonp/updateAddress',{
 						user_id:localStorage.user_id,
 						address_id:address_id,
@@ -414,7 +406,6 @@
 						consignee:consignee,
 						mobile:mobile
 					},function(result){
-						on_update = 0;
 						if(result.result=='true'){
 							$.alert(result.msg,function(){
 								$.back();

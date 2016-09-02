@@ -54,7 +54,7 @@
 				</div>
 				<div class="search_input f_r">
 					<form>
-					<input type="text" placeholder="输入蛋糕名称">
+					<input type="text" placeholder="输入商品名称">
 					</form>
 					<i></i>	
 				</div>

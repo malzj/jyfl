@@ -95,7 +95,7 @@
 							'<p class="mui-ellipsis">主演：<span>' + result.data.movieDetail.actor + '</span></p>' +
 							'<p class="mui-ellipsis">' + result.data.movieDetail.movieType + '|<span>' + result.data.movieDetail.movieLength + '分钟</span></p>' +
 							'<p>' + result.data.movieDetail.publishTime + '</p>' +
-							'<div class="star_pinfen"><span class="star_pinfen1"></span></div></div>'
+							'<div class="star_pinfen"><span class="star_pinfen1" style="width:'+parseInt(result.data.movieDetail.score)*10+'%"></span></div></div>'
 					jQuery('#movie_detail .movie_details_top').html(detail);
 					//根据影片设置背景
 					var bg=jQuery('.movie_details_top img').attr('src');

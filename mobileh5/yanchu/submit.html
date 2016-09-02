@@ -27,7 +27,7 @@
 		<script type="text/javascript">
 			//加载页面信息
 			jQuery.ajaxJsonp(web_url+'/mobile/yanchu_order.php?act=checkout','',function(result){
-				console.log(result.data);
+//				console.log(result.data);
 				replaceHtml('header',template('yanchu/tmp_yanchu_submit',result.data));
 			});
 			//订单提交

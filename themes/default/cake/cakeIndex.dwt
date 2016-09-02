@@ -53,7 +53,7 @@
 				</div>
 				<div class="search_input f_r">
 				<form action="category.php">                          
-					<input type="text" name="word" placeholder="输入蛋糕名称" value="{$keyword}">
+					<input type="text" name="word" placeholder="输入商品名称" value="{$keyword}">
                     <input type="hidden" name="category" value="4">
                  </form>  
 				 <i onClick="$('form:first').submit();"></i>			

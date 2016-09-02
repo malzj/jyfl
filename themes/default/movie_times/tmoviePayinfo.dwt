@@ -219,15 +219,11 @@
 				area: '470px',
 				shadeClose: false, //点击遮罩关闭
 				closeBtn:0,
-				content:'<div class="pay_tishi"><div class="pay_tishi_title">支付提示：</div><div class="pay_tishi_content"><div class="pay_tishiAll"><div class="pay_tishi_1"><span class="pay_title_img"><img src="/images/juyoufuli/img_login/pay_tishi.png" width="20"></span>支付完成前，请不要关闭此支付验证窗口</div><div class="pay_tishi_2">支付完成后，请根据您支付的情况点击下面按钮。</div></div><div class="pay_tishi_btnAll"><div class="pay_tishi_btn"><a href="javascript:;" class="alipay-success-no">支付遇到问题</a><a href="javascript:;" class="alipay-success-ok">支付完成</a></div></div></div></div>'
+				content:'<div class="pay_tishi"><div class="pay_tishi_title">支付提示：</div><div class="pay_tishi_content"><div class="pay_tishiAll"><div class="pay_tishi_1"><span class="pay_title_img"><img src="/images/juyoufuli/img_login/pay_tishi.png" width="20"></span>支付完成前，请不要关闭此支付验证窗口</div><div class="pay_tishi_2">支付完成后，请根据您支付的情况点击下面按钮。</div></div><div class="pay_tishi_btnAll" style="width:265px;"><div class="pay_tishi_btn"><a href="javascript:;" class="alipay-success-ok">支付完成</a></div></div></div></div>'
 			})
 		})
-	
-		$('.alipay-success-no').click(function(){
-			var orderid = $('#orderid').val();
-			window.location.href="user.php?act=film_order";
-		});
-		$('.alipay-success-ok').click(function(){
+
+		$(document).on('click','.alipay-success-ok',function(){	
 			var orderid = $('#orderid').val();
 			window.location.href="user.php?act=film_order";
 		});

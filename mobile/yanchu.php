@@ -27,6 +27,8 @@ if (!isset($_REQUEST['act']))
 	$_REQUEST['act'] = "list";
 }
 
+assign_template();
+
 $ratio = get_card_rule_ratio($int_cateId);
 
 // 演出票列表

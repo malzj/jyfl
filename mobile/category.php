@@ -44,6 +44,8 @@ else
     exit;
 }
 
+assign_template();
+
 $jsonArray = array(
     'state'=>'true',
     'data'=>'',

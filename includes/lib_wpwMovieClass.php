@@ -5,15 +5,22 @@
  * Date: 2016/8/31
  * Time: 9:11
  */
+require(dirname(__FILE__).'/httpRequest.php');
+
 class wpwMovie
 {
     //用户名
-    private $username = 'testName';
+    private $username;
     //秘钥
-    private $key = 'testKey';
+    private $key;
+    //实例化httpRequest类
+    private $httpRequest;
+    //
 
     public function __construct(){
-
+        $this -> username = 'testName';
+        $this -> key = 'testKey';
+        $this -> httpRequest = new HttpRequest();
     }
 
     /**
@@ -33,7 +40,8 @@ class wpwMovie
 
     public function allCinema(){
         $global_params = $this -> makeGlobalParams('Base_Cinema');
-        var_dump($global_params);
+        $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
+        $this -> httpRequest -> post();
     }
     
 }

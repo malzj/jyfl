@@ -56,7 +56,7 @@ elseif($_REQUEST['act'] == 'done_import')
             continue;
         }
         $time = strtr($value['sale_time'],array('"'=>'','年'=>'-','月'=>'-','日'=>'','时'=>':','分'=>':','秒'=>''));
-        $value['sale_time'] = strtotime($time);
+        $value['sale_time'] = empty($time)?'':strtotime($time);
         $str_array[]="('".implode("','",$value)."')";
     }
     if(!empty($str_array)){

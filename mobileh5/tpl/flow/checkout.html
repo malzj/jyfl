@@ -8,12 +8,20 @@
 
 <div class="mui-content">
     <div class="mui-table-view">
+    	{{if data.consignee}}
 		<div class="mui-table-view-cell">
 			<a class="mui-navigate-right href_click" data-href="../personal/shouhuoxinxi.html?onlyCountry=1">
 				<h4>{{data.consignee.consignee}} {{data.consignee.mobile}}</h4>
 				<p>{{data.consignee.country_cn}} {{data.consignee.province_cn}} {{data.consignee.address}}</p>
 			</a>
 		</div>
+		{{else}}
+		<div class="mui-table-view-cell"> 
+			<a class="mui-navigate-right href_click" data-href="../personal/shouhuoxinxi.html?onlyCountry=1">
+				<h4 style="text-align: center;">选择收货地址</h4>
+			</a>
+		</div>
+		{{/if}}
 	</div>
 	
 	<form action="#" method="post" name="theForm" id="theForm">
@@ -193,15 +201,6 @@
 		
 	});
 	
-	/* 删除一个地址 */
-	jQuery('.adress_select').on('tap','.add_adress_remove',function(){
-		var _that = jQuery(this);
-		var address_id = _that.parents('div').attr('data-id');
-		jQuery.ajaxJsonp(web_url+"/mobile/address.php",{act:'AjaxAddressDorp',address_id:address_id},function(data){
-			_that.parents('li').remove();
-		});
-	});
-	
 	/* 编辑收货地址 */
 	jQuery('.adress_select').on('tap','.mui-btn-grey',function(){
 		var address_id = jQuery(this).parents('div').attr('data-id');
@@ -271,7 +270,15 @@
 			var _consignee = data.data.consignee;
 			
 			/* 设置配送地址 */
-			var address = _consignee.country_cn+" "+_consignee.province_cn+" "+_consignee.address;
+			if(_consignee.country_cn == undefined 
+					&& _consignee.province_cn == undefined 
+					&& _consignee.address == undefined )
+			{
+				var address = '...';
+			}else{
+				var address = _consignee.country_cn+" "+_consignee.province_cn+" "+_consignee.address;
+			}
+			
 			addressHtml.html(address);
 			
 			/* 运费计算 , 百度地图*/

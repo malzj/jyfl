@@ -13,7 +13,7 @@ $int_areaId = getAreaNo(0, 'yanchu');
 $int_cateId = intval($_REQUEST['id']);
 
 $page = isset($_REQUEST['page'])   && intval($_REQUEST['page'])  > 0 ? intval($_REQUEST['page'])  : 1;
-$size = isset($_CFG['page_size'])  && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 20;
+$size = isset($_CFG['page_size'])  && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 200;
 
 // 返回的数据
 $jsonArray = array(

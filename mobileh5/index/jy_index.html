@@ -57,6 +57,7 @@
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
 			jQuery.ajaxJsonp(web_url+"/mobile/basic.php",{act:'navList'},function(result){
+				console.log(result);
 				if(result.state == 'false'){
 					jQuery.errorJudge(result.data,result.message,function(){
 						mui.back();	

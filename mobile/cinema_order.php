@@ -186,8 +186,7 @@ elseif ($_REQUEST['act'] == 'doneDzq')
 				'SendType' => 3
 		);
 		//确认支付订单
-		//$arr_result = getYYApi($arr_param, 'confirmOrder');
-		$arr_result['body']['OrderStatus'] = 0;
+		$arr_result = getYYApi($arr_param, 'confirmOrder');
 		//重新计算用户卡余额
 		$_SESSION['BalanceCash'] -= $float_price; 
 		//更新卡金额

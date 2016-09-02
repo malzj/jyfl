@@ -45,8 +45,8 @@
 			
 			<div style="padding: 10px 10px;" class="bg_white">
 				<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted">
-					<a id="selectseat" class="mui-control-item mui-active" href="#item1">在线选座</a>
-					<a id="buydzq" class="mui-control-item" href="#item2">电子券兑换</a>
+					<a id="selectseat" style="display: none" class="mui-control-item mui-active" href="#item1">在线选座</a>
+					<a id="buydzq" style="display: none" class="mui-control-item" href="#item2">电子券兑换</a>
 				</div>
 			</div>
 			<div>
@@ -144,9 +144,8 @@
 						//放映厅列表
 						var planList = jQuery.planList(result.data.plan);
 						jQuery('.movie_item').html(planList);
-						if(result.data.cinemaDetail.is_dzq==0){
-							jQuery('#buydzq,#selectseat').css('display','none');
-						}else{
+						if(result.data.cinemaDetail.is_dzq!=0&&result.data.cinemaDetail.is_dzq!=undefined&&result.data.cinemaDetail.is_dzq!=null){
+							jQuery('#buydzq,#selectseat').removeAttr('style');
 							var dzqhtml = jQuery.dzqshow(result.data);
 							jQuery('#item2').html(dzqhtml);
 							$('.mui-numbox').numbox();

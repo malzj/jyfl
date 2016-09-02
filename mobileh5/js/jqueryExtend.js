@@ -34,6 +34,7 @@
                type:'get',
                data:defaults.data,
                dataType:'json',
+               cache:false,
 //             dataType:'jsonp',
 //             jsonp:'jsoncallback',
                success:function(result){

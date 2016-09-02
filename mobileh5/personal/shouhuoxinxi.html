@@ -369,9 +369,26 @@
 					var zipcode = document.getElementById('adzipcode').value;
 					var consignee = document.getElementById('adconsignee').value;
 					var mobile = document.getElementById('admobile').value;
+					if(consignee==''){
+						$.alert('请填写收货人姓名！');
+						return false;
+					}
+					if(mobile==''){
+						$.alert('请填写手机号码！');
+						return false;
+					}
+					if(hcountryid==''||hprovinceid==''){
+						$.alert('请选择地区！');
+						return false;
+					}
+					if(hstreet==''){
+						$.alert('请填写详细地址！');
+						return false;
+					}
 					if(on_submit==1){
 						return false;
 					}
+					alert(localStorage.user_id);
 					on_submit = 1;
 					jQuery.ajaxJsonp(web_url+'/jyflapi/index.php/Users/UserJsonp/addAddress',{
 						user_id:localStorage.user_id,

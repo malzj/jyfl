@@ -158,12 +158,12 @@ $str_Card = serialize($Card);
 	
 	if (!empty($int_id)){
 		if (!empty($Card)){
-		$query = $db->query('UPDATE '.$ecs->table('card_rule')." SET title = '$str_title', card = '$str_Card', home_desc = '$str_homedesc',price = '$price', zhekou = '$zhekou', shop = '$shop', time = '$time', navinfo = '$str_navinfo', shop_ratio = '$str_shopratio', type = '$type', ext='$ext', raise='$raise', merge_limit='$merge_limit'  WHERE id = '$int_id'");
+		$query = $db->query('UPDATE '.$ecs->table('card_rule')." SET title = '$str_title', card = '$str_Card', home_desc = '$str_homedesc',price = '$price', zhekou = '$zhekou', shop = '$shop', time = '$time', navinfo = '$str_navinfo', shop_ratio = '$str_shopratio', type = '$type', raise='$raise', merge_limit='$merge_limit'  WHERE id = '$int_id'");
 		}else{
-		$query = $db->query('UPDATE '.$ecs->table('card_rule')." SET title = '$str_title', home_desc = '$str_homedesc',price = '$price', zhekou = '$zhekou', shop = '$shop',  time = '$time', navinfo = '$str_navinfo', shop_ratio = '$str_shopratio', pay_than = '$pay_than', type = '$type', ext='$ext', raise='$raise', merge_limit='$merge_limit' WHERE id = '$int_id'");
+		$query = $db->query('UPDATE '.$ecs->table('card_rule')." SET title = '$str_title', home_desc = '$str_homedesc',price = '$price', zhekou = '$zhekou', shop = '$shop',  time = '$time', navinfo = '$str_navinfo', shop_ratio = '$str_shopratio', pay_than = '$pay_than', type = '$type', raise='$raise', merge_limit='$merge_limit' WHERE id = '$int_id'");
 		}
 	}else{
-		$str_sql = "INSERT INTO ".$ecs->table('card_rule')." (title, card, home_desc,price,zhekou,shop,time, navinfo, shop_ratio, pay_than, type, ext, raise,merge_limit) VALUES ('$str_title','$str_Card', '$str_homedesc', '$price','$zhekou', '$shop','$time', '$str_navinfo', '$str_shopratio', $pay_than, $type, $ext, $raise,$merge_limit)";
+		$str_sql = "INSERT INTO ".$ecs->table('card_rule')." (title, card, home_desc,price,zhekou,shop,time, navinfo, shop_ratio, pay_than, type, raise,merge_limit) VALUES ('$str_title','$str_Card', '$str_homedesc', '$price','$zhekou', '$shop','$time', '$str_navinfo', '$str_shopratio', $pay_than, $type, $raise,$merge_limit)";
 		$query = $db->query($str_sql);
 	}
 

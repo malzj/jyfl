@@ -409,8 +409,7 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 				'order_id'   => $arr_orderInfo['order_sn'],
 				'balance'	 => $float_price
 		);
-		//$arr_result = getCDYApi($arr_param);
-		$arr_result['status'] = 0;
+		$arr_result = getCDYApi($arr_param);
 		if($arr_result['status'] == 0){
 			// 支付成功，更新订单状态
 			$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET order_status = '3', payment_time = '".gmtime()."' WHERE id = '$int_orderId'");

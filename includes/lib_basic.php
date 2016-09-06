@@ -139,17 +139,22 @@ function checkCardType( $username, $type, $source=0)
          // 只返回在有效期范围内的广告列表
          if ($currentTime > $val['state_time'] && $currentTime < $val['end_time'])
          {
-             // 广告名称里面有 -- 后面代表的是数字，
-             if (strpos($val['ad_name'], '--'))
+             $regionIds = explode(',', $val['region_ids']);
+             if( in_array($_SESSION['cityid'], $regionIds))
              {
-                 $names = explode('--', $val['ad_name']);
-                 $adPosition = array_pop($names);
-                 $image[$key] = $val;
-                 $image[$key]['no'] = $adPosition;
+                 // 广告名称里面有 -- 后面代表的是数字，
+                 if (strpos($val['ad_name'], '--'))
+                 {
+                     $names = explode('--', $val['ad_name']);
+                     $adPosition = array_pop($names);
+                     $image[$key] = $val;
+                     $image[$key]['no'] = $adPosition;
+                 }
+                 else {
+                     $image[] = $val;
+                 }
              }
-             else {
-                 $image[] = $val;
-             }
+ 
                  
          }
      }

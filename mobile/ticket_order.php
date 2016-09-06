@@ -410,8 +410,7 @@ else if ($_REQUEST['step'] == 'pay')
 		
 		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('users')." SET card_money = card_money - (".$orders[0]['money'].") WHERE user_id = '".intval($_SESSION['user_id'])."'");
 		// 动网支付
-		//$dongPay = getDongapi('pay',array('orderId'=>$orders[0]['api_order_id']));
-		$dongPay['status'] = '1';
+		$dongPay = getDongapi('pay',array('orderId'=>$orders[0]['api_order_id']));
 		if ($dongPay['status'] == '1')
 		{
 			$arr_result['error'] = 0;

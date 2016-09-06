@@ -154,8 +154,8 @@
     <tr>
       <td class="label">广告所属导航分类</td>
       <td>
-            {foreach from=$navs item=list}
-              <font style="display:inline-block;width:120px;"><input type="checkbox" name="nav_id[]" value="{$list.id}" {if $list.selected eq'true'} checked="true" {/if} >{$list.name}</font>
+            {foreach from=$region item=list}
+              <font style="display:inline-block;width:120px;"><input type="checkbox" name="region_id[]" value="{$list.region_id}" {if $list.selected eq'true'} checked="true" {/if} >{$list.region_name}</font>
             {/foreach}
       </td>
     </tr>

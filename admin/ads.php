@@ -92,9 +92,9 @@ elseif ($_REQUEST['act'] == 'add')
         array('ad_link' => $ad_link, 'ad_name' => $ad_name, 'start_time' => $start_time,
             'end_time' => $end_time, 'enabled' => 1));
 
-    $sql = "SELECT * FROM " .$ecs->table('nav'). " where type='middle' and ifshow=1";
-    $navs = $db->getall($sql);    
-    $smarty->assign('navs',       $navs);
+    $sql = "SELECT * FROM " .$ecs->table('region'). " where parent_id = 0";
+    $region = $db->getall($sql); 
+    $smarty->assign('region',       $region);
 
     $smarty->assign('ur_here',       $_LANG['ads_add']);
     $smarty->assign('action_link',   array('href' => 'ads.php?act=list', 'text' => $_LANG['ad_list']));
@@ -237,10 +237,10 @@ elseif ($_REQUEST['act'] == 'insert')
             sys_msg($_LANG['js_languages']['ad_text_empty'], 0, $link);
         }
     }
-    $navs = implode(',', $_POST['nav_id']);
+    $region = implode(',', $_POST['region_id']);
     
     /* 插入数据 */
-    $sql = "INSERT INTO ".$ecs->table('ad'). " (position_id,media_type,ad_name,ad_link,ad_code,start_time,end_time,link_man,link_email,link_phone,click_count,enabled,nav_id,listorder,bgcolor)
+    $sql = "INSERT INTO ".$ecs->table('ad'). " (position_id,media_type,ad_name,ad_link,ad_code,start_time,end_time,link_man,link_email,link_phone,click_count,enabled,region_ids,listorder,bgcolor)
     VALUES ('$_POST[position_id]',
             '$_POST[media_type]',
             '$ad_name',
@@ -253,7 +253,7 @@ elseif ($_REQUEST['act'] == 'insert')
             '$_POST[link_phone]',
             '0',
             '1',
-            '$navs',
+            '$region',
     		'$listorder',
             '$bgcolor')";
 
@@ -338,17 +338,18 @@ elseif ($_REQUEST['act'] == 'edit')
     }
     
     // 广告所属分类的处理
-    $navIds = explode(',',$ads_arr['nav_id']);   
-    $sql = "SELECT id,name FROM " .$ecs->table('nav'). " where type='middle' and ifshow=1";
-    $navs = $db->getall($sql);
-    foreach($navs as &$nav){
-    	if(in_array($nav['id'], $navIds)) {
-    		$nav['selected'] = 'true';
+    $regionIds = explode(',',$ads_arr['region_ids']);   
+    $sql = "SELECT * FROM " .$ecs->table('region'). " where parent_id = 0";
+    $region = $db->getall($sql); 
+    foreach($region as &$val){
+    	if(in_array($val['region_id'], $regionIds)) {
+    		$val['selected'] = 'true';
     	}else{
-    		$nav['selected'] = 'false';
+    		$val['selected'] = 'false';
     	}
     }
-    $smarty->assign('navs',       $navs);
+
+    $smarty->assign('region',        $region);
     $smarty->assign('ur_here',       $_LANG['ads_edit']);
     $smarty->assign('action_link',   array('href' => 'ads.php?act=list', 'text' => $_LANG['ad_list']));
     $smarty->assign('form_act',      'update');
@@ -463,7 +464,7 @@ elseif ($_REQUEST['act'] == 'update')
     {
         $ad_code = "ad_code = '$_POST[ad_text]', ";
     }
-    $navs = implode(',', $_POST['nav_id']);
+    $region = implode(',', $_POST['region_id']);
     $ad_code = str_replace('../' . DATA_DIR . '/afficheimg/', '', $ad_code);
     /* 更新信息 */
     $sql = "UPDATE " .$ecs->table('ad'). " SET ".
@@ -477,7 +478,7 @@ elseif ($_REQUEST['act'] == 'update')
             "link_email  = '$_POST[link_email]', ".
             "link_phone  = '$_POST[link_phone]', ".
             "enabled     = '$_POST[enabled]', ".
-            "nav_id      = '$navs' ,".
+            "region_ids  = '$region' ,".
             "listorder   = '$listorder', ".
             "bgcolor     = '$bgcolor'" .
             "WHERE ad_id = '$id'";

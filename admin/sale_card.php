@@ -23,6 +23,8 @@ if($_REQUEST['act'] == 'import')
 /*执行导入操作*/
 elseif($_REQUEST['act'] == 'done_import')
 {
+    set_time_limit(0);
+    $start = microtime(true);
     if($_FILES['sale_card_file']['type']=='application/octet-stream'||$_FILES['sale_card_file']['type']=='application/vnd.ms-excel'){
         $tmp_name = $_FILES['sale_card_file']['tmp_name'];
         $filename = "card-".local_date("YmdHis",time()).".xlsx";
@@ -38,32 +40,59 @@ elseif($_REQUEST['act'] == 'done_import')
     $PHPExcel->setColsTitle($colsTitle);
     @$list = $PHPExcel->execExcel('import');
     $list=$list[0];
+    array_shift($list);
+    $listarray=array_chunk($list,1000,true);
     unset($list[0]);
+    unset($list);
+    $end = microtime(true);
+    echo "读取excel时间".round($end-$start,3)."</br>";
+//    echo count($listarray[10]);
+//    die;
 // echo "<pre>";
 // print_r($list);
 // echo "</pre>";
 // die;
-    $sql="SELECT card_num FROM ".$ecs -> table('sale_card')." WHERE 1";
-    $code_result = $db->getAll($sql);
 
-    foreach ((array)$code_result as $code){
-        $code_array[] = $code['card_num'];
-    }
     $str_array = array();
-    foreach($list as $key => $value){
-        if(in_array($value['card_num'],$code_array)){
-            echo '卡号'.$value['card_num'].'已存在请勿重复导入！</br>';
-            continue;
+    $time_array = array();
+    $start = microtime(true);
+    echo '分'.count($listarray).'组导入！</br>';
+    foreach($listarray as $k => $val) {
+        foreach ($val as $key => $value) {
+            $time = strtr($value['sale_time'], array('"' => '', '年' => '-', '月' => '-', '日' => '', '时' => ':', '分' => ':', '秒' => ''));
+            $time_array[]=$value['sale_time'] = empty($time) ? '' : strtotime($time);
+            $value['price']=floatval($value['price']);
+            $str_array[$value['card_num']] = "('" . implode("','", $value) . "')";
         }
-        $time = strtr($value['sale_time'],array('"'=>'','年'=>'-','月'=>'-','日'=>'','时'=>':','分'=>':','秒'=>''));
-        $value['sale_time'] = empty($time)?'':strtotime($time);
-        $str_array[]="('".implode("','",$value)."')";
+        $time_array=array_unique($time_array);
+        $sql="SELECT card_num FROM ".$ecs -> table('sale_card')." WHERE sale_time IN('" . implode("','", $time_array) . "')";
+        $code_result = $db->getAll($sql);
+        $code_num_list = array();
+        foreach ($code_result as $ky => $code){
+            $code_num_list[]=$code['card_num'];
+        }
+        $code_flip=array_flip($code_num_list);
+        //过滤得到未导入的信息
+        $str_array=array_diff_key($str_array,$code_flip);
+
+        if (!empty($str_array)) {
+            $insert_sql = "INSERT INTO " . $ecs->table('sale_card') . " (`card_num`,`price`,`sale_man`,`company`,`sale_time`) VALUE "
+                . implode(',', $str_array);
+            $result = $db->query($insert_sql);
+            if($result){
+                echo '第'.($k+1).'组导入成功！</br>';
+            }else{
+                echo '第'.($k+1).'组导入失败！</br>';
+            }
+        }else{
+            echo '第'.($k+1).'已导入或文件为空！</br>';
+        }
+        ob_flush();
+        flush();
+        sleep(3);
     }
-    if(!empty($str_array)){
-        $insert_sql = "INSERT INTO ".$ecs->table('sale_card')." (`card_num`,`price`,`sale_man`,`company`,`sale_time`) VALUE "
-            .implode(',',$str_array);
-        $result = $db->query($insert_sql);
-    }
+    $end = microtime(true);
+    echo "循环插入时间".round($end-$start,3)."</br>";
 
     if(isset($result)&&$result==1){
         echo "<p style='color:green'>导入售卡信息成功！</p>";

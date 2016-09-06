@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <title>卡充值</title>
     <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="../js/jqueryExtend.js"></script>
     <script src="../js/connection.js"></script>
     <script src="../js/rem.js"></script>
     <script src="../js/mui.min.js"></script>
@@ -77,13 +78,58 @@
 </div>
 <script>
     (function($) {
-        jQuery.ajax({
-            url:web_url+'/mobile/card.php',
-            data:{act:'account_deposit'},
-            dataType:'jsonp',
-            jsonp:'jsoncallback',
-            success:function(result){
-//                console.log(result);
+        if(!mui.os.plus) {
+            var channel = null;
+
+            function plusReady() {
+                plus.payment.getChannels(function (channels) {
+                    channel = channels[0];
+                }, function (e) {
+                    alert("获取支付通道失败：" + e.message);
+                });
+            }
+
+            document.addEventListener('plusready', plusReady, false);
+            console.log();
+            var ALIPAYSERVER = web_url + '/alipay.php?total=';
+            //发起支付请求
+            function pay(id) {
+                var PAYSERVER = '';
+                if (id == "alipay") {
+                    PAYSERVER = ALIPAYSERVER;
+                } else if (id == 'wxpay') {
+                    PAYSERVER = WXPAYSERVER;
+                } else {
+                    plus.nativeUI.alert("不支持此支付通道！");
+                    return;
+                }
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    switch (xhr.readyState) {
+                        case 4:
+                            if (xhr.status == 200) {
+                                plus.payment.request(channel, xhr.responseText, function (result) {
+                                    plus.nativeUI.alert("支付成功！", function () {
+                                        back();
+                                    });
+                                }, function (error) {
+                                    plus.nativeUI.alert("支付失败：" + error.code);
+                                });
+                            } else {
+                                alert("获取订单失败！");
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                xhr.open("GET", PAYSERVER);
+                xhr.send();
+            }
+        }
+        jQuery.ajaxJsonp(web_url+'/mobile/card.php',
+            {act:'account_deposit'},
+            function(result){
                 if(result.state=='true'){
                     var html='';
                     jQuery('.card_num').html(result.data.username);
@@ -102,8 +148,7 @@
                         $.alert(result.message);
                     }
                 }
-            }
-        });
+            });
         var viewApi = $('#deposit_container').view({
             defaultPage: '#card_deposit'
         });
@@ -146,28 +191,16 @@
             return false;
         }
 
-
-        jQuery.ajax({
-            url:web_url+'/mobile/card.php?act=act_account',
-            data:{amount:amount, rec_id:0, surplus_type:0, payment_id:pay},
-            dataType:'jsonp',
-            jsonp:'jsoncallback',
-            success:function(result){
+        jQuery.ajaxJsonp(web_url+'/mobile/card.php?act=act_account',
+            {amount:amount, rec_id:0, surplus_type:0, payment_id:pay},
+            function(result){
                 console.log(result);
                 if(result.state=='true'){
                     window.location.href = web_url+result.data.href;
                 }else if(result.state=='false'){
-                    if(result.data.isLogin==1){
-                        mui.alert(result.message,function(){
-                            window.location.href='../index.html';
-                        });
-                    }else{
-                        mui.alert(result.message);
-                    }
+                    jQuery.errorJudge(result.data,result.message);
                 }
-            }
-        });
-
+            });
     });
 </script>
 </body>

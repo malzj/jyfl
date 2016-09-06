@@ -5544,3 +5544,173 @@ section.contact {
     text-indent: 28px;}
 .nth_content h4{color: #2fd0b5!important;}
 
+/*下载app页面*/
+section.download{background: url(../images/download.jpg) no-repeat;
+background-size: cover;}
+.download_box{width:920px;position: absolute;left: 50%;transform: translate(-50%,-50%);top: 60%;}
+.download_left{float: left;position: absolute;top: 20%;}
+.download_right{float: right;width: 340px;position: relative;}
+.download_right img{width:100%;}
+.download_code{padding: 30px;width: 420px;height: 110px;background: url(../images/download_codeBg.png) no-repeat;margin-top: 10%;}
+.download_code_iphone{margin-bottom: 15px;cursor: pointer;}
+.download_code_android{cursor: pointer;}
+.download_xian{width: 1px;
+    height: 125px;
+    background: white;
+    margin-top: -10px;
+    margin-left: 40px;}
+.download_iphone1{
+	position: absolute;
+    top: 83px;
+    width: 289px!important;
+    left: 27px;
+}    
+    
+    
+@media only screen and (min-width: 1601px){
+	.download_box{width: 1100px;}
+}
+.download_btn{
+	cursor: pointer;
+    position: absolute;
+    right: 153px;
+    z-index: 1;
+    bottom: 101px;
+    content: '';
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-animation: sdb03 1.5s infinite;
+    animation: sdb03 1.5s infinite;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 0 rgba(41, 109, 81, 0.5);
+}
+.download_right1{
+  opacity: 0;
+  display: inline-block;
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform,opacity;
+  transition-property: transform;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);}
+.download.active .download_right1{
+  opacity: 1;
+  -webkit-transform: translateY(-30px);
+  transform: translateY(-30px);
+  -webkit-animation-name: hover;
+  animation-name: hover;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}  
+.download_right1:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 30px;
+  width: 90%;
+  opacity: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+}
+.download.active .download_right1:before{
+  opacity: .4;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-animation-name: hover-shadow;
+  animation-name: hover-shadow;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+@-webkit-keyframes hover {
+  50% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes hover {
+  50% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+}
+@-webkit-keyframes hover-shadow {
+  0% {
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+    opacity: .4;
+  }
+
+  50% {
+    -webkit-transform: translateY(15px);
+    transform: translateY(15px);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+    opacity: .4;
+  }
+}
+
+@keyframes hover-shadow {
+  0% {
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+    opacity: .4;
+  }
+
+  50% {
+    -webkit-transform: translateY(15px);
+    transform: translateY(15px);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+    opacity: .4;
+  }
+}
+.download_code1{margin-left: 50px;margin-top: -5px;}
+.download_code1 img{width: 120px;}
+.download_codeIphone{margin-left: 50px;font-size: 30px;width: 120px;text-align: center;margin-top: 30px;}
+.download_code_iphone,.download_code_android{border: 2px solid transparent;}
+.download_codeImg .active{border: 2px solid #2FD0B5;}

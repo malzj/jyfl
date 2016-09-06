@@ -5552,8 +5552,8 @@ background-size: cover;}
 .download_right{float: right;width: 340px;position: relative;}
 .download_right img{width:100%;}
 .download_code{padding: 30px;width: 420px;height: 110px;background: url(../images/download_codeBg.png) no-repeat;margin-top: 10%;}
-.download_code_iphone{margin-bottom: 15px;cursor: pointer;}
-.download_code_android{cursor: pointer;}
+.download_code_iphone{cursor: pointer;}
+.download_code_android{cursor: pointer;margin-bottom: 15px;}
 .download_xian{width: 1px;
     height: 125px;
     background: white;

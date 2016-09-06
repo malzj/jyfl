@@ -8,6 +8,7 @@
 define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
+include_once(ROOT_PATH . 'includes/lib_basic.php');
 
 // 返回的数据
 $jsonArray = array(
@@ -30,6 +31,7 @@ if ($_REQUEST['act'] == 'navList')
 
     $jsonArray['data']['nav_list'] = $navList['middle'];
     $jsonArray['data']['user_info'] = $user_info;
+    $jsonArray['data']['nav_banner'] = getBanner(43);
     $jsonArray['data']['city_cn'] = $city_cn;
     JsonpEncode($jsonArray); 
 }
@@ -116,4 +118,13 @@ elseif ($_REQUEST['act'] == 'act_edit_password')
         $jsonArray['message']=$cardPay->getMessage();
         JsonpEncode($jsonArray);
     }
+}
+
+function getBanner($id){
+    $banner = getNavadvs($id);
+    foreach ($banner as $key=>&$val)
+    {
+        $val['ad_code'] = getImagePath($val['ad_code'],'ad');
+    }
+    return $banner;
 }

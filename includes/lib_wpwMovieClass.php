@@ -11,9 +11,9 @@ class wpwMovie
 {
     private $url = 'http://test.api.wangpiao.com';
     //用户名
-    private $username = 'testName';
+    private $username = 'test1';
     //秘钥
-    private $key = 'testKey';
+    private $key = '4vYwB5csWrdLbFkG';
     //实例化httpRequest类
     private $httpRequest;
     //
@@ -23,17 +23,17 @@ class wpwMovie
     }
 
     /**
-     * 生成全局参数
+     * 生成签名后参数
      * @param $target   操作命令
      * @return string
      */
-    protected function makeGlobalParams($target){
-        $sign = md5($this->username.$target.$this->key);
-        $params = array(
-            'UserName'  =>  $this -> username,
-            'Target'    =>  $target,
-            'Sign'      =>  $sign,
-        );
+    protected function makeParams($params){
+        ksort($params,SORT_STRING);
+        $str_params = implode($params);
+        $str_params = $this -> username.$str_params.$this->key;
+        $sign = md5($str_params);
+        $params['UserName'] = $this -> username;
+        $params['Sign'] = $sign;
         return $params;
     }
 
@@ -43,8 +43,12 @@ class wpwMovie
      * @return array
      */
     public function getCinemas($target='Base_Cinema'){
-        $global_params = $this -> makeGlobalParams($target);
-        $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
+        $params = array(
+            'Target' => $target
+        );
+        $params = $this -> makeParams($params);
+        $str_param = $this -> httpRequest -> buildUrlQuery($params);
+        echo $str_param;
         $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
         return $result;
     }
@@ -57,7 +61,7 @@ class wpwMovie
      * @return array
      */
     public function baseCinemaQuery($city_id,$date,$film_id){
-        $global_params = $this -> makeGlobalParams('Base_CinemaQuery');
+        $global_params = $this -> makeParams('Base_CinemaQuery');
         $params['CityID'] = $city_id;
         $params['Date'] = $date;
         $params['FilmID'] = $film_id;
@@ -72,7 +76,7 @@ class wpwMovie
      * @return array
      */
     public function baseCity(){
-        $global_params = $this -> makeGlobalParams('Base_City');
+        $global_params = $this -> makeParams('Base_City');
         $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
         $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
         return $result;
@@ -83,7 +87,7 @@ class wpwMovie
      * @return array
      */
     public function baseCityBll(){
-        $global_params = $this -> makeGlobalParams('Base_CityBll');
+        $global_params = $this -> makeParams('Base_CityBll');
         $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
         $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
         return $result;
@@ -94,7 +98,7 @@ class wpwMovie
      * @return array
      */
     public function baseDistrict(){
-        $global_params = $this -> makeGlobalParams('Base_District');
+        $global_params = $this -> makeParams('Base_District');
         $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
         $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
         return $result;
@@ -105,7 +109,7 @@ class wpwMovie
      * @return array
      */
     public function baseTradingArea(){
-        $global_params = $this -> makeGlobalParams('Base_TradingArea');
+        $global_params = $this -> makeParams('Base_TradingArea');
         $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
         $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
         return $result;
@@ -116,7 +120,7 @@ class wpwMovie
      * @return array
      */
     public function baseSubWay(){
-        $global_params = $this -> makeGlobalParams('Base_SubWay');
+        $global_params = $this -> makeParams('Base_SubWay');
         $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
         $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
         return $result;
@@ -127,7 +131,7 @@ class wpwMovie
      * @return array
      */
     public function baseCinemaLine(){
-        $global_params = $this -> makeGlobalParams('Base_CinemaLine');
+        $global_params = $this -> makeParams('Base_CinemaLine');
         $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
         $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
         return $result;
@@ -137,7 +141,7 @@ class wpwMovie
      * @return array
      */
     public function baseHall($cinema_id){
-        $global_params = $this -> makeGlobalParams('Base_Hall');
+        $global_params = $this -> makeParams('Base_Hall');
         $params['CinemaId'] = $cinema_id;
         $params = array_merge($global_params,$params);
         $str_param = $this -> httpRequest -> buildUrlQuery($params);
@@ -151,7 +155,7 @@ class wpwMovie
      * @return array
      */
     public function baseHallSeat($hall_id,$cinema_id){
-        $global_params = $this -> makeGlobalParams('Base_HallSeat');
+        $global_params = $this -> makeParams('Base_HallSeat');
         $params['CinemaId'] = $cinema_id;
         $params['HallID']   = $hall_id;
         $params = array_merge($global_params,$params);
@@ -167,7 +171,7 @@ class wpwMovie
      * @return array
      */
     public function baseSellSeat($show_index,$cinema_id){
-        $global_params = $this -> makeGlobalParams('Base_SellSeat');
+        $global_params = $this -> makeParams('Base_SellSeat');
         $params['HallID']   = $show_index;
         $params['CinemaId'] = $cinema_id;
         $params = array_merge($global_params,$params);
@@ -184,7 +188,7 @@ class wpwMovie
      * @return string
      */
     public function baseFilm($city_id,$date,$cinema_id){
-        $global_params = $this -> makeGlobalParams('Base_Film');
+        $global_params = $this -> makeParams('Base_Film');
         $params['CityID']   = $city_id;
         $params['Date']     = $date;
         $params['CinemaId'] = $cinema_id;
@@ -203,7 +207,7 @@ class wpwMovie
      */
 
     public function baseFilmIM($date,$cinema_id){
-        $global_params = $this -> makeGlobalParams('Base_FilmIM');
+        $global_params = $this -> makeParams('Base_FilmIM');
         $params['CityID']   = $city_id;
         $params['Date']     = $date;
         $params['CinemaId'] = $cinema_id;
@@ -220,7 +224,7 @@ class wpwMovie
      * @return array
      */
     public function doTarget($target,$params=array()){
-        $global_params = $this -> makeGlobalParams($target);
+        $global_params = $this -> makeParams($target);
         $params = array_merge($global_params,$params);
         $str_params = $this -> httpRequest -> buildUrlQuery($params);
         $result = $this -> httpRequest -> post($this->url,$str_params,'json','curl');

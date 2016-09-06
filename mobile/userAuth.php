@@ -8,6 +8,7 @@
 define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
+include_once(ROOT_PATH . 'includes/lib_basic.php');
 
 // 返回的数据
 $jsonArray = array(
@@ -92,11 +93,13 @@ if ($_REQUEST['act'] == 'actLogin')
         $GLOBALS['user']->set_cookie($username);
         $_SESSION['BalanceCash'] = $cardMoney;
 
+
         update_user_info();
         recalculate_price();
-        
+
         $jsonArray['data'] = $int_user;
         $jsonArray['data']['cityid'] = $_SESSION['cityid'];
+        $jsonArray['data']['index_ad'] = getBanner(42);
 
         JsonpEncode($jsonArray);
     }
@@ -133,4 +136,11 @@ elseif ($_REQUEST['act'] == 'logout')
 }
 
 
-
+function getBanner($id){
+    $banner = getNavadvs($id);
+    foreach ($banner as $key=>&$val)
+    {
+        $val['ad_code'] = getImagePath($val['ad_code'],'ad');
+    }
+    return $banner;
+}

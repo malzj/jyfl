@@ -154,8 +154,6 @@ function checkCardType( $username, $type, $source=0)
                      $image[] = $val;
                  }
              }
- 
-                 
          }
      }
      

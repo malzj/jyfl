@@ -52,10 +52,7 @@ img{display:inline-block;}
   <!--幻灯片-->
   <div id="carousel1" name="0">
 	<!-- TemplateBeginEditable name="首页flash广告1" -->
-    <!-- #BeginLibraryItem "/library/ad_position.lbi" -->
-    {insert name='ads' id=$ads_id num=$ads_num}
-     <!-- #EndLibraryItem -->
-    <!-- TemplateEndEditable -->
+<!-- TemplateEndEditable -->
   </div>
   <!--幻灯片结束-->
   <div style="width:1200px;margin:0 auto; height:auto; position:relative; " class="outer">  

@@ -26,6 +26,8 @@
 		/*临时首页公司图片*/
 		.mui-content{background-size: 100%;background-position-y: center;background-repeat: no-repeat;}
 		.dianshu{color: white;font-size: 16px;text-align: center;}
+		.poster{margin-bottom: 1rem;}
+		.poster img{height: 5rem;}
 		</style>
 	</head>
 	<body>
@@ -57,7 +59,6 @@
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
 			jQuery.ajaxJsonp(web_url+"/mobile/basic.php",{act:'navList'},function(result){
-				console.log(result);
 				if(result.state == 'false'){
 					jQuery.errorJudge(result.data,result.message,function(){
 						mui.back();	
@@ -68,11 +69,26 @@
 						jQuery('.mui-content').css('background-image', 'url(' + web_url + '/jyflapi/' + result.data.user_info.m_back_img + ')');
 					}
 					replaceHtml('.mui-draggable > .mui-inner-wrap header', template('public/footer', result.data));
+
+					var img= jQuery('.mui-slider-item:nth-child(2) img').attr('src');
+					var img1=jQuery('.mui-slider-item:nth-last-child(2) img').attr('src');
+					var href= jQuery('.mui-slider-item:nth-child(2) a').attr('href');
+					var href1=jQuery('.mui-slider-item:nth-last-child(2) a').attr('href');
+					jQuery('.slide-c img').attr('src',img);
+					jQuery('.slide-a img').attr('src',img1);
+					jQuery('.slide-c a').attr('href',href);
+					jQuery('.slide-a a').attr('href',href1);
+
+					//控制广告位轮播时间
+					mui('.mui-slider').slider({
+						interval:3000//自动轮播周期，若为0则不自动播放，默认为0；
+					});
+
 				}
 			},true);
 			jQuery('.index_address')[0].addEventListener('tap',function(){
 				jQuery.jumpTo('../address/address.html');
-			})
+			});
 		</script>
 	</body>
 

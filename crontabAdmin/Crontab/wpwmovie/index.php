@@ -12,4 +12,7 @@ require(ROOT_PATH . 'includes/lib_wpwMovieClass.php');
 
 $wpwMovie = new wpwMovie();
 
-$wpwMovie ->allCinema();
+$cinma_list = $wpwMovie ->getCinemas();
+echo "<pre>";
+print_r($cinma_list);
+echo "</pre>";

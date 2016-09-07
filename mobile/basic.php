@@ -55,6 +55,7 @@ elseif ($_REQUEST['act'] == 'getCityList')
 /*手机城市列表*/
 elseif($_REQUEST['act'] == 'getMobileCities'){
     $jsonArray['data'] = getMobileCities($_REQUEST['only_country']);
+    sort($jsonArray['data']);
     JsonpEncode($jsonArray);
 }
 

@@ -6,7 +6,14 @@
 		<script src="{$app_path}js/juyoufuli/jquery.min.js"></script>
 		<script src="{$app_path}js/juyoufuli/jquery.SuperSlide.2.1.1.source.js"></script>
         <script src="{$app_path}js/juyoufuli/stickUp.js"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js"></script>
+		<script src="{$app_path}js/baidumap.js"></script>
+        <script src="{$app_path}js/juyoufuli/laydate/laydate.js"></script>
         {insert_scripts files='jquery.common.js'}
+        <style>
+        	.show_baidumap,.show_baidumap .layui-layer-content {background:#FFF!important;}
+        </style>
 	</head>
 	<body>
         <!-- 头部 -->
@@ -45,7 +52,10 @@
 				<div class="cake2_top_right f_l">
 					<ul>
 						<li class="sport4_title">{$goods.goods_style_name}</li>
-						<li class="sport4_pri">价格：<span class="sport4_dianshu" id="ECS_GOODS_AMOUNT">0</span>点</li>
+						<li class="sport4_pri">
+                        	价格：<span class="sport4_dianshu" id="ECS_GOODS_AMOUNT">0</span>点 
+                            
+                        </li>
 						<li class="xuxian"></li>
                         {if !empty($specs)}
 						<li class="sport4_mar">
@@ -90,12 +100,15 @@
                           			  立即购买
                            </button>
                            <!--{else}-->
-                            <button class="sport4_btn input_submit bg_ff781e btn" type="button" onclick="addToCart({$goods.goods_id},'',5)" value="立即购买">
+                            <button class="sport4_btn input_submit bg_ff781e btn" type="button" onclick="addToCart({$goods.goods_id},'',5)" value="立即购买" >
                             <span class="lijigoumai"></span>
                           			  立即购买
                            </button>
-                            <button type="submit" class="sport4_btn input_submit bg_color btn zhuti_a_hover" onclick="MoveBox()" value="加入购物车" >
+                            <button type="submit" class="sport4_btn input_submit bg_color btn zhuti_a_hover" onclick="MoveBox()" value="加入购物车" style="margin-left:0px;">
                             <span class="lijigoumai_1"></span>加入购物车</button>
+                            {if $supplier.is_map eq 1}
+                            <span style="cursor:pointer;" class="show_yunfei"><img src="/images/juyoufuli/show_map.png"></span>
+                            {/if}
                             <!--{/if}-->
                         </li>
 					</ul>
@@ -128,7 +141,18 @@
 		<!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
         <!-- 公共右边结束 -->
         
-        <script>
+        <script>		
+			$('.show_yunfei').click(function(){
+				var id = '{$goods.supplier_id}';		
+				layer.open({
+				  type: 2,
+				  title: false,
+				  skin: 'show_baidumap',
+				  area:['800px','570px'],
+				  shadeClose: true,
+				  content: "{$app_path}flow.php?step=showYunfei&id="+id
+				});
+			});
 			jQuery(".sport4_list").slide({
 				titCell: ".hd ul",
 				mainCell: ".bd ul",

@@ -222,6 +222,7 @@ elseif ($action == 'act_login')
 		$GLOBALS['user']->set_session($username);
 		$GLOBALS['user']->set_cookie($username);
 		$_SESSION['BalanceCash'] = $cardMoney;
+		$_SESSION['source'] = empty($type) ? 1 : 2;   // 1 华影 2 聚优
 		
 		update_user_info();
 		recalculate_price();
@@ -239,6 +240,7 @@ elseif ($action == 'act_login')
 /* 退出会员中心 */
 elseif ($action == 'logout')
 {
+    $source = $_SESSION['source'];
     if ((!isset($back_act)|| empty($back_act)) && isset($GLOBALS['_SERVER']['HTTP_REFERER']))
     {
         $back_act = strpos($GLOBALS['_SERVER']['HTTP_REFERER'], 'user.php') ? './index.php' : $GLOBALS['_SERVER']['HTTP_REFERER'];
@@ -246,7 +248,12 @@ elseif ($action == 'logout')
 
     $user->logout();
     $ucdata = empty($user->ucdata)? "" : $user->ucdata;
-	header("Location: index.php");     
+    if ($source == 1){
+        header("Location:oldhy/index.html");
+    }else{
+        header("Location:index.php");
+    }
+	 
 }
 
 /* 个人资料页面 */

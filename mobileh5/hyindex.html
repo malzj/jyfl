@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="css/mui.min.css"/>
+    <link rel="stylesheet" href="css/jy_index.css">
+    <link rel="stylesheet" href="css/new_href.css"/>
+    <link rel="stylesheet" href="css/public.css" />
+    <link rel="stylesheet" href="css/hymain.css">
+    <script src="js/connection.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/jqueryExtend.js"></script>
+    <script src="js/bootstrap.min.js"></script> 
+    <script src="js/mui.min.js"></script>
+    <style>
+		html,body{
+			height: 100%;
+			background-image:url(/mobile/images/img/background.jpg);;
+			background-repeat: no-repeat;
+			font-size: 16px;
+			background-size: cover;
+		}
+		.bgs{
+			background-color: #2C2C2C;}
+		p{
+			letter-spacing: 4px;
+			font-weight: 600;
+			color: white;
+		}
+		.form-control{
+			    -webkit-box-shadow: none;
+    			box-shadow:none;
+		}
+		.tu{font-size: 20px;padding-right: 10px;border-right: 1px solid #908989;color: #868484;}
+	</style>
+</head>
+
+<body>
+
+	<div class="container ajax-content">
+		
+	</div>
+	<script>
+		mui.init();
+		jQuery.ajaxJsonp(web_url+"/mobile/userAuth.php",{act:'checkLogin',},function(data){
+			if(data.state == 'true'){
+				jQuery.jumpTo('index/jy_index.html');			
+			}else{
+				// 加载页面			
+				jQuery('.ajax-content').html(template('hylogin/login', data));
+			}			
+		},true);
+	
+	</script>
+</body>

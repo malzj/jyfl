@@ -32,7 +32,7 @@ $back_act='';
 
 // 不需要登录的操作或自己验证是否登录（如ajax处理）的act
 $not_login_arr =
-array('login','act_login','register','act_register','reyanzheng','act_edit_password','get_password','send_pwd_email','password', 'signin', 'add_tag', 'collect', 'return_to_cart', 'logout', 'email_list', 'validate_email', 'send_hash_mail', 'order_query', 'is_registered', 'check_email','clear_history','qpassword_name', 'get_passwd_question', 'check_answer');
+array('login','act_login','register','act_register','reyanzheng','act_edit_password','get_password','send_pwd_email','password', 'signin', 'add_tag', 'collect', 'return_to_cart', 'logout', 'email_list', 'validate_email', 'send_hash_mail', 'order_query', 'is_registered', 'check_email','clear_history','qpassword_name', 'get_passwd_question', 'check_answer', 'hylogin');
 
 /* 显示页面的action列表 */
 $ui_arr = array('register', 'login', 'profile','reyanzheng', 'order_list', 'order_detail', 'address_list', 'collection_list',
@@ -115,86 +115,13 @@ if ($action == 'default')
     
     $smarty->display('user_clips.dwt');
 }
+
+/* 华影登录 */
 elseif($action == 'hylogin')
 {
     $smarty->display('hylogin.dwt');
 }
-/* 处理会员的登录 */
-elseif ($action == 'act_hylogin')
-{
-    $username = isset($_POST['username']) ? trim($_POST['username']) : '';
-    $password = isset($_POST['password']) ? trim($_POST['password']) : '';
-    
-    //获取卡信息
-    $arr_param = array(	'CardInfo'=>array('CardNo'  => $username, 'CardPwd' => $password) );
-    $state = $cardPay->action($arr_param, 8);
-    
-    // 查询成功
-    if ($state == 0)
-    {
-        // 获得接口返回信息
-        $card_result = $cardPay->getResult();
-        // 华影卡处理结果
-        if ($cardPay->getCardType() == 1)
-        {
-            // 卡余额
-            $cardMoney = $card_result['Points'];
-            // 卡有效期
-            $cardOutTime = date('Y-m-d',strtotime($card_result['CardValieTime']));
-            $company_id = $card_result['CustomerID'];
-            if ($card_result['Status'] !=2)
-            {
-                exit('不是激活状态，请联系华影客服！');
-            }
-        }
-        // 中影卡处理结果
-        else
-        {
-            // 卡余额
-            $cardMoney = $card_result['BalanceCash'];
-            // 卡有效期
-            $cardOutTime = date('Y-m-d',strtotime($card_result['ExpDate']));
-            $company_id = 1;//现无公司字段，防止出错，默认1
-            if ($card_result['Status'] != '正常')
-            {
-                exit($card_result['Status']);
-            }
-        }
-    
-        // 执行本地操作
-        include_once(ROOT_PATH . 'includes/lib_passport.php');
-        $int_uid = $db->getOne('SELECT user_id FROM '.$ecs->table('users'). " WHERE user_name = '$username'");
-        if (empty($int_uid)){//插入用户信息
-            $reg_date = gmtime();
-            $last_ip  = real_ip();
-            //            设置默认值
-            $userheader = '/hy/images/headpic.png';
-            $basic = '保密';
-            $pass_edit = 0;
-            //			$GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`company_id`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$company_id."')");
-            $GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`nickname`,`basic`,`pass_edit`,`pic`,`company_id`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$username."','".$basic."','".$pass_edit."','".$userheader."','".$company_id."')");
-        }else{//更新用户信息
-            $GLOBALS['db']->query('UPDATE ' . $GLOBALS['ecs']->table("users") . " SET password='".md5($password)."', card_money = '$cardMoney', youxiao_time = '".$cardOutTime."' WHERE user_id = '$int_uid'");
-        }
-    
-    
-        //设置本站登录成功
-        $GLOBALS['user']->set_session($username);
-        $GLOBALS['user']->set_cookie($username);
-        $_SESSION['BalanceCash'] = $cardMoney;
-    
-        update_user_info();
-        recalculate_price();
-        echo 'success';
-        exit;
-    
-    }
-    else
-    {
-        exit($cardPay->getMessage());
-    }
-    
-}
+
 /* 用户登录界面 */
 elseif ($action == 'login')
 {
@@ -282,12 +209,14 @@ elseif ($action == 'act_login')
 			$GLOBALS['db']->query('UPDATE ' . $GLOBALS['ecs']->table("users") . " SET password='".md5($password)."', card_money = '$cardMoney', youxiao_time = '".$cardOutTime."', card_password='".$password."' WHERE user_id = '$int_uid'");
 		}
 		
-		
-		// 卡类型判断
-		if ( checkCardType($username, $type) == false )
+		if ( !empty($type) )
 		{
-		    exit( '卡类型不符，请从新选择并登录！' );
-		}	
+    		// 卡类型判断
+    		if ( checkCardType($username, $type) == false )
+    		{
+    		    exit( '卡类型不符，请从新选择并登录！' );
+    		}	
+    	}
 		
 		//设置本站登录成功
 		$GLOBALS['user']->set_session($username);

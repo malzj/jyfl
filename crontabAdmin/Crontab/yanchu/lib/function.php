@@ -191,7 +191,7 @@ function generateInsert( $insert )
 		$insertString .= '(';
 		foreach ($value as $key=>$val)
 		{
-			$insertString .= "'$val',";
+			$insertString .=  !is_array($val) ? "'$val'," : "''," ;
 		}
 		$insertString = substr($insertString, 0 , strlen($insertString)-1);
 		$insertString .='),';
@@ -210,7 +210,7 @@ function arrayOnlySort( $sortArray, $sortKey)
 		{
 			foreach ($sortKey as $sk=>$sv)
 			{
-				$returnArray[$key][$sv] = @$val[$sv];
+				$returnArray[$key][$sv] = addslashes(@$val[$sv]);
 			}
 		}		
 	}

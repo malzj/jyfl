@@ -229,7 +229,8 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
         $smarty->assign('keywords',           htmlspecialchars($goods['keywords']));
         $smarty->assign('description',        htmlspecialchars($goods['goods_brief']));
 
-
+        $smarty->assign('supplier',        get_supplier_byid($goods['supplier_id']));
+        
         $catlist = array();
         foreach(get_parent_cats($goods['cat_id']) as $k=>$v)
         {
@@ -692,5 +693,12 @@ function get_cat_info($cat_id)
     return $GLOBALS['db']->getRow('SELECT cat_name,measure_unit, keywords, cat_desc, style, grade, filter_attr, parent_id FROM ' . $GLOBALS['ecs']->table('category') .
         " WHERE cat_id = '$cat_id'");
 }
+
+function get_supplier_byid($id)
+{
+    return $GLOBALS['db']->getRow('SELECT * FROM ' . $GLOBALS['ecs']->table('supplier') .
+        " WHERE supplier_id = '$id'");
+}
+
 
 ?>

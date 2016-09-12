@@ -491,13 +491,13 @@ elseif ($_REQUEST ['act'] == 'order') {
     				    'Q' . $row => 1,
     				    'R' . $row => $val ['market_cost_price'],
     				    'S' . $row => 0,
-    				    'T' . $row => ' ',//$val ['cost_price'],
+    				    'T' . $row => $val['market_price'],//$val ['cost_price'],
     				    'U' . $row => ' ',//$val ['cost_ratio'],
     				     
     				    'V' . $row => $val ['order_status_cn'],
     				    'W' . $row => '演出订单',
     				    'X' . $row => $val ['shipping_fee'],
-    				    'Y' . $row => ' ',
+    				    'Y' . $row => $val ['api_order_sn'],
     				    'Z' . $row => $val['ext'] == 1 ? "1.19" : '0.97',
     				    'AA'. $row => ' '						
 				);

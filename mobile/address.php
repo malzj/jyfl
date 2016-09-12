@@ -69,8 +69,7 @@ elseif ($_REQUEST['act'] == 'AjaxEditress')
         JsonpEncode($jsonArray);
     }
 
-    $jsonArray['state'] = 'false';
-    $jsonArray['message'] = '收货地址为空';
+    $jsonArray['data']['consignee'] = array();
     JsonpEncode($jsonArray);    
 }
 // 保存收货地址

@@ -108,7 +108,7 @@ elseif ($_REQUEST['act'] == 'show')
 	// 如果下架了，返回上一页
 	if($arr_itemInfo['ifShow'] == 0)
 	{
-		show_message('您访问的项目已经下架！请选择其他项目');
+		show_message('您访问的项目已经售罄！请选择其他项目');
 	}
 	else 
 	{

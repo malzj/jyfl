@@ -6,7 +6,7 @@
 		<link type="text/css" rel="stylesheet" href="css/index1.css" />
 		<link rel="shortcut icon" href="juyoufuli.ico">
 		<!--<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />-->
-		<link rel='stylesheet prefetch' href='http://libs.useso.com/js/font-awesome/4.2.0/css/font-awesome.min.css'>
+		
 		<link rel="stylesheet" href="css/styles.css">
 		<link href="css/bootstrap.min.css" rel="stylesheet" />
 		<link href="css/index.css" rel="stylesheet" />
@@ -608,32 +608,6 @@
 			//			滚动屏幕蒙层消失
 			$(document).scroll(function() {
 				$('.mengc').css('opacity', '0');
-			});
-
-			//记录用户卡号渲染
-			var user_name = getCookie('username');
-			$('input[name="username"]').val(user_name);
-
-			$(".btn-default").click(function() {
-				var _that = $(this).closest('form');
-				var username = _that.find("input[name='username']").val();
-				var password = _that.find("input[name='password']").val();
-				var type = _that.find("input[name='type']").val();
-				$.ajax({
-					url: "../user.php?act=act_login",
-					type: "POST",
-					data: 'username=' + username + '&password=' + password + '&type=' + type,
-					success: function(result) {
-						if (result == 'success') {
-							setCookie('username',username,'d30');
-							window.location.href = "../user.php";
-						} else {
-							alert(result);
-							return false;
-						}
-					}
-
-				});
 			});
 
 			//设置cookie

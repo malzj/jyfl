@@ -23,18 +23,45 @@ class wpwMovie
     }
 
     /**
+     * 请求接口函数
+     * @param $res_params   请求参数
+     * @return array
+     */
+    private function sendRequest($res_params){
+        $start=microtime(true);
+        $str_param = $this -> httpRequest -> buildUrlQuery($res_params);
+        $result = $this -> httpRequest -> curl($this->url,$str_param,'POST');
+        $end = microtime(true);
+        echo round($end-$start,3);
+        return json_decode($result,true);
+    }
+    /**
      * 生成签名后参数
      * @param $target   操作命令
      * @return string
      */
     protected function makeParams($params){
+        $params['UserName'] = $this -> username;
         ksort($params,SORT_STRING);
         $str_params = implode($params);
-        $str_params = $this -> username.$str_params.$this->key;
+        $str_params = $str_params.$this->key;
         $sign = md5($str_params);
-        $params['UserName'] = $this -> username;
         $params['Sign'] = $sign;
         return $params;
+    }
+
+    /**
+     * 执行请求接口命令
+     * TODO:以下方法皆可用此方法实现
+     * @param $target   操作命令
+     * @param $params   参数
+     * @return array
+     */
+    public function doTarget($target,$params=array()){
+        $params['Target'] = $target;
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
+        return $result;
     }
 
     /**
@@ -43,13 +70,9 @@ class wpwMovie
      * @return array
      */
     public function getCinemas($target='Base_Cinema'){
-        $params = array(
-            'Target' => $target
-        );
-        $params = $this -> makeParams($params);
-        $str_param = $this -> httpRequest -> buildUrlQuery($params);
-        echo $str_param;
-        $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
+        $params['Target'] = $target;
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
 
@@ -60,14 +83,13 @@ class wpwMovie
      * @param $film_id  影片标识
      * @return array
      */
-    public function baseCinemaQuery($city_id,$date,$film_id){
-        $global_params = $this -> makeParams('Base_CinemaQuery');
+    public function baseCinemaQuery($city_id,$date,$film_id=''){
+        $params['Target'] = 'Base_CinemaQuery';
         $params['CityID'] = $city_id;
         $params['Date'] = $date;
-        $params['FilmID'] = $film_id;
-        $params = array_merge($global_params,$params);
-        $str_param = $this -> httpRequest -> buildUrlQuery($params);
-        $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
+        $params['FilmID'] = empty($film_id)?'':$film_id;
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
 
@@ -76,9 +98,9 @@ class wpwMovie
      * @return array
      */
     public function baseCity(){
-        $global_params = $this -> makeParams('Base_City');
-        $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
-        $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
+        $params['Target'] = 'Base_City';
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
 
@@ -87,9 +109,9 @@ class wpwMovie
      * @return array
      */
     public function baseCityBll(){
-        $global_params = $this -> makeParams('Base_CityBll');
-        $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
-        $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
+        $params['Target'] = 'Base_CityBll';
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
 
@@ -98,9 +120,9 @@ class wpwMovie
      * @return array
      */
     public function baseDistrict(){
-        $global_params = $this -> makeParams('Base_District');
-        $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
-        $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
+        $params['Target'] = 'Base_District';
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
 
@@ -109,9 +131,9 @@ class wpwMovie
      * @return array
      */
     public function baseTradingArea(){
-        $global_params = $this -> makeParams('Base_TradingArea');
-        $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
-        $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
+        $params['Target'] = 'Base_TradingArea';
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
 
@@ -120,9 +142,9 @@ class wpwMovie
      * @return array
      */
     public function baseSubWay(){
-        $global_params = $this -> makeParams('Base_SubWay');
-        $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
-        $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
+        $params['Target'] = 'Base_SubWay';
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
 
@@ -131,9 +153,9 @@ class wpwMovie
      * @return array
      */
     public function baseCinemaLine(){
-        $global_params = $this -> makeParams('Base_CinemaLine');
-        $str_param = $this -> httpRequest -> buildUrlQuery($global_params);
-        $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
+        $params['Target'] = 'Base_CinemaLine';
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
     /**
@@ -141,11 +163,10 @@ class wpwMovie
      * @return array
      */
     public function baseHall($cinema_id){
-        $global_params = $this -> makeParams('Base_Hall');
+        $params['Target'] = 'Base_Hall';
         $params['CinemaId'] = $cinema_id;
-        $params = array_merge($global_params,$params);
-        $str_param = $this -> httpRequest -> buildUrlQuery($params);
-        $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
     /**
@@ -155,12 +176,11 @@ class wpwMovie
      * @return array
      */
     public function baseHallSeat($hall_id,$cinema_id){
-        $global_params = $this -> makeParams('Base_HallSeat');
+        $params['Target'] = 'Base_HallSeat';
         $params['CinemaId'] = $cinema_id;
         $params['HallID']   = $hall_id;
-        $params = array_merge($global_params,$params);
-        $str_param = $this -> httpRequest -> buildUrlQuery($params);
-        $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
 
@@ -171,63 +191,128 @@ class wpwMovie
      * @return array
      */
     public function baseSellSeat($show_index,$cinema_id){
-        $global_params = $this -> makeParams('Base_SellSeat');
-        $params['HallID']   = $show_index;
+        $params['Target'] = 'Base_SellSeat';
+        $params['ShowIndex']   = $show_index;
         $params['CinemaId'] = $cinema_id;
-        $params = array_merge($global_params,$params);
-        $str_param = $this -> httpRequest -> buildUrlQuery($params);
-        $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
 
     /**
      * 正在上映的影片信息查询
-     * @param $city_id      城市标识
-     * @param $date         日期，如（2012-06-06）,默认为当天
-     * @param $cinema_id    影院标识
+     * @param $city_id      城市标识(可空）
+     * @param $date         日期，如（2012-06-06）,默认为当天（可空）
+     * @param $cinema_id    影院标识（可空）
      * @return string
      */
-    public function baseFilm($city_id,$date,$cinema_id){
-        $global_params = $this -> makeParams('Base_Film');
+    public function baseFilm($city_id='',$date='',$cinema_id=''){
+        $params['Target'] = 'Base_Film';
         $params['CityID']   = $city_id;
         $params['Date']     = $date;
         $params['CinemaId'] = $cinema_id;
-        $params = array_merge($global_params,$params);
-        $str_param = $this -> httpRequest -> buildUrlQuery($params);
-        $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
 
     /**
      * 即将上映的影片信息查询
-     * @param $city_id      城市标识
-     * @param $date         日期，如（2012-06-06）,默认为当天
-     * @param $cinema_id    影院标识
+     * @param $date         日期，如（2012-06-06）,默认为当天(可空）
+     * @param $cinema_id    影院标识(可空）
      * @return string
      */
 
-    public function baseFilmIM($date,$cinema_id){
-        $global_params = $this -> makeParams('Base_FilmIM');
-        $params['CityID']   = $city_id;
+    public function baseFilmIM($date='',$cinema_id=''){
+        $params['Target'] = 'Base_FilmIM';
         $params['Date']     = $date;
         $params['CinemaId'] = $cinema_id;
-        $params = array_merge($global_params,$params);
-        $str_param = $this -> httpRequest -> buildUrlQuery($params);
-        $result = $this -> httpRequest -> post($this->url,$str_param,'json','curl');
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
 
     /**
-     * 执行请求接口命令
-     * @param $target   操作命令
-     * @param $params   参数
+     * 影片预告查询
+     * @param $film_id  影片标识
      * @return array
      */
-    public function doTarget($target,$params=array()){
-        $global_params = $this -> makeParams($target);
-        $params = array_merge($global_params,$params);
-        $str_params = $this -> httpRequest -> buildUrlQuery($params);
-        $result = $this -> httpRequest -> post($this->url,$str_params,'json','curl');
+    public function baseFilmHE($film_id){
+        $params['Target'] = 'Base_FilmHE';
+        $params['FilmID']     = $film_id;
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
+        return $result;
+    }
+
+    /**
+     * 放映计划查询
+     * @param $cinema_id        影院ID
+     * @param $date             日期，格式：yyyy-MM-dd HH:mm:ss
+     * @param string $film_id   影片ID,可为空（默认空）
+     * @return array
+     */
+    public function baseFilmShow($cinema_id,$date,$film_id=''){
+        $params['Target'] = 'Base_FilmShow';
+        $params['CinemaID']     = $cinema_id;
+        $params['Date']     = $date;
+        $params['FilmID']     = $film_id;
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
+        return $result;
+    }
+
+    /**
+     * 影片剧照查询
+     * @param $film_id  电影ID
+     * @return array
+     */
+    public function baseFilmPhotos($film_id){
+        $params['Target'] = 'Base_FilmPhotos';
+        $params['FilmID'] = $film_id;
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
+        return $result;
+    }
+
+    /**
+     * 全国影讯查询
+     * @param $cinema_id    影院标识（可空）
+     * @param $city_id      城市标识(可空）
+     * @return array
+     */
+    public function baseFilmView($cinema_id='',$city_id=''){
+        $params['Target'] = 'Base_FilmView';
+        $params['CinemaID'] = $cinema_id;
+        $params['CityID'] = $city_id;
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
+        return $result;
+    }
+
+    /**
+     * 在线影讯有效性
+     * @param $cinema_id        影院标识
+     * @param $date             放映日期
+     * @param $show_index       放映流水号，多个用逗号隔开
+     * @return array
+     */
+    public function baseFilmShowCheck($cinema_id,$date,$show_index){
+        $params['Target'] = 'Base_FilmShowCheck';
+        $params['CinemaID'] = $cinema_id;
+        $params['Date'] = $date;
+        $params['ShowIndex'] = $show_index;
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
+        return $result;
+    }
+
+    public function baseWLanCheck($sTime,$des){
+        $params['Target'] = 'Base_WLanCheck';
+        $params['STime'] = $sTime;
+        $params['Des'] = $des;
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
         return $result;
     }
 }

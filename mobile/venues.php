@@ -6,7 +6,7 @@ define('IN_ECS', true);
  *  TICKET  （只显示门票）
  *  VENUES  （只显示场地）
  */
-define('SHOW_TYPE', 'VENUES');
+define('SHOW_TYPE', 'ALL');
 require(dirname(__FILE__) . '/includes/init.php');
 require(dirname(__FILE__) . '/includes/lib_venues.php');
 include_once(ROOT_PATH . 'includes/lib_basic.php');

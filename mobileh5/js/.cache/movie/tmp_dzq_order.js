@@ -1,4 +1,4 @@
-/*TMODJS:{"version":22,"md5":"485a9e173006633084e098b4dfb25f61"}*/
+/*TMODJS:{"version":24,"md5":"485a9e173006633084e098b4dfb25f61"}*/
 template('movie/tmp_dzq_order',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,TicketName=$data.TicketName,TicketYXQ=$data.TicketYXQ,sjprice=$data.sjprice,number=$data.number,mobile=$data.mobile,user_name=$data.user_name,order_id=$data.order_id,$out='';$out+='<ul class="mui-table-view"> <li class="mui-table-view-cell"><h4 class="mui-pull-left">类型</h4><p class="mui-pull-right">';

@@ -21,19 +21,25 @@
     <div class="margin_top_10">
         <div class="bg_white">
             <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted">
-                <a class="mui-control-item mui-active" href="#item1">羽毛球</a>
+                <a class="mui-control-item mui-active" href="#item1">场地</a>
                 <a class="mui-control-item" href="#item2">门票</a>
             </div>
         </div>
         <div id="item1" class="mui-control-content sports_details_item1 mui-active bg_white">
             <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
                 <div class="mui-scroll">
+                    {{if venues.length}}
                     {{each venues as venue}}
                     <a class="mui-control-item href_click" data-href="./sports_venue.html?venueId={{venueId}}&infoId={{venue.infoId}}&orderDate={{venue.date}}">
                         <span>{{venue.date_mt}}</span>
                         <div class="color_8f8f94"><span class="sports_details_date">{{venue.week}}</span><span class="color_coral">{{venue.salePrice}}</span>点起</div>
                     </a>
                     {{/each}}
+                    {{else}}
+                        <div class="mui-row">
+                            亲，这里没有场地，看看门票吧！
+                        </div>
+                    {{/if}}
                 </div>
             </div>
         </div>

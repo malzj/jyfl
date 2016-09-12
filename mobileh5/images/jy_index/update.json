@@ -1,0 +1,13 @@
+﻿{
+	"appid":"H531E8E9F",
+    "iOS":{
+    	"version":"1.2.5",
+    	"note":"，整包更新",
+    	"url":"http://a.app.qq.com/o/simple.jsp?pkgname=io.dcloud.H5C8BBB5D"
+    },
+    "Android":{
+    	"version":"1.2.5",
+    	"note":"测试更新，整包更新",
+    	"url":"http://a.app.qq.com/o/simple.jsp?pkgname=io.dcloud.H5C8BBB5D"
+    }
+}

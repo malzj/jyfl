@@ -1,4 +1,4 @@
-/*TMODJS:{"version":44,"md5":"828ab1df0907e85473ae2244ffecf4b7"}*/
+/*TMODJS:{"version":46,"md5":"828ab1df0907e85473ae2244ffecf4b7"}*/
 template('cake/detail',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,data=$data.data,$each=$utils.$each,$value=$data.$value,$index=$data.$index,$escape=$utils.$escape,spec=$data.spec,propertie=$data.propertie,value=$data.value,$string=$utils.$string,$out='';$out+=' <nav class="mui-bar mui-bar-tab mui-row"> <div class="mui-col-xs-5"> <a class="mui-tab-item border_right_ddd jump-home" href="#"> <span class="mui-icon mui-icon-home"></span> <span class="mui-tab-label">首页</span> </a> <a class="mui-tab-item border_right_ddd jump-cart" href="#"> <span class="mui-icon iconfont icon-gouwuche"></span> <span class="mui-tab-label">购物车</span> <span class="mui-badge mui-badge-danger buy_car_count">0</span> </a>  </div> <div class="mui-col-xs-7"> <a class="mui-tab-item footer_liji act-done" href="#"> <span class="mui-tab-label">立即结算</span> </a> <a class="mui-tab-item footer_jiaru act-cart" href="#"> <span class="mui-tab-label">加入购物车</span> </a> </div> </nav>  <div class="mui-content"> ';

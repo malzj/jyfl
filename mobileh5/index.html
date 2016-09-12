@@ -166,6 +166,16 @@
 <script>
 
     jQuery(function () {
+        if(localStorage.user_id != undefined&&localStorage.user_id!=''){
+            jQuery.ajaxJsonp(web_url + '/mobile/userAuth.php?act=checkLogin',{userid:localStorage.user_id},function(result){
+                if(result.state=='true'){
+                    jQuery.jumpTo('./index/jy_index.html','','',true);
+                    return false;
+                }else if(result.state=='false'){
+                    return false;
+                }
+            });
+        }
         jQuery('input[name="username"]').val(localStorage.user_name);
         mui('body').on("tap",".login_btn",function () {
             var form = jQuery(this).parent("form");
@@ -182,11 +192,11 @@
                             jQuery('.index_ad').css('display','block');
                             //进入首页的广告图片3秒消失
                             setTimeout(function(){
-                                        jQuery.jumpTo('./index/jy_index.html');
+                                        jQuery.jumpTo('./index/jy_index.html','','',true);
                                     },
                                     3000);
                         }else{
-                            jQuery.jumpTo('./index/jy_index.html');
+                            jQuery.jumpTo('./index/jy_index.html','','',true);
                         }
 
                     } else {

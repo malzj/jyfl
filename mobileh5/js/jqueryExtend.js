@@ -112,8 +112,9 @@
         * @param url    跳转链接
         * @param id     新页面id
         * @param ext    扩展变量json对象（{id:'id'})
+        * @param createnew    是否重复创建窗口默认false
         */
-       jumpTo:function(url,id,ext){
+       jumpTo:function(url,id,ext,createnew){
            var data = new Object();
            data['url'] = url;
            if(id){
@@ -122,6 +123,7 @@
            if(ext){
                data['extras'] = ext;
            }
+           data['createNew'] = createnew?true:false;
            mui.openWindow(data);
        }
    })

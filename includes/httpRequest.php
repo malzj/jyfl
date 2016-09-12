@@ -59,7 +59,7 @@ class HttpRequest{
 				}else if ($response = $this->fopen($str_url, $mix_data, 'POST', $str_contentType)){
 				}
 		}
-		return $response;
+//		return $response;
 		return $this->parseResponse($response, $str_ext);
 	}
 	

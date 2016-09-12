@@ -1,4 +1,4 @@
-/*TMODJS:{"version":21,"md5":"b0720f4cf0c8b434426db3c831b4ba47"}*/
+/*TMODJS:{"version":23,"md5":"b0720f4cf0c8b434426db3c831b4ba47"}*/
 template('address/tmp_address',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,data=$data.data,value=$data.value,key=$data.key,val=$data.val,k=$data.k,$escape=$utils.$escape,city=$data.city,cid=$data.cid,$out='';$out+='<div class="mui-indexed-list-inner"> <div class="mui-indexed-list-empty-alert">没有数据</div> <ul class="mui-table-view"> ';

@@ -200,7 +200,7 @@ elseif ($action == 'act_login')
 			$reg_date = gmtime();
 			$last_ip  = real_ip();
 //            设置默认值
-            $userheader = '/hy/images/headpic.png';
+            $userheader = 'http://www.juyoufuli.com/hy/images/headpic.png';
             $basic = '保密';
             $pass_edit = 0;
 //			$GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`company_id`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$company_id."')");

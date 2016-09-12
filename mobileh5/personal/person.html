@@ -68,8 +68,10 @@
 				jQuery.ajaxJsonp(web_url+"/jyflapi/index.php/Users/UserJsonp/usershow",
 					{user_id:localStorage.user_id},
 					function(data) {
+//						console.log(data);
 						data.business.sexcn = (data.business.sex == 1) ? "男" : "女";
 						userInfo = data.business;
+						jQuery('.person_touxiang img').attr('src',data.business.pic);
 						jQuery('#person_user').text(userInfo.user_name);
 						jQuery('#person_name').text(userInfo.nickname);
 						jQuery('#person_sex').text(userInfo.sexcn);

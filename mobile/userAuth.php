@@ -8,6 +8,7 @@
 define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
+include_once(ROOT_PATH . 'includes/lib_basic.php');
 
 // 返回的数据
 $jsonArray = array(
@@ -71,7 +72,7 @@ if ($_REQUEST['act'] == 'actLogin')
             $reg_date = gmtime();
             $last_ip  = real_ip();
             //设置默认值
-            $userheader = '/hy/images/headpic.png';
+            $userheader = 'http://www.juyoufuli.com/hy/images/headpic.png';
             $basic = '保密';
             $pass_edit = 0;
             $GLOBALS['db']->query('INSERT INTO ' . $GLOBALS['ecs']->table("users") . "(`user_name`, `password`, `card_money`, `reg_time`, `last_login`, `last_ip`, `youxiao_time`,`nickname`,`basic`,`pass_edit`,`pic`,`company_id`) VALUES ('$username', '".md5($password)."', '$cardMoney', '$reg_date', '$reg_date', '$last_ip', '".$cardOutTime."','".$username."','".$basic."','".$pass_edit."','".$userheader."','".$company_id."')");
@@ -95,11 +96,13 @@ if ($_REQUEST['act'] == 'actLogin')
         $GLOBALS['user']->set_cookie($username);
         $_SESSION['BalanceCash'] = $cardMoney;
 
+
         update_user_info();
         recalculate_price();
-        
+
         $jsonArray['data'] = $int_user;
         $jsonArray['data']['cityid'] = $_SESSION['cityid'];
+        $jsonArray['data']['index_ad'] = getBanner(42);
 
         JsonpEncode($jsonArray);
     }
@@ -136,4 +139,11 @@ elseif ($_REQUEST['act'] == 'logout')
 }
 
 
-
+function getBanner($id){
+    $banner = getNavadvs($id);
+    foreach ($banner as $key=>&$val)
+    {
+        $val['ad_code'] = getImagePath($val['ad_code'],'ad');
+    }
+    return $banner;
+}

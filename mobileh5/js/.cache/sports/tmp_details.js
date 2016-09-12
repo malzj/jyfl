@@ -1,4 +1,4 @@
-/*TMODJS:{"version":53,"md5":"679819bcedda3b6a3ac631ef60b39d0c"}*/
+/*TMODJS:{"version":62,"md5":"c29b882b11c6d0a93cce687c9233f269"}*/
 template('sports/tmp_details',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,imgList=$data.imgList,img=$data.img,key=$data.key,$escape=$utils.$escape,detail=$data.detail,venues=$data.venues,venue=$data.venue,$index=$data.$index,venueId=$data.venueId,ticket=$data.ticket,tic=$data.tic,$out='';$out+='<div class="mui-content"> <div class="sports_details_top bg_white mui-clearfix"> <div class="mui-content-padded mui-pull-left"> ';
@@ -26,7 +26,9 @@ if(detail.tel400){
 $out+='转 ';
 $out+=$escape(detail.tel400);
 }
-$out+='</a></div> </div> <div class="margin_top_10"> <div class="bg_white"> <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted"> <a class="mui-control-item mui-active" href="#item1">羽毛球</a> <a class="mui-control-item" href="#item2">门票</a> </div> </div> <div id="item1" class="mui-control-content sports_details_item1 mui-active bg_white"> <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"> <div class="mui-scroll"> ';
+$out+='</a></div> </div> <div class="margin_top_10"> <div class="bg_white"> <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted"> <a class="mui-control-item mui-active" href="#item1">场地</a> <a class="mui-control-item" href="#item2">门票</a> </div> </div> <div id="item1" class="mui-control-content sports_details_item1 mui-active bg_white"> <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"> <div class="mui-scroll"> ';
+if(venues.length){
+$out+=' ';
 $each(venues,function(venue,$index){
 $out+=' <a class="mui-control-item href_click" data-href="./sports_venue.html?venueId=';
 $out+=$escape(venueId);
@@ -42,6 +44,10 @@ $out+='</span><span class="color_coral">';
 $out+=$escape(venue.salePrice);
 $out+='</span>点起</div> </a> ';
 });
+$out+=' ';
+}else{
+$out+=' <div class="mui-row"> 亲，这里没有场地，看看门票吧！ </div> ';
+}
 $out+=' </div> </div> </div> <div id="item2" class="mui-control-content sports_details_item2"> <ul class="mui-table-view"> ';
 if(ticket.length){
 $out+=' ';

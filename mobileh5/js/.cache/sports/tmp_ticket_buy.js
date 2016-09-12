@@ -1,4 +1,4 @@
-/*TMODJS:{"version":19,"md5":"d13513d38f82908a06185604e1538575"}*/
+/*TMODJS:{"version":22,"md5":"d13513d38f82908a06185604e1538575"}*/
 template('sports/tmp_ticket_buy',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,detail=$data.detail,img=$data.img,key=$data.key,$escape=$utils.$escape,$out='';$out+='<div class="mui-content"> <div class="sports_details_top bg_white mui-clearfix"> <div class="mui-content-padded mui-pull-left"> ';

@@ -48,6 +48,19 @@
 <!--弹层蒙版-->
 <div class="popUp_row" style="z-index:10">
 	<div class="mui-row popUp_content">
+		{{if nav_banner.length != 0}}
+		<!--轮播广告位-->
+		<div class="mui-slider poster">
+			<div class="mui-slider-group mui-slider-loop">
+				<!--支持循环，需要重复图片节点-->
+				<div class="mui-slider-item mui-slider-item-duplicate slide-a"><a href="javascript:void(0)"><img src="" /></a></div>
+				{{each nav_banner as banner}}
+				<div class="mui-slider-item"><a href="{{banner.ad_link}}"><img src="{{banner.ad_code}}" /></a></div>
+				{{/each}}
+				<div class="mui-slider-item mui-slider-item-duplicate slide-c"><a href="javascript:void(0)"><img src="" /></a></div>
+			</div>
+		</div>
+		{{/if}}
 		{{each nav_list as nav}}
 		<div class="mui-col-xs-3 popUp_item">
 			<a class="popUp_item_bg" id="popUp_item_bg{{nav.id}}" data-id="{{nav.id}}">
@@ -56,12 +69,6 @@
 			<p class="mui-text-center">{{nav.name}}</p>
 		</div>
 		{{/each}}
-		<div class="mui-col-xs-3 popUp_item">
-			<a class="popUp_item_bg" style="background-color: #f15a4a" data-id="haolil">
-				<img src="../images/icon/nav/nav-16.svg"/>
-			</a>
-			<p class="mui-text-center">好利来</p>
-		</div>
 	</div>
 	<div class="popUp_close">
 		<img src="../images/icon/nav/popUp_close.svg"/>
@@ -70,7 +77,6 @@
 <script>
 	mui('#offCanvasSideScroll').scroll();
 	mui('#offCanvasSideScroll1').scroll();
-		
 	mui('#logout')[0].addEventListener('tap',function(){
 
 		jQuery.ajaxJsonp(web_url +'/mobile/userAuth.php',{
@@ -144,8 +150,6 @@
 			case '40':	jumpTohref = app_path+'life/yindex.html'; break;
 			/* 味多美 */
 			case '41':	jumpTohref = app_path+'cake/list.html?id=27'; break;
-			/*好利来*/
-			case 'haolil':	jumpTohref = app_path+'tdcode/two_d_code.html'; break;
 		}
 		if(jQuery.trim(jumpTohref)){
 			mui.openWindow({
@@ -153,9 +157,7 @@
 				id:'cate-'+navid
 			});
 		}
-		
 	});
 	
 	jQuery.hrefClick();
-	
 </script>

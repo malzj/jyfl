@@ -15,9 +15,13 @@
     <script src="js/mui.min.js"></script>
     <style>
         .mui-pages {top:0;}
+        /*广告位样式*/
+        .index_ad{width: 100%;height: 100%;display:none;position:absolute;top:0;left: 0;z-index: 10000}
+        .index_ad img{width: 100%;height: 100%;}
     </style>
 </head>
 <body class="mui-fullscreen">
+<div class="index_ad"><img /></div>
 <!--页面主结构开始-->
 <div id="login_index" class="mui-views">
     <div class="mui-view">
@@ -162,6 +166,16 @@
 <script>
 
     jQuery(function () {
+        if(localStorage.user_id != undefined&&localStorage.user_id!=''){
+            jQuery.ajaxJsonp(web_url + '/mobile/userAuth.php?act=checkLogin',{userid:localStorage.user_id},function(result){
+                if(result.state=='true'){
+                    jQuery.jumpTo('./index/jy_index.html','','',true);
+                    return false;
+                }else if(result.state=='false'){
+                    return false;
+                }
+            });
+        }
         jQuery('input[name="username"]').val(localStorage.user_name);
         mui('body').on("tap",".login_btn",function () {
             var form = jQuery(this).parent("form");
@@ -173,8 +187,18 @@
                 if (result.state == "true") {
                         localStorage.user_id = result.data.user_id;
                         localStorage.user_name = result.data.user_name;
-                        jQuery.jumpTo('./index/jy_index.html');
-						
+                        if(result.data.index_ad.length != 0){
+                            jQuery('.index_ad img').attr('src',result.data.index_ad[0].ad_code);
+                            jQuery('.index_ad').css('display','block');
+                            //进入首页的广告图片3秒消失
+                            setTimeout(function(){
+                                        jQuery.jumpTo('./index/jy_index.html','','',true);
+                                    },
+                                    3000);
+                        }else{
+                            jQuery.jumpTo('./index/jy_index.html','','',true);
+                        }
+
                     } else {
                         mui.alert(result.message);
                     }

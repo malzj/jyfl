@@ -81,17 +81,21 @@ if ($_REQUEST['act'] == 'actLogin')
         }
 
         // 卡类型判断
-        if ( checkCardType($username, $type) == false )
+        if( !empty($type) )
         {
-            $jsonArray['state'] = 'false';
-            $jsonArray['message'] = '卡类型不符，请从新选择并登录';
-            JsonpEncode($jsonArray);    
+            if ( checkCardType($username, $type) == false )
+            {
+                $jsonArray['state'] = 'false';
+                $jsonArray['message'] = '卡类型不符，请从新选择并登录';
+                JsonpEncode($jsonArray);    
+            }
         }
-
+        
         //设置本站登录成功
         $GLOBALS['user']->set_session($username);
         $GLOBALS['user']->set_cookie($username);
         $_SESSION['BalanceCash'] = $cardMoney;
+        $_SESSION['source'] = empty($type) ? 1 : 2;   // 1 华影 2 聚优
 
 
         update_user_info();
@@ -114,7 +118,7 @@ if ($_REQUEST['act'] == 'actLogin')
 // 登录验证
 elseif ($_REQUEST['act']=='checkLogin')
 {
-    if ($_SESSION['user_id'] && $_SESSION['user_id'] == $_REQUEST['userid'])
+    if ($_SESSION['user_id'])
     {
         $usernames = userinfo($_SESSION['user_name']);        
         $jsonArray['data'] = $usernames;
@@ -131,7 +135,9 @@ elseif ($_REQUEST['act']=='checkLogin')
 // 登出
 elseif ($_REQUEST['act'] == 'logout')
 {
+    $source = $_SESSION['source'];
     $user->logout();
+    $jsonArray['data'] = $source;
     JsonpEncode($jsonArray);  
 }
 

@@ -85,7 +85,11 @@
 				console.log(result);
 				if (result.state == 'true') {
 					mui.alert("退出登录成功！",function(){
-						jQuery.jumpTo('../index.html');
+						if(result.data == 1){
+							jQuery.jumpTo('../hyindex.html');
+						}else{
+							jQuery.jumpTo('../index.html');
+						}
 					});
 				} else {
 					mui.alert("退出登录失败！");

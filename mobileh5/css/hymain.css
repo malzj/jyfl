@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+body{ font-family: "Century Gothic","Microsoft yahei"; color:#666;}
+a{color:#666;}
+
+/* 首页电影列表 */
+.index-komovie-list span.lightsalmon{ color:lightsalmon;}
+
+/* 空的行 */
+.empty-row{ text-align:center; height:50px; line-height:50px;}
+
+/* 底部的图标*/
+.icon-footer{ font-size:20px; line-height:30px; display:block;}
+.footer .active, .footer .active a { color:sienna;}
+
+
+/* layer 样式*/
+.layui-layer-hui{min-width:95%}
+.layui-layer-hui .layui-layer-content{padding:5px 25px; }
+.layui-layer-huimsg{min-width:100px; max-width:95%; background-color: #000;filter: alpha(opacity = 60);background-color: rgba(0, 0, 0, .6);color: #fff;border: none}
+.layui-layer-huimsg .layui-layer-content{padding:5px 25px; }
+
+.margin_1 {margin-bottom: 10px;}
+.margin-top10{margin-top:10px;}
+
+.border-2 {border-bottom: 1px solid #dfdfdf;}
+
+.font-w { font-weight:400 }
+.font12{font-size:13px; line-height:20px;}
+.font16{font-size:16px;}
+
+.border-10{border-top:10px #DFDFDF solid; }
+
+.height40{ height:40px; display:inline-block;}
+.ohidden{overflow:hidden;}
+
+.padding5{padding:5px;}
+.pt3{padding-top:4px;}
+
+.color666{color:#666;}

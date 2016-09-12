@@ -1,0 +1,28 @@
+<nav class="mui-bar mui-bar-tab mui-row">
+    <div class="mui-col-xs-7"><a class="mui-tab-item">应付总额：<span class="color_2fd0b5">{{order_amount}}</span>点</a></div>
+    <div class="mui-col-xs-5">
+        <a id="pay_submit" class="mui-tab-item footer_jiaru" href="#"><span class="mui-tab-label">确认支付</span></a>
+    </div>
+</nav>
+<div class="mui-content">
+    <ul class="mui-table-view margin_top_15">
+        <li class="mui-table-view-cell"><h4 class="mui-pull-left">订单号</h4><p class="mui-pull-right">{{order_sn}}</p></li>
+        <li class="mui-table-view-cell"><h4 class="mui-pull-left">数量</h4><p class="mui-pull-right">{{number}}</p></li>
+        <li class="mui-table-view-cell"><h4 class="mui-pull-left">价格</h4><p class="mui-pull-right color_2fd0b5">{{goods_amount}}点</p></li>
+        <li class="mui-table-view-cell"><h4 class="mui-pull-left">运费</h4><p class="mui-pull-right color_2fd0b5">{{shipping_fee}}点</p></li>
+        <li class="mui-table-view-cell"><h4 class="mui-pull-left">状态</h4><p class="mui-pull-right">{{if order_amount>0}}未付款{{else}}已付款{{/if}}</p></li>
+    </ul>
+    <ul class="mui-table-view margin_top_15">
+        <li class="mui-table-view-cell"><h4 class="mui-pull-left">聚优卡号</h4><p class="mui-pull-right">{{user_name}}</p></li>
+        <li class="mui-table-view-cell">
+            <div class="mui-input-row">
+                <label class="mui-pull-left"><h4>请输入密码</h4></label>
+                <input type="password" name="password" class="mui-pull-right dianziquan_mima" />
+                <input type="hidden" name="order_id" value="{{order_id}}" />
+                <input type="hidden" name="order_sn" value="{{order_sn}}" />
+                <input type="hidden" name="order_sn" value="{{order_sn}}" />
+                <input type="hidden" name="order_amount" value="{{order_amount}}" />
+            </div>
+        </li>
+    </ul>
+</div>

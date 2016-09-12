@@ -1,0 +1,26 @@
+<div class="mui-content">
+    <div class="sports_details_top bg_white mui-clearfix">
+        <div class="mui-content-padded mui-pull-left">
+            {{each detail.imgs as img key}}
+            <div class="sports_top_img" {{if key > 0}}style="display: none;"{{/if}}>
+                <img src="{{img}}" data-preview-src="" data-preview-group="1" />
+            </div>
+            {{/each}}
+            <!--图片数量-->
+            <div class="sports_top_imgNum">相册(<span>{{detail.imgs.length}}</span>)</div>
+        </div>
+        <div class="mui-pull-left sports_top_right">
+            <h4 class="mui-ellipsis">{{detail.productName}}</h4>
+            <p class="mui-ellipsis-2">营业时间：<span>{{detail.businessHours}}</span></p>
+        </div>
+    </div>
+    <div class="mui-table-view">
+        <div class="mui-table-view-cell mui-ellipsis"><span class="mui-icon iconfont icon-dizhi"></span>{{detail.viewAddress}}</div>
+        <div class="mui-table-view-cell"><span class="mui-icon iconfont icon-dianhua"></span><a href="tel:400-662-5170" style="display: inline-block;">400-662-5170 {{if detail.tel400}}转 {{detail.tel400}}{{/if}}</a></div>
+    </div>
+    <!--日历选择控件-->
+    <div class="margin_top_10 calendarBox bg_white"></div>
+</div>
+<script>
+    loadCalendar(productno,date);
+</script>

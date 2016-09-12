@@ -95,6 +95,7 @@ if ($_REQUEST['act'] == 'actLogin')
         $GLOBALS['user']->set_session($username);
         $GLOBALS['user']->set_cookie($username);
         $_SESSION['BalanceCash'] = $cardMoney;
+        $_SESSION['source'] = empty($type) ? 1 : 2;   // 1 华影 2 聚优
 
 
         update_user_info();
@@ -134,7 +135,9 @@ elseif ($_REQUEST['act']=='checkLogin')
 // 登出
 elseif ($_REQUEST['act'] == 'logout')
 {
+    $source = $_SESSION['source'];
     $user->logout();
+    $jsonArray['data'] = $source;
     JsonpEncode($jsonArray);  
 }
 

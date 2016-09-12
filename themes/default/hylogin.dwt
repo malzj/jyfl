@@ -126,7 +126,7 @@
                      // var my_data="前台变量";
                      // my_data=escape(my_data)+"";//编码，防止汉字乱码
                      $.ajax({
-                         url: "/user.php?act=act_hylogin",  
+                         url: "/user.php?act=act_login",  
                          type: "POST",
                          // data:'username=' + username + '&password=' + password + '&captcha=' + captcha,
                          data:'username=' + username + '&password=' + password,

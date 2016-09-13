@@ -251,7 +251,9 @@ else if ($_REQUEST['step'] == 'done')
  	    'shop_ratio'  => $customRatio['shop_ratio'],
         'card_ratio'  => $customRatio['card_ratio'],
         'raise'       => $customRatio['raise'],
-        'ext'         => $customRatio['ext']
+        'ext'         => $customRatio['ext'],
+ 	    'real_price'  => $customRatio['real_price'],
+ 	    'cordon_show' => $customRatio['cordon_show']
  	); 	
  	$cols = array_keys($default);
  	$GLOBALS['db']->query(' INSERT INTO '.$GLOBALS['ecs']->table('venues_order')." ( ".implode(',', $cols)." ) VALUES ('".implode("','", $default)."')");

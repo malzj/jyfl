@@ -1510,7 +1510,7 @@ function get_card_rule_ratio($catid=0, $returnRatio=false)
 	// 当前卡规则信息
 	$arr_cardRules = $GLOBALS['db']->getRow('SELECT navinfo,card,shop_ratio,price,raise,ext FROM '.$GLOBALS['ecs']->table('card_rule')." WHERE id = '".$card_id."'");
 	// 商城比例 、上调浮比
-	$ratio = array( 'shop_ratio' => '', 'raise' => '');
+	$ratio = array( 'shop_ratio' => 1, 'raise' => 0, 'card_price' => 1, 'card_ratio'=>1);
 	// 卡规则开启的导航信息
     $navinfo = unserialize($arr_cardRules['navinfo']);
     // 导航设置的销售比例
@@ -1522,8 +1522,8 @@ function get_card_rule_ratio($catid=0, $returnRatio=false)
     
 	$ratio['shop_ratio'] = get_interface_shop_ratio($catid,$exts);
 	
-	$ratio['raise'] = $arr_cardRules['raise'];			
-	
+	// 卡销售信息
+	$card_sales = $GLOBALS['db']->getRow("SELECT * FROM ".$GLOBALS['ecs']->table('sale_card').' WHERE card_num = "'.$_SESSION["user_name"].'"');
 	
 	// $cat_ids 是分类导航， $not_cat_ids 不是分类导航
 	$cat_ids = $not_cat_ids	= array();
@@ -1646,17 +1646,43 @@ function get_card_rule_ratio($catid=0, $returnRatio=false)
 		$ratios[$new_catid] = 1;
 	}
 	
+	// 返回销售比例
 	if ($returnRatio == true)
 	{
 	    return array(
 	        'shop_ratio' => $ratio['shop_ratio'],
 	        'raise' => $ratio['raise'],
 	        'card_ratio' => $ratios[$new_catid],
-	        'ext'  => $exts['ext']
+	        'ext'  => $exts['ext'],
+	        'cordon_show' => $exts['cordon_show'],  // 警戒线
+	        'real_price' => !empty($card_sales['price']) ? trim($card_sales['price']) : 2000 // 实际售价   
 	    );
 	}
 	
-	return array_product( array($ratios[$new_catid], array_sum($ratio)));
+	// 卡规则比例
+	$ratio['card_ratio'] = $ratios[$new_catid];
+	unset($ratio['raise']);
+	
+	// 如果售价低于警戒线的操作
+	if ( !empty($card_sales) )
+	{
+	    $sales_price = trim($card_sales['price']);
+	    $cordon_show = trim($exts['cordon_show']);
+	     
+	    if ($sales_price < $cordon_show)
+	    {
+	        $ratio['card_price'] =  $exts['ext'] == 1 ? 1.19 : 0.97;	        
+	        $product = array_product($ratio) / $sales_price;
+	    }
+	    else {	       
+	        $product = array_product($ratio);
+	    }
+	}
+	else {
+	    $product = array_product($ratio);
+	}
+	
+	return $product;
 	
 }
 

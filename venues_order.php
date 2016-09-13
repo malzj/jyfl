@@ -44,7 +44,10 @@ if ($action == 'saveOrder')
         'shop_ratio'  => $customRatio['shop_ratio'],
         'card_ratio'  => $customRatio['card_ratio'],
         'raise'       => $customRatio['raise'],
-        'ext'         => $customRatio['ext']
+        'ext'         => $customRatio['ext'],
+        'real_price'  => $customRatio['real_price'],
+        'cordon_show' => $customRatio['cordon_show']
+        
     );
     
     // 数据验证

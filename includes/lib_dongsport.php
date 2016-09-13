@@ -123,6 +123,8 @@ function createVenues( $data )
         'card_ratio' => $data['order']['card_ratio'],
         'raise' => $data['order']['raise'],
         'ext' => $data['order']['ext'],
+        'real_price' => $data['order']['real_price'],
+        'cordon_show' => $data['order']['cordon_show']
     );
     
     // 预订时间段  / 选场地信息（用于下单） 

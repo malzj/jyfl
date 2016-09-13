@@ -39,7 +39,7 @@
 	<script type="text/javascript">		
 		mui.init();
 		// ajax调取数据
-		mui.plusReady(function(){
+//		mui.plusReady(function(){
 			jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{step:'checkout',flowtype:type},function(data){
 				if(data.state == 'false'){
 					jQuery.errorJudge(data, data.message, function(){
@@ -50,7 +50,7 @@
 					replaceHtml('header', template('flow/checkout', data));
 				}
 			});
-		});
+//		});
 		if(mui.os.plus){
 				//自定义刷新时间
 			document.addEventListener('refresh',function(){

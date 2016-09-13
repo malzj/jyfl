@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.selectnom em {
+				display: block;
+				height: 51px;
+				line-height: 0;
+				color: #666;
+				text-align: center;
+				position: relative;
+				font-style: normal;
+			}
+			.selectnom em:before {
+				position: absolute;
+				content: "";
+				display: block;
+				width: 0;
+				height: 0;
+				border-top: 3px solid transparent;
+				border-left: 6px solid #999;
+				border-bottom: 3px solid transparent;
+				right: 5px;
+				bottom: 47px;
+			}
+			.selectday {
+				background: white;
+				width: 100%;
+				-webkit-overflow-scrolling: touch;
+				position: relative;
+			}
+			.seletimes {
+				text-align: center;
+				line-height: 1.5em;
+				overflow-x: scroll;
+				-webkit-overflow-scrolling: touch;
+			}
+			.selectnom {
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: #fff;
+				width: 80px;
+			}
+			.seletimes dl {
+				width: 80px;
+				float: left;
+				margin-left: 2px;
+			}
+			.seletimes dl dt {
+				line-height: 49px;
+			}
+			.seletimes dl dd {
+				width: 80px;
+				height: 49px;
+				background: #0fd0b5;
+				line-height: 49px;
+				margin-bottom: 2px;
+				color: #fff;
+				border-radius: 5px;
+			}
+			.seletimes dl dd.cur {
+				background: #ff781e;
+			}
+			.seletimes dl dd.not {
+				background: #f2f2f2;
+				color: #ccc;
+			}
+			.body-w {
+				background: #fff;
+			}
+			.selestatus {
+				text-align: center;
+				margin-bottom: 80px;
+				margin-top: 15px;
+			}
+			.selestatus span {
+				display: inline-block;
+				position: relative;
+				font-size: 12px;
+				padding-left: 40px;
+				margin: 0 9px;
+			}
+			.selestatus font {
+				display: inline-block;
+				width: 32px;
+				height: 17px;
+				background: #ff781e;
+				margin-right: 10px;
+				border: 1px solid #e5e5e5;
+				position: absolute;
+				left: 0;
+			}
+			.selestatus i {
+				display: inline-block;
+				width: 32px;
+				height: 17px;
+				background: #0fd0b5;
+				margin-right: 10px;
+				border: 1px solid #e5e5e5;
+				position: absolute;
+				left: 0;
+			}
+			.selestatus em {
+				display: inline-block;
+				width: 32px;
+				height: 17px;
+				background: #f2f2f2;
+				margin-right: 10px;
+				border: 1px solid #e5e5e5;
+				position: absolute;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">场次选择</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab mui-row">
+			<div class="mui-col-xs-7"><a class="mui-tab-item">合计：<span class="amount color_2fd0b5">0</span>点</a></div>
+			<div class="mui-col-xs-5">
+				<a class="mui-tab-item sports_venue_next" href="#"><span class="mui-tab-label">下一步</span></a></div>
+		</nav>
+		<script src="../js/connection.js"></script>
+		<script src="../js/template.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.mian.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/jqueryExtend.js"></script>
+		<script src="../js/venues.js"></script>
+
+		<script type="text/javascript">
+			var venueId = jQuery.getUrlParam('venueId');
+			var infoId = jQuery.getUrlParam('infoId');
+			var orderDate = jQuery.getUrlParam('orderDate');
+
+			var cart = {total:0, amount:0};
+
+			jQuery.hrefClick();
+			jQuery.ajaxJsonp(web_url+'/mobile/venues_show.php',{venueId:venueId,infoId:infoId,orderDate:orderDate},function(result){
+				console.log(result);
+				if(result.state=='true'){
+					cart.id = result.data.infoId;
+					cart.date = result.data.date;
+					replaceHtml('nav',template('sports/tmp_sports_venue',result.data));
+					mui('.mui-scroll-wrapper').scroll();
+				}else if(result.state=='false'){
+					jQuery.errorJudge(result.data,result.message);
+				}
+			});
+			mui.init();
+
+			var oldhtml='无法预订该天的产品，可能是产品已经售完。';
+//			点击选择场地
+			mui("body").on("tap",".vv_sel",function(){
+				var _price = this.getAttribute("data-sale-price");
+				if (_price<= 0)
+				{
+					return false;
+				}
+
+
+				if(jQuery(this).attr("class").indexOf("cur") == -1) {
+					if (cart.total>9)
+					{
+						mui.alert('抱歉，最多您只能选择10块场地');
+						return false;
+					}
+					jQuery(this).addClass("cur");
+				}else{
+					jQuery(this).removeClass("cur");
+				}
+				update_content();
+				$(".amount").html(cart.amount.toFixed(2));
+			});
+
+			//点击提交场地选择
+			mui('body').on('tap','.sports_venue_next',function(){
+				update_content();
+				var num=cart.total;
+				if (num=='' || parseInt(num)==0){
+					alert('没有选择场地，无法预订。');
+					return false;
+				}
+				jQuery('#num').val(cart.total);
+				jQuery('#amount').val(cart.amount);
+
+				var stime = [];
+				var venues = [];
+				var venue_no,sclock,eclock,oprice
+				jQuery(".vv_sel").each(function (index, row){
+					if(jQuery(row).hasClass("cur")) {
+						sclock = jQuery(row).attr("data-s");
+						eclock = jQuery(row).attr("data-e");
+						oprice = jQuery(row).attr("data-price");
+						venue_no = jQuery(row).parent().attr('venue-no');
+
+						venues.push(venue_no+'号场  '+sclock+':00~'+eclock+':00 '+oprice+'点');
+
+						if (jQuery.inArray(jQuery(row).attr("data-s"), stime) == -1) {
+							stime.push(sclock);
+						}
+					}
+				});
+				var d;
+				var json=[];
+				for(var i=0;i<stime.length;i++){
+					var snum=0;
+					var sprice=0;
+					var amount=0;
+					$(".vv_sel").each(function (index, row){
+						if(jQuery(row).hasClass("cur")) {
+							if (jQuery(row).attr("data-s") == stime[i]) {
+								snum++;
+								sprice = jQuery(row).attr("data-sale-price");
+								amount += parseInt(jQuery(row).attr("data-sale-price"));
+							}
+						}
+					});
+					//alert(stime[i]+"-"+snum+"-"+sprice+"-"+amount);
+					d=stime[i]+"-"+snum+"-"+sprice+"-"+amount;
+					json.push(d);
+				}
+				jQuery('#param').val(escape(json.join("|")));
+				jQuery('#venues').val(escape(venues.join("|")));
+				var form_venue = jQuery('#venueinfo').serialize();
+				jQuery.jumpTo('./sport_venue_order.html?'+form_venue);
+			})
+		</script>
+	</body>
+
+</html>

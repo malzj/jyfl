@@ -1,0 +1,54 @@
+<div class="mui-content">
+    <div class="ticket_order_tips mui-text-center color_coral">
+        {{validity}}。
+    </div>
+    <form id="subOrder" onsubmit="return false">
+    <div class="margin_top_15 mui-table-view">
+        <div class="mui-table-view-cell">
+            <h4 class="mui-pull-left">产品名称</h4>
+            <p class="mui-pull-right width_60">{{detail.productName}}</p>
+        </div>
+        <div class="mui-table-view-cell">
+            <h4 class="mui-pull-left">购买数量</h4>
+            <div class="mui-numbox mui-pull-right" data-numbox-min='1'>
+                <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+                <input name="goods_number" class="mui-input-numbox" type="number" value="" />
+                <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+            </div>
+        </div>
+        <div class="mui-table-view-cell">
+            <h4 class="mui-pull-left">单价</h4>
+            <p class="mui-pull-right color_2fd0b5">{{detail.salePrice}}点</p>
+        </div>
+        <div class="mui-table-view-cell">
+            <h4 class="mui-pull-left">产品总价</h4>
+            <p class="mui-pull-right color_2fd0b5 dongPrice">{{if detail.startNum == 0}}{{detail.salePrice}}{{else}}{{(detail.startNum*detail.salePrice).toFixed(1)}}{{/if}}点</p>
+        </div>
+    </div>
+    <div class="margin_top_15">
+        <div class="color_2fd0b5 ticket_buy_tips">游客资料录入(因为游客资料错误导致无法入场，网站不承担责任)</div>
+    </div>
+    <div class="mui-input-group">
+        {{each fields as field}}
+        {{if field.link == 'link_credit_type'}}
+        <div class="mui-input-row">
+            <label>手机号码</label>
+            <select name="links[{{field.link}}]" style="border:1px #ccc solid; padding:3px;">
+                {{each field.selects as select key}}
+                <option value="{{key}}">{{select}}</option>
+                {{/each}}
+            </select>
+        </div>
+        {{else}}
+        {{tip = field.tip.split('，')}}
+        <div class="mui-input-row">
+            <label>{{field.name}}</label>
+            <input type="text" name="links[{{field.link}}]" placeholder="{{tip[1]}}">
+        </div>
+        {{/if}}
+        {{/each}}
+    </div>
+    <input type="hidden" name="productno" value="{{detail.productNo}}" />
+    <input type="hidden" name="traveldate" value="{{travelDate}}" />
+    </form>
+</div>

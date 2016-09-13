@@ -1,0 +1,55 @@
+<nav class="mui-bar mui-bar-tab mui-row">
+    <div class="mui-col-xs-7"><a class="mui-tab-item">订单总额：<span class="color_2fd0b5">{{order.amount}}</span>点</a></div>
+    <div class="mui-col-xs-5">
+        <a id="order_submit" class="mui-tab-item footer_jiaru" href="#"><span class="mui-tab-label">提交订单</span></a>
+    </div>
+</nav>
+<div class="mui-content">
+    <!--选择收货地址-->
+    <div class="mui-table-view margin_top_0">
+        <div class="mui-table-view-cell">
+            <a id="shipping" class="mui-navigate-right">
+                {{if shipping.checkconsignee}}
+                <h4>{{shipping.consignee}} {{shipping.mobile}}</h4>
+                <p>{{shipping.country_cn}}{{shipping.province_cn}}{{shipping.address}}</p>
+                {{else}}
+                <h4>请选择收货地址</h4>
+                {{/if}}
+            </a>
+        </div>
+    </div>
+    <!--end-->
+    <ul class="mui-table-view yanchu_list yanchu_details_top">
+        <li class="mui-table-view-cell mui-media">
+            <img class="mui-media-object mui-pull-left yanchu_img" src="{{item.imageUrl}}">
+            <div class="mui-media-body">
+                <h4 class="yanchu_top_name">{{order.itemName}}</h4>
+                <p class="mui-ellipsis">{{order.best_time}}</p>
+                <p class="mui-ellipsis">{{order.siteName}}</p>
+            </div>
+        </li>
+    </ul>
+    <div class="mui-table-view yanchu_number margin_top_10">
+        <div class="mui-table-view-cell mui-row">
+            <div class="mui-col-xs-4">
+                <p>数量</p>
+                <span class="font_style">{{order.number}}</span>张
+            </div>
+            <div class="mui-col-xs-8">
+                <p>总价</p>
+                <span class="color_2fd0b5 font_style">{{order.goods_amount}}</span>点
+            </div>
+        </div>
+    </div>
+    <ul class="mui-table-view margin_top_15">
+        <li class="mui-table-view-cell">
+            支付方式<span class="mui-pull-right color_8f8f94">{{payment_info.pay_name}}</span>
+        </li>
+        <li class="mui-table-view-cell">
+            配送方式<span class="mui-pull-right color_8f8f94">供货商物流</span>
+        </li>
+        <li class="mui-table-view-cell">
+            运费合计<span class="mui-pull-right color_8f8f94">{{shipping_info.shipping_fee}}</span>
+        </li>
+    </ul>
+</div>

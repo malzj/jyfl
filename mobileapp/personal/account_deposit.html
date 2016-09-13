@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>卡充值</title>
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="../js/connection.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/mui.view.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/card.css">
+    <link rel="stylesheet" href="../css/new_href.css">
+</head>
+
+<body class="mui-fullscreen ">
+<!--页面主结构开始-->
+<div id="deposit_container" class="mui-views">
+    <div class="mui-view">
+        <div class="mui-navbar">
+        </div>
+        <div class="mui-pages">
+        </div>
+    </div>
+</div>
+<div id="card_deposit" class="mui-page">
+    <!--页面标题栏开始-->
+    <div class="mui-navbar-inner mui-bar mui-bar-nav">
+        <button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+            <span class="mui-icon mui-icon-left-nav"></span>
+        </button>
+        <h1 class="mui-center mui-title">个人信息</h1>
+    </div>
+    <!--页面标题栏结束-->
+    <!--页面主内容区开始-->
+    <div class="mui-page-content">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <div class="container">
+                    <div class="row clearfix">
+                        <div class="title f_l">充值的卡</div>
+                        <div class="card_num f_r"></div>
+                    </div>
+                    <div class="row">
+                        <div class="title">充值点数</div>
+                        <div class="point_list clearfix">
+                            <ul class="list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="charge_row">
+                        <div class="title">充值方式</div>
+                        <div class="charge clearfix">
+                            <ul >
+                                <li class="on" data-pay="4">
+                                    微信支付
+                                </li>
+                                <li data-pay="3">
+                                    支付宝支付
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="javascript:void(0)" class="btn charge_btn act-pay">确认充值</a>
+                <div class="reminder">
+                    <h4>温馨提示：</h4>
+                    <p>1、充值30点或50点延期3个月，充值100点延期1年；</p>
+                    <p>2、卡过期前3个月至卡过期6个月内充值可延期；</p>
+                    <p>3、充值有效期延期以卡截止有效期开始计算延期并非是充值日期；</p>
+                    <p>4、充值延期规则适用于‘999011’和‘999013’开头的卡，其他暂不支持；</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function($) {
+        jQuery.ajax({
+            url:web_url+'/mobile/card.php',
+            data:{act:'account_deposit'},
+            dataType:'jsonp',
+            jsonp:'jsoncallback',
+            success:function(result){
+//                console.log(result);
+                if(result.state=='true'){
+                    var html='';
+                    jQuery('.card_num').html(result.data.username);
+                    jQuery.each(result.data.priceList,function(k,val){
+                       html+='<li '+(k==30?'class="on"':'')+' data-price="'+val+'">' +
+                               '<div class="text"><div class="point">'+k+'点</div>' +
+                               '<div class="money">售价'+val+'元</div></div></li>'
+                    });
+                    jQuery('.point_list .list').html(html);
+                }else if(result.state=='false'){
+                    if(result.data.isLogin==1){
+                        $.alert(result.message,function(){
+                            window.location.href='../index.html';
+                        })
+                    }else{
+                        $.alert(result.message);
+                    }
+                }
+            }
+        });
+        var viewApi = $('#deposit_container').view({
+            defaultPage: '#card_deposit'
+        });
+        //初始化单页的区域滚动
+        $('.mui-scroll-wrapper').scroll();
+        var view = viewApi.view;
+        //处理view的后退与webview后退
+        var oldBack = $.back;
+        $.back = function () {
+            if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+                viewApi.back();
+            } else { //执行webview后退
+                oldBack();
+            }
+        };
+    })(mui);
+    // 选择点数
+    jQuery('.point_list').on('click','li',function(){
+        jQuery(this).closest('.point_list').find('li').each(function(index, dom){
+            jQuery(dom).removeClass('on');
+        });
+        jQuery(this).addClass('on');
+
+    });
+    // 选择支付方式
+    jQuery('.charge li').click(function(){
+        jQuery(this).closest('.charge').find('li').each(function(index, dom){
+            jQuery(dom).removeClass('on');
+        });
+        jQuery(this).addClass('on');
+
+    });
+    // 支付
+    jQuery('.act-pay').click(function(){
+
+        var amount = jQuery('.point_list .on').attr('data-price');
+        var pay	  = jQuery('.charge .on').attr('data-pay');
+        if(typeof(amount) == 'undefined'){
+            mui.alert('请选择充值点数');
+            return false;
+        }
+
+
+        jQuery.ajax({
+            url:web_url+'/mobile/card.php?act=act_account',
+            data:{amount:amount, rec_id:0, surplus_type:0, payment_id:pay},
+            dataType:'jsonp',
+            jsonp:'jsoncallback',
+            success:function(result){
+                console.log(result);
+                if(result.state=='true'){
+                    window.location.href = web_url+result.data.href;
+                }else if(result.state=='false'){
+                    if(result.data.isLogin==1){
+                        mui.alert(result.message,function(){
+                            window.location.href='../index.html';
+                        });
+                    }else{
+                        mui.alert(result.message);
+                    }
+                }
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

@@ -11,7 +11,7 @@ $db_user   = "root";
 
 // database password
 //$db_pass   = "huaying507";
-$db_pass   = "";
+$db_pass   = "root";
 
 // table prefix
 $prefix    = "ecs_";

@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+		<link rel="stylesheet" href="../css/app.css" />
+		<script src="../js/connection.js"></script>
+		<script src="../js/template.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.mian.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/jqueryExtend.js"></script>
+		<script src="../js/mui.zoom.js"></script>
+		<script src="../js/mui.previewimage.js"></script>
+		<style type="text/css">
+			.iconfont{color: #808080;margin-right: 10px;font-size: 18px;}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">立即购买</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab ticket_buy_btn">
+		    <a class="mui-tab-item">立即购买</a>
+		</nav>
+
+		<script type="text/javascript">
+			var productno = jQuery.getUrlParam('productno');
+			var date = '';
+			jQuery.ajaxJsonp(web_url+'/mobile/ticket_show.php',{productno:productno},function(result){
+				console.log(result);
+				if(result.state=='true'){
+					replaceHtml('nav',template('sports/tmp_ticket_buy',result.data));
+				}else if(result.state=='false'){
+					jQuery.errorJudge(result.data,result.message);
+				}
+			},true);
+			mui.init();
+			mui.previewImage();
+			//切换日历
+			mui('body').on('tap','.calendar_title .mui-icon',function(){
+				var calendat_date = this.getAttribute('data-time');
+				loadCalendar(productno,calendat_date);
+			});
+
+			//选择日期
+			mui('body').on('tap','.calendar_buy',function(){
+				date = this.getAttribute('date');
+				jQuery(this).addClass('active').siblings().removeClass('active').parents('tr').siblings().find('.calendar_buy').removeClass('active')
+			});
+
+			//立即购买
+			mui('body').on('tap','.ticket_buy_btn',function(){
+				if(!productno){
+					mui.alert('请选择场馆！',function(){
+						jQuery.jumpTo('./index.html');
+					});
+					return false;
+				}
+				if(!date){
+					mui.alert('请选择购买日期！');
+					return false;
+				}
+				jQuery.jumpTo('./ticket_order.html?product='+productno+'&date='+date);
+			});
+
+			//加载日历
+			function loadCalendar(productno,date) {
+				jQuery.ajaxJsonp(web_url + '/mobile/ticket_show.php?step=price', {
+					productno: productno,
+					date: date
+				}, function (result) {
+					console.log(result);
+					if (result.state == 'true') {
+						jQuery('.calendarBox').html(result.data);
+					} else if (result.state == 'false') {
+						jQuery.errorJudge(result.data, result.message);
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

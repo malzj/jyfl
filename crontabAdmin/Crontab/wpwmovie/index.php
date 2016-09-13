@@ -47,18 +47,22 @@ $wpw_movie_flip = array_flip($wpw_movie);
 $ko_movie_diff = array_diff($ko_movie,$wpw_movie);
 $wpw_movie_diff = array_diff($wpw_movie,$ko_movie);
 $ko_inter = array_intersect($ko_movie,$wpw_movie);
+//echo '<pre>';
+//print_r($ko_movie_array);
+//echo '</pre>';
+//exit;
 $ko_wpw = array();
 //开始事物
 $db -> query('start transaction');
 //创建存储过程
 try {
     $sql = "
-CREATE PROCEDURE update_mate_movie(in ko_movie_id int,in wpw_movie_id int,in publish_tm int,in update_tm int)
+CREATE PROCEDURE update_mate_movie(in ko_movie_id int,in wpw_movie_id int,in movie_name varchar(45),in pic_h varchar(225),in pic_s varchar(225),in publish_tm int,in update_tm int)
 BEGIN
 if(SELECT id FROM `juyoufuli`.`ecs_mate_movie` WHERE komovie_id = ko_movie_id) then
-    UPDATE `juyoufuli`.`ecs_mate_movie` SET wangmovie_id = wpw_movie_id,publish_time = publish_tm,update_time = update_tm WHERE komovie_id = ko_movie_id;
+    UPDATE `juyoufuli`.`ecs_mate_movie` SET wangmovie_id = wpw_movie_id,movieName = movie_name,pathHorizonH = pic_h,pathVerticalS = pic_s,publishTime = publish_tm,update_time = update_tm WHERE komovie_id = ko_movie_id;
 else
-    INSERT INTO `juyoufuli`.`ecs_mate_movie` (`komovie_id`,`wangmovie_id`,`publish_time`,`update_time`) VALUE(ko_movie_id,wpw_movie_id,publish_tm,update_tm);
+    INSERT INTO `juyoufuli`.`ecs_mate_movie` (`komovie_id`,`wangmovie_id`,`movieName`,`pathHorizonH`,`pathVerticalS`,`publishTime`,`update_time`) VALUE(ko_movie_id,wpw_movie_id,movie_name,pic_h,pic_s,publish_tm,update_tm);
 end if;
 END;
 ";
@@ -70,7 +74,7 @@ END;
 //    $sql .= "('$movie_id','$wpw_movie_flip[$ko_m]'),";
         $update_time = time();
         $publish_time = strtotime($ko_movie_array[$movie_id]['publishTime']);
-        $db->query("call update_mate_movie($movie_id,$wpw_movie_flip[$ko_m],$publish_time,$update_time);");
+        $db->query("call update_mate_movie($movie_id,$wpw_movie_flip[$ko_m],'".$ko_movie_array[$movie_id]['movieName']."','".$ko_movie_array[$movie_id]['pathHorizonH']."','".$ko_movie_array[$movie_id]['pathVerticalS']."',$publish_time,$update_time);");
         $ko_wpw[$movie_id] = $wpw_movie_flip[$ko_m];
     }
 
@@ -82,25 +86,25 @@ catch(Exception $e){
     $db->query('rollback');
     exit;
 }
-$sql = "SELECT * FROM ".$ecs->table('mate_cinema');
-$allCinema = $db->getAll($sql);
-$i=0;
-foreach($allCinema as $key => $cinema){
-    $param = array(
-        'action'=>'movie_Query', 'cinema_id'=> $cinema['kocinema_id']
-    );
-    $movie_list = getCDYApi($param);
-    if(is_array($movie_list['movies'])&&!empty($movie_list['movies'])){
-        foreach ($movie_list['movies'] as $k => $movie){
-            
-        }
-    }
-    $i++;
-    if($i == 10){
-        sleep(2);
-        $i=0;
-    }
-}
+//$sql = "SELECT * FROM ".$ecs->table('mate_cinema');
+//$allCinema = $db->getAll($sql);
+//$i=0;
+//foreach($allCinema as $key => $cinema){
+//    $param = array(
+//        'action'=>'movie_Query', 'cinema_id'=> $cinema['kocinema_id']
+//    );
+//    $movie_list = getCDYApi($param);
+//    if(is_array($movie_list['movies'])&&!empty($movie_list['movies'])){
+//        foreach ($movie_list['movies'] as $k => $movie){
+//
+//        }
+//    }
+//    $i++;
+//    if($i == 10){
+//        sleep(2);
+//        $i=0;
+//    }
+//}
 //$sql = substr($sql,0,-1);
 //$result = $db -> query($sql);
 echo '<pre>';

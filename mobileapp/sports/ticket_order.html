@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet" />
+		<style type="text/css">
+			p{line-height: 1;margin-top: 5px;}
+			.mui-input-group label{font-size: 16px;}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">核对订单信息</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab ticket_buy_btn">
+		    <a class="mui-tab-item">提交订单</a>
+		</nav>
+
+		<script src="../js/connection.js"></script>
+		<script src="../js/template.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.mian.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/jqueryExtend.js"></script>
+		<script type="text/javascript">
+			var product = jQuery.getUrlParam('product');
+			var date = jQuery.getUrlParam('date');
+			var salePrice,expressPrice;
+			jQuery.ajaxJsonp(web_url+ '/mobile/ticket_order.php?step=cart',{product:product,date:date},function(result){
+				console.log(result);
+				if (result.state == 'true') {
+					salePrice = result.data.detail.salePrice;
+					expressPrice = result.data.expressPrice;
+					replaceHtml('nav',template('sports/tmp_ticket_order',result.data));
+					mui('.mui-numbox').numbox();
+				} else if (result.state == 'false') {
+					jQuery.errorJudge(result.data, result.message);
+				}
+			});
+			mui("body").on('change','input[name="goods_number"]',function(){
+				var number = jQuery('input[name="goods_number"]').val();
+				var total = ((number*salePrice)+expressPrice).toFixed(1);
+				jQuery('.dongPrice').text(total+'点');
+			});
+
+			//提交订单
+			mui('body').on('tap','.ticket_buy_btn',function(){
+				var data = jQuery('#subOrder').serialize();
+				jQuery.ajaxJsonp(web_url+ '/mobile/ticket_order.php?step=done',data,function(result){
+					if (result.state == 'true') {
+						jQuery.jumpTo('./ticket_submit.html?orderid='+result.data.orderid);
+					} else if (result.state == 'false') {
+						jQuery.errorJudge(result.data, result.message);
+					}
+				});
+			});
+			mui.init()
+		</script>
+	</body>
+</html>

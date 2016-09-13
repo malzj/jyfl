@@ -45,7 +45,7 @@
   </tr>
   
   <tr>
-    <td class="label">警戒线上限</td>
+    <td class="label">警戒线上限(次卡)</td>
     <td>    	
     	<input name="cordon_up" type="text" id="cordon_up" value="{$data.cordon_up}" maxlength="60" />
     	&nbsp;&nbsp;<font color="red"> 商城售价在警戒线上限之上，超出的点数按1:1比例，支付宝补差价，（扣点 = 警戒线上限）<font color="green">只有次卡才生效</font></font>
@@ -53,13 +53,20 @@
   </tr>
   
   <tr>
-    <td class="label">警戒线下限</td>
+    <td class="label">警戒线下限(次卡)</td>
     <td>    	
     	<input name="cordon_dwon" type="text" id="cordon_dwon" value="{$data.cordon_dwon}" maxlength="60" />
     	&nbsp;&nbsp;<font color="red"> 商城售价在警戒线上限之下，直接扣除卡点，无需支付宝补差价操作，（扣点 = 警戒线下限）<font color="green">只有次卡才生效</font></font>
     </td>
   </tr>
   
+  <tr>
+    <td class="label">警戒线(点卡)</td>
+    <td>    	
+    	<input name="cordon_show" type="text" id="cordon_show" value="{$data.cordon_show}" maxlength="60" />
+    	&nbsp;&nbsp;<font color="red"> 卡实际每点售价小于警戒线时，售价 = （规格价 x 售比 X 卡比 x 单品比 x 每点应售价）/ 每点时间售价 <font color="green">只有点卡才生效</font></font>
+    </td>
+  </tr>
   
   <tr>
     <td colspan="2" align="center">

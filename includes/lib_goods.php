@@ -1773,9 +1773,14 @@ function get_spec_ratio_price($spec, $returnRatio=false)
 	$ratios = array(
 	    'shop_ratio' => 1, // 商城售比例
 	    'card_ratio' => 1, // 卡规则比例
-	    'unit_ratio' => 1  // 单品比例
+	    'unit_ratio' => 1, // 单品比例
+	    'card_price' => 1  // 卡单价（只有卡销售单价低于警戒线后，此值才发生变化，值只包括（0.97，1.19）两个）
 	); 
 	
+	// 卡销售信息
+	$card_sales = $GLOBALS['db']->getRow("SELECT * FROM ".$GLOBALS['ecs']->table('sale_card').' WHERE card_num = "'.$_SESSION["user_name"].'"');
+	
+	// 
 	if ($spec_info)
 	{
 	   if ($card_id > 0)
@@ -1793,7 +1798,7 @@ function get_spec_ratio_price($spec, $returnRatio=false)
 	           }
 	       }
 	       // 上调浮比
-	       $raise = floatval($card_rule['raise']);
+	       $raise = 0;//floatval($card_rule['raise']);
 	       
 	       // 城售价策略
 	       $cardBin = substr($_SESSION['user_name'], 0,6);
@@ -1826,18 +1831,37 @@ function get_spec_ratio_price($spec, $returnRatio=false)
 	    $temp = array(
 	        'raise' => $raise,
 	        'ext'   => $ext,
+	        'cordon_show' => $exts['cordon_show'],  // 警戒线
+	        'real_price' => !empty($card_sales['price']) ? trim($card_sales['price']) : 2000 // 实际售价   
 	    );
 	    return array_merge($ratios,$temp);
 	}
 	
-	// 商城售比 + 上调浮比
-	$ratios['shop_ratio'] += $raise;
+	// 如果售价低于警戒线的操作
+	if ( !empty($card_sales) )
+	{
+	    $sales_price = trim($card_sales['price']);
+	    $cordon_show = trim($exts['cordon_show']);
+	    
+	    if ($sales_price < $cordon_show) 
+	    {
+	       $ratios['card_price'] =  $ext == 1 ? 1.19 : 0.97;
+	       array_unshift($ratios, $spec_info['spec_price']);
+	       $product = array_product($ratios) / $sales_price;
+	    }
+	    else {
+	       array_unshift($ratios, $spec_info['spec_price']);
+	       $product = array_product($ratios);
+	    }
+	   
+	}
+	else {
+	    // 计算最终的价格
+	    array_unshift($ratios, $spec_info['spec_price']);
+	    $product = array_product($ratios);
+	}
 	
-	// 计算最终的价格
-	array_unshift($ratios, $spec_info['spec_price']);
 	
-	//error_log(var_export($ratios,true),'3','error.logs');
-	$product = array_product($ratios);
 	return price_format($product);	
 }
 

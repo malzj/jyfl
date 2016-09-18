@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/test.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<style>
+.hy2_dingdan01 table{ font-size:14px;  color:#666;}
+img{display:inline-block;}
+</style>
+</head>
+<body>
+<!-- 头部 -->
+<!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+<!-- 头部结束 -->
+
+<!-- 主体 -->
+<div class="main_big" style="margin-top:50px;">
+	<div class="main" style="background:#fff; padding:10px;">
+		{if $action == 'respond'}
+		<div class="hy2_detail01 hy2_bord">
+			<span class="hy2_ticket">产品订购</span>
+			<div class="gw_s01" id="gw_you01">
+				<span class="gw_101">第一步：选择产品</span>
+				<span class="litter01">第二步：确定订单信息并支付</span>
+				<span class="success01 white01">第三步：支付成功</span>
+			</div>
+		</div>
+
+		<div class="hy2_dingdan01">
+			<div class="hy2_zhifu" style="margin-top:28px;">
+				<p class="zhifu_cheng_t1" style="height:40px;">订单提交成功，请耐心等待出票</p></p>
+				<p class="zhifu_ts" style="text-indent:360px; margin:20px; 0"><a href="/">返回首页</a>&nbsp;&nbsp; <a href="/user.php?act=huanlegu_order" style="color:green;">我的订单</a></p>				
+			</div>
+		</div>
+		{elseif $action == 'saveOrder'}
+		<div class="hy2_detail01 hy2_bord" >
+			<span class="hy2_ticket">产品订购</span>
+			<div class="gw_t01" id="gw_you01">
+				<span class="gw_101">第一步：选择产品</span>
+				<span class="litter01 white01">第二步：确定订单信息并支付</span>
+				<span class="success01">第三步：支付成功</span>
+			</div>
+		</div>
+		
+		<form action="" name="myDoneForm" method="post" onsubmit="return checkPayForm();">
+		<input type="hidden" name="act" value="done" />
+		<div class="hy2_dingdan01">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table">
+				<tr>
+					<th width="17%" scope="col">产品信息</th>					
+					<th width="17%" scope="col">出游时间</th>
+                    <th width="17%" scope="col">单价</th>
+					<th width="17%" scope="col">数量</th>
+					<th width="4%" scope="col">总价</th>					
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table01">
+				<tr>
+					<td width="17%" scope="col" align="left" style="padding-left:10px;">产品：{$order.name}<br /> </td>
+					
+					<td width="18%" scope="col" align="center" style="padding-left:10px;">{$order.date}</td>
+                    <td width="18%" scope="col" align="center" style="padding-left:10px;">{$order.unit_price}</td>
+					<td width="17%" scope="col" align="center">{$order.number} 人</td>
+					<td width="4%" scope="col" align="center"> {$order.money} 点</td>					
+				</tr>				
+			</table>
+		</div>
+        <div class="hy2_dingdan01" style="margin-top:20px;">
+        	<div class="hy2_zhifu">
+				<p class="hy2_zhi_t1 f_w" style="margin-top:15px; "><span>联系人：</span><input type="text" name="link_man" id="link_man" value="" class="hy2_password"  style="width:90px;" /></p>
+                <p class="hy2_zhi_t1 f_w" style="margin-top:15px; "><span>身份证：</span><input type="text" name="link_zhengjian" id="link_zhengjian" value="" class="hy2_password"  /></p>
+				<p class="hy2_zhi_t1 f_w" style="margin-top:15px;"><span>联系电话：</span> <input type="text" name="link_phone" id="link_phone" value="" class="hy2_password" /></p>				
+				<p class="hy2_zhi_t1 f_w" style="margin-top:15px;"><font color="red" style="font-size:18px;">请正确填写身份证、手机号！</font></p>
+            </div>
+        </div>
+		<div class="hy2_dingdan01">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hy2_dd01_table">
+				<tr>
+					<th align="left" scope="col" style="text-indent:37px;">支付方式</th>
+				</tr>
+			</table>
+			<div class="hy2_zhifu">
+				<p class="hy2_zhi_t1 f_w"><span>華影卡号:</span>{$username}</p>
+				<p class="hy2_zhi_t1 f_w">
+					<span>華影卡密码</span>
+					<input type="password" name="password" id="password" value="" class="hy2_password" />
+					<span id="paySubmitSpan">
+						<input type="button" value="" id="paySubmit" class="hy2_js" />
+					</span>
+				</p>				
+			</div>
+		</div>
+		<input type="hidden" name="order_id" id="order_id" value="{$order.id}" />
+		</form>
+		<script type="text/javascript">
+			var checkSubmitFlg = false;
+			$('#paySubmit').click(function(){
+				var password = $('#password').val();
+				var orderid = $('#order_id').val();
+				var link_man = $('#link_man').val();
+				var link_phone = $('#link_phone').val();
+				var link_zhengjian = $('#link_zhengjian').val();
+				
+				if( password == ''){
+					alert('密码不能为空！');
+					return false;
+				}
+				if( link_man == ''){
+					alert('联系人不能为空！');
+					return false;
+				}
+				if( link_phone == ''){
+					alert('联系电话不能为空！');
+					return false;
+				}
+				if( link_zhengjian == ''){
+					alert('身份证不能为空！');
+					return false;
+				}
+				
+				if(checkSubmitFlg == true){ 
+					alert('已提交过，请耐心等待');
+					return false;
+				}
+				checkSubmitFlg = true;
+				$.ajax({
+					type : 'POST',
+					url: 'huanlegu_goods_order.php?action=pay',
+					data: "password="+password+"&orderid="+orderid+"&link_man="+link_man+"&link_phone="+link_phone+"&link_zhengjian="+link_zhengjian,
+					success:function(data){
+						if(data.error == 1){
+							alert(data.message);
+							checkSubmitFlg = false;
+						}else{
+							window.location.href="huanlegu_goods_order.php?action=respond";
+						}
+					},
+					dataType:'json'
+				});
+			});
+		</script>	
+		
+		{/if}
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- 主体结束 -->
+
+<!-- 底部 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- 底部结束 -->
+</body>
+</html>

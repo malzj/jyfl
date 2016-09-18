@@ -66,22 +66,28 @@ elseif ($_REQUEST['act'] == 'operate'){
 		sys_msg($msg, 0, $links);
 	}
 }
+// 抓取订单状态
+elseif ($_REQUEST['act'] == 'grabState')
+{
+    include_once(ROOT_PATH . 'includes/lib_cardApi.php');
+    
+    $order_id = intval($_REQUEST['id']);
+    $sql = "SELECT * FROM " . $ecs->table('seats_order') . " WHERE id = '$order_id'";
+    $order = $db->getRow($sql);
+    
+    $tmpOrders = getCDYapi(array('action'=>'order_Query', 'order_id'=>$order['order_sn']));
 
-elseif ($_REQUEST['act'] == 'remove_order'){
-
-	/*$order_id = intval($_REQUEST['id']);
-
-	$GLOBALS['db']->query("DELETE FROM ".$GLOBALS['ecs']->table('seats_order'). " WHERE id = '$order_id'");
-	if ($GLOBALS['db'] ->errno() == 0)
-	{
-		$url = 'film_order.php?act=list';
-		ecs_header("Location: $url\n");
-		exit;
-	}
-	else
-	{
-		sys_msg('删除失败');
-	}*/
+    $orderStatus = $tmpOrders['orders'][0]['orderStatus'];
+    if ($orderStatus == 1 && local_gettime()-15*60 > $order['add_time']+3600*8)
+        $orderStatus = 2;
+    // 如果是已退款订单，不更新状态
+    if ($order['order_status'] != 6){
+        $GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET order_status = '".$orderStatus."' WHERE id = $order_id");
+    }
+    
+    $msg = $sn_list.'更新成功';
+	$links[] = array('text' => $_LANG['return_list'], 'href' => 'film_order.php?act=list');
+	sys_msg($msg, 0, $links);
 }
 else if ($_REQUEST['act'] == 'return'){
 	$order_id = intval($_REQUEST['id']);
@@ -91,13 +97,23 @@ else if ($_REQUEST['act'] == 'return'){
 	//退款条件，true 可以退款， false 不可以退款
 	$return_where = false;
 	// 如果购票失败，可以退款
-	if($order['order_status'] == 5){
+	if($order['order_status'] == 5 && $order['card_pay']==1){
 		$return_where = true;
 	}
 	// 如果电影票没有付款，卡点付了，可以退款
 	if($order['card_pay']==1 && $order['order_status'] < 3){
 		$return_where = true;
 	}
+	
+	// 如果是次卡退款点数应该是次卡的点数
+	if( !empty($order['cika_agio']) )
+	{
+	    $card_money = $order['cika_agio'] * $order['count'];
+	}
+	else {
+	    $card_money = $order['money'];
+	}
+	
 	if($return_where === false){
 		sys_msg('非法操作！',0,array(array('text' => '电影订单列表', 'href' => 'film_order.php?act=list')));
 	}
@@ -108,7 +124,7 @@ else if ($_REQUEST['act'] == 'return'){
 	/** TODO 退款 （双卡版） */
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $user_name, 'TransId'=> $order['api_order_id']),
-			'TransationInfo' => array( 'TransRequestPoints'=>$order['money'])
+			'TransationInfo' => array( 'TransRequestPoints'=>$card_money)
 	);
 	$state = $cardPay->action($arr_param, 9);
 	if ($state == 1)

@@ -1,5 +1,88 @@
 <?php
 
+function getHQCapi( $param, $action)
+{
+
+    if ( empty($action)) return array();
+
+    /*  $str_apiUrl     = 'http://ota.smartoct.com/ota/httpApi/xml';//接口地址
+     $str_sUser      = 'distri546';// OTA编号（渠道id）
+    $str_sKey       = 'MECMFUULBQBXCFSLV8H77ROS';//OTA密钥  */
+
+    $str_apiUrl     = 'http://112.74.165.142:8083/sc-ota-war/httpApi/xml ';//接口地址
+    $str_sUser      = 'distri546';// OTA编号（渠道id）
+    $str_sKey       = 'MECMFUULBQBXCFSLV8H77ROS';//OTA密钥
+
+    require_once(ROOT_PATH . 'includes/httpRequest.php');
+    $http = new HttpRequest;
+
+    require_once(ROOT_PATH . 'includes/des.class.php');
+    $des = new DES($str_sKey);
+    // 当前时间
+    $timeStamp = local_date('Y-m-d H:i:s');
+    // 序列号
+    $sequenceId = local_date('YmdHis').mt_rand(10000000, 99999999);
+    // 消息签名
+    $bodys = getBodys($param);
+    $Signed = base64_encode(md5($sequenceId.$str_sUser.mb_strlen($bodys, 'UTF-8')));
+
+    // 消息头
+    $str_xml = "xmlContent=<?xml version='1.0' encoding='UTF-8'?>
+    <OTM>
+    <Head>
+    <Version>2.1.0</Version>
+    <SequenceId>$sequenceId</SequenceId>
+    <TimeStamp>$timeStamp</TimeStamp>
+    <DistributorId>$str_sUser</DistributorId>";
+
+    // 交易码
+    switch ( $action )
+    {
+        // 景区详情
+        case 'scenery':      $str_xml .= "<TransactionCode>01</TransactionCode><Signed>$Signed</Signed></Head><Body>";    break;
+        // 景区商品
+        case 'goods':        $str_xml .= "<TransactionCode>02</TransactionCode><Signed>$Signed</Signed></Head><Body>";    break;
+        // 预付款订单确认
+        case 'confirm':      $str_xml .= "<TransactionCode>03</TransactionCode><Signed>$Signed</Signed></Head><Body>";    break;
+        // 订单详情
+        case 'detail':       $str_xml .= "<TransactionCode>05</TransactionCode><Signed>$Signed</Signed></Head><Body>";    break;
+        // 短信凭证重发
+        case 'resend':       $str_xml .= "<TransactionCode>08</TransactionCode><Signed>$Signed</Signed></Head><Body>";    break;
+        // 订单退款
+        case 'refund':       $str_xml .= "<TransactionCode>09</TransactionCode><Signed>$Signed</Signed></Head><Body>";    break;
+    }
+
+    // 加密消息体
+    $desBody = $des->encrypt($bodys);
+    $str_xml .= '<![CDATA['.$desBody.']]>';
+    // 结尾
+    $str_xml .="</Body></OTM>";
+
+    $result = $http->post($str_apiUrl, $str_xml, 'xml', 'curl', 'application/x-www-form-urlencoded');
+
+    if((int)$result['otm']['head']['statuscode'] == 200 &&  (string)$result['otm']['head']['message'] == 'SUCCESS'){
+        $hqc_postData_body = object2array(simplexml_load_string($des->decrypt($result['otm']['body'])));
+         
+        return $hqc_postData_body;
+    }else{
+        return (int)$result['otm']['head']['statuscode'].'|'.(string)$result['otm']['head']['message'];
+    }
+}
+
+function getBodys( $param=array() )
+{
+    $str_xml = "<?xml version='1.0' encoding='UTF-8'?><Body>";
+    if ( !empty($param) )
+    {
+        foreach ($param as $key=>$val)
+        {
+            $str_xml .=('<'.$key.'>'.$val.'</'.$key.'>');;
+        }
+    }
+    $str_xml .= '</Body>';
+
+    return $str_xml;
+}
 
 //卡接口方法
 function getCardApi($arr_param, $tradeId, $dataSource = '', $method = 'post'){

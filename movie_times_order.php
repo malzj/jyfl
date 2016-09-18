@@ -229,7 +229,9 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 	$float_price = number_format(round($arr_orderInfo['agio'],1), 2, '.', '');
 	// 需要支付的卡点的价格
 	$card_price = number_format(round($arr_orderInfo['cika_agio'],1), 2, '.', '');
-
+    // 需要支付的卡点的总点数
+	$total = $card_price*$arr_orderInfo['count'];
+	
 	if (empty($arr_orderInfo)){
 		$ajaxArray['error'] = 1;
 		$ajaxArray['message'] = '抱歉，您提交的支付信息不存在';
@@ -254,15 +256,15 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 	/** TODO 支付 （双卡版） */
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$card_price, 'TransSupplier'=>setCharset('抠电影'))
+			'TransationInfo' => array( 'TransRequestPoints'=>$total, 'TransSupplier'=>setCharset('抠电影'))
 	);
 	$state = $cardPay->action($arr_param, 1, $cardOrderId);	
 	//$state = 0;
 	if ($state == 0){
 		$cardResult = $cardPay->getResult();
-		$_SESSION['BalanceCash'] -= $card_price; //重新计算用户卡余额
+		$_SESSION['BalanceCash'] -= $total; //重新计算用户卡余额
 		//更新卡金额
-		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('users')." SET card_money = card_money - ('$card_price') WHERE user_id = '".intval($_SESSION['user_id'])."'");
+		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('users')." SET card_money = card_money - ('$total') WHERE user_id = '".intval($_SESSION['user_id'])."'");
 		//更新卡支付状态
 		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET card_pay = '1', api_order_id = '".$cardResult."', card_order_id= '".$cardOrderId."' WHERE id = $int_orderId");
 		// 电影票支付

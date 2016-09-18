@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="/css/test.css" rel="stylesheet" type="text/css" />
+<link href="/css/hy_master.css" rel="stylesheet" type="text/css" />
+
+
+<link href="/css/sports.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+<script src="/js/layer.js"></script>
+
+	
+</head>
+<body>
+    <!-- 头部 -->
+    <!-- #BeginLibraryItem "/library/page_top.lbi" --><!-- #EndLibraryItem -->
+    <!-- 头部结束 -->
+    
+    <style>
+/*top*/
+	.fr{float:right;}
+	.fl{float:left;}
+	.h-wrop{width: 1200px;margin: 0 auto;}
+	.h-img{width: 1200px;}
+	.h-position{margin-top: 19px;float: left;}
+	.h-position a{color: #666;}
+	.h-centimg{width:100%;float: left;font-family: "Microsoft YaHei";padding-bottom:30px;border-bottom: solid 1px #eeeeee;}
+	.h-centimg .h-imgArea{width: 660px;padding-top:20px;}
+	.h-centimg .h-imgArea ul { margin: 0px;padding:0px;float: left;}
+	.h-centimg .h-imgArea ul li {float: left;padding:0;}
+	.h-centimg .h-imgArea ul  .h-action{border: 0px;margin: 0px;padding: 0px;}
+	.h-centimg .h-imgArea ul li a .img1{width: 520px;height: 520px;padding: 0px;}
+	.h-centimg .h-imgArea ul li img{width: 77px;height: 77px;}
+	.h-centimg .h-choice{width: 560px;float: left; margin-left:30px;}
+	.h-centimg .h-choice .h-title{font-size: 18px;border-bottom:dashed 1px #acacac;padding-bottom:30px; }
+	.h-centimg .h-choice ul li{font-size: 14px; margin: 20px 0px;}
+	.h-centimg .h-choice ul li .h-span{color: #666;line-height: 40px;}
+	.h-centimg .h-choice ul li .h-span1{color: #E40000;font-size: 24px;}
+	.h-centimg .h-choice ul li .h-spanleft{float: left;width: 70px;text-align: right;color: #333; margin-right: 12px;display: inline;line-height: 40px;color: #333;}
+	.h-centimg .h-choice ul li a span{background-image: url(../images/hy_l3_.jpg);width: 18px;height: 18px;float: left;margin-left: 31px;margin-right: 11px;display: inline;margin-top: 15px;}
+	.h-centimg .h-choice ul li a{background: #E70012 none repeat scroll 0% 0%;color: #FFF;margin-left: 95px;display: inline-block;line-height: 48px;width: 150px;}
+	/*cencer*/
+	.h-inforbox{float: left;margin-top:20px;position: relative;}
+	.h-inforbox .h-tabletitle{width: 600px; height:450px;}
+	.h-inforbox .h-table{line-height: 32px;background-color: #f2f2f2;}
+	.h-inforbox .h-table tr .h-left{line-height: 30px;margin-left:20px; }
+	.h-inforbox .h-table .h-tr{text-align: center; font-size:14px;}
+	.h-inforbox table{width: 100%;}
+	.h-inforbox .h-table1{height: 50px;}
+	.h-inforbox .h-table1 table tr td{text-align: center; font-size:14px; line-height:50px;} 
+	.h-inforbox .h-table2{background-color:#f2f2f2; border: solid 10px #f2f2f2;}
+	.h-inforbox .h-table2 table{border: solid 1px #e6e6e6;}
+	.h-inforbox .h-table2 table tr td{text-align: center;font-size:12px;}
+	.h-inforbox .h-table2 table tr td p{margin: 0px;color: #999;font-weight: 700;font-size: 14px; cursor: pointer;}
+	.h-inforbox .h-table2 table tr td .h-p1{margin: 5px;color: #f43;font-weight:normal;}
+	.h-inforbox .h-table2 .t1{background-color:#fff; padding:3px;}
+	.h-inforbox .h-table2 .t1:hover{background-color:#FFDEB7;}
+	.h-inforbox .h-bot{width:556px;height: 420px;overflow-y: scroll;border: 2px solid #F7F7F7;background-color: #FEFEFE;margin-top: 10px;line-height: 25px;padding: 10px;position: absolute;right: 0px;top:-10px;}
+	/*Product profile*/
+	.h-Product-profile{float: left;width: 100%;border-bottom:solid 1px #eeeeee; margin-top:15px; }
+	.h-Product-profile p{width:100px;height: 35px;background-color: #eeeeee;font-size: 14px;line-height: 35px;text-align: center;margin-bottom: 0px;}
+	.h-product{float: left; padding: 20px 0; line-height:25px;}
+
+	.quantity{ position: relative; height: 30px;}
+	.decrement, .increment, .itxt{ float:left; text-align:center; width: 30px; height: 30px; line-height:30px; margin: 0; margin-left:-1px;  background:#fff; border:1px solid #9e9e9e;border-radius:0; }
+	.decrement, .increment { color:#666; font-size:16px; }
+	.decrement{ border-radius:3px 0 0 3px;}
+	.increment{ border-radius:0 3px 3px 0}
+	.decrement-disabled, .increment-disabled { cursor: no-drop; color:#aaa; background:#f1f1f1;}
+	.itxt {font-size: 12px; font-family: verdana; color: #000; -webkit-appearance: none;}
+	.itxt-disabled { border: 1px solid #dadada; background: #e6e6e6; color: #888 }
+	.quantity span{color: red;float: right;line-height: 30px;}
+	/*img{width: 100%;height: auto;}*/
+	table{margin-top: 0;}
+	.h-inforbox .h-table2 table tr td{cursor: pointer;   width: 70px;  border: 1px solid #E8E8E8;}
+	.title .adress{width: 390px;padding: 0 20px;}
+	.title span{font-size: 16px;}
+	.adress div{margin: 15px 0;}
+	.adress div span:nth-child(1){width: 120px;display: inline-block;float: left;}
+	.adress div span.w_200{width: 200px;display: inline-block;}
+	.quantity a{cursor: pointer;}
+	.price1,.all_price{font-size: 20px!important;color: orange;}
+	#td table tr td.active{background: #FFDEB7;}
+	.price_2 span{width: 120px!important;}
+	
+	
+	/*弹窗样式*/
+.background{position:fixed;_position:absolute;z-index:998;top:0px;left:0px;width:100%;_width:expression(document.documentElement.clientWidth);height:100%;_height:expression(document.documentElement.scrollHeight); background:url(../images/popBj.png) repeat;}
+.webox{position:fixed;_position:absolute;z-index:999; top: ;}
+#inside{padding-top:20px; width:100%;}
+.webox #inside h1 a{position:absolute;display:block;right:2px;margin-top:6px;top:12px;font-size:14px; background:url(../images/close.png) no-repeat;background-repeat:no-repeat;background-position:center top;width:52px;height:53px;cursor:pointer;display:inline-block; z-index: 3;}
+.webox #inside h1 a:hover{background-position:center bottom;}
+.pop{width:887px;}
+.popTop{background:url(../images/popTop.png) no-repeat; width:887px; height:66px; position:relative; margin-top:8px;}
+.popCenter{ background:url(../images/popCenter.png) repeat-y; width:887px; padding-top:30px;}
+.popBottom{ background:url(../images/popBottom.png) no-repeat; width:887px; height:35px;}
+.popTi{ background:url(../images/popStep.png) no-repeat; width:350px; height:83px; position:absolute; top:-7px; left:276px;}
+.popTi1{ background:url(../images/popStep1.png) no-repeat; width:350px; height:83px; position:absolute; top:-7px; left:276px;}
+.popTi2{ background:url(../images/popStep2.png) no-repeat; width:350px; height:83px; position:absolute; top:-7px; left:276px;}
+.popStep1{background:url(../images/popCon.jpg) no-repeat center center; width:887px; height:353px; padding-top:30px;}
+.know{ display:block; width:120px; height:41px; line-height:41px; color:#fff; background:#24adbf; font-family:"微软雅黑"; text-decoration:none; text-align:center; text-align:center; margin-left:383.5px; font-size:16px; margin-top:30px;}
+.know:hover{ background:#16bed4; color:#fff;}
+.unknow{ background:#f97070;}
+.unknow:hover{ background:#ff3636;}
+.popGarden{ width:797px; padding:0px 45px; color:#624d1a; line-height:24px;}
+.popGarden dt{ width:365px;}
+.popGarden .gardenStep{ background:url(../images/popCon1.png) no-repeat center bottom; width:365px; height:300px;}
+.popGarden h2{ font-weight:normal; font-size:16px; margin-bottom:10px; margin-top:10px;}
+.popGarden dd { width:362px;}
+.popGarden dd p{ line-height:24px;}
+.agreeTic{ width:797px; padding:0px 45px; margin-top:5px; color:#ff3636; font-size:15px;}
+.agreeTic input{ margin-right:5px;}
+.knowIcon{width:350px; margin-left:268.5px;}
+.knowIcon .know{ margin-left:0px;}
+.layui-layer-content{background:#A29F9F;}
+.grayBgColor {
+background-color: gray;
+}
+.grayBgColor:hover{
+	background-color: gray;
+}
+</style>
+
+    <div style="height:49px;"></div> 
+    <div class="h-wrop" style="background:url('/images/index/bg_JQ000016.jpg') no-repeat ; background-size:100%; width:auto;height: 100%; background-attachment: fixed;">
+        <div class="buy-warp" style="width:1000px; margin:0 auto;background: white;">
+            <form name="f1" id="f1" action="huanlegu_goods_order.php" method="post">
+            <div class="title" style="float: right;margin-top: 17px; width:390px;">
+                <span style="font-size: 18px;">{$luyou.name}</span>
+                <div style="overflow: hidden; margin-bottom:20px;line-height: 2;">
+                    <div class="adress">
+                        <div><span>产品名称</span><span class="w_200">{if $goods.GoodsName}{$goods.GoodsName} {else} 无 {/if}</span></div>							
+                        <div><span>游玩日期</span><span class="stime w_200" style="color:black;">请在左侧日历表选择游玩日期</span></div>									
+                        <div><span>单价</span><span class="price1">{$goods.showPrice}</span> 点</div>
+                        <div><span style="float: left;">人数</span>
+                            <div class="quantity">
+                               <a id="decrement" class="decrement">-</a>
+                               <input id="txtProductCount" name="number" class="itxt" value="1" type="text">
+                               <a id="increment" class="increment">+</a>
+                            </div>
+                        </div>
+                        <div><span>总价</span><span class="all_price">{$goods.showPrice}</span> <font size="">点</font></div>
+                        <div class="price_2">
+                        <span><a href="javascript:;"  id="btn-agree">立即预定</a></span>
+                        <input type="hidden" name="scenicId" value="{$goods.ScenicId}">			
+                        <input type="hidden" name="goodsId" value="{$goods.GoodsId}">	
+                        <input type="hidden" name="date" id="date" value="">   
+                        <input type="hidden" name="secret" id="secret" value="{$secret}">        					                      	
+                        <input type="hidden" name="action" id="action" value="saveOrder">                          
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            </form>
+            <div class="h-inforbox" style="width:600px;">
+                <div class="h-tabletitle" id="calendar" style="color:#F00;"> </div>
+            </div>				
+            <div class="clear"></div>
+            <div style="text-align: left; padding:20px; background:#fff; line-height: 2.5;">
+                {if $goods.Description} {$goods.Description} {else} 
+                1、本套票为成人全价套票，适用于1.5米以上（含1.5米）成人游客购买，儿童套票、长者套票请现场购买；<br />
+                2、购买本套票后，可全天畅玩北京欢乐谷，并可于于欢乐谷内入口进入华侨城大剧院C区座位观看17:30场次的《金面王朝》演出；<br />
+                3、本套票请在您所选择的出游日期当天使用，且仅限使用一次，《金面王朝》演出开始时间为：当日17:30；<br />
+                4、不同日期，北京欢乐谷开闭园时间不同，本门票的使用时间也不同，具体请查看北京欢乐谷官方网站、官方微信的开放时间；<br />
+                5、请携带购票时预留的有效证件，至北京欢乐谷团体售票大厅5号窗口，将此短信交景区售票员验证后换取纸质门票；<br />
+                6、本票一经购买不可改期、退票，请游客合理安排购票。<br />
+                7、票务咨询电话：4000691111（咨询时间09:00-12:00；14:00-18:00）。
+                
+                {/if}
+                
+            </div>
+        </div>
+        <div style="width: 1000px;margin: 0 auto;">
+            <img src="../images/huanlegu.jpg" width="100%">
+        </div>
+    </div>
+    
+    <!-- 底部 -->
+	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    <!-- 底部结束 -->
+    <!-- 公共左边 -->
+    <!-- #BeginLibraryItem "/library/page_left.lbi" --><!-- #EndLibraryItem -->
+    <!-- 公共左边结束 -->        
+    <!-- 公共右边 -->
+    <!-- #BeginLibraryItem "/library/page_right.lbi" --><!-- #EndLibraryItem -->
+        
+	
+    <div style="height:50px;"></div>
+    
+    
+    <script>
+	
+		
+		var ScenicId = "{$goods.ScenicId}";
+		var GoodsId = "{$goods.GoodsId}";	
+		var MaxBuy = "{$goods.MaxQuantityEachOrder}";
+			
+		var addate = 0;
+	
+    	$("#increment").click(function () {
+            var amount = parseInt($("#txtProductCount").val());
+            if (amount >= MaxBuy) {
+                return;
+            }
+            var num = amount + 1;
+            $("#txtProductCount").val(num);            
+			var price=$('.adress div .price1').text();
+			var a=parseInt(price);
+			var all_price=(parseInt(price)*$("#txtProductCount").val());
+			$('.all_price').html(all_price);
+				
+        });
+        //减操作
+        $("#decrement").click(function () {
+            var amount = parseInt($("#txtProductCount").val());
+            var num = amount - 1;
+            if (num <= 0) {
+                return;
+            }
+            $("#txtProductCount").val(num);
+				var price=$('.adress div .price1').text();
+				var all_price=parseInt(price)*$("#txtProductCount").val();
+				$('.all_price').html(all_price);
+        });
+		
+		//  加载日历
+		function loadPrice(date){
+			$.ajax({
+				type: "POST",
+				url: "huanlegu_goods_show.php?step=price",
+				data:'ScenicId='+ScenicId+'&GoodsId='+GoodsId+'&date='+date,
+				beforeSend : function(){
+					var beforeHtml = "<span style='display:inline-block; margin-left:320px;'><img src='/images/loadSeat2.gif'></span>";
+					$('#calendar').html(beforeHtml);
+				},
+				success: function(info){
+					$('#calendar').html(info);
+				}
+			});
+		}
+		// 页面打开时，第一次加载
+		loadPrice(0);
+		
+		// 上个月、下个月
+		function calendar(e){
+			if(e==1){
+				addate++;
+			}else{
+				addate--;
+			}
+			if(addate == 0){
+				loadPrice(0);
+				
+			}	
+			var myDate = new Date();
+			var year = myDate.getFullYear();
+			var month = myDate.getMonth()+1;
+			var day = myDate.getDate();
+				month = month+addate;
+			var str = year+'-'+month+'-'+day;
+			loadPrice(str);
+		}
+		
+		// 时间选择
+		
+		//$('#td table tr td').click(function(){
+		$(document).delegate("#td table tr td", "click", function(){
+			$(this).addClass('active').siblings().removeClass('active');
+			$(this).addClass('active').parents('tr').siblings().find('td').removeClass('active');
+			if(price()){
+				ctime();
+			}			
+		});
+		
+		function price(){
+			var price = $('.active').find('.h-p1').text();	
+			if(!isNaN(price)){
+				alert('您选择的出行日期不支持，请从新选择！');
+				return false;
+			}
+			$('.price1').html(parseFloat(price));
+			var all_price = (parseFloat(price)*$("#txtProductCount").val());
+			$('.all_price').html(all_price);
+			
+			// 
+			var dates =  $('.active').attr('date');
+			$('#date').val(dates);		
+			return true;	
+		}
+		
+		function ctime(){
+			var stime =  $('.active').attr('date');			
+			$('.stime').text(stime);	
+		}
+		
+		function sub(){			
+			var thisDate = new Date();
+			$('#f1').submit();
+		}
+		
+		function buquan(num,length){
+			var numstr = num.toString();
+			var l=numstr.length;
+			if (numstr.length>=length) {return numstr;}
+			  
+			for(var  i = 0 ;i<length - l;i++){
+			  numstr = "0" + numstr;  
+			 }
+			return numstr; 
+		}
+//			弹层  
+		$('#btn-agree').on('click', function(){
+			 if($('#date').val()==""){
+		   	layer.msg('请在左侧日历表选择游玩日期');
+		   }else{
+		    layer.open({
+		    	title:false,
+		        type: 1,
+		        area:'887px',
+		        shadeClose: true, //点击遮罩关闭
+		        content: '<div class="popTop"><div class="popTi2"></div></div><div class="popCenter"><div class="popGarden"><p>1、北京欢乐谷《华影文化套票》仅限"预约日期"当日有效，过期作废。</p><p>2、购票时请仔细确认游玩日期，一经支付成功，不可更改，不退不换。</p><p>3、每个身份证及手机号每日限购1张,购票本人须携带身份证入园。</p><p>4、若您一旦在其他网站"当日"有过预定北京欢乐谷其他门票，无论是否支付，不可再购买此票，请慎重下单，避免导致无法入园。</p><p>5、购票后如遇园区推出优惠促销，恕不另行通知，不能同时享受该优惠。</p><p>6、购票信息请注意保密，因游客个人原因泄露该信息而造成的损失由游客自行承担。</p><p>7、购票时填写的取票人信息必须是实际入园人真实信息，若因信息有误造成的纠纷与损失均由游客自行承担。</p><p>8、游客购票须允许本网站将有关订票信息以短信或彩信方式发送至订票手机上。</p><p>9、活动内容如有变动，以当日公告为准。所有游乐项目均会定期进行日检、周检和年度检查，相关检修工作可能会造成部分游乐项目运行时间延迟或暂停对游客开放，详情以项目现场公告为 准。</p><p>10、进入华侨城园区，游客必须接受安全检查，严禁携带管制器具、枪支弹药、易燃易爆物品、食品、饮料等物品入园。</p><p>11、游玩前请参阅公园的开放时间、表演时间及注意事项。</p></div><div class="agreeTic"><input id="agreeFlg" name="agreeFlg" type="checkbox" value="agree" checked onchange="changeAgreeFlg(this)"><label for="agreeFlg">已仔细阅读并同意上述购票须知</label></div><div class="knowIcon"><a href="javascript:sub();" class="know fl" id="agreeBtn">同意</a> <a href="javascript:;" class="know unknow fr " id="unAgreeBtn">不同意</a><div class="clear"></div></div></div><div class="popBottom"></div>'
+		    });
+		    $('#unAgreeBtn').click(function(){
+			layer.closeAll('page');
+		})
+		  }
+		});
+		function changeAgreeFlg(obj){
+		var agreeFlg = $(obj).is(':checked');
+		if(agreeFlg){
+			$("#agreeBtn").removeClass("grayBgColor");
+			$("#agreeBtn").attr("href",'javascript:sub()');
+		}else{
+			$("#agreeBtn").addClass("grayBgColor");
+			$("#agreeBtn").attr("href",'javascript:');
+			
+		};
+	}
+    </script>
+
+	</body>
+</html>

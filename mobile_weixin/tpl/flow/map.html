@@ -1,0 +1,32 @@
+<style>
+	#supplier-showmap{position:absolute;height:100%;width:100%;}
+</style>
+<div class="mui-content">
+	<div class="mui-table-view" style="margin-top: 0;">
+	 	<li class="mui-table-view-cell">
+	 		{{each data.yunfei as yunfei}}
+	 		<span class="mui-pull-right">运费<span>{{yunfei.yunfei}}</span>点</span>
+	 		<span class="mui-pull-right fanwei_block" style="background:{{yunfei.color}}"></span>
+	 		{{/each}}
+	 	</li>
+	</div>
+	<div id="supplier-showmap" style="height:100%; width:100%;">
+	
+	</div>
+</div>
+
+<script>
+	/*动态导入js*/
+	insertJs(['../js/baidumap.js']);
+
+	baidumap.setOptions({
+		isYunfei:true,
+		isSetYunfei:false,
+		showMapId:'supplier-showmap',
+		currentCity:'{{data.cityname}}'
+	});
+	
+	baidumap.showMap({{data.id}});
+	
+	
+</script>

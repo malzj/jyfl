@@ -113,7 +113,7 @@ else if ($_REQUEST['act'] == 'order'){
 		$arr_orderInfo = $arr_result['order'];		
 		$ratioMovie = getMovieRatio(true);
 		//插入订单信息
-		$str_sql = 'INSERT INTO '. $ecs->table('seats_order') ."(order_sn, user_id, user_name, order_status, mobile, city_id, activity_id, channel_id, count, agio, money, unit_price, seat_info, seat_no, hall_name, hall_id, language, screen_type, featuretime, pay_id,pay_name, add_time, payment_time, movie_name, cinema_name,param_url,source,movie_id,extInfo,card_ratio,shop_ratio,raise,ext,diff_price,cika_agio) VALUES('".$arr_orderInfo['orderId']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_orderInfo['orderStatus']."', '$mobile','".$int_cityId."', '".$arr_orderInfo['activityId']."', '".$arr_orderInfo['channelId']."', '".$seatCount."', '".$arr_orderInfo['agio']."', '".$money."', '".$unitPrice."', '".$seatsName."', '".$seatsNo."', '".$hallName."', '".$arr_orderInfo['plan']['hallNo']."', '".$arr_orderInfo['plan']['language']."', '".$arr_orderInfo['plan']['screenType']."', '".$featureTimeStr."', '2', '华影支付', '".gmtime()."', '0', '".$movieName."', '".$cinemaName."', '".$seatParamUrl."',0,'".$movieId."','".$extInfo."','".$ratioMovie['card_ratio']."','".$ratioMovie['shop_ratio']."', '".$ratioMovie['raise']."', '".$ratioMovie['ext']."','".$diffPrice."','".getBuyPrice($unitPrice)."')";
+		$str_sql = 'INSERT INTO '. $ecs->table('seats_order') ."(order_sn, user_id, user_name, order_status, mobile, city_id, activity_id, channel_id, count, agio, money, unit_price, seat_info, seat_no, hall_name, hall_id, language, screen_type, featuretime, pay_id,pay_name, add_time, payment_time, movie_name, cinema_name,param_url,source,movie_id,extInfo,card_ratio,shop_ratio,raise,ext,diff_price,cika_agio,real_price,cordon_show) VALUES('".$arr_orderInfo['orderId']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_orderInfo['orderStatus']."', '$mobile','".$int_cityId."', '".$arr_orderInfo['activityId']."', '".$arr_orderInfo['channelId']."', '".$seatCount."', '".$arr_orderInfo['agio']."', '".$money."', '".$unitPrice."', '".$seatsName."', '".$seatsNo."', '".$hallName."', '".$arr_orderInfo['plan']['hallNo']."', '".$arr_orderInfo['plan']['language']."', '".$arr_orderInfo['plan']['screenType']."', '".$featureTimeStr."', '2', '华影支付', '".gmtime()."', '0', '".$movieName."', '".$cinemaName."', '".$seatParamUrl."',0,'".$movieId."','".$extInfo."','".$ratioMovie['card_ratio']."','".$ratioMovie['shop_ratio']."', '".$ratioMovie['raise']."', '".$ratioMovie['ext']."','".$diffPrice."','".getBuyPrice($unitPrice)."','".$ratioMovie['real_price']."', '".$ratioMovie['cordon_show']."')";
 		$query = $db->query($str_sql);
 		$int_orderid = $db->insert_id();
 		
@@ -229,7 +229,9 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 	$float_price = number_format(round($arr_orderInfo['agio'],1), 2, '.', '');
 	// 需要支付的卡点的价格
 	$card_price = number_format(round($arr_orderInfo['cika_agio'],1), 2, '.', '');
-
+    // 需要支付的卡点的总点数
+	$total = $card_price*$arr_orderInfo['count'];
+	
 	if (empty($arr_orderInfo)){
 		$ajaxArray['error'] = 1;
 		$ajaxArray['message'] = '抱歉，您提交的支付信息不存在';
@@ -254,15 +256,15 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 	/** TODO 支付 （双卡版） */
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$card_price, 'TransSupplier'=>setCharset('抠电影'))
+			'TransationInfo' => array( 'TransRequestPoints'=>$total, 'TransSupplier'=>setCharset('抠电影'))
 	);
 	$state = $cardPay->action($arr_param, 1, $cardOrderId);	
 	//$state = 0;
 	if ($state == 0){
 		$cardResult = $cardPay->getResult();
-		$_SESSION['BalanceCash'] -= $card_price; //重新计算用户卡余额
+		$_SESSION['BalanceCash'] -= $total; //重新计算用户卡余额
 		//更新卡金额
-		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('users')." SET card_money = card_money - ('$card_price') WHERE user_id = '".intval($_SESSION['user_id'])."'");
+		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('users')." SET card_money = card_money - ('$total') WHERE user_id = '".intval($_SESSION['user_id'])."'");
 		//更新卡支付状态
 		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET card_pay = '1', api_order_id = '".$cardResult."', card_order_id= '".$cardOrderId."' WHERE id = $int_orderId");
 		// 电影票支付

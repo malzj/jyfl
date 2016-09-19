@@ -1,0 +1,36 @@
+/*jy_index*/
+*{margin: 0;padding: 0;}
+html{font-size: 20px;}
+.vh_20{position: relative;height: 20vh;width: 100%;}
+.vh_20 a{height: 100%;width: 100%;display: block;}
+.wenhua_door{background:url(../images/jy_index/wenhua.jpg) no-repeat; background-size: 100% 100%;}
+.birth_door{background:url(../images/jy_index/birth.jpg) no-repeat ;background-size: 100% 100%;}
+.shenghuo_door{background:url(../images/jy_index/shenghuo.jpg) no-repeat ; background-size: 100% 100%;}
+.sport_door{background:url(../images/jy_index/sport.jpg) no-repeat ;background-size: 100% 100%;}
+.tongka_door{background:url(../images/jy_index/tongka.jpg) no-repeat ;background-size: 100% 100%;}
+.wenhua_title{font-size: 1rem;line-height: 1.2;margin: 0 auto;width: 4rem;text-align: center;color: white;top: 50%;position: absolute;left: 50%;transform: translateX(-50%) translateY(-50%);-webkit-transform: translateX(-50%) translateY(-50%);font-weight: normal;}
+
+/*login*/
+.login_box{width:18.75rem;height: 13.7rem;position: absolute;left: 50%;top: 50%;transform: translateX(-50%) translateY(-65%);-webkit-transform: translateX(-50%) translateY(-65%);background:url(../images/jy_index/login_form.png) no-repeat;background-size: 100% 100%;}
+.login_username input,.login_password input{font-size: .7rem;width: 9rem;height: 1.5rem;background: transparent;outline: none;border: 1px solid white;border-radius: 20px;color: white;padding: 0;padding-left: 1rem;margin-bottom: .1rem;}
+#juyou_tongka,#juyou_shenghuo,#juyou_shengri,#juyou_yundong,#juyou_wenhua{background: url(../images/jy_index/login_bg.jpg) no-repeat;background-size:100% 100%;height: 100%!important;}
+.login_username,.login_password{width: 9rem;margin: 0 auto;margin-bottom: 0.8rem;}
+.login_icon img{width: 5.75rem;height: 1.4rem;margin-bottom: 1rem;margin-left: 1rem;margin-top: 1rem;}
+.login_icon1{text-align: center;}
+.login_icon1 img{width:6.85rem;height: 1rem;}
+.login_btn{
+	padding: 0;
+    display: block;
+    margin: 0 auto;
+    width: 9rem!important;
+    height: 1.5rem;
+    background: #2fd0b5;
+    border: 0;
+    border-radius: 20px!important;
+    font-size: .9rem;
+    color: white!important;
+    letter-spacing: .2rem;
+    margin-bottom: 1rem;
+    outline: none;
+    font-weight: normal;
+    line-height:1.6rem;}

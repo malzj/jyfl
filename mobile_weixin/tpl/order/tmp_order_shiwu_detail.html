@@ -1,0 +1,55 @@
+
+<div class="mui-page-content">
+    <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+            <div class="order_shiwu_address">
+                <h4>{{order.consignee}}  {{order.mobile}}</h4>
+                <p class="mui-ellipsis">{{order.address}}</p>
+            </div>
+            <div class="order_shiwu_item margin_top_10">
+                <div class="order_shiwu_boxTitle mui-clearfix">
+                    <span class="mui-pull-left">{{order.order_sn}}</span>
+                    <span class="color_coral mui-pull-right">{{order.pay_status_cn}}</span>
+                </div>
+                <!--单个商品详情-->
+                {{each goods_list as goods}}
+                <div class="order_shiwu_item_top mui-clearfix">
+                    <div class="shiwu_item_top_img mui-pull-left">
+                        <img src="{{web_url}}/{{goods.goods_thumb}}" alt="" />
+                    </div>
+                    <div class="shiwu_item_top_details mui-pull-left">
+                        <div class="mui-ellipsis">{{goods.goods_name}}</div>
+                        <p class="shiwu_item_top_guige"><span>{{goods.goods_attr}}</span></p>
+                    </div>
+                    <div class="shiwu_item_top_price">
+                        <div>{{goods.goods_price}}点</div>
+                        <p>X<span>{{goods.goods_number}}</span></p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <ul class="mui-table-view margin_top_10">
+                <li class="mui-table-view-cell">支付方式<span class="mui-pull-right">{{order.pay_name}}</span></li>
+                {{if order.pay_statuses==2}}
+                <li class="mui-table-view-cell">付款时间<span class="mui-pull-right">{{order.pay_time}}</span></li>
+                {{/if}}
+                <li class="mui-table-view-cell">下单时间<span class="mui-pull-right">{{order.formated_add_time}}</span></li>
+                <li class="mui-table-view-cell">运费<span class="mui-pull-right">{{order.formated_shipping_fee}}</span></li>
+                <li class="mui-table-view-cell">实付点数<span class="mui-pull-right">{{order.formated_total_fee}}</span></li>
+            </ul>
+            {{if order.pay_statuses==0&&order.order_status!=3}}
+            <ul class="mui-table-view margin_top_10">
+                <li class="mui-table-view-cell">聚优卡号<span class="mui-pull-right">{{user_name}}</span></li>
+                <li class="mui-table-view-cell mui-input-row">
+                    <label>请输入密码</label>
+                    <input name="password" type="password"/>
+                    <input name="order_id" type="hidden" value="{{order.order_id}}"/>
+                </li>
+            </ul>
+            <div class="mui-button-row">
+                <button type="button" class="mui-btn order_shiwu_fukuan">付款</button>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

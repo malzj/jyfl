@@ -3614,6 +3614,8 @@ function split_order($new_order_id){
 		    $split_orders[$row['supplier_id']]['unit_ratio'] = $ratios['unit_ratio'];
 		    $split_orders[$row['supplier_id']]['raise'] = $ratios['raise'];
 		    $split_orders[$row['supplier_id']]['ext'] = $ratios['ext'];
+		    $split_orders[$row['supplier_id']]['cordon_show'] = $ratios['cordon_show'];
+		    $split_orders[$row['supplier_id']]['real_price'] = $ratios['real_price'];
 		    $split_orders[$row['supplier_id']]['cardid'] = $_SESSION['card_id'];
 		}
 		$all_amount += $split_orders[$row['supplier_id']]['order_amount'];
@@ -3637,6 +3639,8 @@ function split_order($new_order_id){
 					" unit_ratio='".$split['unit_ratio']."',  ".
 					" raise='".$split['raise']."',  ".
 					" ext='".$split['ext']."',  ".
+					" cordon_show='".$split['cordon_show']."',  ".
+					" real_price='".$split['real_price']."',  ".
 					" cardid='".$split['cardid']."',  ".
 					" supplier_id='$spkey', ".
 					" parent_order_id='0', ".

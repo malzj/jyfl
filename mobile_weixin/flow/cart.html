@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet"/>
+		<link href="../css/mui.mian.css" rel="stylesheet"/>
+		<script src="../js/connection.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/mui.min.js"></script>		
+		<script src="../js/template.js"></script>
+		<script src="../js/jqueryExtend.js"></script>
+		<script src="../js/mui.mian.js"></script>
+		<style type="text/css">
+			.mui-table-view .mui-media-object{max-width: 80px;height: 80px;}
+			.mui-table-view-cell>a:not(.mui-btn){white-space: normal;}
+			.mui-numbox{border: none;background: transparent!important;width: 75px;margin-top: 30px;padding: 0;height: 25px;}
+			.mui-numbox button{border: 1px solid #ddd!important;border-radius: 50%!important;background: transparent!important;}
+			.mui-bar-tab .mui-tab-item{color: black;}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">购物车</h1>
+		</header>
+		<script type="text/javascript">
+			mui.init();
+			
+			// ajax调取数据
+			jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{},function(data){				
+				// 加载页面				
+				replaceHtml('header', template('flow/cart', data));
+				// 重新触发计数插件
+				mui('.mui-numbox').numbox();
+			});
+		</script>
+	</body>
+
+</html>

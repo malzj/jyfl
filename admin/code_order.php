@@ -9,6 +9,7 @@ require(dirname(__FILE__) . '/includes/init.php');
 /*------------------------------------------------------ */
 
 if ($_REQUEST['act'] == 'list'){
+    admin_priv('order_view');
 	$smarty->assign('ur_here', $_LANG['03_code_order']);
 	$smarty->assign('full_page',        1);
 
@@ -33,6 +34,7 @@ if ($_REQUEST['act'] == 'list'){
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'query')
 {
+    admin_priv('order_view');
 	$order_list = order_list();
 
 

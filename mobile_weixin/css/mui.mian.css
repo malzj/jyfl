@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+/* 遮罩加 loading */
+/* .mui-backdrop{background-color:#fff; height:100%;}
+.loading-mui{position:absolute;left:50%;top:50%;transform: translate(-50%,-50%);} */
+
+#popUp_item_bg4{background: #f15a4a;}
+#popUp_item_bg10{background: #467eef;}
+#popUp_item_bg11{background: #fd8e00;}
+#popUp_item_bg12{background: #ff2662;}
+#popUp_item_bg13{background: #01ccff;}
+#popUp_item_bg14{background: #fe3921;}
+#popUp_item_bg15{background: #8cc500;}
+#popUp_item_bg16{background: #f26c60;}
+#popUp_item_bg17{background: #18c95f;}
+#popUp_item_bg30{background: #48bfdf;}
+#popUp_item_bg31{background: #1bd2d5;}
+#popUp_item_bg33{background: #f5403f;}
+#popUp_item_bg34{background: #1ba4f2;}
+#popUp_item_bg40{background: #feb800;}
+#popUp_item_bg41{background: #a4233a;}
+
+
+

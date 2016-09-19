@@ -1,0 +1,76 @@
+<div class="mui-content">
+    <div class="sports_details_top bg_white mui-clearfix">
+        <div class="mui-content-padded mui-pull-left">
+            {{each imgList as img key}}
+            <div class="sports_top_img" {{if key > 0}}style="display: none;"{{/if}}>
+                <img src="{{img}}" data-preview-src="" data-preview-group="1" />
+            </div>
+            {{/each}}
+            <!--图片数量-->
+            <div class="sports_top_imgNum">相册(<span>{{imgList.length}}</span>)</div>
+        </div>
+        <div class="mui-pull-left sports_top_right mui-ellipsis">
+            <h4 class="mui-ellipsis">{{detail.venueName}}</h4>
+            <p>营业时间：<span>{{detail.stime}}~{{detail.etime}}</span></p>
+        </div>
+    </div>
+    <div class="mui-table-view">
+        <div class="mui-table-view-cell mui-ellipsis"><span class="mui-icon iconfont icon-dizhi"></span>{{detail.place}}</div>
+        <div class="mui-table-view-cell"><span class="mui-icon iconfont icon-dianhua"></span><a href="tel:400-662-5170" style="display: inline-block;">400-662-5170 {{if detail.tel400}}转 {{detail.tel400}}{{/if}}</a></div>
+    </div>
+    <div class="margin_top_10">
+        <div class="bg_white">
+            <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted">
+                <a class="mui-control-item mui-active" href="#item1">场地</a>
+                <a class="mui-control-item" href="#item2">门票</a>
+            </div>
+        </div>
+        <div id="item1" class="mui-control-content sports_details_item1 mui-active bg_white">
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                <div class="mui-scroll">
+                	{{if venues.length}}
+                    {{each venues as venue}}
+                    <a class="mui-control-item href_click" data-href="./sports_venue.html?venueId={{venueId}}&infoId={{venue.infoId}}&orderDate={{venue.date}}">
+                        <span>{{venue.date_mt}}</span>
+                        <div class="color_8f8f94"><span class="sports_details_date">{{venue.week}}</span><span class="color_coral">{{venue.salePrice}}</span>点起</div>
+                    </a>
+                    {{/each}}
+                    {{else}}
+                    <div class="mui-row">
+                		亲，这里没有场地，看看门票吧！
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <div id="item2" class="mui-control-content sports_details_item2">
+            <ul class="mui-table-view">
+                {{if ticket.length}}
+                    {{each ticket as tic}}
+                    <li class="mui-table-view-cell">
+                        <div class="mui-row">
+                            <div class="mui-col-xs-6 mui-ellipsis">{{tic.infoTitle}}</div>
+                            <div class="mui-col-xs-2 mui-text-right color_8f8f94"><i class="color_coral">{{tic.salePrice}}</i>点</div>
+                            <div class="mui-col-xs-4 mui-text-right"><button class="sports_details_ticket href_click" data-href="./ticket_buy.html?productno={{tic.infoId}}" type="button">立即预定</button></div>
+                        </div>
+                    </li>
+                    {{/each}}
+                {{else}}
+                <li class="mui-table-view-cell">
+                    <div class="mui-row">
+                    	亲，这里没有门票！
+                    </div>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+    <div class="margin_top_10 mui-table-view">
+        <div class="mui-table-view-cell">
+            <h4>场馆信息</h4>
+        </div>
+        <div class="mui-table-view-cell">{{detail.feature}}</div>
+    </div>
+    <div class="sports_details_middle"></div>
+    <div class="sports_details_bottom"></div>
+</div>

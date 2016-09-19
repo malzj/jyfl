@@ -7,14 +7,15 @@ if($_REQUEST['act'] == 'code_import'){
     $smarty->display('code_import.htm');
 }
 elseif($_REQUEST['act'] == 'done_import'){
-    if($_FILES['code_file']['type']=='application/octet-stream'||$_FILES['code_file']['type']=='application/vnd.ms-excel'){
+    //var_dump($_FILES['code_file']['type']); exit;
+    //if($_FILES['code_file']['type']=='application/octet-stream'||$_FILES['code_file']['type']=='application/vnd.ms-excel'){
         $tmp_name = $_FILES['code_file']['tmp_name'];
         $filename = "code-".local_date("YmdHis",time()).".xlsx";
         $msg = uploadFile($filename,$tmp_name);
-    }else{
+    /* }else{
         sys_msg("文件格式错误或者过大！请上传excel2007的*.xlsx格式文件");
         die;
-    }
+    } */
 
     require (dirname ( __FILE__ ) . '/../admin/includes/lib_autoExcels.php');
     $PHPExcel = new autoExcels('Excel2007');		//实例化类并传入导出格式（可以不传，默认是2007）

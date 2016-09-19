@@ -1,0 +1,45 @@
+<div class="mui-content">
+    <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted sports_venue_scroll margin_top_15 bg_white">
+        <div class="mui-scroll">
+            {{each venues as venue}}
+            <a class="mui-control-item {{if venue.active==1}}mui-active{{/if}} href_click" data-href="./sports_venue.html?venueId={{venueId}}&infoId={{venue.infoId}}&orderDate={{venue.date}}">
+                <span>{{venue.week}}</span>
+                <span class="color_8f8f94">{{venue.date_mt}}</span>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+    <div class="selectday margin_top_15">
+        <div class="seletimes" id="seletimes">
+            <div style="width: 10000px; padding-left: 5rem;">
+                {{each priceData as price}}
+                <dl data-date="{{date}}" venue-no="{{price.rows}}">
+                    <dt>{{price.rows}}号场</dt>
+                    {{each price.list as list}}
+                    <dd class="{{if list.num == 0}}not{{else}}vv_sel{{/if}}" data-price="{{list.salePrice}}" data-fee="0" data-sale-price="{{list.salePrice}}" data-id="{{price.rows}}{{list.sTime}}" data-clock="{{list.sTime_mt}}" data-s="{{list.sTime}}" data-e="{{list.eTime}}">{{if list.num == 0}}已预订{{else}}{{list.salePrice}}点{{/if}}</dd>
+                    {{/each}}
+                </dl>
+                {{/each}}
+            </div>
+        </div>
+        <div class="selectnom">
+            <div style="height: 50px;"></div>
+            {{each timeData as time}}
+            <em>{{time}}</em>
+            {{/each}}
+        </div>
+    </div>
+    <div class="selestatus">
+        <span><font></font>已选择</span> <span><i></i>可订</span> <span><em></em>不可订</span>
+    </div>
+    <form id="venueinfo">
+    <input type="hidden" name="info_id" value="{{infoId}}">
+    <input type="hidden" name="travel_date" id="travel_date" value="{{date}}">
+    <input type="hidden" name="num" id="num" value="">
+    <input type="hidden" name="amount" id="amount" value="">
+    <input type="hidden" name="param" id="param" value="">
+    <input type="hidden" name="venue_id" id="venue_id" value="{{venueId}}">
+    <input type="hidden" name="venues" id="venues" value="">
+    <input type="hidden" name="secret" id="secret" value="{{secret}}">
+    </form>
+</div>

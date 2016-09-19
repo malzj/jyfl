@@ -1,0 +1,42 @@
+/*public*/
+.margin_top_20{margin-top: 20px;}
+.margin_top_15{margin-top: 15px;}
+.margin_bottom_10{margin-bottom: 10px;}
+/*index*/
+.mui-off-canvas-left,.mui-off-canvas-right{width: 50%;}
+.mui-navigate-right{padding: 20px!important;}
+.mui-table-view-inverted .mui-table-view-cell:after{background-color: #969494;}
+
+
+
+.index_touxiang{
+    text-align: center;
+    padding: 15px 0!important;
+}
+.index_touxiang img{width: 80px;height: 80px;border-radius: 50%;}
+
+/*person*/
+.person_touxiang{line-height: 3;}
+.person_touxiang img{max-width: 60px!important;width: 60px!important;height: 60px!important;border-radius: 50%;margin-right: 20px;}
+.person_li_right{margin-right: 20px;}
+
+/*login_password*/
+.login_password_btn{
+    border-color: #2fd0b5;
+    width: 80%;
+    background: #2fd0b5;
+}
+/*手机号*/
+.yanzheng{padding: 5px 10px!important;width: auto!important;margin-right: 10px;margin-top: 6px;}
+
+
+
+/*收货信息*/
+.def_radio{line-height: 24px;top: -4px;height: 35px;padding: 0;right: 0;position: absolute;font-weight: normal;color: #a09e9e;font-size: 14px;width: 35%;}
+.def_radio input{left: 75px!important;top: 5px!important;}
+.def_radio input:before{content:'\e472'!important;}
+.def_radio input[type=radio]:checked:before {
+    color: #2FD0B5;
+}
+.shouhuo_name{margin-right: 10px;}
+.xiangxi_adress{height: auto!important;}

@@ -1,0 +1,26 @@
+<div class="mui-row mui-text-center color_ff781e remainder_time">
+    <span class="pay_time_icon"></span>支付剩余时间：<span id="times"></span>
+</div>
+<ul class="mui-table-view margin_top_15">
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">总价</h4><p class="mui-pull-right">{{money}}点</p></li>
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">影院</h4><p class="mui-pull-right">{{cinema_name}}</p></li>
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">电影</h4><p class="mui-pull-right">{{movie_name}}</p></li>
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">场次</h4><p class="mui-pull-right">{{featuretime}}</p></li>
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">版本</h4><p class="mui-pull-right">{{language}}/{{screen_type}}</p></li>
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">厅号</h4><p class="mui-pull-right">{{hall_name}}</p></li>
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">座位</h4><p class="mui-pull-right">{{seat_info}}</p></li>
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">手机</h4><p class="mui-pull-right">{{mobile}}</p></li>
+</ul>
+<ul class="mui-table-view margin_top_15">
+    <li class="mui-table-view-cell"><h4 class="mui-pull-left">聚优卡号</h4><p class="mui-pull-right">{{user_name}}</p></li>
+    <li class="mui-table-view-cell">
+        <div class="mui-input-row">
+            <label class="mui-pull-left"><h4>请输入密码</h4></label>
+            <input type="password" name="password" id="password" class="mui-pull-right dianziquan_mima" />
+        </div>
+    </li>
+</ul>
+<!--温馨提示-->
+<p class="color_2fd0b5 mui-text-center margin_top_15">温馨提示：请确认购票信息再支付，电影票一经售出不予退换</p>
+<input type="hidden" id="orderid" name="order_id" value="{{id}}"/>
+<button id="act-pays" class="btn_next margin_top_15 margin_bottom_10">确认支付</button>

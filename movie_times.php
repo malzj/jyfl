@@ -9,13 +9,15 @@ include_once(ROOT_PATH . 'includes/lib_basic.php');
 require(ROOT_PATH . 'mobile/includes/lib_cinema.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_movie_times.php');
-
 //判断是否为次卡，如果不是则跳转到点卡影院
 if(!is_times_card()){
     ecs_header("Location:".str_replace('movie_times.php','movie.php',$_SERVER['REQUEST_URI'])."\n");
     exit;
 }
-
+//判断是否电影比价
+if(is_mate_movie()){
+	define('IS_MATE', true);
+}
 //根据城市id获取影院区域编号
 $int_areaNo = getAreaNo(0,'komovie');
 
@@ -110,18 +112,22 @@ elseif ($_REQUEST['step'] == "movie")
 	// 正在上映 (hot) 、即将上映 (coming)
 	$op = !empty($_REQUEST['op']) ? $_REQUEST['op'] : 'hot';
 	
-	// 正在上映 
-	$arr_param = array('action'=>'movie_Query','city_id'=>$int_areaNo);
-	$str_cacheName = 'komovie'.'_'.$int_areaNo;//缓存名称为接口名称与地区ID号结合	
-	$arr_data = F($str_cacheName, '', 1800, $int_areaNo.'/');//缓存半小时
-	if (empty($arr_data)){
-		$arr_result = getCDYApi($arr_param);
-		if (!empty($arr_result)){
-			$arr_data = $arr_result['movies'];
-			F($str_cacheName, $arr_data, 0, $int_areaNo.'/');//写入缓存
-		}		
-	}	
-	
+	// 正在上映
+	if(IS_MATE) {
+		$arr_data = $db -> getAll("SELECT * FROM ".$ecs -> table("mate_movie"));
+	}else{
+		$arr_param = array('action' => 'movie_Query', 'city_id' => $int_areaNo);
+		$str_cacheName = 'komovie' . '_' . $int_areaNo;//缓存名称为接口名称与地区ID号结合
+		$arr_data = F($str_cacheName, '', 1800, $int_areaNo . '/');//缓存半小时
+		if (empty($arr_data)) {
+			$arr_result = getCDYApi($arr_param);
+			if (!empty($arr_result)) {
+				$arr_data = $arr_result['movies'];
+				F($str_cacheName, $arr_data, 0, $int_areaNo . '/');//写入缓存
+			}
+		}
+	}
+
 	// 正在上映影片的，上映时间格式化
 	foreach ($arr_data as $key=>$val)
 	{
@@ -185,6 +191,7 @@ elseif ($_REQUEST['step'] == "cinema")
     // 分页
     $page = !empty($_REQUEST['page']) ? intval($_REQUEST['page']) : 1 ;
 	// 区分类
+
     $areas = getCinemaArea('komovie');
         
     $count = getCinemaCount($area_id);
@@ -211,6 +218,10 @@ elseif ($_REQUEST['step'] == "planCinema")
 	$cinemaid = !empty($_REQUEST['cinemaid']) ? intval($_REQUEST['cinemaid']) : 0 ;
 	$cityid = !empty($_REQUEST['city']) ? intval($_REQUEST['city']) : 0 ;
 	
+	if(IS_MATE){
+		//查询接口电影id
+		$movieid = getMovieId('komovie');
+	}
 	$movieDeatil = getMovieDetail($movieid);	
 	//评分分割
 	$scoreSplit = explode('.',$movieDeatil['score']);
@@ -408,8 +419,9 @@ elseif ($_REQUEST['step'] == "planList")
 		$ajaxArray['message'] = '<center style="line-height:487px">暂时没有可用的场次</center>';
 		exit(json_encode($ajaxArray));
 	}			
-	// 获得影片的排期
-	$moviePlan = getMoviePlan( $cinemaid, $movieid );
+	// 获得抠电影影片的排期
+//	$moviePlan = getMoviePlan( $cinemaid, $movieid );
+	$moviePlan = getMateMoviePlan( $cinemaid, $movieid );
 
 	// 整理排期日期
 	$featureTimes = featureTime( $moviePlan );
@@ -441,6 +453,10 @@ elseif ($_REQUEST['step'] == "planList")
 	    $ajaxArray['date'] = $smarty->fetch('/movie_times/row/tdateList.dwt');
 	    $ajaxArray['html'] = $smarty->fetch('/movie_times/row/tplanList.dwt');
 	}
+//	echo '<pre>';
+//	print_r($ajaxArray);
+//	echo '</pre>';
+//	exit;
 	exit(json_encode($ajaxArray));		
 }
 

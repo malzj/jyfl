@@ -1,0 +1,28 @@
+<div class="adress_select_title"><h4 class="mui-text-center">配送地址</h4></div>
+<ul id="OA_task_2" class="mui-table-view">
+	{{if !data}}
+	<center style="height:80px; line-height:80px;"> 收货地址为空</center>
+	{{/if}}
+	{{each data as row}}
+	<li class="mui-table-view-cell">
+		<div class="mui-slider-right mui-disabled" data-id="{{row.address_id}}">
+			<a class="mui-btn mui-btn-grey">编辑</a>
+			<!-- <a class="mui-btn mui-btn-red add_adress_remove">删除</a> -->
+		</div>
+		<div class="mui-slider-handle">
+			<div class="mui-table-cell" style="display:block">
+				<p class="color_2fd0b5">
+					<span>{{row.consignee}}</span>
+					<span class="mui-pull-right">{{row.mobile}}</span>
+				</p>
+				<p>
+					{{if row.selected == 1}}<em class="adress_default">默认</em>{{/if}}
+					<span>{{row.country_cn}} {{row.province_cn}} {{row.address}}</span>
+				</p>
+			</div>
+		</div>
+	</li>
+	{{/each}}
+	
+</ul>
+<div class="add_adress">添加新地址</div>

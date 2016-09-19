@@ -34,8 +34,8 @@ if($no == 0){
             $dot = '';
         }
 
-        $sqlval.=$dot."('".$val['CustomerID']."','".$val['CompanyName']."',2,'".$company_logo."','".$company_bg."','".$time."')";
+        $sqlval.=$dot."('".$val['CustomerID']."','".$val['CompanyName']."',2,'".$company_logo."','".$company_bg."','".$mobile_bg."','".$time."')";
     }
-    $sql = "INSERT INTO ".$GLOBALS['ecs']->table('company')."(`card_company_id`,`company_name`,`grade_id`,`logo_img`,`back_img`,`create_time`) values".$sqlval;
+    $sql = "INSERT INTO ".$GLOBALS['ecs']->table('company')."(`card_company_id`,`company_name`,`grade_id`,`logo_img`,`back_img`,`m_back_img`,`create_time`) values".$sqlval;
     $res = $GLOBALS['db']->query($sql);
 }

@@ -5,7 +5,7 @@
  * Date: 2016/8/31
  * Time: 9:11
  */
-require(dirname(__FILE__).'/httpRequest.php');
+require_once(dirname(__FILE__).'/httpRequest.php');
 
 class wpwMovie
 {
@@ -28,11 +28,11 @@ class wpwMovie
      * @return array
      */
     private function sendRequest($res_params){
-        $start=microtime(true);
+//        $start=microtime(true);
         $str_param = $this -> httpRequest -> buildUrlQuery($res_params);
         $result = $this -> httpRequest -> curl($this->url,$str_param,'POST');
-        $end = microtime(true);
-        echo round($end-$start,3);
+//        $end = microtime(true);
+//        echo round($end-$start,3);
         return json_decode($result,true);
     }
     /**

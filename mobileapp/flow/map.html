@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet"/>
+		<link href="../css/mui.mian.css" rel="stylesheet"/>
+		
+		<script src="../js/connection.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js"></script>
+		<script src="../js/mui.min.js"></script>		
+		<script src="../js/template.js"></script>
+		<script src="../js/jqueryExtend.js"></script>
+		<script src="../js/mui.mian.js"></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">配送范围</h1>
+		</header>
+		
+		    
+		</div>
+		
+		<script type="text/javascript">
+			var id = jQuery.getUrlParam('sid');
+			mui.init();
+			// ajax调取数据
+			jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{step:'showYunfei',id:id},function(data){	
+				if(data.state == 'false'){
+					jQuery.errorJudge(data,data.message,function(){
+						mui.back();	
+					});					
+				}
+				// 加载页面				
+				replaceHtml('header', template('flow/map', data));
+			});			
+			
+		</script>
+	</body>
+</html>

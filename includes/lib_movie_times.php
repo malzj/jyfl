@@ -21,6 +21,10 @@ function is_times_card(){
     $data = getCardBin(substr($_SESSION['user_name'], 0, 6));
     return !empty($data);
 }
+//判断是否电影比价
+function is_mate_movie(){
+    return intval($GLOBALS['int_cityId'])==2?true:false;
+}
 
 // 获取次数电影新地址
 function get_times_nav($nav_list){
@@ -80,4 +84,40 @@ function checkMaxCount($seatCount, $data=array())
 function getCardBin($cardBin){
     $data = findData('cardbin','cardBin='.$cardBin.' AND card_ext = 2');
     return current($data);
+}
+
+function getMovieId(){
+
+}
+
+function getMateMoviePlan($cinemaid,$movieid){
+    // 获得抠电影影片的排期
+    $moviePlan = getMoviePlan( $cinemaid, $movieid );
+    $koplan_list = array();
+    foreach($moviePlan as $kplan){
+        $koplan_list[$kplan['featureTime']] = $kplan;
+    }
+    //获取对应的影院id
+    $wangcinema_id = $GLOBALS['db']->getOne("SELECT wangcinema_id FROM ".$GLOBALS['ecs']->table('mate_cinema')." WHERE kocinema_id = ".$cinemaid);
+    //获取排期对应电影id
+    $wangmovie_id = $GLOBALS['db']->getOne("SELECT * FROM ".$GLOBALS['ecs']->table('mate_movie')." WHERE komovie_id =".$movieid);
+
+    //获取网票网影片的排期
+    if(!empty($wangcinema_id)&&!empty($wangmovie_id)) {
+        require_once(ROOT_PATH . 'includes/lib_wpwMovieClass.php');
+        $wpwClass = new wpwMovie();
+        $wpwPlan = $wpwClass->baseFilmShow($wangcinema_id, '', $wangmovie_id);
+        if (!empty($wpwPlan['data'])) {
+            foreach ($wpwPlan['data'] as $k => $plan) {
+                $begin_time = date('H:i:s', $plan['ShowTime']);
+                if ($plan['UPrice'] < $koplan_list[$begin_time]['price']) {
+                    $koplan_list[$begin_time]['price'] = $plan['UPrice'];
+                    $koplan_list[$begin_time]['ShowIndex'] = $plan['ShowIndex'];
+                    $koplan_list[$begin_time]['wangCinemaId'] = $plan['CinemaId'];
+                    $koplan_list[$begin_time]['wangHallID'] = $plan['HallID'];
+                }
+            }
+        }
+    }
+    return array_values($koplan_list);
 }

@@ -1,0 +1,49 @@
+<style>
+	.cinema-nav { display:inline-block; padding:5px 10px;}
+	.active { background:#999;}
+	.cinema-nav:hover{ background:#cecece;}
+	.active a { color:#fff;}
+</style>
+<div class="form-div">
+	<span class="cinema-nav {if $cinema_nav eq 1} active {/if}"><a href="cinema_list.php?act=list">影院列表</a></span>
+	<span class="cinema-nav {if $cinema_nav eq 2} active {/if}"><a href="cinema_update.php?act=list">更新列表</a></span>
+	<span class="cinema-nav {if $cinema_nav eq 3} active {/if}"><a href="cinema_update.php?act=archiveList">未归档列表</a></span>
+	<span class="cinema-nav {if $cinema_nav eq 4} active {/if}" style="float:right"> <a href="shiting.php?act=list">刷卡影院列表</a></span>
+</div>
+
+<div class="form-div">
+  <form action="javascript:searchGoods()" name="searchForm">
+    <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />    
+    <!-- 分类 -->
+    <select name="source">
+    	<option value="-1">所有影院</option>
+    	<option value="0">在线选座</option>
+    	<option value="1">电子兑换券</option>
+    	<option value="2">线下刷卡</option>
+    </select>   
+    <!-- 关键字 -->
+        影院： <input type="text" name="keyword" size="15" />
+    <select name="region_id">
+    	<option value="0">全部</option>
+    	{foreach from=$region item=area}
+    	<option value="{$area.region_id}">{$area.region_name}</option>
+    	{/foreach}
+    </select>
+    <input type="submit" value="{$lang.button_search}" class="button" />
+  </form>
+</div>
+
+<script>
+
+function searchGoods()
+{   
+	//alert(123);
+	listTable.filter['region_id'] = document.forms['searchForm'].elements['region_id'].value;
+	listTable.filter['source'] = document.forms['searchForm'].elements['source'].value;
+    listTable.filter['keyword'] = Utils.trim(document.forms['searchForm'].elements['keyword'].value);
+    listTable.filter['page'] = 1;
+
+    listTable.loadList();
+}
+
+</script>

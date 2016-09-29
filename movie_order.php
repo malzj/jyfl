@@ -7,6 +7,9 @@ define('IN_ECS', true);
 require(dirname(__FILE__) . '/includes/init.php');
 require(dirname(__FILE__) . '/mobile/includes/lib_cinema.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
+include_once(ROOT_PATH . 'includes/lib_clips.php');
+include_once(ROOT_PATH . 'includes/lib_order.php');
+include_once(ROOT_PATH . 'includes/lib_movie_times.php');
 
 //根据城市id获取影院区域编号
 $int_areaNo = getAreaNo(0,'komovie');
@@ -91,7 +94,7 @@ if ($_REQUEST['act'] == "orderDzq")
 	    $ratioDzq = getDzqRatio(true);
 		$arr_orderInfo = $arr_result['body'];
 		//插入订单信息
-		$str_sql = 'INSERT INTO '.$ecs->table('dzq_order')." (order_sn, user_id, user_name, order_status, mobile, city, AreaNo, CinemaNo, CinemaName, TicketNo, TicketName, ProductSizeZn, TicketYXQ, number, pay_id, pay_name, price, sjprice, goods_amount, order_amount, add_time, confirm_time, source, card_ratio, shop_ratio,raise,ext) VALUES ('".$arr_orderInfo['OrderNo']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '1', '$str_mobile', '$int_cityId', '$int_cAreaNo', '$str_cinemaNo', '$str_cinemaName', '$int_ticketNo', '".$arr_dzqinfo['TicketName']."', '".$arr_dzqinfo['ProductSizeZn']."', '$str_youxiaoq', '$int_number', '2', '聚优支付', '$flo_prices', '$flo_sjprice', '$flo_amount', '$flo_amount', '".gmtime()."', '".gmtime()."', 0, '".$ratioDzq['card_ratio']."', '".$ratioDzq['shop_ratio']."', '".$ratioDzq['raise']."', '".$ratioDzq['ext']."')";
+		$str_sql = 'INSERT INTO '.$ecs->table('dzq_order')." (order_sn, user_id, user_name, order_status, mobile, city, AreaNo, CinemaNo, CinemaName, TicketNo, TicketName, ProductSizeZn, TicketYXQ, number, pay_id, pay_name, price, sjprice, goods_amount, order_amount, add_time, confirm_time, source, card_ratio, shop_ratio,raise,ext,real_price,cordon_show) VALUES ('".$arr_orderInfo['OrderNo']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '1', '$str_mobile', '$int_cityId', '$int_cAreaNo', '$str_cinemaNo', '$str_cinemaName', '$int_ticketNo', '".$arr_dzqinfo['TicketName']."', '".$arr_dzqinfo['ProductSizeZn']."', '$str_youxiaoq', '$int_number', '2', '聚优支付', '$flo_prices', '$flo_sjprice', '$flo_amount', '$flo_amount', '".gmtime()."', '".gmtime()."', 0, '".$ratioDzq['card_ratio']."', '".$ratioDzq['shop_ratio']."', '".$ratioDzq['raise']."', '".$ratioDzq['ext']."', '".$ratioDzq['real_price']."', '".$ratioDzq['cordon_show']."')";
 		$query = $db->query($str_sql);
 		$returnAjax['message'] = $db->insert_id();
 		exit(json_encode($returnAjax));		
@@ -221,7 +224,9 @@ else if ($_REQUEST['act'] == 'order'){
 	//下在线选择订单
 	$mobile 			= $_POST['mobile'];				// 手机号
 	$planId 			= intval($_POST['planId']);		// 排期ID
-    
+	$cinemaId 			= intval($_POST['cinemaId']);		// 影院ID(网票网用)
+	$show_index			= intval($_POST['showIndex']);		// 场次号(网票网用)
+
 	$vipPrice  			= number_format(round($_POST['vipPrice'],1), 2, '.', '');  // 价格
 	$seatCount 			= intval($_POST['seatsCount']);  // 座位数
 	$totalMoney    		= $vipPrice * $seatCount;	// 总价格
@@ -255,12 +260,6 @@ else if ($_REQUEST['act'] == 'order'){
 		show_message('请选择座位！');
 	}
 
-	// 拆分座位号
-	if(!empty($seatsNo)){
-		$seatsNos = explode('|',$seatsNo);
-		$seatsNos = implode(',',$seatsNos);
-	}
-
 	// 座位信息
 	$seatsNameArr = array();
 	if(!empty($seatsName)){
@@ -272,28 +271,86 @@ else if ($_REQUEST['act'] == 'order'){
 	if ($totalMoney > $card_money){
 		show_wap_message('抱歉您的卡余额不足！');
 	}
+	if(!empty($show_index)&&IS_MATE){
+		$platform = PLATFORM_WANGMOVIE;
+		include_once (ROOT_PATH . 'includes/lib_wpwMovieClass.php');
+		$wpwMovie = new wpwMovie();
+		//网票网下单操作
+		//锁座
+		$res_lock =  $wpwMovie -> sellLockSeat($show_index,$cinemaId,$seatsNo);
+		if($res_lock['ErrNo'] != 0){show_message($res_lock['Msg']);}
+		//获取服务器时间
+//		$res_time = $wpwMovie -> doTarget('Base_ServerTime');
+//		if($res_time['ErrNo'] != 0){show_message($res_time['Msg']);}
+		//申请下单
+		$params = array(
+			'SID' => $res_lock['Data'][0]['SID'],
+			'PayType' =>9998,
+			'AID' => 0,
+			'Mobile' => $mobile,
+			'MsgType' => 1,
+			'Amount' => number_format(round($seatCount*$extInfo,1),2),
+			'UserAmount' => $money,
+			'GoodsType' => 1,
+		);
+		$arr_result = $wpwMovie -> doTarget('Sell_ApplyTicket',$params);
+		if ($arr_result['ErrNo'] == 0){
+			if(empty($arr_result['Data'])){show_message('下单失败，请重新下单！');}
+//			//查询订单
+//			$order_result = $wpwMovie -> sellSearchOrderInfoBySid($arr_result['Data']['SID']);
+//			if ($order_result['ErrNo'] != 0){show_message($order_result['Msg']);}
+//			if(empty($order_result['Data'])){show_message('下单失败，请重新下单！');}
 
-	// 下单
-	$arr_param = array(
-			'action'        => 'order_Add',
-			'mobile'     	=> $mobile,
-			'seat_no'      	=> $seatsNos,
-			'plan_id'       => $planId,
-	);
+			$movieId = $db -> getOne("SELECT wangmovie_id FROM ".$ecs->table('mate_movie')." WHERE movieId = ".$movieId);
+			$arr_orderInfo['orderId'] = $arr_result['Data'][0]['SID'];
+			$arr_orderInfo['orderStatus'] = 1;//订单状态
+			$arr_orderInfo['activityId'] = 0; //活动id
+			$arr_orderInfo['channelId'] = 0;//购买渠道
+			$arr_orderInfo['agio'] = $extInfo;//还需支付金额
+			$arr_orderInfo['PayNo'] = $arr_result['Data'][0]['PayNo']; //对应订单的支付信息标识
+			$arr_orderInfo['plan']['hallNo'] = 0;
+			$arr_orderInfo['plan']['language'] = $language;
+			$arr_orderInfo['plan']['screenType'] = '';
 
-	$arr_result = getCDYApi($arr_param);//下选座订单
-	if ($arr_result['status'] == 0){
-		$arr_orderInfo = $arr_result['order'];		
-		$ratioMovie = getMovieRatio(true);
-		//插入订单信息
-		$str_sql = 'INSERT INTO '. $ecs->table('seats_order') ."(order_sn, user_id, user_name, order_status, mobile, city_id, activity_id, channel_id, count, agio, money, unit_price, seat_info, seat_no, hall_name, hall_id, language, screen_type, featuretime, pay_id,pay_name, add_time, payment_time, movie_name, cinema_name,param_url,source,movie_id,extInfo,card_ratio,shop_ratio,raise,ext) VALUES('".$arr_orderInfo['orderId']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_orderInfo['orderStatus']."', '$mobile','".$int_cityId."', '".$arr_orderInfo['activityId']."', '".$arr_orderInfo['channelId']."', '".$seatCount."', '".$arr_orderInfo['agio']."', '".$money."', '".$unitPrice."', '".$seatsName."', '".$seatsNo."', '".$hallName."', '".$arr_orderInfo['plan']['hallNo']."', '".$arr_orderInfo['plan']['language']."', '".$arr_orderInfo['plan']['screenType']."', '".$featureTimeStr."', '2', '华影支付', '".gmtime()."', '0', '".$movieName."', '".$cinemaName."', '".$seatParamUrl."',0,'".$movieId."','".$extInfo."','".$ratioMovie['card_ratio']."','".$ratioMovie['shop_ratio']."', '".$ratioMovie['raise']."', '".$ratioMovie['ext']."')";
+		}else{
+			show_message($arr_result['Msg']);
+		}
+
+	}else {
+		$platform = PLATFORM_KOMOVIE;
+		// 拆分座位号
+		if(!empty($seatsNo)){
+			$seatsNos = explode('|',$seatsNo);
+			$seatsNos = implode(',',$seatsNos);
+		}
+		// 下单
+		$arr_param = array(
+			'action' => 'order_Add',
+			'mobile' => $mobile,
+			'seat_no' => $seatsNos,
+			'plan_id' => $planId,
+		);
+
+		$arr_result = getCDYApi($arr_param);//下选座订单
+		if ($arr_result['status'] == 0){
+			$arr_orderInfo = $arr_result['order'];
+		}else{
+			show_message($arr_result['error']);
+		}
+	}
+	$ratioMovie = getMovieRatio(true);
+
+	$arr_orderInfo['PayNo'] = !empty($arr_orderInfo['PayNo'])?$arr_orderInfo['PayNo']:0;
+	//下单成功插入订单信息
+	$str_sql = 'INSERT INTO '. $ecs->table('seats_order')
+		 ."(order_sn, user_id, user_name, order_status, mobile, city_id, activity_id, channel_id, count, agio, money, unit_price, seat_info, seat_no, hall_name, hall_id, language, screen_type, featuretime, pay_id,pay_name, add_time, payment_time, movie_name, cinema_name,param_url,source,movie_id,extInfo,card_ratio,shop_ratio,raise,ext,real_price,cordon_show,pay_no,platform)
+	 	  VALUES
+	      ('".$arr_orderInfo['orderId']."', '".$_SESSION['user_id']."', '".$_SESSION['user_name']."', '".$arr_orderInfo['orderStatus']."', '$mobile','".$int_cityId."', '".$arr_orderInfo['activityId']."', '".$arr_orderInfo['channelId']."', '".$seatCount."', '".$arr_orderInfo['agio']."', '".$money."', '".$unitPrice."', '".$seatsName."', '".$seatsNo."', '".$hallName."', '".$arr_orderInfo['plan']['hallNo']."', '".$arr_orderInfo['plan']['language']."', '".$arr_orderInfo['plan']['screenType']."', '".$featureTimeStr."', '2', '华影支付', '".gmtime()."', '0', '".$movieName."', '".$cinemaName."', '".$seatParamUrl."',0,'".$movieId."','".$extInfo."','".$ratioMovie['card_ratio']."','".$ratioMovie['shop_ratio']."', '".$ratioMovie['raise']."', '".$ratioMovie['ext']."','".$ratioMovie['real_price']."','".$ratioMovie['cordon_show']."','".$arr_orderInfo['PayNo']."','".$platform."')";
+
 		$query = $db->query($str_sql);
 		$int_orderid = $db->insert_id();
 		ecs_header('location:movie_order.php?act=payinfoMovie&id='.$int_orderid);//跳到支付页面
 		exit;
-	}else{
-		show_message($arr_result['error']);
-	}
 }
 
 else if ($_REQUEST['act'] == 'payinfoMovie'){
@@ -327,7 +384,13 @@ else if ($_REQUEST['act'] == 'payinfoMovie'){
 	$arr_order['date'] = local_date('Y-m-d', $arr_order['add_time']);
 	
 	// 影片信息
-	$movieDetail = getMovieDetail($arr_order['movie_id']);
+	if($arr_order['platform'] == PLATFORM_KOMOVIE) {
+		$movieDetail = getMovieDetail($arr_order['movie_id']);
+	}elseif($arr_order['platform'] == PLATFORM_WANGMOVIE){
+		$movieDetail = $db -> getRow("SELECT * FROM ".$ecs->table('mate_movie')." WHERE wangmovie_id = ".$arr_order['movie_id']);
+		$moviesImages = moviesImages(array($movieDetail));
+		$movieDetail = $moviesImages[0];
+	}
 	$smarty->assign('backHtml',getBackHtml('movie.php'));
 	$smarty->assign('detail', $movieDetail);
 	$smarty->assign('order', $arr_order);
@@ -367,17 +430,18 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 		$ajaxArray['message'] = '卡密码不能为空';
 		exit(json_encode($ajaxArray));
 	}	
-	
+
+	//购票平台
+	$platform = $arr_orderInfo['platform']?$arr_orderInfo['platform']:'抠电影';
 	// 卡订单号
 	$cardOrderId = local_date('ymdHis').mt_rand(1,1000);	
 	//exit(json_encode(array('error'=>1, 'message'=>$int_orderId.'=2='.$str_password)));
 	/** TODO 支付 （双卡版） */
 	$arr_param = array(
 			'CardInfo' => array( 'CardNo'=> $_SESSION['user_name'], 'CardPwd' => $str_password),
-			'TransationInfo' => array( 'TransRequestPoints'=>$card_price, 'TransSupplier'=>setCharset('抠电影'))
+			'TransationInfo' => array( 'TransRequestPoints'=>$card_price, 'TransSupplier'=>setCharset($platform))
 	);
-	$state = $cardPay->action($arr_param, 1, $cardOrderId);	
-	//$state = 0;
+	$state = $cardPay->action($arr_param, 1, $cardOrderId);
 	if ($state == 0){
 		$cardResult = $cardPay->getResult();
 		$_SESSION['BalanceCash'] -= $card_price; //重新计算用户卡余额
@@ -386,12 +450,38 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 		//更新卡支付状态
 		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET card_pay = '1', api_order_id = '".$cardResult."', card_order_id= '".$cardOrderId."' WHERE id = $int_orderId");
 		// 电影票支付
-		$arr_param = array(
-				'action'     => 'order_Confirm',
-				'order_id'   => $arr_orderInfo['order_sn'],
-				'balance'	 => $float_price
-		);
-		$arr_result = getCDYApi($arr_param);
+		if($platform == PLATFORM_KOMOVIE) {
+			$arr_param = array(
+				'action' => 'order_Confirm',
+				'order_id' => $arr_orderInfo['order_sn'],
+				'balance' => $float_price
+			);
+			$arr_result = getCDYApi($arr_param);
+		}elseif($platform == PLATFORM_WANGMOVIE){
+			include_once (ROOT_PATH . 'includes/lib_wpwMovieClass.php');
+			$wpwMovie = new wpwMovie();
+			for($i=0;$i<3;$i++){
+				$buy_result = $wpwMovie -> sellBuyTicket($arr_orderInfo['order_sn'],$arr_orderInfo['pay_no'],$cardOrderId);
+				if($buy_result['ErrNo'] == 0){
+					break;
+				}
+			}
+			if($buy_result['ErrNo'] != 0){
+				$order_result = $wpwMovie -> sellSearchOrderInfoBySID($arr_orderInfo['order_sn']);
+				if($order_result['Data'][0]['PayFlag']!=3) {
+					$ajaxArray['error'] = 0;
+					$ajaxArray['message'] = '正在出票中，如未收到短信请联系客服！';
+					exit(json_encode($ajaxArray));
+				}			}
+			if($buy_result['Data'][0]['Result']){
+				$arr_result['status'] = 0;
+			}else{
+				$ajaxArray['error'] = 1;
+				$ajaxArray['message'] = '购票失败，请联系客服！';
+				exit(json_encode($ajaxArray));
+			}
+		}
+
 		if($arr_result['status'] == 0){
 			// 支付成功，更新订单状态
 			$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET order_status = '3', payment_time = '".gmtime()."' WHERE id = '$int_orderId'");

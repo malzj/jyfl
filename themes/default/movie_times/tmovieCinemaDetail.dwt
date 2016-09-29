@@ -263,7 +263,7 @@
 						// 设置影院信息
 						setCinemaInfo(cinemaId, cinemaName, cinemaAddress, cinemaTel, openTime, thumb);	
 						// 加载影院的影片列表
-						loadMovies(obj.cinemaId);	
+						loadMovies(obj.cinemaId);
 						// 加载排期和时间
 						loadPlan(obj.cinemaId, movieid, null, '#planList');
 					}

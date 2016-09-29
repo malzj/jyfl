@@ -241,4 +241,7 @@ define('LICENSE_VERSION', '1.0');
 /* 配送方式 */
 define('SHIP_LIST', 'cac|city_express|ems|flat|fpd|post_express|post_mail|presswork|sf_express|sto_express|yto|zto');
 
+/*电影线上购票平台*/
+define('PLATFORM_KOMOVIE','抠电影'); //抠电影
+define('PLATFORM_WANGMOVIE','网票网'); //网票网
 ?>

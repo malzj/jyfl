@@ -69,7 +69,7 @@
 					<ul>
                     	<li><a href="movie.php?step=cinema" {if $area_id eq 0} class="active"{/if}>全部影院</a></li>
                      	{foreach from=$areas item=area}
-						<li><a href="movie.php?step=cinema&page={$page}&area_id={$area.area_id}" {if $area_id eq $area.area_id} class="active"{/if}>{$area.area_name}</a></li>
+						<li><a href="movie.php?step=cinema&area_id={$area.area_id}" {if $area_id eq $area.area_id} class="active"{/if}>{$area.area_name}</a></li>
                      	{/foreach}
 					</ul>
 			</div>
@@ -77,17 +77,17 @@
             {foreach from=$cinemas item=cinema}
 				<div class="box">
 					<div class="img_left">
-						<a href="movie.php?step=planCinemas&city={$cinema.komovie_area_id}&cinemaid={$cinema.komovie_cinema_id}"><img src="{$cinema.logo}" width="155"></a>
+						<a href="movie.php?step=planCinemas&city={$cinema.area_id}&cinemaid={$cinema.id}"><img src="{$cinema.logo}" width="155"></a>
 					</div>
 					<div class="yingyuan_details">
 						<ul>
 							<li>
-								<h3><a href="movie.php?step=planCinemas&city={$cinema.komovie_area_id}&cinemaid={$cinema.komovie_cinema_id}">{$cinema.cinema_name}</a></h3>							
+								<h3><a href="movie.php?step=planCinemas&city={$cinema.area_id}&cinemaid={$cinema.id}">{$cinema.cinema_name}</a></h3>
 							</li>
 							<li class="adress">地址：<span>{$cinema.cinema_address}</span></li>
 						</ul>
 						<div class="xuanzuo_buy">
-                            <span onClick="window.location.href='movie.php?step=planCinemas&city={$cinema.komovie_area_id}&cinemaid={$cinema.komovie_cinema_id}'">选座购票</span>
+                            <span onClick="window.location.href='movie.php?step=planCinemas&city={$cinema.area_id}&cinemaid={$cinema.id}'">选座购票</span>
                         </div>
 					</div>
 				</div>

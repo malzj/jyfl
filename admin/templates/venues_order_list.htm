@@ -1,0 +1,159 @@
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<style>
+	.order-msgs{
+		border:1px #BBDDE5  solid;
+		margin:10px 0;
+		padding:10px;
+		width:578px;
+	}
+	.order-msgs a,.order-msgs span{
+		height:20px; 
+		line-height:20px;
+		display:display:inline-block;
+	}
+
+	
+</style>
+<!-- 订单搜索 -->
+<div class="form-div">
+  <form action="javascript:searchOrder()" name="searchForm">
+    <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+    订单号：<input name="order_id" type="text" id="order_id" size="15">
+	卡号：<input name="user_name" type="text" id="user_name" size="20">
+    <input type="submit" value="{$lang.button_search}" class="button" />
+    
+    <a href="venues_order.php?act=list&return=1" style="display:inline-block; height:24px; line-height:24px; background: lightcoral; text-align:center; width:100px;color: #fff;">需退点订单</a>
+  </form>
+</div>
+
+<!-- 订单列表 -->
+<form method="post" action="dongpiao_order.php?act=operate" name="listForm" onsubmit="return check()">
+  <div class="list-div" id="listDiv">
+{/if}
+
+<table cellpadding="3" cellspacing="1">
+  <tr>
+    <th>
+      <input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox" /><a href="javascript:listTable.sort('id', 'DESC'); ">订单号</a>{$sort_order_sn}
+    </th>
+    <th>接口订单号</th>
+    <th><a href="javascript:listTable.sort('add_time', 'DESC'); ">下单时间</a>{$sort_order_time}</th>
+    <th>订单信息</th>
+	<th>数量</th>
+	<th>订单类型</th>
+	<th>订单金额</th>
+    <th><a href="javascript:listTable.sort('state', 'DESC'); ">订单状态</a></th>
+    <th>操作</th>
+  <tr>
+  {foreach from=$order_list item=order key=okey}
+  <tr>
+    <td valign="top" nowrap="nowrap"><input type="checkbox" name="checkboxes" value="{$order.order_id}" />{$order.order_sn}</td>
+    <td valign="top">{$order.api_order_id}</td>
+    <td align="left" valign="top"> {$order.add_time}</td>
+    <td align="left" valign="top" >
+    	{$order.username}<br>
+    	场馆：{$order.venueName}<br>
+    	地址：{$order.place}<br>
+    	购买人：{$order.link_man} （{$order.link_phone}）<br>
+    	游玩时间：{$order.date}<br>
+    	时间段：{foreach from=$order.times_mt item=time} {$time}, {/foreach}
+    </td>
+	<td align="center" valign="top" nowrap="nowrap">{$order.total}</td>
+	<td align="center" valign="top" nowrap="nowrap">{if $order.source eq 0} 场地订单 {else} 门票订单 {/if}</td>
+	<td align="right" valign="top" nowrap="nowrap">{$order.money}</td>
+	<td align="center" valign="top" nowrap="nowrap">{$order.order_state_sn}</td>
+    <td align="center" valign="top"  nowrap="nowrap">
+    	{if $order.return_point eq 1} 卡点已退 <br>{/if}
+    	<!-- 退票操作 -->
+    	{if $order.state eq 1 || $order.state eq 3}
+    	<a href="venues_order.php?act=returnTicket&id={$order.id}" onclick="if(confirm('退票属于单方面行为，与接口无关，只有与动网客服协商之后，给予退票的情况下，才可操作') == false){ return false}"><font color=green title="退票属于单方面行为，与接口无关，只有与动网客服协商之后，给予退票的情况下，才可操作">退票</font></a><br>
+    	{/if}
+    	
+    	<!-- 已退票操作 -->
+    	{if $order.state eq 4}
+    	<a href="venues_order.php?act=ticketSuccess&id={$order.id}" onclick="if(confirm('只有在动网成功退票后，才可以操作“成功退票”') == false){ return false}"><font color=green title="">成功退票</font></a><br>
+    	{/if}
+    	{if $order.state eq 2 && $order.return_point eq 0}
+    	<a href="venues_order.php?act=returnPoint&id={$order.id}"><font color=red>退卡点</font></a><br>
+    	{/if}
+    	{if $order.state eq 0 && $order.is_pay eq 1 && $order.return_point eq 0}
+    	<a href="venues_order.php?act=returnPoint&id={$order.id}"><font color=red>退卡点</font></a><br>
+    	{/if}
+    </td>
+  </tr>
+  {/foreach}
+</table>
+
+<!-- 分页 -->
+<table id="page-table" cellspacing="0">
+  <tr>
+    <td align="right" nowrap="true">
+    {include file="page.htm"}
+    </td>
+  </tr>
+</table>
+
+{if $full_page}
+  </div>
+  <div>
+    <input name="remove" type="hidden" id="btnSubmit3" value="{$lang.remove}" class="button" disabled="true" onclick="this.form.target = '_self'" />
+    <input name="batch" type="hidden" value="1" />
+    <input name="order_id" type="hidden" value="" />
+  </div>
+</form>
+<script language="JavaScript">
+listTable.recordCount = {$record_count};
+listTable.pageCount = {$page_count};
+
+{foreach from=$filter item=item key=key}
+listTable.filter.{$key} = '{$item}';
+{/foreach}
+{literal}
+
+    onload = function()
+    {
+        // 开始检查订单
+        startCheckOrder();
+    }
+
+    /**
+     * 搜索订单
+     */
+    function searchOrder()
+    {
+        listTable.filter['order_id'] = Utils.trim(document.forms['searchForm'].elements['order_id'].value);
+		listTable.filter['user_name'] = document.forms['searchForm'].elements['user_name'].value;
+        listTable.filter['page'] = 1;
+        listTable.loadList();
+    }
+
+    function check()
+    {
+      var snArray = new Array();
+      var eles = document.forms['listForm'].elements;
+      for (var i=0; i<eles.length; i++)
+      {
+        if (eles[i].tagName == 'INPUT' && eles[i].type == 'checkbox' && eles[i].checked && eles[i].value != 'on')
+        {
+          snArray.push(eles[i].value);
+        }
+      }
+      if (snArray.length == 0)
+      {
+        return false;
+      }
+      else
+      {
+        eles['order_id'].value = snArray.toString();
+        return true;
+      }
+    }
+    
+    
+</script>
+{/literal}
+
+{include file="pagefooter.htm"}
+{/if}

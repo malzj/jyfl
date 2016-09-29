@@ -5,15 +5,18 @@
  * Date: 2016/8/31
  * Time: 9:11
  */
-require(dirname(__FILE__).'/httpRequest.php');
+require_once(dirname(__FILE__).'/httpRequest.php');
 
 class wpwMovie
 {
-    private $url = 'http://test.api.wangpiao.com';
+//    private $url = 'http://test.api.wangpiao.com';
+    private $url = 'http://channel.api.wangpiao.com/2.0/';
     //用户名
-    private $username = 'test1';
+//    private $username = 'test1';
+    private $username = 'WP_HUAYINGAPI';
     //秘钥
-    private $key = '4vYwB5csWrdLbFkG';
+//    private $key = '4vYwB5csWrdLbFkG';
+    private $key = 'KeLCZqTwJz59XRqQ';
     //实例化httpRequest类
     private $httpRequest;
     //
@@ -28,11 +31,11 @@ class wpwMovie
      * @return array
      */
     private function sendRequest($res_params){
-        $start=microtime(true);
+//        $start=microtime(true);
         $str_param = $this -> httpRequest -> buildUrlQuery($res_params);
         $result = $this -> httpRequest -> curl($this->url,$str_param,'POST');
-        $end = microtime(true);
-        echo round($end-$start,3);
+//        $end = microtime(true);
+//        echo round($end-$start,3);
         return json_decode($result,true);
     }
     /**
@@ -210,7 +213,7 @@ class wpwMovie
         $params['Target'] = 'Base_Film';
         $params['CityID']   = $city_id;
         $params['Date']     = $date;
-        $params['CinemaId'] = $cinema_id;
+        $params['CinemaID'] = $cinema_id;
         $res_params = $this -> makeParams($params);
         $result = $this -> sendRequest($res_params);
         return $result;
@@ -302,6 +305,61 @@ class wpwMovie
         $params['CinemaID'] = $cinema_id;
         $params['Date'] = $date;
         $params['ShowIndex'] = $show_index;
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
+        return $result;
+    }
+
+    /**
+     * 锁座
+     * @param $show_index   int 场次号
+     * @param $cinema_id    int 影院ID
+     * @param $seat_info    string  座位标识，多个用|分隔
+     * @return array
+     */
+    public function sellLockSeat($show_index,$cinema_id,$seat_info){
+        $params['Target'] = 'Sell_LockSeat';
+        $params['CinemaID'] = $cinema_id;
+        $params['ShowIndex'] = $show_index;
+        $params['SeatInfo'] = $seat_info;
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
+        return $result;
+    }
+
+    /**
+     * 订单查询
+     * @param $sid  string  订单标识，多个用半角逗号隔开
+     * @return array
+     */
+    public function sellSearchOrderInfoBySID($sid){
+        $params['Target'] = 'Sell_SearchOrderInfoBySID';
+        $params['SID'] = $sid;
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
+        return $result;
+    }
+
+    /**
+     * 申请购票
+     * @param $sid  string  订单号
+     * @param $pay_no   string  该单对应的支付信息标识
+     * @param $platform_pay_no  string  支付平台支付成功后的支付标识
+     * @return array
+     */
+    public function sellBuyTicket($sid,$pay_no,$platform_pay_no){
+        $params['Target'] = 'Sell_BuyTicket';
+        $params['SID'] = $sid;
+        $params['PayNo'] = $pay_no;
+        $params['PlatformPayNo'] = $platform_pay_no;
+        $res_params = $this -> makeParams($params);
+        $result = $this -> sendRequest($res_params);
+        return $result;
+    }
+    public function sellStopBuyTicket($sid){
+        $params['Target'] = 'Sell_StopBuyTicket';
+        $params['SID'] = $sid;
+        var_dump($params);
         $res_params = $this -> makeParams($params);
         $result = $this -> sendRequest($res_params);
         return $result;

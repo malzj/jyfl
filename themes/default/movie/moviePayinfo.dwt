@@ -33,7 +33,7 @@
                             <ul>
                                 <li><h3>{$order.movie_name}</h3></li>
                                 <li><span>{$order.cinema_name}</span><span style="color:#ff781e;">&nbsp;&nbsp;&nbsp;&nbsp;{$order.hall_name}</span></li>
-                                <li><span>{$order.featuretime} </span><span>14:00</span></li>
+                                <li><span>{$order.featuretime} </span><!--<span>14:00</span>--></li>
                                 <li class="num_tick"><span>{$order.count}张票</span><span class="zuowei">({$order.seat_info})</span></li>
                                 <li>总价：<span class="order_yes_Allprice color_ff781e">{$order.money}</span>点</li>
                             </ul>
@@ -162,7 +162,10 @@
 							checkSubmitFlg = false;
 							$('.jiesuan').html('结算');
 						}else{
-							window.location.href="movie_order.php?act=respond";
+							if(confirm(data.message))
+                             {
+                                window.location.href="movie_order.php?act=respond";
+							}
 						}
 					}
 				});

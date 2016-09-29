@@ -7,7 +7,7 @@
  */
 define('IN_ECS', true);
 
-include_once(dirname(__FILE__) . '/includes/_init.php');
+include_once(dirname(__FILE__) . '/includes/init.php');
 require(ROOT_PATH . 'includes/lib_wpwMovieClass.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 
@@ -62,7 +62,13 @@ foreach ($wd_intersect as $wid => $wct){
 $up_sql.="END WHERE region_id IN(".implode(',',array_values($wpw_local_id)).")";
 
 $resuslt = $db -> query($up_sql);
-var_dump($resuslt);
+//var_dump($resuslt);
+
+$res_area = $wpwMovie -> baseDistrict();
+$areas = $res_area['Data'];
+foreach($areas as $k => $area){
+    $db -> query('UPDATE '.$ecs->table('region').' SET wangpiaowang_id = '.$area['ID']." WHERE region_name = '".$area['Name']."'");
+}
 //echo "<pre>";
 //echo '</br>总数：'.count($wpw_local_id);
 //

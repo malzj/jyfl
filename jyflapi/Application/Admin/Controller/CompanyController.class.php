@@ -26,11 +26,11 @@ class CompanyController extends Controller
      */
     public function companySync(){
         $CompanyModel = M('Company');
-        $lastTime = $CompanyModel->order('create_time DESC')->getField('create_time');
-        $dataInfo['Info']['Time'] = $lastTime;
-        if(!strtotime($lastTime)){
+//        $lastTime = $CompanyModel->order('create_time DESC')->getField('create_time');
+//        $dataInfo['Info']['Time'] = $lastTime;
+//        if(!strtotime($lastTime)){
             $dataInfo['Info']['Time'] = '2012-1-1 00:00';
-        }
+//        }
         $Card = new \Ext\card\huayingcard();
         $no = $Card -> action($dataInfo,11);
         $result = $Card -> getResult();
@@ -41,12 +41,22 @@ class CompanyController extends Controller
         $company_bg = 'Public/company/upload/pc_background.jpg';
 		$mobile_bg = 'Public/company/upload/m_background.jpg';
         if($no == 0){
+            //查询本地所有公司卡系统ID
+            $companys = $CompanyModel -> select();
+            $company_ids = array();
+            foreach ($companys as $com){
+                $company_ids[] = $com['card_company_id'];
+            }
+
             $companyList = array();
             foreach($dataList['Info'] as $key=>$val){
-                $companyList[] = array('card_company_id'=>$val['CustomerID'],'company_name'=>$val['CompanyName'],'grade_id'=>2,'create_time'=>$time,'logo_img'=>$company_logo,'back_img'=>$company_bg);
+                if(in_array($val['CustomerID'],$company_ids)) continue;
+                $companyList[] = array('card_company_id'=>$val['CustomerID'],'company_name'=>$val['CompanyName'],'grade_id'=>2,'create_time'=>$time,'logo_img'=>$company_logo,'back_img'=>$company_bg,'m_back_img'=>$mobile_bg);
             }
         }
-        $CompanyModel -> addAll($companyList);
+        if(!empty($companyList)){
+            $CompanyModel -> addAll($companyList);
+        }
         $this->redirect('Company/companyList');
     }
 

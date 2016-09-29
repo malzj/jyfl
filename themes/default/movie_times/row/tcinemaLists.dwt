@@ -1,4 +1,4 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 {foreach from=$cinemas item=cinema}
-<li data-city="{$cinema.komovie_area_id}" data-id="{$cinema.komovie_cinema_id}" class="{if $cinema.komovie_cinema_id eq $cinemaId}active{/if}"><p class="cinemaName_1">{$cinema.cinema_name}</p><p class="juqingA">{$cinema.cinema_address}</p></li>
+<li data-city="{$cinema.areaId}" data-id="{$cinema.cinemaId}" class="{if $cinema.cinemaId eq $cinemaId}active{/if}"><p class="cinemaName_1">{$cinema.cinema_name}</p><p class="juqingA">{$cinema.cinema_address}</p></li>
 {/foreach} 

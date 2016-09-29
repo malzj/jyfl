@@ -60,6 +60,7 @@
 		
 			// ajax调取数据
 			jQuery.ajaxJsonp(web_url+"/mobile/category.php",{id:id,sort:sort,filter_attr:filter_attr},function(data){
+				console.log(data);
 				if(data.state == 'false'){
 					jQuery.errorJudge(data,data.message,function(){
 						mui.back();	

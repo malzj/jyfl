@@ -1,0 +1,131 @@
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<!-- 订单搜索 -->
+<div class="form-div">
+  <form action="javascript:searchOrder()" name="searchForm">
+    <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+    订单号：<input name="order_sn" type="text" id="order_sn" size="15">
+	卡号：<input name="user_name" type="text" id="user_name" size="20">
+    <input type="submit" value="{$lang.button_search}" class="button" />
+  </form>
+</div>
+
+<!-- 订单列表 -->
+<form method="post" action="code_order.php?act=" name="listForm" onsubmit="return check()">
+  <div class="list-div" id="listDiv">
+{/if}
+
+<table cellpadding="3" cellspacing="1">
+  <tr>
+    <th>
+      <input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox" /><a href="javascript:listTable.sort('order_sn', 'DESC'); ">订单号</a>{$sort_order_sn}
+    </th>
+    <th><a href="javascript:listTable.sort('add_time', 'DESC'); ">下单时间</a>{$sort_order_time}</th>
+    <th>购买人</th>
+	<th>单价</th>
+	<th>销售单价</th>
+	<th><a href="javascript:listTable.sort('goods_number', 'DESC'); ">数量</a>{$sort_number}</th>
+	<th><a href="javascript:listTable.sort('goods_amount', 'DESC'); ">订单金额</a>{$sort_goods_amount}</th>    
+    <th>订单状态</th>
+    <th>操作</th>
+  <tr>
+  {foreach from=$order_list item=order key=okey}
+  <tr>
+    <td valign="top" nowrap="nowrap"><input type="checkbox" name="checkboxes" value="{$order.order_sn}" />{$order.order_sn}</td>
+    <td valign="top">{$order.short_order_time}</td>
+    <td align="left" valign="top"><a href="mailto:{$order.email}"> {$order.user_name|escape}</a>{if $order.mobile} [Mobile: {$order.mobile|escape}]{/if}<br/> 商品名称：{$order.goods_name}</td>
+	<td align="right" valign="top" nowrap="nowrap">{$order.formated_price}</td>
+    <td align="center" valign="top" nowrap="nowrap">{$order.sjprice}</td>
+	<td align="center" valign="top" nowrap="nowrap">{$order.goods_number}</td>
+	<td align="right" valign="top" nowrap="nowrap">{$order.formated_goods_amount}</td>	
+	<td align="right" valign="top" nowrap="nowrap">{$order.order_status_cn}</td>
+    <td align="center" valign="top"  nowrap="nowrap">
+        {if $order.order_status eq 3}
+		<a onclick="resend({$order.id})">重发短信</a>
+        {/if}
+    </td>
+  </tr>
+  {/foreach}
+</table>
+
+<!-- 分页 -->
+<table id="page-table" cellspacing="0">
+  <tr>
+    <td align="right" nowrap="true">
+    {include file="page.htm"}
+    </td>
+  </tr>
+</table>
+
+{if $full_page}
+  </div>
+  <div>
+    <input name="remove" type="submit" id="btnSubmit3" value="{$lang.remove}" class="button" disabled="true" onclick="this.form.target = '_self'" />
+	<!-- <input name="status" type="submit" id="btnSubmit" value="已兑换" class="button" disabled="" onclick="this.form.target = '_self'"> -->
+
+    <input name="batch" type="hidden" value="1" />
+    <input name="order_id" type="hidden" value="" />
+  </div>
+</form>
+<script language="JavaScript">
+listTable.recordCount = {$record_count};
+listTable.pageCount = {$page_count};
+
+{foreach from=$filter item=item key=key}
+listTable.filter.{$key} = '{$item}';
+{/foreach}
+{literal}
+
+    onload = function()
+    {
+        // 开始检查订单
+        startCheckOrder();
+    }
+
+    /**
+     * 搜索订单
+     */
+    function searchOrder()
+    {
+        listTable.filter['order_sn'] = Utils.trim(document.forms['searchForm'].elements['order_sn'].value);
+		listTable.filter['user_name'] = document.forms['searchForm'].elements['user_name'].value;
+        listTable.filter['page'] = 1;
+        listTable.loadList();
+    }
+
+    function check()
+    {
+      var snArray = new Array();
+      var eles = document.forms['listForm'].elements;
+      for (var i=0; i<eles.length; i++)
+      {
+        if (eles[i].tagName == 'INPUT' && eles[i].type == 'checkbox' && eles[i].checked && eles[i].value != 'on')
+        {
+          snArray.push(eles[i].value);
+        }
+      }
+      if (snArray.length == 0)
+      {
+        return false;
+      }
+      else
+      {
+        eles['order_id'].value = snArray.toString();
+        return true;
+      }
+    }
+
+    function resend(orderid){
+        if(confirm('确定重新发送短信吗？')) {
+            res = Ajax.call('code_order.php', 'act=resend&id=' + orderid, null, "POST", "JSON", false);
+            if (res.error == 0) {
+                searchOrder();
+            }
+        }
+    }
+</script>
+{/literal}
+
+{include file="pagefooter.htm"}
+{/if}

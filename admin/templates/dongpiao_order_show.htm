@@ -1,0 +1,139 @@
+<!-- $Id: order_info.htm 17060 2010-03-25 03:44:42Z liuhui $ -->
+
+{include file="pageheader.htm"}
+{insert_scripts files="topbar.js,../js/utils.js,listtable.js,selectzone.js,../js/common.js"}
+
+<form action="order.php?act=operate" method="post" name="theForm">
+<div class="list-div" style="margin-bottom: 5px">
+<table width="100%" cellpadding="3" cellspacing="1">  
+  <tr>
+    <th colspan="4">产品信息</th>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>产品名称</strong></div></td>
+    <td width="34%">{$detail.productName}</td>
+    <td width="15%"><div align="right"><strong>产品号</strong></div></td>
+    <td>{$detail.productNo}</td>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>景点名称</strong></div></td>
+    <td width="34%">{$detail.viewName}</td>
+    <td width="15%"><div align="right"><strong>景点地址</strong></div></td>
+    <td>{$detail.viewAddress}</td>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>预定开始时间</strong></div></td>
+    <td width="34%">{$detail.priceStartDate}</td>
+    <td width="15%"><div align="right"><strong>有效期</strong></div></td>
+    <td>{$detail.validityText}</td>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>营业时间</strong></div></td>
+    <td width="34%">{$detail.businessHours}</td>
+    <td width="15%"><div align="right"><strong>预定说明</strong></div></td>
+    <td>{$detail.orderPolicy}</td>
+  </tr>
+  
+  <tr>
+    <th colspan="4">订单信息</th>
+  </tr>
+   <tr>
+    <td width="18%"><div align="right"><strong>订单号</strong></div></td>
+    <td width="34%">{$dborder.order_id}</td>
+    <td width="15%"><div align="right"><strong>订单状态</strong></div></td>
+    <td>{$detail.order_state_sn}</td>
+  </tr>
+ 
+  <tr>
+    <td width="18%"><div align="right"><strong>游玩时间</strong></div></td>
+    <td width="34%">{$dborder.traveldate}</td>
+    <td width="15%"><div align="right"><strong></strong></div></td>
+    <td><font color=red></font></td>
+  </tr>
+  
+   <tr>
+    <td width="18%"><div align="right"><strong>单价</strong></div></td>
+    <td width="34%">{$dborder.unit_price}</td>
+    <td width="15%"><div align="right"><strong>数量</strong></div></td>
+    <td>{$dborder.number}</td>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>总价</strong></div></td>
+    <td width="34%">{$dborder.sale_price}</td>
+    <td width="15%"><div align="right"><strong>下单时间</strong></div></td>
+    <td>{$dborder.add_time}</td>
+  </tr>
+  
+  <tr >
+    <td width="18%"><div align="right"><strong>&nbsp;</strong></div></td>
+    <td width="34%"></td>
+    <td width="15%"><div align="right"><strong></strong></div></td>
+    <td><font color=red></font></td>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>联系人姓名</strong></div></td>
+    <td width="34%">{$dborder.link_man}</td>
+    <td width="15%"><div align="right"><strong>联系人电话</strong></div></td>
+    <td>{$dborder.link_phone}</td>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>联系人email</strong></div></td>
+    <td width="34%">{$dborder.link_email}</td>
+    <td width="15%"><div align="right"><strong>联系人地址</strong></div></td>
+    <td>{if $dborder.link_address eq ''}无{else}{$dborder.link_address}{/if}</td>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>联系人证件类型</strong></div></td>
+    <td width="34%">{if $dborder.link_credit_no eq ''} 无 {else}{$dborder.link_credit_type}{/if}</td>
+    <td width="15%"><div align="right"><strong>联系人证件号码</strong></div></td>
+    <td>{if $dborder.link_credit_no eq ''} 无 {else}{$dborder.link_credit_no}{/if}</td>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>邮政编码</strong></div></td>
+    <td width="34%">{if $dborder.link_code eq ''} 无 {else}{$dborder.link_code}{/if}</td>
+    <td width="15%"><div align="right"><strong></strong></div></td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td width="18%"><div align="right"><strong>退款</strong></div></td>
+    <td width="34%"><font color="red">{$detail.chancelDayCn}</font></td>
+    <td width="15%"><div align="right"><strong>退款操作</strong></div></td>
+    <td>{if $dborder['refund'] eq 'true'}<a href="dongpiao_order.php?act=return&id={$dborder.id}" style="color:red;">退款</a>{else}<font color="red">不支持</font>{/if}</td>
+  </tr>
+</table>
+</div>
+</form>
+{literal}
+<script language="JavaScript">
+{/literal}
+  var oldAgencyId = {$order.agency_id|default:0};
+{literal}
+  onload = function()
+  {
+    // 开始检查订单
+    startCheckOrder();
+  }
+
+  /**
+   * 把订单指派给某办事处
+   * @param int agencyId
+   */
+  function assignTo(agencyId)
+  {
+    if (agencyId == 0)
+    {
+      alert(pls_select_agency);
+      return false;
+    }
+    if (oldAgencyId != 0 && agencyId == oldAgencyId)
+    {
+      alert(pls_select_other_agency);
+      return false;
+    }
+    return true;
+  }
+</script>
+{/literal}
+
+{include file="pagefooter.htm"}

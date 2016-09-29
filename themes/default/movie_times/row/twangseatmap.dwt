@@ -1,0 +1,177 @@
+ <style>
+ .seatmap2 a{background-size: 22px 22px !important;}
+ .seatmap2 a.select{background-image: url(/mobile/images/img/tips_2.png);}
+ </style>
+ <div class="seatmap2" style="width:{$allwidth}px;{if isset($allheight)}height:{$allheight}px;{/if}padding-bottom: 20px;position:relative;margin:0px auto;">
+ {foreach from=$seatInfo item=seat name=seat}
+		<!--<div class="number-row pull-left">
+			<span>{$seat.seatRow}</span>
+		</div>		-->
+				<!-- 普通座位 -->
+				{if $seat.seatType == 0}
+					<!-- 已售 -->
+					{if $seat.seatState == 1}
+						<a style="width:22px;height:22px;background-size: 22px 22px;position:absolute;top:{$seat.graphRow}px;left:{$seat.graphCol}px" class="seat disabled" rowno="{$seat.seatRow}" locno="{$seat.hallId}" columnno="" title="{$seat.seatRow}排{$seat.seatCol}座"  seatno="{$seat.seatNo}" id="{$seat.seatNo}" href="javascript:void(0);"></a>
+					<!-- 可选座位 -->
+					{else}
+						<a style="width:22px;height:22px;background-size: 22px 22px;position:absolute;top:{$seat.graphRow}px;left:{$seat.graphCol}px" class="seat active" rowno="{$seat.seatRow}" locno="{$seat.hallId}" columnno="" title="{$seat.seatRow}排{$seat.seatCol}座" onclick="changeSeatImg(this,'img_{$seat.seatNo}');" seatno="{$seat.seatNo}" id="{$seat.seatNo}" href="javascript:void(0);"></a>
+					{/if}
+
+				<!-- 情侣座 -->
+				{elseif $seat.seatType == 1}
+					<!-- 已售 -->
+					{if $seat.seatState == 1}
+						<a style="width:22px;height:22px;background-size: 22px 22px;position:absolute;top:{$seat.graphRow}px;left:{$seat.graphCol}px"" class="seat disabled" rowno="{$seat.seatRow}" locno="{$seat.hallId}" columnno="" title="{$seat.seatRow}排{$seat.seatCol}座"  seatno="{$seat.seatNo}" id="{$seat.seatNo}" href="javascript:void(0);"></a>
+					<!-- 可选座位 -->
+					{else}
+						<a style="width:22px;height:22px;background-size: 22px 22px;position:absolute;top:{$seat.graphRow}px;left:{$seat.graphCol}px" class="seat love" rowno="{$seat.seatRow}" locno="{$seat.hallId}" columnno="" title="{$seat.seatRow}排{$seat.seatCol}座" onclick="changeSeatImg(this,'img_{$seat.seatNo}');" seatno="{$seat.seatNo}" id="{$seat.seatNo}" href="javascript:void(0);"></a>
+					{/if}
+				{/if}
+{/foreach}
+</div>
+<script type="text/javascript">
+<!--
+function changeSeatImg(obj){
+
+    // 删除座位
+    if($(obj).hasClass('select')){
+        if(selectJudge(obj)){
+            $(obj).removeClass('select').addClass('active');
+        }else{
+            return false;
+        }
+
+        var conples = undefined;
+
+        // 情侣座删除
+        if($(obj).hasClass('couples')){
+            var prev_td = $(obj).prev('a');
+            var next_td = $(obj).next('a');
+
+            if(prev_td.hasClass('couples')){
+                prev_td.removeClass("couples").addClass('love');
+                $(obj).removeClass("couples").addClass('love');
+                conples = prev_td.attr('id');
+            }else{
+                next_td.removeClass("couples");
+                next_td.removeClass("couples").addClass('love');
+                $(obj).removeClass("couples").addClass('love');
+                conples = next_td.attr('id');
+            }
+        }
+
+        // 删除选中的座位
+        if (!$(obj).hasClass("select")) {
+            $(".zuowei_on span").each(function() {
+                if ($(this).attr("id").substr(5) == $(obj).attr("id") || $(this).attr("id").substr(5) == conples ) {
+                    $(this).remove();
+                }
+            });
+        }
+        // 如果选中的座位我空，替换默认内容
+        /*	if($(".zuowei_on span").length == 0){
+                $('.zuowei_on').html('<center>请在下方座位图选择您满意的座位</center>');
+            }*/
+
+        // 添加座位
+    }else{
+        if($(".zuowei_on span").length == 0){
+            $('.zuowei_on').empty();
+        }
+        if ($(".zuowei_on span").length >= 4) {
+            alert("每笔订单最多可购4个座位");
+            return false;
+        }else{
+            if(!selectJudge(obj)) return false;
+			// 情侣座位处理
+			if($(obj).hasClass('couples')){
+                var prev_td = $(obj).prev('a');
+                var next_td = $(obj).next('a');
+
+                if(prev_td.hasClass('couples')){
+                    $(obj).addClass("select");
+                    prev_td.addClass("select");
+
+                    var _span_html = '<span class="select-seat" id="span_'+prev_td.attr("seatno")+'" locno="'+prev_td.attr('locno')+'">'+prev_td.attr("title")+'</span>';
+                    $(".zuowei_on").append(_span_html);
+                }else{
+                    $(obj).addClass("select");
+                    next_td.addClass("select");
+
+                    var _span_html = '<span class="hy2_weizhi" id="span_'+next_td.attr("seatno")+'" locno="'+next_td.attr('locno')+'">'+next_td.attr("title")+'</span>';
+                    $(".zuowei_on").append(_span_html);
+                }
+            }else{
+                $(obj).addClass("select");
+            }
+		}
+    }
+
+    if ($(obj).hasClass('select')){
+        var _span_html = '<span class="select-seat" id="span_'+$(obj).attr("seatno")+'" locno="'+$(obj).attr('locno')+'">'+$(obj).attr("title")+'</span>';
+        $(".zuowei_on").append(_span_html);
+    }
+    var selectedVal = "";
+    var selectedName = '';
+
+    $(".zuowei_on span").each(function() {
+        if (selectedVal == "") {
+            selectedVal = $(this).attr("id").substr(5);
+            selectedName = $(this).text();
+        } else {
+            selectedVal = selectedVal + "|" + $(this).attr("id").substr(5);
+            selectedName = selectedName + '|' + $(this).text();
+        }
+    });
+    $('#seatsNo').val(selectedVal);
+    $('#seatsName').val(selectedName);
+    $('#seatsCount').val($(".zuowei_on span").length);
+}
+
+function selectJudge(obj){
+    var _selected  = new Object();
+    var _locked    = new Object();
+    var _seatno    = Number($(obj).attr('seatno')); //所选座位的座位号
+    var _prev_seatno= _seatno-1;
+    var _next_seatno=_seatno+1;
+    var _prev_row    = $('#'+_prev_seatno).attr('rowno');
+    var _next_row    = $('#'+_next_seatno).attr('rowno');
+    var _row       = $(obj).attr('rowno'); //所选座位的排号
+    $.each($(obj).siblings(), function (k, v){
+        if ($(this).hasClass('select')){//自己选择的座位
+            _selected[$(this).attr('seatno')]=true;
+        }
+        if ($(this).hasClass('disabled')){//系统已售出或维修的座位号
+            _locked[$(this).attr('seatno')]=true;
+        }
+    });
+
+    var is_selected = !isEmpty(_selected)? false : true;
+    if ( (_next_row==_row&&_selected[_seatno+1]) || (_prev_row==_row&&_selected[_seatno-1])){
+        is_selected = true;
+    }
+    console.log('is_selected'+is_selected);
+    if (!is_selected && _selected.length > 0){
+        if ((_next_row==_row&&_locked[_seatno+1]) || (_prev_row==_row&&_locked[_seatno-1])){
+            is_selected = true;
+        }
+    }
+
+
+    if (!is_selected){
+        alert('亲，不要留下单个座位！');
+        return false;
+    }
+    return true;
+}
+
+function isEmpty(obj)
+{
+    for (var name in obj)
+    {
+        return false;
+    }
+    return true;
+};
+-->
+</script>

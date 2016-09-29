@@ -1,0 +1,2 @@
+﻿# 网票网影院数据、电影信息抓取
+30 0 * * * E:\wamp\bin\php\php5.3.10\php Crontab/wpwmovie/index.php

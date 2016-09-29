@@ -319,7 +319,7 @@
 				type:'POST',
 				data:'step=planList&cinemaid='+cinemaid+'&movieid='+movieid+'&currentTime='+currentTime,
 				beforeSend:function(){
-					$(idClass).html("<tr><td colspan='5'></td></tr>");
+					$(idClass).html("<center  style='line-height: 487px;'><img src='/images/juyoufuli/img_login/loading.gif'></center>");
 					if(currentTime == 0){
 						//$('.date_select').html('LOADING ...');
 					}

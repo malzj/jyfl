@@ -1,0 +1,100 @@
+<!-- $Id: article_info.htm 16780 2009-11-09 09:28:30Z sxc_shop $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,../js/region.js,../js/transport.js"}
+<script type="text/javascript">
+<!--
+
+//-->
+</script>
+<!-- start goods form -->
+
+<div class="tab-div">
+ 
+
+  <div id="tabbody-div">
+    <form  action="shiting.php" method="post" enctype="multipart/form-data" name="theForm" onsubmit="return checkFrom(this);">
+    <table width="90%" id="general-table">
+      <tr>
+        <td class="narrow-label">影院名称:</td>
+        <td><input type="text" name="title" size ="40" maxlength="60" value="{$article.title|escape}" />{$lang.require_field}</td>
+      </tr>     
+	   <tr>
+        <td class="narrow-label">区域:{$article.city}{$article.district}</td>
+        <td><select name="province" id="province" onchange="region.changed(this, 1, 'city')" class="Select16">
+				<option value="0">请选择省份</option>
+				{foreach from=$province_list item=province}
+				<option value="{$province.region_id}" {if $article.city eq $province.region_id}selected{/if}>{$province.region_name}</option>
+				{/foreach}
+			</select>
+			<select name="city" id="city" class="Select16">
+				<option value="0">请选择城市</option>
+				{foreach from=$city_list item=city}
+				<option value="{$city.region_id}" {if $article.district eq $city.region_id}selected{/if}>{$city.region_name}</option>
+				{/foreach}				
+			</select>
+			
+			</td>
+      </tr>
+	
+	   <tr>
+        <td class="narrow-label">影院地址:</td>
+        <td><input type="text" name="address" size ="40" maxlength="60" value="{$article.address|escape}" />{$lang.require_field}</td>
+       </tr>   
+
+
+	   <tr>
+        <td class="narrow-label">2D:</td>
+        <td><input type="text" name="liangdi" size ="40" maxlength="60" value="{$article.2d|escape}" /></td>
+      </tr>   
+	   <tr>
+        <td class="narrow-label">3D:</td>
+        <td><input type="text" name="sandi" size ="40" maxlength="60" value="{$article.3d|escape}" /></td>
+      </tr>   
+      
+      
+      <tr>
+        <td class="narrow-label">是否显示:</td>
+        <td>
+        <input type="radio" name="is_open" value="1" {if $article.is_open eq 1}checked{/if}> 是
+        <input type="radio" name="is_open" value="0" {if $article.is_open eq 0}checked{/if}>否</td>
+      </tr>     
+    </table>   
+    <div class="button-div">
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$article.article_id}" />
+      <input type="submit" value="{$lang.button_submit}" class="button"  />
+      <input type="reset" value="{$lang.button_reset}" class="button" />
+    </div>
+    </form>
+  </div>
+
+</div>
+<!-- end goods form -->
+<script language="JavaScript">
+
+var articleId = {$article.article_id|default:0};
+
+{literal}
+region.isAdmin = true;
+onload = function()
+{
+  // 开始检查订单
+  startCheckOrder();
+}
+{/literal}
+
+function checkFrom(frm){
+	var title = frm.elements['title'].value;
+	var address = frm.elements['address'].value
+	if (title.length == 0){
+		alert('名称不能为空');
+		return false;
+	}
+	if (address.length == 0){
+		alert('地址不能为空');
+		return false;
+	}
+	return true;
+}
+</script>
+{include file="pagefooter.htm"}

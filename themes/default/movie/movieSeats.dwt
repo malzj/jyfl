@@ -132,8 +132,10 @@
                         <input type="hidden" name="hallName"  value="{$planInfo.hallName}" />				<!-- 影厅名-->				
                         <input type="hidden" name="featureTimeStr" value="{$planInfo.featureTimeStr}" />   			<!-- 开场时间-->
                         <input type="hidden" name="movieName"  value="{$planInfo.movie.movieName}" />				<!-- 电影名-->
+                        <input type="hidden" name="cinemaId" value="{$planInfo.cinemaId}" />				<!-- 影院名-->
                         <input type="hidden" name="cinemaName" value="{$planInfo.cinema.cinemaName}" />				<!-- 影院名-->
-                        <input type="hidden" name="language" value="{$planInfo.language} / {$planInfo.screenType}" />		<!-- 语言-->	
+                        <input type="hidden" name="showIndex" value="{if isset($planInfo.ShowIndex)}{$planInfo.ShowIndex}{else}0{/if}" />				<!-- 影院名-->
+                        <input type="hidden" name="language" value="{$planInfo.language} / {$planInfo.screenType}" />		<!-- 语言-->
                         
                         <input type="hidden" name="seatsNo" id="seatsNo" value="" />					<!-- 座位号 -->
                         <input type="hidden" name="seatsName" id="seatsName" value="" />				<!-- 座位信息 -->

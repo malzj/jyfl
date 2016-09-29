@@ -1,0 +1,75 @@
+<!-- $Id: ads_list.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+
+{include file="cinema_search.html"}
+
+<form method="post" action="" name="listForm">
+<!-- start ads list -->
+<div class="list-div" id="listDiv">
+{/if}
+
+<table cellpadding="3" cellspacing="1">
+  <tr>
+  	<th><a href="javascript:listTable.sort('id'); ">影院编号</a></th>
+    <th>影院 / 地址</th>
+    <th><a href="javascript:listTable.sort('region_id'); ">城市</a></th>
+    <th><a href="javascript:listTable.sort('area_id'); ">区域</a></th>
+    <th><a href="javascript:listTable.sort('is_komovie'); ">在线选座</a></th>
+    <th><a href="javascript:listTable.sort('is_dzq'); ">电子兑换券</a></th>
+    <th><a href="javascript:listTable.sort('is_brush'); ">线下刷卡</a></th>
+    <th>影院电话</th>
+    <th>操作</th>
+  </tr>
+  {foreach from=$cinema_list item=cinema}
+  <tr>    
+    <td align="left"><span>{$cinema.id}</span></td>
+    <td align="left"><span>&nbsp;&nbsp;{$cinema.cinema_name}</span> <br><span style="color:#999">&nbsp;&nbsp;{$cinema.cinema_address}</span></td>
+    <td align="center"><span>{$cinema.region_name}</span></td>
+    <td align="center"><span>{$cinema.area_name}</span></td>
+    <td align="center"><span>{if $cinema.is_komovie} <font color='green'>是</font> {else} <font color='red'>否</font> {/if}</span></td>
+    <td align="center"><span>{if $cinema.is_dzq} <font color='green'>是</font> {else} <font color='red'>否</font> {/if}</span></td>
+    <td align="center"><span>{if $cinema.is_brush} <font color='green'>是</font> {else} <font color='red'>否</font> {/if}</span></td>
+    <td align="center"><span>{$cinema.cinema_tel}</span></td>
+    <td align="center"><span>
+      <a href="cinema_list.php?act=edit&id={$cinema.id}">编辑</a> &nbsp;&nbsp;&nbsp;
+      {if $cinema.is_komovie eq 0 && $cinema.is_dzq eq 0 && $cinema.is_brush eq 0}
+      <a href="javascript:;" onclick="listTable.remove({$cinema.id}, '{$lang.drop_confirm}')"  title="删除">删除</a>
+      {/if}
+      </span>
+    </td>
+  </tr>
+  {foreachelse}
+    <tr><td class="no-records" colspan="7">没有数据！</td></tr>
+  {/foreach}
+  <tr>
+    <td align="right" nowrap="true" colspan="7">{include file="page.htm"}</td>
+  </tr>
+</table>
+
+{if $full_page}
+</div>
+<!-- end ad_position list -->
+</form>
+
+
+
+<script type="text/javascript" language="JavaScript">
+
+  listTable.recordCount = {$record_count};
+  listTable.pageCount = {$page_count};
+
+  {foreach from=$filter item=item key=key}
+  listTable.filter.{$key} = '{$item}';
+  {/foreach}
+  {literal}
+  onload = function()
+  {
+    // 寮�妫�煡璁㈠崟
+    startCheckOrder();
+  }
+  {/literal}
+</script>
+{include file="pagefooter.htm"}
+{/if}

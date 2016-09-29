@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/public.css" />
+    <style>
+        .code_box {background-color: #fff;margin-top: 20px;padding: 20px 0;}
+        .code_box .img{text-align: center;}
+        .code_box img {height: 10rem;width: 10rem;}
+        .balance{padding: 20px;}
+    </style>
+</head>
+
+<body>
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">二维码付款</h1>
+</header>
+<div class="mui-content">
+    <div class="code_box">
+        <div class="img">
+            <div id="code"></div>
+        </div>
+        <!--<div class="balance">-->
+            <!--<div class="cash mui-pull-left">余额：<span></span></div>-->
+            <!--<div class="mui-pull-right"><a class="refresh">刷新余额</a></div>-->
+        <!--</div>-->
+    </div>
+</div>
+<script src="../js/connection.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.qrcode.min.js"></script>
+<script src="../js/jqueryExtend.js"></script>
+<script src="../js/mui.min.js"></script>
+<script type="text/javascript">
+    jQuery.ajaxJsonp(web_url+'/mobile/two_d_code.php?act=get_code_str','',function(result){
+        console.log(result);
+        if(result.state == 'true'){
+            $('#code').qrcode(result.data.code);
+            $('.balance .cash span').text(result.data.BalanceCash);
+        }else if(result.state == 'false'){
+            jQuery.errorJudge(result.data,result.message);
+        }
+    });
+    //刷新余额
+//    mui('body').on('tap','.refresh',function () {
+//        jQuery.ajaxJsonp(web_url+'/mobile/two_d_code.php?act=refresh_cash','',function(result){
+//            if(result.state == 'true'){
+//
+//            }else if(result.state == 'false'){
+//                jQuery.errorJudge(result.data,result.message);
+//            }
+//        });
+//    });
+
+    mui.init();
+
+</script>
+</body>
+
+</html>

@@ -9,7 +9,6 @@ include_once(ROOT_PATH . 'includes/lib_basic.php');
 require(ROOT_PATH . 'mobile/includes/lib_cinema.php');
 include_once(ROOT_PATH . 'includes/lib_cardApi.php');
 include_once(ROOT_PATH . 'includes/lib_movie_times.php');
-
 //判断是否为次卡，如果不是则跳转到点卡影院
 if(!is_times_card()){
     ecs_header("Location:".str_replace('movie_times.php','movie.php',$_SERVER['REQUEST_URI'])."\n");

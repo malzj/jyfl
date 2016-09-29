@@ -46,4 +46,5 @@ if($no == 0){
         $sql = "INSERT INTO " . $GLOBALS['ecs']->table('company') . "(`card_company_id`,`company_name`,`grade_id`,`logo_img`,`back_img`,`m_back_img`,`create_time`) values" . $sqlval;
         $res = $GLOBALS['db']->query($sql);
     }
+
 }

@@ -1,0 +1,36 @@
+.clearfix:after{content:'';font-size: 0;height:0;border:0;margin: 0;padding: 0;clear: both;display:block;visibility:hidden;}
+.clearfix{zoom: 1;}
+.f_l{float:left;}
+.f_r{float:right;}
+ul,li{list-style: none;}
+*,ul,li{padding: 0;margin: 0;}
+html{font-size: 20px;font-family: "Microsoft Yahei";}
+body{background-color: #efeff4;}
+a{text-decoration: none;}
+.btn{display: block;padding: 0.6rem 0;background-color: #2fd0b5;color: #FFF;font-size: 0.9rem;text-align: center;border-radius: 5px;}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {font-family: "Microsoft Yahei";font-weight: normal;font-size: 0.75rem;color: #a6a6a6;}
+/*卡充值 start*/
+.container{background-color: #FFF;}
+.container .row{border-bottom: 1px solid #e1e1e1;padding: 0.6rem;position: relative;}
+.container .mobile_logo{text-align: center;border-bottom: 1px solid #e1e1e1;padding: 0.3rem 0;}
+.container .mobile_logo img{width:6.2rem;}
+.container .row .point_list ul{margin-left: -0.5rem;}
+.container .row .title,.container .charge_row .title{font-size: 0.9rem}
+.container .row .card_num{font-size: 0.75rem;color:#878787;}
+.container .row .point_list,.container .row .charge{margin-top: 0.6rem;}
+.container .row .point_list ul li{float:left;margin-left:0.49rem;width:5.425rem;height:3.4rem;border: 1px solid #2fd0b5;position: relative;border-radius:5px; }
+.point_list ul li .text{position:absolute;left: 50%;top:50%;-webkit-transform: translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);width: 4rem;text-align: center;color: #2fd0b5;}
+.point_list ul li .point{font-size: 0.9rem;}
+.point_list ul li .money{font-size: 0.6rem;}
+.point_list ul li.on{background-color: #2fd0b5}
+.point_list ul li.on .text{color:#FFF;}
+.charge_row .title{margin: 0.6rem 0 0 0.6rem;}
+.charge_row .charge {border-top: 1px solid #e1e1e1;border-bottom: 1px solid #e1e1e1;margin-top:0.6rem;}
+.charge_row .charge ul li{float:left;width:9.35rem;height:2.25rem;line-height:2.25rem;text-align: center;font-size: 0.9rem; }
+.charge_row .charge ul li:first-child{border-right: 1px solid #e1e1e1;}
+.charge_row .charge ul li.on{color: #2fd0b5;}
+.charge_btn {margin: 1.5rem 0.75rem;}
+.reminder{color:#ff781e;line-height: 2;font-size: 0.6rem;padding: 0 0.6rem;}
+.reminder p{color:#ff781e;font-size: 0.6rem;}
+.reminder h4{font-style: normal;font-weight: normal;font-size: 0.65rem;}
+/*卡充值 end*/

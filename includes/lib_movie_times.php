@@ -345,5 +345,4 @@ function getMateCinemaArea(){
     }
 
     return $returnArray;
-
 }

@@ -1,0 +1,36 @@
+<div class="mui-content">
+    <div class="margin_top_15 mui-table-view">
+        <div class="mui-table-view-cell">
+            <h4 class="mui-pull-left">总价</h4>
+            <p class="mui-pull-right color_2fd0b5">{{amount}}点</p>
+        </div>
+        <div class="mui-table-view-cell">
+            <h4 class="mui-pull-left">数量</h4>
+            <p class="mui-pull-right">{{num}}</p>
+        </div>
+        <div class="mui-table-view-cell">
+            <h4 class="mui-pull-left">时间</h4>
+            <p class="mui-pull-right">{{travel_date}}</p>
+        </div>
+        <div class="mui-table-view-cell">
+            <h4 class="mui-pull-left">预定信息</h4>
+            <p class="mui-pull-right sport_venue_reserve">
+                {{each venues as venue}}
+                <span>{{venue}}</span>
+                {{/each}}
+            </p>
+        </div>
+    </div>
+    <div class="mui-input-group margin_top_15">
+        <div class="mui-input-group">
+            <div class="mui-input-row">
+                <label>你的名字</label>
+                <input type="text" name="link_man" placeholder="凭有效证件的姓名填写">
+            </div>
+            <div class="mui-input-row">
+                <label>手机号码</label>
+                <input type="number" name="link_phone" placeholder="请输入手机号">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="mui-content">
+	<!--头图轮播-->
+    <div id="slider" class="mui-slider" >
+		<div class="mui-slider-group mui-slider-loop">
+			<div class="mui-slider-item mui-slider-item-duplicate slide-a">
+				<a href="">
+					<img src="">
+				</a>
+			</div>
+			{{each data.banner as banner}}
+			<div class="mui-slider-item">
+				<a data-href="{{banner.ad_link}}" class="href_click">
+					<img src="{{banner.ad_code}}">
+				</a>
+			</div>
+			{{/each}}
+			<div class="mui-slider-item mui-slider-item-duplicate slide-c">
+				<a href="">
+					<img src="">
+				</a>
+			</div>
+		</div>
+		<div class="mui-slider-indicator">
+			{{each data.banner as banner i}}
+			<div class="mui-indicator {{if i==0}} mui-active {{/if}}"></div>
+			{{/each}}
+		</div>
+	</div>
+	<!--品牌滑动区域-->
+	<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+	    <div class="mui-scroll">
+	        {{each data.cate as cate}}
+	        <a class="mui-control-item cake_pinpai_item href_click" data-href="list.html?id={{cate.cid}}">
+	           <img src="../images/icon/cake/nav-{{cate.id}}.png" alt="" />
+	           <span>{{cate.name}}</span>
+	        </a>
+	    	{{/each}}
+	    </div>
+	</div>
+	<!--口味楼层-->
+	{{each data.goods as attr}}
+	<div class="floor_item">
+		<div class="floor_title mui-row">
+			<h4 class="mui-pull-left"><span class="floor_title_icon"></span><span>{{attr.attrName}}</span></h4>
+			<a data-href="list.html?id={{attr.brandId}}&filter_attr={{attr.filterId}}" class="href_click">
+				<div class="mui-pull-right"><span class="floor_more">更多</span><span class="mui-icon mui-icon-arrowright"></span></div>
+			</a>
+		</div>
+		<div class="mui-row floor_list">
+			{{each attr.goods as good}}
+			<div class="mui-col-xs-6 floor_listBox">
+			<a data-href="details.html?id={{good.goods_id}}" class="href_click floor_list_a">
+				<div class="mui-pull-left floor_listLeft">
+					<div class="floor_list_name mui-ellipsis-2">{{good.goods_name}}</div>
+					<div class="floor_list_price"><em>{{good.shop_price}}</em>点</div>
+				</div>
+				<div class="mui-pull-right">
+					<img src="{{good.goods_thumb}}" alt=""/>
+				</div>
+			</a>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+	{{/each}}
+</div>
+
+<script>
+
+	var img= jQuery('.mui-slider-item:nth-child(2) img').attr('src');
+	var img1=jQuery('.mui-slider-item:nth-last-child(2) img').attr('src');
+	jQuery('.slide-c img').attr('src',img);
+	jQuery('.slide-a img').attr('src',img1);
+	
+	jQuery.hrefClick();
+	
+</script>

@@ -25,14 +25,14 @@ elseif($_REQUEST['act'] == 'done_import')
 {
     set_time_limit(0);
     $start = microtime(true);
-    if($_FILES['sale_card_file']['type']=='application/octet-stream'||$_FILES['sale_card_file']['type']=='application/vnd.ms-excel'){
+//  if($_FILES['sale_card_file']['type']=='application/octet-stream'||$_FILES['sale_card_file']['type']=='application/vnd.ms-excel'){
         $tmp_name = $_FILES['sale_card_file']['tmp_name'];
         $filename = "card-".local_date("YmdHis",time()).".xlsx";
         $msg = uploadFile($filename,$tmp_name);
-    }else{
-        sys_msg("文件格式错误或者过大！请上传excel2007的*.xlsx格式文件");
-        die;
-    }
+//  }else{
+//      sys_msg("文件格式错误或者过大！请上传excel2007的*.xlsx格式文件");
+//      die;
+//  }
     require (dirname ( __FILE__ ) . '/../admin/includes/lib_autoExcels.php');
     $PHPExcel = new autoExcels('Excel2007');		//实例化类并传入导出格式（可以不传，默认是2007）
     $PHPExcel->setSaveName($msg);		//要保存的文件名（必须）

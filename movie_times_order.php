@@ -328,7 +328,7 @@ else if ($_REQUEST['act'] == 'doneMovie'){
 		$cardResult = $cardPay->getResult();
 		$_SESSION['BalanceCash'] -= $total; //重新计算用户卡余额
 		//更新卡金额
-		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('users')." SET card_money = card_money - ('$card_price') WHERE user_id = '".intval($_SESSION['user_id'])."'");
+		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('users')." SET card_money = card_money - ('$total') WHERE user_id = '".intval($_SESSION['user_id'])."'");
 		//更新卡支付状态
 		$GLOBALS['db']->query('UPDATE '.$GLOBALS['ecs']->table('seats_order')." SET card_pay = '1', api_order_id = '".$cardResult."', card_order_id= '".$cardOrderId."' WHERE id = $int_orderId");
 		// 电影票支付

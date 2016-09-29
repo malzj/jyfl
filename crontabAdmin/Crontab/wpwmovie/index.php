@@ -22,6 +22,7 @@ $wpwMovie = new wpwMovie();
 
 $result = $wpwMovie ->baseFilm($city_id);
 
+
 $wpw_movie = array();
 foreach($result['Data'] as $key => $movie){
     $wpw_movie[$movie['ID']] = $movie['Name'];

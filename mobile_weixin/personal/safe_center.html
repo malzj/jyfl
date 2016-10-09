@@ -120,7 +120,7 @@
                             <input type="number" name="verify" placeholder="请输入动态码">
                         </div>
                         <div class="mui-col-xs-3">
-                            <button type="button" class="mui-btn mui-btn-danger yanzheng">获取</button>
+                            <button type="button" class="mui-btn mui-btn-danger yanzheng">获取验证码</button>
                         </div>
                     </div>
                 </div>
@@ -185,6 +185,7 @@
     var viewApi = mui('#safe_center_list').view({
         defaultPage: '#safe_center'
     });
+    jQuery("input[name='mobile_phone']").val(localStorage.mobile_phone);
     //初始化单页的区域滚动
     mui('.mui-scroll-wrapper').scroll();
     //返回操作
@@ -298,40 +299,56 @@
      */
     jQuery('.yanzheng').on('click',function(){
         var tel = jQuery("input[name='mobile_phone']").val();
-        jQuery.ajax({
-            url:web_url+'/jyflapi/index.php/Users/UserJsonp/smsvrerifyJs',
-            type:'get',
-            data:{user_id:localStorage.user_id,tel:tel},
-            dataType:'jsonp',
-            jsonp:'jsoncallback',
-            success:function(result){
+        var timeOut;
+        clearTime(timeOut);
+        timeOut = settime(this);
+        jQuery.ajaxJsonp(web_url+'/jyflapi/index.php/Users/UserJsonp/smsvrerifyJs',{user_id:localStorage.user_id,tel:tel},function(result){
                 if(result.result == 'true'){
                     mui.alert(result.msg);
                 }else if(result.result == 'false'){
                     mui.alert(result.msg);
                 }
-            }
-        });
+            })
     });
+    //获取验证码倒计时
+		var countdown = 120;
+		function settime(obj) {
+		    if (countdown == 0) {
+		        obj.removeAttribute("disabled");
+		        obj.innerHTML = "获取验证码";
+		        $(obj).addClass('mui-btn-danger');
+		        countdown = 120;
+		        return;
+		    } else {
+		        obj.setAttribute("disabled", true);
+		        obj.innerHTML = "重新发送(" + countdown + ")";
+		        $(obj).removeClass('mui-btn-danger');
+		        countdown--;
+		    }
+		    return setTimeout(function () {
+		            settime(obj)
+		        }
+		        , 1000)
+		}
+		function clearTime(set) {
+		    countdown = 120;
+		    clearTimeout(set);
+		}
     /**
      * 确认绑定手机号
      */
     jQuery('#boundphone').on('click',function(){
         var tel = jQuery("input[name='mobile_phone']").val();
         var captcha = jQuery("input[name='verify']").val();
-        jQuery.ajax({
-            url:web_url+'/jyflapi/index.php/Users/UserJsonp/editphone',
-            type:'get',
-            data:{user_id:localStorage.user_id,tel:tel,captcha:captcha},
-            dataType:'jsonp',
-            jsonp:'jsoncallback',
-            success:function(result){
+        jQuery.ajaxJsonp(
+            web_url+'/jyflapi/index.php/Users/UserJsonp/editphone',
+            {user_id:localStorage.user_id,tel:tel,captcha:captcha},
+            function(result){
                 if(result.result == 'true'){
                     mui.alert(result.msg);
                 }else if(result.result == 'false'){
                     mui.alert(result.msg);
                 }
-            }
         })
     });
 

@@ -44,6 +44,7 @@
 	<th><a href="javascript:listTable.sort('money', 'DESC'); ">订单金额</a>{$sort_goods_amount}</th>
     <th><a href="javascript:listTable.sort('order_status', 'DESC'); ">订单状态</a></th>
     <th>订单来源</th>
+    <th>卡类型</th>
     <th>操作</th>
   <tr>
   {foreach from=$order_list item=order key=okey}
@@ -51,7 +52,7 @@
     <td valign="top" nowrap="nowrap"><input type="checkbox" name="checkboxes" value="{$order.order_sn}" />{$order.order_sn}</td>
     <td valign="top">{$order.add_time}</td>
     <td align="left" valign="top"><a href="mailto:{$order.email}"> 
-    	{$order.user_name|escape}</a>{if $order.mobile} [Mobile: {$order.mobile|escape}]{/if} <br />购票平台：{if isset($order.platform)}{$order.platform}{else}抠电影{/if}<br />影片：{$order.movie_name|escape}<br/> 影院：{$order.cinema_name|escape} {$order.hall_name|escape} {$order.seat_info}<br/> 观看时间：{$order.featuretime}
+    	{$order.user_name|escape}</a>{if $order.mobile} [Mobile: {$order.mobile|escape}]{/if} <br />影片：{$order.movie_name|escape}<br/> 影院：{$order.cinema_name|escape} {$order.hall_name|escape} {$order.seat_info}<br/> 观看时间：{$order.featuretime}
     	<br>
     	<div class="order-msgs">短信消息： 
     		<!-- 【<a href="javascript:updateOrder('{$order.id}');">点击查看</a>】 -->
@@ -74,12 +75,22 @@
 	<td align="right" valign="top" nowrap="nowrap">{$order.money}</td>
 	<td align="center" valign="top" nowrap="nowrap">{foreach from=$order.order_status_cn item=status_cn} {$status_cn}<br> {/foreach}</td>
     <td align="center" valign="top">{if $order.source eq 1}<font color=red>《无线》</font>{else}<font color=green>《电脑》</font>{/if}</td>
+    <td align="center" valign="top">
+    	{if $order.cika_agio}
+    		<font color=red>次卡</font><br>
+    		扣点/差价<br>
+    		（{$order.cika_agio} / {$order.diff_price}）
+    		
+    	{else}
+    		<font color=green>点卡</font>
+    	{/if}
+    </td>
     <td align="center" valign="top"  nowrap="nowrap">
     	{if $order.order_status==5 || $order.pay_status == 1 }	
     	<a href='film_order.php?act=return&id={$order.id}'>退款</a>	
     	{/if}
-        <a href="film_order.php?act=grabState&id={$order.id}">状态抓取</a>
-        <!-- <a href="film_order.php?act=remove_order&id={$order.id}" onclick="return confirm('确定删除该订单吗？')">移除</a> -->
+    	<a href="film_order.php?act=grabState&id={$order.id}">状态抓取</a>
+		<!-- <a href="film_order.php?act=remove_order&id={$order.id}" onclick="return confirm('确定删除该订单吗？')">移除</a> -->
     </td>
   </tr>
   {/foreach}
@@ -148,7 +159,7 @@ listTable.filter.{$key} = '{$item}';
         eles['order_id'].value = snArray.toString();
         return true;
       }
-    }
+    }    
     
     // 订单更新
     function updateOrder(id){    	   	

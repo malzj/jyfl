@@ -62,11 +62,11 @@
 				mui('.mui-scroll-wrapper').scroll({
 					deceleration: 0.0005 
 				});
-			},true);
+			});
 			
 			jQuery.ajaxJsonp(web_url+"/mobile/basic.php",{act:'navList'},function(result){				
 				replaceHtml('.mui-draggable > .mui-inner-wrap header', template('public/footer', result.data));
-			},true);
+			});
 
 		</script>
 	</body>

@@ -13,13 +13,14 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jqueryExtend.js"></script>
     <script src="js/mui.min.js"></script>
+    <script src="js/mui.view.js"></script>
     <style>
         .mui-pages {top:0;}
     </style>
 </head>
-<body class="mui-fullscreen">
+<body>
 <!--页面主结构开始-->
-<div id="login_index" class="mui-views">
+<div id="login_index" class="mui-views mui-fullscreen">
     <div class="mui-view">
         <!--<div class="mui-navbar">
         </div>-->
@@ -31,8 +32,8 @@
 <div id="login_def" class="mui-page">
     <!--页面主内容区开始-->
     <div class="mui-page-content">
-        <!--<div class="mui-scroll-wrapper">
-            <div class="mui-scroll">-->
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
         <div class="wenhua_door vh_20">
             <a href="#juyou_wenhua">
                 <div class="wenhua_title">聚优文化Culture</div>
@@ -60,11 +61,11 @@
         </div>
     </div>
 </div>
-<!--</div>
-</div>-->
+</div>
+</div>
 
 <!--聚优文化卡-->
-<div id="juyou_wenhua" class="mui-page">
+<div id="juyou_wenhua" class="mui-page ka">
     <div class="login_box">
         <div class="login_icon"><img src="images/jy_index/logo_wenhua.png" alt="聚优文化"></div>
         <div class="login_form">
@@ -83,7 +84,7 @@
     </div>
 </div>
 <!--聚优生日卡-->
-<div id="juyou_shengri" class="mui-page">
+<div id="juyou_shengri" class="mui-page ka">
     <div class="login_box">
         <div class="login_icon"><img src="images/jy_index/logo_shengri.png" alt="聚优生日"></div>
         <div class="login_form">
@@ -102,7 +103,7 @@
     </div>
 </div>
 <!--聚优生活卡-->
-<div id="juyou_shenghuo" class="mui-page">
+<div id="juyou_shenghuo" class="mui-page ka">
     <div class="login_box">
         <div class="login_icon"><img src="images/jy_index/login_shenghuo.png" alt="聚优生活"></div>
         <div class="login_form">
@@ -121,7 +122,7 @@
     </div>
 </div>
 <!--聚优运动卡-->
-<div id="juyou_yundong" class="mui-page">
+<div id="juyou_yundong" class="mui-page ka">
     <div class="login_box">
         <div class="login_icon"><img src="images/jy_index/logo_yundong.png" alt="聚优运动"></div>
         <div class="login_form">
@@ -140,7 +141,7 @@
     </div>
 </div>
 <!--聚优通卡-->
-<div id="juyou_tongka" class="mui-page">
+<div id="juyou_tongka" class="mui-page ka">
     <div class="login_box">
         <div class="login_icon"><img src="images/jy_index/logo_tongka.png" alt="聚优通卡"></div>
         <div class="login_form">
@@ -158,9 +159,7 @@
         <div class="login_icon1"><img src="images/jy_index/enjoy.png" alt="享受工作，享受生活"></div>
     </div>
 </div>
-<script src="js/mui.view.js"></script>
 <script>
-
     jQuery(function () {
         if(localStorage.user_id != undefined&&localStorage.user_id!=''){
             jQuery.ajaxJsonp(web_url + '/mobile/userAuth.php?act=checkLogin',{userid:localStorage.user_id},function(result){
@@ -192,7 +191,9 @@
            
         })
     });
-    mui.init();
+    mui.init({
+    	swipeBack:false //启用右滑关闭功能
+    });
     var viewApi = mui('#login_index').view({
         defaultPage: '#login_def'
     });
@@ -203,7 +204,23 @@
 			plus.webview.currentWebview().reload();
 		});
 	}
-
+				var view = viewApi.view;
+				//处理view的后退与webview后退
+				var oldBack = $.back;
+				$.back = function() {
+					if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+						viewApi.back();
+					} else { //执行webview后退
+						oldBack();
+					}
+				};
+//				禁止 iphone早微信上的touchmove的默认事件
+				$('body').on('touchmove', function (event) {
+				    event.preventDefault();
+				});
+	    		window.addEventListener("swiperight", function(e) {
+							$.back();
+                    });
 </script>
 </body>
 </html>

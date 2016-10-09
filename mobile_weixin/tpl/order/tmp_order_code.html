@@ -1,0 +1,24 @@
+<div class="mui-content">
+    {{if hasOrders==1}}
+        {{each orders as order key}}
+        <div class="mui-row order_cinemaBox margin_top_10">
+            <div class="mui-pull-left order_cinema_itemLeft">
+                <div class="order_ciema_number">订单号：<span class="order_sn">{{order.order_sn}}</span></div>
+                <div class="order_ciema_name"><span>{{order.add_time}}</span></div>
+                <div class="order_ciema_name">商品名称：<span>{{order.goods_name}}</span></div>
+                <div class="order_ciema_details">{{order.goods_attr}}</div>
+                <div class="order_ciema_details">数量：<span>{{order.goods_number}}个</span></div>
+                <div class="order_ciema_details">单价：<span>{{order.sjprice}}点</span></div>
+                <div class="order_ciema_details">总价：<span>{{order.total_fee}}点</span></div>
+            </div>
+            <div class="order_cinema_itemRight">
+                <div class="active">{{order.order_status_cn}}</div>
+            </div>
+        </div>
+        {{/each}}
+    {{else}}
+        <div class="mui-row order_cinemaBox margin_top_10">
+            还没有订单哦亲
+        </div>
+    {{/if}}
+</div>

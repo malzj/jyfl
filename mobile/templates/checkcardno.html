@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title></title>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/layer/layer.js"></script>
+	<script type="text/javascript" src="js/messageJs.js"></script>
+	<script src="js/loadAjax.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class=" container">
+	<div class="mobile_logo">
+		<img src="/mobile/images/mobile_logo.png" alt="聚优福利">
+	</div>
+	<div class="row-style1">
+		<div class="title">验证卡号</div>
+		<div class="box">
+			<div class="input-box underline">
+				<input type="text" name="cardno" placeholder="卡号" />
+			</div>
+			<div class="input-box">
+				<input type="password" name="password" placeholder="密码" />
+			</div>
+		</div>
+	</div>
+</div>
+<a href="javascript:void(0)" class="btn charge_btn">立即验证</a>
+
+<script>
+	// 是否已验证
+	var isCheck = false;	
+	// 验证卡号
+	$('.charge_btn').click(function(){
+		if(isCheck == true){
+			return false;
+		}
+		isCheck = true;
+		var _that = $(this);
+		var username = $("input[name=cardno]").val();
+		var password = $("input[name=password]").val();		
+		
+		$(this).loadAjax('user.php?act=act_login', {username:username,password:password}, function(data){
+			if (data == 'success'){				
+				window.location.href="user.php?act=account_deposit";
+			}else{
+				message.messageAlert('卡号或密码不正确！');
+				//loadMsg( data );
+				isCheck = false;
+			}			
+		});		
+	});
+
+</script>
+</body>
+</html>

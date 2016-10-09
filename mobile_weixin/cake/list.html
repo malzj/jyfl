@@ -90,8 +90,7 @@
 				if (cateid){
 					params = jQuery.extend(params,jQuery.parseJSON('{"filter_attr":""}'));
 				}
-				console.log(params);
-				
+
 				// 获取新的数据
 				jQuery.ajaxJsonp(web_url+"/mobile/category.php",params,function(data){
 					if( cateid ){

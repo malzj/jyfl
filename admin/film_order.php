@@ -111,7 +111,6 @@ elseif ($_REQUEST['act'] == 'grabState')
 				$orderStatus = 1;
 		}
 	}
-
     if ($orderStatus == 1 && local_gettime()-15*60 > $order['add_time']+3600*8)
         $orderStatus = 2;
     // 如果是已退款订单，不更新状态

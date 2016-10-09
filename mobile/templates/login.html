@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+	<title></title>
+	<link rel="apple-touch-icon-precomposed" href="/mobile/images/img/APP.jpg" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/layer/layer.js"></script>
+	<script src="js/loadAjax.js"></script>
+	<link rel="stylesheet" href="js/layer/skin/layer.css">	
+	<link rel="stylesheet" href="css/main.css">	
+	<style>
+			html,body{
+				height: 100%;
+				background-image:url(/mobile/images/img/background.jpg);;
+				background-repeat: no-repeat;
+				font-size: 16px;
+				background-size: cover;
+			}
+			.bgs{
+				background-color: #2C2C2C;}
+			p{
+				letter-spacing: 4px;
+				font-weight: 600;
+				color: white;
+			}
+			.form-control{
+				    -webkit-box-shadow: none;
+	    			box-shadow:none;
+			}
+			.tu{font-size: 20px;padding-right: 10px;border-right: 1px solid #908989;color: #868484;}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<!--<div class="row bgs">
+				<div class="col-md-12">
+					<p class="text-center">账号登录</p>
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="col-xs-12" style="padding-top: 10%;padding-bottom:10%;">
+					<img src="/mobile/images/img/test.png" class="center-block img-responsive" width="30%">
+				</div>
+			</div>
+
+			<form role="form" action="user.php" method="post" onSubmit="return false">
+				<div class="row" style="margin-top: 20%;">
+					<div class="col-xs-10 col-xs-offset-1">
+						<div class="input-group" style="border-bottom: 1px solid #ddd;">
+							<span class="input-group-addon" style="border: 0;background: white;">
+								<span class="glyphicon glyphicon-user tu"></span></span>
+							<input type="text" name="username" class="form-control " value="{$username_cookie}" placeholder="请输入卡正面的卡号"	style="border: 0; height: 40px;">
+						</div>
+						<!--<br>-->
+
+						<div class="input-group">
+							<span class="input-group-addon" style="border: 0;background: white;"><span class="glyphicon glyphicon-lock tu"></span></span>
+							<input type="password" name="password" class="form-control" placeholder="请输入密码"	style="border: 0; height: 40px;">
+						</div>
+						<!-- <br>-->
+					</div>
+				</div>
+				<div class="row" style="margin-top:5%;">
+					<div class="col-xs-10 col-xs-offset-1">
+						<input type="hidden" name="back_act" value="{$back_act}">
+						<button class="btn btn-block" style="background: url(/mobile/images/img/button.png) no-repeat;background-size:100% 100% ;color: white;">登 录</button>
+					</div>
+				</div>
+				<div class="row" style="margin-top:10%;">
+					<div class="col-xs-10 col-xs-offset-1">
+						<img src="/mobile/images/img/enjoy.png" class="img-responsive">
+					</div>
+				</div>
+			</form>
+		</div>
+
+<script type="text/javascript">
+
+	$(".btn").click(function(){		
+		var username = $("input[name='username']").val();
+		var password = $("input[name='password']").val();
+		var back_act = $("input[name='back_act']").val();
+		$(this).loadAjax('user.php?act=act_login', {username:username,password:password}, function(data){
+			if (data == 'success'){
+				window.location.href = '/index.php';
+				//window.location.href = back_act;
+			}else{
+				alert(data);
+				return false;
+			}
+		});		
+	});
+
+</script>
+</body>
+</html>

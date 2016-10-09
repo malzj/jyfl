@@ -22,7 +22,6 @@ $wpwMovie = new wpwMovie();
 
 $result = $wpwMovie ->baseFilm($city_id);
 
-
 $wpw_movie = array();
 foreach($result['Data'] as $key => $movie){
     $wpw_movie[$movie['ID']] = $movie['Name'];
@@ -79,7 +78,7 @@ foreach ($ko_movie as $movie_id => $ko_m) {
         'minPrice' => $ko_movie_array[$movie_id]['minPrice'],
         'komovie_id' => $ko_movie_array[$movie_id]['movieId'],
         'wangmovie_id' => $wpw_movie_id,
-        'movieLength' => $ko_movie_array[$movie_id]['movieLength'],
+        'movieLength' => isset($ko_movie_array[$movie_id]['movieLength'])?$ko_movie_array[$movie_id]['movieLength']:'',
         'movieName' => $ko_movie_array[$movie_id]['movieName'],
         'movieType' => isset($ko_movie_array[$movie_id]['movieType'])?$ko_movie_array[$movie_id]['movieType']:'',
         'pathHorizonH' => isset($ko_movie_array[$movie_id]['pathHorizonH'])?$ko_movie_array[$movie_id]['pathHorizonH']:'',

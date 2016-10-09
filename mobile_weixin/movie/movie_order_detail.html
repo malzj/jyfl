@@ -26,7 +26,7 @@
 		<script type="text/javascript">
 			var orderid=jQuery.getUrlParam('orderid');
 			jQuery.ajaxJsonp(web_url+'/mobile/cinema_order.php?act=payinfoMovie',{id:orderid},function(result){
-				console.log(result);
+//				console.log(result);
 				if(result.state=='true') {
 					document.getElementById('movie_order_detail').innerHTML = template('movie/movie_order_detail', result.data);
 					// 支付倒计时
@@ -79,9 +79,11 @@
 				var orderid = jQuery('#orderid').val();
 				if(jQuery.isEmptyObject(password)){
 					mui.alert('密码不能为空');
+					return false;
 				}
 				if(jQuery.isEmptyObject(orderid)){
 					mui.alert('这不是一个有效的订单');
+					return false;
 				}
 				jQuery.ajaxJsonp(web_url+'/mobile/cinema_order.php?act=doneMovie',{order_id:orderid, password:password}, function( result ){
 					console.log(result);

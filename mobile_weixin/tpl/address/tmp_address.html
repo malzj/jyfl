@@ -9,6 +9,11 @@
                 <li data-value="" data-tags="{{city.region_english}}" data-id="{{city.region_id}}" class="mui-table-view-cell mui-indexed-list-item">{{city.region_name}}</li>
                 {{/each}}
             {{/each}}
+        {{else}}
+        		<li class="mui-table-view-divider mui-indexed-list-group">热门城市</li>
+        	{{each value as val}}
+                <li data-tags="{{val.region_english}}" data-id="{{val.region_id}}" class="mui-table-view-cell mui-indexed-list-item">{{val.region_name}}</li>
+            {{/each}}
         {{/if}}
     {{/each}}
     </ul>

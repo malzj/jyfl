@@ -1,4 +1,4 @@
-/*TMODJS:{"version":43,"md5":"96778550f0eeb39a26e08b8dbb703c66"}*/
+/*TMODJS:{"version":51,"md5":"f0049b9006ae1114c91cca028df79402"}*/
 template('cake/glist',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,data=$data.data,list=$data.list,$index=$data.$index,$escape=$utils.$escape,$out='';$out+='<ul class="mui-table-view"> ';
@@ -13,9 +13,13 @@ $out+='</h4> <p class="goods_font mui-ellipsis-2">';
 $out+=$escape(list.goods_brief);
 $out+='</p> <div class="goods_price"><span>';
 $out+=$escape(list.shop_price);
-$out+='</span><span class="mui-icon iconfont icon-gouwuche" data-id="';
+$out+='</span>';
+if(list.extension_code != "virtual_card"){
+$out+='<span class="mui-icon iconfont icon-gouwuche" data-id="';
 $out+=$escape(list.goods_id);
-$out+='"></span></div> </div> </a> </li> ';
+$out+='"></span>';
+}
+$out+='</div> </div> </a> </li> ';
 });
 $out+=' </ul>';
 return new String($out);

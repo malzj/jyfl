@@ -223,7 +223,6 @@ elseif ($_REQUEST['step'] == 'pay')
 //订单支付
 elseif($_REQUEST['step'] == 'act_pay')
 {
-    $ajaxArray = array( 'error'=>0, 'message'=>'' );
     $orderid = intval($_REQUEST['order_id']);
     if($orderid < 1){
         ecs_header("Locatin: user.php\n");

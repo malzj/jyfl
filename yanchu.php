@@ -32,7 +32,6 @@ if ($_REQUEST['act'] == 'list')
 		ecs_header('location:index.php');
 		exit;
 	}
-	
 	// 搜索条件
 	$find = null;
 	$str_keyword = $_GET['yckeyword'];

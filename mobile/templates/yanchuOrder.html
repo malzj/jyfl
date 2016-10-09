@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fd.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/jquery-1.9.1.min.js"></script>	
+	<script src="js/bootstrap.min.js"></script>		
+	<script type="text/javascript" src="js/jquery.common.js"></script>	
+	<script type="text/javascript" src="js/layer/layer.js"></script>
+	{insert_scripts files='jquery.region.js,utils.js,jquery.shoppingflow.js'}
+	<script src="js/loadAjax.js"></script>
+	<link href="js/layer/skin/layer.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/main.css">
+	<title></title>	
+	<!-- 结算页面  -->
+	{if $action eq "checkout"}
+	<style>
+		.glyphicon-menu-right{	font-size: 18px;	line-height: 60px;	}
+		.tel{	margin-left: 10px;	}
+		.font-weight{	font-weight: 600;}
+		.dizhi{	min-height: 15px;	overflow: hidden;			}
+		.input_none input{	border: 0;	}
+		.margin_10,.input_none{	margin-top: 10px; padding-top:5px	}
+		.table td{	padding: 5px;	width: 100px; } 
+		.yunfei{margin-top: 10px;	}
+		.margin_10 span{float: right;	color: red;		} 
+		select{	border: none!important;	}
+		.input_none .col-xs-3{	width: 80px;			}
+		.qingdan .col-xs-7 h5{	margin-top: 0;	margin-bottom: 2px;	}
+		.qingdan .supplier-title{padding: 9px 5px; margin:0; color:#555}
+		.flow-goods{padding:7px 0 7px 12px}
+		.qingdan .goods-list{border-top: 1px solid #f1f1f1;}	
+		.button .act-submit {position: fixed; bottom: 0;   color: white;  background-color: #FF5500;   border: 0;  font-size: 15px;height: 35px;   width: 100%;}	
+		.address-empty i{ font-size: 20px; color: #ccc;  position: relative;   top: 5px;   width: 28px;}
+		.address-empty span{color:#ccc;}
+	</style>
+	{/if}
+	{if $action eq 'pay'}
+	<style>
+		.action-show h5{margin: 0;padding: 12px 0; border-bottom: 1px solid #dfdfdf;}
+		.action-show .all_price{min-width:100px; max-width:150px; text-align:right; color:#666;}
+		/* .amount-left{width:80px; display:inline-block; text-align:right;} */
+	</style>
+	{/if}
+	{if $action eq 'edit_address'}
+	<style type="text/css">
+		.region_name,input,select{display: block;width: 100%;padding: 10px 0 10px 20px;height: 50px;font-size: 14px;border: none;background: none;color: #8d8a8a;}
+		.col-xs-12{	border-bottom: 1px solid #ccc;}
+		.region_name{ text-indent:6px; line-height:30px;}
+	</style>
+	{/if}
+</head>
+<body>
+
+
+
+<!-- 下单流程  -->
+{if $action eq "checkout"}
+	{insert_scripts files='date/mobiscroll_date.js,date/mobiscroll.js'}
+	<link rel="stylesheet" href="css/mobiscroll_date.css">
+	{$header}
+	
+	<form action="yanchu_order.php" method="post" name="theForm" id="theForm" onsubmit="return checkYcOrderForm(this)">
+	{if $checkconsignee}
+	<div class="container">
+		<div class="row act-edit-address">
+			<img src="/mobile/images/img/jiesuan1.jpg" class="img-responsive">
+			<div class="col-xs-10">
+				<h5><span>{$consignee.consignee|escape}</span><span class="tel">{$consignee.mobile|escape}</span></h5>
+				<h5 class="dizhi"><span>{$consignee.country_cn|escape}&nbsp;&nbsp;{$consignee.province_cn|escape}&nbsp;&nbsp;{$consignee.city_cn|escape}&nbsp;&nbsp;{$consignee.address|escape}</span></h5>
+			</div>
+			<div class="col-xs-2 text-right">
+				<span class="glyphicon glyphicon-menu-right"></span>
+			</div>
+			<img src="/mobile/images/img/jiesuan1.jpg" class="img-responsive">
+		</div>
+		<input type="hidden" name="consignee_check" id="consignee_check" value="1">
+	</div>
+	{else}
+		<div class="container">
+			<div class="row act-add-address address-empty">
+				<img src="/mobile/images/img/jiesuan1.jpg" class="img-responsive">
+				<div class="col-xs-12">
+					<center style="height:60px; line-height:60px;">
+						<i class="glyphicon glyphicon-plus-sign"></i>
+						<span>添加收货地址</span>
+					</center>
+				</div>
+				<img src="/mobile/images/img/jiesuan1.jpg" class="img-responsive">
+			</div>
+		</div>
+	{/if}
+		
+	<!-- 支付方式  -->	
+	<div class="container input_none">
+		<div class="row">
+			<div class="col-xs-3"> <h5>支付方式：</h5></div>
+			<div class="col-xs-9"><h5>华影卡支付</h5></div>
+			<div class="col-xs-3"><h5>配送方式：</h5></div>
+			<div class="col-xs-9"><h5>供货商物流</h5></div>
+		</div>		
+		<!--运费-->
+		<div class="row yunfei">
+			<div class="col-xs-3"><h5>运费：</h5></div>
+			<div class="col-xs-9">
+				<div class="table">
+					<table class="table-bordered">					
+					<tr><td>中票</td><td>{$shipping_info.shipping_fee}</td></tr>									
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--商品清单-->
+	<h5 style="padding: 0 5px; font-weight:700; margin-bottom:0;">商品清单</h5>
+	<div class="container qingdan">	
+		<div class="row border-10">
+			<h5 class="color_9 supplier-title">中票</h5>
+			
+			<div class="row goods-list">
+				<div class="col-xs-3 flow-goods">
+					<img src="{$yanchu.imageUrl}" class="img-responsive">
+				</div>
+				<div class="col-xs-7 flow-goods">
+					<h5 class="text_hidden">{$yanchu.itemName}</h5>
+					<h5 class="color_9" style="line-height: 22px;"><span>时间：{$order[best_time]}<br>影院：{$yanchu[site][@attributes][siteName]}</span></h5>
+				</div>
+				<div class="col-xs-2">
+					<span class="pull-right" style="color: red;">{$order.price} 点 &nbsp;</span></br></br>
+					<span class="pull-right">X<span>{$order.number}&nbsp;&nbsp;</span></span>
+				</div>
+			</div>			
+		</div>
+	</div>
+	
+	<!--订单总金额-->
+	<div class="container margin_10">
+		<div class="row">
+			<div class="col-xs-12 border-2">
+				<h5>订单总金额 <span><font class="ax_total_money font16">{$order.amount}</font> 点</span></h5>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<h6>商品总额<span class="ax_goods_money">{$order.goods_amount} 点</span></h6>
+				<h6>运费<span>+<font class="ax_shipping_fee">{$shipping_info.shipping_fee}</font> 点</span></h6>
+			</div>
+		</div>
+	</div>
+	
+	<div class="button">
+		<input type="hidden" name="act" value="act_order" />		
+		<input type="submit" value="提交订单" class="act-submit" />
+		<div style="height: 35px;"></div>
+	</div>
+	
+	</form>
+{/if}
+
+<!-- 支付页面  -->
+{if $action eq "pay"}
+{$header}
+<div class="container dingdan">
+	<div class="row">
+		
+		<div class="col-xs-12 border-2">
+			<div class="action-show">
+				<h5>
+					<span>订单号</span>
+					<span class="all_price">{$order.order_sn}&nbsp; </span>
+				</h5>	
+				<h5>
+					<span>数量</span>
+					<span class="all_price">{$order.number}&nbsp; </span>
+				</h5>
+				<h5 >
+					<span>价格</span>
+					<span class="all_price">{$order.goods_amount} 点&nbsp; </span>
+				</h5>
+				<h5 >
+					<span>运费</span>
+					<span class="all_price">{$order.shipping_fee} 点&nbsp; </span>
+				</h5>
+				<h5 >
+					<span>状态</span>
+					<span class="all_price">{if $order.order_amount gt 0}未付款{else}已付款{/if}&nbsp; </span>
+				</h5>			
+			</div>
+		</div>
+			
+	</div>
+</div>
+
+<div class="container" style="margin-top: 10px;">
+	<div class="row">
+		<div class="col-xs-12">
+			<h5>应付金额：<span class="price_1">{$order.order_amount}点</span></h5>
+			<h5>华影卡号：<span>{$username}</span></h5>
+			<h5>密码：</span>
+				<div class="form-group" style="display: inline-block; margin-bottom: 0;">
+				    <input type="password" name="password" class="form-control" id="password" placeholder="请输入密码">
+				 </div>
+			</h5>
+		</div>
+	</div>
+</div>
+<div class="button act-pay"><button>提交订单</button></div>
+<div style="height: 35px;"></div>
+		
+{/if}
+
+<!-- 选择收获地址 -->
+{if $action eq "edit_address"}
+{$header}
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<input type="text" name="consignee" id="consignee" class="hy_dz_input" value="{$consignees.consignee}"  placeholder="收货人姓名">
+		</div>	
+		<div class="col-xs-12">
+		    <input type="text" name="mobile" id="mobile" class="hy_dz_input" value="{$consignees.mobile}" placeholder="手机号码" > 
+		</div>
+		<div class="col-xs-12 region_name">	
+			{$cityinfo.region_name}	
+		</div>
+		<div class="col-xs-12">	
+			<select name="province" id="province" onchange="changed(this, 2, 'city', 1);">
+				<option value="0">{$lang.please_select}区域</option>
+				{foreach from=$province_list item=province}
+				<option value="{$province.region_id}" {if $consignees.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
+				{/foreach}
+			</select>			
+		</div>
+		<div class="col-xs-12">	
+			<select name="city" id="city" class="Select16">
+				<option value="0">请选择</option>
+				{foreach from=$citys item=city}
+				<option value="{$city.region_id}" {if $consignees.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+				{/foreach}
+			</select>
+		</div>
+		<div class="col-xs-12">
+			<input type="text" name="address" id="address" class="hy_dz_input" value="{$consignees.address}" placeholder="详细收货地址" >
+		</div>		
+	</div>
+	<input type="hidden" name="country" id="country" value="{$cityid}" />
+</div>
+<div class="button act-save"><button>保存</button></div>
+{/if}
+
+<script type="text/javascript">
+{if $action eq "edit_address"}
+	
+	// 提交保存地址
+	$(".act-save").click(function(){
+			
+		var consignee = $('#consignee').val();
+		var mobile = $('#mobile').val();
+		var country = $('#country').val();
+		var province = $('#province').val();
+		var city = $('#city').val();
+		var address = $('#address').val();
+		
+		if(Utils.isEmpty(consignee) 
+			|| Utils.isEmpty(mobile) 
+			|| Utils.isEmpty(country)
+			|| Utils.isEmpty(province)
+			|| Utils.isEmpty(city)
+			|| Utils.isEmpty(address))
+		{
+			loadMsg('收货信息不完整！');
+			return false;
+		}
+		
+		$(this).loadAjax('yanchu_order.php?act=save_address',{consignee:consignee,mobile:mobile,country:country,province:province,city:city,address:address},function(str){
+			var data = jQuery.parseJSON(str);
+			if(data.error > 0){
+				loadMsg(data.message);
+			}else{
+				location.href = "yanchu_order.php?act=checkout";
+			}
+		});
+		
+			
+	});
+	// 添加配送地址
+	function changed(that, leve, target, supp){		
+		var parent = that.options[that.selectedIndex].value;
+		var params = {type:leve, target:target, parent:parent, supp:supp};
+		$.post('region.php',params, function(result){			
+			if(result.supp == 1){
+				  if(result.regions.length == 0){
+					  alert('您所选的地区不支持配送，请换一个有效的地址！');
+				  }
+			  }
+			  var sel = document.getElementById(result.target);
+
+			  sel.length = 1;
+			  sel.selectedIndex = 0;
+			  sel.style.display = (result.regions.length == 0 && ! region.isAdmin && result.type + 0 == 3) ? "none" : '';
+
+			  if (document.all)
+			  {
+			    sel.fireEvent("onchange");
+			  }
+			  else
+			  {
+			    var evt = document.createEvent("HTMLEvents");
+			    evt.initEvent('change', true, true);
+			    sel.dispatchEvent(evt);
+			  }
+
+			  if (result.regions)
+			  {
+			    for (i = 0; i < result.regions.length; i ++ )
+			    {
+			      var opt = document.createElement("OPTION");
+			      opt.value = result.regions[i].region_id;
+			      opt.text  = result.regions[i].region_name;
+
+			      sel.options.add(opt);
+			    }
+			  }
+			  
+		},'json');
+		
+	}
+	
+{/if}
+
+/**	提交订单 */
+{if $action eq "checkout"}
+	
+	var checkconsignee = '{$checkconsignee}';
+	// 从新选择收货地址
+	$('.act-edit-address').click(function(){
+		window.location.href="yanchu_order.php?act=edit_address";
+	});
+	// 添加收货地址
+	$('.act-add-address').click(function(){
+		window.location.href="yanchu_order.php?act=edit_address";
+	});
+	
+	// 提交订单
+	function checkYcOrderForm(){		
+		if(Utils.isEmpty(checkconsignee)){
+			loadMsg('请填写收货地址');
+			return false;
+		}
+		return true;		
+	}
+	
+{/if}
+
+/* 支付  */
+{if $action eq "pay"}
+	
+	// 去付款
+	$('.act-pay').click(function(){
+		
+		var amount       = {$order.order_amount};
+		var money        = {$money};
+		var order_sn     = '{$order.order_sn}';
+		var order_id     = '{$order.order_id}';
+		var item_id      = '{$order.itemid}';
+
+		var password = $('#password').val();
+		if (password.length == 0){
+			loadMsg('密码不能为空！');
+			return false;
+		}
+		if (amount > money){
+			loadMsg('抱歉，卡余额不足，请充值或换一张！');
+			return false;
+		}
+		
+		$(this).loadAjax('yanchu_order.php', {act: 'act_pay', password:password, id:item_id, 'order_id':order_id, 'order_sn':order_sn, 'order_amount':amount}, function(info){
+			var data = jQuery.parseJSON(info);
+			if(data.error > 0){
+				loadMsg(data.message);
+			}else{
+				loadMsg('支付成功',function(){ 
+					location.href="user.php?act=yanchu_order";
+				})
+			}
+		});
+	});
+
+{/if}
+//-->
+</script>
+
+
+</body>
+</html>

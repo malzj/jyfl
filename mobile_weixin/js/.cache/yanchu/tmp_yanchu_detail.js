@@ -1,4 +1,4 @@
-/*TMODJS:{"version":43,"md5":"6dca2742cdc3e19e276b9e14a743a475"}*/
+/*TMODJS:{"version":51,"md5":"9bc68c041ce27a8b063b2a68a499f2b1"}*/
 template('yanchu/tmp_yanchu_detail',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,iteminfo=$data.iteminfo,$each=$utils.$each,showtime=$data.showtime,time=$data.time,key=$data.key,val=$data.val,k=$data.k,$string=$utils.$string,$out='';$out+='<div id="yuanchu_detail" class="mui-content"> <ul class="mui-table-view yanchu_list yanchu_details_top" style="background-image: url(';
@@ -15,7 +15,7 @@ $out+='~';
 $out+=$escape(iteminfo.endDate);
 $out+='</p> <p class="mui-ellipsis">';
 $out+=$escape(iteminfo['site']['@attributes']['siteName']);
-$out+='</p> </div> </li> </ul> <div class="bg_white"> <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted"> <a class="mui-control-item mui-active" href="#item1">快速购票</a> <a class="mui-control-item" href="#item2">演唱会详情</a> </div> </div> <div id="item1" class="mui-control-content mui-active"> <form id="yanchu_form" name="yanchu_form" onclick="return false"> <ul class="mui-table-view"> <li class="mui-table-view-cell">选择时间</li> <li class="mui-table-view-cell"> <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted yanchu_time"> <div class="mui-scroll"> ';
+$out+='</p> </div> </li> </ul> <div class="bg_white"> <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted"> <a class="mui-control-item mui-active" href="#item1">快速购票</a> <a class="mui-control-item" href="#item2">详情</a> </div> </div> <div id="item1" class="mui-control-content mui-active"> <form id="yanchu_form" name="yanchu_form" onclick="return false"> <ul class="mui-table-view"> <li class="mui-table-view-cell">选择时间</li> <li class="mui-table-view-cell"> <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted yanchu_time"> <div class="mui-scroll"> ';
 $each(showtime,function(time,key){
 $out+=' <a class="time mui-control-item ';
 if(key==0){

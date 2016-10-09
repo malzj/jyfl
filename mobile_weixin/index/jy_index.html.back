@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title></title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet"/>
+		<link href="../css/index.css" rel="stylesheet"/>
+		<link href="../css/iconfont.css" rel="stylesheet" />
+		<link href="../css/mui.mian.css" rel="stylesheet"/>
+		<script src="../js/connection.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/mui.min.js"></script>		
+		<script src="../js/template.js"></script>
+		<script src="../js/jqueryExtend.js"></script>
+		<script src="../js/rem.js"></script>
+		<script src="../js/mui.mian.js"></script>
+		<style>
+		.mui-bar{background-color:transparent}
+		.icon-dizhi{font-size: 18px!important;padding: 5px 15px 8px!important;}
+		.city{font-size: 14px;display: inline-block;width: 75px;}
+		.mui-icon-arrowright{font-size: 18px!important;padding: 3px 0 6px 0px!important;}
+		/*临时首页公司图片*/
+		.mui-content{background-size: 100%;background-position-y: center;background-repeat: no-repeat;}
+		</style>
+	</head>
+	<body>
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable">
+			<!-- 主页面容器 -->
+			<div class="mui-inner-wrap">
+				<!-- 主页面标题 -->
+				<header class="mui-bar mui-bar-nav">
+					<!--<a id="offCanvasBtn" href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>-->
+						<div class="index_address mui-text-left">
+							<span class="mui-icon iconfont icon-dizhi"></span>
+							<span class="city">。。</span>
+							<span class="mui-icon mui-icon-arrowright"></span>
+						</div>
+				</header>
+				<!-- 主页面内容容器 -->
+				<div class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<!-- 主界面具体展示内容 -->
+
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			jQuery.ajaxJsonp(web_url+"/mobile/basic.php",{act:'navList'},function(result){
+				if(result.state == 'false'){
+					jQuery.errorJudge(result.data,result.message,function(){
+						mui.back();	
+					});					
+				}else if(result.state=='true'){
+					if(jQuery('.index_address .city').length!=0||jQuery('.mui-content').length!=0) {
+						jQuery('.index_address .city').text(result.data.city_cn);
+						jQuery('.mui-content').css('background-image', 'url(' + web_url + '/jyflapi/' + result.data.user_info.m_back_img + ')');
+					}
+					replaceHtml('.mui-draggable > .mui-inner-wrap header', template('public/footer', result.data));
+				}
+			},true);
+			jQuery('.index_address')[0].addEventListener('tap',function(){
+				jQuery.jumpTo('../address/address.html');
+			})
+		</script>
+	</body>
+
+</html>

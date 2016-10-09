@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">	
+	<title></title>
+	<script src="/mobile/js/jquery-1.9.1.min.js"></script>	
+	<script src="/mobile/js/layer/layer.js"></script>
+	<script src="/mobile/js/loadAjax.js"></script>
+	<script src="/mobile/js/bootstrap.min.js"></script>
+	
+	<link href="/mobile/js/layer/skin/layer.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="/mobile/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/mobile/css/fd.css">
+	<link rel="stylesheet" href="/mobile/css/main.css">
+	<style type="text/css">
+			body{ background:#fff;}
+			.container{
+				margin-top: 10vh;
+			}
+		</style>	
+</head>
+
+<body>
+<div class="container text-center">
+
+</div>
+	<script>	
+	
+	function jsApiCall()
+	{
+		
+		WeixinJSBridge.invoke(
+			'getBrandWCPayRequest',
+			{$params},
+			function(res){
+				
+				WeixinJSBridge.log(res.err_msg);
+				if(res.err_msg == "get_brand_wcpay_request:ok"){
+					window.location.href="/mobileh5/movie_times/weixin_pay.html";
+				}else if(res.err_msg == "get_brand_wcpay_request:cancel" || res.err_msg == "get_brand_wcpay_request:fail"){
+					window.location.href="/mobileh5/order/order_cinema.html";
+				}				
+			}
+		);
+	}
+
+	function callpay()
+	{
+		if (typeof WeixinJSBridge == "undefined"){
+		    if( document.addEventListener ){
+		        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+		    }else if (document.attachEvent){
+		        document.attachEvent('WeixinJSBridgeReady', jsApiCall); 
+		        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+		    }
+		}else{
+		    jsApiCall();
+		}
+	}
+
+	callpay();
+	</script>
+	
+</body>
+</html>

@@ -388,6 +388,7 @@
 					if(on_submit==1){
 						return false;
 					}
+					alert(localStorage.user_id);
 					on_submit = 1;
 					jQuery.ajaxJsonp(web_url+'/jyflapi/index.php/Users/UserJsonp/addAddress',{
 						user_id:localStorage.user_id,
@@ -417,6 +418,7 @@
 					var zipcode = document.getElementById('zipcode').value;
 					var consignee = document.getElementById('consignee').value;
 					var mobile = document.getElementById('mobile').value;
+//					alert(hcountryid+'-'+hprovinceid+'-'+hstreet+'-'+consignee+'-'+mobile+'-'+zipcode);
 					if(on_update == 1){
 						return false;
 					}

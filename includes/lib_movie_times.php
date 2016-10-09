@@ -141,6 +141,8 @@ function transCinemaInfo($cinema){
         'cinemaName' => $cinema['cinema_name'],
         'cinemaAddress' => $cinema['cinema_address'],
         'cinemaTel' => $cinema['cinema_tel'],
+        'districtId' => $cinema['area_id'],
+        'districtName' => $cinema['area_name'],
         'openTime' => $cinema['open_time'],
     );
     return $re_array;
@@ -161,7 +163,7 @@ function transSeatsWtoK($seats,$sell_seats,$hallid){
     }
     $maxRowLength = 0;
     $maxColHeight = 0;
-
+    $minLeft = 0;
     foreach($seats as $seat){
         $seat_name = explode(':',$seat['Name']);
         if(!$status[$seat['Status']]&&!$sell_status[$seat['SeatID']]){
@@ -173,6 +175,9 @@ function transSeatsWtoK($seats,$sell_seats,$hallid){
             $maxRowLength = (int)$seat['ColumnID'];
         if((int)$seat['RowID'] > $maxColHeight)
             $maxColHeight = (int)$seat['RowID'];
+        $minLeft = (int)$seat['ColumnID'];
+        if((int)$seat['ColumnID'] < $minLeft)
+            $minLeft = (int)$seat['ColumnID'];
         $re_array['seat'][] = array(
                 'graphCol'=>$seat['ColumnID'],
                 'graphRow'=>$seat['RowID'],
@@ -190,6 +195,7 @@ function transSeatsWtoK($seats,$sell_seats,$hallid){
     }
     $re_array['maxRowLength']=$maxRowLength;
     $re_array['maxColHeight']=$maxColHeight;
+    $re_array['minLeft']=$minLeft;
 
     return $re_array;
 }

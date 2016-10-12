@@ -494,9 +494,13 @@ elseif ($_REQUEST['step'] == "seatAjax")
 		if (empty($result['Data'])) {
 			exit("<center style='font-size:14px;color:#666'>该场次不能选择，请选择其他场次！</center>");
 		}
-		$tran_seat = transSeatsWtoK($result['Data'],$sell_seat_result['Data'],$hallno);
+		$seat_size = array(
+			'size' => 22,//渲染时座位尺寸
+			'gap'=> 4//渲染时座位间隙
+		);
+		$tran_seat = transSeatsWtoK($result['Data'],$sell_seat_result['Data'],$hallno,$seat_size);
 		$seatInfo = $tran_seat['seat'];
-		$allWidth = $tran_seat['maxRowLength'] + 20 + $tran_seat['minLeft'];
+		$allWidth = $tran_seat['maxRowLength'];
 		$allheight = $tran_seat['maxColHeight'] +50;
 	}else {
 		$arr_param = array(
@@ -538,6 +542,7 @@ elseif ($_REQUEST['step'] == "seatAjax")
 	$smarty->assign('seatInfo',     $seatInfo);   //座位信息
 	if(IS_MATE&&!empty($show_index)) {
 		$smarty->assign('allheight', $allheight);
+		$smarty->assign('seat_size', $tran_seat['seat_size']);
 		$jsonArray['data']['info']=$smarty->fetch('_wang_seat_map.html');
 	}else{
 		$jsonArray['data']['info']=$smarty->fetch('_seat_map.html');

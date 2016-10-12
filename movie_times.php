@@ -634,9 +634,13 @@ elseif ($_REQUEST['step'] == "seatAjax")
 		if (empty($result['Data'])) {
 			exit("<center style='font-size:14px;color:#666'>该场次不能选择，请选择其他场次！</center>");
 		}
-		$tran_seat = transSeatsWtoK($result['Data'],$sell_seat_result['Data'],$hallno);
+		$seat_size = array(
+			'size' => 30,//渲染时座位尺寸
+			'gap'=> 4//渲染时座位间隙
+		);
+		$tran_seat = transSeatsWtoK($result['Data'],$sell_seat_result['Data'],$hallno,$seat_size);
 		$seatInfo = $tran_seat['seat'];
-		$allWidth = $tran_seat['maxRowLength'] + 20;
+		$allWidth = $tran_seat['maxRowLength'];
 		$allheight = $tran_seat['maxColHeight'] +50;
 	}else {
 		$arr_param = array(

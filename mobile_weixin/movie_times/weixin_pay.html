@@ -20,7 +20,7 @@
 		<script type="text/javascript">
 			/* 支付操作 */
 			function movie_pay(){				
-				jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order.php?act=doneMovie',{isTimes:1}, function( result ){
+				jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order_mate.php?act=doneMovie',{isTimes:1}, function( result ){
 					if(result.state=='true') {
 						mui.alert('支付成功',function(){
 							jQuery.jumpTo("../order/order_cinema.html");

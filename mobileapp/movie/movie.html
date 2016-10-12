@@ -92,6 +92,7 @@
 						});
 						html1 += '</ul>';
 						item1.querySelector('.mui-scroll').innerHTML = html1;
+						console.log(result.data)
 					}else if(result.state=='false'){
 						jQuery.errorJudge(result.data,result.message);
 					}

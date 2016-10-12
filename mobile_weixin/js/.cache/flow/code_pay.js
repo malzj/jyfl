@@ -1,4 +1,4 @@
-/*TMODJS:{"version":18,"md5":"b81994ddd43f5c74e93a01369b2321c1"}*/
+/*TMODJS:{"version":21,"md5":"b81994ddd43f5c74e93a01369b2321c1"}*/
 template('flow/code_pay',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,orders=$data.orders,mobile_phone=$data.mobile_phone,$out='';$out+='<div class="mui-row mui-text-center color_ff781e remainder_time"> <span class="pay_time_icon"></span>支付剩余时间：<span id="times"></span> </div> <ul class="mui-table-view margin_top_15"> <li class="mui-table-view-cell"><h4 class="mui-pull-left">总价</h4><p class="mui-pull-right">';

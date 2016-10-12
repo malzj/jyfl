@@ -61,11 +61,11 @@
 			var cinemaid=jQuery.getUrlParam('cinemaid');
 			var featuretime=jQuery.getUrlParam('featuretime');
 			var showindex=jQuery.getUrlParam('showindex');
-			jQuery.ajaxJsonp(web_url+'/mobile/cinema_times.php?step=cinemaSeats',{hallno:hallno,planid:planid,movieid:movieid,cinemaid:cinemaid,featuretime:featuretime,showindex:showindex},function(result){
+			jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_mate.php?step=cinemaSeats',{hallno:hallno,planid:planid,movieid:movieid,cinemaid:cinemaid,featuretime:featuretime,showindex:showindex},function(result){
 				if(result.state=='true') {
 					document.getElementById('movie_seat_page').innerHTML = template('movie_times/tmp_movie_seat', result.data);
 					//加载座位
-					jQuery.ajaxJsonp(web_url + '/mobile/cinema_times.php?step=seatAjax', {
+					jQuery.ajaxJsonp(web_url + '/mobile/cinema_times_mate.php?step=seatAjax', {
 						hallno: hallno,
 						planid: planid,
 						movieid: movieid,
@@ -103,7 +103,7 @@
 					}
 
 					var formData = jQuery(this).parents('#orderForm').serialize();
-					jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order.php?act=order',formData,function(result){
+					jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order_mate.php?act=order',formData,function(result){
 						if(result.state=='true'){
 							window.location.href='./movie_order_detail.html?orderid='+result.data.orderid;
 

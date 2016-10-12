@@ -17,6 +17,42 @@
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">运动健身</h1>
 		</header>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll">
+		    <div class="sports_top mui-clearfix">
+		        <div class="sports_item" data-code="0L20">
+		            <a href="#" ><img src="../images/sports/yumaoqiu.svg" alt="" />羽毛球</a>
+		        </div>
+		        <div class="sports_item" data-code="0L11">
+		            <a href="#" ><img src="../images/sports/pinpangqiu.svg" alt="" />乒乓球</a>
+		        </div>
+		        <div class="sports_item" data-code="0L18">
+		            <a href="#"><img src="../images/sports/wangqiu.svg" alt="" />网球</a>
+		        </div>
+		        <div class="sports_item" data-code="0L06">
+		            <a href="#" ><img src="../images/sports/lanqiu.svg" alt="" />篮球</a>
+		        </div>
+		        <div class="sports_item" data-code="0L22">
+		            <a href="#" ><img src="../images/sports/zuqiu.svg" alt="" />足球</a>
+		        </div>
+		        <div class="sports_item" data-code="0L16">
+		            <a href="#" ><img src="../images/sports/taiqiu.svg" alt="" />台球</a>
+		        </div>
+		        <div class="sports_item" data-code="0L04">
+		            <a href="#" ><img src="../images/sports/gaoerfu.svg" alt="" />高尔夫</a>
+		        </div>
+		        <div class="sports_item" data-code="0N07">
+		            <a href="#" ><img src="../images/sports/youyong.svg" alt="" />游泳</a>
+		        </div>
+		        <div class="sports_item" data-code="0P02">
+		            <a href="#" ><img src="../images/sports/jianshen.svg" alt="" />有氧健身</a>
+		        </div>
+		        <div class="sports_item" data-code="0P09">
+		            <a href="#" ><img src="../images/sports/yujia.svg" alt="" />瑜伽</a>
+		        </div>
+		    </div>
+		    </div>
+		</div>    
 		<script src="../js/connection.js"></script>
 		<script src="../js/template.js"></script>
 		<script src="../js/mui.min.js"></script>
@@ -25,33 +61,57 @@
 		<script src="../js/jqueryExtend.js"></script>
 		<script src="../js/rem.js"></script>
 		<script type="text/javascript">
-			var area_id,venue_type;
+		mui.init({
+					  pullRefresh : {
+					    container:"#pullrefresh",//待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+					    up : {
+					      height:50,//可选.默认50.触发上拉加载拖动距离
+					      contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+					      contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+					      callback :pullupRefresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+					    }
+					  }
+					});
+			var area_id,venue_type,page = 2;
 			jQuery.hrefClick();
 			jQuery.ajaxJsonp(web_url+'/mobile/venues.php','',function(result){
-				if(result.state=='true'){
-					console.log(result);
-					replaceHtml('header',template('sports/tmp_index',result.data));
-				}else if(result.state=='false'){
-					jQuery.errorJudge(result.data,result.message);
-				}
-			});
-			mui.init();
-			var mask = mui.createMask();//创建蒙版
-			mui('body').on('tap','.sports_area_btn',function(){
-				jQuery('.sports_area').slideToggle(200,function(){
-					if ($(this).is(':hidden')) {
-						mask.close();
-					}else{
-						mask.show();
-					}
+						if(result.state=='true'){
+							replaceHtml('.sports_top',template('sports/tmp_index',result.data));
+						}
+					});
+			
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					jQuery.ajaxJsonp(web_url+'/mobile/venues.php',{page:page},function(result){
+						if(result.state=='true'){
+							page++;
+							mui('#pullrefresh').pullRefresh().endPullupToRefresh((jQuery.isEmptyObject(result.data.list)));
+							jQuery('.sports_list').append(venueList(result.data.list));
+							
+							
+						}
+					});
+				}, 1500);
+			}
+			if (mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().pullupLoading();
+					}, 1000);
 				});
-			});
-			mui('body').on('tap','.mui-backdrop',function(){
-				jQuery('.sports_area').css('display','none');
+			} else {
+				mui.ready(function() {
+					mui('#pullrefresh').pullRefresh().pullupLoading();
+				});
+			}
+			mui('body').on('tap','.sports_area_btn',function(){
+				jQuery('.sports_area').slideToggle(200);
 			});
 			mui('body').on('tap','.sports_area .sports_area_item',function(){
 				jQuery('.sports_area').css('display','none');
-				mask.close();
 			});
 			//点击选择运动类型
 			mui('body').on('tap','.sports_top .sports_item',function(){
@@ -59,7 +119,8 @@
 				jQuery.ajaxJsonp(web_url+'/mobile/venues.php',{type:venue_type,area:area_id},function(result){
 //					console.log(result);
 					showArea(result.data.area_list);
-					venueList(result.data.list);
+					var html=venueList(result.data.list);
+					jQuery('.sports_list').html(html);
 				},true);
 				//点击选择运动类型增加选中效果
 				jQuery(this).addClass('active').siblings().removeClass('active');
@@ -70,7 +131,8 @@
 				area_id = this.getAttribute('data-dongwang-id');
 				jQuery.ajaxJsonp(web_url+'/mobile/venues.php',{type:venue_type,area:area_id},function(result) {
 					console.log(result);
-					venueList(result.data.list);
+					var html = venueList(result.data.list);
+					jQuery('.sports_list').html(html);
 				},true);
 				//所选区域文字提示
 				var areaText= jQuery(this).text();
@@ -106,10 +168,9 @@
 				}else{
 					html += '<div class="mui-table-view-cell">没有场馆！</div>';
 				}
-				jQuery('.sports_list').html(html);
+				return html;
+				
 			}
-			//区域选择增加所选区域文字提示
-//			jQuery('body').on('tap','')
 		</script>
 	</body>
 

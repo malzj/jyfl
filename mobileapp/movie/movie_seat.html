@@ -20,7 +20,7 @@
 			.disabled{background-image:url(../images/seat_3.png);}
 			.love {background-image: url(../images/seat_4.png);}
 			.main_a {position: relative;z-index: 1; background: #f0f0f0;text-align: center;overflow: hidden;border-top: 1px solid #dfdfdf;}
-			.main_a h6 {margin: 0;position: absolute;top: 0;left: 50%;z-index: 5;margin-left: -84px;width: 168px;height: 20px; line-height:20px;color: #ffe4a5;background: transparent url(../images/tips_5.png) no-repeat center top;background-size: 167px 19px;}
+			.main_a h6 {margin: 0 auto;z-index: 5;width: 168px;height: 20px; line-height:20px;color: #ffe4a5;background: transparent url(../images/tips_5.png) no-repeat center top;background-size: 167px 19px;}
 			.wrapper {position: relative;top: 0;left: 0;z-index: 3;height: 100%;-webkit-overflow-scrolling: touch;}
 			.scroller {position: relative; margin-top: 20px;padding: 0 23px;}
 			 
@@ -52,13 +52,15 @@
 		<script src="../js/jqueryExtend.js"></script>
 		<script src="../js/template.js"></script>
 		<script src="../js/mui.min.js"></script>
-		<script src="../js/movieSeat.js"></script>
+		<!--<script src="../js/movieSeat.js"></script>-->
 		<script type="text/javascript">
 			var hallno=jQuery.getUrlParam('hallno');
 			var planid=jQuery.getUrlParam('planid');
 			var movieid=jQuery.getUrlParam('movieid');
 			var cinemaid=jQuery.getUrlParam('cinemaid');
-			jQuery.ajaxJsonp(web_url+'/mobile/cinema.php?step=cinemaSeats',{hallno:hallno,planid:planid,movieid:movieid,cinemaid:cinemaid},function(result){
+			var featuretime=jQuery.getUrlParam('featuretime');
+			var showindex=jQuery.getUrlParam('showindex');
+			jQuery.ajaxJsonp(web_url+'/mobile/cinema.php?step=cinemaSeats',{hallno:hallno,planid:planid,movieid:movieid,cinemaid:cinemaid,featuretime:featuretime,showindex:showindex},function(result){
 				if(result.state=='true') {
 					document.getElementById('movie_seat_page').innerHTML = template('movie/tmp_movie_seat', result.data);
 					//加载座位
@@ -66,13 +68,18 @@
 						hallno: hallno,
 						planid: planid,
 						movieid: movieid,
-						cinemaid: cinemaid
+						cinemaid: cinemaid,
+						showindex:showindex
 					}, function (result) {
 						jQuery('.seatmap').html(result.data.info);
+						jQuery('.ting').html(ting);
+						
 					});
 				}else if(result.state=='false'){
 					jQuery.errorJudge(result.data,result.message);
 				}
+				//获取厅号
+				var ting=result.data.hallName;
 			});
 			(function($) {
 				$.init();

@@ -1,7 +1,19 @@
-/*TMODJS:{"version":45,"md5":"cf8d28a19fa41b8e94a26cae9a57b7bb"}*/
+/*TMODJS:{"version":47,"md5":"3d7748c5f70459a41d2eecb6212441a2"}*/
 template('cake/detail',function($data,$filename
 /**/) {
-'use strict';var $utils=this,$helpers=$utils.$helpers,data=$data.data,$each=$utils.$each,$value=$data.$value,$index=$data.$index,$escape=$utils.$escape,spec=$data.spec,propertie=$data.propertie,value=$data.value,$string=$utils.$string,$out='';$out+=' <nav class="mui-bar mui-bar-tab mui-row"> <div class="mui-col-xs-5"> <a class="mui-tab-item border_right_ddd jump-home" href="#"> <span class="mui-icon mui-icon-home"></span> <span class="mui-tab-label">首页</span> </a> <a class="mui-tab-item border_right_ddd jump-cart" href="#"> <span class="mui-icon iconfont icon-gouwuche"></span> <span class="mui-tab-label">购物车</span> <span class="mui-badge mui-badge-danger buy_car_count">0</span> </a>  </div> <div class="mui-col-xs-7"> <a class="mui-tab-item footer_liji act-done" href="#"> <span class="mui-tab-label">立即结算</span> </a> <a class="mui-tab-item footer_jiaru act-cart" href="#"> <span class="mui-tab-label">加入购物车</span> </a> </div> </nav>  <div class="mui-content"> ';
+'use strict';var $utils=this,$helpers=$utils.$helpers,data=$data.data,$each=$utils.$each,$value=$data.$value,$index=$data.$index,$escape=$utils.$escape,spec=$data.spec,propertie=$data.propertie,value=$data.value,$string=$utils.$string,$out='';$out+=' <nav class="mui-bar mui-bar-tab mui-row"> ';
+if(data.goods.extension_code == "virtual_card"){
+$out+=' <div class="mui-col-xs-12"> <a class="mui-tab-item footer_jiaru buy_now" href="#"> <span class="mui-tab-label">立即购买</span> </a> </div> ';
+}
+$out+=' <div class="mui-col-xs-5" ';
+if(data.goods.extension_code == "virtual_card"){
+$out+='style="display:none"';
+}
+$out+='> <a class="mui-tab-item border_right_ddd jump-home" href="#"> <span class="mui-icon mui-icon-home"></span> <span class="mui-tab-label">首页</span> </a> <a class="mui-tab-item border_right_ddd jump-cart" href="#"> <span class="mui-icon iconfont icon-gouwuche"></span> <span class="mui-tab-label">购物车</span> <span class="mui-badge mui-badge-danger buy_car_count">0</span> </a>  </div> <div class="mui-col-xs-7" ';
+if(data.goods.extension_code == "virtual_card"){
+$out+='style="display:none"';
+}
+$out+='> <a class="mui-tab-item footer_liji act-done" href="#"> <span class="mui-tab-label">立即结算</span> </a> <a class="mui-tab-item footer_jiaru act-cart" href="#"> <span class="mui-tab-label">加入购物车</span> </a> </div> </nav>  <div class="mui-content"> ';
 if(data){
 $out+=' <div id="slider" class="mui-slider"> <div class="mui-slider-group"> ';
 $each(data.pictures,function($value,$index){
@@ -94,5 +106,9 @@ $out+=$string(data.goods.goods_desc);
 $out+=' </div>  </div> ';
 }
 $out+=' </form> </div> <script> /*动态导入js*/ insertJs([\'../js/jquery.common.js\']); /*计算价格*/ function changePrice(){ var attr = getSelectedAttributes(document.forms[\'ECS_FORMBUY\']); var qty = jQuery(\'input[type=number]\').val(); jQuery.ajaxJsonp(web_url+"/mobile/goods.php",{act:\'price\',id:goods_id, attr:attr, number:qty},function(result){ $(\'#price-total\').html(result.data.shopPrice+\'点\'); }); } changePrice(); /*改变规格*/ mui(\'.xiangqing\').on(\'tap\',\'.spec-change\',function(event){ event.stopPropagation(); var _that = jQuery(this); if(_that.hasClass(\'checked\')){ return false; } _that.closest(\'.mui-row\').find(\'.spec-change\').each(function(){ jQuery(this).removeClass(\'checked\'); }); _that.addClass(\'checked\'); _that.siblings(\'input\').prop("checked",true).parents(\'label\').siblings().find(\'input\').prop(\'checked\',false); changePrice(); }); /* 修改数量的时候，从新计算价格 */ mui(\'.mui-input-numbox\')[0].addEventListener(\'change\',function(event){ event.stopPropagation(); changePrice(); }); /* 加入购物车 */ mui(\'.act-cart\')[0].addEventListener(\'tap\',function(event){ addToCart(goods_id); /*更新购物车气泡数量*/ var buyCar_num = jQuery(\'.buy_car_count\').text(); buyCar_num++; /*加入购物车动画*/ var offset = $(".jump-cart").offset(); var offset1=$(\'.act-cart\').offset(); var endedY=$(window).height(); var img= $(\'.mui-slider-item:first-child a img\').attr(\'src\'); var flyer = $(\'<img class="flyer-img" src="\' + img + \'">\'); jQuery(\'.buy_car_count\').removeClass(\'rubberBand\'); flyer.fly({ start:{ left: offset1.left, top:endedY-40 }, end: { left: offset.left+20, top: endedY-40, width: 30, height: 30}, onEnd: function(){ this.destroy(); jQuery(\'.buy_car_count\').text(buyCar_num); jQuery(\'.buy_car_count\').addClass(\'rubberBand\'); } }); }); /* 跳转到购物车 */ mui(\'.jump-cart\')[0].addEventListener(\'tap\',function(){ mui.openWindow({ url:\'../flow/cart.html\', id:\'cart.html\' }); }); /* 跳转到首页 */ mui(\'.jump-home\')[0].addEventListener(\'tap\',function(){ mui.openWindow({ url:\'../index/jy_index.html\', id:\'jy_index.html\' }); }); /* 立即购物 */ mui(\'.act-done\')[0].addEventListener(\'tap\',function(){ addToCart(goods_id,\'\',5); }); /*购物车数量气泡*/ function buy_car_count(){ jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{step:"ajax_cart_count"},function(data){ if(data.state==\'true\'){ jQuery(\'.buy_car_count\').text(data.data); } }) } buy_car_count(); </script> ';
+if(data.goods.extension_code=='virtual_card'){
+$out+=' <script> /* 立即购买 */ mui(\'.buy_now\')[0].addEventListener(\'tap\',function(){ confirm_order(goods_id); }); function confirm_order(goodsId){ var goods = new Object(); var spec_arr = new Array(); var fittings_arr = new Array(); var number = 1; var formBuy = document.forms[\'ECS_FORMBUY\']; var quick = 0; /* 检查是否有商品规格*/ if (formBuy){ spec_arr = getSelectedAttributes(formBuy); if (jQuery(\'#number\').val()){ number = jQuery(\'#number\').val(); } quick = 1; }/*else{ quick = 1; }*/ goods.quick = quick; goods.spec = spec_arr; goods.goods_id = goodsId; goods.number = number; goods.parent = (typeof(parentId) == "undefined") ? 0 : parseInt(parentId); goods.carttype = (typeof(carttype) == "undefined") ? 0 : parseInt(carttype); jQuery.ajaxJsonp(web_url+"/mobile/code_order.php",{step:"confirm_order", goods:JSON.stringify(goods), t:Math.random()}, function(result){ if(result.state == \'false\'){ mui.alert(result.message); jQuery.errorJudge(result.data,result.message); }else if(result.state == \'true\'){ jQuery.jumpTo("../flow/code_pay.html?order_id="+result.data.order_id); } }); } </script> ';
+}
+$out+=' ';
 return new String($out);
 });

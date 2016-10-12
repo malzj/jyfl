@@ -32,7 +32,7 @@
 			<div class="mui-media-body">
 				<h4 class="goods_name mui-ellipsis">{{list.goods_name}}</h4>
 				<p class="goods_font mui-ellipsis-2">{{list.goods_brief}}</p>
-				<div class="goods_price"><span>{{list.shop_price}}点</span><span class="mui-icon iconfont icon-gouwuche" data-id="{{list.goods_id}}"></span></div>
+				<div class="goods_price"><span>{{list.shop_price}}点</span>{{if list.extension_code != "virtual_card"}}<span class="mui-icon iconfont icon-gouwuche" data-id="{{list.goods_id}}"></span>{{/if}}</div>
 			</div>
 		</a>
 	</li>

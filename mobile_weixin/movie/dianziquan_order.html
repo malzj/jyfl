@@ -25,7 +25,7 @@
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
 			var orderid = jQuery.getUrlParam('orderid');
-			jQuery.ajaxJsonp(web_url+'/mobile/cinema_order.php?act=payinfoDzq',{id:orderid},function(result){
+			jQuery.ajaxJsonp(web_url+'/mobile/cinema_order_mate.php?act=payinfoDzq',{id:orderid},function(result){
 				if(result.state=='true'){
 					document.getElementById('dzq_order_page').innerHTML=template('movie/tmp_dzq_order',result.data);
 				}else if(result.state=='false'){
@@ -36,7 +36,7 @@
 			mui('#dzq_order_page').on('tap','#pay',function(){
 				var order_id = jQuery("input[name=order_id]").val();
 				var password = jQuery("input[name=password]").val();
-				jQuery.ajaxJsonp(web_url+'/mobile/cinema_order.php?act=doneDzq',{order_id:order_id,password:password},function(result){
+				jQuery.ajaxJsonp(web_url+'/mobile/cinema_order_mate.php?act=doneDzq',{order_id:order_id,password:password},function(result){
 					if(result.state=='true'){
 						mui.alert(result.message,function(){
 							jQuery.jumpTo("../order/order_dzq.html");

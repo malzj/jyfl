@@ -95,7 +95,7 @@
 				jQuery.hrefClick();
 				var cinemaid = jQuery.getUrlParam('cinemaid');
 				var movieid = jQuery.getUrlParam('movieid');
-				jQuery.ajaxJsonp(web_url + '/mobile/cinema_times.php?step=allCinemaDetail', {
+				jQuery.ajaxJsonp(web_url + '/mobile/cinema_times_mate.php?step=allCinemaDetail', {
 					cinemaid: cinemaid,
 					movieid: movieid
 				}, function (result) {
@@ -163,7 +163,7 @@
 					var score = this.getAttribute('data-score');
 					var img = this.getAttribute('data-img');
 					jQuery.movieTitle(img,title,score);
-					jQuery.ajaxJsonp(web_url + '/mobile/cinema_times.php?step=planList', {cinemaid:cinemaid,movieid:movie_id},function(result){
+					jQuery.ajaxJsonp(web_url + '/mobile/cinema_times_mate.php?step=planList', {cinemaid:cinemaid,movieid:movie_id},function(result){
 						//时间列表
 						var timeList = jQuery.timeList(cinemaid,movie_id,result.data.time);
 						jQuery('.movie_date .mui-scroll').html(timeList).find('a:first-child').addClass('mui-active');
@@ -177,7 +177,7 @@
 					var time = this.getAttribute('data-current');
 					var cinema_id = this.getAttribute('data-cinemaid');
 					var movie_id = this.getAttribute('data-movieid');
-					jQuery.ajaxJsonp(web_url + '/mobile/cinema_times.php?step=planList', {cinemaid:cinema_id,movieid:movie_id,currentTime:time},function(result){
+					jQuery.ajaxJsonp(web_url + '/mobile/cinema_times_mate.php?step=planList', {cinemaid:cinema_id,movieid:movie_id,currentTime:time},function(result){
 						var planList = jQuery.planList(result.data.plan);
 						jQuery('.movie_item').html(planList);
 					},true);
@@ -217,7 +217,7 @@
 						return false;
 					}
 					var param = jQuery(this).parents('#dzqform').serialize();
-					jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order.php?act=orderDzq',param,function(result){
+					jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order_mate.php?act=orderDzq',param,function(result){
 						if(result.state=='true'){
 							jQuery.jumpTo('./dianziquan_order.html?orderid='+result.data.orderid);
 						}else if(result.state='false'){

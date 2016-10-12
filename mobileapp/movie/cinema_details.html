@@ -99,7 +99,9 @@
 					cinemaid: cinemaid,
 					movieid: movieid
 				}, function (result) {
+					console.log(result);
 					if (result.state == 'true') {
+						movieid = result.data.movieid;
 						//影院
 						jQuery('#cinema_info').html(
 							'<div class="mui-col-xs-9">' +

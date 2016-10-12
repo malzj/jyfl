@@ -46,7 +46,7 @@ a{color: black;}
 .index_address{background: rgba(1,1,1,.5);width: 120px;border-radius: 15px;margin-top: 10px;color: white;}
 /*public popUp*/
 .public_popUp{left: 0;top: 0;position: absolute;width: 100%;height: 100%;background:rgba(255,255,255,.9);z-index: -1;/* transition:all .5s ease-out; */}
-.popUp_row{position: absolute;top: 0px;width: 100%;left: 0;z-index: 1;height: 100%;overflow: hidden;transform: translateY(100%);}
+.popUp_row{position: absolute;top: 0px;width: 100%;left: 0;z-index: 1;height: 100%;overflow: hidden;transform: translateY(100%);-webkit-transform: translateY(100%);}
 .popUp_row p{margin-top: .5rem;color: black;font-weight: bold;}
 .popUp_item_bg{display: block;width: 3rem;height: 3rem;border-radius: .75rem;margin: 0 auto;line-height: 3rem!important;}
 .popUp_item img{width: 2.5rem;height: 3rem;margin: 0 auto;display: block;}
@@ -82,7 +82,7 @@ a{color: black;}
 			transform: translateY(-50%);
 			-webkit-transform: translateY(-50%);
 			}  
-.popUp_item.active{transform: translateY(0);}	
+.popUp_item.active{transform: translateY(0);-webkit-transform: translateY(0);}	
 
 /*movie*/
 .buy_ticket{text-align: center;margin-top: 30px;background: #2fd0b5;color: white;border: none;font-size: 12px;}

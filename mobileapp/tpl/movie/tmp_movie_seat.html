@@ -19,9 +19,8 @@
     </ul>
 </div>
 <div class="main_a main-small main-big" style="min-height: 200px; max-height:1500px;">
-    <h6>{{hallName}}</h6>
+   
     <div class="wrapper">
-        <div class="c-tips"><h4>银幕中央</h4></div>
         <div class='seatmap' style="overflow:scroll;">
             <center style="height:150px; line-height:150px;">加载中...</center>
         </div>
@@ -44,10 +43,12 @@
                 <input type="hidden" name="seatsNo" id="seatsNo" value=""/>
                 <input type="hidden" name="seatsName" id="seatsName" value=""/>
                 <input type="hidden" name="seatsCount" id="seatsCount" value=""/>
-                <input type="hidden" name="vipPrice" id="vipPrice" value="{{vipPrice}}"/>
+                <input type="hidden" name="vipPrice" id="vipPrice" value="{{price}}"/>
                 <input type="hidden" name="seatParam" id="seatParam"
                        value='{"hallno":"{{hallNo}}","planid":{{planId}},"cinemaid":{{cinemaId}},"movieid":{{movie.movieId}},}'/>
-                <input type="hidden" name="movieId" id="mvoieId" value="{{movieId}}"/>
+                <input type="hidden" name="movieId" id="movieId" value="{{movieId}}"/>
+                <input type="hidden" name="cinemaId" id="cinemaId" value="{{cinemaId}}"/>
+                <input type="hidden" name="showIndex" id="showIndex" value="{{if ShowIndex}}{{ShowIndex}}{{else}}0{{/if}}"/>
                 <input type="hidden" name="extInfo" id="extInfo" value="{{extInfo}}"/>
                 <input class="mui-btn btn_next seat_next" type="submit" value=" &nbsp;下一步 &nbsp; ">
             </div>

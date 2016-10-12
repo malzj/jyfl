@@ -74,7 +74,7 @@
 
 			var item1 = document.getElementById('item1mobile');
 			if (item1.querySelector('.mui-loading')) {
-				jQuery.ajaxJsonp(web_url + '/mobile/cinema.php', '', function (result) {
+				jQuery.ajaxJsonp(web_url + '/mobile/cinema_mate.php', '', function (result) {
 					if(result.state=='true') {
 						var html1 = '<ul class="mui-table-view">';
 						jQuery.each(result.data, function (k, val) {
@@ -106,7 +106,7 @@
 				document.getElementById('slider').addEventListener('slide', function(e) {
 					if (e.detail.slideNumber === 1) {
 						if (item2.querySelector('.mui-loading')) {
-							jQuery.ajaxJsonp(web_url+'/mobile/cinema.php?op=coming','',function(result){
+							jQuery.ajaxJsonp(web_url+'/mobile/cinema_mate.php?op=coming','',function(result){
 								if(result.state=='true') {
 								var html2='<ul class="mui-table-view">';
 									jQuery.each(result.data,function(k,val){

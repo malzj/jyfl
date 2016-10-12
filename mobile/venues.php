@@ -24,8 +24,8 @@ set_card_rules();
 
 // 分页
 $int_page     = (isset($_GET['page']) && $_GET['page'] > 1) ? intval($_GET['page']) : 1;
-//$int_pageSize = 10;
-$int_pageSize = 1000;
+$int_pageSize = 20;
+//$int_pageSize = 1000;
 $int_start    = ($int_page - 1) * $int_pageSize;
 
 $keyWord = !empty($_GET['keywords']) ? addslashes_deep($_GET['keywords']) : null;       // 关键字
@@ -106,6 +106,7 @@ $jsonArray['data'] = array(
     'area_list'=>$areaList,
     'venues_type'=>$venues,
     'list'=>$data,
+    'page'=>$int_page,
     'pager'=>$pager,
     'keyword'=>$keyWord
 );

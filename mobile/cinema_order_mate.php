@@ -404,8 +404,7 @@ else if ($_REQUEST['act'] == 'payinfoMovie'){
 }
 
 /* 支付电影票 */
-else if ($_REQUEST['act'] == 'doneMovie'){	
-
+else if ($_REQUEST['act'] == 'doneMovie'){
 	//完成支付在线选座订单
 	$int_orderId = intval($_REQUEST['order_id']);
 	$str_password = trim($_REQUEST['password']);

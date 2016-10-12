@@ -205,10 +205,6 @@
 	mui('.act-done')[0].addEventListener('tap',function(){
 		addToCart(goods_id,'',5);		
 	});
-	/* 立即购买 */
-	mui('.buy_now')[0].addEventListener('tap',function(){
-		confirm_order(goods_id);
-	});
 	/*购物车数量气泡*/
 	function buy_car_count(){
 	jQuery.ajaxJsonp(web_url+"/mobile/flow.php",{step:"ajax_cart_count"},function(data){
@@ -221,6 +217,11 @@
 </script>
 {{if data.goods.extension_code=='virtual_card'}}
 <script>
+	/* 立即购买 */
+	mui('.buy_now')[0].addEventListener('tap',function(){
+		confirm_order(goods_id);
+	});
+
 	function confirm_order(goodsId){
 		var goods        = new Object();
 		var spec_arr     = new Array();

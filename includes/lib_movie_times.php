@@ -147,7 +147,14 @@ function transCinemaInfo($cinema){
     );
     return $re_array;
 }
-function transSeatsWtoK($seats,$sell_seats,$hallid){
+function transSeatsWtoK($seats,$sell_seats,$hallid,$size){
+    if(empty($size)){
+        $size = array(
+            'size' => 22,//渲染时座位尺寸
+            'gap'=> 4//渲染时座位间隙
+        );
+    }
+    $seat_size = $size['size']+$size['gap'];
     if(empty($seats))
         return array();
     $status=array(
@@ -161,9 +168,37 @@ function transSeatsWtoK($seats,$sell_seats,$hallid){
             $sell_status[$sell['SeatID']] = $status[$sell['Status']];
         }
     }
+    //获取座位的间距
+    $size_col = 1000;//两座位间列间距
+    $size_row = 1000;//两座位间行间距
+    $min_rowid = 1000;//最小的RowID
+    $seat_rowid = $seats[0]['RowID'];
+    $seat_colid = $seats[0]['ColumnID'];
+    foreach($seats as $seat){
+        if((int)$seat['RowID'] < $min_rowid)
+            $min_rowid = (int)$seat['RowID'];
+        //计算最小行距
+        if($seat_rowid != $seat['RowID']){
+            $row = $seat['RowID'] - $seat_rowid;
+            if($size_row>$row){
+                $size_row = $row;
+            }
+            $seat_rowid = $seat['RowID'];
+        }else{
+            //计算最小列间距
+            if($seat_colid != $seat['ColumnID']){
+                $col = abs($seat['ColumnID']-$seat_colid);
+                if($size_col>$col){
+                    $size_col=$col;
+                }
+                $seat_colid = $seat['ColumnID'];
+            }
+        }
+    }
+
     $maxRowLength = 0;
     $maxColHeight = 0;
-    $minLeft = 0;
+    $minLeft = 1000;
     foreach($seats as $seat){
         $seat_name = explode(':',$seat['Name']);
         if(!$status[$seat['Status']]&&!$sell_status[$seat['SeatID']]){
@@ -175,12 +210,11 @@ function transSeatsWtoK($seats,$sell_seats,$hallid){
             $maxRowLength = (int)$seat['ColumnID'];
         if((int)$seat['RowID'] > $maxColHeight)
             $maxColHeight = (int)$seat['RowID'];
-        $minLeft = (int)$seat['ColumnID'];
         if((int)$seat['ColumnID'] < $minLeft)
             $minLeft = (int)$seat['ColumnID'];
         $re_array['seat'][] = array(
-                'graphCol'=>$seat['ColumnID'],
-                'graphRow'=>$seat['RowID'],
+                'graphCol'=>round($seat['ColumnID']/$size_col)*$seat_size,
+                'graphRow'=>round($seat['RowID']/$size_row)*$seat_size,
 //            'graphCol'=>(int)$seat_name[1],
 //            'graphRow'=>(int)$seat_name[0],
                 'hallId'=>$hallid,
@@ -193,13 +227,17 @@ function transSeatsWtoK($seats,$sell_seats,$hallid){
                 'seatType'=>!empty($seat['LoveFlag'])?1:0,
         );
     }
-    $re_array['maxRowLength']=$maxRowLength;
-    $re_array['maxColHeight']=$maxColHeight;
-    $re_array['minLeft']=$minLeft;
+    $re_array['maxRowLength']= round(($maxRowLength+$minLeft)/$size_col)*$seat_size+$size['size'];
+    $re_array['maxColHeight']= round($maxColHeight/$size_row)*$seat_size;
+    $re_array['seat_size'] = $size;
 
     return $re_array;
 }
 function getMateMoviePlan($cinemaid,$movieid,$currentTime,$ratio){
+    $price_ratio = array(
+        'komovie' => 1.007,//抠电影比价比例
+        'wangmovie'=>1.05//网票网比价比例
+    );
     //获取对应的影院id
     $cinema_ids = $GLOBALS['db']->getRow("SELECT komovie_cinema_id,wang_cinema_id FROM ".$GLOBALS['ecs']->table('mate_cinema')." WHERE id = ".$cinemaid);
     //获取排期对应电影id
@@ -266,7 +304,7 @@ function getMateMoviePlan($cinemaid,$movieid,$currentTime,$ratio){
             foreach ($plan_array['movie_plan'][$currentTime] as $k => $plan) {
                 $begin_time = date('Y-m-d H:i:s', strtotime($plan['ShowTime']));
                 if (!empty($koplan_list)) {
-                    if ($plan['VPrice'] < $koplan_list[$begin_time]['price']) {
+                    if ($plan['VPrice']*$price_ratio['wangmovie'] < $koplan_list[$begin_time]['price']*$price_ratio['komovie']) {
                         $moviePlans[$begin_time] = transPlanWtoK($plan, $movieid, $cinemaid);
                     } else {
                         $moviePlans[$begin_time] = $koplan_list[$begin_time];

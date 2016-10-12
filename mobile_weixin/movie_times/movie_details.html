@@ -87,7 +87,7 @@
 				jQuery('#item1mobile').addClass('mui-active');
 				jQuery('.mui-control-item:nth-child(1)').addClass('mui-active');
 			}
-			jQuery.ajaxJsonp(web_url+'/mobile/cinema_times.php?step=movieDetail',{movieid:id},function(result){
+			jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_mate.php?step=movieDetail',{movieid:id},function(result){
 				if(result.state=='true') {
 					var detail = '<img class="mui-media-object mui-pull-left" src="' + result.data.movieDetail.pathVerticalS + '"><div class="mui-media-body">' +
 							'<h4>' + result.data.movieDetail.movieName + '</h4>' +

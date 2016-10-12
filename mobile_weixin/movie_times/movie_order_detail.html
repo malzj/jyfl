@@ -25,7 +25,7 @@
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
 			var orderid=jQuery.getUrlParam('orderid');
-			jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order.php?act=payinfoMovie',{id:orderid},function(result){
+			jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order_mate.php?act=payinfoMovie',{id:orderid},function(result){
 //				console.log(result);
 				if(result.state=='true') {
 					document.getElementById('movie_order_detail').innerHTML = template('movie_times/movie_order_detail', result.data);
@@ -66,7 +66,7 @@
 			}
 
 			function delOrder(){
-				jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order.php', {act:'delorder', 'order_id':orderid}, function (result){
+				jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order_mate.php', {act:'delorder', 'order_id':orderid}, function (result){
 					mui.alert('抱歉，您未在规定时间内完成支付，该订单已删除！',function(){
 						jQuery.jumpTo("./movie.html");
 					});
@@ -75,12 +75,13 @@
 			
 			/* 微信支付 */
 			mui("#movie_order_detail").on('tap','#act-weixin-pays', function(){
-				jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order.php', {act:'weixinpay', 'order_id':orderid}, function (result){
+				jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order_mate.php', {act:'weixinpay', 'order_id':orderid}, function (result){
 					jQuery.jumpTo("../../mobile/weixinpay/example/jsapi.php");
 				});
 			});
 
 			/* 支付操作 */
+			var on_pay = false; //支付状态
 			mui('#movie_order_detail').on('tap','#act-pays',function(){
 				var password = jQuery('#password').val();
 				var orderid = jQuery('#orderid').val();
@@ -92,10 +93,15 @@
 					mui.alert('这不是一个有效的订单');
 					return false;
 				}
-				jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order.php?act=doneMovie',{order_id:orderid, password:password}, function( result ){
+				if(on_pay){
+					return false;
+				}
+				on_pay = true;
+				jQuery.ajaxJsonp(web_url+'/mobile/cinema_times_order_mate.php?act=doneMovie',{order_id:orderid, password:password}, function( result ){
 //					console.log(result);
 					if(result.state=='true') {
 						mui.alert('支付成功',function(){
+							on_pay = false;
 							jQuery.jumpTo("../order/order_cinema.html");
 						});
 					}else if(result.state=='false'){

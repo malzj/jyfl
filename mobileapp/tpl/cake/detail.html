@@ -1,6 +1,13 @@
 <!--底部固定导航-->
 <nav class="mui-bar mui-bar-tab mui-row">
-	<div class="mui-col-xs-5">
+	{{if data.goods.extension_code == "virtual_card"}}
+		<div class="mui-col-xs-12">
+			<a class="mui-tab-item footer_jiaru buy_now" href="#">
+			<span class="mui-tab-label">立即购买</span>
+			</a>
+		</div>
+	{{/if}}
+	<div class="mui-col-xs-5" {{if data.goods.extension_code == "virtual_card"}}style="display:none"{{/if}}>
 	    <a class="mui-tab-item border_right_ddd jump-home" href="#">
 			<span class="mui-icon mui-icon-home"></span>
 			<span class="mui-tab-label">首页</span>
@@ -15,7 +22,7 @@
 			<span class="mui-tab-label">我的</span>
 		</a>-->
 	</div>
-	<div class="mui-col-xs-7">
+	<div class="mui-col-xs-7" {{if data.goods.extension_code == "virtual_card"}}style="display:none"{{/if}}>
 		<a class="mui-tab-item footer_liji act-done" href="#">
 			<span class="mui-tab-label">立即结算</span>
 		</a>
@@ -23,6 +30,7 @@
 			<span class="mui-tab-label">加入购物车</span>
 		</a>
 	</div>
+
 </nav>
 <!--底部固定导航 end-->
 <div class="mui-content">
@@ -149,7 +157,7 @@
 		event.stopPropagation();
 		changePrice();
 	});
-	
+
 	/* 加入购物车 */
 	mui('.act-cart')[0].addEventListener('tap',function(event){
 		addToCart(goods_id);
@@ -207,4 +215,48 @@
 	}
 	buy_car_count();
 </script>
+{{if data.goods.extension_code=='virtual_card'}}
+<script>
+	/* 立即购买 */
+	mui('.buy_now')[0].addEventListener('tap',function(){
+		confirm_order(goods_id);
+	});
 
+	function confirm_order(goodsId){
+		var goods        = new Object();
+		var spec_arr     = new Array();
+		var fittings_arr = new Array();
+		var number       = 1;
+		var formBuy      = document.forms['ECS_FORMBUY'];
+		var quick		   = 0;
+
+		/* 检查是否有商品规格*/
+		if (formBuy){
+			spec_arr = getSelectedAttributes(formBuy);
+
+			if (jQuery('#number').val()){
+				number = jQuery('#number').val();
+			}
+			quick = 1;
+		}/*else{
+		 quick = 1;
+		 }*/
+
+		goods.quick    = quick;
+		goods.spec     = spec_arr;
+		goods.goods_id = goodsId;
+		goods.number   = number;
+		goods.parent   = (typeof(parentId) == "undefined") ? 0 : parseInt(parentId);
+
+		goods.carttype = (typeof(carttype) == "undefined") ? 0 : parseInt(carttype);
+		jQuery.ajaxJsonp(web_url+"/mobile/code_order.php",{step:"confirm_order", goods:JSON.stringify(goods), t:Math.random()}, function(result){
+			if(result.state == 'false'){
+				mui.alert(result.message);
+				jQuery.errorJudge(result.data,result.message);
+			}else if(result.state == 'true'){
+				jQuery.jumpTo("../flow/code_pay.html?order_id="+result.data.order_id);
+			}
+		});
+	}
+</script>
+{{/if}}

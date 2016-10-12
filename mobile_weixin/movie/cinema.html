@@ -41,7 +41,7 @@
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
 			jQuery.hrefClick();
-			jQuery.ajaxJsonp(web_url+'/mobile/cinema.php?step=cinema','',function(result){
+			jQuery.ajaxJsonp(web_url+'/mobile/cinema_mate.php?step=cinema','',function(result){
 				console.log(result);
 				if(result.state=='true'){
 					document.getElementById('cinema_list_page').innerHTML=template('movie/tmp_cinema_list',result);
